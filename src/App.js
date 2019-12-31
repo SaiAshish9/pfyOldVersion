@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
 // import './App.css';
+import AppRouter from "./routes/router";
+// import Header from "./components/header/header";
 
 function App() {
   return (
-    <div>
-     <h1>Project Started</h1>
+    <div style={{height:"100%"}}>
+      <AppRouter />
     </div>
   );
 }
