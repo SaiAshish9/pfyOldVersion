@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const MyHeader = styled.header`
 display:flex;
+/* position:sticky; */
+/* position:fixed; */
 .logo{
     margin-left: 90px;
     cursor:pointer;
@@ -12,6 +14,7 @@ display:flex;
       display:flex;
       justify-content:flex-end;
       align-items:center;
+      color:black;
   }
     .myLink {
       text-decoration: none;

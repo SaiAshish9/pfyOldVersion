@@ -1,6 +1,7 @@
 import React from "react";
 import { MyHeader } from "./headerStyled";
 import { Link, useHistory } from "react-router-dom";
+import Login from './login/login.component';
 
 const Header = () => {
   const history = useHistory();
@@ -25,6 +26,8 @@ const Header = () => {
         <Link to="/get-in-contact" className="myLink">
           GET IN CONTACT
         </Link>
+
+        <Login/>
       </div>
     </MyHeader>
   );

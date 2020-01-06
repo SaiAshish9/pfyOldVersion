@@ -1,34 +1,143 @@
 import styled from "styled-components";
+import avenirr from "../../font/AvenirLTStd-Medium.otf";
 
 const FrontBlockStyled = styled.div`
   /* font-size:2.5vh; */
+  margin:80px 0px;
   width: 100%;
-  height: 100%;
-  background-color: #d3d3d3;
+  /* height: 100%; */
+  background-color: #fff;
   display: flex;
   align-items: center;
 
   .content-background {
     display: flex;
     align-items: center;
+    position: relative;
     width: 80%;
-    height: 80%;
-    background-color: #f8f8f8;
-
+    height: 525px;
+    background-color: #ffeeef;
     border-radius: 0% 30% 30% 0% / 0% 50% 50% 0%;
 
     .content-data {
       width: 50%;
       margin-left: 152px;
-      /* color:gray; */
+
+      .data-heading-one {
+        @font-face {
+          font-family: "avenir";
+          src: url(avenirr);
+        }
+        font-family: avenir, sans-serif;
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 46px;
+      }
+      .data-heading-two {
+        @font-face {
+          font-family: "avenir";
+          src: url(avenirr);
+        }
+        font-family: avenir, sans-serif;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 46px;
+        .Typewriter {
+          display: inline;
+        }
+      }
+      .data-para {
+        @font-face {
+          font-family: "avenir";
+          src: url(avenirr);
+        }
+        color: #4f4f4f;
+        font-family: avenir, sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      .button {
+        .first-button {
+          background: none;
+          border: solid black 1px;
+          padding: 13px 20px;
+          cursor: pointer;
+          box-shadow: -4px 4px black;
+          border-radius: 50px;
+          background-color: #ee6464;
+
+          font-weight: 700;
+          size: 18px;
+          line-height: 16px;
+          color: #fff;
+          outline: none;
+
+          :hover {
+            background-color: #ed3833;
+          }
+        }
+        .second-button {
+          background: white;
+          margin-left: 60px;
+          border: solid black 1px;
+          padding: 13px 36px;
+          cursor: pointer;
+          box-shadow: -4px 4px black;
+          border-radius: 50px;
+
+          font-weight: 700;
+          size: 18px;
+          line-height: 16px;
+          color: #000;
+          outline: none;
+
+          :hover {
+            background-color: #e6e6e6;
+          }
+        }
+      }
     }
-    .content-image {
-      width: 50%;
-      height: 90%;
-      background-color: lightPink;
-      position: relative;
-      left: 164px;
-    }
+  }
+  .block-one {
+    left: 94%;
+    top: 0%;
+    width: 42px;
+  }
+  .block-two {
+    left: 88%;
+    top: 0%;
+    width: 42px;
+  }
+  .block-three {
+    left: 72%;
+    top: 0%;
+    width: 42px;
+  }
+  .block-four {
+    left: 64%;
+    top: 0%;
+    width: 42px;
+  }
+  .block-five {
+    left: 54%;
+    top: 0%;
+    width: 42px;
+  }
+  .block-six {
+    left: 42%;
+    top: 0%;
+    width: 42px;
+  }
+
+  .pink-image {
+    position: absolute;
+    top: 12%;
+    left: 70%;
+    /* height: 60%; */
+    width: 48%;
+    /* height: 426px; */
   }
 `;
 
@@ -36,29 +145,35 @@ const StepIncludeStyled = styled.div`
   display: flex;
   flex-flow: column;
   justify-content: center;
-  height: 400%;
-  background: lightCyan;
+  /* background: lightCyan; */
+
   .step-one-block {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
-    height: 15%;
-    background: lightYellow;
+    height: 364px;
+    /* background: lightYellow; */
     margin-bottom: 108px;
     .step-one {
       display: flex;
       align-items: center;
-      color: blue;
       width: 95%;
       height: 100%;
-      background-color: lightGray;
+      background-color: #edf8f9;
       border-radius: 180px 0% 0% 180px / 50% 0% 0% 50%;
       .step-one-content {
+        margin-left: 200px;
+        margin-right: 80px;
+        .step-one-heading {
+          color: #47b5bd;
+        }
       }
       .step-one-image {
-        height: 70%;
+        /* height: 70%;
+        /* background-color: lightGreen; */
+        position: relative;
+        left: 80px;
         width: 20%;
-        background-color: lightGreen;
       }
     }
   }
@@ -66,7 +181,7 @@ const StepIncludeStyled = styled.div`
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
-    height: 15%;
+    height: 364px;
     background: lightYellow;
     margin-bottom: 108px;
     .step-three {
@@ -78,6 +193,8 @@ const StepIncludeStyled = styled.div`
       background-color: lightGray;
       border-radius: 180px 0% 0% 180px / 50% 0% 0% 50%;
       .step-three-content {
+        .step-three-heading {
+        }
       }
       .step-three-image {
         height: 70%;
@@ -89,8 +206,8 @@ const StepIncludeStyled = styled.div`
   .step-two-block {
     display: flex;
     align-items: center;
-    height: 15%;
-    background: lightYellow;
+    height: 364px;
+    /* background: lightYellow; */
     margin-bottom: 108px;
     .step-two {
       display: flex;
@@ -99,25 +216,29 @@ const StepIncludeStyled = styled.div`
       color: blue;
       width: 95%;
       height: 100%;
-      background-color: lightGray;
+      background-color: #f5fbef;
       border-radius: 0px 180px 180px 0px / 0% 50% 50% 0%;
 
       .step-two-content {
+        margin-left: 200px;
+        .step-two-heading {
+          color: #7ccc33;
+        }
       }
 
       .step-two-image {
-        height: 70%;
-        width: 20%;
-        background-color: lightGreen;
+        /* height: 70%; */
+        width: 15%;
+        /* background-color: lightGreen; */
       }
     }
   }
   .step-four-block {
     display: flex;
     align-items: center;
-    height: 15%;
-    background: lightYellow;
-    margin-bottom: 108px;
+    height: 364px;
+    /* background: lightYellow; */
+    margin-bottom: 42px;
     .step-four {
       display: flex;
       align-items: center;
@@ -125,15 +246,60 @@ const StepIncludeStyled = styled.div`
       color: blue;
       width: 95%;
       height: 100%;
-      background-color: lightGray;
+      background-color: #f5f7ff;
       border-radius: 0px 180px 180px 0px / 0% 50% 50% 0%;
 
       .step-four-content {
+        margin-left: 200px;
+        .step-four-heading {
+          color: #3366ff;
+        }
       }
       .step-four-image {
-        height: 70%;
-        width: 20%;
-        background-color: lightGreen;
+        /* height: 70%; */
+        width: 25%;
+        /* background-color: lightGreen; */
+      }
+    }
+  }
+  .step-button-block {
+    margin-left: 152px;
+    margin-bottom: 80px;
+    .step-button-one {
+      background: none;
+      border: solid black 1px;
+      padding: 13px 20px;
+      cursor: pointer;
+      box-shadow: -4px 4px black;
+      border-radius: 50px;
+      background-color: #ee6464;
+
+      font-weight: 700;
+      size: 18px;
+      line-height: 16px;
+      color: #fff;
+      outline: none;
+      :hover {
+        background-color: #ed3833;
+      }
+    }
+    .step-button-two {
+      background: white;
+      margin-left: 60px;
+      border: solid black 1px;
+      padding: 13px 36px;
+      cursor: pointer;
+      box-shadow: -4px 4px black;
+      border-radius: 50px;
+
+      font-weight: 700;
+      size: 18px;
+      line-height: 16px;
+      color: #000;
+      outline: none;
+
+      :hover {
+        background-color: #e6e6e6;
       }
     }
   }
@@ -143,13 +309,14 @@ const WhyItWorkStyled = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  height: 150%;
-  background-color: rgba(125, 009, 188, 0.1);
+  /* height: 100%; */
   .whyItWork-block {
     height: 95%;
     width: 95%;
-    background-color: rgba(025, 090, 088, 0.1);
+    background-color: #F9F9F9;
     border-radius: 80px 0px 0px 80px;
+    padding-bottom:40px;
+
 
     .whyItWork-container {
       height: 80%;
@@ -160,12 +327,40 @@ const WhyItWorkStyled = styled.div`
       grid-row-gap: 40px;
       grid-column-gap: 40px;
     }
-    .whyItWork-item {
+    .whyItWork-item-one {
       border: solid black 1px;
       justify-items: center;
+      .whyItWork-heading-one {
+        color: #7ccc33;
+      }
+    }
+    .whyItWork-item-two {
+      border: solid black 1px;
+      justify-items: center;
+      .whyItWork-heading-two {
+        color: #ff6666;
+      }
+    }
+    .whyItWork-item-three {
+      border: solid black 1px;
+      justify-items: center;
+      .whyItWork-heading-three {
+        color: #3366ff;
+      }
+    }
+    .whyItWork-item-four {
+      border: solid black 1px;
+      justify-items: center;
+      .whyItWork-heading-four {
+        color: #ffd900;
+      }
     }
   }
 `;
+
+
+
+
 
 const CompanyWhoTrustStyled = styled.div`
   padding: 32px;
