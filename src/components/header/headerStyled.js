@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const MyHeader = styled.header`
 display:flex;
+top:0;
+z-index:100;
 /* position:sticky; */
 /* position:fixed; */
 .logo{

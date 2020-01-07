@@ -1,41 +1,45 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useRef} from "react";
+import React, { useRef } from "react";
 import Typewriter from "typewriter-effect";
-import {Icon} from 'antd';
-import { FrontBlockStyled } from "./homeStyled";
+import { Icon } from "antd";
+import {
+  MyBlockOne,
+  MyBlockTwo,
+  MyBlockThree,
+  FrontBlockStyled
+} from "./homeStyled";
 import pinkImage from "./images/pinkImage.png";
 
-const block = {
-  position:"absolute",
-  height:"5px",
-  background:"#f66",
-  height:"16px",
-  borderRadius:"10px"
-}
-// const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)  
+// const block = {
+//   position: "absolute",
+//   height: "16px",
+//   background: "#f66",
+//   borderRadius: "16px"
+// };
+// const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
 const FrontBlock = () => {
   // const myRef=useRef(null)
   // const executeScroll = () => scrollToRef(myRef)
-  
+
   return (
-    <FrontBlockStyled >
+    <FrontBlockStyled>
       <div className="content-background">
-      <div style={block} className="block-one"></div>
-      <div style={block} className="block-two"></div>
-      <div style={block} className="block-three"></div>
-      <div style={block} className="block-four"></div>
-      <div style={block} className="block-five"></div>
-      <div style={block} className="block-six"></div>
+        <MyBlockTwo className="one" />
+        <MyBlockTwo className="two" />
+        <MyBlockOne className="three" />
+        <MyBlockThree className="four" />
+        <MyBlockTwo className="five" />
+        <MyBlockTwo className="six" />
         <div className="content-data">
           <h1 className="data-heading-one">
-            <span style={{color:"#f66"}}>The</span>
-            <span style={{color:"#f66"}}> Future</span>
-            <span style={{}}> of</span>
-            <span style={{color:"#7ccc33"}}> Work</span>
-            <span style={{}}> is</span>
-            <span style={{color:"#36f"}}> Remote</span>
-            <span style={{color:""}}> and</span>
-            <span style={{color:"#ffd900"}}> Risk Free!</span>
+            <span style={{ color: "#f66" }}>The</span>
+            <span style={{ color: "#f66" }}> Future</span>
+            <span> of</span>
+            <span style={{ color: "#7ccc33" }}> Work</span>
+            <span> is</span>
+            <span style={{ color: "#36f" }}> Remote</span>
+            <span style={{ color: "" }}> and</span>
+            <span style={{ color: "#ffd900" }}> Risk Free!</span>
           </h1>
           <h1 className="data-heading-two">
             On-Demand Distributed Workforce For{" "}
@@ -64,8 +68,12 @@ const FrontBlock = () => {
           <p className="data-para">Pay for outcome, not manpower!</p>
           <br />
           <div className="button">
-            <button className="first-button">MAKE IT HAPPEN <Icon type="right" style={{marginLeft:"8px"}}/></button>
-            <button className="second-button">LEARN MORE <Icon type="down" style={{marginLeft:"8px"}}/></button>
+            <button className="first-button">
+              MAKE IT HAPPEN <Icon type="right" style={{ marginLeft: "8px" }} />
+            </button>
+            <button className="second-button">
+              LEARN MORE <Icon type="down" style={{ marginLeft: "8px" }} />
+            </button>
           </div>
         </div>
 
