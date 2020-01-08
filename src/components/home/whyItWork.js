@@ -5,7 +5,6 @@ import {
   MyBlockOne,
   MyBlockTwo,
   MyBlockThree,
-  MyBlockFour,
   MyBlockFive,
   WhyItWorkStyled
 } from "./homeStyled";
@@ -149,7 +148,8 @@ const WhyItWork = () => {
               </div>
             </div>
           </Zoom>
-        </div>
+          </div>
+          <p className="mainPara">Tech driven sourcing & management of workforce ensures speed & quality of work in a cost effective manner.</p>
       </div>
     </WhyItWorkStyled>
   );

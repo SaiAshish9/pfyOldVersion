@@ -9,6 +9,7 @@ import {
   FrontBlockStyled
 } from "./homeStyled";
 import pinkImage from "./images/pinkImage.png";
+import Column from "antd/lib/table/Column";
 
 // const block = {
 //   position: "absolute",
@@ -30,55 +31,56 @@ const FrontBlock = () => {
         <MyBlockThree className="four" />
         <MyBlockTwo className="five" />
         <MyBlockTwo className="six" />
-        <div className="content-data">
-          <h1 className="data-heading-one">
-            <span style={{ color: "#f66" }}>The</span>
-            <span style={{ color: "#f66" }}> Future</span>
-            <span> of</span>
-            <span style={{ color: "#7ccc33" }}> Work</span>
-            <span> is</span>
-            <span style={{ color: "#36f" }}> Remote</span>
-            <span style={{ color: "" }}> and</span>
-            <span style={{ color: "#ffd900" }}> Risk Free!</span>
-          </h1>
-          <h1 className="data-heading-two">
-            On-Demand Distributed Workforce For{" "}
-            <Typewriter
-              options={{
-                strings: [
-                  "Marketing",
-                  "Auditing",
-                  "Lead Generation",
-                  "Data Transcription",
-                  "Vendor Onboarding",
-                  "Data Entry"
-                ],
-                autoStart: true,
-                loop: true
-              }}
-            />
-          </h1>
-
-          <p className="data-para">
-            We use technology to solve key business functions which are
-            geographically spread and needs to be executed at a large scale
-            through on-demand distributed workforce comprising of India's youth
-            who uses their free time and skills to perform Gigs.
-          </p>
-          <p className="data-para">Pay for outcome, not manpower!</p>
-          <br />
-          <div className="button">
-            <button className="first-button">
-              MAKE IT HAPPEN <Icon type="right" style={{ marginLeft: "8px" }} />
-            </button>
-            <button className="second-button">
-              LEARN MORE <Icon type="down" style={{ marginLeft: "8px" }} />
-            </button>
+          <div className="content-data">
+            <h1 className="data-heading-one">
+              <span style={{ color: "#f66" }}>The</span>
+              <span style={{ color: "#f66" }}> Future</span>
+              <span> of</span>
+              <span style={{ color: "#7ccc33" }}> Work</span>
+              <span> is</span>
+              <span style={{ color: "#36f" }}> Remote</span>
+              <span style={{ color: "" }}> and</span>
+              <span style={{ color: "#ffd900" }}> Risk Free!</span>
+            </h1>
+            <h1 className="data-heading-two">
+              On-Demand Distributed Workforce For{" "}
+              <Typewriter
+                options={{
+                  strings: [
+                    "Marketing",
+                    "Auditing",
+                    "Lead Generation",
+                    "Data Transcription",
+                    "Vendor Onboarding",
+                    "Data Entry"
+                  ],
+                  autoStart: true,
+                  loop: true
+                }}
+              />
+            </h1>
+            <p className="data-para">
+              We use technology to solve key business functions which are
+              geographically spread and needs to be executed at a large scale
+              through on-demand distributed workforce comprising of India's
+              youth who uses their free time and skills to perform Gigs.
+            </p>
+            <p className="data-para">Pay for outcome, not manpower!</p>
+            <br />
+            <div className="button">
+              <button className="first-button">
+                MAKE IT HAPPEN{" "}
+                <Icon type="right" style={{ marginLeft: "8px" }} />
+              </button>
+              <button className="second-button">
+                LEARN MORE <Icon type="down" style={{ marginLeft: "8px" }} />
+              </button>
+            </div>
+          </div>
+          <div>
+            <img src={pinkImage} className="pink-image" />
           </div>
         </div>
-
-        <img src={pinkImage} className="pink-image" />
-      </div>
     </FrontBlockStyled>
   );
 };

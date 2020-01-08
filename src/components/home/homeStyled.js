@@ -526,6 +526,7 @@ const WhyItWorkStyled = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  padding-bottom: 80px;
   /* height: 100%; */
   .whyItWork-block {
     position: relative;
@@ -567,13 +568,13 @@ const WhyItWorkStyled = styled.div`
     .six {
       position: absolute;
       background-color: #e9e9e9;
-      top: 50%;
+      top: 46%;
       left: 16%;
     }
     .seven {
       position: absolute;
       background-color: #e9e9e9;
-      top: 50%;
+      top: 46%;
       left: 24%;
     }
     .eight {
@@ -677,19 +678,48 @@ const WhyItWorkStyled = styled.div`
         }
       }
     }
+    .mainPara {
+      position: relative;
+      font-size: 24px;
+      line-height: 1.47;
+      letter-spacing: 0.1px;
+      font-weight: 600;
+      font-family: avenir, sans-serif;
+      bottom: 12px;
+      color: #333473;
+      text-align: center;
+      padding: 0px 160px;
+    }
   }
 `;
 
-const CompanyWhoTrustStyled = styled.div`
-  padding: 32px;
-  .company-icon-block {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
+const WorkWeExecuteStyled = styled.div`
+  .block-one {
+    margin-left:120px;
+    .block-header-one{
+      margin-top: 30px;
 
-    .company-icon {
-      padding: 40px;
-      box-shadow: 1px 1px 10px black;
+    }
+  }
+  .block-two {
+    margin-right:120px;
+    .block-header-two{
+      margin-top: 30px;
+      
+    }
+  }
+  .block-three {
+    margin-left:120px;
+    .block-header-three{
+      margin-top: 40px;
+      
+    }
+  }
+  .block-four {
+    margin-right:120px;
+    .block-header-four{
+      margin-top: 40px;
+      
     }
   }
 `;
@@ -720,7 +750,7 @@ export {
   FrontBlockStyled,
   StepIncludeStyled,
   WhyItWorkStyled,
-  CompanyWhoTrustStyled,
+  WorkWeExecuteStyled,
   TestimonialStyled,
   FooterStyled
 };
