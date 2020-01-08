@@ -302,33 +302,94 @@ const StepIncludeStyled = styled.div`
     }
   }
   .step-three-block {
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
     height: 364px;
-    background: lightYellow;
     margin-bottom: 108px;
+
+    .one {
+      background-color: #f3f702;
+      top: -2%;
+      left: 72%;
+    }
+    .two {
+      background-color: #f3f702;
+      top: 20%;
+      left: 8%;
+    }
+    .three {
+      background-color: #f3f587;
+      top: 20%;
+      left: 10%;
+    }
+    .four {
+      background-color: #f6f7a3;
+      top: 20%;
+      left: 80%;
+    }
+    .five {
+      background-color: #f6f7a3;
+      top: 85%;
+      left: 34%;
+    }
+    .six {
+      background-color: #f6f7a3;
+      top: 85%;
+      left: 44%;
+    }
+    .seven {
+      background-color: #f6f7a3;
+      top: 85%;
+      left: 76%;
+    }
+    .eight {
+      background-color: #f7fa5f;
+      top: 85%;
+      left: 78%;
+    }
+    .nine {
+      background-color: #f3f587;
+      top: 85%;
+      left: 87%;
+    }
+    .ten {
+      background-color: #f6f7a3;
+      top: 98%;
+      left: 82%;
+    }
+    .eleven {
+      background-color: #f3f587;
+      top: 98%;
+      left: 92%;
+    }
+    
     .step-three {
       display: flex;
       align-items: center;
       color: blue;
       width: 95%;
       height: 100%;
-      background-color: lightGray;
+      background-color: #FFFCEB;
       border-radius: 180px 0% 0% 180px / 50% 0% 0% 50%;
       .step-three-content {
+        display: flex;
+        margin-left: 200px;
+        margin-right: 80px;
         z-index: 1;
         .step-number-Icon-three {
           background-color: #ffd900;
+        }
+        .heading-para-three{
+          width:78%;
         }
         .step-three-heading {
         }
       }
       .step-three-image {
         z-index: 1;
-        height: 70%;
-        width: 20%;
-        background-color: lightGreen;
+        width: 30%;
       }
     }
   }
@@ -695,49 +756,37 @@ const WhyItWorkStyled = styled.div`
 
 const WorkWeExecuteStyled = styled.div`
   .block-one {
-    margin-left:120px;
-    .block-header-one{
+    margin-left: 120px;
+    .block-header-one {
       margin-top: 30px;
-
     }
   }
   .block-two {
-    margin-right:120px;
-    .block-header-two{
+    margin-right: 120px;
+    .block-header-two {
       margin-top: 30px;
-      
     }
   }
   .block-three {
-    margin-left:120px;
-    .block-header-three{
+    margin-left: 120px;
+    .block-header-three {
       margin-top: 40px;
-      
     }
   }
   .block-four {
-    margin-right:120px;
-    .block-header-four{
+    margin-right: 120px;
+    .block-header-four {
       margin-top: 40px;
-      
     }
   }
 `;
 
-const TestimonialStyled = styled.div`
-  background-color: rgba(121, 031, 103, 0.2);
-  .testimonial-block {
-    width: 95%;
-    background-color: rgba(001, 131, 003, 0.2);
-    border-radius: 0% 20% 20% 0% / 0% 50% 50% 0%;
-    padding: 80px 0px;
-    .slider {
-      width: 50%;
-      margin: auto;
-      .slider-content {
-        text-align: center;
-      }
-    }
+const DownloadAppStyled = styled.div`
+  background-color: #ecf3f5;
+  display: flex;
+  justify-content:space-evenly;
+  .block-content{
+    align-self: center;
   }
 `;
 
@@ -751,6 +800,6 @@ export {
   StepIncludeStyled,
   WhyItWorkStyled,
   WorkWeExecuteStyled,
-  TestimonialStyled,
+  DownloadAppStyled,
   FooterStyled
 };

@@ -3,7 +3,7 @@ import FrontBlock from "./frontBlock"
 import StepIncluded from './stepIncluded';
 import WhyItWork from './whyItWork';
 import WorkWeExecute from './workWeExecute';
-import Testimonial from './testimonial';
+import DownloadApp from './downloadApp';
 import Footer from './footer';
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
       <StepIncluded />
       <WhyItWork />
       <WorkWeExecute />
-      <Testimonial />
+      <DownloadApp />
       <Footer />
     </> 
   );

@@ -22,6 +22,16 @@ const MyBlock = {
   border: "solid 1px #efefef",
   padding: "0px 40px 40px 40px"
 };
+
+const mainHeading = {
+  fontSize: "28px",
+  lineHeight: "1.17",
+  letterSpacing: ".3px",
+  fontWeight: "700",
+  fontFamily: "avenir, sans-serif",
+  textAlign:"center",
+  marginBottom:"80px"
+} 
 const blockHeader = {
   fontFamily: "avenir, sans-serif",
   fontSize: "16px",
@@ -52,7 +62,7 @@ const myIcon = {
 const WorkWeExecute = () => {
   return (
     <WorkWeExecuteStyled>
-      <h1 style={{ textAlign: "center", marginBottom: "60px" }}>
+      <h1 style={mainHeading}>
         The work we execute
       </h1>
       <div

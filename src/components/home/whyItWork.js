@@ -33,7 +33,8 @@ const whyItWorkHeading = {
   lineHeight: "1.26",
   letterSpacing: ".3px",
   fontWeight: "700",
-  fontFamily: "avenir, sans-serif"
+  fontFamily: "avenir, sans-serif",
+  // textAlign:"center"
   // textAlign: "center"
 };
 

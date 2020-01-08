@@ -11,6 +11,7 @@ import {
 import Fade from "react-reveal/Fade";
 import stepOneImg from "./images/stepOneImg.png";
 import stepTwoImg from "./images/stepTwoImg.png";
+import stepThreeImg from "./images/stepThreeImg.png";
 import stepFourImg from "./images/stepFourImg.png";
 // import { withTheme } from "styled-components";
 
@@ -129,19 +130,33 @@ const StepIncluded = () => {
 
       <Fade right>
         <div className="step-three-block">
+          <MyBlockTwo className="one"></MyBlockTwo>
+          <MyBlockOne className="two"></MyBlockOne>
+          <MyBlockThree className="three"></MyBlockThree>
+          <MyBlockFour className="four"></MyBlockFour>
+          <MyBlockFour className="five"></MyBlockFour>
+          <MyBlockTwo className="six"></MyBlockTwo>
+          <MyBlockOne className="seven"></MyBlockOne>
+          <MyBlockFour className="eight"></MyBlockFour>
+          <MyBlockTwo className="nine"></MyBlockTwo>
+          <MyBlockFour className="ten"></MyBlockFour>
+          <MyBlockTwo className="eleven"></MyBlockTwo>
           <div className="step-three">
-            <div className="step-three-image">IMAGE</div>
+            <img src={stepThreeImg} className="step-three-image" />
+
             <div className="step-three-content">
               <div style={stepNumberIcon} className="step-number-Icon-three">
                 <h1 style={stepNumber}>3</h1>
               </div>
-              <h1 className="step-three-heading" style={stepHeading}>
-                Review Performance
-              </h1>
-              <p style={stepPara} className="step-three-para">
-                Gig workers submit proof of work for review and approval. You
-                only pay for the work approved.
-              </p>
+              <div className="heading-para-three">
+                <h1 className="step-three-heading" style={stepHeading}>
+                  Review Performance
+                </h1>
+                <p style={stepPara} className="step-three-para">
+                  Gig workers submit proof of work for review and approval. You
+                  only pay for the work approved.
+                </p>
+              </div>
             </div>
           </div>
         </div>
