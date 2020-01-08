@@ -62,7 +62,7 @@ const stepNumber = {
 const StepIncluded = () => {
   return (
     <StepIncludeStyled>
-      <h1 style={mainHeading}>How it works in FOUR steps</h1>
+      <h1 style={mainHeading}>How it works in three<sub style={{position:"relative", color:"#9b9b9b", fontSize: "17px", bottom:"1px"}}>(ish)</sub> steps</h1>
       <Fade right>
         <div className="step-one-block">
           <MyBlockTwo className="one"></MyBlockTwo>

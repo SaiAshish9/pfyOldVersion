@@ -6,14 +6,17 @@ import { DownloadAppStyled } from "./homeStyled";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import phoneImage from "./images/phone.png";
+import playstoreIcon from './images/playstore.png';
 
 const mainHeading = {
-  fontSize: "28px",
-  lineHeight: "1.17",
+  fontSize: "38px",
+  lineHeight: "46px",
   letterSpacing: ".3px",
   fontWeight: "700",
-  fontFamily: "avenir, sans-serif"
+  fontFamily: "avenir, sans-serif",
   // marginBottom:"80px"
+  color:"#333743",
+  marginLeft:"32px"
 };
 
 const para = {
@@ -25,15 +28,13 @@ const DownloadApp = () => {
     <DownloadAppStyled>
       <div className="block-content">
         <h1 style={mainHeading}>
-          Come Earn with <br />
-          India’s #1 Work <br />
-          Platform <br />
+          Come Work For Your<br/> Favourite Companies <br/> on #Pracify<br />
         </h1>
-        <p style={para}>Download the Awign app and start earning today!</p>
-      </div>
-
-      <div>
-        <img src={phoneImage}></img>
+        <p style={para}>Download the Pracify app and start earning today!</p>
+      <img style={{width:"180px"}}src={playstoreIcon}></img>
+        </div>
+      <div style={{width:"50%"}}>
+        <img style={{width:"50%", marginLeft:"180px"}} src={phoneImage}></img>
       </div>
     </DownloadAppStyled>
   );

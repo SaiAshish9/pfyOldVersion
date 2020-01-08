@@ -49,12 +49,12 @@ const FrontBlockStyled = styled.div`
     border-radius: 0% 30% 30% 0% / 0% 50% 50% 0%;
     .one {
       background-color: #f7cdcd;
-      top: 5%;
+      top: 3%;
       left: 48%;
     }
     .two {
       background-color: #ffc6c6;
-      top: 5%;
+      top: 3%;
       left: 54%;
     }
     .three {
@@ -92,6 +92,7 @@ const FrontBlockStyled = styled.div`
         font-weight: 700;
         font-size: 38px;
         line-height: 46px;
+        color: #333743;
       }
       .data-heading-two {
         @font-face {
@@ -100,8 +101,9 @@ const FrontBlockStyled = styled.div`
         }
         font-family: avenir, sans-serif;
         font-weight: 600;
-        font-size: 30px;
+        font-size: 32px;
         line-height: 46px;
+        color: #333743;
         .Typewriter {
           display: inline;
         }
@@ -782,17 +784,21 @@ const WorkWeExecuteStyled = styled.div`
 `;
 
 const DownloadAppStyled = styled.div`
-  background-color: #ecf3f5;
+  background-color: #f7f7f7;
   display: flex;
   justify-content:space-evenly;
+  padding: 24px 0px;
+
   .block-content{
     align-self: center;
+    width:70%;
+    text-align:center;
   }
 `;
 
 const FooterStyled = styled.div`
-  color: white;
-  background-color: black;
+  /* color: white; */
+  background-color: #fff;
 `;
 
 export {

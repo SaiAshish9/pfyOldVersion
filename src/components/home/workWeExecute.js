@@ -57,7 +57,7 @@ const WorkWeExecute = () => {
   return (
     <WorkWeExecuteStyled>
       <h1 style={mainHeading}>
-        The work we execute
+        The Work We Execute
       </h1>
       <div
         style={{
