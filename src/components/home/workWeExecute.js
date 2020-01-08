@@ -52,13 +52,7 @@ const myIcon = {
   width: "18px",
   marginRight: "8px"
 };
-// const imgOne = {
-//   position: "absolute",
-//   width: "56px",
-//   top: "10px",
-//   right: "10px"
-//   // width:
-// }
+
 const WorkWeExecute = () => {
   return (
     <WorkWeExecuteStyled>

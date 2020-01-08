@@ -15,6 +15,11 @@ const mainHeading = {
   fontFamily: "avenir, sans-serif"
   // marginBottom:"80px"
 };
+
+const para = {
+  fontFamily: "avenir, sans-serif",
+  color: "#4a4a4a"
+}
 const DownloadApp = () => {
   return (
     <DownloadAppStyled>
@@ -24,7 +29,7 @@ const DownloadApp = () => {
           India’s #1 Work <br />
           Platform <br />
         </h1>
-        <p>Download the Awign app and start earning today!</p>
+        <p style={para}>Download the Awign app and start earning today!</p>
       </div>
 
       <div>
