@@ -6,7 +6,7 @@ import { DownloadAppStyled } from "./homeStyled";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import phoneImage from "./images/phone.png";
-import playstoreIcon from './images/playstore.png';
+import playstoreIcon from "./images/playstore.png";
 
 const mainHeading = {
   fontSize: "38px",
@@ -15,26 +15,30 @@ const mainHeading = {
   fontWeight: "700",
   fontFamily: "avenir, sans-serif",
   // marginBottom:"80px"
-  color:"#333743",
-  marginLeft:"32px"
+  color: "#333743",
+  marginLeft: "32px"
 };
 
 const para = {
   fontFamily: "avenir, sans-serif",
   color: "#4a4a4a"
-}
+};
 const DownloadApp = () => {
   return (
     <DownloadAppStyled>
       <div className="block-content">
-        <h1 style={mainHeading}>
-          Come Work For Your<br/> Favourite Companies <br/> on #Pracify<br />
+        <h1 className="downloadApp-heading">
+          Come Work For Your
+          <br /> Favourite Companies <br /> on #Pracify
+          <br />
         </h1>
-        <p style={para}>Download the Pracify app and start earning today!</p>
-      <img style={{width:"180px"}}src={playstoreIcon}></img>
-        </div>
-      <div style={{width:"50%"}}>
-        <img style={{width:"50%", marginLeft:"180px"}} src={phoneImage}></img>
+        <p className="downloadApp-para">
+          Download the Pracify app and start earning today!
+        </p>
+        <img style={{ width: "180px" }} src={playstoreIcon}></img>
+      </div>
+      <div className="downloadApp-img-block">
+        <img className="downloadApp-img" src={phoneImage}></img>
       </div>
     </DownloadAppStyled>
   );

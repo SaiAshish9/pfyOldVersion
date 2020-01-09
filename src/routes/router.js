@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import Header from "../components/header/header";
+// import Header from "../components/header/header";
 import Home from "../components/home/home";
 import GetStarted from "../components/getStarted/getStarted";
 import AboutUs from "../components/aboutUs/aboutUs";
@@ -13,7 +13,6 @@ export const history = createBrowserHistory();
 const AppRouter = () => {
   return (
     <Router history={history}>
-      <Header />
       <Switch>
         <Route path="/" component={Home} exact={true} />
         <Route path="/get-started" component={GetStarted} exact={true} />

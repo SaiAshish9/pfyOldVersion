@@ -11,17 +11,17 @@ import workWeExecuteIcon from "./images/workWeExecuteIcon.svg";
 //   marginBottom: "80px"
 // };
 
-const MyBlock = {
+// const = {
   // border: "1px solid black",
-  position: "relative",
+  // position: "relative",
 
-  width: "352px",
-  height: "280px",
-  borderRadius: "6px",
-  boxShadow: "0 13px 20px 0 rgba(0,0,0,0.09)",
-  border: "solid 1px #efefef",
-  padding: "0px 40px 40px 40px"
-};
+  // width: "352px",
+  // height: "280px",
+  // borderRadius: "6px",
+  // boxShadow: "0 13px 20px 0 rgba(0,0,0,0.09)",
+  // border: "solid 1px #efefef",
+  // padding: "0px 40px 40px 40px"
+// };
 
 const mainHeading = {
   fontSize: "28px",
@@ -68,7 +68,7 @@ const WorkWeExecute = () => {
       >
         <div  className="workWeExecuteBlock">
           <Zoom>
-            <div style={MyBlock} className="block-one">
+            <div  className="myBlock block-one">
               <h1 style={blockHeader} className={"block-header-one"}>
                 Marketing
               </h1>
@@ -99,7 +99,7 @@ const WorkWeExecute = () => {
             </div>
           </Zoom>
           <Zoom>
-            <div style={MyBlock} className="block-two">
+            <div  className="myBlock block-two">
               <h1 style={blockHeader} className={"block-header-two"}>
                 Business Development & Diligence
               </h1>
@@ -131,7 +131,7 @@ const WorkWeExecute = () => {
         </div>
         <div  className="workWeExecuteBlock">
           <Zoom>
-            <div style={MyBlock} className="block-three">
+            <div  className="myBlock block-three">
               <h1 style={blockHeader} className={"block-header-three"}>
                 Research & Auditing
               </h1>
@@ -158,7 +158,7 @@ const WorkWeExecute = () => {
             </div>
           </Zoom>
           <Zoom>
-            <div style={MyBlock} className="block-four">
+            <div  className="myBlock block-four">
               <h1 style={blockHeader} className={"block-header-four"}>
                 Data Moderation
               </h1>

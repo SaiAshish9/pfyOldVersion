@@ -695,7 +695,7 @@ const WhyItWorkStyled = styled.div`
         display: flex;
         justify-items: center;
         position: relative;
-        width:76%;
+        width: 76%;
         .whyItWork-img-one {
         }
         .header-para-one {
@@ -708,7 +708,7 @@ const WhyItWorkStyled = styled.div`
         display: flex;
         justify-items: center;
         position: relative;
-        width:72%;
+        width: 72%;
         margin-left: 40px;
 
         .whyItWork-img-two {
@@ -754,24 +754,7 @@ const WhyItWorkStyled = styled.div`
         }
       }
     }
-    @media screen and (max-width: 1000px) {
-      .whyItWork-container {
-        grid-template-columns: auto;
-        margin-left:120px;
-        .whyItWork-item-one{
-          /* width:60% */
-        }
-        .whyItWork-item-two {
-          margin:initial;
-          /* width:60% */
-
-        }
-        .whyItWork-item-four {
-          margin:initial;
-
-        }
-      }
-    }
+   
     .mainPara {
       position: relative;
       font-size: 24px;
@@ -785,8 +768,26 @@ const WhyItWorkStyled = styled.div`
       padding: 0px 160px;
       margin-top: 80px;
     }
+    @media screen and (max-width: 1000px) {
+      .whyItWork-container {
+        grid-template-columns: auto;
+        margin-left: 120px;
+        .whyItWork-item-two {
+          margin: initial;
+        }
+        .whyItWork-item-four {
+          margin: initial;
+        }
+        }
+        .mainPara{
+          /* text-align: initial; */
+          padding: 0px;
+      }
+    }
   }
 `;
+
+
 
 const WorkWeExecuteStyled = styled.div`
   .workWeExecuteBlock {
@@ -795,6 +796,51 @@ const WorkWeExecuteStyled = styled.div`
     justify-content: space-evenly;
     width: 100%;
     margin-bottom: 80px;
+    .myBlock{
+      position: relative;
+        width: 352px;
+        height: 280px;
+        border-radius: 6px;
+        box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
+        border: solid 1px #efefef;
+        padding: 0px 40px 40px 40px;
+    }
+    /* .block-one {
+        position: relative;
+        width: 352px;
+        height: 280px;
+        border-radius: 6px;
+        box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
+        border: solid 1px #efefef;
+        padding: 0px 40px 40px 40px;
+    }
+    .block-two {
+        position: relative;
+        width: 352px;
+        height: 280px;
+        border-radius: 6px;
+        box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
+        border: solid 1px #efefef;
+        padding: 0px 40px 40px 40px;
+    }
+    .block-three {
+        position: relative;
+        width: 352px;
+        height: 280px;
+        border-radius: 6px;
+        box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
+        border: solid 1px #efefef;
+        padding: 0px 40px 40px 40px;
+    }
+    .block-four {
+        position: relative;
+        width: 352px;
+        height: 280px;
+        border-radius: 6px;
+        box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
+        border: solid 1px #efefef;
+        padding: 0px 40px 40px 40px;
+    } */
   }
   @media screen and (max-width: 1140px) {
     .workWeExecuteBlock {
@@ -802,17 +848,9 @@ const WorkWeExecuteStyled = styled.div`
       align-items: center;
       margin: auto;
       width: initial;
-      .block-one {
+      .myBlock{
         margin: 0px 0px 40px;
-      }
-      .block-two {
-        margin: 0px 0px 40px;
-      }
-      .block-three {
-        margin: 0px 0px 40px;
-      }
-      .block-four {
-        margin: 0px 0px 40px;
+        width:300px;
       }
     }
   }
@@ -852,6 +890,56 @@ const DownloadAppStyled = styled.div`
     align-self: center;
     width: 70%;
     text-align: center;
+    .downloadApp-heading {
+      font-size: 38px;
+      line-height: 46px;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+      font-family: avenir, sans-serif;
+      margin-bottom: 80px;
+      color: #333743;
+      margin-left: 32px;
+    }
+    .downloadApp-para {
+      font-family: avenir, sans-serif;
+      color: #4a4a4a;
+    }
+  }
+
+  .downloadApp-img-block {
+    width: 50%;
+    .downloadApp-img {
+      width: 50%;
+      margin-left: 180px;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    .block-content {
+      .downloadApp-heading {
+        font-size: 24px;
+        line-height: 36px;
+        letter-spacing: 0.3px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        margin-left: 0px;
+      }
+      .downloadApp-para {
+        font-family: avenir, sans-serif;
+        color: #4a4a4a;
+      }
+    }
+    .downloadApp-img-block {
+      width: 50%;
+      text-align: center;
+      .downloadApp-img {
+        width: 70%;
+        margin: initial;
+        /* text-align:center; */
+      }
+    }
   }
 `;
 
