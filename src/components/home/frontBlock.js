@@ -20,7 +20,6 @@ import pinkImage from "./images/frontBlockImg.png";
 const FrontBlock = ({ handleScrollOne }) => {
   // const executeScroll = () => scrollToRef(myRef)
   // const myRef=useRef()
-  
 
   return (
     <FrontBlockStyled>
@@ -70,10 +69,10 @@ const FrontBlock = ({ handleScrollOne }) => {
             </button>
           </div>
         </div>
-        <div>
-          <img src={pinkImage} className="pink-image" />
         </div>
-      </div>
+        <div>
+        <img src={pinkImage} className="pink-image" />
+        </div>
     </FrontBlockStyled>
   );
 };

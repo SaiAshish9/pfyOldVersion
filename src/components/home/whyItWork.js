@@ -23,9 +23,11 @@ const mainHeading = {
 };
 
 const whyItWorkImg = {
-  position: "relative",
-  bottom: "68px",
-  right: "18px"
+  position: "absolute",
+  top: "-22px",
+    left: "-76px"
+  // bottom: "68px",
+  // right: "18px"
 };
 
 const whyItWorkHeading = {
@@ -48,6 +50,10 @@ const whyItWorkPara = {
   // paddingRight: "160px"
 };
 
+// const {} = {
+//   position:"relative"
+// }
+
 const WhyItWork = () => {
   return (
     <WhyItWorkStyled>
@@ -67,8 +73,8 @@ const WhyItWork = () => {
         <MyBlockFive className="thirteen"></MyBlockFive>
         <h1 style={mainHeading}>Why it works</h1>
         <div className="whyItWork-container">
-          <Zoom>
-            <div className="whyItWork-item-one">
+          <Zoom style={{}}>
+            <div  className="whyItWork-item-one">
               <img
                 src={whyItWorkImgOne}
                 style={whyItWorkImg}
@@ -87,8 +93,8 @@ const WhyItWork = () => {
               </div>
             </div>
           </Zoom>
-          <Zoom>
-            <div className="whyItWork-item-two">
+          <Zoom style={{}}>
+            <div   className="whyItWork-item-two">
               <img
                 src={whyItWorkImgTwo}
                 style={whyItWorkImg}
@@ -106,8 +112,8 @@ const WhyItWork = () => {
               </div>
             </div>
           </Zoom>
-          <Zoom>
-            <div className="whyItWork-item-three">
+          <Zoom style={{}}>
+            <div   className="whyItWork-item-three">
               <img
                 src={whyItWorkImgThree}
                 style={whyItWorkImg}
@@ -129,8 +135,8 @@ const WhyItWork = () => {
               </div>
             </div>
           </Zoom>
-          <Zoom>
-            <div className="whyItWork-item-four">
+          <Zoom style={{}}>
+            <div   className="whyItWork-item-four">
               <img
                 src={whyItWorkImgFour}
                 style={whyItWorkImg}

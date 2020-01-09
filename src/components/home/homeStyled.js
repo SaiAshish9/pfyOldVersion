@@ -33,16 +33,19 @@ export const MyBlockFive = styled.div`
 `;
 
 const FrontBlockStyled = styled.div`
+  display: flex;
+  /* flex-direction:column; */
   margin: 80px 0px;
   width: 100%;
   background-color: #fff;
   display: flex;
   align-items: center;
+  position: relative;
 
   .content-background {
+    position: relative;
     display: flex;
     align-items: center;
-    position: relative;
     width: 80%;
     height: 525px;
     background-color: #ffeeef;
@@ -93,13 +96,13 @@ const FrontBlockStyled = styled.div`
         font-size: 38px;
         line-height: 46px;
         color: #333743;
-        margin-bottom:17px;
+        margin-bottom: 17px;
       }
       .data-heading-two {
-        @font-face {
+        /* @font-face {
           font-family: "avenir";
           src: url(avenirr);
-        }
+        } */
         font-family: avenir, sans-serif;
         font-weight: 600;
         font-size: 32px;
@@ -110,10 +113,10 @@ const FrontBlockStyled = styled.div`
         }
       }
       .data-para {
-        @font-face {
+        /* @font-face {
           font-family: "avenir";
           src: url(avenirr);
-        }
+        } */
         color: #4f4f4f;
         font-family: avenir, sans-serif;
         font-weight: 400;
@@ -197,9 +200,9 @@ const FrontBlockStyled = styled.div`
 
   .pink-image {
     position: absolute;
-    top: 12%;
-    left: 70%;
-    width: 48%;
+    top: 0%;
+    left: 56%;
+    width: 40%;
   }
 `;
 
@@ -367,14 +370,14 @@ const StepIncludeStyled = styled.div`
       top: 98%;
       left: 92%;
     }
-    
+
     .step-three {
       display: flex;
       align-items: center;
       color: blue;
       width: 95%;
       height: 100%;
-      background-color: #FFFCEB;
+      background-color: #fffceb;
       border-radius: 180px 0% 0% 180px / 50% 0% 0% 50%;
       .step-three-content {
         display: flex;
@@ -384,8 +387,8 @@ const StepIncludeStyled = styled.div`
         .step-number-Icon-three {
           background-color: #ffd900;
         }
-        .heading-para-three{
-          width:78%;
+        .heading-para-three {
+          width: 78%;
         }
         .step-three-heading {
         }
@@ -681,64 +684,91 @@ const WhyItWorkStyled = styled.div`
     .whyItWork-container {
       height: 80%;
       width: 80%;
-      margin: auto;
+      /* margin: auto; */
+      margin-left: 200px;
       display: grid;
       grid-template-columns: auto auto;
       grid-row-gap: 40px;
       grid-column-gap: 40px;
-    }
-    .whyItWork-item-one {
-      display: flex;
-      /* border: solid black 1px; */
-      justify-items: center;
-      .whyItWork-img-one {
-        width: 124%;
+
+      .whyItWork-item-one {
+        display: flex;
+        justify-items: center;
+        position: relative;
+        width:76%;
+        .whyItWork-img-one {
+        }
+        .header-para-one {
+          .whyItWork-heading-one {
+            color: #ff6666;
+          }
+        }
       }
-      .header-para-one {
-        .whyItWork-heading-one {
-          color: #ff6666;
+      .whyItWork-item-two {
+        display: flex;
+        justify-items: center;
+        position: relative;
+        width:72%;
+        margin-left: 40px;
+
+        .whyItWork-img-two {
+        }
+
+        .header-para-two {
+          width: 128%;
+          .whyItWork-heading-two {
+            color: #ffd900;
+          }
+        }
+      }
+      .whyItWork-item-three {
+        display: flex;
+        /* border: solid black 1px; */
+        justify-items: center;
+        position: relative;
+        .whyItWork-img-three {
+        }
+
+        .header-para-three {
+          width: 72%;
+          .whyItWork-heading-three {
+            color: #7ccc33;
+          }
+        }
+      }
+      .whyItWork-item-four {
+        display: flex;
+        /* border: solid black 1px; */
+        position: relative;
+        justify-items: center;
+        margin-left: 40px;
+
+        .whyItWork-img-four {
+        }
+
+        .header-para-four {
+          width: 72%;
+          .whyItWork-heading-four {
+            color: #fd8400;
+          }
         }
       }
     }
-    .whyItWork-item-two {
-      display: flex;
-      justify-items: center;
-      .whyItWork-img-two {
-      }
-
-      .header-para-two {
-        width: 128%;
-        .whyItWork-heading-two {
-          color: #ffd900;
+    @media screen and (max-width: 1000px) {
+      .whyItWork-container {
+        grid-template-columns: auto;
+        margin-left:120px;
+        .whyItWork-item-one{
+          /* width:60% */
         }
-      }
-    }
+        .whyItWork-item-two {
+          margin:initial;
+          /* width:60% */
 
-    .whyItWork-item-three {
-      display: flex;
-      /* border: solid black 1px; */
-      justify-items: center;
-      .whyItWork-img-three {
-      }
-
-      .header-para-three {
-        width: 72%;
-        .whyItWork-heading-three {
-          color: #7ccc33;
         }
-      }
-    }
-    .whyItWork-item-four {
-      display: flex;
-      /* border: solid black 1px; */
-      justify-items: center;
-      .whyItWork-img-four {
-      }
+        .whyItWork-item-four {
+          margin:initial;
 
-      .header-para-four {
-        width: 72%;
-        .whyItWork-heading-four {
-          color: #fd8400;
         }
       }
     }
@@ -753,12 +783,39 @@ const WhyItWorkStyled = styled.div`
       color: #333473;
       text-align: center;
       padding: 0px 160px;
-      margin-top:80px;
+      margin-top: 80px;
     }
   }
 `;
 
 const WorkWeExecuteStyled = styled.div`
+  .workWeExecuteBlock {
+    display: flex;
+    /* flex-wrap:wrap; */
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 80px;
+  }
+  @media screen and (max-width: 1140px) {
+    .workWeExecuteBlock {
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+      width: initial;
+      .block-one {
+        margin: 0px 0px 40px;
+      }
+      .block-two {
+        margin: 0px 0px 40px;
+      }
+      .block-three {
+        margin: 0px 0px 40px;
+      }
+      .block-four {
+        margin: 0px 0px 40px;
+      }
+    }
+  }
   .block-one {
     margin-left: 120px;
     .block-header-one {
@@ -788,13 +845,13 @@ const WorkWeExecuteStyled = styled.div`
 const DownloadAppStyled = styled.div`
   background-color: #f7f7f7;
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   padding: 24px 0px;
 
-  .block-content{
+  .block-content {
     align-self: center;
-    width:70%;
-    text-align:center;
+    width: 70%;
+    text-align: center;
   }
 `;
 

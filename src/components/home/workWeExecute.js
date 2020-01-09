@@ -4,18 +4,18 @@ import { WorkWeExecuteStyled } from "./homeStyled";
 import Zoom from "react-reveal/Zoom";
 import workWeExecuteIcon from "./images/workWeExecuteIcon.svg";
 
-const workWeExecuteBlock = {
-  display: "flex",
-  justifyContent: "space-evenly",
-  width: "100%",
-  marginBottom: "80px"
-};
+// const workWeExecuteBlock = {
+//   display: "flex",
+//   justifyContent: "space-evenly",
+//   width: "100%",
+//   marginBottom: "80px"
+// };
 
 const MyBlock = {
   // border: "1px solid black",
   position: "relative",
 
-  width: "26%",
+  width: "352px",
   height: "280px",
   borderRadius: "6px",
   boxShadow: "0 13px 20px 0 rgba(0,0,0,0.09)",
@@ -66,7 +66,7 @@ const WorkWeExecute = () => {
           flexDirection: "column"
         }}
       >
-        <div style={workWeExecuteBlock}>
+        <div  className="workWeExecuteBlock">
           <Zoom>
             <div style={MyBlock} className="block-one">
               <h1 style={blockHeader} className={"block-header-one"}>
@@ -129,7 +129,7 @@ const WorkWeExecute = () => {
             </div>
           </Zoom>
         </div>
-        <div style={workWeExecuteBlock}>
+        <div  className="workWeExecuteBlock">
           <Zoom>
             <div style={MyBlock} className="block-three">
               <h1 style={blockHeader} className={"block-header-three"}>
