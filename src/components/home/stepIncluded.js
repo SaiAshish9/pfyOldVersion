@@ -59,7 +59,7 @@ const stepNumber = {
   fontSize: "36px"
 };
 
-const StepIncluded = () => {
+const StepIncluded = ({handleScrollTwo}) => {
   return (
     <StepIncludeStyled>
       <h1 style={mainHeading}>How it works in three<sub style={{position:"relative", color:"#9b9b9b", fontSize: "17px", bottom:"1px"}}>(ish)</sub> steps</h1>
@@ -199,7 +199,7 @@ const StepIncluded = () => {
         <button className="step-button-one">
           GET A QUOTE <Icon type="right" style={{ marginLeft: "8px" }} />
         </button>
-        <button className="step-button-two">
+        <button className="step-button-two"  onClick={handleScrollTwo}>
           LEARN MORE <Icon type="down" style={{ marginLeft: "8px" }} />
         </button>
       </div>

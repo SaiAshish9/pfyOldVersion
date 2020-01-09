@@ -93,6 +93,7 @@ const FrontBlockStyled = styled.div`
         font-size: 38px;
         line-height: 46px;
         color: #333743;
+        margin-bottom:17px;
       }
       .data-heading-two {
         @font-face {
@@ -680,7 +681,7 @@ const WhyItWorkStyled = styled.div`
     .whyItWork-container {
       height: 80%;
       width: 80%;
-      margin: 86px;
+      margin: auto;
       display: grid;
       grid-template-columns: auto auto;
       grid-row-gap: 40px;
@@ -752,6 +753,7 @@ const WhyItWorkStyled = styled.div`
       color: #333473;
       text-align: center;
       padding: 0px 160px;
+      margin-top:80px;
     }
   }
 `;
