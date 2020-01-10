@@ -59,10 +59,23 @@ const stepNumber = {
   fontSize: "36px"
 };
 
-const StepIncluded = ({handleScrollTwo}) => {
+const StepIncluded = ({ handleScrollTwo }) => {
   return (
     <StepIncludeStyled>
-      <h1 style={mainHeading}>How it works in three<sub style={{position:"relative", color:"#9b9b9b", fontSize: "17px", bottom:"1px"}}>(ish)</sub> steps</h1>
+      <h1 style={mainHeading}>
+        How it works in three
+        <sub
+          style={{
+            position: "relative",
+            color: "#9b9b9b",
+            fontSize: "17px",
+            bottom: "1px"
+          }}
+        >
+          (ish)
+        </sub>{" "}
+        steps
+      </h1>
       <Fade right>
         <div className="step-one-block">
           <MyBlockTwo className="one"></MyBlockTwo>
@@ -77,7 +90,6 @@ const StepIncluded = ({handleScrollTwo}) => {
           <MyBlockFour className="ten"></MyBlockFour>
           <MyBlockTwo className="eleven"></MyBlockTwo>
           <div className="step-one">
-            <img src={stepOneImg} className="step-one-image" />
             <div className="step-one-content">
               <div style={stepNumberIcon} className="step-number-Icon-one">
                 <h1 style={stepNumber}>1</h1>
@@ -95,6 +107,7 @@ const StepIncluded = ({handleScrollTwo}) => {
               </div>
             </div>
           </div>
+          <img src={stepOneImg} className="step-one-image" />
         </div>
       </Fade>
       <Fade left>
@@ -123,8 +136,8 @@ const StepIncluded = ({handleScrollTwo}) => {
                 </p>
               </div>
             </div>
-            <img src={stepTwoImg} className="step-two-image"></img>
           </div>
+          <img src={stepTwoImg} className="step-two-image"></img>
         </div>
       </Fade>
 
@@ -141,9 +154,8 @@ const StepIncluded = ({handleScrollTwo}) => {
           <MyBlockTwo className="nine"></MyBlockTwo>
           <MyBlockFour className="ten"></MyBlockFour>
           <MyBlockTwo className="eleven"></MyBlockTwo>
-          <div className="step-three">
-            <img src={stepThreeImg} className="step-three-image" />
 
+          <div className="step-three">
             <div className="step-three-content">
               <div style={stepNumberIcon} className="step-number-Icon-three">
                 <h1 style={stepNumber}>3</h1>
@@ -159,6 +171,7 @@ const StepIncluded = ({handleScrollTwo}) => {
               </div>
             </div>
           </div>
+          <img src={stepThreeImg} className="step-three-image" />
         </div>
       </Fade>
 
@@ -191,15 +204,15 @@ const StepIncluded = ({handleScrollTwo}) => {
                 </p>
               </div>
             </div>
-            <img src={stepFourImg} className="step-four-image"></img>
           </div>
+          <img src={stepFourImg} className="step-four-image"></img>
         </div>
       </Fade>
       <div className="step-button-block">
         <button className="step-button-one">
           GET A QUOTE <Icon type="right" style={{ marginLeft: "8px" }} />
         </button>
-        <button className="step-button-two"  onClick={handleScrollTwo}>
+        <button className="step-button-two" onClick={handleScrollTwo}>
           LEARN MORE <Icon type="down" style={{ marginLeft: "8px" }} />
         </button>
       </div>

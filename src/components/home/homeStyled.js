@@ -167,6 +167,7 @@ const FrontBlockStyled = styled.div`
       }
     }
   }
+  //#region
   .block-one {
     width: 16px;
     left: 94%;
@@ -197,6 +198,7 @@ const FrontBlockStyled = styled.div`
     left: 42%;
     top: 40%;
   }
+  //#endregion
 
   .pink-image {
     position: absolute;
@@ -205,6 +207,8 @@ const FrontBlockStyled = styled.div`
     width: 40%;
   }
 `;
+
+//! ---------------------------- StepIncludeStyled --------------------------- */
 
 const StepIncludeStyled = styled.div`
   display: flex;
@@ -219,6 +223,8 @@ const StepIncludeStyled = styled.div`
     flex-direction: row-reverse;
     height: 364px;
     margin-bottom: 108px;
+
+    //#region
     .one {
       background-color: #c2f1f5;
       top: -2%;
@@ -274,6 +280,8 @@ const StepIncludeStyled = styled.div`
       top: 98%;
       left: 92%;
     }
+    //#endregion
+
     .step-one {
       display: flex;
       align-items: center;
@@ -283,10 +291,8 @@ const StepIncludeStyled = styled.div`
       border-radius: 180px 0% 0% 180px / 50% 0% 0% 50%;
       .step-one-content {
         display: flex;
-        margin-left: 200px;
-        margin-right: 80px;
+        margin: 0px 10% 0px 34%;
         z-index: 1;
-
         .step-number-Icon-one {
           background-color: #47b5bd;
         }
@@ -297,16 +303,15 @@ const StepIncludeStyled = styled.div`
           }
         }
       }
-      .step-one-image {
-        /* height: 70%;
-        /* background-color: lightGreen; */
-        position: relative;
-        left: 80px;
-        width: 20%;
-        z-index: 1;
-      }
+    }
+    .step-one-image {
+      position: absolute;
+      left: 80px;
+      width: 20%;
+      z-index: 1;
     }
   }
+
   .step-three-block {
     position: relative;
     display: flex;
@@ -381,8 +386,7 @@ const StepIncludeStyled = styled.div`
       border-radius: 180px 0% 0% 180px / 50% 0% 0% 50%;
       .step-three-content {
         display: flex;
-        margin-left: 200px;
-        margin-right: 80px;
+        margin: 0px 10% 0px 50%;
         z-index: 1;
         .step-number-Icon-three {
           background-color: #ffd900;
@@ -393,18 +397,22 @@ const StepIncludeStyled = styled.div`
         .step-three-heading {
         }
       }
-      .step-three-image {
-        z-index: 1;
-        width: 30%;
-      }
+    }
+    .step-three-image {
+      position: absolute;
+      z-index: 1;
+      width: 30%;
+      left: 72px;
     }
   }
+
   .step-two-block {
     position: relative;
     display: flex;
     align-items: center;
     height: 364px;
     margin-bottom: 108px;
+    //#region
     .one {
       background-color: #7ccc33;
       top: 5%;
@@ -440,6 +448,7 @@ const StepIncludeStyled = styled.div`
       top: 98%;
       left: 28%;
     }
+    //#endregion
 
     .step-two {
       display: flex;
@@ -455,6 +464,8 @@ const StepIncludeStyled = styled.div`
         display: flex;
         margin-left: 200px;
         z-index: 1;
+        margin:0px 30% 0px 10%;
+
         .step-number-Icon-two {
           background-color: #7ccc33;
         }
@@ -465,13 +476,12 @@ const StepIncludeStyled = styled.div`
           }
         }
       }
-
-      .step-two-image {
-        /* height: 70%; */
-        z-index: 1;
-        width: 15%;
-        /* background-color: lightGreen; */
-      }
+    }
+    .step-two-image {
+      position: absolute;
+      z-index: 1;
+      width: 15%;
+      right: 72px;
     }
   }
   .step-four-block {
@@ -479,8 +489,8 @@ const StepIncludeStyled = styled.div`
     display: flex;
     align-items: center;
     height: 364px;
-    /* background: lightYellow; */
     margin-bottom: 42px;
+    //#region
     .one {
       background-color: #00affa;
       top: 5%;
@@ -516,6 +526,8 @@ const StepIncludeStyled = styled.div`
       top: 98%;
       left: 28%;
     }
+    //#endregion
+
     .step-four {
       display: flex;
       align-items: center;
@@ -530,6 +542,9 @@ const StepIncludeStyled = styled.div`
         margin-left: 200px;
         display: flex;
         z-index: 1;
+        margin-left: 10%;
+        margin-right: 30%;
+        margin:0px 30% 0px 10%;
         .step-number-Icon-four {
           background-color: #3366ff;
         }
@@ -540,10 +555,12 @@ const StepIncludeStyled = styled.div`
           }
         }
       }
-      .step-four-image {
-        width: 25%;
-        z-index: 1;
-      }
+    }
+    .step-four-image {
+      position: absolute;
+      width: 25%;
+      z-index: 1;
+      right: 72px;
     }
   }
   .step-button-block {
@@ -754,7 +771,7 @@ const WhyItWorkStyled = styled.div`
         }
       }
     }
-   
+
     .mainPara {
       position: relative;
       font-size: 24px;
@@ -778,16 +795,14 @@ const WhyItWorkStyled = styled.div`
         .whyItWork-item-four {
           margin: initial;
         }
-        }
-        .mainPara{
-          /* text-align: initial; */
-          padding: 0px;
+      }
+      .mainPara {
+        /* text-align: initial; */
+        padding: 0px;
       }
     }
   }
 `;
-
-
 
 const WorkWeExecuteStyled = styled.div`
   .workWeExecuteBlock {
@@ -796,51 +811,15 @@ const WorkWeExecuteStyled = styled.div`
     justify-content: space-evenly;
     width: 100%;
     margin-bottom: 80px;
-    .myBlock{
+    .myBlock {
       position: relative;
-        width: 352px;
-        height: 280px;
-        border-radius: 6px;
-        box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
-        border: solid 1px #efefef;
-        padding: 0px 40px 40px 40px;
+      width: 352px;
+      height: 280px;
+      border-radius: 6px;
+      box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
+      border: solid 1px #efefef;
+      padding: 0px 40px 40px 40px;
     }
-    /* .block-one {
-        position: relative;
-        width: 352px;
-        height: 280px;
-        border-radius: 6px;
-        box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
-        border: solid 1px #efefef;
-        padding: 0px 40px 40px 40px;
-    }
-    .block-two {
-        position: relative;
-        width: 352px;
-        height: 280px;
-        border-radius: 6px;
-        box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
-        border: solid 1px #efefef;
-        padding: 0px 40px 40px 40px;
-    }
-    .block-three {
-        position: relative;
-        width: 352px;
-        height: 280px;
-        border-radius: 6px;
-        box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
-        border: solid 1px #efefef;
-        padding: 0px 40px 40px 40px;
-    }
-    .block-four {
-        position: relative;
-        width: 352px;
-        height: 280px;
-        border-radius: 6px;
-        box-shadow: 0 13px 20px 0 rgba(0, 0, 0, 0.09);
-        border: solid 1px #efefef;
-        padding: 0px 40px 40px 40px;
-    } */
   }
   @media screen and (max-width: 1140px) {
     .workWeExecuteBlock {
@@ -848,9 +827,9 @@ const WorkWeExecuteStyled = styled.div`
       align-items: center;
       margin: auto;
       width: initial;
-      .myBlock{
+      .myBlock {
         margin: 0px 0px 40px;
-        width:300px;
+        width: 300px;
       }
     }
   }
@@ -945,7 +924,60 @@ const DownloadAppStyled = styled.div`
 
 const FooterStyled = styled.div`
   /* color: white; */
-  background-color: #fff;
+  /* background-color: #fff; */
+  .footer-block {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px 0px;
+    .footer-heading {
+      font-size: 28px;
+      line-height: 1.17;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+      font-family: avenir, sans-serif;
+      padding: 0px 20px;
+    }
+    .footer-para {
+      font-family: avenir, sans-serif;
+      color: #4a4a4a;
+      font-size: 16px;
+      padding: 0px 20px;
+    }
+
+    .contactUs-block {
+      text-align: center;
+
+      .my-icon-one {
+        width: 24px;
+      }
+      .my-icon {
+        width: 24px;
+        margin-left: 14px;
+        /* padding: 0px 20px; */
+      }
+      .contactUs-link {
+        font-family: avenir, sans-serif;
+        color: #4a4a4a;
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .footer-block {
+      flex-direction: column;
+      .contactUs-block {
+        text-align: initial;
+        .my-icon-one {
+          margin-left: 20px;
+        }
+        .contactUs-link {
+          text-align: initial;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
 `;
 
 export {
