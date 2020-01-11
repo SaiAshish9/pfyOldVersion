@@ -28,12 +28,12 @@ const DownloadApp = () => {
     <DownloadAppStyled>
       <div className="block-content">
         <h1 className="downloadApp-heading">
-          Come Work For Your
+          Work For Your
           <br /> Favourite Companies <br /> on #Pracify
           <br />
         </h1>
         <p className="downloadApp-para">
-          Download the Pracify app and start earning today!
+          Download the Pracify app for awesome work opportunities!
         </p>
         <img style={{ width: "180px" }} src={playstoreIcon}></img>
       </div>

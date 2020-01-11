@@ -12,7 +12,7 @@ const Footer = () => {
     <FooterStyled>
       <div className="footer-block">
         <div>
-          <h2 className="footer-heading">Our Home</h2>
+          <h2 className="footer-heading">Pracify</h2>
           <p className="footer-para">
             A-117, GD-ITL Northex Tower, <br />
             Netaji Subhash Place,

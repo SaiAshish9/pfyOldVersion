@@ -166,11 +166,11 @@ const StepIncluded = ({ handleScrollTwo }) => {
                 </h1>
                 <p  className="step-four-para">
                   Feel great in the knowledge that you've saved time, headache
-                  and risk of selecting & managing workers to scale your
+                  and risk of hiring & managing workers to scale your
                   business.
                   <br />
                   <br />
-                  Focus on your core business area's we'll take care of the
+                  Focus on your core business areas & we'll take care of the
                   rest.
                 </p>
               </div>

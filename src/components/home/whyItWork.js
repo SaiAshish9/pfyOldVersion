@@ -99,7 +99,7 @@ const WhyItWork = () => {
                 </h1>
                 <p style={whyItWorkPara} className="whyItWork-para-two">
                   From sourcing to completion of work, we provide end to end
-                  execution to ensure delivery and quality of outcomes.
+                  execution to ensure delivery and quality of outcome.
                 </p>
               </div>
             </div>
@@ -122,7 +122,7 @@ const WhyItWork = () => {
 
                 <p style={whyItWorkPara} className="whyItWork-para-three">
                   Scaling your business pan India has never been easier than
-                  this. Our network of Gig workers across India ensure your
+                  this. Our network of gig workers across India ensures your
                   requirements are met without any difficulty.
                 </p>
               </div>
@@ -142,8 +142,8 @@ const WhyItWork = () => {
                 </h1>
                 <p style={whyItWorkPara} className="whyItWork-para-four">
                   Even after employing & managing 1000's of workers in 100's of
-                  cities there is no props way to monitor the work on ground
-                  with XYZ you can track work executed in real time.
+                  cities there is no proper way to monitor the work on ground but with 
+                  Pracify you can track work executed in real time.
                 </p>
               </div>
             </div>

@@ -19,6 +19,7 @@ const Home = () => {
 
   return (
     <>
+    <div style={{textAlign:"center", backgroundColor:"#ffeeef", padding:"15px"}}><h1 style={{fontSize:"36px", margin:"0px", fontStyle:"avenir, sans-serif"}}>Launching Soon</h1></div>
       <FrontBlock handleScrollOne={handleScrollOne} />
       
       <div ref={myRefOne}>

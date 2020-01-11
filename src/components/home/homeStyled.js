@@ -184,7 +184,7 @@ const FrontBlockStyled = styled.div`
   }
   //#endregion
 
-  //! -------------------------- at 800px front-block -------------------------- */
+  //* -------------------------- at 800px front-block -------------------------- */
   //#region
   @media screen and (max-width: 800px) {
     .content-with-image {
@@ -772,7 +772,7 @@ const StepIncludeStyled = styled.div`
 
             .step-two-heading {
               font-size: 18px;
-              color: #000;
+              color: #7ccc33;
             }
             .step-two-para {
               font-size: 12px;
@@ -1376,6 +1376,7 @@ const DownloadAppStyled = styled.div`
     .downloadApp-para {
       font-family: avenir, sans-serif;
       color: #4a4a4a;
+      font-size:18px;
     }
   }
 
