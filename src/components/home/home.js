@@ -20,12 +20,13 @@ const Home = () => {
   return (
     <>
       <FrontBlock handleScrollOne={handleScrollOne} />
+      
       <div ref={myRefOne}>
         <StepIncluded handleScrollTwo={handleScrollTwo} />
       </div>
 
       <div ref={myRefTwo}>
-        <WhyItWork />
+      <WhyItWork />
       </div>
 
       <WorkWeExecute />

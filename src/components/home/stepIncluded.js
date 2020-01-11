@@ -24,35 +24,6 @@ const mainHeading = {
   fontFamily: "avenir, sans-serif"
 };
 
-const stepHeading = {
-  fontSize: "26px",
-  lineHeight: "1.26",
-  letterSpacing: ".3px",
-  fontWeight: "700",
-  fontFamily: "avenir, sans-serif"
-  // textAlign: "center"
-};
-const stepPara = {
-  fontSize: "18px",
-  lineHeight: "1.47",
-  letterSpacing: ".1px",
-  fontWeight: "100",
-  fontFamily: "avenir, sans-serif",
-  color: "#4f4f4f"
-  // textAlign: "center",
-  // paddingRight: "160px"
-};
-const stepNumberIcon = {
-  height: "60px",
-  width: "60px",
-  borderColor: "black",
-  borderStyle: "solid",
-  borderRadius: "60px",
-  borderWidth: "2px 2px 2px 0px",
-  position: "relative",
-  right: "24px",
-  bottom: "14px"
-};
 const stepNumber = {
   textAlign: "center",
   color: "white",
@@ -91,14 +62,14 @@ const StepIncluded = ({ handleScrollTwo }) => {
           <MyBlockTwo className="eleven"></MyBlockTwo>
           <div className="step-one">
             <div className="step-one-content">
-              <div style={stepNumberIcon} className="step-number-Icon-one">
+              <div  className="step-number-Icon-one">
                 <h1 style={stepNumber}>1</h1>
               </div>
               <div className="heading-para-one">
-                <h1 className="step-one-heading" style={stepHeading}>
+                <h1 className="step-one-heading">
                   Tell us what you need
                 </h1>
-                <p style={stepPara} className="step-one-para">
+                <p className="step-one-para">
                   Submit your brief on our platform to tell us your requirement.
                   We understand your problem and requirements and propose
                   outcome based commercials. The requirements are converted into
@@ -121,14 +92,14 @@ const StepIncluded = ({ handleScrollTwo }) => {
           <MyBlockOne className="seven"></MyBlockOne>
           <div className="step-two">
             <div className="step-two-content">
-              <div style={stepNumberIcon} className="step-number-Icon-two">
+              <div style={{}  } className="step-number-Icon-two">
                 <h1 style={stepNumber}>2</h1>
               </div>
               <div className="heading-para-two">
-                <h1 className="step-two-heading" style={stepHeading}>
+                <h1 className="step-two-heading">
                   Select gig workers
                 </h1>
-                <p style={stepPara} className="step-two-para">
+                <p className="step-two-para">
                   Recruit gig workers easily by conducting virtual interviews &
                   screening their profiles. The selected workers chosen to
                   execute the work undergo rigorous training to ensure quality
@@ -157,14 +128,14 @@ const StepIncluded = ({ handleScrollTwo }) => {
 
           <div className="step-three">
             <div className="step-three-content">
-              <div style={stepNumberIcon} className="step-number-Icon-three">
+              <div className="step-number-Icon-three">
                 <h1 style={stepNumber}>3</h1>
               </div>
               <div className="heading-para-three">
-                <h1 className="step-three-heading" style={stepHeading}>
+                <h1 className="step-three-heading">
                   Review Performance
                 </h1>
-                <p style={stepPara} className="step-three-para">
+                <p  className="step-three-para">
                   Gig workers submit proof of work for review and approval. You
                   only pay for the work approved.
                 </p>
@@ -186,14 +157,14 @@ const StepIncluded = ({ handleScrollTwo }) => {
           <MyBlockOne className="seven"></MyBlockOne>
           <div className="step-four">
             <div className="step-four-content">
-              <div style={stepNumberIcon} className="step-number-Icon-four">
+              <div  className="step-number-Icon-four">
                 <h1 style={stepNumber}>4</h1>
               </div>
               <div className="heading-para-four">
-                <h1 className="step-four-heading" style={stepHeading}>
+                <h1 className="step-four-heading" >
                   Bonus step-feel smug
                 </h1>
-                <p style={stepPara} className="step-four-para">
+                <p  className="step-four-para">
                   Feel great in the knowledge that you've saved time, headache
                   and risk of selecting & managing workers to scale your
                   business.
