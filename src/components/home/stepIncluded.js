@@ -16,7 +16,7 @@ import stepFourImg from "./images/stepFourImg.png";
 // import { withTheme } from "styled-components";
 
 const mainHeading = {
-  margin: "0px 0px 80px 66px",
+  margin: "40px 0px 80px 66px",
   fontSize: "28px",
   lineHeight: "1.17",
   letterSpacing: ".3px",

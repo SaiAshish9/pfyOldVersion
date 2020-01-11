@@ -5,6 +5,7 @@ import WhyItWork from "./whyItWork";
 import WorkWeExecute from "./workWeExecute";
 import DownloadApp from "./downloadApp";
 import Footer from "./footer";
+import { HeaderStyled } from "./homeStyled";
 
 const Home = () => {
   const myRefOne = useRef(null);
@@ -19,15 +20,26 @@ const Home = () => {
 
   return (
     <>
-    <div style={{textAlign:"center", backgroundColor:"#ffeeef", padding:"15px"}}><h1 style={{fontSize:"36px", margin:"0px", fontStyle:"avenir, sans-serif"}}>Launching Soon</h1></div>
+      <HeaderStyled
+        style={{
+          textAlign: "center",
+          backgroundColor: "#ffeeef",
+          padding: "15px"
+        }}
+      >
+        <h1 className="header-heading">
+          Launching Soon
+        </h1>
+      </HeaderStyled>
+
       <FrontBlock handleScrollOne={handleScrollOne} />
-      
+
       <div ref={myRefOne}>
         <StepIncluded handleScrollTwo={handleScrollTwo} />
       </div>
 
       <div ref={myRefTwo}>
-      <WhyItWork />
+        <WhyItWork />
       </div>
 
       <WorkWeExecute />

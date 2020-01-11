@@ -32,6 +32,17 @@ export const MyBlockFive = styled.div`
   width: 120px;
 `;
 
+//! ------------------------------ header-style ------------------------------ */
+export const HeaderStyled = styled.div`
+  .header-heading {
+    font-weight: 700;
+    font-size: 38px;
+    margin: 0px;
+    font-family: avenir, sans-serif;
+
+  }
+`;
+
 //! ---------------------------- FrontBlockStyled ---------------------------- */
 //#region
 const FrontBlockStyled = styled.div`
@@ -142,8 +153,9 @@ const FrontBlockStyled = styled.div`
     /* width: 150%; */
     display: flex;
     margin-left: 152px;
-    margin-top: 12px;
+    margin-top: -80px;
     .first-button {
+      z-index: 1;
       background: none;
       border: solid black 1px;
       padding: 13px 20px;
@@ -163,6 +175,7 @@ const FrontBlockStyled = styled.div`
       }
     }
     .second-button {
+      z-index: 1;
       background: white;
       margin-left: 60px;
       border: solid black 1px;
@@ -387,7 +400,7 @@ const StepIncludeStyled = styled.div`
 
   //* --------------------------- at 400px step one block -------------------------- */
   //#region
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 502px) {
     .step-one-block {
       flex-direction: column;
       //#region
@@ -446,7 +459,7 @@ const StepIncludeStyled = styled.div`
             .step-one-para {
               font-size: 12px;
               color: #000;
-              font-weight:300;
+              font-weight: 300;
             }
           }
         }
@@ -602,7 +615,7 @@ const StepIncludeStyled = styled.div`
 
   //* --------------------------- at 400px step three block -------------------------- */
   //#region
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 502px) {
     .step-three-block {
       flex-direction: column;
 
@@ -626,7 +639,7 @@ const StepIncludeStyled = styled.div`
             .step-three-para {
               font-size: 12px;
               color: #000;
-              font-weight:300;
+              font-weight: 300;
             }
           }
         }
@@ -749,7 +762,7 @@ const StepIncludeStyled = styled.div`
 
   //* --------------------------- at 400px step two block -------------------------- */
   //#region
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 502px) {
     .step-two-block {
       flex-direction: column;
       .step-two {
@@ -777,7 +790,7 @@ const StepIncludeStyled = styled.div`
             .step-two-para {
               font-size: 12px;
               color: #000;
-              font-weight:300;
+              font-weight: 300;
             }
           }
         }
@@ -901,7 +914,7 @@ const StepIncludeStyled = styled.div`
 
   //* --------------------------- at 400px step four block -------------------------- */
   //#region
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 502px) {
     .step-four-block {
       flex-direction: column;
       .step-four {
@@ -926,7 +939,7 @@ const StepIncludeStyled = styled.div`
             .step-four-para {
               font-size: 12px;
               color: #000;
-              font-weight:300;
+              font-weight: 300;
             }
           }
         }
@@ -944,7 +957,7 @@ const StepIncludeStyled = styled.div`
   .step-button-block {
     margin-left: 80px;
     margin-bottom: 80px;
-    width: 100%;
+    /* width: 100%; */
     .step-button-one {
       background: none;
       border: solid black 1px;
@@ -1376,7 +1389,7 @@ const DownloadAppStyled = styled.div`
     .downloadApp-para {
       font-family: avenir, sans-serif;
       color: #4a4a4a;
-      font-size:18px;
+      font-size: 18px;
     }
   }
 
