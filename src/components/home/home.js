@@ -6,6 +6,7 @@ import WorkWeExecute from "./workWeExecute";
 import DownloadApp from "./downloadApp";
 import Footer from "./footer";
 import { HeaderStyled } from "./homeStyled";
+import logo from './images/logo.png'
 
 const Home = () => {
   const myRefOne = useRef(null);
@@ -23,10 +24,15 @@ const Home = () => {
       <HeaderStyled
         style={{
           textAlign: "center",
-          backgroundColor: "#ffeeef",
-          padding: "15px"
+          marginBottom:"-5rem",
+          padding: "20px 15px 15px 15px",
+          display:"flex",
+          justifyContent:"space-between",
+          alignItems:"center"
         }}
       >
+          <img height={"100rem"} src={logo}/>
+
         <h1 className="header-heading">
           Launching Soon
         </h1>

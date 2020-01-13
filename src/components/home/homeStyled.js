@@ -39,7 +39,7 @@ export const HeaderStyled = styled.div`
     font-size: 38px;
     margin: 0px;
     font-family: avenir, sans-serif;
-
+    color:#215ea9
   }
 `;
 
@@ -1446,7 +1446,7 @@ const FooterStyled = styled.div`
       letter-spacing: 0.3px;
       font-weight: 700;
       font-family: avenir, sans-serif;
-      padding: 0px 20px;
+      padding: 3rem 20px 0 20px;
     }
     .footer-para {
       font-family: avenir, sans-serif;

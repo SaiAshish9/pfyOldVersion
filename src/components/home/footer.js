@@ -2,6 +2,7 @@
 import React from "react";
 import { Icon } from "antd";
 import { FooterStyled } from "./homeStyled";
+import logo from './images/logo.png'
 import twitterIcon from "./images/footerTwitterIcon.svg";
 import facebookIcon from "./images/footerFacebookIcon.svg";
 import instagramIcon from "./images/footerInstagramIcon.svg";
@@ -12,7 +13,8 @@ const Footer = () => {
     <FooterStyled>
       <div className="footer-block">
         <div>
-          <h2 className="footer-heading">Pracify</h2>
+          <img height={"100rem"} src={logo}/>
+          {/* <h2 className="footer-heading">Pracify</h2> */}
           <p className="footer-para">
             A-117, GD-ITL Northex Tower, <br />
             Netaji Subhash Place,
