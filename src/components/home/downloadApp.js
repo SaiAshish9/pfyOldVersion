@@ -1,10 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import Slider from "react-slick";
-import Fade from "react-reveal";
 import { DownloadAppStyled } from "./homeStyled";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import phoneImage from "./images/phone.png";
 import playstoreIcon from "./images/playstore.png";
 
@@ -14,7 +10,7 @@ const mainHeading = {
   letterSpacing: ".3px",
   fontWeight: "700",
   fontFamily: "avenir, sans-serif",
-  // marginBottom:"80px"
+  // marginBottom:"80px"` 
   color: "#333743",
   marginLeft: "32px"
 };
@@ -23,6 +19,7 @@ const para = {
   fontFamily: "avenir, sans-serif",
   color: "#4a4a4a"
 };
+
 const DownloadApp = () => {
   return (
     <DownloadAppStyled>

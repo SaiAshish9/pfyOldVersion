@@ -1,0 +1,71 @@
+.my-card-block {
+  width: 234px;
+  padding-top: 20px;
+  height: 352px;
+  text-align: center;
+  box-shadow: 0 0 8px 0 #a5adba;
+  border-radius: 8px;
+  &:hover {
+    box-shadow: 0 0 24px 0 #a5adba;
+    cursor: pointer;
+  }
+  .logo {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 134px;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+  }
+  .designation {
+    margin-top: 28px;
+    color: $fontDarker;
+
+    //* ------------------------------- font-style ------------------------------- */
+    font-family: $myFont;
+    font-size: $fontSizeLarge;
+    font-weight: $bold1x;
+  }
+  .company-name {
+    color: $fontDark;
+
+    //* ------------------------------- font-style ------------------------------- */
+    font-family: $myFont;
+    font-size: $fontSizeMedium;
+    font-weight: $bold1x;
+  }
+
+  .boundary-one {
+    border-bottom: 1px solid lightGray;
+  }
+  .brief-info-block {
+    display: flex;
+    margin: 12px 0px 12px 12px;
+    .brief-info-para {
+      margin: 0px 0px 0px 12px;
+      color: $fontDark;
+      //* ------------------------------- font-style ------------------------------- */
+      font-family: $myFont;
+      font-size: $fontSizeMedium;
+      font-weight: $bold;
+    }
+  }
+  .boundary-two {
+    border-top: 1px solid lightGray;
+    width: 90%;
+    margin: auto;
+    .due-time {
+      margin-top: 15px;
+      color: $fontLight;
+      //* ------------------------------- font-style ------------------------------- */
+      font-family: $myFont;
+      font-size: $fontSizeSmall;
+      font-weight: $bold1x;
+    }
+  }
+ 
+}

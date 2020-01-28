@@ -1,7 +1,7 @@
 import React from "react";
 import { MyHeader } from "./headerStyled";
 import { Link, useHistory } from "react-router-dom";
-import Login from './login/login.component';
+import Login from './login/login';
 
 const Header = () => {
   const history = useHistory();
@@ -14,11 +14,11 @@ const Header = () => {
         LOGO
       </h1>
       <div className="headerNav">
-        <Link to="/get-started" className="myLink">
-          GET STARTED
+        <Link to="/gigs" className="myLink">
+          GIGS
         </Link>
-        <Link to="/about-us" className="myLink">
-          ABOUT US
+        <Link to="/internships" className="myLink">
+          INTERNSHIPS
         </Link>
         <Link to="/faqs" className="myLink">
           FAQS

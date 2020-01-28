@@ -1,0 +1,15 @@
+
+.avatar-block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .avatar-detail-block {
+    width: 48%;
+    border: 1px solid;
+  }
+  .notification-detail-block {
+    width: 48%;
+    border: 1px solid;
+  }
+}
+

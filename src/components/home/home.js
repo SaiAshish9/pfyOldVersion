@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useRef, forwardRef, useState, useEffect } from "react";
 import FrontBlock from "./frontBlock";
 import StepIncluded from "./stepIncluded";
@@ -6,9 +7,9 @@ import WorkWeExecute from "./workWeExecute";
 import DownloadApp from "./downloadApp";
 import Footer from "./footer";
 import { HeaderStyled } from "./homeStyled";
-import logo from './images/logo.png'
+import logo from "./images/logo.png";
 
-const Home = () => {
+const LandingPage = () => {
   const myRefOne = useRef(null);
   const myRefTwo = useRef(null);
 
@@ -24,18 +25,16 @@ const Home = () => {
       <HeaderStyled
         style={{
           textAlign: "center",
-          marginBottom:"-5rem",
+          marginBottom: "-5rem",
           padding: "20px 15px 15px 15px",
-          display:"flex",
-          justifyContent:"space-between",
-          alignItems:"center"
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center"
         }}
       >
-          <img height={"100rem"} src={logo}/>
+        <img height={"100rem"} src={logo} />
 
-        <h1 className="header-heading">
-          Launching Soon
-        </h1>
+        <h1 className="header-heading">Launching Soon</h1>
       </HeaderStyled>
 
       <FrontBlock handleScrollOne={handleScrollOne} />
@@ -55,4 +54,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default LandingPage;

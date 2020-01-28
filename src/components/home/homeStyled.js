@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import avenirr from "../../font/AvenirLTStd-Medium.otf";
 
+
 export const MyBlockOne = styled.div`
   position: absolute;
   height: 16px;
@@ -56,7 +57,9 @@ const FrontBlockStyled = styled.div`
     align-items: center;
 
     .content-background {
-      position: relative;
+
+/* --------------------------- position: relative; -------------------------- */
+
       display: flex;
       align-items: center;
       width: 80%;
@@ -114,10 +117,6 @@ const FrontBlockStyled = styled.div`
           margin-bottom: 17px;
         }
         .data-heading-two {
-          /* @font-face {
-          font-family: "avenir";
-          src: url(avenirr);
-        } */
           font-family: avenir, sans-serif;
           font-weight: 600;
           font-size: 32px;

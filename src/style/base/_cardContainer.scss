@@ -1,0 +1,29 @@
+.card-container {
+    font-family: $myFont;
+    background-color: rgba(0, 0, 0, 0.02);
+    word-spacing: $wordSpace;
+
+    .full-page {
+      padding: 40px;
+      /* border: 1px solid; */
+      .card-holder-box {
+        border-radius: 24px;
+        background-color: #fff;
+        .card-heading-box {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          width: 92%;
+          // margin: auto;
+          margin: 20px auto;  
+          // padding-top:20px;
+          .card-heading-one {
+          }
+          .card-heading-two {
+            align-self: center;
+            color: #a2adc3;
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+  

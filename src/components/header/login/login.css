@@ -1,0 +1,5 @@
+
+input[type='text'], input[type='password'], input[type='number'], textarea {
+    /* -webkit-appearance: none; */
+    outline: none;
+}
