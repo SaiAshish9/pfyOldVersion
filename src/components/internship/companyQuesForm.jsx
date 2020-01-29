@@ -6,24 +6,27 @@ import { apiURL } from "../../constant/url";
 import { responsiveArray } from "antd/lib/_util/responsiveObserve";
 
 const CompanyQuesForm = props => {
-  //   console.log(companyQuestion);
-  // const userAnswer = JSON.parse(localStorage.getItem("userAnswer"));
+
   const { TextArea } = Input;
   const [answer, setAnswer] = useState([]);
   const { companyQuestion } = props;
   const { handleSubmitModal } = props;
-  // thisAnswer=answer
-  let thisAnswer = new Array(companyQuestion.length);
 
   const onInputChange = (i, e) => {
-    thisAnswer[i] = e.target.value;
-    console.log(thisAnswer);
+    let newAnswer = [...answer];
+    // console.log(newAnswer)
+    newAnswer[i] = e.target.value;
+    setAnswer(newAnswer);
   };
+
+  useEffect(() => {
+    console.log(answer);
+  }, [answer]);
 
   const handleSubmitApplication = e => {
     e.preventDefault();
     const answerData = {
-      answers: thisAnswer
+      answers: answer
     };
 
     axios
@@ -34,15 +37,14 @@ const CompanyQuesForm = props => {
       )
       .then(res => {
         console.log(res);
-        console.log(answer)
+        console.log(answer);
         // setCompanyQuestion(res.data.questions);
       })
       .catch(e => {
         console.log("error" + e);
         console.log(e.response);
       });
-    setAnswer(thisAnswer);
-    handleSubmitModal()
+    handleSubmitModal();
   };
 
   console.log(answer);
@@ -56,7 +58,8 @@ const CompanyQuesForm = props => {
             {i + 1}. {question.question}
           </p>
           <TextArea
-            // value={answerTwo}
+            // value={answer[i]}
+            required={true}
             onChange={e => onInputChange(i, e)}
             placeholder="enter you answer"
             autoSize={{ minRows: 3, maxRows: 5 }}

@@ -31,8 +31,8 @@ const UserForm = ({ phone, passToken, handleModalCancel}) => {
   const [DOB, setDOB] = useState("");
   const [gender, setGender] = useState("");
 
-  const myCity = indianCity.city.map(city => (
-    <Option value={city} key={indianCity.city.indexOf(city)}>
+  const myCity = indianCity.city.map(city,i => (
+    <Option value={city} key={i}>
       {city}
     </Option>
   ));

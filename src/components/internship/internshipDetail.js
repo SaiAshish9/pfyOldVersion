@@ -13,7 +13,6 @@ const InternshipDetail = props => {
   const { internship } = useContext(InternshipContext);
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [applyButton, setApplyButton] = useState(false);
   const [isApply, setIsApply] = useState(false);
   const [isShortlisted, setIsShortlisted] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
@@ -26,13 +25,11 @@ const InternshipDetail = props => {
   // }, [answer]);
   const selectedInternshipId = props.match.params.id;
   const myInternship =
-  internship.length > 0 &&
-  internship.find(
-    thisInternship => thisInternship._id === selectedInternshipId
+    internship.length > 0 &&
+    internship.find(
+      thisInternship => thisInternship._id === selectedInternshipId
     );
-
-    
-    //#region
+  //#region
   /* --------------------------- internship provider state --------------------------- */
   const companyLogo = myInternship && myInternship.company.logoUrl;
   const designation = myInternship && myInternship.designation;
@@ -45,8 +42,8 @@ const InternshipDetail = props => {
   const appliedBeforeTime = myInternship && myInternship.applyBefore;
   const internshipLocation = myInternship && myInternship.location;
   const internshipStartingTime =
-  myInternship && myInternship.startingOfInternship;
-  
+    myInternship && myInternship.startingOfInternship;
+
   /* ---------------------------- internship detail state ---------------------------- */
   const aboutInternshipProvider =
     myInternship && myInternship.company.aboutCompany;
@@ -64,6 +61,22 @@ const InternshipDetail = props => {
       )
       .then(res => {
         console.log(res);
+        // switch (res.data.appliedStatus) {
+        //   case 300: {
+        //     setIsApply(true);
+        //   }
+        //   case 301: {
+        //     setIsShortlisted(true);
+        //   }
+        //   case 302: {
+        //     setIsSelected(true);
+        //   }
+        //   case 303: {
+        //     setIsRejected(true);
+        //   }
+        //   default:
+        //     return res.data.questions;
+        // }
         if (res.data.appliedStatus === 300) {
           setIsApply(true);
         } else if (res.data.appliedStatus === 301) {
@@ -79,17 +92,17 @@ const InternshipDetail = props => {
       .catch(e => {
         console.log("error" + e);
       });
-    },[modalVisible]);
+  }, [modalVisible]);
 
   const handleApply = () => {
     // setIsApply(true);
     setModalVisible(true);
   };
 
-  const handleSubmitModal = () =>{
+  const handleSubmitModal = () => {
     setModalVisible(false);
-    setIsApply(true)
-  }
+    setIsApply(true);
+  };
 
   const handleModalCancel = () => {
     // setIsApply(false);
@@ -131,7 +144,7 @@ const InternshipDetail = props => {
                 <div>
                   <img alt="" src={removeIcon}></img>
                   <span>You've been rejected</span>
-                  <span style={{color:"red"}}>learn more</span>
+                  <span style={{ color: "red" }}>learn more</span>
                 </div>
               )}
             </div>
