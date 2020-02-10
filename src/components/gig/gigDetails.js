@@ -1,37 +1,49 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState, useRef, useContext } from "react";
-import { Button, Icon, Carousel } from "antd";
+import { Button, Icon, Carousel, Modal } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
 import GigContext from "../../context/gigContext";
+import CompanyQueForm from "../internship/companyQuesForm";
+import { apiURL } from "../../constant/url";
+import { tokenHeader } from "../../constant/tokenHeader";
+import { arrayValidation } from "../validation/validation";
+import checkIcon from "../internship/img/checkIcon.svg";
+import removeIcon from "../internship/img/removeIcon.svg";
 
 // import { gigDetailStyled } from "./intershipDetailStyled";
 
 const GigDetail = props => {
- 
-
   //#region
   const { gig } = useContext(GigContext);
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [isApply, setIsApply] = useState(false);
+  const [isShortlisted, setIsShortlisted] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
+  const [isRejected, setIsRejected] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [isFailed, setIsFailed] = useState(false);
+  const [companyQuestion, setCompanyQuestion] = useState("");
 
   const selectedGigId = props.match.params.id;
 
   const myGig = gig.find(thisGig => thisGig._id === selectedGigId);
-
   /* ------------------------ gig provider state ----------------------- */
-  const companyLogo = myGig.company.logoUrl;
-  const designation = myGig.title;
-  const gigProvider = myGig.company.companyName;
+  const companyLogo = myGig && myGig.company.logoUrl;
+  const designation = myGig && myGig.title;
+  const gigProvider = myGig && myGig.company.companyName;
 
   /* ------------------------- gig brief state ------------------------- */
-  const reward = myGig.reward;
-  const task = myGig.tasks.length;
-  const appliedBeforeTime = myGig.applyBefore;
-  const type = myGig.missionType;
+  const reward = myGig && myGig.reward;
+  const task = myGig && myGig.tasks.length;
+  const appliedBeforeTime = myGig && myGig.applyBefore;
+  const type = myGig && myGig.missionType;
 
   /* ------------------------- gig detail state ------------------------ */
-  const aboutGigProvider = myGig.company.aboutCompany;
-  const aboutGig = myGig.about;
-  const requirement = myGig.requirements;
+  const aboutGigProvider = myGig && myGig.company.aboutCompany;
+  const aboutGig = myGig && myGig.about;
+  const requirement = myGig && myGig.requirements;
 
   useEffect(() => {
     console.log(gigProvider);
@@ -41,6 +53,36 @@ const GigDetail = props => {
   //#endregion
 
   let myCarousel = useRef();
+
+  useEffect(() => {
+    axios
+      .get(
+        `${apiURL}/mission/fetchone_with_status/${selectedGigId}`,
+        tokenHeader
+      )
+      .then(res => {
+        console.log(res);
+        if (res.data.appliedStatus === 601) {
+          setIsApply(true);
+        } else if (res.data.appliedStatus === 602) {
+          setIsShortlisted(true);
+        } else if (res.data.appliedStatus === 603) {
+          setIsSelected(true);
+        } else if (res.data.appliedStatus === 604) {
+          setIsRejected(true);
+        } else if (res.data.appliedStatus === 605) {
+          setIsCompleted(true);
+        } else if (res.data.appliedStatus === 606) {
+          setIsFailed(true);
+        } else {
+          console.log(res.data.questions);
+          setCompanyQuestion(res.data.questions);
+        }
+      })
+      .catch(e => {
+        console.log("error" + e);
+      });
+  }, [modalVisible]);
 
   const next = () => {
     myCarousel.next();
@@ -57,17 +99,66 @@ const GigDetail = props => {
     slidesToScroll: 1
   };
 
+  const handleApply = () => {
+    setModalVisible(true);
+  };
+
+  const handleSubmitModal = () => {
+    setModalVisible(false);
+    setIsApply(true);
+  };
+
+  const handleModalCancel = () => {
+    setModalVisible(false);
+  };
+
   return (
     <div className="gig-details-page">
       <div className="gig-main-block">
         <div className="gig-provider-block-One">
           <div className="gig-provider-block-two">
             <div className="gig-provider-block-three">
-              <img src={companyLogo}></img>
+              <img src={companyLogo ? companyLogo : ""}></img>
             </div>
             <div className="gig-provider-block-four">
               <h1 className="gig-provider-heading-one">{designation}</h1>
               <h3 className="gig-provider-heading-two">{gigProvider}</h3>
+              {isApply && (
+                <div>
+                  <img alt="" src={checkIcon}></img>
+                  <span>You've applied to this internship</span>
+                </div>
+              )}
+              {isShortlisted && (
+                <div>
+                  <img alt="" src={checkIcon}></img>
+                  <span>You are shortlisted for this internship</span>
+                </div>
+              )}
+              {isSelected && (
+                <div>
+                  <img alt="" src={checkIcon}></img>
+                  <span>You are selected for this internship</span>
+                </div>
+              )}
+              {isRejected && (
+                <div>
+                  <img alt="" src={removeIcon}></img>
+                  <span>You've been rejected</span>
+                </div>
+              )}
+              {isCompleted && (
+                <div>
+                  <img alt="" src={checkIcon}></img>
+                  <span>Congratulations! you've successfully complete this internship</span>
+                </div>
+              )}
+              {isFailed && (
+                <div>
+                  <img alt="" src={removeIcon}></img>
+                  <span>Sorry! your gig has been failed</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -127,18 +218,34 @@ const GigDetail = props => {
           <br />
           <div>
             <h2>Requirements</h2>
-            {requirement.map(myRequirement => (
-              <p key={myRequirement.length}>
-                {requirement.indexOf(myRequirement) + 1}. {myRequirement}
-              </p>
-            ))}
+            {arrayValidation(requirement) &&
+              requirement.map(myRequirement => (
+                <p key={myRequirement.length}>
+                  {requirement.indexOf(myRequirement) + 1}. {myRequirement}
+                </p>
+              ))}
           </div>
           <br />
         </div>
 
         <div className="apply-block">
-          <Button type="primary">APPLY</Button>
+          <Button type="primary" disabled={isApply} onClick={handleApply}>
+            APPLY
+          </Button>
         </div>
+        <Modal
+          visible={modalVisible}
+          onCancel={handleModalCancel}
+          footer={null}
+        >
+          <CompanyQueForm
+            isInternshipOrGig="gig"
+            selectedId={selectedGigId}
+            companyQuestion={companyQuestion}
+            handleSubmitModal={handleSubmitModal}
+            // refs={node => (myRef = node)}
+          />
+        </Modal>
       </div>
     </div>
   );

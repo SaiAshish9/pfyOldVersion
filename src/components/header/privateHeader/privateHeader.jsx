@@ -34,6 +34,12 @@ const PrivateHeader = () => {
         className="headerNav"
         style={{ display: "flex", justifyContent: "space-evenly" }}
       >
+        <Link to="/home" className="myLink">
+          Home
+        </Link>
+        <Link to="/resume" className="myLink">
+        Resume
+      </Link>
         <Link to="/gigs" className="myLink">
           GIGS
         </Link>

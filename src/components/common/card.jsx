@@ -2,25 +2,44 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // import { GigCardStyled } from "../defaultStyled/defaultStyled";
-import calendarIcon from "./images/calendarIcon.svg";
-import rupeeIcon from "./images/rupeeIcon.svg";
-import taskIcon from "./images/taskIcon.svg";
+import calendarIcon from "./img/calendarIcon.svg";
+import rupeeIcon from "./img/rupeeIcon.svg";
+import taskIcon from "./img/taskIcon.svg";
 const Card = props => {
   const gig = props.gig;
   const internship = props.internship;
 
+  const gigCompany = internship
+    ? false
+    : gig.company
+    ? gig.company
+    : gig.companyId;
+
+  const internshipCompany = gig
+    ? false
+    : internship.company
+    ? internship.company
+    : internship.companyId;
+
+  const gigTasks = internship
+    ? false
+    : Array.isArray(gig.tasks)
+    ? gig.tasks.length
+    : gig.tasks;
+
   const id = gig ? gig._id : internship._id;
-  const logo = gig ? gig.company.logoUrl : internship.company.logoUrl;
+  const logo = gig ? gigCompany.logoUrl : internshipCompany.logoUrl;
   const title = gig ? gig.title : internship.designation;
   const companyName = gig
-    ? gig.company.companyName
-    : internship.company.companyName;
+    ? gigCompany.companyName
+    : internshipCompany.companyName;
   const amount = gig ? gig.reward : internship.stipend;
-  const durationLength = gig ? gig.tasks.length : internship.duration;
-  const applyBefore = gig ? gig.applyBefore : internship.applyBefore;
-  const DetailPath = gig ? `/gig/${id}` : `/internship/${id}`;
+  const durationLength = gig ? `${gigTasks} Task` : internship.duration;
   const icon = gig ? taskIcon : calendarIcon;
+  const applyBefore = gig ? gig.applyBefore : internship.applyBefore;
 
+  const DetailPath = gig ? `/gig/${id}` : `/internship/${id}`;
+  
   return (
     <Link to={DetailPath}>
       <div className="my-card-block">
@@ -43,7 +62,7 @@ const Card = props => {
         <div>
           <div className="brief-info-block">
             <img src={icon} alt=""></img>
-            <p className="brief-info-para">{durationLength} Tasks</p>
+            <p className="brief-info-para">{durationLength}</p>
           </div>
         </div>
         <div className="boundary-two">

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="37" height="39" viewBox="0 0 37 39">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:url(#linear-gradient)}.cls-4{fill:url(#linear-gradient-2)}.cls-5{fill:url(#linear-gradient-3)}
+        </style>
+        <clipPath id="clip-path">
+            <rect id="Rectangle_1954" width="37" height="39" class="cls-1" data-name="Rectangle 1954" rx="4" transform="translate(0 .354)"/>
+        </clipPath>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y1=".008" y2=".998" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#e09b3d"/>
+            <stop offset=".3" stop-color="#c74c4d"/>
+            <stop offset=".6" stop-color="#c21975"/>
+            <stop offset="1" stop-color="#7024c4"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" y1="-.451" y2="1.462" xlink:href="#linear-gradient"/>
+        <linearGradient id="linear-gradient-3" y1="-1.396" y2="6.586" xlink:href="#linear-gradient"/>
+    </defs>
+    <g id="Mask_Group_95" class="cls-2" data-name="Mask Group 95" transform="translate(0 -.354)">
+        <g id="instagram" transform="translate(0 .886)">
+            <path id="Path_2133" d="M26.369 0h-15.18A11.2 11.2 0 0 0 0 11.189v15.18a11.2 11.2 0 0 0 11.189 11.189h15.18a11.2 11.2 0 0 0 11.189-11.189v-15.18A11.2 11.2 0 0 0 26.369 0zm7.41 26.369a7.41 7.41 0 0 1-7.41 7.41h-15.18a7.41 7.41 0 0 1-7.41-7.41v-15.18a7.41 7.41 0 0 1 7.41-7.41h15.18a7.41 7.41 0 0 1 7.41 7.41v15.18z" class="cls-3" data-name="Path 2133"/>
+            <path id="Path_2134" d="M15.507 5.793a9.714 9.714 0 1 0 9.714 9.714 9.725 9.725 0 0 0-9.714-9.714zm0 15.649a5.935 5.935 0 1 1 5.935-5.935 5.935 5.935 0 0 1-5.935 5.935z" class="cls-4" data-name="Path 2134" transform="translate(3.272 3.272)"/>
+            <circle id="Ellipse_554" cx="2.328" cy="2.328" r="2.328" class="cls-5" data-name="Ellipse 554" transform="translate(26.184 6.81)"/>
+        </g>
+    </g>
+</svg>

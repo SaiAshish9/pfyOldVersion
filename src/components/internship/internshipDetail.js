@@ -95,7 +95,6 @@ const InternshipDetail = props => {
   }, [modalVisible]);
 
   const handleApply = () => {
-    // setIsApply(true);
     setModalVisible(true);
   };
 
@@ -105,7 +104,6 @@ const InternshipDetail = props => {
   };
 
   const handleModalCancel = () => {
-    // setIsApply(false);
     setModalVisible(false);
   };
 
@@ -131,13 +129,13 @@ const InternshipDetail = props => {
               {isShortlisted && (
                 <div>
                   <img alt="" src={checkIcon}></img>
-                  <span>You've applied to this internship</span>
+                  <span>You are shortlisted for this internship</span>
                 </div>
               )}
               {isSelected && (
                 <div>
                   <img alt="" src={checkIcon}></img>
-                  <span>You've applied to this internship</span>
+                  <span>You are selected for this internship</span>
                 </div>
               )}
               {isRejected && (
@@ -188,6 +186,7 @@ const InternshipDetail = props => {
           <div>
             <h2>Responsibilities</h2>
             {internResponsibilities.length > 0 &&
+              internResponsibilities &&
               internResponsibilities.map(responsibility => (
                 <p key={internResponsibilities.indexOf(responsibility)}>
                   {internResponsibilities.indexOf(responsibility) + 1}.{" "}
@@ -246,7 +245,8 @@ const InternshipDetail = props => {
           footer={null}
         >
           <CompanyQueForm
-            selectedInternshipId={selectedInternshipId}
+            isInternshipOrGig="internship"
+            selectedId={selectedInternshipId}
             companyQuestion={companyQuestion}
             handleSubmitModal={handleSubmitModal}
             // refs={node => (myRef = node)}

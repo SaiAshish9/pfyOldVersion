@@ -4,13 +4,12 @@ import axios from "axios";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { apiURL } from "../../constant/url";
 import { responsiveArray } from "antd/lib/_util/responsiveObserve";
+import { arrayValidation } from "../validation/validation";
 
 const CompanyQuesForm = props => {
-
   const { TextArea } = Input;
   const [answer, setAnswer] = useState([]);
-  const { companyQuestion } = props;
-  const { handleSubmitModal } = props;
+  const { companyQuestion, handleSubmitModal, selectedId, isInternshipOrGig } = props;
 
   const onInputChange = (i, e) => {
     let newAnswer = [...answer];
@@ -29,12 +28,9 @@ const CompanyQuesForm = props => {
       answers: answer
     };
 
-    axios
-      .put(
-        `${apiURL}/internship/apply/${props.selectedInternshipId}`,
-        answerData,
-        tokenHeader
-      )
+    if(isInternshipOrGig==="internship"){
+      axios
+      .put(`${apiURL}/internship/apply/${selectedId}`, answerData, tokenHeader)
       .then(res => {
         console.log(res);
         console.log(answer);
@@ -44,13 +40,29 @@ const CompanyQuesForm = props => {
         console.log("error" + e);
         console.log(e.response);
       });
+    }
+    else{
+      axios
+      .put(`${apiURL}/mission/apply/${selectedId}`, answerData, tokenHeader)
+      .then(res => {
+        console.log(res);
+        // console.log(answer);
+        // setCompanyQuestion(res.data.questions);
+      })
+      .catch(e => {
+        console.log("error" + e);
+        console.log(e.response);
+      });
+
+    }
+   
     handleSubmitModal();
   };
 
   console.log(answer);
 
   const question =
-    companyQuestion.length > 0 &&
+    arrayValidation(companyQuestion) &&
     companyQuestion.map((question, i) => {
       return (
         <div key={i}>

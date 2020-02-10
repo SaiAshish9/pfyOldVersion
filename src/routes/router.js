@@ -2,9 +2,11 @@ import React, { useEffect, useReducer } from "react";
 
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import UserHome from "../components/userHome/userHome";
-import UserInternship from "../components/userHome/userIntership/userInternship";
+import UserHome from "../components/userHome/userHome/userHome";
+import UserInternship from "../components/userHome/userIntership/userInternship.jsx";
 import UserGig from "../components/userHome/userGig/userGig";
+import UserProfile from "../components/userHome/userProfile/userProfile.jsx";
+import UserResume from "../components/userResume/userResume";
 
 import LandingPage from "../components/home/home";
 import GetStarted from "../components/getStarted/getStarted";
@@ -45,9 +47,12 @@ const AppRouter = () => {
           component={InternshipDetail}
           exact={true}
         />
+
         <PrivateRoute path="/home" component={UserHome} exact={true} />
         <PrivateRoute path="/my-internships" component={UserInternship} exact={true} />
         <PrivateRoute path="/my-gigs" component={UserGig} exact={true} />
+        <PrivateRoute path="/profile" component={UserProfile} exact={true} />
+        <PrivateRoute path="/resume" component={UserResume} exact={true} />
         <Route component={PageNotFound} />
       </Switch>
     </Router>

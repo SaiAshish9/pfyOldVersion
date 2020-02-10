@@ -1,15 +1,318 @@
+$base-color: #fafafa;
+$card-background-color: #fff;
 
-.avatar-block {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  .avatar-detail-block {
-    width: 48%;
-    border: 1px solid;
+.homePage-block {
+  padding: 0px 80px;
+  margin-top: 40px;
+  background: $base-color;
+  .avatar-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    .avatar-detail-block {
+      display: flex;
+      width: 48%;
+      padding: 20px;
+      box-shadow: 0 0 8px 0 #a5adba;
+      border-radius: 4px;
+      cursor: pointer;
+      background: $card-background-color;
+      .avatar-img-block {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 120px;
+        border-radius: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        img {
+          width: 100%;
+        }
+      }
+      .avatar-profile-block {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 60px;
+      }
+    }
+    .notification-detail-block {
+      display: flex;
+      width: 48%;
+      box-shadow: 0 0 8px 0 #a5adba;
+      border-radius: 4px;
+      justify-content: center;
+      background-color: $card-background-color;
+    }
   }
-  .notification-detail-block {
-    width: 48%;
-    border: 1px solid;
+
+  .stat-block {
+    width: 100%;
+    margin-bottom: 40px;
+    .stat-heading-block {
+    }
+    .stat-card-block {
+      display: flex;
+      justify-content: space-between;
+
+      .stat-internship-block {
+        width: 30%; /* 100/5 */
+        border-radius: 8px;
+        box-shadow: 0 0 10px 0 rgba(58, 33, 191, 0.16);
+        display: flex;
+        background-color: $card-background-color;
+        .internship-img-block {
+          height: 120px;
+          width: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #dcd5fb;
+        }
+        .internship-data-block {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 64%;
+          // margin-left: 50px;
+        }
+        .icon {
+          align-self: center;
+        }
+      }
+      .stat-gig-block {
+        width: 30%; /* 100/5 */
+        border-radius: 8px;
+        box-shadow: 0 0 10px 0 rgba(58, 33, 191, 0.16);
+        display: flex;
+        background-color: $card-background-color;
+        .gig-img-block {
+          height: 120px;
+          width: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #dae8f9;
+        }
+        .gig-data-block {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 64%;
+        }
+        .icon {
+          align-self: center;
+        }
+      }
+      .stat-money-block {
+        width: 30%;
+        border-radius: 8px;
+        box-shadow: 0 0 10px 0 rgba(58, 33, 191, 0.16);
+        display: flex;
+        background-color: $card-background-color;
+
+        .money-img-block {
+          height: 120px;
+          width: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #f8ccd6;
+        }
+        .money-data-block {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 64%;
+        }
+        .icon {
+          align-self: center;
+        }
+      }
+    }
+  }
+  .gigOrInternship-block {
+    .block {
+      background-color: $card-background-color;
+      margin-bottom: 20px;
+      padding: 0px 40px 40px 40px;
+      border-radius: 8px;
+      .heading {
+        padding-top: 20px;
+      }
+    }
+    .recommended-block {
+      display: flex;
+      padding-top: 20px;
+      justify-content: center;
+      background-color: $card-background-color;
+    }
+    .trending-block {
+      display: flex;
+      padding-top: 20px;
+      justify-content: center;
+      background-color: $card-background-color;
+    }
+    .latest-block {
+      display: flex;
+      padding-top: 20px;
+      justify-content: center;
+      background-color: $card-background-color;
+    }
   }
 }
 
+%user-block {
+  border-radius: 8px;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+  border: solid 1px rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+%user-content-with-icon {
+  display: flex;
+  margin: 20px 0px 20px 40px;
+}
+
+%user-icon {
+  align-self: end;
+}
+
+%user-content {
+  margin-left: 20px;
+  line-height: 1;
+}
+
+%user-button {
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.profilePage-block {
+  background-color: $base-color;
+  display: flex;
+  padding: 80px;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  .avatar-profile-detail-block {
+    padding: 40px;
+    width: 60%;
+    background: $card-background-color;
+    border-radius: 8px;
+  }
+
+  .about-avatar-block {
+    @extend %user-block;
+    .about-avatar-content-block {
+      @extend %user-content-with-icon;
+      .about-avatar-img {
+        @extend %user-icon;
+      }
+      .about-avatar-content {
+        @extend %user-content;
+      }
+    }
+    .about-avatar-button {
+      @extend %user-button;
+    }
+  }
+
+  .offline-available-avatar-block {
+    @extend %user-block;
+    .offline-available-avatar-content-block {
+      @extend %user-content-with-icon;
+      .offline-available-avatar-img {
+        @extend %user-icon;
+      }
+      .offline-available-avatar-content {
+        @extend %user-content;
+      }
+    }
+    .offline-available-avatar-button {
+      @extend %user-button;
+    }
+  }
+
+  .language-of-avatar-block {
+    @extend %user-block;
+    .language-of-avatar-content-block {
+      @extend %user-content-with-icon;
+      .language-of-avatar-img {
+        @extend %user-icon;
+      }
+      .language-of-avatar-content {
+        @extend %user-content;
+      }
+    }
+    .language-of-avatar-button {
+      @extend %user-button;
+    }
+  }
+
+  .skill-of-avatar-block {
+    @extend %user-block;
+    .skill-of-avatar-content-block {
+      @extend %user-content-with-icon;
+      .skill-of-avatar-img {
+        @extend %user-icon;
+      }
+      .skill-of-avatar-content {
+        @extend %user-content;
+      }
+    }
+    .skill-of-avatar-button {
+      @extend %user-button;
+    }
+  }
+
+  .avatar-digital-profile-block {
+    @extend %user-block;
+    .avatar-digital-profile-content-block {
+      @extend %user-content-with-icon;
+      .avatar-digital-profile-img {
+        @extend %user-icon;
+      }
+      .avatar-digital-profile-content {
+        @extend %user-content;
+      }
+    }
+    .fb-block {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 8px;
+      input {
+        width: 80%;
+      }
+    }
+    .insta-block {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 8px;
+      input {
+        width: 80%;
+      }
+    }
+    .tik-tok-block {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 8px;
+      input {
+        width: 80%;
+      }
+    }
+    .avatar-digital-profile-button {
+      @extend %user-button;
+      margin: 20px 0px;
+    }
+  }
+}

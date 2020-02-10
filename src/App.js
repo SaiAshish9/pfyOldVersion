@@ -53,9 +53,9 @@ const App = () => {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(internship);
-  }, [internship]);
+  // useEffect(() => {
+  //   console.log(internship);
+  // }, [internship]);
 
   // useEffect(() => {
   //   console.log(gig);
