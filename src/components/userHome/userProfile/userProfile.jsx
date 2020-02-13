@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import AboutUser from "./AboutUser";
 import OfflineAvailUser from "./offlineAvailUser";
@@ -6,24 +6,20 @@ import UserLanguage from "./userLanguage";
 import UserSkill from "./userSkill";
 import UserDigitalProfile from "./userDigitalProfile";
 
-import { apiURL } from "../../../constant/url";
-import { tokenHeader } from "../../../constant/tokenHeader";
-import axios from "axios";
-
 import UserCard from "../../common/userCard";
 
 const UserProfile = () => {
-  axios.get(`${apiURL}/user/`, tokenHeader).then(res => {
-    console.log(res);
-    console.log(res.data);
-    // const profileData = res.data
-  });
+  const [profileData, setProfileData] = useState();
+
+  const myUserProfile = myProfileData => {
+    console.log("myProfileData",myProfileData);
+  };
 
   return (
     <div className="profilePage-block">
-      <UserCard></UserCard>
+      <UserCard myUserProfile={myUserProfile}></UserCard>
       <div className="avatar-profile-detail-block">
-        <AboutUser />
+        <AboutUser profileData={profileData}/>
         <OfflineAvailUser />
         <UserLanguage />
         <UserSkill />

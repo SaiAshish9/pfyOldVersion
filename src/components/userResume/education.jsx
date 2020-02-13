@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { Button, Modal, Checkbox } from "antd";
+import { Button, Modal, Checkbox, Tooltip, Icon } from "antd";
 import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import educationIcon from "./img/educationIcon.svg";
+import { objectValidation } from "../validation/validation";
 
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
 
-const Education = () => {
+const Education = ({ education, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const { register, handleSubmit, errors, control, watch } = useForm({
+  const { register, handleSubmit, errors, control, watch, setValue } = useForm({
     defaultValues: {
       isCurrently: false,
       startYear: year
@@ -20,9 +21,12 @@ const Education = () => {
   });
 
   const isCheckbox = watch("isCurrently");
-  console.log(isCheckbox);
-
   const myStartYear = watch("startYear");
+
+  const endYear = Array.from(
+    new Array(10),
+    (val, index) => parseInt(myStartYear) + 9 - index
+  );
 
   const onSubmit = data => {
     console.log(data);
@@ -30,13 +34,13 @@ const Education = () => {
       .put(`${apiURL}/resume/addeducation`, data, tokenHeader)
       .then(res => {
         console.log(res);
+        updateResume(Math.random());
       })
       .catch(e => {
         console.log(e.response);
       });
+    setIsModalVisible(false);
   };
-
-  console.log(errors);
 
   const handleCancel = () => {
     setIsModalVisible(false);
@@ -46,32 +50,126 @@ const Education = () => {
     setIsModalVisible(true);
   };
 
-  const endYear = Array.from(
-    new Array(10),
-    (val, index) => parseInt(myStartYear) + 9 - index
-  );
-  // console.log(endYear);
+  const handleEdit = educationData => {
+    // setSelectedEducation(educationData);
+    console.log(educationData);
+    setValue("educationType.typeNo", educationData.educationType.typeNo);
+    setValue("instituteName", educationData.instituteName);
+    setValue("course", educationData.course);
+    setValue("marks.val", educationData.marks.val);
+    setValue("marks.type", educationData.marks.type);
+    setValue("startYear", educationData.startYear);
+    setValue("endYear", educationData.endYear);
+    setValue("isCurrently", educationData.isCurrently);
 
+    setIsModalVisible(true);
+  };
+
+  // const handleDelete = educationData => {
+  //   console.log("myEducation", educationData);
+  // };
+
+  const printEducation = educationData => {
+    const educationStandard =
+      educationData.educationType.typeNo === 0
+        ? "Graduation"
+        : educationData.educationType.typeNo === 1
+        ? "Post Graduation"
+        : educationData.educationType.typeNo === 4
+        ? "Class 10th"
+        : educationData.educationType.typeNo === 5
+        ? "Class 12th"
+        : false;
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          margin: "0px 40px"
+        }}
+      >
+        <section>
+          <h3>{!!educationStandard && educationStandard}</h3>
+          <h2>{educationData.instituteName}</h2>
+          <h4>{educationData.course}</h4>
+          <h5>{educationData.marks.val}</h5>
+          <h5>{educationData.marks.type}</h5>
+          <h5>{educationData.startYear}</h5>
+          <h5>{educationData.endYear}</h5>
+        </section>
+        <section>
+          <Tooltip title="edit">
+            <Icon
+              type="edit"
+              onClick={() => handleEdit(educationData)}
+            ></Icon>
+          </Tooltip>
+        </section>
+      </div>
+    );
+  };
+
+  //! ---------------------------------- test ---------------------------------- */
+  // console.log("this", Object.entries(education).length);
+  // console.log("this", Object.entries(education).length > 0);
+  // console.log(errors);
+  // console.log(endYear);
+  const handleAdd = () => {
+    console.log("todo");
+  };
   return (
     <div className="education-block-one">
-      <div className="education-block-two">
-        <img
-          src={educationIcon}
-          alt=""
-          className="education-block-two-icon"
-        ></img>
-        <h2 className="education-block-two-heading">Education</h2>
-      </div>
-      <Button
-        // type="primary"
-        shape="round"
-        className="education-block-one-button"
-        onClick={handleEducationClick}
+      <div
+        className="education-block-two"
+        style={{
+          alignItems: "center",
+          justifyContent: "space-between",
+          borderBottom: "1px solid",
+          paddingBottom: "12px"
+        }}
       >
-        Add Education
-      </Button>
+        <section style={{ display: "flex" }}>
+          <img
+            src={educationIcon}
+            alt=""
+            className="education-block-two-icon"
+          ></img>
+          <h2 className="education-block-two-heading">Education</h2>
+        </section>
+        <section>
+          <Tooltip title="add">
+            <Icon type="plus-circle" onClick={handleAdd} />
+          </Tooltip>
+        </section>
+      </div>
+      {!!education && objectValidation(education) ? (
+        <div>
+          {objectValidation(education.tenth) && (
+            <div>{printEducation(education.tenth)}</div>
+          )}
+          {objectValidation(education.twelfth) && (
+            <div>{printEducation(education.twelfth)}</div>
+          )}
+          {objectValidation(education.UG) && (
+            <div>{printEducation(education.UG)}</div>
+          )}
+          {objectValidation(education.PG) && (
+            <div>{printEducation(education.PG)}</div>
+          )}
+        </div>
+      ) : (
+        <Button
+          // type="primary"
+          shape="round"
+          className="education-block-one-button"
+          onClick={handleEducationClick}
+        >
+          Add Education
+        </Button>
+      )}
+
       <Modal
-        title="Basic Modal"
+        title="Add Qualification"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
@@ -83,7 +181,7 @@ const Education = () => {
           <h2>Institute type</h2>
           <select name="educationType.typeNo" ref={register}>
             <option value={4}>Class 10th</option>
-            <option value={5}>High School/ Junior College</option>
+            <option value={5}>Class 12th/ Junior College</option>
             <option value={0}>Graduation</option>
             <option value={1}>Post Graduation</option>
           </select>
@@ -147,6 +245,7 @@ const Education = () => {
               as={<Checkbox />}
               name="isCurrently"
               control={control}
+              // defaultValue={false}
             />
             Currently studying here
           </section>

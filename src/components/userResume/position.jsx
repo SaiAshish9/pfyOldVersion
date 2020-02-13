@@ -8,7 +8,7 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import positionIcon from "./img/positionIcon.svg";
 import userCard from "../common/userCard.jsx";
 
-const Position = ({ position, set }) => {
+const Position = ({ position, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [positionData, setPositionData] = useState(false);
 
@@ -28,19 +28,18 @@ const Position = ({ position, set }) => {
     console.log(data);
     const check = { ...data, _id: positionData._id };
     console.log(check);
-    set(Math.random());
     const myData = positionData._id ? { ...data, _id: positionData._id } : data;
     console.log(myData);
     axios
-
       .post(`${apiURL}/resume/add_por`, myData, tokenHeader)
       .then(res => {
         console.log(res);
-        set(Math.random());
+        updateResume(Math.random());
       })
       .catch(e => {
         console.log(e.response);
       });
+      setPositionData(false)
     setIsModalVisible(false);
   };
 
@@ -50,21 +49,17 @@ const Position = ({ position, set }) => {
     setIsModalVisible(false);
     setPositionData(false);
   };
-  const handlePositionButton = () => {
+  const handleAdd = () => {
     setIsModalVisible(true);
   };
 
-  const handleEditButton = selectedPosition => {
-    console.log(selectedPosition);
+  const handleEdit = selectedPosition => {
+    // console.log(selectedPosition);
     setPositionData(selectedPosition);
     setIsModalVisible(true);
     setValue("position", selectedPosition.position);
     setValue("description", selectedPosition.description);
   };
-
-  useEffect(() => {
-    console.log(positionData);
-  }, [positionData]);
 
   const handleDelete = id => {
     console.log(id);
@@ -72,16 +67,12 @@ const Position = ({ position, set }) => {
       .delete(`${apiURL}/resume/delete_por/${id}`, tokenHeader)
       .then(res => {
         // console.log(res);
-        set(Math.random());
+        updateResume(Math.random());
       })
       .catch(e => {
         console.log(e.response);
       });
   };
-
-  // const handleDeleteClick = () => {
-  //   setIsPopover(true);
-  // };
 
   return (
     <div className="position-block-one">
@@ -106,7 +97,7 @@ const Position = ({ position, set }) => {
         </section>
         <section>
           <Tooltip title="add">
-            <Icon type="plus-circle" onClick={handlePositionButton} />
+            <Icon type="plus-circle" onClick={handleAdd} />
           </Tooltip>
         </section>
       </div>
@@ -131,7 +122,7 @@ const Position = ({ position, set }) => {
               <Tooltip title="edit">
                 <Icon
                   type="edit"
-                  onClick={() => handleEditButton(thisPosition)}
+                  onClick={() => handleEdit(thisPosition)}
                   style={{ marginRight: "32px" }}
                 ></Icon>
               </Tooltip>
@@ -149,7 +140,7 @@ const Position = ({ position, set }) => {
           // type="primary"
           shape="round"
           className="position-block-one-button"
-          onClick={handlePositionButton}
+          onClick={handleAdd}
         >
           Add Responsibility
         </Button>

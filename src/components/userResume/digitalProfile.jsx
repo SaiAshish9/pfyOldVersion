@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Button, Modal, Input } from "antd";
+import { Button, Modal, Input, Tooltip, Icon } from "antd";
 import { useForm, Controller } from "react-hook-form";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import team from "./img/team.svg";
 import Axios from "axios";
+import { objectValidation } from "../validation/validation";
 
-const DigitalProfile = () => {
+const DigitalProfile = ({ digitalProfile, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, errors, control } = useForm();
 
@@ -15,10 +16,12 @@ const DigitalProfile = () => {
     Axios.post(`${apiURL}/resume/add_digital_profiles`, data, tokenHeader)
       .then(res => {
         console.log(res);
+        updateResume(Math.random());
       })
       .catch(e => {
         console.log(e.response);
       });
+    setIsModalVisible(false);
   };
 
   console.log(errors);
@@ -31,20 +34,83 @@ const DigitalProfile = () => {
     setIsModalVisible(true);
   };
 
+  const handleEdit = () => {
+    setIsModalVisible(true);
+  };
+
+  const printDigitalProfile = (digitalProfileData, name) => (
+    <div
+    style={{
+      // display: "flex",
+      // justifyContent: "space-between",
+      margin: "0px 40px"
+    }}
+    >
+      <section>{name}</section>
+      <section>{digitalProfileData}</section>
+    </div>
+  );
+
   return (
     <div className="digital-profile-block-one">
-      <div className="digital-profile-block-two">
-        <img src={team} alt="" className="digital-profile-block-two-icon"></img>
-        <h2 className="digital-profile-block-two-heading">Digital Profiles</h2>
-      </div>
-      <Button
-        // type="primary"
-        shape="round"
-        className="digital-profile-block-one-button"
-        onClick={handleDigitalProfileButton}
+      <div
+        className="digital-profile-block-two"
+        style={{
+          alignItems: "center",
+          justifyContent: "space-between",
+          borderBottom: "1px solid",
+          paddingBottom: "12px"
+        }}
       >
-        Add Digital Profile
-      </Button>
+        <section style={{ display: "flex" }}>
+          <img
+            src={team}
+            alt=""
+            className="digital-profile-block-two-icon"
+          ></img>
+          <h2 className="digital-profile-block-two-heading">
+            Digital Profiles
+          </h2>
+        </section>
+        <section>
+          <Tooltip title="edit">
+            <Icon type="edit" onClick={handleEdit} />
+          </Tooltip>
+        </section>
+      </div>
+      {!!digitalProfile && objectValidation(digitalProfile) ? (
+        <div>
+          {!!digitalProfile.facebook &&
+            printDigitalProfile(digitalProfile.facebook, "Facebook")}
+          {!!digitalProfile.instagram &&
+            printDigitalProfile(digitalProfile.instagram, "Instagram")}
+          {!!digitalProfile.linkedin &&
+            printDigitalProfile(digitalProfile.linkedin, "LinkedIn")}
+          {!!digitalProfile.youtube &&
+            printDigitalProfile(digitalProfile.youtube, "YouTube")}
+          {!!digitalProfile.github &&
+            printDigitalProfile(digitalProfile.github, "GitHub")}
+          {!!digitalProfile.behance &&
+            printDigitalProfile(digitalProfile.behance, "Behance")}
+          {!!digitalProfile.dribbble &&
+            printDigitalProfile(digitalProfile.dribbble, "Dribbble")}
+          {!!digitalProfile.quora &&
+            printDigitalProfile(digitalProfile.quora, "Quora")}
+          {!!digitalProfile.blog &&
+            printDigitalProfile(digitalProfile.blog, "Blog")}
+          {!!digitalProfile.medium &&
+            printDigitalProfile(digitalProfile.medium, "Medium")}
+        </div>
+      ) : (
+        <Button
+          // type="primary"
+          shape="round"
+          className="digital-profile-block-one-button"
+          onClick={handleDigitalProfileButton}
+        >
+          Add Digital Profile
+        </Button>
+      )}
       <Modal
         title="Basic Modal"
         visible={isModalVisible}
@@ -56,21 +122,33 @@ const DigitalProfile = () => {
             as={<Input />}
             name="facebook"
             control={control}
-            defaultValue=""
+            defaultValue={
+              !!digitalProfile && !!digitalProfile.facebook
+                ? digitalProfile.facebook
+                : ""
+            }
             addonBefore="facebook"
           />
           <Controller
             as={<Input />}
             name="behance"
             control={control}
-            defaultValue=""
+            defaultValue={
+              !!digitalProfile && !!digitalProfile.instagram
+                ? digitalProfile.instagram
+                : ""
+            }
             addonBefore="Behance"
           />
           <Controller
             as={<Input />}
             name="instagram"
             control={control}
-            defaultValue=""
+            defaultValue={
+              !!digitalProfile && !!digitalProfile.linkedin
+                ? digitalProfile.linkedin
+                : ""
+            }
             addonBefore="Instagram"
           />
 
@@ -78,49 +156,77 @@ const DigitalProfile = () => {
             as={<Input />}
             name="dribbble"
             control={control}
-            defaultValue=""
+            defaultValue={
+              !!digitalProfile && !!digitalProfile.youtube
+                ? digitalProfile.youtube
+                : ""
+            }
             addonBefore="Dribble"
           />
           <Controller
             as={<Input />}
             name="linkedin"
             control={control}
-            defaultValue=""
+            defaultValue={
+              !!digitalProfile && !!digitalProfile.github
+                ? digitalProfile.github
+                : ""
+            }
             addonBefore="LinkedIn"
           />
           <Controller
             as={<Input />}
             name="quora"
             control={control}
-            defaultValue=""
+            defaultValue={
+              !!digitalProfile && !!digitalProfile.behance
+                ? digitalProfile.behance
+                : ""
+            }
             addonBefore="Quora"
           />
           <Controller
             as={<Input />}
             name="youtube"
             control={control}
-            defaultValue=""
+            defaultValue={
+              !!digitalProfile && !!digitalProfile.dribbble
+                ? digitalProfile.dribbble
+                : ""
+            }
             addonBefore="Youtube"
           />
           <Controller
             as={<Input />}
             name="blog"
             control={control}
-            defaultValue=""
+            defaultValue={
+              !!digitalProfile && !!digitalProfile.quora
+                ? digitalProfile.quora
+                : ""
+            }
             addonBefore="Blog"
           />
           <Controller
             as={<Input />}
             name="github"
             control={control}
-            defaultValue=""
+            defaultValue={
+              !!digitalProfile && !!digitalProfile.blog
+                ? digitalProfile.blog
+                : ""
+            }
             addonBefore="Github"
           />
           <Controller
             as={<Input />}
             name="medium"
             control={control}
-            defaultValue=""
+            defaultValue={
+              !!digitalProfile && !!digitalProfile.medium
+                ? digitalProfile.medium
+                : ""
+            }
             addonBefore="Medium"
           />
           <Button htmlType="submit">Done</Button>

@@ -11,20 +11,9 @@ const AboutUser = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const { register, handleSubmit, watch, errors } = useForm();
+
   const onSubmit = data => {
     console.log(data);
-    // axios
-    //   .put(
-    //     `${apiURL}/resume/addobjective?careerObjectives=${data.objectiveTextarea}`,
-    //     null,
-    //     tokenHeader
-    //   )
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    //   .catch(e => {
-    //     console.log(e.response);
-    //   });
   };
 
   const handleCancel = () => {
@@ -44,6 +33,7 @@ const AboutUser = () => {
           <p>Tell us about yourself</p>
         </div>
       </div>
+      
       <Button
         type="primary"
         shape="round"

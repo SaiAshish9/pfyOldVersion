@@ -7,8 +7,7 @@ import { tokenHeader } from "../../constant/tokenHeader";
 
 import objectiveIcon from "./img/objectiveIcon.svg";
 
-const Objective = ({ careerObjective, set }) => {
-
+const Objective = ({ careerObjective, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm({
     defaultValues: {
@@ -36,7 +35,7 @@ const Objective = ({ careerObjective, set }) => {
       )
       .then(res => {
         console.log(res);
-        set(Math.random());
+        updateResume(Math.random());
       })
       .catch(e => {
         console.log(e.response);

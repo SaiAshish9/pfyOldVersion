@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { Button, Modal, Checkbox } from "antd";
+import React, { useState, useEffect } from "react";
+import { Button, Modal, Checkbox, Tooltip, Icon } from "antd";
 import axios from "axios";
 import team from "./img/team.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { apiURL } from "../../constant/url";
 import { useForm, Controller } from "react-hook-form";
+import { arrayValidation } from "../validation/validation";
 
 const month = [
   "JANUARY",
@@ -24,10 +25,11 @@ const month = [
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
 
-const Project = () => {
+const Project = ({ project, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [projectData, setProjectData] = useState(false);
 
-  const { register, handleSubmit, errors, watch, control } = useForm({
+  const { register, handleSubmit, errors, watch, control, setValue } = useForm({
     defaultValues: {
       isCurrently: false,
       start: {
@@ -44,18 +46,6 @@ const Project = () => {
     </option>
   ));
 
-  const onSubmit = data => {
-    console.log(data);
-    axios
-      .post(`${apiURL}/resume/add_project`, data, tokenHeader)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(e => {
-        console.log(e.response);
-      });
-  };
-
   const myStartYear = watch("start.year");
   console.log(errors);
   const endYear = Array.from(
@@ -63,28 +53,134 @@ const Project = () => {
     (val, index) => parseInt(myStartYear) + 9 - index
   );
 
-  const handleCancel = () => {
+  useEffect(() => {
+    console.log("check", projectData);
+  }, [projectData]);
+
+  const onSubmit = data => {
+    console.log("check", data);
+    console.log("check", projectData);
+    const myData = projectData ? { ...data, _id: projectData._id } : data;
+    console.log("check", myData);
+    axios
+      .post(`${apiURL}/resume/add_project`, myData, tokenHeader)
+      .then(res => {
+        console.log(res);
+        updateResume(Math.random());
+      })
+      .catch(e => {
+        console.log(e.response);
+      });
+    setProjectData(false);
     setIsModalVisible(false);
   };
 
-  const handleProjectButton = () => {
+  const handleCancel = () => {
+    setIsModalVisible(false);
+    setProjectData(false);
+  };
+
+  const handleAdd = () => {
     setIsModalVisible(true);
+  };
+
+  const handleEdit = selectedProject => {
+    setProjectData(selectedProject);
+    setIsModalVisible(true);
+    setValue("title", selectedProject.title);
+    setValue("description", selectedProject.description);
+    setValue("link", selectedProject.link);
+    setValue("start.month", selectedProject.start.month);
+    setValue("start.year", selectedProject.start.year);
+    setValue("end.month", selectedProject.end.month);
+    setValue("end.year", selectedProject.end.year);
+    setValue("isCurrently", selectedProject.isCurrently);
+  };
+
+  const handleDelete = id => {
+    axios
+      .delete(`${apiURL}/resume/delete_project/${id}`, tokenHeader)
+      .then(res => {
+        console.log("project data add successfully", res);
+        updateResume(Math.random());
+      })
+      .catch(e => {
+        console.log(e.response);
+      });
   };
 
   return (
     <div className="project-block-one">
-      <div className="project-block-two">
-        <img src={team} alt="" className="project-block-two-icon"></img>
-        <h2 className="project-block-two-heading">Projects</h2>
-      </div>
-      <Button
-        // type="primary"
-        shape="round"
-        className="project-block-one-button"
-        onClick={handleProjectButton}
+      <div
+        className="project-block-two"
+        style={{
+          alignItems: "center",
+          justifyContent: "space-between",
+          borderBottom: "1px solid",
+          paddingBottom: "12px"
+        }}
       >
-        Add Project
-      </Button>
+        <section style={{ display: "flex" }}>
+          <img src={team} alt="" className="project-block-two-icon"></img>
+          <h2 className="project-block-two-heading">Projects</h2>
+        </section>
+        <section>
+          <Tooltip title="add">
+            <Icon type="plus-circle" onClick={handleAdd} />
+          </Tooltip>
+        </section>
+      </div>
+      {arrayValidation(project) ? (
+        project.map((myProject, index) => (
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              margin: "0px 40px"
+            }}
+          >
+            <div>
+              <h3>{myProject.title}</h3>
+              <p>{myProject.description}</p>
+              <h4>{myProject.link}</h4>
+              <section>
+                <h5>{myProject.start.month}</h5>
+                <h5>{myProject.start.year}</h5>
+              </section>
+              <section>
+                <h5>{myProject.end.month}</h5>
+                <h5>{myProject.end.year}</h5>
+              </section>
+            </div>
+            <section>
+              <Tooltip title="edit">
+                <Icon
+                  type="edit"
+                  onClick={() => handleEdit(myProject)}
+                  style={{ marginRight: "32px" }}
+                ></Icon>
+              </Tooltip>
+              <Tooltip title="delete">
+                <Icon
+                  type="delete"
+                  onClick={() => handleDelete(myProject._id)}
+                />
+              </Tooltip>
+            </section>
+          </div>
+        ))
+      ) : (
+        <Button
+          // type="primary"
+          shape="round"
+          className="project-block-one-button"
+          onClick={handleAdd}
+        >
+          Add Project
+        </Button>
+      )}
+
       <Modal
         title="Basic Modal"
         visible={isModalVisible}

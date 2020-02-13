@@ -21,23 +21,23 @@ const UserResume = () => {
 
   useEffect(() => {
     console.log(userResumeData);
-  }, [updater,userResumeData]);
+  }, [updater, userResumeData]);
 
   useEffect(() => {
     console.log(updater);
     axios
       .get(`${apiURL}/resume/me`, tokenHeader)
-      .then(res => { 
+      .then(res => {
         console.log(res.data);
         setUserResumeData(res.data);
       })
       .catch(e => console.log(e.response));
   }, [updater]);
 
-  // useEffect(() => {
-  //   console.log(userResumeData.education);
-  //   console.log(userResumeData.digitalProfiles);
-  // }, [userResumeData]);
+  useEffect(() => {
+    console.log(userResumeData.education);
+    // console.log(userResumeData.digitalProfiles);
+  }, [userResumeData]);
 
   return (
     <div className="resume-with-userCard-block">
@@ -45,24 +45,30 @@ const UserResume = () => {
       <div className="resume-block">
         <Objective
           careerObjective={userResumeData.careerObjectives}
-          set={setUpdater}
+          updateResume={setUpdater}
         />
-        <Education education={userResumeData.education} set={setUpdater} />
-        <Skill skill={userResumeData.skills} set={setUpdater} />
+        <Education
+          education={userResumeData.education}
+          updateResume={setUpdater}
+        />
+        <Skill skill={userResumeData.skills} updateResume={setUpdater} />
         <Experience
           workExperience={userResumeData.workExperience}
-          set={setUpdater}
+          updateResume={setUpdater}
         />
-        <Position position={userResumeData.POR} set={setUpdater} />
-        <Training training={userResumeData.trainings} set={setUpdater} />
-        <Project project={userResumeData.projects} set={setUpdater} />
+        <Position position={userResumeData.POR} updateResume={setUpdater} />
+        <Training
+          training={userResumeData.trainings}
+          updateResume={setUpdater}
+        />
+        <Project project={userResumeData.projects} updateResume={setUpdater} />
         <DigitalProfile
           digitalProfile={userResumeData.digitalProfiles}
-          set={setUpdater}
+          updateResume={setUpdater}
         />
         <Achievement
           achievement={userResumeData.achievements}
-          set={setUpdater}
+          updateResume={setUpdater}
         />
       </div>
     </div>
