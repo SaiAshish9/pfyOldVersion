@@ -40,16 +40,23 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
 
   const printDigitalProfile = (digitalProfileData, name) => (
     <div
-    style={{
-      // display: "flex",
-      // justifyContent: "space-between",
-      margin: "0px 40px"
-    }}
+      style={{
+        // display: "flex",
+        // justifyContent: "space-between",
+        margin: "0px 40px"
+      }}
     >
       <section>{name}</section>
       <section>{digitalProfileData}</section>
     </div>
   );
+
+  //! ---------------------------------- test ---------------------------------- */
+  console.log(
+    "digitalpros",
+    !!digitalProfile && objectValidation(digitalProfile)
+  );
+  console.log("digitalpros", digitalProfile);
 
   return (
     <div className="digital-profile-block-one">

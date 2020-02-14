@@ -125,17 +125,19 @@ const Achievement = ({ achievement, updateResume }) => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           style={{ display: "flex", flexDirection: "column" }}
-          className="objective-block-one__form"
+          className="achievement-modal__form "
         >
           <textarea
             name="achievement"
             ref={register}
             placeholder="please enter your Achievement"
+            className="achievement-modal-sec-one__textarea "
           />
           <Button
             htmlType="submit"
-            className="objective-block-one__buttonTwo"
+            className="achievement-modal__button "
             style={{ alignSelf: "center", marginTop: "32px" }}
+            shape="round"
           >
             Done
           </Button>

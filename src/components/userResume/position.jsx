@@ -39,7 +39,7 @@ const Position = ({ position, updateResume }) => {
       .catch(e => {
         console.log(e.response);
       });
-      setPositionData(false)
+    setPositionData(false);
     setIsModalVisible(false);
   };
 
@@ -155,25 +155,35 @@ const Position = ({ position, updateResume }) => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           style={{ display: "flex", flexDirection: "column" }}
+          className="position-modal__form "
         >
-          <h2>Position</h2>
+          <section className="position-modal-sec-one ">
+            <h2 className="position-modal-sec-one__head ">Position</h2>
+            <input
+              name="position"
+              ref={register}
+              defaultValue={positionData.position}
+              className="position-modal-sec-one__input "
+            ></input>
+          </section>
 
-          <input
-            name="position"
-            ref={register}
-            defaultValue={positionData.position}
-            // value={positionData.position}
-            // onChange=
-          ></input>
-
-          <h2>Description</h2>
-          <textarea
-            name="description"
-            ref={register}
-            defaultValue={positionData.description}
-            // value={positionData.description}
-          />
-          <Button htmlType="submit">Done</Button>
+          <section className="position-modal-sec-two ">
+            <h2 className="position-modal-sec-two__head ">Description</h2>
+            <textarea
+              name="description"
+              ref={register}
+              defaultValue={positionData.description}
+              // value={positionData.description}
+              className="position-modal-sec-two__textarea "
+            />
+          </section>
+          <Button
+            htmlType="submit"
+            className="position-modal__button"
+            shape="round"
+          >
+            Done
+          </Button>
         </form>
       </Modal>
     </div>

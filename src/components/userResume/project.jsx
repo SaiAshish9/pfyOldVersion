@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Checkbox, Tooltip, Icon } from "antd";
+import { Button, Modal, Checkbox, Tooltip, Icon, Select } from "antd";
 import axios from "axios";
 import team from "./img/team.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
@@ -21,11 +21,11 @@ const month = [
   "NOVEMBER",
   "DECEMBER"
 ];
-
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
 
 const Project = ({ project, updateResume }) => {
+  //#region
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [projectData, setProjectData] = useState(false);
 
@@ -47,7 +47,7 @@ const Project = ({ project, updateResume }) => {
   ));
 
   const myStartYear = watch("start.year");
-  console.log(errors);
+
   const endYear = Array.from(
     new Array(10),
     (val, index) => parseInt(myStartYear) + 9 - index
@@ -109,6 +109,7 @@ const Project = ({ project, updateResume }) => {
       });
   };
 
+  //#endregion
   return (
     <div className="project-block-one">
       <div
@@ -190,46 +191,51 @@ const Project = ({ project, updateResume }) => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           style={{ display: "flex", flexDirection: "column" }}
+          className="project-modal__form"
         >
-          <section>
-            <h2>Title</h2>
-            <input name="title" ref={register}></input>
+          <section className="project-modal-sec-one">
+            <h2 className="project-modal-sec-one__head">Title</h2>
+            <input
+              name="title"
+              ref={register}
+              className="project-modal-sec-one__input"
+            ></input>
           </section>
 
-          <section>
-            <h2>Description</h2>
-            <textarea name="description" ref={register} />
+          <section className="project-modal-sec-two">
+            <h2 className="project-modal-sec-two__head">Description</h2>
+            <textarea
+              name="description"
+              ref={register}
+              className="project-modal-sec-two__input"
+            />
           </section>
 
-          <section>
-            <h2>Project Link</h2>
-            <input name="link" ref={register} />
+          <section className="project-modal-sec-three">
+            <h2 className="project-modal-sec-three__head">Project Link</h2>
+            <input
+              name="link"
+              ref={register}
+              className="project-modal-sec-three__input"
+            />
           </section>
 
-          <section>
-            <h2>Start From</h2>
-            <select name="start.month" ref={register}>
-              {monthList}
-            </select>
-            <select name="start.year" ref={register}>
-              {startYear.map((year, index) => {
-                return (
-                  <option key={index} value={year}>
-                    {year}
-                  </option>
-                );
-              })}
-            </select>
-          </section>
-
-          {!isCurrentlyWorking && (
-            <section>
-              <h2>End On</h2>
-              <select name="end.month" ref={register}>
+          <section className="project-modal-sec-four">
+            <h2 className="project-modal-sec-four__head">Start From</h2>
+            <div className="project-modal-sec-four-block">
+              <select
+                name="start.month"
+                ref={register}
+                className="project-modal-sec-four__select-one"
+              >
                 {monthList}
               </select>
-              <select name="end.year" ref={register}>
-                {endYear.reverse().map((year, index) => {
+              <select
+                name="start.year"
+                ref={register}
+                className="project-modal-sec-four__select-two"
+              >
+                {startYear.map((year, index) => {
                   return (
                     <option key={index} value={year}>
                       {year}
@@ -237,18 +243,52 @@ const Project = ({ project, updateResume }) => {
                   );
                 })}
               </select>
+            </div>
+          </section>
+
+          {!isCurrentlyWorking && (
+            <section className="project-modal-sec-five ">
+              <h2 className="project-modal-sec-five__head ">End On</h2>
+              <div className="project-modal-sec-five-block ">
+                <select
+                  name="end.month"
+                  ref={register}
+                  className="project-modal-sec-five__select-one "
+                >
+                  {monthList}
+                </select>
+                <select
+                  name="end.year"
+                  ref={register}
+                  className="project-modal-sec-five__select-two "
+                >
+                  {endYear.reverse().map((year, index) => {
+                    return (
+                      <option key={index} value={year}>
+                        {year}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
             </section>
           )}
 
-          <section>
+          <section className="project-modal-sec-six ">
             <Controller
               as={<Checkbox />}
               name="isCurrently"
               control={control}
+              className="project-modal-sec-six__checkbox "
             />
-            Currently working on this project
+            <h3 className="project-modal-sec-six__head ">
+              Currently working on this project
+            </h3>
           </section>
-          <Button htmlType="submit">Done</Button>
+          <Button htmlType="submit"
+          className="project-modal__button"
+          shape="round"
+          >Done</Button>
         </form>
       </Modal>
     </div>

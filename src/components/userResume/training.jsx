@@ -134,14 +134,31 @@ const Training = ({ training, updateResume }) => {
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
-          style={{ display: "flex", flexDirection: "column" }}
+          className="training-modal__form "
         >
-          <h2>Title</h2>
-          <input name="title" ref={register}></input>
-
-          <h2>Description</h2>
-          <textarea name="description" ref={register} />
-          <Button htmlType="submit">Done</Button>
+          <section className="training-modal-sec-one ">
+            <h2 className="training-modal-sec-one__head ">Title</h2>
+            <input
+              name="title"
+              ref={register}
+              className="training-modal-sec-one__input "
+            ></input>
+          </section>
+          <section className="training-modal-sec-two ">
+            <h2 className="training-modal-sec-two__head ">Description</h2>
+            <textarea
+              name="description"
+              ref={register}
+              className="training-modal-sec-two__textarea "
+            />
+          </section>
+          <Button
+            htmlType="submit"
+            className="training-modal__button "
+            shape="round"
+          >
+            Done
+          </Button>
         </form>
       </Modal>
     </div>

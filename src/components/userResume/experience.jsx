@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, Checkbox, Tooltip, Icon } from "antd";
+import { Button, Modal, Checkbox, Tooltip, Icon, Input } from "antd";
 import { useForm, Controller } from "react-hook-form";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { apiURL } from "../../constant/url";
@@ -26,6 +26,7 @@ const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
 
 const Experience = ({ workExperience, updateResume }) => {
+  //#region
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [experienceData, setExperienceData] = useState(false);
 
@@ -109,6 +110,7 @@ const Experience = ({ workExperience, updateResume }) => {
   //! --------------------------------- testing -------------------------------- */
   console.log(isWorkFromHome);
   console.log(errors);
+  //#endregion
 
   return (
     <div className="experience-block-one">
@@ -127,7 +129,7 @@ const Experience = ({ workExperience, updateResume }) => {
             alt=""
             className="experience-block-two-icon"
           ></img>
-          <h2 className="experience-block-two-heading">Work Experience</h2>
+          <h3 className="experience-block-two-heading">Work Experience</h3>
         </section>
         <section>
           <Tooltip title="add">
@@ -146,7 +148,7 @@ const Experience = ({ workExperience, updateResume }) => {
             }}
           >
             <section>
-              <h2>{myExp.organisation}</h2>
+              <h3>{myExp.organisation}</h3>
               <h3>{myExp.designation}</h3>
               <p>{myExp.description}</p>
               <h4>{myExp.location}</h4>
@@ -169,14 +171,14 @@ const Experience = ({ workExperience, updateResume }) => {
           </div>
         ))
       ) : (
-        <Button
-          // type="primary"
-          shape="round"
-          className="experience-block-one-button"
-          onClick={handleAdd}
-        >
-          Add Work Experience
-        </Button>
+          <Button
+            // type="primary"
+            shape="round"
+            className="experience-block-one-button"
+            onClick={handleAdd}
+          >
+            Add Work Experience
+          </Button>
       )}
       <Modal
         title="Add Experience"
@@ -187,64 +189,73 @@ const Experience = ({ workExperience, updateResume }) => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           style={{ display: "flex", flexDirection: "column" }}
+          className="experience-modal__form"
         >
-          <section>
-            <h2>Organization</h2>
-            <input name="organisation" ref={register}></input>
+          <section className="experience-modal-sec-one">
+            <h3 className="experience-modal-sec-one__head">Organization</h3>
+            <input
+              name="organisation"
+              ref={register}
+              className="experience-modal-sec-one__input"
+            ></input>
           </section>
 
-          <section>
-            <h2>Profile</h2>
-            <input name="designation" ref={register} />
+          <section className="experience-modal-sec-two">
+            <h3 className="experience-modal-sec-two__head">Profile</h3>
+            <input
+              name="designation"
+              ref={register}
+              className="experience-modal-sec-two__input"
+            />
           </section>
 
-          <section>
-            <h2>Description</h2>
-            <textarea name="description" ref={register} />
+          <section className="experience-modal-sec-three">
+            <h3 className="experience-modal-sec-three__head">Description</h3>
+            <textarea
+              name="description"
+              ref={register}
+              className="experience-modal-sec-three__textarea"
+            />
           </section>
 
           {!isWorkFromHome && (
-            <section>
-              <h2>Location</h2>
-              <input name="location" ref={register} />
+            <section className="experience-modal-sec-four">
+              <h3 className="experience-modal-sec-four__head">Location</h3>
+              <input
+                name="location"
+                ref={register}
+                className="experience-modal-sec-four__input"
+              />
             </section>
           )}
 
-          <section>
+          <section className="experience-modal-sec-five">
             <Controller
               as={<Checkbox />}
               name="isWorkHome"
               control={control}
               // defaultValue={false}
             />
-            Work from home
+            <h3 className="experience-modal-sec-five__head">Work from home</h3>
           </section>
 
-          <section>
-            <h2>Start From</h2>
-            <select name="start.month" ref={register}>
-              {monthList}
-            </select>
-
-            <select name="start.year" ref={register}>
-              {startYear.map((year, index) => {
-                return (
-                  <option key={index} value={year}>
-                    {year}
-                  </option>
-                );
-              })}
-            </select>
-          </section>
-
-          {!isCurrentlyWorking && (
-            <section>
-              <h2>End On</h2>
-              <select name="end.Month" ref={register}>
+          <section className="experience-modal-sec-six">
+            <h3 className="experience-modal-sec-six__head">Start From</h3>
+            <div className="experience-modal-sec-six-block">
+              <select
+                name="start.month"
+                ref={register}
+                className="experience-modal-sec-six__select-one"
+              >
                 {monthList}
               </select>
-              <select name="end.Year" ref={register}>
-                {endYear.reverse().map((year, index) => {
+
+              <select
+                name="start.year"
+                ref={register}
+                className="experience-modal-sec-six__select-two"
+              >
+                {startYear.map((year, index) => {
                   return (
                     <option key={index} value={year}>
                       {year}
@@ -252,19 +263,55 @@ const Experience = ({ workExperience, updateResume }) => {
                   );
                 })}
               </select>
+            </div>
+          </section>
+
+          {!isCurrentlyWorking && (
+            <section className="experience-modal-sec-seven">
+              <h3 className="experience-modal-sec-seven__head">End On</h3>
+              <div className="experience-modal-sec-seven-block">
+                <select
+                  name="end.Month"
+                  ref={register}
+                  className="experience-modal-sec-seven__select-one"
+                >
+                  {monthList}
+                </select>
+                <select
+                  name="end.Year"
+                  ref={register}
+                  className="experience-modal-sec-seven__select-two"
+                >
+                  {endYear.reverse().map((year, index) => {
+                    return (
+                      <option key={index} value={year}>
+                        {year}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
             </section>
           )}
 
-          <section>
+          <section className="experience-modal-sec-eight">
             <Controller
               as={<Checkbox />}
               name="isCurrently"
               control={control}
             />
-            Currently working
+            <h3 className="experience-modal-sec-eight__head">
+              Currently working
+            </h3>
           </section>
 
-          <Button htmlType="submit">Done</Button>
+          <Button
+            htmlType="submit"
+            className="experience-modal__button"
+            shape="round"
+          >
+            Done
+          </Button>
         </form>
       </Modal>
     </div>

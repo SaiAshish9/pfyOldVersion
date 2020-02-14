@@ -16,12 +16,20 @@ const Education = ({ education, updateResume }) => {
   const { register, handleSubmit, errors, control, watch, setValue } = useForm({
     defaultValues: {
       isCurrently: false,
-      startYear: year
+      startYear: year,
+      educationType: {
+        typeNo: "4"
+      },
+      marks: {
+        type: "CGPA"
+      }
     }
   });
 
   const isCheckbox = watch("isCurrently");
   const myStartYear = watch("startYear");
+  const standardSelect = watch("educationType.typeNo");
+  console.log("standardSelect", standardSelect);
 
   const endYear = Array.from(
     new Array(10),
@@ -90,7 +98,9 @@ const Education = ({ education, updateResume }) => {
       >
         <section>
           <h3>{!!educationStandard && educationStandard}</h3>
-          <h2>{educationData.instituteName}</h2>
+          <h3 className="education-modal-sec-four__head ">
+            {educationData.instituteName}
+          </h3>
           <h4>{educationData.course}</h4>
           <h5>{educationData.marks.val}</h5>
           <h5>{educationData.marks.type}</h5>
@@ -99,10 +109,7 @@ const Education = ({ education, updateResume }) => {
         </section>
         <section>
           <Tooltip title="edit">
-            <Icon
-              type="edit"
-              onClick={() => handleEdit(educationData)}
-            ></Icon>
+            <Icon type="edit" onClick={() => handleEdit(educationData)}></Icon>
           </Tooltip>
         </section>
       </div>
@@ -134,7 +141,7 @@ const Education = ({ education, updateResume }) => {
             alt=""
             className="education-block-two-icon"
           ></img>
-          <h2 className="education-block-two-heading">Education</h2>
+          <h3 className="education-block-two-heading">Education</h3>
         </section>
         <section>
           <Tooltip title="add">
@@ -176,60 +183,78 @@ const Education = ({ education, updateResume }) => {
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
-          style={{ display: "flex", flexDirection: "column" }}
+          // style={{ display: "flex", flexDirection: "column" }}
+          className="education-modal__form"
         >
-          <h2>Institute type</h2>
-          <select name="educationType.typeNo" ref={register}>
-            <option value={4}>Class 10th</option>
-            <option value={5}>Class 12th/ Junior College</option>
-            <option value={0}>Graduation</option>
-            <option value={1}>Post Graduation</option>
-          </select>
+          <section className="education-modal-sec-one">
+            <h3 className="education-modal-sec-one__head">Institute type</h3>
+            <select
+              name="educationType.typeNo"
+              ref={register}
+              className="education-modal-sec-one__select"
+            >
+              <option value={4}>Class 10th</option>
+              <option value={5}>Class 12th/ Junior College</option>
+              <option value={0}>Graduation</option>
+              <option value={1}>Post Graduation</option>
+            </select>
+          </section>
 
-          <section>
-            <h2>Institute Name</h2>
+          <section className="education-modal-sec-two">
+            <h3 className="education-modal-sec-two__head">Institute Name</h3>
             <input
               name="instituteName"
               ref={register}
               placeholder="please enter the institute name"
+              className="education-modal-sec-two__input"
             />
           </section>
 
-          <section>
-            <h2>Board Name</h2>
-            <h2>Course Name</h2>
-            <input name="course" ref={register} placeholder="" />
+          <section className="education-modal-sec-three">
+            {standardSelect === "0" || standardSelect === "1" ? (
+              <h3 className="education-modal-sec-three__head ">Course Name</h3>
+            ) : (
+              <h3 className="education-modal-sec-three__head ">Board Name</h3>
+            )}
+            <input
+              name="course"
+              ref={register}
+              placeholder=""
+              className="education-modal-sec-three__input"
+            />
           </section>
 
-          <section>
-            <h2>Marks</h2>
-            <div>
-              <input name="marks.val" ref={register} placeholder=""></input>
-              <select name="marks.type" ref={register}>
+          <section className="education-modal-sec-four">
+            <h3 className="education-modal-sec-four__head ">Marks</h3>
+            <div className="education-modal-sec-four-block">
+              <input
+                name="marks.val"
+                ref={register}
+                placeholder=""
+                className="education-modal-sec-four-block__input"
+              ></input>
+              <select
+                name="marks.type"
+                ref={register}
+                className="education-modal-sec-four-block__select"
+              >
                 <option value="CGPA">CGPA</option>
                 <option value="%">Percentage(%)</option>
               </select>
             </div>
           </section>
 
-          <section>
-            <h2>Start Year</h2>
-            <select name="startYear" ref={register}>
-              {startYear.map((year, index) => {
-                return (
-                  <option key={index} value={year}>
-                    {year}
-                  </option>
-                );
-              })}
-            </select>
-          </section>
-
-          {!isCheckbox && (
-            <section>
-              <h2>end year</h2>
-              <select name="endYear" ref={register}>
-                {endYear.reverse().map((year, index) => {
+          <div className="education-modal-block">
+            <section className="education-modal-block-sec-one">
+              <h3 className="education-modal-block-sec-one__head-one">
+                Start Year
+              </h3>
+              <select
+                name="startYear"
+                ref={register}
+                className="education-modal-block-sec-one__select-one"
+              >
+                {startYear.map((year, index) => {
                   return (
                     <option key={index} value={year}>
                       {year}
@@ -238,18 +263,49 @@ const Education = ({ education, updateResume }) => {
                 })}
               </select>
             </section>
-          )}
 
-          <section>
+            {!isCheckbox && (
+              <section className="education-modal-block-sec-two">
+                <h3 className="education-modal-block-sec-two__head-one">
+                  End year
+                </h3>
+                <select
+                  name="endYear"
+                  ref={register}
+                  className="education-modal-block-sec-two__select-one"
+                >
+                  {endYear.reverse().map((year, index) => {
+                    return (
+                      <option key={index} value={year}>
+                        {year}
+                      </option>
+                    );
+                  })}
+                </select>
+              </section>
+            )}
+          </div>
+
+          <section className="education-modal-sec-five">
             <Controller
               as={<Checkbox />}
               name="isCurrently"
               control={control}
+              className="education-modal-sec-five__checkbox"
               // defaultValue={false}
             />
-            Currently studying here
+            <h3
+            className="education-modal-sec-five__head"
+            >Currently studying here</h3>
           </section>
-          <Button htmlType="submit">Done</Button>
+
+          <Button
+            htmlType="submit"
+            className="education-modal__button"
+            shape="round"
+          >
+            Done
+          </Button>
         </form>
       </Modal>
     </div>

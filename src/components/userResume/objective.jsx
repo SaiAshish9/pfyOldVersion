@@ -7,7 +7,25 @@ import { tokenHeader } from "../../constant/tokenHeader";
 
 import objectiveIcon from "./img/objectiveIcon.svg";
 
+const formStyle = {
+  display: "flex",
+  flexDirection: "column"
+};
+const inputStyle = {
+  // width: 555px;
+  // height: 44px;
+ 
+};
+
+const buttonStyle = {
+  alignSelf: "center",
+  marginTop: "32px",
+  backgroundColor: "#252eb7",
+  color:"white"
+};
+
 const Objective = ({ careerObjective, updateResume }) => {
+  //#region
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm({
     defaultValues: {
@@ -44,7 +62,7 @@ const Objective = ({ careerObjective, updateResume }) => {
   };
 
   console.log(watch("objectiveTextarea"));
-
+  //#endregion
   return (
     <div className="objective-block-one">
       <div
@@ -81,40 +99,39 @@ const Objective = ({ careerObjective, updateResume }) => {
       ) : (
         <Button
           shape="round"
-          className="objective-block-one-buttonOne"
+          className="objective-block-one-button"
           onClick={handleObjectiveButton}
         >
           Add Objective
         </Button>
       )}
       <Modal
+        class="modal-block"
         title="Add Career Objectives"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
       >
-        <div>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            style={{ display: "flex", flexDirection: "column" }}
-            className="objective-block-one__form"
+        <form onSubmit={handleSubmit(onSubmit)} 
+        // style={formStyle}
+        className="objective-modal__form"
+        >
+          <textarea
+            name="objectiveTextarea"
+            ref={register}
+            defaultValue={careerObjective}
+            placeholder="please enter your career objective"
+            // style={inputStyle}
+            className="objective-modal__textarea"
+          />
+          <Button
+            htmlType="submit"
+            className="objective-modal__button"
+            shape="round"
           >
-            <textarea
-              name="objectiveTextarea"
-              ref={register}
-              defaultValue={careerObjective}
-              placeholder="please enter your career objective"
-            />
-            <Button
-              htmlType="submit"
-              className="objective-block-one__buttonTwo"
-              style={{ alignSelf: "center", marginTop: "32px" }}
-              // onClick={handleDone}
-            >
-              Done
-            </Button>
-          </form>
-        </div>
+            Done
+          </Button>
+        </form>
       </Modal>
     </div>
   );
