@@ -85,8 +85,10 @@ const Skill = () => {
   return (
     <div className="skill-block-one">
       <div className="skill-block-two">
-        <img src={skillIcon} alt="" className="skill-block-two-icon"></img>
-        <h2 className="skill-block-two-heading">Skills</h2>
+        <section style={{ display: "flex" }}>
+          <img src={skillIcon} alt="" className="skill-block-two-icon"></img>
+          <h2 className="skill-block-two-heading">Skills</h2>
+        </section>
       </div>
       <Button
         // type="primary"

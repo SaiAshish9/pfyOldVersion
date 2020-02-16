@@ -65,10 +65,7 @@ const Training = ({ training, updateResume }) => {
       <div
         className="training-block-two"
         style={{
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderBottom: "1px solid",
-          paddingBottom: "12px"
+          borderBottom: arrayValidation(training) ? "1px solid" : "none"
         }}
       >
         <section style={{ display: "flex" }}>
@@ -79,25 +76,24 @@ const Training = ({ training, updateResume }) => {
           ></img>
           <h2 className="training-block-two-heading">Trainings</h2>
         </section>
-        <section>
-          <Tooltip title="add">
-            <Icon type="plus-circle" onClick={handleAdd} />
-          </Tooltip>
-        </section>
+        {arrayValidation(training) && (
+          <section>
+            <Tooltip title="add">
+              <Icon type="plus-circle" onClick={handleAdd} />
+            </Tooltip>
+          </section>
+        )}
       </div>
       {arrayValidation(training) ? (
         training.map((myTraining, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              margin: "0px 40px"
-            }}
-          >
-            <section>
-              <h3>{myTraining.title}</h3>
-              <p>{myTraining.description}</p>
+          <div key={index} className="training-content-block">
+            <section className="training-content-sec-one">
+              <h1 className="training-content-sec-one__h1">
+                {myTraining.title}
+              </h1>
+              <p className="training-content-sec-one__p">
+                {myTraining.description}
+              </p>
             </section>
             <section>
               <Tooltip title="edit">

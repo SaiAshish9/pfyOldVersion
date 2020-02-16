@@ -8,18 +8,18 @@ import axios from "axios";
 import experienceIcon from "./img/experienceIcon.svg";
 
 const month = [
-  "JANUARY",
-  "FEBRUARY",
-  "MARCH",
-  "APRIL",
-  "MAY",
-  "JUNE",
-  "JULY",
-  "AUGUST",
-  "SEPTEMBER",
-  "OCTOBER",
-  "NOVEMBER",
-  "DECEMBER"
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
 ];
 
 const year = new Date().getFullYear();
@@ -117,10 +117,7 @@ const Experience = ({ workExperience, updateResume }) => {
       <div
         className="experience-block-two"
         style={{
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderBottom: "1px solid",
-          paddingBottom: "12px"
+          borderBottom: arrayValidation(workExperience) ? "1px solid" : "none"
         }}
       >
         <section style={{ display: "flex" }}>
@@ -129,32 +126,46 @@ const Experience = ({ workExperience, updateResume }) => {
             alt=""
             className="experience-block-two-icon"
           ></img>
-          <h3 className="experience-block-two-heading">Work Experience</h3>
+          <h2 className="experience-block-two-heading">Work Experience</h2>
         </section>
-        <section>
-          <Tooltip title="add">
-            <Icon type="plus-circle" onClick={handleAdd} />
-          </Tooltip>
-        </section>
+        {arrayValidation(workExperience) && (
+          <section>
+            <Tooltip title="add">
+              <Icon type="plus-circle" onClick={handleAdd} />
+            </Tooltip>
+          </section>
+        )}
       </div>
       {arrayValidation(workExperience) ? (
         workExperience.map((myExp, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              margin: "0px 40px"
-            }}
-          >
-            <section>
-              <h3>{myExp.organisation}</h3>
-              <h3>{myExp.designation}</h3>
-              <p>{myExp.description}</p>
-              <h4>{myExp.location}</h4>
-              <h5>{myExp.start.month}</h5>
-              <h5>{myExp.start.year}</h5>
-              <h5>end on</h5>
+          <div key={index} className="experience-content-block ">
+            <section className="experience-content-sec-one ">
+              <h1 className="experience-content-sec-one__h1 ">
+                {myExp.organisation}
+              </h1>
+              <h2 className="experience-content-sec-one__h2 ">
+                {myExp.designation}
+              </h2>
+              <p className="experience-content-sec-one__p ">
+                {myExp.description}
+              </p>
+              <h4 className="experience-content-sec-one__h4 ">
+                {myExp.location}
+              </h4>
+              <div className="experience-content-sec-one-block-one ">
+                <h5 className="experience-content-sec-one-block-one__h5-one ">
+                  {myExp.start.month}
+                </h5>
+                <h5 className="experience-content-sec-one-block-one__h5-two ">
+                  {myExp.start.year} -
+                </h5>
+                <h5 className="experience-content-sec-one-block-one__h5-three ">
+                  Month
+                </h5>
+                <h5 className="experience-content-sec-one-block-one__h5-four ">
+                  2222
+                </h5>
+              </div>
             </section>
             <section>
               <Tooltip title="edit">
@@ -171,14 +182,14 @@ const Experience = ({ workExperience, updateResume }) => {
           </div>
         ))
       ) : (
-          <Button
-            // type="primary"
-            shape="round"
-            className="experience-block-one-button"
-            onClick={handleAdd}
-          >
-            Add Work Experience
-          </Button>
+        <Button
+          // type="primary"
+          shape="round"
+          className="experience-block-one-button"
+          onClick={handleAdd}
+        >
+          Add Work Experience
+        </Button>
       )}
       <Modal
         title="Add Experience"

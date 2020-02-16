@@ -8,18 +8,18 @@ import { useForm, Controller } from "react-hook-form";
 import { arrayValidation } from "../validation/validation";
 
 const month = [
-  "JANUARY",
-  "FEBRUARY",
-  "MARCH",
-  "APRIL",
-  "MAY",
-  "JUNE",
-  "JULY",
-  "AUGUST",
-  "SEPTEMBER",
-  "OCTOBER",
-  "NOVEMBER",
-  "DECEMBER"
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
 ];
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
@@ -115,45 +115,47 @@ const Project = ({ project, updateResume }) => {
       <div
         className="project-block-two"
         style={{
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderBottom: "1px solid",
-          paddingBottom: "12px"
+          borderBottom: arrayValidation(project) ? "1px solid" : "none"
         }}
       >
         <section style={{ display: "flex" }}>
           <img src={team} alt="" className="project-block-two-icon"></img>
           <h2 className="project-block-two-heading">Projects</h2>
         </section>
-        <section>
-          <Tooltip title="add">
-            <Icon type="plus-circle" onClick={handleAdd} />
-          </Tooltip>
-        </section>
+        {arrayValidation(project) && (
+          <section>
+            <Tooltip title="add">
+              <Icon type="plus-circle" onClick={handleAdd} />
+            </Tooltip>
+          </section>
+        )}
       </div>
       {arrayValidation(project) ? (
         project.map((myProject, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              margin: "0px 40px"
-            }}
-          >
-            <div>
-              <h3>{myProject.title}</h3>
-              <p>{myProject.description}</p>
-              <h4>{myProject.link}</h4>
-              <section>
-                <h5>{myProject.start.month}</h5>
-                <h5>{myProject.start.year}</h5>
-              </section>
-              <section>
-                <h5>{myProject.end.month}</h5>
-                <h5>{myProject.end.year}</h5>
-              </section>
-            </div>
+          <div key={index} className="project-content-block ">
+            <section className="project-content-sec-one ">
+              <h1 className="project-content-sec-one__h1 ">
+                {myProject.title}
+              </h1>
+              <p className="project-content-sec-one__p">
+                {myProject.description}
+              </p>
+              <h4 className="project-content-sec-one__h4 ">{myProject.link}</h4>
+              <div className="project-content-sec-one-block-one ">
+                <h5 className="project-content-sec-one-block-one__h5-one ">
+                  {myProject.start.month}
+                </h5>
+                <h5 className="project-content-sec-one-block-one__h5-two ">
+                  {myProject.start.year} -
+                </h5>
+                <h5 className="project-content-sec-one-block-one__h5-three ">
+                  {myProject.end.month}
+                </h5>
+                <h5 className="project-content-sec-one-block-one__h5-four ">
+                  {myProject.end.year}
+                </h5>
+              </div>
+            </section>
             <section>
               <Tooltip title="edit">
                 <Icon
@@ -183,7 +185,7 @@ const Project = ({ project, updateResume }) => {
       )}
 
       <Modal
-        title="Basic Modal"
+        title="Add Project"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
@@ -285,10 +287,13 @@ const Project = ({ project, updateResume }) => {
               Currently working on this project
             </h3>
           </section>
-          <Button htmlType="submit"
-          className="project-modal__button"
-          shape="round"
-          >Done</Button>
+          <Button
+            htmlType="submit"
+            className="project-modal__button"
+            shape="round"
+          >
+            Done
+          </Button>
         </form>
       </Modal>
     </div>

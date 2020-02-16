@@ -22,14 +22,14 @@
     }
   }
   .avatar-intro-block {
-    margin-left:8px;
+    margin-left: 8px;
     .residence-block {
       display: flex;
       img {
         width: 15px;
         margin-right: 8px;
       }
-      p{
+      p {
         margin-top: 12px;
       }
     }
@@ -54,5 +54,12 @@
     border-bottom: 1px solid;
     width: 90%;
     margin: auto;
+  }
+  .profile-Score {
+    width: 90%;
+    margin: 8px auto; 
+    .profile-Score__para {
+      margin: 0px;
+    }
   }
 }

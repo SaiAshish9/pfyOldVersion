@@ -89,23 +89,34 @@ const Education = ({ education, updateResume }) => {
         ? "Class 12th"
         : false;
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          margin: "0px 40px"
-        }}
-      >
-        <section>
-          <h3>{!!educationStandard && educationStandard}</h3>
-          <h3 className="education-modal-sec-four__head ">
+      <div className="education-content-block">
+        <section className="education-content-sec-one">
+          <h1 className="education-content-sec-one__h1">
+            {!!educationStandard && educationStandard}
+          </h1>
+          <h2 className="education-content-sec-one__h2">
             {educationData.instituteName}
-          </h3>
-          <h4>{educationData.course}</h4>
-          <h5>{educationData.marks.val}</h5>
-          <h5>{educationData.marks.type}</h5>
-          <h5>{educationData.startYear}</h5>
-          <h5>{educationData.endYear}</h5>
+          </h2>
+          <h4 className="education-content-sec-one__h4">
+            {educationData.course}
+          </h4>
+          <div className="education-content-sec-one-block-one">
+            <h4 className="education-content-sec-one-block-one__h4-one">
+              {educationData.marks.val}
+            </h4>
+
+            <h4 className="education-content-sec-one-block-one__h4-two">
+              {educationData.marks.type}
+            </h4>
+          </div>
+          <div className="education-content-sec-one-block-two">
+            <h5 className="education-content-sec-one-block-two__h5-one">
+              {educationData.startYear}-
+            </h5>
+            <h5 className="education-content-sec-one-block-two__h5-two">
+              {educationData.endYear}
+            </h5>
+          </div>
         </section>
         <section>
           <Tooltip title="edit">
@@ -129,10 +140,8 @@ const Education = ({ education, updateResume }) => {
       <div
         className="education-block-two"
         style={{
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderBottom: "1px solid",
-          paddingBottom: "12px"
+          borderBottom:
+            !!education && objectValidation(education) ? "1px solid" : "none"
         }}
       >
         <section style={{ display: "flex" }}>
@@ -141,28 +150,23 @@ const Education = ({ education, updateResume }) => {
             alt=""
             className="education-block-two-icon"
           ></img>
-          <h3 className="education-block-two-heading">Education</h3>
+          <h2 className="education-block-two-heading">Education</h2>
         </section>
-        <section>
-          <Tooltip title="add">
-            <Icon type="plus-circle" onClick={handleAdd} />
-          </Tooltip>
-        </section>
+        {!!education && objectValidation(education) && (
+          <section>
+            <Tooltip title="add">
+              <Icon type="plus-circle" onClick={handleAdd} />
+            </Tooltip>
+          </section>
+        )}
       </div>
       {!!education && objectValidation(education) ? (
-        <div>
-          {objectValidation(education.tenth) && (
-            <div>{printEducation(education.tenth)}</div>
-          )}
-          {objectValidation(education.twelfth) && (
-            <div>{printEducation(education.twelfth)}</div>
-          )}
-          {objectValidation(education.UG) && (
-            <div>{printEducation(education.UG)}</div>
-          )}
-          {objectValidation(education.PG) && (
-            <div>{printEducation(education.PG)}</div>
-          )}
+        <div className="education-content-block-three">
+          {objectValidation(education.tenth) && printEducation(education.tenth)}
+          {objectValidation(education.twelfth) &&
+            printEducation(education.twelfth)}
+          {objectValidation(education.UG) && printEducation(education.UG)}
+          {objectValidation(education.PG) && printEducation(education.PG)}
         </div>
       ) : (
         <Button
@@ -174,7 +178,6 @@ const Education = ({ education, updateResume }) => {
           Add Education
         </Button>
       )}
-
       <Modal
         title="Add Qualification"
         visible={isModalVisible}
@@ -294,9 +297,9 @@ const Education = ({ education, updateResume }) => {
               className="education-modal-sec-five__checkbox"
               // defaultValue={false}
             />
-            <h3
-            className="education-modal-sec-five__head"
-            >Currently studying here</h3>
+            <h3 className="education-modal-sec-five__head">
+              Currently studying here
+            </h3>
           </section>
 
           <Button

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, Tooltip, Icon } from "antd";
 import axios from "axios";
+
 import { useForm } from "react-hook-form";
 import team from "./img/team.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
@@ -63,34 +64,27 @@ const Achievement = ({ achievement, updateResume }) => {
       <div
         className="achievement-block-two"
         style={{
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderBottom: "1px solid",
-          paddingBottom: "12px"
+          borderBottom: arrayValidation(achievement) ? "1px solid" : "none"
         }}
       >
         <section style={{ display: "flex" }}>
           <img src={team} alt="" className="achievement-block-two-icon"></img>
           <h2 className="achievement-block-two-heading">Achievements</h2>
         </section>
-        <section>
-          <Tooltip title="add">
-            <Icon type="plus-circle" onClick={handleAdd} />
-          </Tooltip>
-        </section>
+        {arrayValidation(achievement) && (
+          <section>
+            <Tooltip title="add">
+              <Icon type="plus-circle" onClick={handleAdd} />
+            </Tooltip>
+          
+          </section>
+        )}
       </div>
       {arrayValidation(achievement) ? (
         achievement.map((myAchievement, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              margin: "0px 40px"
-            }}
-          >
-            <section>
-              <p>{myAchievement}</p>
+          <div key={index} className="achievement-content-block">
+            <section className="achievement-content-sec-one">
+              <p className="achievement-content-sec-one__p">{myAchievement}</p>
             </section>
             <section>
               <Tooltip title="edit">

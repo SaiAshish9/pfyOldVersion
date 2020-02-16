@@ -79,10 +79,7 @@ const Position = ({ position, updateResume }) => {
       <div
         className="position-block-two"
         style={{
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderBottom: "1px solid",
-          paddingBottom: "12px"
+          borderBottom: arrayValidation(position) ? "1px solid" : "none"
         }}
       >
         <section style={{ display: "flex" }}>
@@ -92,30 +89,31 @@ const Position = ({ position, updateResume }) => {
             className="position-block-two-icon"
           ></img>
           <h2 className="position-block-two-heading">
-            Positions of responsibilities
+            Positions of Responsibilities
           </h2>
         </section>
-        <section>
-          <Tooltip title="add">
-            <Icon type="plus-circle" onClick={handleAdd} />
-          </Tooltip>
-        </section>
+        {arrayValidation(position) && (
+          <section>
+            <Tooltip title="add">
+              <Icon type="plus-circle" onClick={handleAdd} />
+            </Tooltip>
+          </section>
+        )}
       </div>
 
       {arrayValidation(position) ? (
         position.map((thisPosition, index) => (
           <div
             key={index}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              // alignItems: "center",
-              margin: "0px 40px"
-            }}
+            className="position-content-block"
           >
-            <section>
-              <h3>{thisPosition.position}</h3>
-              <p>{thisPosition.description}</p>
+            <section className="position-content-sec-one">
+              <h1 className="position-content-sec-one__h1">
+                {thisPosition.position}
+              </h1>
+              <p className="position-content-sec-one__p">
+                {thisPosition.description}
+              </p>
             </section>
 
             <section>
@@ -147,7 +145,7 @@ const Position = ({ position, updateResume }) => {
       )}
 
       <Modal
-        title="Basic Modal"
+        title="Add Position"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}

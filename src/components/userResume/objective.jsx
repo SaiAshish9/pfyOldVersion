@@ -1,28 +1,11 @@
 import React, { useState } from "react";
-import { Button, Modal, Input, Icon } from "antd";
+import { Button, Modal, Input, Icon, Tooltip } from "antd";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 
 import objectiveIcon from "./img/objectiveIcon.svg";
-
-const formStyle = {
-  display: "flex",
-  flexDirection: "column"
-};
-const inputStyle = {
-  // width: 555px;
-  // height: 44px;
- 
-};
-
-const buttonStyle = {
-  alignSelf: "center",
-  marginTop: "32px",
-  backgroundColor: "#252eb7",
-  color:"white"
-};
 
 const Objective = ({ careerObjective, updateResume }) => {
   //#region
@@ -68,10 +51,7 @@ const Objective = ({ careerObjective, updateResume }) => {
       <div
         className="objective-block-two"
         style={{
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderBottom: "1px solid",
-          paddingBottom: "12px"
+          borderBottom: !!careerObjective ? "1px solid" : "none"
         }}
       >
         <section style={{ display: "flex" }}>
@@ -84,18 +64,17 @@ const Objective = ({ careerObjective, updateResume }) => {
         </section>
         <section>
           {!!careerObjective && (
-            <Icon type="edit" onClick={handleObjectiveButton}></Icon>
+            <Tooltip title="edit">
+              <Icon type="edit" onClick={handleObjectiveButton}></Icon>
+            </Tooltip>
           )}
         </section>
       </div>
+
       {!!careerObjective ? (
-        <p
-          style={{
-            marginLeft: "40px"
-          }}
-        >
-          {careerObjective}
-        </p>
+        <div className="objective-content-block">
+          <p className="objective-content-block__p">{careerObjective}</p>
+        </div>
       ) : (
         <Button
           shape="round"
@@ -112,9 +91,10 @@ const Objective = ({ careerObjective, updateResume }) => {
         onCancel={handleCancel}
         footer={null}
       >
-        <form onSubmit={handleSubmit(onSubmit)} 
-        // style={formStyle}
-        className="objective-modal__form"
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          // style={formStyle}
+          className="objective-modal__form"
         >
           <textarea
             name="objectiveTextarea"

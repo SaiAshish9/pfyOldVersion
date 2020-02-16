@@ -1,0 +1,431 @@
+.ant-modal-content {
+  font-family: $myFont;
+  word-spacing: $wordSpace;
+  .ant-modal-header {
+    background-color: #252eb7;
+    .ant-modal-title {
+      color: #fff;
+    }
+  }
+}
+
+%modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+%modal-form-sec {
+  margin-bottom: 16px;
+}
+
+%modal-form__heading {
+  color: #7a869a;
+}
+
+%modal-form__input {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.16);
+  border: solid 1px #e5e5e5;
+  background-color: #ffffff;
+  height: 40px;
+  word-spacing: $wordSpace;
+  text-indent: 8px;
+}
+
+%modal-form__select {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.16);
+  border: solid 1px #e5e5e5;
+  background-color: #ffffff;
+  height: 40px;
+  word-spacing: $wordSpace;
+  text-indent: 8px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url(../../components/userResume/img/expand_more.svg);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+}
+
+%modal-form__textarea {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.16);
+  border: solid 1px #e5e5e5;
+  background-color: #ffffff;
+  word-spacing: $wordSpace;
+  text-indent: 6px;
+  // height: 40px;
+}
+
+%modal-form__button {
+  align-self: center;
+  margin-top: 32px;
+  background-color: #252eb7;
+  color: white;
+}
+
+.objective-modal__form {
+  @extend %modal-form;
+  .objective-modal__textarea {
+    @extend %modal-form__textarea;
+  }
+  .objective-modal__button {
+    @extend %modal-form__button;
+  }
+}
+
+.education-modal__form {
+  @extend %modal-form;
+  .education-modal-sec-one {
+    @extend %modal-form-sec;
+    .education-modal-sec-one__head {
+      @extend %modal-form__heading;
+    }
+    .education-modal-sec-one__select {
+      @extend %modal-form__select;
+    }
+  }
+
+  .education-modal-sec-two {
+    @extend %modal-form-sec;
+    .education-modal-sec-two__head {
+      @extend %modal-form__heading;
+    }
+    .education-modal-sec-two__input {
+      @extend %modal-form__input;
+    }
+  }
+
+  .education-modal-sec-three {
+    @extend %modal-form-sec;
+    .education-modal-sec-three__head {
+      @extend %modal-form__heading;
+    }
+    .education-modal-sec-three__input {
+      @extend %modal-form__input;
+    }
+  }
+  .education-modal-sec-four {
+    @extend %modal-form-sec;
+    .education-modal-sec-four__head{
+      @extend %modal-form__heading;
+    }
+    .education-modal-sec-four-block {
+      display: flex;
+      .education-modal-sec-four-block__input {
+        @extend %modal-form__input;
+        width: 65%;
+      }
+      .education-modal-sec-four-block__select {
+        @extend %modal-form__select;
+        width: 30%;
+        margin-left: 5%;
+      }
+    }
+  }
+
+  .education-modal-block {
+    @extend %modal-form-sec;
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+    .education-modal-block-sec-one {
+      .education-modal-block-sec-one__head-one {
+        @extend %modal-form__heading;
+      }
+      .education-modal-block-sec-one__select-one {
+        @extend %modal-form__select;
+        width: 120px;
+      }
+    }
+    .education-modal-block-sec-two {
+      .education-modal-block-sec-two__head-one {
+        @extend %modal-form__heading;
+      }
+      .education-modal-block-sec-two__select-one {
+        @extend %modal-form__select;
+        width: 120px;
+      }
+    }
+  }
+
+  .education-modal-sec-five {
+    display: flex;
+    align-items: center;
+    .education-modal-sec-five__checkbox {
+    }
+    .education-modal-sec-five__head {
+      @extend %modal-form__heading;
+
+      margin: 0px 0px 0px 10px;
+    }
+  }
+
+  .education-modal__button {
+    @extend %modal-form__button;
+  }
+}
+
+.experience-modal__form {
+  @extend %modal-form;
+  .experience-modal-sec-one {
+    @extend %modal-form-sec;
+    .experience-modal-sec-one__head {
+      @extend %modal-form__heading;
+    }
+    .experience-modal-sec-one__input {
+      @extend %modal-form__input;
+    }
+  }
+
+  .experience-modal-sec-two {
+    @extend %modal-form-sec;
+    .experience-modal-sec-two__head {
+      @extend %modal-form__heading;
+    }
+    .experience-modal-sec-two__input {
+      @extend %modal-form__input;
+    }
+  }
+
+  .experience-modal-sec-three {
+    @extend %modal-form-sec;
+    .experience-modal-sec-three__head {
+      @extend %modal-form__heading;
+    }
+    .experience-modal-sec-three__textarea {
+      @extend %modal-form__textarea;
+    }
+  }
+  .experience-modal-sec-four {
+    @extend %modal-form-sec;
+    .experience-modal-sec-four__head {
+      @extend %modal-form__heading;
+    }
+    .experience-modal-sec-four__input {
+      @extend %modal-form__input;
+    }
+  }
+
+  .experience-modal-sec-five {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    .experience-modal-sec-five__head {
+      @extend %modal-form__heading;
+      margin: 0px 0px 0px 10px;
+    }
+  }
+
+  .experience-modal-sec-six {
+    .experience-modal-sec-six__head {
+      @extend %modal-form__heading;
+    }
+    .experience-modal-sec-six-block {
+      display: flex;
+      .experience-modal-sec-six__select-one {
+        @extend %modal-form__select;
+        width: 25%;
+      }
+      .experience-modal-sec-six__select-two {
+        @extend %modal-form__select;
+        width: 25%;
+        margin-left: 12px;
+      }
+    }
+  }
+
+  .experience-modal-sec-seven {
+    .experience-modal-sec-seven__head {
+      @extend %modal-form__heading;
+      margin-top: 16px;
+    }
+    .experience-modal-sec-seven-block {
+      display: flex;
+      .experience-modal-sec-seven__select-one {
+        @extend %modal-form__select;
+        width: 25%;
+      }
+      .experience-modal-sec-seven__select-two {
+        @extend %modal-form__select;
+        width: 25%;
+        margin-left: 12px;
+      }
+    }
+  }
+
+  .experience-modal-sec-eight {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    .experience-modal-sec-eight__head {
+      @extend %modal-form__heading;
+      margin: 0px 0px 0px 10px;
+    }
+  }
+  .experience-modal__button {
+    @extend %modal-form__button;
+  }
+}
+
+.position-modal__form {
+  @extend %modal-form;
+  .position-modal-sec-one {
+    @extend %modal-form-sec;
+    .position-modal-sec-one__head {
+      @extend %modal-form__heading;
+    }
+    .position-modal-sec-one__input {
+      @extend %modal-form__input;
+    }
+  }
+
+  .position-modal-sec-two {
+    @extend %modal-form-sec;
+    margin-bottom: 0px;
+    .position-modal-sec-two__head {
+      @extend %modal-form__heading;
+    }
+    .position-modal-sec-two__textarea {
+      @extend %modal-form__textarea;
+    }
+  }
+  .position-modal__button {
+    @extend %modal-form__button;
+  }
+}
+
+.training-modal__form {
+  @extend %modal-form;
+  .training-modal-sec-one {
+    @extend %modal-form-sec;
+    .training-modal-sec-one__head {
+      @extend %modal-form__heading;
+    }
+    .training-modal-sec-one__input {
+      @extend %modal-form__input;
+    }
+  }
+
+  .training-modal-sec-two {
+    @extend %modal-form-sec;
+    margin-bottom: 0px;
+    .training-modal-sec-two__head {
+      @extend %modal-form__heading;
+    }
+    .training-modal-sec-two__textarea {
+      @extend %modal-form__textarea;
+    }
+  }
+  .training-modal__button {
+    @extend %modal-form__button;
+  }
+}
+
+.project-modal__form {
+  @extend %modal-form;
+  .project-modal-sec-one {
+    @extend %modal-form-sec;
+    .project-modal-sec-one__head {
+      @extend %modal-form__heading;
+    }
+    .project-modal-sec-one__input {
+      @extend %modal-form__input;
+    }
+  }
+
+  .project-modal-sec-two {
+    @extend %modal-form-sec;
+    .project-modal-sec-two__head {
+      @extend %modal-form__heading;
+    }
+    .project-modal-sec-two__input {
+      @extend %modal-form__input;
+    }
+  }
+
+  .project-modal-sec-three {
+    @extend %modal-form-sec;
+    .project-modal-sec-three__head {
+      @extend %modal-form__heading;
+    }
+    .project-modal-sec-three__input {
+      @extend %modal-form__input;
+    }
+  }
+
+  .project-modal-sec-four {
+    .project-modal-sec-four__head {
+      @extend %modal-form__heading;
+    }
+    .project-modal-sec-four-block {
+      display: flex;
+      .project-modal-sec-four__select-one {
+        @extend %modal-form__select;
+        width: 25%;
+      }
+      .project-modal-sec-four__select-two {
+        @extend %modal-form__select;
+        width: 25%;
+        margin-left: 12px;
+      }
+    }
+  }
+
+  .project-modal-sec-five {
+    .project-modal-sec-five__head {
+      @extend %modal-form__heading;
+      margin-top: 16px;
+    }
+    .project-modal-sec-five-block {
+      display: flex;
+      .project-modal-sec-five__select-one {
+        @extend %modal-form__select;
+        width: 25%;
+      }
+      .project-modal-sec-five__select-two {
+        @extend %modal-form__select;
+        width: 25%;
+        margin-left: 12px;
+      }
+    }
+  }
+
+  .project-modal-sec-six {
+    display: flex;
+    margin-top: 16px;
+    align-items: center;
+    .project-modal-sec-six__checkbox {
+    }
+    .project-modal-sec-six__head {
+      @extend %modal-form__heading;
+      margin: 0px 0px 0px 10px;
+    }
+  }
+  .project-modal__button {
+    @extend %modal-form__button;
+  }
+}
+
+.digitalProfile-modal-block {
+  display: flex;
+  justify-content: center;
+  .digitalProfile-modal-block-button {
+    @extend %modal-form__button;
+  }
+}
+
+.achievement-modal__form {
+  @extend %modal-form;
+
+  .achievement-modal-sec-one__textarea {
+    @extend %modal-form__textarea;
+  }
+  .achievement-modal__button {
+    @extend %modal-form__button;
+  }
+}

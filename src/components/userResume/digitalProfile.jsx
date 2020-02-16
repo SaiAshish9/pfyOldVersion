@@ -52,21 +52,30 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
   );
 
   //! ---------------------------------- test ---------------------------------- */
-  console.log(
-    "digitalpros",
-    !!digitalProfile && objectValidation(digitalProfile)
-  );
-  console.log("digitalpros", digitalProfile);
+  console.log(!!digitalProfile && objectValidation(digitalProfile));
+
+  const isAllData = () => {
+    return (
+      !!digitalProfile &&
+      (!!digitalProfile.facebook ||
+        !!digitalProfile.instagram ||
+        !!digitalProfile.linkedin ||
+        !!digitalProfile.youtube ||
+        !!digitalProfile.github ||
+        !!digitalProfile.behance ||
+        !!digitalProfile.dribbble ||
+        !!digitalProfile.quora ||
+        !!digitalProfile.blog ||
+        !!digitalProfile.medium)
+    );
+  };
 
   return (
     <div className="digital-profile-block-one">
       <div
         className="digital-profile-block-two"
         style={{
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderBottom: "1px solid",
-          paddingBottom: "12px"
+          borderBottom: isAllData() ? "1px solid" : "none"
         }}
       >
         <section style={{ display: "flex" }}>
@@ -79,13 +88,15 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
             Digital Profiles
           </h2>
         </section>
-        <section>
-          <Tooltip title="edit">
-            <Icon type="edit" onClick={handleEdit} />
-          </Tooltip>
-        </section>
+        {isAllData() && (
+          <section>
+            <Tooltip title="edit">
+              <Icon type="edit" onClick={handleEdit} />
+            </Tooltip>
+          </section>
+        )}
       </div>
-      {!!digitalProfile && objectValidation(digitalProfile) ? (
+      {!!digitalProfile && objectValidation(digitalProfile) && isAllData() ? (
         <div>
           {!!digitalProfile.facebook &&
             printDigitalProfile(digitalProfile.facebook, "Facebook")}
@@ -236,7 +247,16 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
             }
             addonBefore="Medium"
           />
-          <Button htmlType="submit">Done</Button>
+          <div className="digitalProfile-modal-block">
+          <Button
+          htmlType="submit"
+          className="digitalProfile-modal-block-button"
+          
+          shape="round"
+          >
+          Done
+          </Button>
+          </div>
         </form>
       </Modal>
     </div>

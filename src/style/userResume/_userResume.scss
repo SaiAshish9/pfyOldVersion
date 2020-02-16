@@ -3,12 +3,12 @@
   font-family: $myFont;
   word-spacing: $wordSpace;
   display: flex;
-  padding: 80px;
+  padding: 80px 60px;
   justify-content: space-around;
   align-items: flex-start;
   .resume-block {
     padding: 40px;
-    width: 60%;
+    width: 72%;
     background: $card-background-color;
     border-radius: 8px;
 
@@ -24,17 +24,43 @@
     %block-two {
       display: flex;
       margin: 20px 40px 40px 40px;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
     }
 
     %block-two-icon {
     }
 
     %block-two-heading {
+      font-size: 18px;
       margin: 0px 0px 0px 10px;
     }
     %block-two__button {
       align-self: center;
       margin-bottom: 20px;
+    }
+
+    %content__block {
+    }
+
+    %content__h1 {
+      color: #707070;
+    }
+
+    %content__h2 {
+      color: #707070;
+    }
+
+    %content__h4 {
+      color: #707070;
+    }
+
+    %content__h5 {
+      color: #707070;
+    }
+    %content__p {
+      color: #707070;
     }
 
     .objective-block-one {
@@ -45,6 +71,12 @@
         }
         .objective-block-two-heading {
           @extend %block-two-heading;
+        }
+      }
+      .objective-content-block {
+        margin: 0px 40px 20px 40px;
+
+        .objective-content-block__p {
         }
       }
       .objective-block-one-button {
@@ -62,6 +94,44 @@
           @extend %block-two-heading;
         }
       }
+      .education-content-block-three {
+        .education-content-block {
+          display: flex;
+          justify-content: space-between;
+          margin: 0px 40px 20px 40px;
+          .education-content-sec-one {
+            .education-content-sec-one__h1 {
+              @extend %content__h1;
+            }
+            .education-content-sec-one__h2 {
+              @extend %content__h2;
+            }
+            .education-content-sec-one__h4 {
+              @extend %content__h4;
+            }
+            .education-content-sec-one-block-one {
+              display: flex;
+              .education-content-sec-one-block-one__h4-one {
+                @extend %content__h4;
+                margin-right: 4px;
+              }
+              .education-content-sec-one-block-one__h4-two {
+                @extend %content__h4;
+              }
+            }
+            .education-content-sec-one-block-two {
+              display: flex;
+              .education-content-sec-one-block-two__h5-one {
+                @extend %content__h5;
+              }
+              .education-content-sec-one-block-two__h5-two {
+                @extend %content__h5;
+              }
+            }
+          }
+        }
+      }
+
       .education-block-one-button {
         @extend %block-two__button;
       }
@@ -92,6 +162,45 @@
           @extend %block-two-heading;
         }
       }
+
+      .experience-content-block {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 40px 20px 40px;
+        .experience-content-sec-one {
+          .experience-content-sec-one__h1 {
+            @extend %content__h1;
+          }
+          .experience-content-sec-one__h2 {
+            @extend %content__h2;
+          }
+          .experience-content-sec-one__p {
+            @extend %content__p;
+          }
+          .experience-content-sec-one__h4 {
+            @extend %content__h4;
+          }
+          .experience-content-sec-one-block-one {
+            display: flex;
+            .experience-content-sec-one-block-one__h5-one {
+              @extend %content__h5;
+              margin-right: 4px;
+            }
+            .experience-content-sec-one-block-one__h5-two {
+              @extend %content__h5;
+              margin-right: 4px;
+            }
+            .experience-content-sec-one-block-one__h5-three {
+              @extend %content__h5;
+              margin-right: 4px;
+            }
+            .experience-content-sec-one-block-one__h5-four {
+              @extend %content__h5;
+            }
+          }
+        }
+      }
+
       .experience-block-one-button {
         @extend %block-two__button;
       }
@@ -107,6 +216,20 @@
           @extend %block-two-heading;
         }
       }
+      .position-content-block {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 40px 20px 40px;
+        .position-content-sec-one {
+          .position-content-sec-one__h1 {
+            @extend %content__h1;
+          }
+          .position-content-sec-one__p {
+            @extend %content__p;
+          }
+        }
+      }
+
       .position-block-one-button {
         @extend %block-two__button;
       }
@@ -122,6 +245,19 @@
           @extend %block-two-heading;
         }
       }
+      .training-content-block {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 40px 20px 40px;
+        .training-content-sec-one {
+          .training-content-sec-one__h1 {
+            @extend %content__h1;
+          }
+          .training-content-sec-one__p {
+            @extend %content__p;
+          }
+        }
+      }
       .training-block-one-button {
         @extend %block-two__button;
       }
@@ -135,6 +271,40 @@
         }
         .project-block-two-heading {
           @extend %block-two-heading;
+        }
+      }
+      .project-content-block {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 40px 20px 40px;
+        .project-content-sec-one {
+          .project-content-sec-one__h1 {
+            @extend %content__h1;
+          }
+          .project-content-sec-one__p {
+            @extend %content__p;
+          }
+          .project-content-sec-one__h4 {
+            @extend %content__h4;
+          }
+          .project-content-sec-one-block-one {
+            display: flex;
+            .project-content-sec-one-block-one__h5-one {
+              @extend %content__h5;
+              margin-right: 4px;
+            }
+            .project-content-sec-one-block-one__h5-two {
+              @extend %content__h5;
+              margin-right: 4px;
+            }
+            .project-content-sec-one-block-one__h5-three {
+              @extend %content__h5;
+              margin-right: 4px;
+            }
+            .project-content-sec-one-block-one__h5-four {
+              @extend %content__h5;
+            }
+          }
         }
       }
       .project-block-one-button {
@@ -167,6 +337,16 @@
           @extend %block-two-heading;
         }
       }
+
+      .achievement-content-block {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 40px 20px 40px;
+        .achievement-content-sec-one {
+          .achievement-content-sec-one__p {
+          }
+        }
+      }
       .achievement-block-one-button {
         @extend %block-two__button;
       }
@@ -179,412 +359,3 @@
 }
 
 //! ------------------------------- modal style ------------------------------ */
-.ant-modal-content {
-  font-family: $myFont;
-  word-spacing: $wordSpace;
-  .ant-modal-header {
-    background-color: #252eb7;
-    .ant-modal-title {
-      color: #fff;
-    }
-  }
-}
-
-%modal-form {
-  display: flex;
-  flex-direction: column;
-}
-
-%modal-form-sec {
-  margin-bottom: 16px;
-}
-
-%modal-form__heading {
-  color: #7a869a;
-}
-
-%modal-form__input {
-  width: 100%;
-  border-radius: 4px;
-  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.16);
-  border: solid 1px #e5e5e5;
-  background-color: #ffffff;
-  height: 40px;
-}
-
-%modal-form__select {
-  width: 100%;
-  border-radius: 4px;
-  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.16);
-  border: solid 1px #e5e5e5;
-  background-color: #ffffff;
-  height: 40px;
-}
-
-%modal-form__textarea {
-  width: 100%;
-  border-radius: 4px;
-  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.16);
-  border: solid 1px #e5e5e5;
-  background-color: #ffffff;
-  // height: 40px;
-}
-
-%modal-form__button {
-  align-self: center;
-  margin-top: 32px;
-  background-color: #252eb7;
-  color: white;
-}
-
-.objective-modal__form {
-  @extend %modal-form;
-  .objective-modal__textarea {
-    @extend %modal-form__textarea;
-  }
-  .objective-modal__button {
-    @extend %modal-form__button;
-  }
-}
-
-.education-modal__form {
-  @extend %modal-form;
-  .education-modal-sec-one {
-    @extend %modal-form-sec;
-    .education-modal-sec-one__head {
-      @extend %modal-form__heading;
-    }
-    .education-modal-sec-one__select {
-      @extend %modal-form__select;
-    }
-  }
-
-  .education-modal-sec-two {
-    @extend %modal-form-sec;
-    .education-modal-sec-two__head {
-      @extend %modal-form__heading;
-    }
-    .education-modal-sec-two__input {
-      @extend %modal-form__input;
-    }
-  }
-
-  .education-modal-sec-three {
-    @extend %modal-form-sec;
-    .education-modal-sec-three__head {
-      @extend %modal-form__heading;
-    }
-    .education-modal-sec-three__input {
-      @extend %modal-form__input;
-    }
-  }
-  .education-modal-sec-four {
-    @extend %modal-form-sec;
-    .education-modal-sec-four__head {
-      @extend %modal-form__heading;
-    }
-    .education-modal-sec-four-block {
-      display: flex;
-      .education-modal-sec-four-block__input {
-        @extend %modal-form__input;
-        width: 65%;
-      }
-      .education-modal-sec-four-block__select {
-        @extend %modal-form__select;
-        width: 30%;
-        margin-left: 5%;
-      }
-    }
-  }
-
-  .education-modal-block {
-    @extend %modal-form-sec;
-    display: flex;
-    width: 65%;
-    justify-content: space-between;
-    .education-modal-block-sec-one {
-      .education-modal-block-sec-one__head-one {
-        @extend %modal-form__heading;
-      }
-      .education-modal-block-sec-one__select-one {
-        @extend %modal-form__select;
-      }
-    }
-    .education-modal-block-sec-two {
-      .education-modal-block-sec-two__head-one {
-        @extend %modal-form__heading;
-      }
-      .education-modal-block-sec-two__select-one {
-        @extend %modal-form__select;
-      }
-    }
-  }
-
-  .education-modal-sec-five {
-    display: flex;
-    align-items: center;
-    .education-modal-sec-five__checkbox {
-    }
-    .education-modal-sec-five__head {
-      @extend %modal-form__heading;
-
-      margin: 0px 0px 0px 10px;
-    }
-  }
-
-  .education-modal__button {
-    @extend %modal-form__button;
-  }
-}
-
-.experience-modal__form {
-  @extend %modal-form;
-  .experience-modal-sec-one {
-    @extend %modal-form-sec;
-    .experience-modal-sec-one__head {
-      @extend %modal-form__heading;
-    }
-    .experience-modal-sec-one__input {
-      @extend %modal-form__input;
-    }
-  }
-
-  .experience-modal-sec-two {
-    @extend %modal-form-sec;
-    .experience-modal-sec-two__head {
-      @extend %modal-form__heading;
-    }
-    .experience-modal-sec-two__input {
-      @extend %modal-form__input;
-    }
-  }
-
-  .experience-modal-sec-three {
-    @extend %modal-form-sec;
-    .experience-modal-sec-three__head {
-      @extend %modal-form__heading;
-    }
-    .experience-modal-sec-three__textarea {
-      @extend %modal-form__textarea;
-    }
-  }
-  .experience-modal-sec-four {
-    @extend %modal-form-sec;
-    .experience-modal-sec-four__head {
-      @extend %modal-form__heading;
-    }
-    .experience-modal-sec-four__input {
-      @extend %modal-form__input;
-    }
-  }
-
-  .experience-modal-sec-five {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-    .experience-modal-sec-five__head {
-      @extend %modal-form__heading;
-      margin: 0px 0px 0px 10px;
-    }
-  }
-
-  .experience-modal-sec-six {
-    .experience-modal-sec-six__head {
-      @extend %modal-form__heading;
-    }
-    .experience-modal-sec-six-block {
-      display: flex;
-      .experience-modal-sec-six__select-one {
-        @extend %modal-form__select;
-        width: 25%;
-      }
-      .experience-modal-sec-six__select-two {
-        @extend %modal-form__select;
-        width: 25%;
-        margin-left: 12px;
-      }
-    }
-  }
-
-  .experience-modal-sec-seven {
-    .experience-modal-sec-seven__head {
-      @extend %modal-form__heading;
-      margin-top: 16px;
-    }
-    .experience-modal-sec-seven-block {
-      display: flex;
-      .experience-modal-sec-seven__select-one {
-        @extend %modal-form__select;
-        width: 25%;
-      }
-      .experience-modal-sec-seven__select-two {
-        @extend %modal-form__select;
-        width: 25%;
-        margin-left: 12px;
-      }
-    }
-  }
-
-  .experience-modal-sec-eight {
-    display: flex;
-    align-items: center;
-    margin-top: 16px;
-    .experience-modal-sec-eight__head {
-      @extend %modal-form__heading;
-      margin: 0px 0px 0px 10px;
-    }
-  }
-  .experience-modal__button {
-    @extend %modal-form__button;
-  }
-}
-
-.position-modal__form {
-  @extend %modal-form;
-  .position-modal-sec-one {
-    @extend %modal-form-sec;
-    .position-modal-sec-one__head {
-      @extend %modal-form__heading;
-    }
-    .position-modal-sec-one__input {
-      @extend %modal-form__input;
-    }
-  }
-
-  .position-modal-sec-two {
-    @extend %modal-form-sec;
-    margin-bottom: 0px;
-    .position-modal-sec-two__head {
-      @extend %modal-form__heading;
-    }
-    .position-modal-sec-two__textarea {
-      @extend %modal-form__textarea;
-    }
-  }
-  .position-modal__button {
-    @extend %modal-form__button;
-  }
-}
-
-.training-modal__form {
-  @extend %modal-form;
-  .training-modal-sec-one {
-    @extend %modal-form-sec;
-    .training-modal-sec-one__head {
-      @extend %modal-form__heading;
-    }
-    .training-modal-sec-one__input {
-      @extend %modal-form__input;
-    }
-  }
-
-  .training-modal-sec-two {
-    @extend %modal-form-sec;
-    margin-bottom: 0px;
-    .training-modal-sec-two__head {
-      @extend %modal-form__heading;
-    }
-    .training-modal-sec-two__textarea {
-      @extend %modal-form__textarea;
-    }
-  }
-  .training-modal__button {
-    @extend %modal-form__button;
-  }
-}
-
-.project-modal__form {
-  @extend %modal-form;
-  .project-modal-sec-one {
-    @extend %modal-form-sec;
-    .project-modal-sec-one__head {
-      @extend %modal-form__heading;
-    }
-    .project-modal-sec-one__input {
-      @extend %modal-form__input;
-    }
-  }
-
-  .project-modal-sec-two {
-    @extend %modal-form-sec;
-    .project-modal-sec-two__head {
-      @extend %modal-form__heading;
-    }
-    .project-modal-sec-two__input {
-      @extend %modal-form__input;
-    }
-  }
-
-  .project-modal-sec-three {
-    @extend %modal-form-sec;
-    .project-modal-sec-three__head {
-      @extend %modal-form__heading;
-    }
-    .project-modal-sec-three__input {
-      @extend %modal-form__input;
-    }
-  }
-
-  .project-modal-sec-four {
-    .project-modal-sec-four__head {
-      @extend %modal-form__heading;
-    }
-    .project-modal-sec-four-block {
-      display: flex;
-      .project-modal-sec-four__select-one {
-        @extend %modal-form__select;
-        width: 25%;
-      }
-      .project-modal-sec-four__select-two {
-        @extend %modal-form__select;
-        width: 25%;
-        margin-left: 12px;
-      }
-    }
-  }
-
-  .project-modal-sec-five {
-    .project-modal-sec-five__head {
-      @extend %modal-form__heading;
-      margin-top: 16px;
-    }
-    .project-modal-sec-five-block {
-      display: flex;
-      .project-modal-sec-five__select-one {
-        @extend %modal-form__select;
-        width: 25%;
-      }
-      .project-modal-sec-five__select-two {
-        @extend %modal-form__select;
-        width: 25%;
-        margin-left: 12px;
-      }
-    }
-  }
-
-  .project-modal-sec-six {
-    display: flex;
-    margin-top: 16px;
-    align-items: center;
-    .project-modal-sec-six__checkbox {
-    }
-    .project-modal-sec-six__head {
-      @extend %modal-form__heading;
-      margin: 0px 0px 0px 10px;
-    }
-  }
-  .project-modal__button {
-    @extend %modal-form__button;
-  }
-}
-
-.achievement-modal__form {
-  @extend %modal-form;
-
-  .achievement-modal-sec-one__textarea {
-    @extend %modal-form__textarea;
-  }
-  .achievement-modal__button {
-    @extend %modal-form__button;
-  }
-}

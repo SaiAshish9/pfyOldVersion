@@ -47,8 +47,8 @@ const UserCard = ({ myUserProfile }) => {
         </div>
       </div>
       <div className="divider-block"></div>
-      <div>
-        <p>Profile Score</p>
+      <div className="profile-Score">
+        <p className="profile-Score__para">Profile Score</p>
         <Progress percent={50} status="active" />
       </div>
     </div>
