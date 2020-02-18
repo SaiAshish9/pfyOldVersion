@@ -33,7 +33,7 @@ const AboutUser = () => {
           <p>Tell us about yourself</p>
         </div>
       </div>
-      
+
       <Button
         type="primary"
         shape="round"
@@ -53,6 +53,14 @@ const AboutUser = () => {
           style={{ display: "flex", flexDirection: "column" }}
           className="objective-block-one__form"
         >
+          <textarea
+            name="aboutMe"
+            ref={register}
+            // defaultValue={}
+            placeholder="please enter about you..."
+            // style={inputStyle}
+            className="objective-modal__textarea"
+          />
           <Button
             htmlType="submit"
             className="objective-block-one__buttonTwo"

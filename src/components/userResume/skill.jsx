@@ -1,10 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Popover } from "antd";
+import { Button, Modal, Popover, Rate } from "antd";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { arrayValidation } from "../validation/validation";
-import skillIcon from "./img/skillIcon.svg";
+import skillIcon from "./img/headingImg/skillIcon.svg";
+import creativeIcon from "./img/skillImg/creativeIcon.svg";
+import designIcon from "./img/skillImg/designIcon.svg";
+import financeIcon from "./img/skillImg/financeIcon.svg";
+import generalIcon from "./img/skillImg/generalIcon.svg";
+import legalIcon from "./img/skillImg/legalIcon.svg";
+import marketingIcon from "./img/skillImg/marketingIcon.svg";
+import otherIcon from "./img/skillImg/otherIcon.svg";
+import technicalIcon from "./img/skillImg/technicalIcon.svg";
+
+const proficiencyRate = [
+  "Beginner",
+  "Intermediate",
+  "Advance",
+  "Professional",
+  "Expert"
+];
 
 const Skill = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -49,44 +65,155 @@ const Skill = () => {
       mySkill => mySkill.category === categoryData
     );
     setMySelectedSkillData(selectedSkillData);
+    // setIsSubcategory(!isSubcategory);
+  };
+
+  // const [isSubcategory, setIsSubcategory] = useState(false);
+
+  const handleSkillName = ({ name, category }) => {
+    // setIsSubcategory(!isSubcategory);
+    setBeforeRate({ name, category });
   };
 
   //TODO resume skills
-  const popoverContent = (
-    <div style={{ display: "flex" }}>
-      <p
-        style={{ margin: "8px" }}
-        onClick={() => {
-          setThisState(false);
-        }}
-      ></p>
-      <p style={{ margin: "8px" }}>2</p>
-      <p style={{ margin: "8px" }}>3</p>
-      <p style={{ margin: "8px" }}>4</p>
-      <p style={{ margin: "8px" }}>5</p>
-    </div>
-  );
-  // const filterCategory = categoryData => {};
-  const handleSkillName = a => {
-    console.log(a);
+
+  const [skillRate, setSkillRate] = useState(0);
+  const [beforeRate, setBeforeRate] = useState({});
+  const [allSkillData, setAllSkillData] = useState([]);
+
+  const handleSkillRate = value => {
+    console.log("skillss skillRate", value);
+    setSkillRate(value);
+    const c = { ...beforeRate, rating: value };
+    setAllSkillData([...allSkillData, c]);
+    // setAllSkillData(...allSkillData, { rating: value });
   };
 
-  const [thisState, setThisState] = useState();
+  // let thisData = [{ rating: 1 }, { rating: 2 }, { rating: 3 }];
+  // const b = [...thisData, { rating: 4 }];
+  // console.log("testing", b);
+
+  const popoverContent = (
+    <div style={{ display: "flex" }}>
+      <Rate
+        tooltips={proficiencyRate}
+        onChange={handleSkillRate}
+        value={skillRate}
+      />
+    </div>
+  );
+
+  // const filterCategory = categoryData => {};
+
+  const [isRateVisible, setIsRateVisible] = useState();
   const handleVisibleChange = visible => {
     console.log(visible);
-    setThisState(visible);
+    setIsRateVisible(visible);
   };
-  console.log(thisState);
+
+  console.log("skillss isRateVisible", isRateVisible);
   //! ---------------------------------- test ---------------------------------- */
   useEffect(() => {
-    console.log(mySelectedSkillData);
-  }, [mySelectedSkillData]);
+    console.log("skillss", beforeRate);
+  }, [beforeRate]);
+  useEffect(() => {
+    console.log("skillss", allSkillData);
+  }, [allSkillData]);
+
+  const skillImage = category => {
+    switch (category) {
+      case "Creative":
+        return (
+          <img
+            alt=""
+            src={creativeIcon}
+            className=" skill-category-content__img"
+          ></img>
+        );
+      case "Design":
+        return (
+          <img
+            alt=""
+            src={designIcon}
+            className=" skill-category-content__img"
+          ></img>
+        );
+      case "Finance":
+        return (
+          <img
+            alt=""
+            src={financeIcon}
+            className=" skill-category-content__img"
+          ></img>
+        );
+
+      case "General":
+        return (
+          <img
+            alt=""
+            src={generalIcon}
+            className=" skill-category-content__img"
+          ></img>
+        );
+
+      case "Legal":
+        return (
+          <img
+            alt=""
+            src={legalIcon}
+            className=" skill-category-content__img"
+          ></img>
+        );
+
+      case "Marketing":
+        return (
+          <img
+            alt=""
+            src={marketingIcon}
+            className=" skill-category-content__img"
+          ></img>
+        );
+
+      case "Other":
+        return (
+          <img
+            alt=""
+            src={otherIcon}
+            className=" skill-category-content__img"
+          ></img>
+        );
+
+      case "Technical":
+        return (
+          <img
+            alt=""
+            src={technicalIcon}
+            className=" skill-category-content__img"
+          ></img>
+        );
+
+      // case "":
+      default:
+        return (
+          <img
+            alt=""
+            src={technicalIcon}
+            className=" skill-category-content__img"
+          ></img>
+        );
+    }
+  };
 
   return (
     <div className="skill-block-one">
       <div className="skill-block-two">
         <section style={{ display: "flex" }}>
-          <img src={skillIcon} alt="" className="skill-block-two-icon"></img>
+          <img
+            src={skillIcon}
+            alt=""
+            className="skill-block-two-icon"
+            className=" skill-category-content__img"
+          ></img>
           <h2 className="skill-block-two-heading">Skills</h2>
         </section>
       </div>
@@ -99,29 +226,40 @@ const Skill = () => {
         Add Skill
       </Button>
       <Modal
-        title="Basic Modal"
+        title="Add Skills"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
       >
-        <div>
+        <div className="skill-modal-block">
           {arrayValidation(myCategory) &&
             myCategory.map((category, index) => {
               return (
-                <div key={index}>
-                  <h3 onClick={() => handleCategory(category)}>{category}</h3>
-                  <div>
+                <div key={index} className="skill-category-block">
+                  <div
+                    onClick={() => handleCategory(category)}
+                    className="skill-category-content-block"
+                  >
+                    {skillImage(category)}
+                    <h3 className="skill-category-content__h3">{category}</h3>
+                  </div>
+                  <div className="skill-subCategory-block">
                     {arrayValidation(mySelectedSkillData) &&
                       category === mySelectedSkillData[0].category &&
                       mySelectedSkillData.map((thisSkillData, index) => (
-                        <div key={index}>
+                        <div
+                          key={index}
+                          className="skill-subCategory-content-block"
+                        >
                           <Popover
                             content={popoverContent}
-                            title="Title"
                             trigger="click"
                             onVisibleChange={handleVisibleChange}
                           >
-                            <p onClick={() => handleSkillName(thisSkillData)}>
+                            <p
+                              onClick={() => handleSkillName(thisSkillData)}
+                              className="skill-subCategory-content__p"
+                            >
                               {thisSkillData.name}
                             </p>
                           </Popover>

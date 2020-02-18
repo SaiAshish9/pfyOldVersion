@@ -5,8 +5,8 @@ import axios from "axios";
 import { arrayValidation } from "../validation/validation.js";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
-import positionIcon from "./img/positionIcon.svg";
 import userCard from "../common/userCard.jsx";
+import positionIcon from "./img/headingImg/positionIcon.svg";
 
 const Position = ({ position, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);

@@ -61,22 +61,6 @@ const InternshipDetail = props => {
       )
       .then(res => {
         console.log(res);
-        // switch (res.data.appliedStatus) {
-        //   case 300: {
-        //     setIsApply(true);
-        //   }
-        //   case 301: {
-        //     setIsShortlisted(true);
-        //   }
-        //   case 302: {
-        //     setIsSelected(true);
-        //   }
-        //   case 303: {
-        //     setIsRejected(true);
-        //   }
-        //   default:
-        //     return res.data.questions;
-        // }
         if (res.data.appliedStatus === 300) {
           setIsApply(true);
         } else if (res.data.appliedStatus === 301) {
@@ -121,28 +105,56 @@ const InternshipDetail = props => {
                 {internshipProvider}
               </h3>
               {isApply && (
-                <div>
-                  <img alt="" src={checkIcon}></img>
-                  <span>You've applied to this internship</span>
+                <div className="update-message-block">
+                  <img
+                    alt=""
+                    src={checkIcon}
+                    className="update-message-block__icon"
+                  ></img>
+                  <span className="update-message-block__span">
+                    You've applied to this internship
+                  </span>
                 </div>
               )}
               {isShortlisted && (
-                <div>
-                  <img alt="" src={checkIcon}></img>
-                  <span>You are shortlisted for this internship</span>
+                <div className="update-message-block">
+                  <img
+                    alt=""
+                    src={checkIcon}
+                    className="update-message-block__icon"
+                  ></img>
+                  <span className="update-message-block__span">
+                    You are shortlisted for this internship
+                  </span>
                 </div>
               )}
               {isSelected && (
-                <div>
-                  <img alt="" src={checkIcon}></img>
-                  <span>You are selected for this internship</span>
+                <div className="update-message-block">
+                  <img
+                    alt=""
+                    src={checkIcon}
+                    className="update-message-block__icon"
+                  ></img>
+                  <span className="update-message-block__span">
+                    You are selected for this internship
+                  </span>
                 </div>
               )}
               {isRejected && (
-                <div>
-                  <img alt="" src={removeIcon}></img>
-                  <span>You've been rejected</span>
-                  <span style={{ color: "red" }}>learn more</span>
+                <div className="update-message-block">
+                  <img
+                    alt=""
+                    src={removeIcon}
+                    className="update-message-block__icon"
+                  ></img>
+                  <span className="update-message-block__span">
+                    You've been rejected
+                  </span>
+                  <span
+                    className="update-message-block__span link"
+                  >
+                    learn more
+                  </span>
                 </div>
               )}
             </div>
@@ -235,8 +247,14 @@ const InternshipDetail = props => {
         </div>
 
         <div className="apply-block">
-          <Button type="primary" disabled={isApply} onClick={handleApply}>
-            {isApply ? "APPLIED" : "APPLY"}
+          <Button
+            type="primary"
+            disabled={isApply || isRejected || isSelected || isShortlisted}
+            onClick={handleApply}
+          >
+            {isApply || isRejected || isSelected || isShortlisted
+              ? "APPLIED"
+              : "APPLY"}
           </Button>
         </div>
         <Modal

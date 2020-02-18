@@ -1,11 +1,17 @@
 import React from "react";
 import { Collapse, Checkbox } from "antd";
+import "./filter.scss";
 
 const Filter = () => {
   const { Panel } = Collapse;
   return (
     <div>
-      <Collapse style={{background:"#fff"}}>
+      <div className="filter-text">
+        <h1>Filters</h1>
+      </div>
+      <Collapse
+      // style={{ background: "#fff", borderRadius: "8px" }}
+      >
         <Panel header="Categories" key="1">
           <Checkbox>finance</Checkbox>
         </Panel>

@@ -111,7 +111,7 @@
   }
   .education-modal-sec-four {
     @extend %modal-form-sec;
-    .education-modal-sec-four__head{
+    .education-modal-sec-four__head {
       @extend %modal-form__heading;
     }
     .education-modal-sec-four-block {
@@ -427,5 +427,33 @@
   }
   .achievement-modal__button {
     @extend %modal-form__button;
+  }
+}
+
+.skill-modal-block {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  .skill-category-block {
+    margin: 10px 20px;
+    .skill-category-content-block {
+      .skill-category-content__img {
+      }
+      .skill-category-content__h3 {
+      }
+    }
+  }
+  .skill-subCategory-block {
+    display: flex;
+    flex-flow: wrap;
+    .skill-subCategory-content-block {
+      margin: 10px 20px;
+      border: 1px solid;
+      padding: 5px 10px;
+      border-radius: 10px;
+      .skill-subCategory-content__p {
+        margin: 0px;
+      }
+    }
   }
 }

@@ -4,6 +4,7 @@
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
   border: solid 1px rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
+  cursor: pointer;
   // height: 360px;
   .avatar-block {
     display: flex;
@@ -57,7 +58,7 @@
   }
   .profile-Score {
     width: 90%;
-    margin: 8px auto; 
+    margin: 8px auto;
     .profile-Score__para {
       margin: 0px;
     }

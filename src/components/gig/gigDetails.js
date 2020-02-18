@@ -124,39 +124,75 @@ const GigDetail = props => {
               <h1 className="gig-provider-heading-one">{designation}</h1>
               <h3 className="gig-provider-heading-two">{gigProvider}</h3>
               {isApply && (
-                <div>
-                  <img alt="" src={checkIcon}></img>
-                  <span>You've applied to this internship</span>
+                <div className="update-message-block">
+                  <img
+                    className="update-message-block__icon"
+                    alt=""
+                    src={checkIcon}
+                  ></img>
+                  <span className="update-message-block__span">
+                    You've applied to this internship
+                  </span>
                 </div>
               )}
               {isShortlisted && (
-                <div>
-                  <img alt="" src={checkIcon}></img>
-                  <span>You are shortlisted for this internship</span>
+                <div className="update-message-block">
+                  <img
+                    className="update-message-block__icon"
+                    alt=""
+                    src={checkIcon}
+                  ></img>
+                  <span className="update-message-block__span">
+                    You are shortlisted for this internship
+                  </span>
                 </div>
               )}
               {isSelected && (
-                <div>
-                  <img alt="" src={checkIcon}></img>
-                  <span>You are selected for this internship</span>
+                <div className="update-message-block">
+                  <img
+                    className="update-message-block__icon"
+                    alt=""
+                    src={checkIcon}
+                  ></img>
+                  <span className="update-message-block__span">
+                    You are selected for this internship
+                  </span>
                 </div>
               )}
               {isRejected && (
-                <div>
-                  <img alt="" src={removeIcon}></img>
-                  <span>You've been rejected</span>
+                <div className="update-message-block">
+                  <img
+                    className="update-message-block__icon"
+                    alt=""
+                    src={removeIcon}
+                  ></img>
+                  <span className="update-message-block__span">
+                    You've been rejected
+                  </span>
+                  <span className="update-message-block__span link">
+                    learn more
+                  </span>
                 </div>
               )}
               {isCompleted && (
-                <div>
-                  <img alt="" src={checkIcon}></img>
-                  <span>Congratulations! you've successfully complete this internship</span>
+                <div className="update-message-block">
+                  <img
+                    className="update-message-block__icon"
+                    alt=""
+                    src={checkIcon}
+                  ></img>
+                  <span className="update-message-block__span">
+                    Congratulations! you've successfully complete this
+                    internship
+                  </span>
                 </div>
               )}
               {isFailed && (
-                <div>
+                <div className="update-message-block">
                   <img alt="" src={removeIcon}></img>
-                  <span>Sorry! your gig has been failed</span>
+                  <span className="update-message-block__span">
+                    Sorry! your gig has been failed
+                  </span>
                 </div>
               )}
             </div>
@@ -229,8 +265,28 @@ const GigDetail = props => {
         </div>
 
         <div className="apply-block">
-          <Button type="primary" disabled={isApply} onClick={handleApply}>
-            APPLY
+          <Button
+            type="primary"
+            disabled={
+              isApply ||
+              isCompleted ||
+              isFailed ||
+              isRejected ||
+              isSelected ||
+              isShortlisted ||
+              isFailed
+            }
+            onClick={handleApply}
+          >
+            {isApply ||
+            isCompleted ||
+            isFailed ||
+            isRejected ||
+            isSelected ||
+            isShortlisted ||
+            isFailed
+              ? "APPLIED"
+              : "APPLY"}
           </Button>
         </div>
         <Modal

@@ -4,7 +4,7 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Row, Col } from "antd";
 // import GigCard from "./gigCard";
-import Card from "../common/card"
+import Card from "../common/card";
 import Filter from "../filters/filter";
 import GigContext from "../../context/gigContext";
 // import { GigStyled } from "./gigStyled";
@@ -25,15 +25,11 @@ const Gig = () => {
 
   return (
     <div className="card-container">
-      <Row className="full-page" gutter={[0, 24]} style={{ padding: "80px" }}>
+      <Row className="full-page" gutter={[0, 24]}>
         <Col className="filter-container" style={{ padding: "0px" }} span={6}>
           <Filter />
         </Col>
-        <Col
-          span={18}
-          className="card-holder-box"
-          style={{ paddingTop: "0px", width: "68%", marginLeft: "80px" }}
-        >
+        <Col span={18} className="card-holder-box">
           <div className="card-heading-box">
             <div style={{ display: "flex" }}>
               <h1 className="card-heading-one">Gigs</h1>

@@ -4,8 +4,8 @@ import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
-import educationIcon from "./img/educationIcon.svg";
 import { objectValidation } from "../validation/validation";
+import educationIcon from "./img/headingImg/educationIcon.svg";
 
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);

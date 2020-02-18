@@ -5,7 +5,7 @@ import axios from "axios";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 
-import objectiveIcon from "./img/objectiveIcon.svg";
+import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
 
 const Objective = ({ careerObjective, updateResume }) => {
   //#region

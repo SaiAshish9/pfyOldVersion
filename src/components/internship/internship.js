@@ -8,7 +8,7 @@ import { Row, Col, Select } from "antd";
 import InternshipContext from "../../context/internshipContext";
 // import InternshipCard from "./internshipCard";
 import Filter from "../filters/filter";
-import Card from "../common/card"
+import Card from "../common/card";
 
 const cardStyle = {
   display: "flex",
@@ -17,9 +17,8 @@ const cardStyle = {
 
 const Internship = () => {
   const { internship } = useContext(InternshipContext);
-
   const myInternshipCard =
-    (!!internship) &&
+    !!internship &&
     internship.map(internship => (
       <Col style={cardStyle} span={8} key={internship._id}>
         <Card internship={internship}></Card>
@@ -28,15 +27,11 @@ const Internship = () => {
 
   return (
     <div className="card-container">
-      <Row className="full-page" gutter={[0, 24]} style={{ padding: "80px" }}>
+      <Row className="full-page" gutter={[0, 24]}>
         <Col className="filter-container" style={{ padding: "0px" }} span={6}>
           <Filter />
         </Col>
-        <Col
-          span={18}
-          className="card-holder-box"
-          style={{ paddingTop: "0px", width: "68%", marginLeft: "80px" }}
-        >
+        <Col span={18} className="card-holder-box">
           <div className="card-heading-box">
             <div style={{ display: "flex" }}>
               <h1 className="card-heading-one">Internships</h1>

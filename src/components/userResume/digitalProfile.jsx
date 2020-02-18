@@ -3,9 +3,9 @@ import { Button, Modal, Input, Tooltip, Icon } from "antd";
 import { useForm, Controller } from "react-hook-form";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
-import team from "./img/team.svg";
 import Axios from "axios";
 import { objectValidation } from "../validation/validation";
+import team from "./img/headingImg/team.svg";
 
 const DigitalProfile = ({ digitalProfile, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);

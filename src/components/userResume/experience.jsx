@@ -5,7 +5,7 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import { apiURL } from "../../constant/url";
 import { arrayValidation } from "../validation/validation";
 import axios from "axios";
-import experienceIcon from "./img/experienceIcon.svg";
+import experienceIcon from "./img/headingImg/experienceIcon.svg";
 
 const month = [
   "Jan",

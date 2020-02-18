@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Progress } from "antd";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
@@ -8,6 +9,7 @@ import emailIcon from "./img/emailIcon.svg";
 import locationIcon from "./img/locationIcon.svg";
 
 const UserCard = ({ myUserProfile }) => {
+  const history = useHistory();
   const [userData, setUserData] = useState();
 
   useEffect(() => {
@@ -24,8 +26,12 @@ const UserCard = ({ myUserProfile }) => {
 
   console.log("userData", userData);
 
+  const handleCard = () => {
+    history.push("/profile");
+  };
+
   return (
-    <div className="userProfile-block">
+    <div className="userProfile-block" onClick={handleCard}>
       <div className="avatar-block">
         <div className="avatar-img-block">
           <img src={""} alt=""></img>

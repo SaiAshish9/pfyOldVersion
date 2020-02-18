@@ -2,8 +2,8 @@ $base-color: #fafafa;
 $card-background-color: #fff;
 
 .homePage-block {
-  padding: 0px 80px;
-  margin-top: 40px;
+  padding: 100px 80px 0px 80px;
+  // margin-top: 40px;
   background: $base-color;
   .avatar-block {
     width: 100%;
@@ -200,13 +200,14 @@ $card-background-color: #fff;
 .profilePage-block {
   background-color: $base-color;
   display: flex;
-  padding: 80px;
+  padding: 100px 60px 80px 60px;
+
   justify-content: space-around;
   align-items: flex-start;
 
   .avatar-profile-detail-block {
     padding: 40px;
-    width: 60%;
+    width: 72%;
     background: $card-background-color;
     border-radius: 8px;
   }

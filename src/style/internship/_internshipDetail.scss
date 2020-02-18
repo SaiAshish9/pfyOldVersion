@@ -6,7 +6,8 @@
 
   .internship-main-block {
     width: 70%;
-    border: 1px solid black;
+    // border: 1px solid black;
+    padding: 20px 0px;
     border-radius: 8px;
     background-color: #fff;
 
@@ -44,6 +45,22 @@
         .internship-provider-heading-two {
           color: $fontDark;
         }
+        .update-message-block {
+          display: flex;
+          align-items: center;
+          .update-message-block__icon {
+            width: 22px;
+          }
+          .update-message-block__span {
+            margin-left: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333743;
+          }
+          .update-message-block__span.link {
+            color: red;
+          }
+        }
       }
     }
 
@@ -54,7 +71,7 @@
       width: 95%;
       padding: 10px;
       border-radius: 8px;
-      background: aliceblue;
+      background: #f9f9fd;
       .internship-brief-content {
         // display: flex;
         // flex-direction: column;

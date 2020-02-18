@@ -4,8 +4,8 @@ import axios from "axios";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { arrayValidation } from "../validation/validation";
-import trainingIcon from "./img/trainingIcon.svg";
 import { useForm } from "react-hook-form";
+import trainingIcon from "./img/headingImg/trainingIcon.svg";
 
 const Training = ({ training, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);

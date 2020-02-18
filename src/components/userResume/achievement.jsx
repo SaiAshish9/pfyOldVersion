@@ -3,10 +3,10 @@ import { Button, Modal, Tooltip, Icon } from "antd";
 import axios from "axios";
 
 import { useForm } from "react-hook-form";
-import team from "./img/team.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { arrayValidation } from "../validation/validation";
 import { apiURL } from "../../constant/url";
+import team from "./img/headingImg/team.svg";
 
 const Achievement = ({ achievement, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);

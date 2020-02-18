@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="menu_2_" width="46.974" height="42.156" data-name="menu (2)" viewBox="0 0 46.974 42.156">
+    <defs>
+        <style>
+            .cls-1{fill:#ff485a}.cls-2{fill:#ffbbc0}
+        </style>
+    </defs>
+    <g id="Group_2373" data-name="Group 2373">
+        <path id="Path_3518" d="M43.962 32.278H3.011a3.011 3.011 0 1 1 0-6.022h40.951a3.011 3.011 0 0 1 0 6.022z" class="cls-1" data-name="Path 3518" transform="translate(0 -26.256)"/>
+        <path id="Path_3519" d="M27.1 229.2H3.011a3.011 3.011 0 1 1 0-6.022H27.1a3.011 3.011 0 0 1 0 6.022z" class="cls-1" data-name="Path 3519" transform="translate(0 -205.112)"/>
+    </g>
+    <path id="Path_3520" d="M401.675 229.2h-4.818a3.011 3.011 0 1 1 0-6.022h4.818a3.011 3.011 0 0 1 0 6.022z" class="cls-2" data-name="Path 3520" transform="translate(-357.713 -205.112)"/>
+    <path id="Path_3521" d="M43.962 426.124H3.011a3.011 3.011 0 1 1 0-6.022h40.951a3.011 3.011 0 0 1 0 6.022z" class="cls-1" data-name="Path 3521" transform="translate(0 -383.969)"/>
+</svg>

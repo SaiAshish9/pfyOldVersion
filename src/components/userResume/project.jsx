@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, Checkbox, Tooltip, Icon, Select } from "antd";
 import axios from "axios";
-import team from "./img/team.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { apiURL } from "../../constant/url";
 import { useForm, Controller } from "react-hook-form";
 import { arrayValidation } from "../validation/validation";
+import team from "./img/headingImg/team.svg";
 
 const month = [
   "Jan",

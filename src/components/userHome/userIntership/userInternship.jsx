@@ -25,7 +25,7 @@ const UserInternship = () => {
   //! ---------------------------------- test ---------------------------------- */
   useEffect(() => {
     console.log(internship);
-    console.log(internship.length>0 && internship[0].status);
+    console.log(internship.length > 0 && internship[0].status);
     // const a = internship[0]
 
     // console.log(a.status);
@@ -96,7 +96,7 @@ const UserInternship = () => {
     });
 
   return (
-    <div style={{ padding: "0px 80px", marginTop: "40px" }}>
+    <div style={{ padding: "100px 60px 80px 60px" }}>
       <h1>Internship</h1>
       <Tabs defaultActiveKey="1" onChange={handleTabChange} animated={false}>
         <TabPane tab="Applied" key="1">
