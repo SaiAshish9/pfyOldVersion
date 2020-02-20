@@ -5,10 +5,11 @@
 @import "./base/userCard";
 
 @import "./_userForm";
+@import "./moreSuggestion";
 
 @import "./userHome/userHome";
-@import"./userResume/userResume";
-@import"./userResume/userResumeModal";
-
+@import "./userResume/userResume";
+@import "./userResume/userResumeModal";
+@import "./wallet/wallet";
 @import "./internship/_internshipDetail";
 @import "./gig/_gigDetail";

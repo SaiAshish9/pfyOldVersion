@@ -47,6 +47,10 @@ const PrivateHeader = () => {
       <Link to="/internships" className="myLink">
         INTERNSHIPS
       </Link>
+      <Link to="/wallet" className="myLink">
+        Wallet
+      </Link>
+
       <Dropdown overlay={menu} trigger={["click"]} className="ant-drop">
         <a className="ant-dropdown-link" href="#">
           My Profile <Icon type="down" />

@@ -7,6 +7,7 @@ import UserInternship from "../components/userHome/userIntership/userInternship.
 import UserGig from "../components/userHome/userGig/userGig";
 import UserProfile from "../components/userHome/userProfile/userProfile.jsx";
 import UserResume from "../components/userResume/userResume";
+import Wallet from "../components/wallet/wallet";
 
 import LandingPage from "../components/home/home";
 import GetStarted from "../components/getStarted/getStarted";
@@ -38,7 +39,7 @@ const AppRouter = () => {
           component={GetInContact}
           exact={true}
         />
-        
+
         <CommonRoute path="/gigs" component={Gig} exact={true} />
         <CommonRoute path="/gig/:id" component={GigDetail} exact={true} />
         <CommonRoute path="/internships" component={Internship} exact={true} />
@@ -47,12 +48,17 @@ const AppRouter = () => {
           component={InternshipDetail}
           exact={true}
         />
-
+ 
         <PrivateRoute path="/home" component={UserHome} exact={true} />
-        <PrivateRoute path="/my-internships" component={UserInternship} exact={true} />
+        <PrivateRoute
+          path="/my-internships"
+          component={UserInternship}
+          exact={true}
+        />
         <PrivateRoute path="/my-gigs" component={UserGig} exact={true} />
         <PrivateRoute path="/profile" component={UserProfile} exact={true} />
         <PrivateRoute path="/resume" component={UserResume} exact={true} />
+        <PrivateRoute path="/wallet" component={Wallet} exact={true} />
         <Route component={PageNotFound} />
       </Switch>
     </Router>

@@ -6,19 +6,29 @@ import UserContext from "../../../context/userContext";
 const GigOrInternship = () => {
   const { user } = useContext(UserContext);
 
+  const margin = index => {
+    if (index === 0) {
+      console.log(index)
+      return { marginLeft: "0px" };
+    } else {
+      console.log(index)
+      return { marginLeft: "40px" };
+    }
+  };
+
   const getCard = dataOfCard => {
     return (
       arrayValidation(dataOfCard) &&
       dataOfCard.map((userCardData, index) => {
         if (userCardData.type === "1") {
           return (
-            <div style={{ marginLeft: "40px" }} key={index}>
+            <div style={margin(index)} key={index}>
               <Card internship={userCardData}></Card>
             </div>
           );
         } else {
           return (
-            <div style={{ marginLeft: "40px" }} key={index}>
+            <div style={margin(index)} key={index}>
               <Card gig={userCardData}></Card>
             </div>
           );

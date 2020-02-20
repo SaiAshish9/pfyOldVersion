@@ -23,6 +23,12 @@
   .designation {
     margin-top: 28px;
     color: $fontDarker;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-overflow: ellipsis;
 
     //* ------------------------------- font-style ------------------------------- */
     font-family: $myFont;
@@ -31,6 +37,12 @@
   }
   .company-name {
     color: $fontDark;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-overflow: ellipsis;
 
     //* ------------------------------- font-style ------------------------------- */
     font-family: $myFont;
@@ -66,5 +78,4 @@
       font-weight: $bold1x;
     }
   }
- 
 }

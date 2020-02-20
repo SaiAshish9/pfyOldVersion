@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Popover, Rate } from "antd";
+import { Button, Modal, Popover, Rate, Icon } from "antd";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
@@ -59,15 +59,37 @@ const Skill = () => {
     setIsModalVisible(true);
   };
 
+  //FIXME
+  const [isSubcategory, setIsSubcategory] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState();
+
   const handleCategory = categoryData => {
-    // mySelectedSkillData(categoryData);
     const selectedSkillData = skillData.filter(
       mySkill => mySkill.category === categoryData
     );
+    setSelectedCategory(categoryData);
+    // console.log("dikha", categoryData)
     setMySelectedSkillData(selectedSkillData);
-    // setIsSubcategory(!isSubcategory);
+    setIsSubcategory(true);
   };
 
+  const handleBack = () => {
+    setIsSubcategory(false);
+  };
+
+  const theCategory = (category, index) => {
+    if (index === 2) {
+      return (
+        <div
+          onClick={() => handleCategory(category)}
+          className="skill-category-content-block"
+        >
+          {skillImage(category)}
+          <h3 className="skill-category-content__h3">{category}</h3>
+        </div>
+      );
+    }
+  };
   // const [isSubcategory, setIsSubcategory] = useState(false);
 
   const handleSkillName = ({ name, category }) => {
@@ -192,8 +214,7 @@ const Skill = () => {
           ></img>
         );
 
-      // case "":
-      default:
+      case "Tech":
         return (
           <img
             alt=""
@@ -201,6 +222,8 @@ const Skill = () => {
             className=" skill-category-content__img"
           ></img>
         );
+      default:
+        return;
     }
   };
 
@@ -226,6 +249,7 @@ const Skill = () => {
         Add Skill
       </Button>
       <Modal
+        width={600}
         title="Add Skills"
         visible={isModalVisible}
         onCancel={handleCancel}
@@ -233,42 +257,55 @@ const Skill = () => {
       >
         <div className="skill-modal-block">
           {arrayValidation(myCategory) &&
+            !isSubcategory &&
             myCategory.map((category, index) => {
               return (
-                <div key={index} className="skill-category-block">
-                  <div
-                    onClick={() => handleCategory(category)}
-                    className="skill-category-content-block"
-                  >
-                    {skillImage(category)}
-                    <h3 className="skill-category-content__h3">{category}</h3>
-                  </div>
-                  <div className="skill-subCategory-block">
-                    {arrayValidation(mySelectedSkillData) &&
-                      category === mySelectedSkillData[0].category &&
-                      mySelectedSkillData.map((thisSkillData, index) => (
-                        <div
-                          key={index}
-                          className="skill-subCategory-content-block"
-                        >
-                          <Popover
-                            content={popoverContent}
-                            trigger="click"
-                            onVisibleChange={handleVisibleChange}
-                          >
-                            <p
-                              onClick={() => handleSkillName(thisSkillData)}
-                              className="skill-subCategory-content__p"
-                            >
-                              {thisSkillData.name}
-                            </p>
-                          </Popover>
-                        </div>
-                      ))}
-                  </div>
+                <div
+                  key={index}
+                  style={{
+                    width: "25%"
+                    // display: `${isSubcategory ? "none" : "block"}`
+                  }}
+                  className="skill-category-block"
+                >
+                  {!isSubcategory && (
+                    <div
+                      onClick={() => handleCategory(category)}
+                      className="skill-category-content-block"
+                    >
+                      {skillImage(category)}
+                      <h3 className="skill-category-content__h3">{category}</h3>
+                    </div>
+                  )}
                 </div>
               );
             })}
+          {isSubcategory && (
+            <div className="skill-subCategory-block">
+              <div>
+                <Icon type="arrow-left" onClick={handleBack} />
+                <div>{skillImage(selectedCategory)}</div>
+              </div>
+              {arrayValidation(mySelectedSkillData) &&
+                // category === mySelectedSkillData[0].category &&
+                mySelectedSkillData.map((thisSkillData, index) => (
+                  <div key={index} className="skill-subCategory-content-block">
+                    <Popover
+                      content={popoverContent}
+                      trigger="click"
+                      onVisibleChange={handleVisibleChange}
+                    >
+                      <p
+                        onClick={() => handleSkillName(thisSkillData)}
+                        className="skill-subCategory-content__p"
+                      >
+                        {thisSkillData.name}
+                      </p>
+                    </Popover>
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
       </Modal>
     </div>

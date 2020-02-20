@@ -157,13 +157,14 @@ const Experience = ({ workExperience, updateResume }) => {
                   {myExp.start.month}
                 </h5>
                 <h5 className="experience-content-sec-one-block-one__h5-two ">
-                  {myExp.start.year} -
+                  {myExp.start.year}
                 </h5>
                 <h5 className="experience-content-sec-one-block-one__h5-three ">
-                  Month
+                  {(!isCurrentlyWorking && !!myExp.end && myExp.end.month) ||
+                    "Present"}
                 </h5>
                 <h5 className="experience-content-sec-one-block-one__h5-four ">
-                  2222
+                  {!isCurrentlyWorking && !!myExp.end && myExp.end.year}
                 </h5>
               </div>
             </section>

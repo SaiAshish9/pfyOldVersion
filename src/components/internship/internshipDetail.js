@@ -8,6 +8,7 @@ import InternshipContext from "../../context/internshipContext";
 import CompanyQueForm from "./companyQuesForm";
 import checkIcon from "./img/checkIcon.svg";
 import removeIcon from "./img/removeIcon.svg";
+import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
 
 const InternshipDetail = props => {
   const { internship } = useContext(InternshipContext);
@@ -150,9 +151,7 @@ const InternshipDetail = props => {
                   <span className="update-message-block__span">
                     You've been rejected
                   </span>
-                  <span
-                    className="update-message-block__span link"
-                  >
+                  <span className="update-message-block__span link">
                     learn more
                   </span>
                 </div>
@@ -271,6 +270,7 @@ const InternshipDetail = props => {
           />
         </Modal>
       </div>
+      <MoreSuggestion />
     </div>
   );
 };

@@ -1,8 +1,10 @@
 .internship-details-page {
   font-family: $myFont;
   background-color: #fafafa;
-  padding: 80px;
+  padding: 100px 60px 80px 60px;
   word-spacing: $wordSpace;
+  display: flex;
+  justify-content: space-between;
 
   .internship-main-block {
     width: 70%;

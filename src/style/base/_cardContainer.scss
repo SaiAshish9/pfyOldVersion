@@ -10,14 +10,16 @@
     .card-holder-box {
       border-radius: 8px;
       background-color: #fff;
-      padding-top: 0px;
       width: 74%;
       // margin-left: 80px;
       .card-heading-box {
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
         width: 92%;
-        // margin: auto;
-        margin: 20px auto;
+        margin: 18px auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
         // padding-top:20px;
         .card-heading-one {
         }
@@ -26,7 +28,12 @@
           color: #a2adc3;
           margin-left: 12px;
         }
+        .ant-select.ant-select-enabled{
+          text-indent: 16px;
+        }
       }
     }
   }
 }
+
+

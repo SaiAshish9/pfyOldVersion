@@ -437,6 +437,9 @@
   .skill-category-block {
     margin: 10px 20px;
     .skill-category-content-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .skill-category-content__img {
       }
       .skill-category-content__h3 {

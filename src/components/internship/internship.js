@@ -14,9 +14,10 @@ const cardStyle = {
   display: "flex",
   justifyContent: "center"
 };
-
+const { Option } = Select;
 const Internship = () => {
   const { internship } = useContext(InternshipContext);
+  const [arrangeCard, setArrangeCard] = useState("latest");
   const myInternshipCard =
     !!internship &&
     internship.map(internship => (
@@ -25,13 +26,25 @@ const Internship = () => {
       </Col>
     ));
 
+  const handleArrangingCard = value => {
+    setArrangeCard(value);
+  };
+
+  useEffect(() => {
+    console.log(arrangeCard);
+  }, [arrangeCard]);
+
   return (
     <div className="card-container">
       <Row className="full-page" gutter={[0, 24]}>
         <Col className="filter-container" style={{ padding: "0px" }} span={6}>
           <Filter />
         </Col>
-        <Col span={18} className="card-holder-box">
+        <Col
+          span={18}
+          className="card-holder-box"
+          style={{ paddingTop: "0px" }}
+        >
           <div className="card-heading-box">
             <div style={{ display: "flex" }}>
               <h1 className="card-heading-one">Internships</h1>
@@ -39,6 +52,16 @@ const Internship = () => {
                 ({internship.length} Results)
               </h2>
             </div>
+
+            <Select
+              defaultValue="latest"
+              placeholder="Select a person"
+              onChange={handleArrangingCard}
+              // Style={{ textIndent: "16px" }}
+            >
+              <Option value="latest">Latest</Option>
+              <Option value="popular">Popular</Option>
+            </Select>
           </div>
           {myInternshipCard}
         </Col>

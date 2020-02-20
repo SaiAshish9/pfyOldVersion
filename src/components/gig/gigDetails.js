@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState, useRef, useContext } from "react";
-import { Button, Icon, Carousel, Modal } from "antd";
+import { Button, Icon, Modal } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
+import Carousel from "@brainhubeu/react-carousel";
+import "@brainhubeu/react-carousel/lib/style.css";
 import GigContext from "../../context/gigContext";
 import CompanyQueForm from "../internship/companyQuesForm";
 import { apiURL } from "../../constant/url";
@@ -10,7 +12,8 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import { arrayValidation } from "../validation/validation";
 import checkIcon from "../internship/img/checkIcon.svg";
 import removeIcon from "../internship/img/removeIcon.svg";
-
+import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
+import taskIcon from "./taskIcon.svg";
 // import { gigDetailStyled } from "./intershipDetailStyled";
 
 const GigDetail = props => {
@@ -50,9 +53,7 @@ const GigDetail = props => {
     // console.log(gig.company)
   }, [gigProvider]);
 
-  //#endregion
-
-  let myCarousel = useRef();
+  // let myCarousel = useRef();
 
   useEffect(() => {
     axios
@@ -84,20 +85,20 @@ const GigDetail = props => {
       });
   }, [modalVisible]);
 
-  const next = () => {
-    myCarousel.next();
-  };
-  const previous = () => {
-    myCarousel.prev();
-  };
+  // const next = () => {
+  //   myCarousel.next();
+  // };
+  // const previous = () => {
+  //   myCarousel.prev();
+  // };
 
-  const carouselProps = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
+  // const carouselProps = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1
+  // };
 
   const handleApply = () => {
     setModalVisible(true);
@@ -111,6 +112,7 @@ const GigDetail = props => {
   const handleModalCancel = () => {
     setModalVisible(false);
   };
+  //#endregion
 
   return (
     <div className="gig-details-page">
@@ -131,7 +133,7 @@ const GigDetail = props => {
                     src={checkIcon}
                   ></img>
                   <span className="update-message-block__span">
-                    You've applied to this internship
+                    You've applied to this Gig
                   </span>
                 </div>
               )}
@@ -143,7 +145,7 @@ const GigDetail = props => {
                     src={checkIcon}
                   ></img>
                   <span className="update-message-block__span">
-                    You are shortlisted for this internship
+                    You are shortlisted for this Gig
                   </span>
                 </div>
               )}
@@ -155,7 +157,7 @@ const GigDetail = props => {
                     src={checkIcon}
                   ></img>
                   <span className="update-message-block__span">
-                    You are selected for this internship
+                    You are selected for this Gig
                   </span>
                 </div>
               )}
@@ -182,8 +184,7 @@ const GigDetail = props => {
                     src={checkIcon}
                   ></img>
                   <span className="update-message-block__span">
-                    Congratulations! you've successfully complete this
-                    internship
+                    Congratulations! you've successfully complete this Gig
                   </span>
                 </div>
               )}
@@ -222,23 +223,30 @@ const GigDetail = props => {
         <div className="gig-detail-block">
           <div>
             <h2>Task to be done</h2>
-            <div>
-              <Icon type="left-circle" onClick={previous} />
-              <Carousel ref={node => (myCarousel = node)} {...carouselProps}>
-                <div>
-                  <h3>1</h3>
-                </div>
-                <div>
-                  <h3>2</h3>
-                </div>
-                <div>
-                  <h3>3</h3>
-                </div>
-                <div>
-                  <h3>4</h3>
+            <div className="carousel-block">
+              <Carousel
+                slidesPerPage={3}
+                arrowLeft={<Icon type="left" style={{ cursor: "pointer" }} />}
+                arrowRight={<Icon type="right" style={{ cursor: "pointer" }} />}
+                addArrowClickHandler
+                infinite
+              >
+                <div className="carousel-content-block">
+                  <h4 className="carousel-content-block__h4">
+                    Description Description
+                  </h4>
+                  <img
+                    src={taskIcon}
+                    className="carousel-content-block__img"
+                  ></img>
+                  <Button
+                    shape="round"
+                    className="carousel-content-block__button"
+                  >
+                    Start Task
+                  </Button>
                 </div>
               </Carousel>
-              <Icon type="right-circle" onClick={next} />
             </div>
           </div>
           <br />
@@ -303,15 +311,8 @@ const GigDetail = props => {
           />
         </Modal>
       </div>
+      <MoreSuggestion />
     </div>
   );
 };
 export default GigDetail;
-
-// {skillRequired.map(skill => {
-//     return (
-//       <p key={skill._id}>
-//         {skillRequired.indexOf(skill) + 1}. {skill.skillName}
-//       </p>
-//     );
-//   })}
