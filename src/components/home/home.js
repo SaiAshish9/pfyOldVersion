@@ -1,57 +1,74 @@
-/* eslint-disable jsx-a11y/alt-text */
-import React, { useRef, forwardRef, useState, useEffect } from "react";
-import FrontBlock from "./frontBlock";
-import StepIncluded from "./stepIncluded";
-import WhyItWork from "./whyItWork";
-import WorkWeExecute from "./workWeExecute";
-import DownloadApp from "./downloadApp";
-import Footer from "./footer";
-import { HeaderStyled } from "./homeStyled";
-import logo from "./images/logo.png";
+import React from "react";
+import { Link } from "react-router-dom";
+
+import { Icon, Input, Modal, Carousel, message, Divider } from "antd";
+
+import FrontContainer from "./frontContainer";
+import OpportunityContainer from "./opportunityContainer";
+import HIWcontainer from "./HIWcontainer";
+import HIHcontainer from "./HIHcontainer";
+import DownloadAppContainer from "./downloadAppContainer";
+
+import logo from "./img/logo.png";
+import "../../../node_modules/aos/dist/aos.css";
 
 const LandingPage = () => {
-  const myRefOne = useRef(null);
-  const myRefTwo = useRef(null);
-
-  const handleScrollOne = () => {
-    myRefOne.current.scrollIntoView({ block: "start", behavior: "smooth" });
-  };
-  const handleScrollTwo = () => {
-    myRefTwo.current.scrollIntoView({ block: "start", behavior: "smooth" });
-  };
-
   return (
-    <>
-      <HeaderStyled
-        style={{
-          textAlign: "center",
-          marginBottom: "-5rem",
-          padding: "20px 15px 15px 15px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center"
-        }}
-      >
-        <img height={"100rem"} src={logo} />
-
-        <h1 className="header-heading">Launching Soon</h1>
-      </HeaderStyled>
-
-      <FrontBlock handleScrollOne={handleScrollOne} />
-
-      <div ref={myRefOne}>
-        <StepIncluded handleScrollTwo={handleScrollTwo} />
+    <div className="home-container">
+      <FrontContainer></FrontContainer>
+      <OpportunityContainer></OpportunityContainer>
+      <HIWcontainer></HIWcontainer>
+      <HIHcontainer></HIHcontainer>
+      <DownloadAppContainer></DownloadAppContainer>
+      <div className="footer-container">
+        <div className="footer-block">
+          <img height={"100rem"} src={logo} />
+          <div>
+            <p className="footer-para">
+              A-117, GD-ITL Northex Tower, <br /> Netaji Subhash Place,
+              Pitampura, <br />
+              New Delhi - 110034
+              <br />
+            </p>
+          </div>
+          <div className="contactUs-block">
+            <div>
+              <p className="contactUs-link">
+                shivam@pracify.com
+                <br />
+                +91-9582033304
+                <br />
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="social-link-container">
+          <p className="copyright__para">
+            Copyright © 2020 Pracify All rights reserved.
+          </p>
+          <div className="social-link-text-container">
+            <Link className="social__link">Facebook</Link>
+            <Link className="social__link">Instagram</Link>
+            <Link className="social__link">Twitter</Link>
+            <Link className="social__link">LinkedIn</Link>
+            <Link className="social__link" style={{ border: "none" }}>
+              Contact Us
+            </Link>
+          </div>
+        </div>
+        <p
+          style={{
+            fontSize: "16px",
+            textAlign: "center",
+            marginBottom: "0px"
+          }}
+        >
+          Made with{" "}
+          <Icon type="heart" theme="filled" style={{ color: "Red" }} /> in India
+          <br />
+        </p>
       </div>
-
-      <div ref={myRefTwo}>
-        <WhyItWork />
-      </div>
-
-      <WorkWeExecute />
-      <DownloadApp />
-      <Footer />
-    </>
+    </div>
   );
 };
-
 export default LandingPage;

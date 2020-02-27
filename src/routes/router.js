@@ -24,7 +24,7 @@ import Internship from "../components/internship/internship";
 import GigDetail from "../components/gig/gigDetails";
 import InternshipDetail from "../components/internship/internshipDetail";
 
-export const history = createBrowserHistory();
+ const history = createBrowserHistory();
 
 const AppRouter = () => {
   return (

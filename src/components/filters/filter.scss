@@ -11,44 +11,45 @@
     color: #474e54;
   }
 }
+
 div.ant-col.ant-col-6.filter-container {
   width: 23%;
   margin-right: 34px;
 
-  div {
-    div.ant-collapse.ant-collapse-icon-position-left {
-      top: 162px;
-      background: rgb(255, 255, 255);
-      border-radius: 0px 0px 8px 8px;
-      position: fixed;
-      width: 21%;
-      div.ant-collapse-item {
-        div.ant-collapse-header {
-          i.anticon.anticon-right.ant-collapse-arrow {
-            svg {
-              path {
-              }
+  div.filter-container {
+  div.ant-collapse.ant-collapse-icon-position-left {
+    top: 162px;
+    background: rgb(255, 255, 255);
+    border-radius: 0px 0px 8px 8px;
+    position: fixed;
+    width: 21%;
+    div.ant-collapse-item {
+      div.ant-collapse-header {
+        i.anticon.anticon-right.ant-collapse-arrow {
+          svg {
+            path {
             }
           }
         }
+      }
 
-        div.ant-collapse-content.ant-collapse-content-inactive {
-          div.ant-collapse-content-box {
-            label.ant-checkbox-wrapper {
-              span.ant-checkbox {
-                input.ant-checkbox-input {
-                }
-
-                span.ant-checkbox-inner {
-                }
+      div.ant-collapse-content.ant-collapse-content-inactive {
+        div.ant-collapse-content-box {
+          label.ant-checkbox-wrapper {
+            span.ant-checkbox {
+              input.ant-checkbox-input {
               }
 
-              span {
+              span.ant-checkbox-inner {
               }
+            }
+
+            span {
             }
           }
         }
       }
     }
+  }
   }
 }

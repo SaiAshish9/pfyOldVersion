@@ -5,7 +5,7 @@ import "./filter.scss";
 const Filter = () => {
   const { Panel } = Collapse;
   return (
-    <div>
+    <div className="filter-container">
       <div className="filter-text">
         <h1>Filters</h1>
       </div>
