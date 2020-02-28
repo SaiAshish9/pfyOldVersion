@@ -13,6 +13,7 @@ import Dashboard from "./components/dashboard/dashboard";
 import Internship from "./components/internship/internship";
 import Gig from "./components/gig/gig";
 import UserInternship from "./components/internship/userInternship";
+import {apiURL} from "./constant/url"
 import "antd/dist/antd.css";
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://35.154.129.241:5000/internship/fetch")
+      .get(`${apiURL}/internship/fetch`)
       .then(function(response) {
         // handle success
         const internshipData = response.data.internships;
@@ -38,7 +39,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://35.154.129.241:5000/mission/fetch")
+      .get(`${apiURL}/mission/fetch`)
       .then(function(response) {
         // handle success
         const gigData = response.data.missions;
