@@ -30,7 +30,13 @@ const Header = () => {
               </Link>
 
               {<Login />}
-              <Button className="header__button2">For Business</Button>
+              <a
+                data-aos="fade-up"
+                href="https://business.pracify.com/"
+                target="_blank"
+              >
+                <Button className="header__button2">For Business</Button>
+              </a>
             </div>
           </MyHeader>
         );
