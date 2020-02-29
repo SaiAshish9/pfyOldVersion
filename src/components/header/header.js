@@ -31,7 +31,7 @@ const Header = () => {
 
               {<Login />}
               <a
-                data-aos="fade-up"
+                // data-aos="fade-up"
                 href="https://business.pracify.com/"
                 target="_blank"
               >
