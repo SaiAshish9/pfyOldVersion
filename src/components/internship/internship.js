@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
+
 // import { useHistory } from "react-router-dom";
 // import axios from "axios";
 
@@ -9,6 +11,7 @@ import InternshipContext from "../../context/internshipContext";
 // import InternshipCard from "./internshipCard";
 import Filter from "../filters/filter";
 import Card from "../common/card";
+import { arrayValidation } from "../validation/validation";
 
 const cardStyle = {
   display: "flex",
@@ -16,10 +19,25 @@ const cardStyle = {
 };
 const { Option } = Select;
 const Internship = () => {
-  const { internship } = useContext(InternshipContext);
+  const [internship, setInternship] = useState(InternshipContext);
   const [arrangeCard, setArrangeCard] = useState("latest");
+
+  useEffect(() => {
+    axios
+      .get("http://35.154.129.241:5000/internship/fetch")
+      .then(function(response) {
+        const internshipData = response.data.internships;
+        setInternship(internshipData);
+        console.log(internshipData);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+      .finally(function() {});
+  }, []);
+
   const myInternshipCard =
-    !!internship &&
+    arrayValidation(internship) &&
     internship.map(internship => (
       <Col style={cardStyle} span={8} key={internship._id}>
         <Card internship={internship}></Card>
@@ -49,7 +67,7 @@ const Internship = () => {
             <div style={{ display: "flex" }}>
               <h1 className="card-heading-one">Internships</h1>
               <h2 className="card-heading-two">
-                ({internship.length} Results)
+                ({internship && internship.length} Results)
               </h2>
             </div>
 
@@ -63,7 +81,7 @@ const Internship = () => {
               <Option value="popular">Popular</Option>
             </Select>
           </div>
-          {myInternshipCard}
+          {myInternshipCard && myInternshipCard}
         </Col>
       </Row>
     </div>

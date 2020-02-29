@@ -78,7 +78,7 @@ const Continue = () => {
         .confirm(OTP)
         .then(function(result) {
           console.log(result);
-          setPassToken(result.user.uid)
+          setPassToken(result.user.uid);
           const userCredential = {
             phone: result.user.phoneNumber,
             passToken: result.user.uid
@@ -91,17 +91,17 @@ const Continue = () => {
               if (res.data.statusCode === 200) {
                 // const username = res.data.user.firstName;
                 // const id = res.data.user._id;
-                handleModalCancel()
+                handleModalCancel();
                 Cookies.set("token", res.data.token);
                 history.push("/home");
               } else if (res.data.statusCode === 210) {
                 setIsVerified(true);
               } else {
-                console.log("their is some error")
+                console.log("their is some error");
               }
             })
             .catch(function(error) {
-              console.log(error)
+              console.log(error);
               console.log("no internet");
             });
         })
@@ -150,12 +150,18 @@ const Continue = () => {
 
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
+      <Button 
+      //onClick={showModal} 
+      className="header__button1">
         Login
       </Button>
       {isVerified ? (
         <Modal visible={visible} onCancel={handleModalCancel} footer={null}>
-          <UserForm phone={phone} passToken={passToken} handleModalCancel={handleModalCancel}  />
+          <UserForm
+            phone={phone}
+            passToken={passToken}
+            handleModalCancel={handleModalCancel}
+          />
         </Modal>
       ) : (
         <Modal

@@ -29,7 +29,7 @@ const OpportunityContainer = () => (
           Jobs For Everyone
         </h3>
         <p data-aos="fade-up" className="opportunity-subContainer-two__p">
-          Energetic individual looking <br /> to showcase excellent{" "}
+          No matter who you're, <br/> we've work for you{" "}
         </p>
       </div>
 
@@ -44,7 +44,7 @@ const OpportunityContainer = () => (
           Work On The Go
         </h3>
         <p data-aos="fade-up" className="opportunity-subContainer-two__p">
-          Energetic individual looking <br /> to showcase excellent{" "}
+          Work remotely using your <br/> smartphone or computer{" "}
         </p>
       </div>
 
@@ -60,7 +60,7 @@ const OpportunityContainer = () => (
           Assured Payments
         </h3>
         <p data-aos="fade-up" className="opportunity-subContainer-two__p">
-          Energetic individual looking <br /> to showcase excellent{" "}
+          Get paid directly into your Pracify wallet <br/> after completing work{" "}
         </p>
       </div>
     </div>

@@ -1,35 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Button } from "antd";
+import { Scroll } from "react-fns";
+
 import { MyHeader } from "./headerStyled";
 import { Link, useHistory } from "react-router-dom";
-import Login from './login/login';
+import Login from "./login/login";
+import pracifyLogo from "./logo.png";
 
 const Header = () => {
   const history = useHistory();
-  const handleLogoClick = () => {
+  const handleLogo = () => {
     history.push("/");
   };
-  return (
-    <MyHeader>
-      <h1 className="logo" onClick={handleLogoClick}>
-        LOGO
-      </h1>
-      <div className="headerNav">
-        <Link to="/gigs" className="myLink">
-          GIGS
-        </Link>
-        <Link to="/internships" className="myLink">
-          INTERNSHIPS
-        </Link>
-        <Link to="/faqs" className="myLink">
-          FAQS
-        </Link>
-        <Link to="/get-in-contact" className="myLink">
-          GET IN CONTACT
-        </Link>
 
-        <Login/>
-      </div>
-    </MyHeader>
+  return (
+    <Scroll
+      render={({ x, y }) => {
+        return (
+          <MyHeader scrollEffect={y}>
+            <div className="logo-container" onClick={handleLogo}>
+              <img src={pracifyLogo} alt="" className="logoIcon" />
+            </div>
+            <div className="link-container">
+              <Link to="/" className="myLink1">
+                Internships
+              </Link>
+              <Link to="/" className="myLink2">
+                Gigs
+              </Link>
+
+              {<Login />}
+              <Button className="header__button2">For Business</Button>
+            </div>
+          </MyHeader>
+        );
+      }}
+    />
   );
 };
 

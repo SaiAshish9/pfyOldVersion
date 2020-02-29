@@ -6,6 +6,8 @@ import { Row, Col, Select } from "antd";
 // import GigCard from "./gigCard";
 import Card from "../common/card";
 import Filter from "../filters/filter";
+import { arrayValidation } from "../validation/validation";
+
 import GigContext from "../../context/gigContext";
 // import { GigStyled } from "./gigStyled";
 
@@ -16,14 +18,33 @@ const cardStyle = {
 const { Option } = Select;
 
 const Gig = () => {
-  const { gig } = useContext(GigContext);
+  const [gig, setGig] = useState();
   const [arrangeCard, setArrangeCard] = useState("latest");
 
-  const gigCard = gig.map(gig => (
-    <Col style={cardStyle} span={8} key={gig._id}>
-      <Card gig={gig} />
-    </Col>
-  ));
+  const gigCard =
+    arrayValidation(gig) &&
+    gig.map(gig => (
+      <Col style={cardStyle} span={8} key={gig._id}>
+        <Card gig={gig} />
+      </Col>
+    ));
+
+  useEffect(() => {
+    axios
+      .get("http://35.154.129.241:5000/mission/fetch")
+      .then(function(response) {
+        // handle success
+        const gigData = response.data.missions;
+        setGig(gigData);
+        console.log(gigData);
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function() {});
+  }, []);
+
   const handleArrangingCard = value => {
     setArrangeCard(value);
   };
@@ -42,7 +63,9 @@ const Gig = () => {
           <div className="card-heading-box">
             <div style={{ display: "flex" }}>
               <h1 className="card-heading-one">Gigs</h1>
-              <h2 className="card-heading-two">({gig.length} Results)</h2>
+              {gig && (
+                <h2 className="card-heading-two">({gig.length} Results)</h2>
+              )}
             </div>
             <Select
               defaultValue="latest"
@@ -54,7 +77,7 @@ const Gig = () => {
               <Option value="popular">Popular</Option>
             </Select>
           </div>
-          {gigCard}
+          {gigCard && gigCard}
         </Col>
       </Row>
     </div>
