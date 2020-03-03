@@ -34,12 +34,7 @@ const HIHcontainer = () => (
         </p>
         <img src={""} alt="" className="hih-content-subContainer__img" />
       </div>
-      <div // style={{
-        //   borderRight: "1px dashed #d3d3d3",
-        //   paddingRight: "80px"
-        // }}
-        className="hih-content-subContainer"
-      >
+      <div className="hih-content-subContainer">
         <h2 data-aos="fade-up" className="hih-content-subContainer__h2">
           2
         </h2>

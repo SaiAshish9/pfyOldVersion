@@ -1,0 +1,96 @@
+.footer-container {
+  background-color: #f6f7fa;
+  padding: 0px 0px 0px 0px;
+  .footer-block {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 120px 0px 120px;
+    padding: 20px 0px 12px 0px;
+    // display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cecdcd;
+    .footer-heading {
+      font-size: 28px;
+      line-height: 1.17;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+      padding: 3rem 20px 0 20px;
+    }
+    .footer-para {
+      color: #4a4a4a;
+      font-size: 16px;
+      padding: 0px 20px;
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    .contactUs-block {
+      text-align: center;
+
+      .my-icon-one {
+        width: 24px;
+      }
+      .my-icon {
+        width: 24px;
+        margin-left: 14px;
+      }
+      .contactUs-link {
+        margin-top: 18px;
+        color: #4a4a4a;
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+  }
+  div.social-link-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 120px;
+    p.copyright__para {
+    }
+
+    div.social-link-text-container {
+      .social__link {
+        margin-left: 8px;
+        padding-right: 8px;
+        border-right: 1px solid #cecdcd;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .footer-container {
+    .footer-block {
+      flex-direction: column;
+      margin: 40px 0px 0px 0px;
+      .footer-block__logo {
+        height: 50px;
+      }
+      .contactUs-block {
+        /* text-align: initial; */
+        .my-icon-one {
+          margin-left: 20px;
+        }
+        .contactUs-link {
+          /* text-align: initial;
+        margin-left: 20px; */
+        }
+      }
+    }
+    div.social-link-container {
+      margin: 8px 16px;
+      p.copyright__para {
+        flex: 1;
+      }
+      div.social-link-text-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1.5;
+        text-align: end;
+        .social__link {
+          border: none;
+        }
+      }
+    }
+  }
+}
