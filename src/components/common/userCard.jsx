@@ -8,7 +8,7 @@ import phoneIcon from "./img/phoneIcon.svg";
 import emailIcon from "./img/emailIcon.svg";
 import locationIcon from "./img/locationIcon.svg";
 
-const UserCard = ({ myUserProfile }) => {
+export default function UserCard({ myUserProfile }) {
   const history = useHistory();
   const [userData, setUserData] = useState();
 
@@ -59,5 +59,4 @@ const UserCard = ({ myUserProfile }) => {
       </div>
     </div>
   );
-};
-export default UserCard;
+}

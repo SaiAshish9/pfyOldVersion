@@ -151,7 +151,7 @@ const Continue = () => {
   return (
     <div>
       <Button 
-      //onClick={showModal} 
+      onClick={showModal} 
       className="header__button1">
         Login
       </Button>

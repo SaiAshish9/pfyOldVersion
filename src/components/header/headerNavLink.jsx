@@ -6,10 +6,10 @@ import Login from "./login/login";
 export default function HeaderNavLink() {
   return (
     <>
-      <Link to="/" className="myLink1">
+      <Link to="/internships" className="myLink1">
         Internships
       </Link>
-      <Link to="/" className="myLink2">
+      <Link to="/gigs" className="myLink2">
         Gigs
       </Link>
 

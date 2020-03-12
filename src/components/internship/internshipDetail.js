@@ -54,10 +54,11 @@ const InternshipDetail = props => {
   const otherRequirement = myInternship && myInternship.otherRequirements;
   //#endregion
 
+//FIXME
   useEffect(() => {
     axios
       .get(
-        `${apiURL}/internship/fetchone_with_status/${selectedInternshipId}`,
+        `${apiURL}/internship/fetchone/${selectedInternshipId}`,
         tokenHeader
       )
       .then(res => {

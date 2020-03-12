@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 
 import { MyHeader } from "./headerStyled";
 import Login from "./login/login";
-// import { Link, useHistory } from "react-router-dom";
 import pracifyLogo from "./logo.png";
 
 import HeaderNavLink from "./headerNavLink";
@@ -14,6 +13,7 @@ import MobileNavIcon from "./mobileNavIcon";
 const Header = () => {
   const history = useHistory();
   const [isNavOpen, setIsNavOpen] = useState(false);
+
   const handleLogo = () => {
     history.push("/");
   };
