@@ -3,12 +3,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
-// import { useHistory } from "react-router-dom";
-// import axios from "axios";
-
 import { Row, Col, Select } from "antd";
 import InternshipContext from "../../context/internshipContext";
-// import InternshipCard from "./internshipCard";
 import Filter from "../filters/filter";
 import Card from "../common/card";
 import { arrayValidation } from "../validation/validation";

@@ -1,0 +1,248 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2020-03-13 15:17:37
+count workspace : h:\projex-x-user
+total files : 219
+total code lines : 35706
+total comment lines : 487
+total blank lines : 2652
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |   .development|              8|              1|              0|  0.022|
+   |               |             29|              1|             10|  0.081|
+   |            .sh|             14|              1|              1|  0.039|
+   |          .html|             21|             24|              1|  0.059|
+   |            .md|             37|             12|             31|   0.10|
+   |          .json|          17262|              0|              3|     48|
+   |          .lock|           8845|             32|           1869|     25|
+   |           .txt|              2|              1|              0| 0.0056|
+   |           .css|             58|              4|              8|   0.16|
+   |            .js|           1810|            193|            224|    5.1|
+   |           .svg|           1353|              0|              0|    3.8|
+   |           .jsx|           3820|            144|            305|     11|
+   |          .scss|           2447|             74|            200|    6.9|
+   -------------------------------------------------------------------------
+.env.development, code is 8, comment is 1, blank is 0.
+.gitignore, code is 20, comment is 1, blank is 6.
+deploy.sh, code is 14, comment is 1, blank is 1.
+Dockerfile, code is 9, comment is 0, blank is 4.
+html.html, code is 1, comment is 0, blank is 0.
+package-lock.json, code is 16786, comment is 0, blank is 0.
+package.json, code is 53, comment is 0, blank is 2.
+public\favicon.ico, it is a binary file.
+public\favicon.png, it is a binary file.
+public\index.html, code is 20, comment is 24, blank is 1.
+public\logo192.png, it is a binary file.
+public\logo512.png, it is a binary file.
+public\manifest.json, code is 25, comment is 0, blank is 0.
+public\robots.txt, code is 2, comment is 1, blank is 0.
+README.md, code is 37, comment is 12, blank is 31.
+src\App.css, code is 33, comment is 0, blank is 5.
+src\App.js, code is 25, comment is 41, blank is 12.
+src\App.test.js, code is 8, comment is 0, blank is 1.
+src\components\aboutUs\aboutUs.js, code is 7, comment is 0, blank is 2.
+src\components\common\card.jsx, code is 67, comment is 1, blank is 7.
+src\components\common\img\calendarIcon.svg, code is 19, comment is 0, blank is 0.
+src\components\common\img\emailIcon.svg, code is 10, comment is 0, blank is 0.
+src\components\common\img\locationIcon.svg, code is 9, comment is 0, blank is 0.
+src\components\common\img\phoneIcon.svg, code is 8, comment is 0, blank is 0.
+src\components\common\img\rupeeIcon.svg, code is 18, comment is 0, blank is 0.
+src\components\common\img\taskIcon.svg, code is 25, comment is 0, blank is 0.
+src\components\common\userCard.jsx, code is 57, comment is 0, blank is 5.
+src\components\dashboard\dashboard.js, code is 21, comment is 0, blank is 2.
+src\components\dashboard\dashboardStyled.js, code is 22, comment is 0, blank is 12.
+src\components\dashboard\latestContent.js, code is 102, comment is 1, blank is 2.
+src\components\dashboard\liveGig.js, code is 42, comment is 1, blank is 2.
+src\components\dashboard\recommendedForUser.js, code is 42, comment is 1, blank is 3.
+src\components\dashboard\trendingContent.js, code is 42, comment is 1, blank is 3.
+src\components\dashboard\userProfileInstance.js, code is 28, comment is 0, blank is 2.
+src\components\dashboard\userStats.js, code is 35, comment is 0, blank is 2.
+src\components\faqs\faqs.js, code is 7, comment is 0, blank is 2.
+src\components\filters\filter.js, code is 26, comment is 1, blank is 2.
+src\components\filters\filter.scss, code is 50, comment is 0, blank is 5.
+src\components\getInContact\getInContact.js, code is 7, comment is 0, blank is 3.
+src\components\getStarted\getStarted.js, code is 7, comment is 0, blank is 2.
+src\components\gig\gig.js, code is 72, comment is 7, blank is 7.
+src\components\gig\gigDetails.js, code is 118, comment is 8, blank is 12.
+src\components\gig\gigStyled.js, code is 3, comment is 0, blank is 2.
+src\components\gig\gigTask.js, code is 32, comment is 37, blank is 4.
+src\components\gig\taskIcon.svg, code is 25, comment is 0, blank is 0.
+src\components\header\header.js, code is 56, comment is 0, blank is 9.
+src\components\header\headerNavLink.jsx, code is 20, comment is 0, blank is 2.
+src\components\header\headerStyled.js, code is 124, comment is 3, blank is 11.
+src\components\header\login\image\female.png, it is a binary file.
+src\components\header\login\image\male.png, it is a binary file.
+src\components\header\login\login.css, code is 3, comment is 1, blank is 1.
+src\components\header\login\login.js, code is 250, comment is 5, blank is 24.
+src\components\header\login\loginImg.png, it is a binary file.
+src\components\header\login\loginStyled.js, code is 6, comment is 0, blank is 2.
+src\components\header\login\myOTP.js, code is 0, comment is 11, blank is 5.
+src\components\header\login\userForm.js, code is 170, comment is 9, blank is 22.
+src\components\header\logo.png, it is a binary file.
+src\components\header\mobileNavIcon.jsx, code is 13, comment is 1, blank is 2.
+src\components\header\pracifyLogo.png, it is a binary file.
+src\components\header\privateHeader\privateHeader.jsx, code is 56, comment is 1, blank is 5.
+src\components\header\privateHeader\privateHeader.scss, code is 29, comment is 0, blank is 1.
+src\components\home\downloadAppContainer.jsx, code is 44, comment is 1, blank is 2.
+src\components\home\footerContainer.jsx, code is 79, comment is 0, blank is 3.
+src\components\home\frontContainer.jsx, code is 25, comment is 0, blank is 2.
+src\components\home\HIHcontainer.jsx, code is 58, comment is 7, blank is 3.
+src\components\home\HIWcontainer.jsx, code is 169, comment is 3, blank is 8.
+src\components\home\home.js, code is 22, comment is 0, blank is 4.
+src\components\home\img\dottedIcon1.svg, code is 3, comment is 0, blank is 0.
+src\components\home\img\dottedIcon2.svg, code is 1, comment is 0, blank is 0.
+src\components\home\img\downloadAppleStoreIcon.png, it is a binary file.
+src\components\home\img\downloadGoogleStoreIcon.png, it is a binary file.
+src\components\home\img\downloadWave.svg, code is 13, comment is 0, blank is 0.
+src\components\home\img\footerFacebookIcon.svg, code is 36, comment is 0, blank is 0.
+src\components\home\img\footerInstagramIcon.svg, code is 1, comment is 0, blank is 0.
+src\components\home\img\footerLinkedinIcon.svg, code is 36, comment is 0, blank is 0.
+src\components\home\img\footerTwitterIcon.svg, code is 36, comment is 0, blank is 0.
+src\components\home\img\frontImg.png, it is a binary file.
+src\components\home\img\hiwIcon1.png, it is a binary file.
+src\components\home\img\hiwIcon2.png, it is a binary file.
+src\components\home\img\hiwIcon3.png, it is a binary file.
+src\components\home\img\hiwImg1.png, it is a binary file.
+src\components\home\img\hiwImg2.png, it is a binary file.
+src\components\home\img\hiwImg3.png, it is a binary file.
+src\components\home\img\logo.png, it is a binary file.
+src\components\home\img\opportunityIcon1.svg, code is 1, comment is 0, blank is 0.
+src\components\home\img\opportunityIcon2.svg, code is 45, comment is 0, blank is 0.
+src\components\home\img\opportunityIcon3.svg, code is 1, comment is 0, blank is 0.
+src\components\home\img\phone.png, it is a binary file.
+src\components\home\opportunityContainer.jsx, code is 65, comment is 0, blank is 5.
+src\components\internship\companyQuesForm.jsx, code is 77, comment is 5, blank is 10.
+src\components\internship\img\checkIcon.svg, code is 9, comment is 0, blank is 0.
+src\components\internship\img\removeIcon.svg, code is 9, comment is 0, blank is 0.
+src\components\internship\internship.js, code is 75, comment is 3, blank is 8.
+src\components\internship\internshipDetail.js, code is 218, comment is 17, blank is 14.
+src\components\internship\userInternship.js, code is 0, comment is 0, blank is 0.
+src\components\moreSuggestion\help.svg, code is 10, comment is 0, blank is 0.
+src\components\moreSuggestion\MoreSuggestion.jsx, code is 30, comment is 0, blank is 2.
+src\components\pageNotFound.jsx, code is 20, comment is 0, blank is 1.
+src\components\userHome\userGig\userGig.jsx, code is 134, comment is 16, blank is 9.
+src\components\userHome\userHome\avatar.jsx, code is 41, comment is 2, blank is 6.
+src\components\userHome\userHome\gigOrInternship.jsx, code is 56, comment is 2, blank is 6.
+src\components\userHome\userHome\img\bag.png, it is a binary file.
+src\components\userHome\userHome\img\clipboard.png, it is a binary file.
+src\components\userHome\userHome\img\rupee.png, it is a binary file.
+src\components\userHome\userHome\stat.jsx, code is 49, comment is 2, blank is 3.
+src\components\userHome\userHome\userHome.jsx, code is 51, comment is 1, blank is 8.
+src\components\userHome\userIntership\userInternship.css, code is 7, comment is 0, blank is 0.
+src\components\userHome\userIntership\userInternship.jsx, code is 135, comment is 3, blank is 12.
+src\components\userHome\userProfile\AboutUser.jsx, code is 66, comment is 2, blank is 9.
+src\components\userHome\userProfile\img\(2).svg, code is 13, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\(3).svg, code is 13, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\(4).svg, code is 16, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\(5).svg, code is 44, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\(6).svg, code is 13, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\(7).svg, code is 25, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\(8).svg, code is 13, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\comedyIcon.svg, code is 23, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\danceIcon.svg, code is 13, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\dataEntryIcon.svg, code is 31, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\designingIcon.svg, code is 37, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\drawingIcon.svg, code is 20, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\fashionIcon.svg, code is 11, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\fieldWorkIcon.svg, code is 73, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\hindiIcon.svg, code is 8, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\marketingIcon.svg, code is 22, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\photographyIcon.svg, code is 38, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\rappingIcon.svg, code is 35, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\samplingIcon.svg, code is 15, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\singingIcon.svg, code is 39, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\socialMediaIcon.svg, code is 53, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\storeAuditIcon.svg, code is 14, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\videoMaking.svg, code is 26, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\interestIcon\writingIcon.svg, code is 82, comment is 0, blank is 0.
+src\components\userHome\userProfile\img\userFaceIcon.svg, code is 10, comment is 0, blank is 0.
+src\components\userHome\userProfile\offlineAvailUser.jsx, code is 85, comment is 3, blank is 6.
+src\components\userHome\userProfile\userDigitalProfile.jsx, code is 74, comment is 12, blank is 6.
+src\components\userHome\userProfile\userLanguage.jsx, code is 60, comment is 12, blank is 4.
+src\components\userHome\userProfile\userProfile.jsx, code is 26, comment is 0, blank is 5.
+src\components\userHome\userProfile\userSkill.jsx, code is 98, comment is 12, blank is 5.
+src\components\userResume\achievement.jsx, code is 134, comment is 3, blank is 8.
+src\components\userResume\digitalProfile.jsx, code is 249, comment is 4, blank is 13.
+src\components\userResume\education.jsx, code is 284, comment is 12, blank is 22.
+src\components\userResume\experience.jsx, code is 303, comment is 5, blank is 25.
+src\components\userResume\img\expand_more.svg, code is 1, comment is 0, blank is 0.
+src\components\userResume\img\headingImg\educationIcon.svg, code is 12, comment is 0, blank is 0.
+src\components\userResume\img\headingImg\experienceIcon.svg, code is 8, comment is 0, blank is 0.
+src\components\userResume\img\headingImg\objectiveIcon.svg, code is 10, comment is 0, blank is 0.
+src\components\userResume\img\headingImg\positionIcon.svg, code is 19, comment is 0, blank is 0.
+src\components\userResume\img\headingImg\skillIcon.svg, code is 16, comment is 0, blank is 0.
+src\components\userResume\img\headingImg\team.svg, code is 44, comment is 0, blank is 0.
+src\components\userResume\img\headingImg\trainingIcon.svg, code is 8, comment is 0, blank is 0.
+src\components\userResume\img\skillImg\creativeIcon.svg, code is 32, comment is 0, blank is 0.
+src\components\userResume\img\skillImg\designIcon.svg, code is 15, comment is 0, blank is 0.
+src\components\userResume\img\skillImg\financeIcon.svg, code is 37, comment is 0, blank is 0.
+src\components\userResume\img\skillImg\generalIcon.svg, code is 9, comment is 0, blank is 0.
+src\components\userResume\img\skillImg\legalIcon.svg, code is 19, comment is 0, blank is 0.
+src\components\userResume\img\skillImg\marketingIcon.svg, code is 22, comment is 0, blank is 0.
+src\components\userResume\img\skillImg\otherIcon.svg, code is 13, comment is 0, blank is 0.
+src\components\userResume\img\skillImg\technicalIcon.svg, code is 15, comment is 0, blank is 0.
+src\components\userResume\objective.jsx, code is 106, comment is 6, blank is 8.
+src\components\userResume\position.jsx, code is 171, comment is 7, blank is 13.
+src\components\userResume\project.jsx, code is 278, comment is 3, blank is 22.
+src\components\userResume\skill.jsx, code is 271, comment is 14, blank is 30.
+src\components\userResume\training.jsx, code is 154, comment is 1, blank is 9.
+src\components\userResume\userResume.jsx, code is 70, comment is 1, blank is 7.
+src\components\validation\validation.js, code is 8, comment is 0, blank is 1.
+src\components\wallet\coin.svg, code is 29, comment is 0, blank is 0.
+src\components\wallet\dateIcon.svg, code is 15, comment is 0, blank is 0.
+src\components\wallet\rupee1.svg, code is 13, comment is 0, blank is 0.
+src\components\wallet\rupee2.svg, code is 3, comment is 0, blank is 0.
+src\components\wallet\timeIcon.svg, code is 4, comment is 0, blank is 0.
+src\components\wallet\wallet.jsx, code is 58, comment is 1, blank is 4.
+src\constant\tokenHeader.jsx, code is 7, comment is 0, blank is 1.
+src\constant\url.jsx, code is 1, comment is 1, blank is 0.
+src\context\gigContext.js, code is 3, comment is 0, blank is 2.
+src\context\internshipContext.js, code is 3, comment is 1, blank is 2.
+src\context\userContext.js, code is 3, comment is 0, blank is 2.
+src\firebase\firebase.js, code is 13, comment is 1, blank is 3.
+src\font\AvenirLTStd-Medium.otf, it is a binary file.
+src\index.css, code is 15, comment is 3, blank is 2.
+src\index.js, code is 7, comment is 5, blank is 3.
+src\logo.svg, code is 7, comment is 0, blank is 0.
+src\reducer\gigReducer.js, code is 9, comment is 0, blank is 2.
+src\reducer\internshipReducer.js, code is 9, comment is 0, blank is 2.
+src\reducer\resumeReducer.js, code is 0, comment is 5, blank is 0.
+src\reducer\userReducer.js, code is 9, comment is 0, blank is 2.
+src\routes\commonRoute.jsx, code is 29, comment is 0, blank is 3.
+src\routes\privateRoute.jsx, code is 25, comment is 0, blank is 2.
+src\routes\publicRoute.jsx, code is 25, comment is 0, blank is 2.
+src\routes\router.js, code is 60, comment is 0, blank is 8.
+src\serviceWorker.js, code is 91, comment is 31, blank is 15.
+src\setupTests.js, code is 1, comment is 4, blank is 0.
+src\staticData\cityData.json, code is 398, comment is 0, blank is 1.
+src\style\_moreSuggestion.scss, code is 56, comment is 0, blank is 0.
+src\style\_style.scss, code is 15, comment is 0, blank is 4.
+src\style\_userForm.scss, code is 45, comment is 0, blank is 3.
+src\style\base\_base.scss, code is 0, comment is 0, blank is 0.
+src\style\base\_card.scss, code is 74, comment is 4, blank is 3.
+src\style\base\_cardContainer.scss, code is 31, comment is 3, blank is 5.
+src\style\base\_setting.scss, code is 12, comment is 2, blank is 4.
+src\style\base\_userCard.scss, code is 65, comment is 1, blank is 0.
+src\style\gig\_gigDetail.scss, code is 142, comment is 11, blank is 6.
+src\style\header\_mobileNavIcon.scss, code is 60, comment is 1, blank is 6.
+src\style\home\_downloadAppContainer.scss, code is 69, comment is 0, blank is 7.
+src\style\home\_footerContainer.scss, code is 89, comment is 4, blank is 3.
+src\style\home\_frontContainer.scss, code is 102, comment is 20, blank is 14.
+src\style\home\_HIHcontainer.scss, code is 67, comment is 1, blank is 14.
+src\style\home\_HIWcontainer.scss, code is 176, comment is 7, blank is 17.
+src\style\home\_home.scss, code is 20, comment is 4, blank is 4.
+src\style\home\_opportunityContainer.scss, code is 87, comment is 2, blank is 4.
+src\style\internship\_internshipDetail.scss, code is 106, comment is 9, blank is 4.
+src\style\userHome\_userHome.scss, code is 300, comment is 2, blank is 17.
+src\style\userResume\_userResume.scss, code is 335, comment is 1, blank is 25.
+src\style\userResume\_userResumeModal.scss, code is 424, comment is 1, blank is 37.
+src\style\wallet\_wallet.scss, code is 93, comment is 1, blank is 17.
+tests\MoreSuggestion.test.js, code is 9, comment is 0, blank is 2.
+tests\Wallet.test.js, code is 9, comment is 0, blank is 2.
+tests\yesSuggestion.test.js, code is 9, comment is 0, blank is 2.
+yarn.lock, code is 8845, comment is 32, blank is 1869.
+===============================================================================

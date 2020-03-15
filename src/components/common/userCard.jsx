@@ -34,7 +34,11 @@ export default function UserCard({ myUserProfile }) {
     <div className="userProfile-block" onClick={handleCard}>
       <div className="avatar-block">
         <div className="avatar-img-block">
-          <img src={""} alt=""></img>
+          <img
+            src={!!userData ? userData.imgUrl : ""}
+            alt=""
+            className="avatar__img"
+          ></img>
         </div>
         <h2>{!!userData && userData.firstName}</h2>
       </div>

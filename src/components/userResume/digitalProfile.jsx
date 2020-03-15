@@ -75,7 +75,7 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
       <div
         className="digital-profile-block-two"
         style={{
-          borderBottom: isAllData() ? "1px solid" : "none"
+          borderBottom: isAllData() ? "1px solid #CECFCF" : "none"
         }}
       >
         <section style={{ display: "flex" }}>

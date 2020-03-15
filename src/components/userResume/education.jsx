@@ -141,7 +141,7 @@ const Education = ({ education, updateResume }) => {
         className="education-block-two"
         style={{
           borderBottom:
-            !!education && objectValidation(education) ? "1px solid" : "none"
+            !!education && objectValidation(education) ? "1px solid #CECFCF" : "none"
         }}
       >
         <section style={{ display: "flex" }}>

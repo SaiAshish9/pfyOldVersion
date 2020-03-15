@@ -9,9 +9,11 @@ import CompanyQueForm from "./companyQuesForm";
 import checkIcon from "./img/checkIcon.svg";
 import removeIcon from "./img/removeIcon.svg";
 import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
+import { arrayValidation } from "../validation/validation";
 
 const InternshipDetail = props => {
-  const { internship } = useContext(InternshipContext);
+  // const { internship } = useContext(InternshipContext);
+  const [internship, setInternship] = useState();
 
   const [modalVisible, setModalVisible] = useState(false);
   const [isApply, setIsApply] = useState(false);
@@ -25,11 +27,11 @@ const InternshipDetail = props => {
   //   console.log(answer);
   // }, [answer]);
   const selectedInternshipId = props.match.params.id;
-  const myInternship =
-    internship.length > 0 &&
-    internship.find(
-      thisInternship => thisInternship._id === selectedInternshipId
-    );
+  const myInternship = internship;
+  //   internship.length > 0 &&
+  //   internship.find(
+  //     thisInternship => thisInternship._id === selectedInternshipId
+  //   );
   //#region
   /* --------------------------- internship provider state --------------------------- */
   const companyLogo = myInternship && myInternship.company.logoUrl;
@@ -54,24 +56,28 @@ const InternshipDetail = props => {
   const otherRequirement = myInternship && myInternship.otherRequirements;
   //#endregion
 
-//FIXME
   useEffect(() => {
     axios
       .get(
-        `${apiURL}/internship/fetchone/${selectedInternshipId}`,
+        `${apiURL}/internship/fetchone_with_status/${selectedInternshipId}`,
         tokenHeader
       )
       .then(res => {
         console.log(res);
         if (res.data.appliedStatus === 300) {
           setIsApply(true);
+          setInternship(res.data);
         } else if (res.data.appliedStatus === 301) {
           setIsShortlisted(true);
+          setInternship(res.data);
         } else if (res.data.appliedStatus === 302) {
           setIsSelected(true);
+          setInternship(res.data);
         } else if (res.data.appliedStatus === 303) {
           setIsRejected(true);
+          setInternship(res.data);
         } else {
+          setInternship(res.data);
           setCompanyQuestion(res.data.questions);
         }
       })
@@ -197,8 +203,7 @@ const InternshipDetail = props => {
           <br />
           <div>
             <h2>Responsibilities</h2>
-            {internResponsibilities.length > 0 &&
-              internResponsibilities &&
+            {arrayValidation(internResponsibilities) &&
               internResponsibilities.map(responsibility => (
                 <p key={internResponsibilities.indexOf(responsibility)}>
                   {internResponsibilities.indexOf(responsibility) + 1}.{" "}
@@ -209,7 +214,7 @@ const InternshipDetail = props => {
           <br />
           <div>
             <h2>Skills Required</h2>
-            {skillRequired.length > 0 &&
+            {arrayValidation(skillRequired) &&
               skillRequired.map(skill => {
                 return (
                   <p key={skill._id}>
@@ -221,7 +226,7 @@ const InternshipDetail = props => {
           <br />
           <div>
             <h2>Benefits</h2>
-            {benefit.length > 0 &&
+            {arrayValidation(benefit) &&
               benefit.map(myBenefit => {
                 return (
                   <p key={benefit.indexOf(myBenefit)}>
@@ -233,7 +238,7 @@ const InternshipDetail = props => {
           <br />
           <div>
             <h2>Benefits</h2>
-            {otherRequirement.length > 0 &&
+            {arrayValidation(otherRequirement) &&
               otherRequirement.map(myOtherRequirement => {
                 return (
                   <p key={otherRequirement.indexOf(myOtherRequirement)}>

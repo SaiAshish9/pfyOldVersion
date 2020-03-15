@@ -3,7 +3,6 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { Button, Icon, Modal } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
-import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import GigContext from "../../context/gigContext";
 import CompanyQueForm from "../internship/companyQuesForm";
@@ -13,12 +12,11 @@ import { arrayValidation } from "../validation/validation";
 import checkIcon from "../internship/img/checkIcon.svg";
 import removeIcon from "../internship/img/removeIcon.svg";
 import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
-import taskIcon from "./taskIcon.svg";
-// import { gigDetailStyled } from "./intershipDetailStyled";
+import GigTask from "./gigTask";
 
 const GigDetail = props => {
   //#region
-  const { gig } = useContext(GigContext);
+  const [gig, setGig] = useState();
 
   const [modalVisible, setModalVisible] = useState(false);
   const [isApply, setIsApply] = useState(false);
@@ -31,7 +29,9 @@ const GigDetail = props => {
 
   const selectedGigId = props.match.params.id;
 
-  const myGig = gig.find(thisGig => thisGig._id === selectedGigId);
+  const myGig = gig;
+
+  //#region
   /* ------------------------ gig provider state ----------------------- */
   const companyLogo = myGig && myGig.company.logoUrl;
   const designation = myGig && myGig.title;
@@ -48,12 +48,9 @@ const GigDetail = props => {
   const aboutGig = myGig && myGig.about;
   const requirement = myGig && myGig.requirements;
 
-  useEffect(() => {
-    console.log(gigProvider);
-    // console.log(gig.company)
-  }, [gigProvider]);
-
-  // let myCarousel = useRef();
+  /* -------------------------------- gig-task -------------------------------- */
+  const gigTask = myGig && myGig.tasks;
+  //#endregion
 
   useEffect(() => {
     axios
@@ -62,21 +59,28 @@ const GigDetail = props => {
         tokenHeader
       )
       .then(res => {
-        console.log(res);
+        console.log("response", res);
         if (res.data.appliedStatus === 601) {
           setIsApply(true);
+          setGig(res.data);
         } else if (res.data.appliedStatus === 602) {
+          setGig(res.data);
           setIsShortlisted(true);
         } else if (res.data.appliedStatus === 603) {
+          setGig(res.data);
           setIsSelected(true);
         } else if (res.data.appliedStatus === 604) {
+          setGig(res.data);
           setIsRejected(true);
         } else if (res.data.appliedStatus === 605) {
+          setGig(res.data);
           setIsCompleted(true);
         } else if (res.data.appliedStatus === 606) {
+          setGig(res.data);
           setIsFailed(true);
         } else {
           console.log(res.data.questions);
+          setGig(res.data);
           setCompanyQuestion(res.data.questions);
         }
       })
@@ -84,21 +88,6 @@ const GigDetail = props => {
         console.log("error" + e);
       });
   }, [modalVisible]);
-
-  // const next = () => {
-  //   myCarousel.next();
-  // };
-  // const previous = () => {
-  //   myCarousel.prev();
-  // };
-
-  // const carouselProps = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1
-  // };
 
   const handleApply = () => {
     setModalVisible(true);
@@ -112,7 +101,6 @@ const GigDetail = props => {
   const handleModalCancel = () => {
     setModalVisible(false);
   };
-  //#endregion
 
   return (
     <div className="gig-details-page">
@@ -224,29 +212,16 @@ const GigDetail = props => {
           <div>
             <h2>Task to be done</h2>
             <div className="carousel-block">
-              <Carousel
-                slidesPerPage={3}
-                arrowLeft={<Icon type="left" style={{ cursor: "pointer" }} />}
-                arrowRight={<Icon type="right" style={{ cursor: "pointer" }} />}
-                addArrowClickHandler
-                infinite
-              >
-                <div className="carousel-content-block">
-                  <h4 className="carousel-content-block__h4">
-                    Description Description
-                  </h4>
-                  <img
-                    src={taskIcon}
-                    className="carousel-content-block__img"
-                  ></img>
-                  <Button
-                    shape="round"
-                    className="carousel-content-block__button"
-                  >
-                    Start Task
-                  </Button>
-                </div>
-              </Carousel>
+              <GigTask
+                gigTask={gigTask}
+                selectedGigId={selectedGigId}
+                isApply={isApply}
+                isCompleted={isCompleted}
+                isFailed={isFailed}
+                isRejected={isRejected}
+                isSelected={isSelected}
+                isShortlisted={isShortlisted}
+              />
             </div>
           </div>
           <br />

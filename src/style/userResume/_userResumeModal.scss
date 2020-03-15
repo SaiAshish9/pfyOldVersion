@@ -449,13 +449,18 @@
   .skill-subCategory-block {
     display: flex;
     flex-flow: wrap;
-    .skill-subCategory-content-block {
-      margin: 10px 20px;
-      border: 1px solid;
-      padding: 5px 10px;
-      border-radius: 10px;
-      .skill-subCategory-content__p {
-        margin: 0px;
+    .skill-subCategory-block-two {
+      display: flex;
+      .skill-subCategory-content-block {
+        margin: 10px 0px 10px 20px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        .skill-subCategory-content__p {
+          margin: 0px;
+        }
+      }
+      .delete-icon {
+        align-self: flex-end;
       }
     }
   }

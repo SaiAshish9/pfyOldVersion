@@ -115,7 +115,7 @@ const Project = ({ project, updateResume }) => {
       <div
         className="project-block-two"
         style={{
-          borderBottom: arrayValidation(project) ? "1px solid" : "none"
+          borderBottom: arrayValidation(project) ? "1px solid #CECFCF" : "none"
         }}
       >
         <section style={{ display: "flex" }}>

@@ -22,16 +22,21 @@ const proficiencyRate = [
   "Expert"
 ];
 
-const Skill = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+export default function Skill({ skill }) {
+  const [skillDummy, setSkillDummy] = useState([]);
   const [skillData, setSkillData] = useState([]);
-  const [mySelectedSkillData, setMySelectedSkillData] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  useEffect(() => {
+    setSkillDummy(skill);
+  }, [skill]);
 
   useEffect(() => {
     axios
       .get(`${apiURL}/skill/fetch`, tokenHeader)
       .then(res => {
-        console.log(res.data);
+        console.log("%c skill", "color:red", res.data);
         setSkillData(res.data);
       })
       .catch(e => {
@@ -68,8 +73,7 @@ const Skill = () => {
       mySkill => mySkill.category === categoryData
     );
     setSelectedCategory(categoryData);
-    // console.log("dikha", categoryData)
-    setMySelectedSkillData(selectedSkillData);
+    setSubCategory(selectedSkillData);
     setIsSubcategory(true);
   };
 
@@ -77,70 +81,29 @@ const Skill = () => {
     setIsSubcategory(false);
   };
 
-  const theCategory = (category, index) => {
-    if (index === 2) {
-      return (
-        <div
-          onClick={() => handleCategory(category)}
-          className="skill-category-content-block"
-        >
-          {skillImage(category)}
-          <h3 className="skill-category-content__h3">{category}</h3>
-        </div>
-      );
-    }
-  };
-  // const [isSubcategory, setIsSubcategory] = useState(false);
-
   const handleSkillName = ({ name, category }) => {
-    // setIsSubcategory(!isSubcategory);
     setBeforeRate({ name, category });
   };
 
   //TODO resume skills
 
-  const [skillRate, setSkillRate] = useState(0);
   const [beforeRate, setBeforeRate] = useState({});
   const [allSkillData, setAllSkillData] = useState([]);
 
   const handleSkillRate = value => {
     console.log("skillss skillRate", value);
-    setSkillRate(value);
-    const c = { ...beforeRate, rating: value };
-    setAllSkillData([...allSkillData, c]);
-    // setAllSkillData(...allSkillData, { rating: value });
+    const withRating = { ...beforeRate, rating: value };
+    setSkillDummy([...skillDummy, withRating]);
+    setAllSkillData([...allSkillData, withRating]);
   };
 
-  // let thisData = [{ rating: 1 }, { rating: 2 }, { rating: 3 }];
-  // const b = [...thisData, { rating: 4 }];
-  // console.log("testing", b);
-
-  const popoverContent = (
-    <div style={{ display: "flex" }}>
-      <Rate
-        tooltips={proficiencyRate}
-        onChange={handleSkillRate}
-        value={skillRate}
-      />
-    </div>
-  );
-
-  // const filterCategory = categoryData => {};
-
-  const [isRateVisible, setIsRateVisible] = useState();
-  const handleVisibleChange = visible => {
-    console.log(visible);
-    setIsRateVisible(visible);
-  };
-
-  console.log("skillss isRateVisible", isRateVisible);
   //! ---------------------------------- test ---------------------------------- */
+
   useEffect(() => {
-    console.log("skillss", beforeRate);
-  }, [beforeRate]);
-  useEffect(() => {
+    console.log("skillDummy", skillDummy);
     console.log("skillss", allSkillData);
-  }, [allSkillData]);
+    console.log("beforeRate", beforeRate);
+  }, [allSkillData, beforeRate, skillDummy]);
 
   const skillImage = category => {
     switch (category) {
@@ -227,6 +190,66 @@ const Skill = () => {
     }
   };
 
+  const popoverContent = skillName => {
+    const matchSkillName = selectedSkillCategory(skillName);
+
+    return (
+      <div style={{ display: "flex" }}>
+        <Rate
+          tooltips={proficiencyRate}
+          onChange={handleSkillRate}
+          defaultValue={!!matchSkillName ? matchSkillName.rating : undefined}
+          disabled={!!matchSkillName}
+        />
+      </div>
+    );
+  };
+
+  const subCategoryStyle = skillName => {
+    const matchSkillName = selectedSkillCategory(skillName);
+    return {
+      backgroundColor: !!matchSkillName ? "#406AF8" : "#fff",
+      border: !!matchSkillName ? "none" : "1px solid",
+      color: !!matchSkillName ? "#fff" : "#000"
+    };
+  };
+
+  const selectedSkillCategory = skillName => {
+    const matchedSkill =
+      arrayValidation(skillDummy) &&
+      skillDummy.find(skill => skill.name === skillName);
+    console.log(matchedSkill);
+    return matchedSkill;
+  };
+
+  const handleDelete = skillName => {
+    const skillAfterDelete = skillDummy.filter(
+      skill => skill.name !== skillName
+    );
+    setSkillDummy(skillAfterDelete);
+  };
+
+  const [isDisableEditSkill, setIsDisableEditSkill] = useState(true);
+
+  const handleEditSkill = () => {
+    setIsDisableEditSkill(false);
+  };
+
+  const onSkillRateChange = (skillName, value) => {
+    const a = skillDummy.map(skill => {
+      if (skill.name === skillName) {
+        return {
+          ...skill,
+          rating: value
+        };
+      } else {
+        return skill;
+      }
+    });
+    setSkillDummy(a);
+    setIsDisableEditSkill(true);
+  };
+
   return (
     <div className="skill-block-one">
       <div className="skill-block-two">
@@ -234,12 +257,26 @@ const Skill = () => {
           <img
             src={skillIcon}
             alt=""
-            className="skill-block-two-icon"
             className=" skill-category-content__img"
           ></img>
           <h2 className="skill-block-two-heading">Skills</h2>
         </section>
       </div>
+      {arrayValidation(skillDummy) &&
+        skillDummy.map((skill, index) => (
+          <div className="" key={index} style={{ display: "flex" }}>
+            <p>{skill.name}</p>
+            <Rate
+              disabled={isDisableEditSkill}
+              onChange={value => onSkillRateChange(skill.name, value)}
+              defaultValue={skill.rating}
+            />
+
+            <Icon type="edit" onClick={() => handleEditSkill()}></Icon>
+
+            <Icon type="delete" onClick={() => handleDelete(skill.name)}></Icon>
+          </div>
+        ))}
       <Button
         // type="primary"
         shape="round"
@@ -248,6 +285,7 @@ const Skill = () => {
       >
         Add Skill
       </Button>
+
       <Modal
         width={600}
         title="Add Skills"
@@ -255,6 +293,7 @@ const Skill = () => {
         onCancel={handleCancel}
         footer={null}
       >
+        {/* -------------------------------- category -------------------------------- */}
         <div className="skill-modal-block">
           {arrayValidation(myCategory) &&
             !isSubcategory &&
@@ -264,7 +303,6 @@ const Skill = () => {
                   key={index}
                   style={{
                     width: "25%"
-                    // display: `${isSubcategory ? "none" : "block"}`
                   }}
                   className="skill-category-block"
                 >
@@ -280,28 +318,40 @@ const Skill = () => {
                 </div>
               );
             })}
+
+          {/* -------------------------------- sub-category -------------------------------- */}
           {isSubcategory && (
             <div className="skill-subCategory-block">
               <div>
                 <Icon type="arrow-left" onClick={handleBack} />
                 <div>{skillImage(selectedCategory)}</div>
               </div>
-              {arrayValidation(mySelectedSkillData) &&
-                // category === mySelectedSkillData[0].category &&
-                mySelectedSkillData.map((thisSkillData, index) => (
-                  <div key={index} className="skill-subCategory-content-block">
-                    <Popover
-                      content={popoverContent}
-                      trigger="click"
-                      onVisibleChange={handleVisibleChange}
+              {arrayValidation(subCategory) &&
+                subCategory.map((thisSkillData, index) => (
+                  <div key={index} className="skill-subCategory-block-two">
+                    <div
+                      className="skill-subCategory-content-block"
+                      style={subCategoryStyle(thisSkillData.name)}
                     >
-                      <p
-                        onClick={() => handleSkillName(thisSkillData)}
-                        className="skill-subCategory-content__p"
+                      <Popover
+                        content={popoverContent(thisSkillData.name)}
+                        trigger="click"
                       >
-                        {thisSkillData.name}
-                      </p>
-                    </Popover>
+                        <p
+                          onClick={() => handleSkillName(thisSkillData)}
+                          className="skill-subCategory-content__p"
+                        >
+                          {thisSkillData.name}
+                        </p>
+                      </Popover>
+                    </div>
+                    {!!selectedSkillCategory(thisSkillData.name) && (
+                      <Icon
+                        type="delete"
+                        className="delete-icon"
+                        onClick={() => handleDelete(thisSkillData.name)}
+                      ></Icon>
+                    )}
                   </div>
                 ))}
             </div>
@@ -310,6 +360,4 @@ const Skill = () => {
       </Modal>
     </div>
   );
-};
-
-export default Skill;
+}

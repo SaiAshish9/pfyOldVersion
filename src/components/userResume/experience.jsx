@@ -117,7 +117,7 @@ const Experience = ({ workExperience, updateResume }) => {
       <div
         className="experience-block-two"
         style={{
-          borderBottom: arrayValidation(workExperience) ? "1px solid" : "none"
+          borderBottom: arrayValidation(workExperience) ? "1px solid #CECFCF" : "none"
         }}
       >
         <section style={{ display: "flex" }}>

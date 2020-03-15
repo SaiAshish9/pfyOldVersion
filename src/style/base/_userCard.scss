@@ -20,6 +20,9 @@
       margin: 40px auto 20px auto;
       border-radius: 100%;
       border: 1px solid rgba(0, 0, 0, 0.4);
+      .avatar__img {
+        width: 100%;
+      }
     }
   }
   .avatar-intro-block {
@@ -52,7 +55,7 @@
     }
   }
   .divider-block {
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #cecfcf;
     width: 90%;
     margin: auto;
   }

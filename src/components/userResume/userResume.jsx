@@ -17,19 +17,21 @@ import UserCard from "../common/userCard";
 const UserResume = () => {
   const [userResumeData, setUserResumeData] = useState({});
   const [updater, setUpdater] = useState(0);
+  const [isLoader, setIsLoader] = useState(true);
   console.log(userResumeData);
 
-  useEffect(() => {
-    console.log(userResumeData);
-  }, [updater, userResumeData]);
+  // useEffect(() => {
+  //   console.log(userResumeData);
+  // }, [updater, userResumeData]);
 
   useEffect(() => {
-    console.log(updater);
+    console.log("updater", updater);
     axios
       .get(`${apiURL}/resume/me`, tokenHeader)
       .then(res => {
-        console.log(res.data);
-        setUserResumeData(res.data);
+        console.log("user resume data", res.data);
+        setIsLoader(false);
+        setUserResumeData(res.data.resume);
       })
       .catch(e => console.log(e.response));
   }, [updater]);
@@ -46,6 +48,7 @@ const UserResume = () => {
         <Objective
           careerObjective={userResumeData.careerObjectives}
           updateResume={setUpdater}
+          loader={isLoader}
         />
         <Education
           education={userResumeData.education}

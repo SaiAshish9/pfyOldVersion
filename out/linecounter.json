@@ -1,0 +1,1422 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "h:\\projex-x-user",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2020-03-13 15:17:37",
+            "filesum": 219,
+            "codesum": 35706,
+            "commentsum": 487,
+            "blanksum": 2652,
+            "statistics": {
+                ".development": {
+                    "code": 8,
+                    "comment": 1,
+                    "blank": 0
+                },
+                "": {
+                    "code": 29,
+                    "comment": 1,
+                    "blank": 10
+                },
+                ".sh": {
+                    "code": 14,
+                    "comment": 1,
+                    "blank": 1
+                },
+                ".html": {
+                    "code": 21,
+                    "comment": 24,
+                    "blank": 1
+                },
+                ".md": {
+                    "code": 37,
+                    "comment": 12,
+                    "blank": 31
+                },
+                ".json": {
+                    "code": 17262,
+                    "comment": 0,
+                    "blank": 3
+                },
+                ".lock": {
+                    "code": 8845,
+                    "comment": 32,
+                    "blank": 1869
+                },
+                ".txt": {
+                    "code": 2,
+                    "comment": 1,
+                    "blank": 0
+                },
+                ".css": {
+                    "code": 58,
+                    "comment": 4,
+                    "blank": 8
+                },
+                ".js": {
+                    "code": 1810,
+                    "comment": 193,
+                    "blank": 224
+                },
+                ".svg": {
+                    "code": 1353,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".jsx": {
+                    "code": 3820,
+                    "comment": 144,
+                    "blank": 305
+                },
+                ".scss": {
+                    "code": 2447,
+                    "comment": 74,
+                    "blank": 200
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 1,
+                    "filename": ".env.development"
+                },
+                {
+                    "blank": 6,
+                    "code": 20,
+                    "comment": 1,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 1,
+                    "code": 14,
+                    "comment": 1,
+                    "filename": "deploy.sh"
+                },
+                {
+                    "blank": 4,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "Dockerfile"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "html.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 16786,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 53,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "filename": "public\\favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\favicon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 24,
+                    "filename": "public\\index.html"
+                },
+                {
+                    "filename": "public\\logo192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\logo512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "public\\manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 1,
+                    "filename": "public\\robots.txt"
+                },
+                {
+                    "blank": 31,
+                    "code": 37,
+                    "comment": 12,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 5,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "src\\App.css"
+                },
+                {
+                    "blank": 12,
+                    "code": 25,
+                    "comment": 41,
+                    "filename": "src\\App.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\App.test.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\components\\aboutUs\\aboutUs.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 67,
+                    "comment": 1,
+                    "filename": "src\\components\\common\\card.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\calendarIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\emailIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\locationIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\phoneIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\rupeeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\taskIcon.svg"
+                },
+                {
+                    "blank": 5,
+                    "code": 57,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\userCard.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "src\\components\\dashboard\\dashboard.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\components\\dashboard\\dashboardStyled.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 102,
+                    "comment": 1,
+                    "filename": "src\\components\\dashboard\\latestContent.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 42,
+                    "comment": 1,
+                    "filename": "src\\components\\dashboard\\liveGig.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 42,
+                    "comment": 1,
+                    "filename": "src\\components\\dashboard\\recommendedForUser.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 42,
+                    "comment": 1,
+                    "filename": "src\\components\\dashboard\\trendingContent.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "src\\components\\dashboard\\userProfileInstance.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "src\\components\\dashboard\\userStats.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\components\\faqs\\faqs.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 26,
+                    "comment": 1,
+                    "filename": "src\\components\\filters\\filter.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 50,
+                    "comment": 0,
+                    "filename": "src\\components\\filters\\filter.scss"
+                },
+                {
+                    "blank": 3,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\components\\getInContact\\getInContact.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\components\\getStarted\\getStarted.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 72,
+                    "comment": 7,
+                    "filename": "src\\components\\gig\\gig.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 118,
+                    "comment": 8,
+                    "filename": "src\\components\\gig\\gigDetails.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\gig\\gigStyled.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 32,
+                    "comment": 37,
+                    "filename": "src\\components\\gig\\gigTask.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "src\\components\\gig\\taskIcon.svg"
+                },
+                {
+                    "blank": 9,
+                    "code": 56,
+                    "comment": 0,
+                    "filename": "src\\components\\header\\header.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\components\\header\\headerNavLink.jsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 124,
+                    "comment": 3,
+                    "filename": "src\\components\\header\\headerStyled.js"
+                },
+                {
+                    "filename": "src\\components\\header\\login\\image\\female.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\header\\login\\image\\male.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "src\\components\\header\\login\\login.css"
+                },
+                {
+                    "blank": 24,
+                    "code": 250,
+                    "comment": 5,
+                    "filename": "src\\components\\header\\login\\login.js"
+                },
+                {
+                    "filename": "src\\components\\header\\login\\loginImg.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 2,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "src\\components\\header\\login\\loginStyled.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 0,
+                    "comment": 11,
+                    "filename": "src\\components\\header\\login\\myOTP.js"
+                },
+                {
+                    "blank": 22,
+                    "code": 170,
+                    "comment": 9,
+                    "filename": "src\\components\\header\\login\\userForm.js"
+                },
+                {
+                    "filename": "src\\components\\header\\logo.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 1,
+                    "filename": "src\\components\\header\\mobileNavIcon.jsx"
+                },
+                {
+                    "filename": "src\\components\\header\\pracifyLogo.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 5,
+                    "code": 56,
+                    "comment": 1,
+                    "filename": "src\\components\\header\\privateHeader\\privateHeader.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "src\\components\\header\\privateHeader\\privateHeader.scss"
+                },
+                {
+                    "blank": 2,
+                    "code": 44,
+                    "comment": 1,
+                    "filename": "src\\components\\home\\downloadAppContainer.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\footerContainer.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\frontContainer.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 58,
+                    "comment": 7,
+                    "filename": "src\\components\\home\\HIHcontainer.jsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 169,
+                    "comment": 3,
+                    "filename": "src\\components\\home\\HIWcontainer.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\home.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\img\\dottedIcon1.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\img\\dottedIcon2.svg"
+                },
+                {
+                    "filename": "src\\components\\home\\img\\downloadAppleStoreIcon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\home\\img\\downloadGoogleStoreIcon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\img\\downloadWave.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\img\\footerFacebookIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\img\\footerInstagramIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\img\\footerLinkedinIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\img\\footerTwitterIcon.svg"
+                },
+                {
+                    "filename": "src\\components\\home\\img\\frontImg.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\home\\img\\hiwIcon1.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\home\\img\\hiwIcon2.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\home\\img\\hiwIcon3.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\home\\img\\hiwImg1.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\home\\img\\hiwImg2.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\home\\img\\hiwImg3.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\home\\img\\logo.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\img\\opportunityIcon1.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\img\\opportunityIcon2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\img\\opportunityIcon3.svg"
+                },
+                {
+                    "filename": "src\\components\\home\\img\\phone.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 5,
+                    "code": 65,
+                    "comment": 0,
+                    "filename": "src\\components\\home\\opportunityContainer.jsx"
+                },
+                {
+                    "blank": 10,
+                    "code": 77,
+                    "comment": 5,
+                    "filename": "src\\components\\internship\\companyQuesForm.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\components\\internship\\img\\checkIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\components\\internship\\img\\removeIcon.svg"
+                },
+                {
+                    "blank": 8,
+                    "code": 75,
+                    "comment": 3,
+                    "filename": "src\\components\\internship\\internship.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 218,
+                    "comment": 17,
+                    "filename": "src\\components\\internship\\internshipDetail.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\components\\internship\\userInternship.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\components\\moreSuggestion\\help.svg"
+                },
+                {
+                    "blank": 2,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "src\\components\\moreSuggestion\\MoreSuggestion.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\components\\pageNotFound.jsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 134,
+                    "comment": 16,
+                    "filename": "src\\components\\userHome\\userGig\\userGig.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 41,
+                    "comment": 2,
+                    "filename": "src\\components\\userHome\\userHome\\avatar.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 56,
+                    "comment": 2,
+                    "filename": "src\\components\\userHome\\userHome\\gigOrInternship.jsx"
+                },
+                {
+                    "filename": "src\\components\\userHome\\userHome\\img\\bag.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\userHome\\userHome\\img\\clipboard.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\userHome\\userHome\\img\\rupee.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 3,
+                    "code": 49,
+                    "comment": 2,
+                    "filename": "src\\components\\userHome\\userHome\\stat.jsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 51,
+                    "comment": 1,
+                    "filename": "src\\components\\userHome\\userHome\\userHome.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userIntership\\userInternship.css"
+                },
+                {
+                    "blank": 12,
+                    "code": 135,
+                    "comment": 3,
+                    "filename": "src\\components\\userHome\\userIntership\\userInternship.jsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 66,
+                    "comment": 2,
+                    "filename": "src\\components\\userHome\\userProfile\\AboutUser.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(2).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(3).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(4).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(5).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(6).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(7).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(8).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\comedyIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\danceIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\dataEntryIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\designingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\drawingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\fashionIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 73,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\fieldWorkIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\hindiIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\marketingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\photographyIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\rappingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\samplingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\singingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 53,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\socialMediaIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\storeAuditIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\videoMaking.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 82,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\writingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\userFaceIcon.svg"
+                },
+                {
+                    "blank": 6,
+                    "code": 85,
+                    "comment": 3,
+                    "filename": "src\\components\\userHome\\userProfile\\offlineAvailUser.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 74,
+                    "comment": 12,
+                    "filename": "src\\components\\userHome\\userProfile\\userDigitalProfile.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 60,
+                    "comment": 12,
+                    "filename": "src\\components\\userHome\\userProfile\\userLanguage.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\userProfile.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 98,
+                    "comment": 12,
+                    "filename": "src\\components\\userHome\\userProfile\\userSkill.jsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 134,
+                    "comment": 3,
+                    "filename": "src\\components\\userResume\\achievement.jsx"
+                },
+                {
+                    "blank": 13,
+                    "code": 249,
+                    "comment": 4,
+                    "filename": "src\\components\\userResume\\digitalProfile.jsx"
+                },
+                {
+                    "blank": 22,
+                    "code": 284,
+                    "comment": 12,
+                    "filename": "src\\components\\userResume\\education.jsx"
+                },
+                {
+                    "blank": 25,
+                    "code": 303,
+                    "comment": 5,
+                    "filename": "src\\components\\userResume\\experience.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\expand_more.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\educationIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\experienceIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\objectiveIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\positionIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\skillIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\team.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\trainingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\creativeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\designIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\financeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\generalIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\legalIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\marketingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\otherIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\technicalIcon.svg"
+                },
+                {
+                    "blank": 8,
+                    "code": 106,
+                    "comment": 6,
+                    "filename": "src\\components\\userResume\\objective.jsx"
+                },
+                {
+                    "blank": 13,
+                    "code": 171,
+                    "comment": 7,
+                    "filename": "src\\components\\userResume\\position.jsx"
+                },
+                {
+                    "blank": 22,
+                    "code": 278,
+                    "comment": 3,
+                    "filename": "src\\components\\userResume\\project.jsx"
+                },
+                {
+                    "blank": 30,
+                    "code": 271,
+                    "comment": 14,
+                    "filename": "src\\components\\userResume\\skill.jsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 154,
+                    "comment": 1,
+                    "filename": "src\\components\\userResume\\training.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 70,
+                    "comment": 1,
+                    "filename": "src\\components\\userResume\\userResume.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\components\\validation\\validation.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\coin.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\dateIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\rupee1.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\rupee2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\timeIcon.svg"
+                },
+                {
+                    "blank": 4,
+                    "code": 58,
+                    "comment": 1,
+                    "filename": "src\\components\\wallet\\wallet.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\constant\\tokenHeader.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "src\\constant\\url.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\context\\gigContext.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "src\\context\\internshipContext.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\context\\userContext.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 13,
+                    "comment": 1,
+                    "filename": "src\\firebase\\firebase.js"
+                },
+                {
+                    "filename": "src\\font\\AvenirLTStd-Medium.otf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 3,
+                    "filename": "src\\index.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 7,
+                    "comment": 5,
+                    "filename": "src\\index.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\logo.svg"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\reducer\\gigReducer.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\reducer\\internshipReducer.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 5,
+                    "filename": "src\\reducer\\resumeReducer.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\reducer\\userReducer.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "src\\routes\\commonRoute.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "src\\routes\\privateRoute.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "src\\routes\\publicRoute.jsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 60,
+                    "comment": 0,
+                    "filename": "src\\routes\\router.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 91,
+                    "comment": 31,
+                    "filename": "src\\serviceWorker.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "src\\setupTests.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 398,
+                    "comment": 0,
+                    "filename": "src\\staticData\\cityData.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 56,
+                    "comment": 0,
+                    "filename": "src\\style\\_moreSuggestion.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\style\\_style.scss"
+                },
+                {
+                    "blank": 3,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "src\\style\\_userForm.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\style\\base\\_base.scss"
+                },
+                {
+                    "blank": 3,
+                    "code": 74,
+                    "comment": 4,
+                    "filename": "src\\style\\base\\_card.scss"
+                },
+                {
+                    "blank": 5,
+                    "code": 31,
+                    "comment": 3,
+                    "filename": "src\\style\\base\\_cardContainer.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 12,
+                    "comment": 2,
+                    "filename": "src\\style\\base\\_setting.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 65,
+                    "comment": 1,
+                    "filename": "src\\style\\base\\_userCard.scss"
+                },
+                {
+                    "blank": 6,
+                    "code": 142,
+                    "comment": 11,
+                    "filename": "src\\style\\gig\\_gigDetail.scss"
+                },
+                {
+                    "blank": 6,
+                    "code": 60,
+                    "comment": 1,
+                    "filename": "src\\style\\header\\_mobileNavIcon.scss"
+                },
+                {
+                    "blank": 7,
+                    "code": 69,
+                    "comment": 0,
+                    "filename": "src\\style\\home\\_downloadAppContainer.scss"
+                },
+                {
+                    "blank": 3,
+                    "code": 89,
+                    "comment": 4,
+                    "filename": "src\\style\\home\\_footerContainer.scss"
+                },
+                {
+                    "blank": 14,
+                    "code": 102,
+                    "comment": 20,
+                    "filename": "src\\style\\home\\_frontContainer.scss"
+                },
+                {
+                    "blank": 14,
+                    "code": 67,
+                    "comment": 1,
+                    "filename": "src\\style\\home\\_HIHcontainer.scss"
+                },
+                {
+                    "blank": 17,
+                    "code": 176,
+                    "comment": 7,
+                    "filename": "src\\style\\home\\_HIWcontainer.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 20,
+                    "comment": 4,
+                    "filename": "src\\style\\home\\_home.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 87,
+                    "comment": 2,
+                    "filename": "src\\style\\home\\_opportunityContainer.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 106,
+                    "comment": 9,
+                    "filename": "src\\style\\internship\\_internshipDetail.scss"
+                },
+                {
+                    "blank": 17,
+                    "code": 300,
+                    "comment": 2,
+                    "filename": "src\\style\\userHome\\_userHome.scss"
+                },
+                {
+                    "blank": 25,
+                    "code": 335,
+                    "comment": 1,
+                    "filename": "src\\style\\userResume\\_userResume.scss"
+                },
+                {
+                    "blank": 37,
+                    "code": 424,
+                    "comment": 1,
+                    "filename": "src\\style\\userResume\\_userResumeModal.scss"
+                },
+                {
+                    "blank": 17,
+                    "code": 93,
+                    "comment": 1,
+                    "filename": "src\\style\\wallet\\_wallet.scss"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "tests\\MoreSuggestion.test.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "tests\\Wallet.test.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "tests\\yesSuggestion.test.js"
+                },
+                {
+                    "blank": 1869,
+                    "code": 8845,
+                    "comment": 32,
+                    "filename": "yarn.lock"
+                }
+            ]
+        }
+    ]
+}

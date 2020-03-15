@@ -64,7 +64,9 @@ const Achievement = ({ achievement, updateResume }) => {
       <div
         className="achievement-block-two"
         style={{
-          borderBottom: arrayValidation(achievement) ? "1px solid" : "none"
+          borderBottom: arrayValidation(achievement)
+            ? "1px solid #CECFCF"
+            : "none"
         }}
       >
         <section style={{ display: "flex" }}>
@@ -76,7 +78,6 @@ const Achievement = ({ achievement, updateResume }) => {
             <Tooltip title="add">
               <Icon type="plus-circle" onClick={handleAdd} />
             </Tooltip>
-          
           </section>
         )}
       </div>

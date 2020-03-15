@@ -65,7 +65,7 @@ const Training = ({ training, updateResume }) => {
       <div
         className="training-block-two"
         style={{
-          borderBottom: arrayValidation(training) ? "1px solid" : "none"
+          borderBottom: arrayValidation(training) ? "1px solid #CECFCF" : "none"
         }}
       >
         <section style={{ display: "flex" }}>

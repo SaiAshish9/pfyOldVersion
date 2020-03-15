@@ -24,7 +24,7 @@ const UserHome = () => {
       .get(`${apiURL}/home`, tokenHeader)
       .then(res => {
         let userData = res.data;
-        console.log(res.data);
+        console.log("User Home Data", res.data);
         userDispatch({ type: "MY_USER", userData });
       })
       .catch(e => {
@@ -42,10 +42,10 @@ const UserHome = () => {
           <Avatar />
         ) : (
           <div className="avatar-block">
-            <Card style={{ width: "48%"}}>
+            <Card style={{ width: "48%" }}>
               <Skeleton avatar active />
             </Card>
-            <Card style={{ width: "48%"}}>
+            <Card style={{ width: "48%" }}>
               <Skeleton avatar active />
             </Card>
           </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import moment from 'moment';
 
 // import { GigCardStyled } from "../defaultStyled/defaultStyled";
 import calendarIcon from "./img/calendarIcon.svg";
@@ -9,6 +10,8 @@ const Card = props => {
   const gig = props.gig;
   const internship = props.internship;
 
+/* ---------------------------- variable setting ---------------------------- */
+  //#region 
   const gigCompany = internship
     ? false
     : gig.company
@@ -40,6 +43,8 @@ const Card = props => {
 
   const DetailPath = gig ? `/gig/${id}` : `/internship/${id}`;
   
+  //#endregion
+
   return (
     <Link to={DetailPath}>
       <div className="my-card-block">
@@ -66,7 +71,7 @@ const Card = props => {
           </div>
         </div>
         <div className="boundary-two">
-          <h5 className="due-time">Apply Before: {applyBefore}</h5>
+          <h5 className="due-time">Apply Before: {moment(applyBefore).format("DD MMM YYYY")}</h5>
         </div>
       </div>
     </Link>

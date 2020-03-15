@@ -79,7 +79,7 @@ const Position = ({ position, updateResume }) => {
       <div
         className="position-block-two"
         style={{
-          borderBottom: arrayValidation(position) ? "1px solid" : "none"
+          borderBottom: arrayValidation(position) ? "1px solid #CECFCF" : "none"
         }}
       >
         <section style={{ display: "flex" }}>

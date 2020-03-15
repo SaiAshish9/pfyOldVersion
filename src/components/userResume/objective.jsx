@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, Input, Icon, Tooltip } from "antd";
+import { Skeleton, Button, Modal, Icon, Tooltip } from "antd";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
@@ -7,7 +7,7 @@ import { tokenHeader } from "../../constant/tokenHeader";
 
 import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
 
-const Objective = ({ careerObjective, updateResume }) => {
+const Objective = ({ careerObjective, updateResume, loader }) => {
   //#region
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm({
@@ -51,7 +51,7 @@ const Objective = ({ careerObjective, updateResume }) => {
       <div
         className="objective-block-two"
         style={{
-          borderBottom: !!careerObjective ? "1px solid" : "none"
+          borderBottom: !!careerObjective ? "1px solid #CECFCF" : "none"
         }}
       >
         <section style={{ display: "flex" }}>
@@ -71,7 +71,14 @@ const Objective = ({ careerObjective, updateResume }) => {
         </section>
       </div>
 
-      {!!careerObjective ? (
+      {loader ? (
+        <div
+          className="objective-content-block"
+          style={{ height: "100px", overflow: "hidden" }}
+        >
+          <Skeleton />
+        </div>
+      ) : !!careerObjective ? (
         <div className="objective-content-block">
           <p className="objective-content-block__p">{careerObjective}</p>
         </div>
@@ -93,7 +100,6 @@ const Objective = ({ careerObjective, updateResume }) => {
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
-          // style={formStyle}
           className="objective-modal__form"
         >
           <textarea
@@ -101,7 +107,6 @@ const Objective = ({ careerObjective, updateResume }) => {
             ref={register}
             defaultValue={careerObjective}
             placeholder="please enter your career objective"
-            // style={inputStyle}
             className="objective-modal__textarea"
           />
           <Button
