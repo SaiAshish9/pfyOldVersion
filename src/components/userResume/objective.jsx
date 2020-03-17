@@ -88,7 +88,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
           className="objective-block-one-button"
           onClick={handleObjectiveButton}
         >
-          Add Objective
+          Add
         </Button>
       )}
       <Modal

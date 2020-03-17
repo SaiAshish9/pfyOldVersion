@@ -86,7 +86,7 @@
 
     .education-block-one {
       @extend %block-one;
-      .education-block-two { 
+      .education-block-two {
         @extend %block-two;
         .education-block-two-icon {
         }
@@ -147,6 +147,49 @@
           @extend %block-two-heading;
         }
       }
+
+      .skill-data-main-block {
+        display: flex;
+        flex-wrap: wrap;
+        // justify-content: space-between;
+        margin: 0px 40px 20px 40px;
+
+        .skill-data-icon-block {
+          margin-bottom: 12px;
+          .skill-data-align-block {
+            position: relative;
+
+            .skill-data-block {
+              display: flex;
+              align-items: center;
+              border: 1px solid;
+              border-radius: 18px;
+              padding: 0px 12px;
+              .skill-data__p {
+                margin: 0px;
+              }
+
+              .skill-data__rating {
+              }
+            }
+            .skill-edit-data__rating {
+              position: absolute;
+              justify-content: flex-end;
+              top: 1px;
+              width: 100%;
+              border-radius: 18px;
+              background-color: rgba(200, 200, 200, 0.8);
+              .ant-rate {
+                margin-right: 12px;
+              }
+            }
+          }
+
+          .skill-data__icon {
+          }
+        }
+      }
+
       .skill-block-one-button {
         @extend %block-two__button;
       }
@@ -284,8 +327,9 @@
           .project-content-sec-one__p {
             @extend %content__p;
           }
-          .project-content-sec-one__h4 {
+          .project-content-sec-one__a {
             @extend %content__h4;
+            color: #0000ee;
           }
           .project-content-sec-one-block-one {
             display: flex;
@@ -322,6 +366,12 @@
           @extend %block-two-heading;
         }
       }
+      .digital-profile-content-block {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 40px 20px 40px;
+      }
+
       .digital-profile-block-one-button {
         @extend %block-two__button;
       }

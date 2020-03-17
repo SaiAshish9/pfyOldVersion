@@ -84,7 +84,7 @@ const UserSkill = () => {
         className="skill-of-avatar-button"
         onClick={handleSkillButton}
       >
-        Add Skills
+        Add
       </Button>
       <Modal
         title="Add Skills"

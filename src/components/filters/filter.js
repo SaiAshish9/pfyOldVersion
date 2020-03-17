@@ -9,9 +9,7 @@ const Filter = () => {
       <div className="filter-text">
         <h1>Filters</h1>
       </div>
-      <Collapse
-      // style={{ background: "#fff", borderRadius: "8px" }}
-      >
+      <Collapse>
         <Panel header="Categories" key="1">
           <Checkbox>finance</Checkbox>
         </Panel>

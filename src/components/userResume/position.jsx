@@ -140,7 +140,7 @@ const Position = ({ position, updateResume }) => {
           className="position-block-one-button"
           onClick={handleAdd}
         >
-          Add Responsibility
+          Add
         </Button>
       )}
 

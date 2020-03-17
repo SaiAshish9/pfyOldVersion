@@ -3,7 +3,11 @@ export const arrayValidation = theArray => {
 };
 
 export const objectValidation = theObject => {
-  return (
-    Object.entries(theObject).length > 0 && theObject.constructor === Object
-  );
+  if (theObject === null || theObject === undefined) {
+    return false;
+  } else {
+    return (
+      Object.entries(theObject).length > 0 && theObject.constructor === Object
+    );
+  }
 };

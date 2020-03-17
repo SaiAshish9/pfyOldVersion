@@ -47,7 +47,7 @@ const UserLanguage = () => {
         className="language-of-avatar-button"
         onClick={handleLanguageButton}
       >
-        Add Languages
+        Add
       </Button>
       <Modal
         title="Basic Modal"

@@ -59,7 +59,10 @@ export default function UserCard({ myUserProfile }) {
       <div className="divider-block"></div>
       <div className="profile-Score">
         <p className="profile-Score__para">Profile Score</p>
-        <Progress percent={50} status="active" />
+        <Progress
+          percent={!!userData && userData.profileScore}
+          status="active"
+        />
       </div>
     </div>
   );

@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-
-import { Input, DatePicker, Button, Select } from "antd";
+import { Button, DatePicker, Input, Select } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
-
-import indianCity from "../../../staticData/cityData.json";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+/* --------------------------------- xxxxxxx -------------------------------- */
+// import indianCity from "../../../staticData/cityData.json";
+import { arrayValidation } from "../../validation/validation";
+import { apiURL } from "../../../constant/url";
 import femaleImage from "./image/female.png";
 import maleImage from "./image/male.png";
 
@@ -18,7 +19,7 @@ const profileInput = {
   marginBottom: "12px"
 };
 
-const UserForm = ({ phone, passToken, handleModalCancel}) => {
+const UserForm = ({ phone, passToken, handleModalCancel }) => {
   const history = useHistory();
 
   const { Option } = Select;
@@ -31,11 +32,13 @@ const UserForm = ({ phone, passToken, handleModalCancel}) => {
   const [DOB, setDOB] = useState("");
   const [gender, setGender] = useState("");
 
-  const myCity = indianCity.city.map(city,i => (
-    <Option value={city} key={i}>
-      {city}
-    </Option>
-  ));
+  // console.log("JSON.parse(indianCity.city)", JSON.parse(indianCity));
+
+  // const myCity = JSON.parse(indianCity.city).map(city, i => (
+  //   <Option value={city} key={i}>
+  //     {city}
+  //   </Option>
+  // ));
 
   const handleFirstName = e => {
     const userFirstName = e.target.value;
@@ -81,13 +84,13 @@ const UserForm = ({ phone, passToken, handleModalCancel}) => {
     };
 
     axios
-      .post("http://35.154.129.241:5000/auth/register", userData)
+      .post(`${apiURL}/auth/register`, userData)
       .then(res => {
         Cookies.set("token", res.data.token);
         console.log(res);
         // const username = res.data.user.firstName;
         // const id = res.data.user._id;
-        handleModalCancel()
+        handleModalCancel();
         history.push(`/home`);
       })
       .catch(error => {
@@ -97,7 +100,7 @@ const UserForm = ({ phone, passToken, handleModalCancel}) => {
     console.log(firstName);
     console.log(lastName);
     console.log(email);
-    console.log(phone);
+    // console.log(phone);
     console.log(city);
     console.log(DOB);
     console.log(gender);
@@ -140,22 +143,32 @@ const UserForm = ({ phone, passToken, handleModalCancel}) => {
           <h4>City</h4>
           <Select
             showSearch
-            // style={{ width: 174 }}
             placeholder="Select a City"
-            optionFilterProp="children"
-            // onChange={onChange}
-            // onFocus={onFocus}
-            // onBlur={onBlur}
-            // onSearch={onSearch}
-            filterOption={(input, option) =>
-              option.props.children
-                .toLowerCase()
-                .indexOf(input.toLowerCase()) >= 0
-            }
             value={city}
             onChange={handleCity}
+            // optionFilterProp="children"
+            // filterOption={(input, option) =>
+            //   option.props.children
+            //     .toLowerCase()
+            //     .indexOf(input.toLowerCase()) >= 0
+            // }
           >
-            {myCity}
+            {/* FIXME use all city data  */}
+            <Option value="delhi" key="1">
+              Dehi
+            </Option>
+            <Option value="kolkata" key="2">
+              kolkata
+            </Option>
+            <Option value="mumbai" key="3">
+              Mumbai
+            </Option>
+            <Option value="telangana" key="4">
+              Telangana
+            </Option>
+            <Option value="uttar pradesh" key="5">
+              Uttar Pradesh
+            </Option>
           </Select>
         </div>
         <div className="dob-block">

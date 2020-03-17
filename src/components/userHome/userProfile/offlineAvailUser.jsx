@@ -46,7 +46,7 @@ const OfflineAvailUser = () => {
         className="offline-available-avatar-button"
         onClick={handlePreferenceButton}
       >
-        Add Preferences
+        Add
       </Button>
       <Modal
         title="Basic Modal"

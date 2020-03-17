@@ -229,10 +229,10 @@ export default function Skill({ skill }) {
     setSkillDummy(skillAfterDelete);
   };
 
-  const [isDisableEditSkill, setIsDisableEditSkill] = useState(true);
+  const [isEditSkill, setIsEditSkill] = useState(false);
 
-  const handleEditSkill = () => {
-    setIsDisableEditSkill(false);
+  const handleEditSkill = data => {
+    setIsEditSkill(data);
   };
 
   const onSkillRateChange = (skillName, value) => {
@@ -247,11 +247,20 @@ export default function Skill({ skill }) {
       }
     });
     setSkillDummy(a);
-    setIsDisableEditSkill(true);
+    setIsEditSkill(false);
+  };
+
+  const editDisplay = () => {
+    return {
+      display: isEditSkill ? "flex" : "none"
+    };
   };
 
   return (
-    <div className="skill-block-one">
+    <div
+      className="skill-block-one"
+      onClick={isEditSkill ? () => handleEditSkill(false) : undefined}
+    >
       <div className="skill-block-two">
         <section style={{ display: "flex" }}>
           <img
@@ -262,28 +271,53 @@ export default function Skill({ skill }) {
           <h2 className="skill-block-two-heading">Skills</h2>
         </section>
       </div>
-      {arrayValidation(skillDummy) &&
-        skillDummy.map((skill, index) => (
-          <div className="" key={index} style={{ display: "flex" }}>
-            <p>{skill.name}</p>
-            <Rate
-              disabled={isDisableEditSkill}
-              onChange={value => onSkillRateChange(skill.name, value)}
-              defaultValue={skill.rating}
-            />
+      <div className="skill-data-main-block">
+        {arrayValidation(skillDummy) &&
+          skillDummy.map((skill, index) => (
+            <div
+              key={index}
+              style={{ display: "flex" }}
+              className="skill-data-icon-block"
+            >
+              <div className="skill-data-align-block">
+                <div
+                  onClick={() => handleEditSkill(true)}
+                  className="skill-data-block"
+                >
+                  <p className="skill-data__p">{skill.name}</p>
+                  {console.log("skill.rating", skill.rating)}
+                  <Rate
+                    // tooltips={proficiencyRate}
+                    disabled
+                    value={skill.rating}
+                    className="skill-data__rating"
+                  />
+                </div>
+                <div style={editDisplay()} className="skill-edit-data__rating">
+                  <Rate
+                    tooltips={proficiencyRate}
+                    defaultValue={skill.rating}
+                    onChange={value => onSkillRateChange(skill.name, value)}
+                  />
+                </div>
+              </div>
 
-            <Icon type="edit" onClick={() => handleEditSkill()}></Icon>
+              <Icon
+                type="delete"
+                onClick={() => handleDelete(skill.name)}
+                className="skill-data__icon"
+              ></Icon>
+            </div>
+          ))}
+      </div>
 
-            <Icon type="delete" onClick={() => handleDelete(skill.name)}></Icon>
-          </div>
-        ))}
       <Button
         // type="primary"
         shape="round"
         className="skill-block-one-button"
         onClick={handleSkillButton}
       >
-        Add Skill
+        Add
       </Button>
 
       <Modal
@@ -326,6 +360,7 @@ export default function Skill({ skill }) {
                 <Icon type="arrow-left" onClick={handleBack} />
                 <div>{skillImage(selectedCategory)}</div>
               </div>
+              <div className=""></div>
               {arrayValidation(subCategory) &&
                 subCategory.map((thisSkillData, index) => (
                   <div key={index} className="skill-subCategory-block-two">

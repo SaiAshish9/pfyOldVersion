@@ -119,7 +119,7 @@ const Training = ({ training, updateResume }) => {
           className="training-block-one-button"
           onClick={handleAdd}
         >
-          Add Training
+          Add
         </Button>
       )}
       <Modal

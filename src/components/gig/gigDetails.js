@@ -210,7 +210,7 @@ const GigDetail = props => {
 
         <div className="gig-detail-block">
           <div>
-            <h2>Task to be done</h2>
+            <h2>Task to be done</h2> 
             <div className="carousel-block">
               <GigTask
                 gigTask={gigTask}

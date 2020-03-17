@@ -108,7 +108,7 @@ const Achievement = ({ achievement, updateResume }) => {
           className="achievement-block-one-button"
           onClick={handleAdd}
         >
-          Add Achievement
+          Add
         </Button>
       )}
       <Modal

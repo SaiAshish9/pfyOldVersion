@@ -10,7 +10,7 @@ import educationIcon from "./img/headingImg/educationIcon.svg";
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
 
-const Education = ({ education, updateResume }) => {
+export default function Education({ education, updateResume }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const { register, handleSubmit, errors, control, watch, setValue } = useForm({
@@ -31,7 +31,7 @@ const Education = ({ education, updateResume }) => {
   const standardSelect = watch("educationType.typeNo");
   console.log("standardSelect", standardSelect);
 
-  const endYear = Array.from(
+  const allEndYear = Array.from(
     new Array(10),
     (val, index) => parseInt(myStartYear) + 9 - index
   );
@@ -54,8 +54,16 @@ const Education = ({ education, updateResume }) => {
     setIsModalVisible(false);
   };
 
-  const handleEducationClick = () => {
+  const handleAddEducation = () => {
     setIsModalVisible(true);
+    // setValue("educationType.typeNo", educationData.educationType.typeNo);
+    // setValue("instituteName", "");
+    // setValue("course", "");
+    // setValue("marks.val", "");
+    // setValue("marks.type", educationData.marks.type);
+    // setValue("startYear", year);
+    // setValue("allEndYear", year);
+    // setValue("isCurrently", false);
   };
 
   const handleEdit = educationData => {
@@ -128,20 +136,16 @@ const Education = ({ education, updateResume }) => {
   };
 
   //! ---------------------------------- test ---------------------------------- */
-  // console.log("this", Object.entries(education).length);
-  // console.log("this", Object.entries(education).length > 0);
-  // console.log(errors);
-  // console.log(endYear);
-  const handleAdd = () => {
-    console.log("todo");
-  };
+
   return (
     <div className="education-block-one">
       <div
         className="education-block-two"
         style={{
           borderBottom:
-            !!education && objectValidation(education) ? "1px solid #CECFCF" : "none"
+            !!education && objectValidation(education)
+              ? "1px solid #CECFCF"
+              : "none"
         }}
       >
         <section style={{ display: "flex" }}>
@@ -155,12 +159,12 @@ const Education = ({ education, updateResume }) => {
         {!!education && objectValidation(education) && (
           <section>
             <Tooltip title="add">
-              <Icon type="plus-circle" onClick={handleAdd} />
+              <Icon type="plus-circle" onClick={handleAddEducation} />
             </Tooltip>
           </section>
         )}
       </div>
-      {!!education && objectValidation(education) ? (
+      {objectValidation(education) ? (
         <div className="education-content-block-three">
           {objectValidation(education.tenth) && printEducation(education.tenth)}
           {objectValidation(education.twelfth) &&
@@ -170,12 +174,11 @@ const Education = ({ education, updateResume }) => {
         </div>
       ) : (
         <Button
-          // type="primary"
           shape="round"
           className="education-block-one-button"
-          onClick={handleEducationClick}
+          onClick={handleAddEducation}
         >
-          Add Education
+          Add
         </Button>
       )}
       <Modal
@@ -277,7 +280,7 @@ const Education = ({ education, updateResume }) => {
                   ref={register}
                   className="education-modal-block-sec-two__select-one"
                 >
-                  {endYear.reverse().map((year, index) => {
+                  {allEndYear.reverse().map((year, index) => {
                     return (
                       <option key={index} value={year}>
                         {year}
@@ -313,6 +316,4 @@ const Education = ({ education, updateResume }) => {
       </Modal>
     </div>
   );
-};
-
-export default Education;
+}

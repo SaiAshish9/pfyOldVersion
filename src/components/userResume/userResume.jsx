@@ -36,16 +36,13 @@ const UserResume = () => {
       .catch(e => console.log(e.response));
   }, [updater]);
 
-  useEffect(() => {
-    console.log(userResumeData.education);
-    // console.log(userResumeData.digitalProfiles);
-  }, [userResumeData]);
+ 
 
   return (
     <div className="resume-with-userCard-block">
       <UserCard />
       <div className="resume-block">
-        <Objective
+        <Objective 
           careerObjective={userResumeData.careerObjectives}
           updateResume={setUpdater}
           loader={isLoader}

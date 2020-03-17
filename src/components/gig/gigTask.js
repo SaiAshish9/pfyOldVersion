@@ -93,6 +93,7 @@ export default function GigTask({
         onCancel={handleModalCancel}
         footer={null}
       >
+        {/* TODO */}
         <div>
           <h3>Task Description</h3>
           <p>{description}</p>

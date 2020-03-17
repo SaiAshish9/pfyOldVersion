@@ -189,7 +189,7 @@ const Experience = ({ workExperience, updateResume }) => {
           className="experience-block-one-button"
           onClick={handleAdd}
         >
-          Add Work Experience
+          Add
         </Button>
       )}
       <Modal

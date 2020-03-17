@@ -140,7 +140,9 @@ const Project = ({ project, updateResume }) => {
               <p className="project-content-sec-one__p">
                 {myProject.description}
               </p>
-              <h4 className="project-content-sec-one__h4 ">{myProject.link}</h4>
+              <a className="project-content-sec-one__a " href={myProject.link} target="_blank">
+                {myProject.link}
+              </a>
               <div className="project-content-sec-one-block-one ">
                 <h5 className="project-content-sec-one-block-one__h5-one ">
                   {myProject.start.month}
@@ -180,7 +182,7 @@ const Project = ({ project, updateResume }) => {
           className="project-block-one-button"
           onClick={handleAdd}
         >
-          Add Project
+          Add
         </Button>
       )}
 

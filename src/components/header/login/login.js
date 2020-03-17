@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState, useEffect, useRef } from "react";
-import { useHistory } from "react-router-dom";
-import { Modal, Button, Input, DatePicker } from "antd";
-import OTPInput from "otp-input-react";
+import { Button, Input, Modal } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
-
+import OTPInput from "otp-input-react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+/* -------------------------------- xxxxxxxxx ------------------------------- */
+import { apiURL } from "../../../constant/url";
 import { firebase } from "../../../firebase/firebase";
-
-import UserForm from "./userForm";
-import loginImg from "./loginImg.png";
 import "./login.css";
+import loginImg from "./loginImg.png";
+import UserForm from "./userForm";
 
 //! ---------------------------------- style --------------------------------- */
 const buttonStyle = {
@@ -85,7 +85,7 @@ const Continue = () => {
           };
 
           axios
-            .post("http://35.154.129.241:5000/auth/login", userCredential)
+            .post(`${apiURL}/auth/login`, userCredential)
             .then(function(res) {
               console.log(res);
               if (res.data.statusCode === 200) {
@@ -101,7 +101,7 @@ const Continue = () => {
               }
             })
             .catch(function(error) {
-              console.log(error);
+              console.log("error.response", error.response);
               console.log("no internet");
             });
         })
@@ -150,11 +150,10 @@ const Continue = () => {
 
   return (
     <div>
-      <Button 
-      onClick={showModal} 
-      className="header__button1">
+      <Button onClick={showModal} className="header__button1">
         Login
       </Button>
+      {/*  FIXME remove true add isVerified */}
       {isVerified ? (
         <Modal visible={visible} onCancel={handleModalCancel} footer={null}>
           <UserForm

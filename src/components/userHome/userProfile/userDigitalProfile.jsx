@@ -63,7 +63,7 @@ const UserDigitalProfile = () => {
         className="avatar-digital-profile-button"
         onClick={handleProfileButton}
       >
-        Add Profile
+        Add
       </Button>
       <Modal
         title="Basic Modal"

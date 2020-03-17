@@ -40,7 +40,7 @@ const AboutUser = () => {
         className="about-avatar-button"
         onClick={handleAboutButton}
       >
-        Add about
+        Add
       </Button>
       <Modal
         title="Basic Modal"

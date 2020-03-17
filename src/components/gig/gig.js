@@ -3,13 +3,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Row, Col, Select } from "antd";
-// import GigCard from "./gigCard";
+import {apiURL} from '../../constant/url'
+
 import Card from "../common/card";
 import Filter from "../filters/filter";
 import { arrayValidation } from "../validation/validation";
 
 import GigContext from "../../context/gigContext";
-// import { GigStyled } from "./gigStyled";
 
 const cardStyle = {
   display: "flex",
@@ -29,9 +29,10 @@ const Gig = () => {
       </Col>
     ));
 
+/* ----------------------- fetching gig without status ----------------------- */
   useEffect(() => {
     axios
-      .get("http://35.154.129.241:5000/mission/fetch")
+      .get(`${apiURL}/mission/fetch`)
       .then(function(response) {
         // handle success
         const gigData = response.data.missions;
@@ -71,7 +72,6 @@ const Gig = () => {
               defaultValue="latest"
               placeholder="Select a person"
               onChange={handleArrangingCard}
-              // Style={{ textIndent: "16px" }}
             >
               <Option value="latest">Latest</Option>
               <Option value="popular">Popular</Option>

@@ -8,6 +8,7 @@ import InternshipContext from "../../context/internshipContext";
 import Filter from "../filters/filter";
 import Card from "../common/card";
 import { arrayValidation } from "../validation/validation";
+import { apiURL } from "../../constant/url";
 
 const cardStyle = {
   display: "flex",
@@ -18,9 +19,10 @@ const Internship = () => {
   const [internship, setInternship] = useState(InternshipContext);
   const [arrangeCard, setArrangeCard] = useState("latest");
 
+  /* ----------------------- fetching Internship without status ----------------------- */
   useEffect(() => {
     axios
-      .get("http://35.154.129.241:5000/internship/fetch")
+      .get(`${apiURL}/internship/fetch`)
       .then(function(response) {
         const internshipData = response.data.internships;
         setInternship(internshipData);
@@ -71,7 +73,6 @@ const Internship = () => {
               defaultValue="latest"
               placeholder="Select a person"
               onChange={handleArrangingCard}
-              // Style={{ textIndent: "16px" }}
             >
               <Option value="latest">Latest</Option>
               <Option value="popular">Popular</Option>

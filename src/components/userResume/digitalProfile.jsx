@@ -39,15 +39,11 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
   };
 
   const printDigitalProfile = (digitalProfileData, name) => (
-    <div
-      style={{
-        // display: "flex",
-        // justifyContent: "space-between",
-        margin: "0px 40px"
-      }}
-    >
-      <section>{name}</section>
-      <section>{digitalProfileData}</section>
+    <div className="digital-profile-content-block">
+      <div className="">
+        <section>{name}</section>
+        <section>{digitalProfileData}</section>
+      </div>
     </div>
   );
 
@@ -126,7 +122,7 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
           className="digital-profile-block-one-button"
           onClick={handleDigitalProfileButton}
         >
-          Add Digital Profile
+          Add
         </Button>
       )}
       <Modal
@@ -248,14 +244,13 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
             addonBefore="Medium"
           />
           <div className="digitalProfile-modal-block">
-          <Button
-          htmlType="submit"
-          className="digitalProfile-modal-block-button"
-          
-          shape="round"
-          >
-          Done
-          </Button>
+            <Button
+              htmlType="submit"
+              className="digitalProfile-modal-block-button"
+              shape="round"
+            >
+              Done
+            </Button>
           </div>
         </form>
       </Modal>
