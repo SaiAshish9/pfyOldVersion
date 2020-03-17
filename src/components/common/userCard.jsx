@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Progress } from "antd";
+import { Progress, Icon } from "antd";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import phoneIcon from "./img/phoneIcon.svg";
 import emailIcon from "./img/emailIcon.svg";
 import locationIcon from "./img/locationIcon.svg";
+import EditProfile from '../userHome/userProfile/editProfile';
+import { useLocation } from "react-router-dom";
 
-export default function UserCard({ myUserProfile }) {
+
+export default function UserCard(props) {
+  const myUserProfile = props.myUserProfile
   const history = useHistory();
+  const location = useLocation();
   const [userData, setUserData] = useState();
+  const [isShow, setIsShow] = useState(false)
 
   useEffect(() => {
     axios
@@ -27,11 +33,22 @@ export default function UserCard({ myUserProfile }) {
   console.log("userData", userData);
 
   const handleCard = () => {
-    history.push("/profile");
+    if(location.pathname !== '/profile')
+        history.push("/profile")
+    
   };
+  const openModal = () => {
+    setIsShow(!isShow)
+  }
+
+  const isClose = () => {
+    setIsShow(false)
+  }
 
   return (
     <div className="userProfile-block" onClick={handleCard}>
+      <EditProfile show={isShow} isClose={isClose} />
+      <div className="edit-icon" style={{textAlign: "end", fontSize:"1.2rem"}}> <Icon onClick={openModal} type="edit"></Icon></div>
       <div className="avatar-block">
         <div className="avatar-img-block">
           <img

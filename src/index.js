@@ -4,8 +4,12 @@ import App from './App';
 import './index.css';
 import "./style/_style.scss";
 import "circular-std"; 
+import axios from 'axios';
 
 // import * as serviceWorker from './serviceWorker';
+axios.defaults.baseURL = 'https://pracify.com/testing/';
+axios.defaults.headers.common['token'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTZmNmM3NjM0MjJiNTZmODc3Mzg3OGMiLCJyZXN1bWUiOiI1ZTZmNmM3NjM0MjJiNTZmODc3Mzg3OGIiLCJpYXQiOjE1ODQzNjA1NjYsImV4cCI6MTU5MzAwMDU2Nn0.tbOs0uKlbj4cZ0-MGhoOWjqWqePNW842DuqdhuHsAvk"
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
