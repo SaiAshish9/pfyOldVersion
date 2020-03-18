@@ -6,8 +6,15 @@ import { useForm, Controller } from "react-hook-form";
 import axios from 'axios';
 import {tokenHeader} from '../../../constant/tokenHeader';
 import Cookies from 'js-cookie'
+import jsonp from 'fetch-jsonp';
+import querystring from 'querystring';
 
 const myToken = Cookies.get('token')
+
+// import { Select } from 'antd';
+
+// const { Option } = Select;
+
 
 
 const { Option } = Select;
@@ -86,8 +93,76 @@ export default function EditProfile(props) {
       const email = watch("email")
       console.log("%c Email is " + email , 'font-size: 25px')
 
-      
+      let colleges = [];
+      const collegeListHandler = (value) => {
+        // colleges = []
+        const url =  `college/fetch?search=${value}`
+        console.log('URL IS '+ url)
+        axios.get(url)
+          .then(res => {
+            const collegeObject = res.data;
+            console.log(collegeObject)
 
+            // colleges = collegeObject.map(college => 
+            //   <Option 
+            //       key={college['College Name']}>
+            //          {college['College Name']}
+            //   </Option>
+            //   )
+            
+
+            collegeObject.forEach(college => {
+              colleges.push( 
+                <Option 
+                  key={college['College Name']}>
+                     {college['College Name']}
+                </Option>)
+            });  
+            
+            
+            
+          })
+      }
+
+      const [collegeData, setCollegeData] = useState([])
+      const [val, setVal] = useState(undefined)
+
+      const CollegehandleSearch = value => {
+        if (value) {
+          console.log("val is "  + value)
+
+          // fetch(value, data => setCollegeData({data}) );
+          const url =  `college/fetch?search=${value}`
+          console.log('URL IS '+ url)
+          axios.get(url)
+            .then(res => {
+              const data = res.data;
+              setCollegeData({data})
+            })
+        } else {
+          setCollegeData({ data: [] });
+        }
+      };
+    
+      // const handleChange = value => {
+      //   setVal(value)
+      //   console.log('value is' + value)
+      // };
+
+
+
+      let cities = [];
+      const cityArr = ["Dehradun","Amravati","Jaipur","Madurai","Raipur","Vijayawada","Pilani","Trivandrum","Muzaffarnagar","Kamarhati","Alwar","Bally","Farrukhabad","Sambhal","Shimla","Bhopal","Solapur","Moradabad","Imphal","Kharagpur","Jalgaon","Salem","Madras","Poona","Panihati","Nizamabad","Dewas","Mau","Bharatpur","Haridwar","Chapra","Haldia","Alappuzha","Bhubaneswar","Aurangabad","Durgapur","Noida","Gopalpur","Korba","Berhampur","Ozhukarai","Darbhanga","Jalna","Rourkela","Yamunanagar","Anand","Ambala","Bikaner","Jamshedpur","Ranchi","Bhind","New Bombay","Bellary","Bijapur","Firozabad","Bhatpara","Bidar","Bareilly","Dhanbad","Belagavi","Pondicherry","Faridabad","Ambattur","Parbhani","Bathinda","Ambernath","Uluberia","Allahabad","Coimbatore","Bidhan Nagar","Rae Bareli","Sambalpur","Bengaluru","Bokaro","Bardhaman","Burhanpur","Benaras","Bhusawal","Bahraich","Bhavnagar","Jabalpur","New Delhi","Bilaspur","Bihar Sharif","Baharampur","Hyderabad","Trichy","Chandrapur","Cuttack","Nagarcoil","Calcutta","Chittoor","Raichur","Panchkula","Hugli and Chinsurah","Tiruchirappalli","Lucknow","Cochin","Secunderabad","Hubballi-Dharwad","Ichalkaranji","Chandigarh","Baroda","Achalpur","Achhnera","Bhadrachalam","Bharuch","Bongaigaon City","Chaibasa","Chalakudy","Chandausi","Changanassery","Charkhi Dadri","Chatra","Cherthala","Chhapra","Chikkamagaluru","Chilakaluripet","Chirala","Chirkunda","Chirmiri","Chittur-Thathamangalam","Firozpur Cantt.","Gobichettipalayam","Jalandhar Cantt.","Kancheepuram","Lachhmangarh","Macherla","Machilipatnam","Manachanallur","Jodhpur","Dhule","Kozhikode","Nadiad","Danapur","Udaipur","Nanded","Junagadh","Kakinada","Karaikudi","Davanagere","South Dumdum","Durg","Ramagundam","Gandhidham","Erode","Deoghar","Ahmedabad","North Dumdum","Meerut","Eluru","Rewa","Nellore","Suryapet","Roorkee","Malegaon","Thane","Panvel","Serampore","Ajmer","Fatehpur","Begusarai","Ongole","Mysore","Hospet","Mangalore","Etawah","Vellore","Mahesana","Muzaffarpur","Afzalpur","Faridkot","Farooqnagar","Fatehabad","Fatehpur Sikri","Fazilka","Firozpur","Forbesganj","Rafiganj","Safidon","Safipur","Sirhind Fatehgarh Sahib","Vijayanagaram","Agra","Gaya","Gorakhpur","Gwalior","Aligarh","Singrauli","Jamnagar","Goa","Karimnagar","Sri Ganganagar","Nangloi Jat","Srinagar","Vizag","Gurgaon","Nagpur","Siliguri","Guntur","Guwahati","Agartala","Bhagalpur","Shivamogga","Sagar","Karawal Nagar","Gandhinagar","Khora","Jhansi","Mathura","Arrah","Amroha","Shivpuri","Thanjavur","Tiruvottiyur","Orai","Tiruvannamalai","Loni","Sirsa","Tirupati","Panipat","Morvi","Jammu","Rajpur Sonarpur","Jaunpur","Shahjahanpur","Rajkot","Jalandhar","Ujjain","Rajahmundry","Raiganj","Adalaj","Alirajpur","Ambejogai","Anjangaon","Anjar","Asarganj","Bhuj","Dalli-Rajhara","Darjiling","Dhoraji","Ganjbasoda","Gopalganj","Hajipur","Jagdalpur","Jaggaiahpet","Jagraon","Jagtial","Jalpaiguri","Jamalpur","Tumkur","Kanpur","Kota","Kurnool","Sikar","Kulti","Nashik","Kolhapur","Karnal","Kottayam","Kollam","Khandwa","Akola","Rohtak","Kadapa","Thoothukudi","Katihar","Khammam","Kamalpur","Khalapur","Akot","Ambikapur","Anakapalle","Ankleshwar","Arakkonam","Pallavaram","Rampur","Mirzapur","Amritsar","Anantapur","Unnao","Sonipat","Tiruppur","Vapi","Purq (Urban Agglomeration)","Qadian","Surat","Satara","Saharanpur","Asansol","Sangl","Thrissur","Maheshtala","Satna","Bulandshahr","Avadi","Arvi","Bhimavaram","Dharmavaram","Gudivada","Guruvayoor","Kapadvanj","Kavali","Kovvur","Lonavla","Mahuva","Malavalli","Manavadar","Mandvi","Mangalvedhe","Manvi","Mavelikkara","Mavoor","Muvattupuzha","Nandivaram-Guduvancheri","Navalgund","Navsari","Neyveli (TS)","Nidadavole","Nuzvid","O' Valley","Paravoor","Parvathipuram","Murwara","Bhiwandi","Bhilwara","Warangal","Howrah","Aizawl","Bhiwani","Arwal","Bageshwar","Baleshwar Town","Baripada Town","Bhawanipatna","Gadwal","Haldwani","Karwar","Khowai","Ladwa","Lakshmeshwar","Longowal","Lunawada","Manawar","Mandawa","Mandi Dabwali","Manwath","Mhaswad","Mhow Cantonment","Mhowgaon","Nabadwip","Nanded-Waghala","Narwana","Nathdwara","Buxar","Raxaul Bazar","Nandyal","Madhyamgram","Bombay","Adityapur","Adyar","Byasanagar","Gooty","Jhumri Tilaiya","Kalyan","Kamareddy","Kayamkulam","Koyilandy","Kyathampalle","Mandya","Mayang Imphal","Merta City","Mira-Bhayandar","Miryalaguda","Narayanpet","Neyyattinkara","Panniyannur","Periyakulam","Periyasemur","Pipar City","Ghaziabad","Azamgarh","Hazaribag","Kagaznagar","Mahnar Bazar","Nowrozabad (Khodargama)","Ozar","Tezpur","Thodupuzha","Vizianagaram","Zaidpur","Zamania","Zira","Zirakpur","Zunheboto"]
+      
+      cityArr.forEach(city => {
+          cities.push( 
+            <Option 
+              key={city}>
+                 {city}
+            </Option>)
+        })
+      
+        const options =  collegeData.data && collegeData.data.length >0 ? collegeData.data.map(d => <Option key={d['College Name']}>{d['College Name']}</Option>) : null
     return (
         <div  style={{marginTop: "0rem"}}>
         {/* <Button type="primary" onClick={showModal}>
@@ -161,7 +236,20 @@ export default function EditProfile(props) {
             <Col span={12} style={{padding: "1rem"}}>
                 <div style={{fontSize: "1rem", fontWeight: 500}} >College Name</div>
                 <Controller
-                  as={<Input placeholder="" />}
+                  as={<Select
+                    showSearch
+                    value={val}
+                    placeholder={"please select college"}
+                    style={{width: "100%"}}
+                    // defaultActiveFirstOption={false}
+                    showArrow={false}
+                    filterOption={false}
+                    onSearch={CollegehandleSearch}
+                    // onChange={handleChange}
+                    notFoundContent={null}
+                  >
+                    {options}
+                  </Select>}
                   name="collegeName"
                   control={control}
                 />
@@ -169,7 +257,16 @@ export default function EditProfile(props) {
             <Col span={12} style={{padding: "1rem"}}>
                 <div style={{fontSize: "1rem", fontWeight: 500}} >City</div>
                 <Controller
-                  as={<Input placeholder="" />}
+                  as={<Select
+                    // mode="multiple"
+                    showSearch
+                    style={{ width: '100%' }}
+                    placeholder="please select city"
+                    defaultValue={[]}
+                    // onChange={cityHandler}
+                  >
+                    {cities}
+                  </Select>}
                   name="city"
                   control={control}
                 />
