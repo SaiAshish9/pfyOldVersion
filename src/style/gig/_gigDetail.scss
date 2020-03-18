@@ -8,15 +8,12 @@
 
   .gig-main-block {
     width: 70%;
-    // border: 1px solid black;
     padding: 20px 0px;
     border-radius: 8px;
     background-color: #fff;
 
-    // margin:80px;
     .gig-provider-block-One {
       display: flex;
-      // justify-content: space-between;
       margin-top: 20px;
       margin-bottom: 40px;
 
@@ -130,10 +127,10 @@
             }
 
             img.carousel-content-block__img {
+              margin-bottom: 12px;
             }
 
             button.carousel-content-block__button {
-              margin-top: 12px;
               color: #fff;
               background-color: rgba(37, 46, 183, 0.36);
               border: 1px solid rgba(37, 46, 183, 0.36);

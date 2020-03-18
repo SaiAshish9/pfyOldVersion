@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import moment from 'moment';
+import moment from "moment";
 
 // import { GigCardStyled } from "../defaultStyled/defaultStyled";
 import calendarIcon from "./img/calendarIcon.svg";
 import rupeeIcon from "./img/rupeeIcon.svg";
 import taskIcon from "./img/taskIcon.svg";
+import clockIcon from "./img/clockIcon.svg";
 const Card = props => {
   const gig = props.gig;
   const internship = props.internship;
 
-/* ---------------------------- variable setting ---------------------------- */
-  //#region 
+  /* ---------------------------- variable setting ---------------------------- */
+  //#region
   const gigCompany = internship
     ? false
     : gig.company
@@ -42,7 +43,7 @@ const Card = props => {
   const applyBefore = gig ? gig.applyBefore : internship.applyBefore;
 
   const DetailPath = gig ? `/gig/${id}` : `/internship/${id}`;
-  
+
   //#endregion
 
   return (
@@ -55,23 +56,26 @@ const Card = props => {
           <h4 className="designation" style={{}}>
             {title}
           </h4>
-          <h5 className="company-name">{companyName}</h5>
-          <div className="boundary-one" />
+          <p className="company-name">{companyName}</p>
         </div>
-        <div>
+        <div className="brief-info-main-block">
           <div className="brief-info-block">
             <img src={rupeeIcon} alt=""></img>
             <p className="brief-info-para">{amount}</p>
           </div>
-        </div>
-        <div>
           <div className="brief-info-block">
             <img src={icon} alt=""></img>
             <p className="brief-info-para">{durationLength}</p>
           </div>
         </div>
         <div className="boundary-two">
-          <h5 className="due-time">Apply Before: {moment(applyBefore).format("DD MMM YYYY")}</h5>
+          <div className="applyBefore-block">
+            <img src={clockIcon} alt="" className="applyBefore-img"></img>
+            <p className="due-time">
+              {/* Apply Before: {moment("03 30 2020").fromNow()} */}
+              Apply Before: {moment(applyBefore).format("DD MMM YYYY")}
+            </p>
+          </div>
         </div>
       </div>
     </Link>
