@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect, useContext } from "react";
@@ -56,6 +57,7 @@ const Internship = () => {
         <Col className="filter-container" style={{ padding: "0px" }} span={6}>
           <Filter />
         </Col>
+
         <Col
           span={18}
           className="card-holder-box"
@@ -69,16 +71,17 @@ const Internship = () => {
               </h2>
             </div>
 
+            {/* ----------------------------- custom element ----------------------------- */}
             <Select
               defaultValue="latest"
-              placeholder="Select a person"
+              placeholder="Select"
               onChange={handleArrangingCard}
             >
               <Option value="latest">Latest</Option>
               <Option value="popular">Popular</Option>
             </Select>
           </div>
-          {myInternshipCard && myInternshipCard}
+          <div className="card-container">{myInternshipCard && myInternshipCard}</div>
         </Col>
       </Row>
     </div>

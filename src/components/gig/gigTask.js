@@ -28,6 +28,8 @@ export default function GigTask({
     console.log("selectedTask", selectedTask);
   }, [selectedTask, taskData]);
 
+  // axios.post(())
+
   const description = !!selectedTask && selectedTask.description;
   const instruction =
     !!selectedTask &&
@@ -39,6 +41,70 @@ export default function GigTask({
       </div>
     ));
 
+  const [userText, setUserText] = useState("");
+  const [uploadImage, setUploadImage] = useState("");
+  const [userLink, setUserLink] = useState("");
+  const [collectedData, setCollectedData] = useState({ submission: [] });
+  useEffect(() => {
+    console.log("selected file", collectedData);
+  }, [collectedData]);
+  //!-------------------------- handle all user input ------------------------- */
+  const handleFile = e => {
+    const myFile = e.target.files[0];
+    const data = new FormData();
+    data.append("file", myFile);
+    setUploadImage(data);
+  };
+
+  const handleUserText = e => {
+    const myUserText = e.target.value;
+    setUserText(myUserText);
+    console.log("myUserText", myUserText);
+  };
+
+  const handleUserLink = e => {
+    const myUserLink = e.target.value;
+    console.log("myUserText", myUserLink);
+    setUserLink(myUserLink);
+  };
+
+  const handleTaskSubmit = () => {
+    console.table(userLink, uploadImage, userText);
+    const myCollectedData = [
+      ...collectedData.submission,
+      {
+        type: 101,
+        text: userText
+      },
+      {
+        type: 102,
+        text: uploadImage
+      },
+      {
+        type: 103,
+        text: userLink
+      }
+    ];
+    console.log("all submission", collectedData.submission.myCollectedData);
+  };
+  //! ---------------------------------- **** ---------------------------------- */
+
+  const props = {
+    name: "file",
+    action: `${apiURL}/task/get_image_url_for_task_submission`,
+    tokenHeader,
+    onChange(info) {
+      if (info.file.status !== "uploading") {
+        console.log(info.file, info.fileList);
+      }
+      if (info.file.status === "done") {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === "error") {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    }
+  };
+
   const proof =
     !!selectedTask &&
     arrayValidation(selectedTask.proof) &&
@@ -48,17 +114,20 @@ export default function GigTask({
           <div className="">
             <h3>Submit Work</h3>
             <p>{proof.message}</p>
-            <Input></Input>
+            <Input onChange={handleUserText}></Input>
           </div>
         ) : proof.type === 102 ? (
           <div className="">
             <h3> Submit Proof</h3>
-            {/* <input type="file">Click to Upload</input> */}
+
+            <Upload {...props}>
+              <Button>Click to Upload</Button>
+            </Upload>
           </div>
         ) : proof.type === 103 ? (
           <div className="">
             <h3>Give the link</h3>
-            <Input></Input>
+            <Input onChange={handleUserLink}></Input>
           </div>
         ) : proof.type === 104 ? (
           <h3>This is Lead</h3>
@@ -166,7 +235,7 @@ export default function GigTask({
           </div>
         </div>
         <div className="" style={{ textAlign: "center" }}>
-          <Button>Submit</Button>
+          <Button onClick={handleTaskSubmit}>Submit</Button>
         </div>
       </Modal>
     </div>
