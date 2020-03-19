@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -46,6 +46,11 @@ const skillImg = [
 const UserSkill = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm();
+
+  useEffect(() => {
+    setSkills1([...props.profileData.skills])
+  }, [])
+
   const onSubmit = data => {
     console.log(data.objectiveTextarea);
     // axios

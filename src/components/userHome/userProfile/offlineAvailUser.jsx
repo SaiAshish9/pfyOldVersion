@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -19,7 +19,12 @@ const OfflineAvailUser = (props) => {
     "bike": false
   })
 
+  useEffect(() => {
+    setVehicle(props.profileData.offlineGigs.mode)
+  }, [])
+
   const { register, handleSubmit, watch, errors } = useForm();
+
   const onSubmit = data => {
     console.log('ON SUBMIT ', data)
     console.log(data.objectiveTextarea);
@@ -50,7 +55,6 @@ const OfflineAvailUser = (props) => {
   const selectVehicleHandler = (val) => {
     // vehicle = {...vehicle, [val]: !vehicle[val] }
     setVehicle( {...vehicle, [val]: !vehicle[val] })
-   
   }
   console.table(vehicle)
 
