@@ -9,12 +9,21 @@ import five from "./img/(5).svg";
 import six from "./img/(6).svg";
 import seven from "./img/(7).svg";
 import eight from "./img/(8).svg";
+import { useEffect } from "react";
 
 const UserDigitalProfile = ({profileData, isUpdate}) => {
   const digitalProfile = profileData && profileData.digitalProfile;
   console.table(digitalProfile)
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isRerender, setIsRerender] = useState(false)
   
+  useEffect(() => {
+    setIsDisabled({
+    facebook:  digitalProfile.facebook.trim() ? true : false,
+    instagram:    digitalProfile.instagram.trim() ? true : false,
+    tiktok:  digitalProfile.tiktok.trim() ? true : false,
+    })
+  }, [isRerender])
 
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = data => {
@@ -47,6 +56,7 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
       .then(res => {
         console.log(res.data)
         isUpdate()
+        setIsRerender(Math.random())
       })
   };
 
@@ -71,9 +81,7 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
     
   // }, [])
 const [isDisabled, setIsDisabled] = useState({
-    facebook:  digitalProfile.facebook.trim() ? true : false,
-    instagram:    digitalProfile.instagram.trim() ? true : false,
-    tiktok:  digitalProfile.tiktok.trim() ? true : false,
+    
   });
   
 

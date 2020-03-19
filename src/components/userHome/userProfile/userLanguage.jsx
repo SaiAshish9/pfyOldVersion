@@ -14,6 +14,10 @@ const UserLanguage = (props) => {
 
   const { register, handleSubmit, watch, errors, control } = useForm();
 
+  useEffect(() => {
+    setSelectLang([...props.profileData.languages])
+  }, [])
+
   const languagesArr = [];
   // useEffect(() => {
   //   for (let i = 0; languages.length < 36; i++) {
@@ -21,7 +25,20 @@ const UserLanguage = (props) => {
   //   }
   // }, [])
   
-  
+ const newSubmitHandler = () => {
+    if(selectLang.length > 0){
+      const url = 'user/update';
+      const data1 = {
+        languages: [...selectLang]
+      }
+      axios.put(url,data1)
+        .then(res => {
+          console.log(res.data)
+          props.isUpdate()
+          setIsModalVisible(false)
+        })
+    }
+  } 
 
   const onSubmit = data => {
     console.log(data.languages);
@@ -62,6 +79,16 @@ const UserLanguage = (props) => {
     dataArr = props.profileData.languages.map((lang, index) => <p key={index}>{lang}</p>)
   }
 
+  const [selectLang, setSelectLang] = useState([])
+  const selectHandler = (lang) => {
+    if(!selectLang.includes(lang)){
+      setSelectLang([...selectLang, lang ])
+    } else{
+      setSelectLang(selectLang.filter(el => el !== lang))
+    }
+  }
+  console.log(selectLang)
+
   return (
     <div className="language-of-avatar-block">
       <div className="language-of-avatar-content-block">
@@ -87,15 +114,18 @@ const UserLanguage = (props) => {
       >
       <form
       onSubmit={handleSubmit(onSubmit)}
-      style={{ display: "flex", flexDirection: "column" }}
+      style={{ display: "flex", flexWrap: "wrap" }}
       className="objective-block-one__form"
-    >
-      <Controller
+      >
+      {languages.map((lang, index) =>
+            <div onClick={() => selectHandler(lang)} style={{margin: '0.5rem', color: selectLang.includes(lang) ? "darkorange" :  "inherit" }} key={lang}>{lang}</div>
+          )}
+      {/* <Controller
         as={<Select
           mode="multiple"
           style={{ width: '100%' }}
           placeholder="Please select languages"
-          defaultValue={['English']}
+          // defaultValue={['English']}
           // onChange={handleChange}
         >
           {languages.map((lang, index) =>
@@ -105,16 +135,19 @@ const UserLanguage = (props) => {
         control={control}
         name="languages"
         // defaultValue={{ value: 'English' }}
-      />
+      /> */}
         
+        
+    </form>
+    <div style={{ textAlign: "center"}}>
       <Button
+        onClick={newSubmitHandler}
         htmlType="submit"
         className="objective-block-one__buttonTwo"
         style={{ alignSelf: "center", marginTop: "32px" }}
       >
         Done
-      </Button>
-    </form>
+      </Button></div>
       </Modal>
     </div>
   );

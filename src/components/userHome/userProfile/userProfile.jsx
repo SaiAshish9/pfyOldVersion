@@ -37,10 +37,10 @@ const UserProfile = () => {
       <UserCard myUserProfile={myUserProfile}></UserCard>
       <div className="avatar-profile-detail-block">
         <AboutUser isUpdate={runFun} profileData={profileData}/>
-        <OfflineAvailUser isUpdate={runFun}  profileData={profileData}/>
-        <UserLanguage isUpdate={runFun} profileData={profileData} />
-        <UserSkill isUpdate={runFun} profileData={profileData} />
-        { profileData && profileData.digitalProfile ? <UserDigitalProfile isUpdate={runFun} profileData={profileData} /> : null}
+        {profileData ? <OfflineAvailUser isUpdate={runFun}  profileData={profileData}/> : null}
+        {profileData ? <UserLanguage isUpdate={runFun} profileData={profileData} /> : null}
+        {profileData ? <UserSkill isUpdate={runFun} profileData={profileData} /> : null}
+        { profileData ? <UserDigitalProfile isUpdate={runFun} profileData={profileData} /> : null}
         
       </div>
     </div>
