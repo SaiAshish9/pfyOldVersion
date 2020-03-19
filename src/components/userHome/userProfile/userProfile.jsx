@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 
 import AboutUser from "./AboutUser";
 import OfflineAvailUser from "./offlineAvailUser";
@@ -33,17 +33,20 @@ const UserProfile = () => {
   }
 
   return (
+    <Fragment>
+    {profileData ?
     <div className="profilePage-block">
-      <UserCard myUserProfile={myUserProfile}></UserCard>
-      <div className="avatar-profile-detail-block">
+       <UserCard myUserProfile={myUserProfile}></UserCard>
+       <div className="avatar-profile-detail-block">
         <AboutUser isUpdate={runFun} profileData={profileData}/>
-        {profileData ? <OfflineAvailUser isUpdate={runFun}  profileData={profileData}/> : null}
-        {profileData ? <UserLanguage isUpdate={runFun} profileData={profileData} /> : null}
-        {profileData ? <UserSkill isUpdate={runFun} profileData={profileData} /> : null}
-        { profileData ? <UserDigitalProfile isUpdate={runFun} profileData={profileData} /> : null}
+        <OfflineAvailUser isUpdate={runFun}  profileData={profileData}/> 
+        <UserLanguage isUpdate={runFun} profileData={profileData} /> 
+        <UserSkill isUpdate={runFun} profileData={profileData} /> 
+         <UserDigitalProfile isUpdate={runFun} profileData={profileData} /> 
         
-      </div>
-    </div>
+      </div> 
+    </div> : null}
+    </Fragment>
   );
 };
 export default UserProfile;

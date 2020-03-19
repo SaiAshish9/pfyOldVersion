@@ -11,11 +11,12 @@ const languages = ["Assamese", "Dogri", "Hindi", "English", "Kashmiri", "Maithil
 
 const UserLanguage = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const languagesData = props.profileData ? props.profileData.languages : [];
 
   const { register, handleSubmit, watch, errors, control } = useForm();
 
   useEffect(() => {
-    setSelectLang([...props.profileData.languages])
+    setSelectLang([...languagesData])
   }, [])
 
   const languagesArr = [];
