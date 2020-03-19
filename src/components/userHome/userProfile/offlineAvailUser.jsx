@@ -8,6 +8,7 @@ import { tokenHeader } from "../../../constant/tokenHeader";
 import two from "./img/(2).svg";
 
 const OfflineAvailUser = (props) => {
+  const offlineGigsData = props.profileData ? props.profileData.offlineGigs.mode : {"bus": false,"train": false,"car": false,"bike": false};
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [openDone, setOpenDone] = useState(false);
   const [openConveyance, setOpenConveyance] = useState(false);
@@ -20,7 +21,7 @@ const OfflineAvailUser = (props) => {
   })
 
   useEffect(() => {
-    setVehicle(props.profileData.offlineGigs.mode)
+    setVehicle(offlineGigsData)
   }, [])
 
   const { register, handleSubmit, watch, errors } = useForm();

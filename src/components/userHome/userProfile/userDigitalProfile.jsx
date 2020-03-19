@@ -12,18 +12,42 @@ import eight from "./img/(8).svg";
 import { useEffect } from "react";
 
 const UserDigitalProfile = ({profileData, isUpdate}) => {
-  const digitalProfile = profileData && profileData.digitalProfile;
-  console.table(digitalProfile)
+  const digitalProfileData = profileData ? profileData.digitalProfile : {
+    facebook:  null,
+    instagram:    null,
+    tiktok:  null,
+  }
+  // const digitalProfile = profileData && profileData.digitalProfile;
+  // console.table(digitalProfile)
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isRerender, setIsRerender] = useState(false)
+  // const [DigitalProfile, setDigitalProfile] = useState({
+  //   facebook:  null,
+  //   instagram:    null,
+  //   tiktok:  null,
+  // })
+
+  const [isDisabled, setIsDisabled] = useState({
+    facebook: false,
+    instagram: false,
+    tiktok: false,
+    });
+    
   
   useEffect(() => {
     setIsDisabled({
-    facebook:  digitalProfile.facebook.trim() ? true : false,
-    instagram:    digitalProfile.instagram.trim() ? true : false,
-    tiktok:  digitalProfile.tiktok.trim() ? true : false,
+    facebook:  !!digitalProfileData.facebook ? true : false,
+    instagram:    !!digitalProfileData.instagram ? true : false,
+    tiktok:  !!digitalProfileData.tiktok ? true : false,
     })
+    // setDigitalProfile({
+    //   facebook:  digitalProfileData.facebook ? digitalProfileData.facebook : null,
+    //   instagram:    digitalProfileData.instagram ? digitalProfileData.instagram : null,
+    //   tiktok:  digitalProfileData.tiktok ? digitalProfileData.tiktok : null,
+    // })
   }, [isRerender])
+
+  // console.table(DigitalProfile)
 
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = data => {
@@ -63,10 +87,10 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
   const [SM, setSM] = useState({})
   const onChange = (e, media) => {
 
-    const id = e.target.value.trim();
+    const SocialMediaID = e.target.value.trim();
     console.log(e.target.value + ' and media ' + media)
 
-    setSM({...SM, [media]: id })
+    setSM({...SM, [media]: SocialMediaID })
   }
   console.log(SM)
 
@@ -80,10 +104,7 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
   // useEffect(() => {
     
   // }, [])
-const [isDisabled, setIsDisabled] = useState({
-    
-  });
-  
+
 
 
   const setDisableHandler = (val) => {
@@ -95,8 +116,6 @@ const [isDisabled, setIsDisabled] = useState({
   return (
      
     <div className="avatar-digital-profile-block">
-      { digitalProfile ?
-      <Fragment>
       <div className="avatar-digital-profile-content-block">
         <img className="avatar-digital-profile-img" src={five} alt=""></img>
         <div className="avatar-digital-profile-content">
@@ -105,17 +124,17 @@ const [isDisabled, setIsDisabled] = useState({
       </div>
       <div className="fb-block">
         <img src={six} alt=""></img>
-        <Input style={{width: digitalProfile.facebook  && isDisabled.facebook ? '73%' : '80%'}} disabled={isDisabled.facebook }  defaultValue={digitalProfile.facebook} onChange={(e) => onChange(e, 'facebook')}  />
+        <Input style={{width: digitalProfileData.facebook  && isDisabled.facebook ? '73%' : '80%'}} disabled={isDisabled.facebook }  defaultValue={digitalProfileData.facebook} onChange={(e) => onChange(e, 'facebook')}  />
         <div style={{cursor: "pointer", display: isDisabled.facebook ? 'inherit' : "none" }}><Icon onClick={() => setDisableHandler('facebook')}   type="edit"></Icon></div> 
       </div>
       <div className="insta-block">
         <img src={seven} alt=""></img>
-        <Input style={{width: digitalProfile.facebook  && isDisabled.instagram ? '73%' : '80%'}} disabled={isDisabled.instagram }  defaultValue={digitalProfile.instagram} onChange={(e) => onChange(e, 'instagram')}></Input>
+        <Input style={{width: digitalProfileData.instagram  && isDisabled.instagram ? '73%' : '80%'}} disabled={isDisabled.instagram }  defaultValue={digitalProfileData.instagram} onChange={(e) => onChange(e, 'instagram')}></Input>
         <div style={{cursor: "pointer", display: isDisabled.instagram ? 'inherit' : "none" }}><Icon onClick={() => setDisableHandler('instagram')}   type="edit"></Icon></div> 
       </div>
       <div className="tik-tok-block">
         <img src={eight} alt=""></img>
-        <Input style={{width: digitalProfile.facebook  && isDisabled.tiktok ? '73%' : '80%'}} disabled={isDisabled.tiktok }  defaultValue={digitalProfile.tiktok} onChange={(e) => onChange(e, 'tiktok')}></Input>
+        <Input style={{width: digitalProfileData.tiktok  && isDisabled.tiktok ? '73%' : '80%'}} disabled={isDisabled.tiktok }  defaultValue={digitalProfileData.tiktok} onChange={(e) => onChange(e, 'tiktok')}></Input>
         <div style={{cursor: "pointer", display: isDisabled.tiktok ? 'inherit' : "none" }}><Icon onClick={() => setDisableHandler('tiktok')}   type="edit"></Icon></div> 
       </div>
       <Button
@@ -146,8 +165,6 @@ const [isDisabled, setIsDisabled] = useState({
       </Button>
     </form>
       </Modal>
-      </Fragment>
-      : null }
     </div> 
   );
 };

@@ -44,11 +44,12 @@ const skillImg = [
 ];
 
 const UserSkill = (props) => {
+  const skillsData = props.profileData  ? props.profileData.skills : []; 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm();
 
   useEffect(() => {
-    setSkills1([...props.profileData.skills])
+    setSkills1([...skillsData])
   }, [])
 
   const onSubmit = data => {
