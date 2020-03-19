@@ -10,7 +10,7 @@ import axios from 'axios';
 import UserCard from "../../common/userCard";
 
 const UserProfile = () => {
-  const [profileData, setProfileData] = useState();
+  const [profileData, setProfileData] = useState(); 
   const [isUpdate, SetIsUpdate] = useState(null)
 
   // GET PROFILE

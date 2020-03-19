@@ -15,7 +15,8 @@ export default function GigTask({
   isRejected,
   isSelected,
   isShortlisted,
-  selectedGigId
+  selectedGigId,
+  isMyCookie
 }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [taskData, setTaskData] = useState([]);
@@ -85,7 +86,7 @@ export default function GigTask({
         text: userLink
       }
     ];
-    console.log("all submission", collectedData.submission.myCollectedData);
+    console.log("all submission", { submission: myCollectedData });
   };
   //! ---------------------------------- **** ---------------------------------- */
 
@@ -202,7 +203,11 @@ export default function GigTask({
               ></img>
               <Tooltip
                 title={
-                  isSelected || isCompleted ? undefined : "You are not selected"
+                  !isMyCookie
+                    ? "please login first"
+                    : isSelected || isCompleted
+                    ? undefined
+                    : "You are not selected"
                 }
               >
                 <Button

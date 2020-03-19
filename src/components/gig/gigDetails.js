@@ -14,10 +14,10 @@ import removeIcon from "../internship/img/removeIcon.svg";
 import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
 import GigTask from "./gigTask";
 
-const GigDetail = props => {
+export default function GigDetail(props) {
+  const myCookie = Cookies.get("token");
   //#region
   const [gig, setGig] = useState();
-
   const [modalVisible, setModalVisible] = useState(false);
   const [isApply, setIsApply] = useState(false);
   const [isShortlisted, setIsShortlisted] = useState(false);
@@ -26,6 +26,10 @@ const GigDetail = props => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [isFailed, setIsFailed] = useState(false);
   const [companyQuestion, setCompanyQuestion] = useState("");
+  const [isMyCookie, setIsMyCookie] = useState(!!myCookie);
+  useEffect(() => {
+    setIsMyCookie(!!myCookie);
+  }, [isMyCookie, myCookie]);
 
   const selectedGigId = props.match.params.id;
 
@@ -53,44 +57,62 @@ const GigDetail = props => {
   //#endregion
 
   useEffect(() => {
-    axios
-      .get(
-        `${apiURL}/mission/fetchone_with_status/${selectedGigId}`,
-        tokenHeader
-      )
-      .then(res => {
-        console.log("response", res);
-        if (res.data.appliedStatus === 601) {
-          setIsApply(true);
+    console.log("myCookie", myCookie);
+    if (isMyCookie) {
+      axios
+        .get(
+          `${apiURL}/mission/fetchone_with_status/${selectedGigId}`,
+          tokenHeader
+        )
+        .then(res => {
+          console.log("response", res);
+          if (res.data.appliedStatus === 601) {
+            setIsApply(true);
+            setGig(res.data);
+          } else if (res.data.appliedStatus === 602) {
+            setGig(res.data);
+            setIsShortlisted(true);
+          } else if (res.data.appliedStatus === 603) {
+            setGig(res.data);
+            setIsSelected(true);
+          } else if (res.data.appliedStatus === 604) {
+            setGig(res.data);
+            setIsRejected(true);
+          } else if (res.data.appliedStatus === 605) {
+            setGig(res.data);
+            setIsCompleted(true);
+          } else if (res.data.appliedStatus === 606) {
+            setGig(res.data);
+            setIsFailed(true);
+          } else {
+            console.log(res.data.questions);
+
+            setGig(res.data);
+            setCompanyQuestion(res.data.questions);
+          }
+        })
+        .catch(e => {
+          console.log("error" + e);
+        });
+    } else {
+      axios
+        .get(`mission/fetchone/${selectedGigId}`)
+        .then(res => {
           setGig(res.data);
-        } else if (res.data.appliedStatus === 602) {
-          setGig(res.data);
-          setIsShortlisted(true);
-        } else if (res.data.appliedStatus === 603) {
-          setGig(res.data);
-          setIsSelected(true);
-        } else if (res.data.appliedStatus === 604) {
-          setGig(res.data);
-          setIsRejected(true);
-        } else if (res.data.appliedStatus === 605) {
-          setGig(res.data);
-          setIsCompleted(true);
-        } else if (res.data.appliedStatus === 606) {
-          setGig(res.data);
-          setIsFailed(true);
-        } else {
-          console.log(res.data.questions);
-          setGig(res.data);
-          setCompanyQuestion(res.data.questions);
-        }
-      })
-      .catch(e => {
-        console.log("error" + e);
-      });
-  }, [modalVisible]);
+          console.log(res.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  }, [isMyCookie, modalVisible, myCookie, selectedGigId]);
 
   const handleApply = () => {
-    setModalVisible(true);
+    if (isMyCookie) {
+      setModalVisible(true);
+    } else {
+      setModalVisible(false);
+    }
   };
 
   const handleSubmitModal = () => {
@@ -210,7 +232,7 @@ const GigDetail = props => {
 
         <div className="gig-detail-block">
           <div>
-            <h2>Task to be done</h2> 
+            <h2>Task to be done</h2>
             <div className="carousel-block">
               <GigTask
                 gigTask={gigTask}
@@ -221,6 +243,7 @@ const GigDetail = props => {
                 isRejected={isRejected}
                 isSelected={isSelected}
                 isShortlisted={isShortlisted}
+                isMyCookie={isMyCookie}
               />
             </div>
           </div>
@@ -289,5 +312,4 @@ const GigDetail = props => {
       <MoreSuggestion />
     </div>
   );
-};
-export default GigDetail;
+}
