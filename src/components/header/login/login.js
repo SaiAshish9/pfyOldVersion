@@ -93,7 +93,10 @@ const Continue = () => {
                 // const id = res.data.user._id;
                 handleModalCancel();
                 Cookies.set("token", res.data.token);
-                history.push("/home");
+                history.push({
+                  pathname: "/home",
+                  state: { headers: { token: res.data.token } }
+                });
               } else if (res.data.statusCode === 210) {
                 setIsVerified(true);
               } else {

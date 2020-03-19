@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { Button, Menu, Dropdown, Icon } from "antd";
 import Cookies from "js-cookie";
 import "./privateHeader.scss";
 
 export default function PrivateHeader() {
+  const location = useLocation().pathname;
   const history = useHistory();
-
   const handleLogout = () => {
     Cookies.remove("token");
     history.push("/");
@@ -31,25 +31,46 @@ export default function PrivateHeader() {
   );
 
   return (
-    <div
-      className="headerNav"
-    >
+    <div className="headerNav">
       <div className="link-container">
-        <Link to="/home" className="myLink">
-          Home
-        </Link>
-        <Link to="/resume" className="myLink">
-          Resume
-        </Link>
-        <Link to="/gigs" className="myLink">
-          GIG
-        </Link>
-        <Link to="/internships" className="myLink">
-          INTERNSHIPS
-        </Link>
-        <Link to="/wallet" className="myLink">
-          Wallet
-        </Link>
+        {location === "/home" ? (
+          <p className="myLink">Home</p>
+        ) : (
+          <Link to="/home" className="myLink">
+            Home
+          </Link>
+        )}
+        {location === "/resume" ? (
+          <p className="myLink">Resume</p>
+        ) : (
+          <Link to="/resume" className="myLink">
+            Resume
+          </Link>
+        )}
+
+        {location === "/gigs" ? (
+          <p className="myLink">Gig</p>
+        ) : (
+          <Link to="/gigs" className="myLink">
+            Gig
+          </Link>
+        )}
+
+        {location === "/internships" ? (
+          <p className="myLink">Internship</p>
+        ) : (
+          <Link to="/internships" className="myLink">
+            Internship
+          </Link>
+        )}
+
+        {location === "/wallet" ? (
+          <p className="myLink">Wallet</p>
+        ) : (
+          <Link to="/wallet" className="myLink">
+            Wallet
+          </Link>
+        )}
       </div>
 
       <Dropdown overlay={menu} trigger={["click"]} className="ant-drop">

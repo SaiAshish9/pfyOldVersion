@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useReducer } from "react";
 import { Card, Skeleton } from "antd";
+import { useLocation } from "react-router-dom";
 
 import axios from "axios";
 
@@ -13,15 +14,22 @@ import { tokenHeader } from "../../../constant/tokenHeader";
 import { objectValidation } from "../../validation/validation";
 
 const UserHome = () => {
+  const location = useLocation();
   const [user, userDispatch] = useReducer(userReducer, {});
 
+  //* --- initially home page take token data by
+  //* --- passing token into history at login page
+  //* --- after that home uses cookies for token
+  const token =
+    location.state && location.state.headers ? location.state : tokenHeader;
+
   useEffect(() => {
-    console.log(user);
+    console.log("user home data", user);
   }, [user]);
 
   useEffect(() => {
     axios
-      .get(`${apiURL}/home`, tokenHeader)
+      .get(`${apiURL}/home`, token)
       .then(res => {
         let userData = res.data;
         console.log("User Home Data", res.data);
@@ -33,7 +41,6 @@ const UserHome = () => {
   }, []);
 
   useEffect(() => {}, []);
-  // const thisUser=user
 
   return (
     <UserContext.Provider value={{ user, userDispatch }}>
@@ -50,7 +57,6 @@ const UserHome = () => {
             </Card>
           </div>
         )}
-
         <Stat user={user} />
         <GigOrInternship></GigOrInternship>
       </div>

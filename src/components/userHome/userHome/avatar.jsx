@@ -7,8 +7,6 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 const Avatar = () => {
   const history = useHistory();
   const { user } = useContext(UserContext);
-  // console.log(user.user.firstName);
-  // console.log(user.user);
 
   const userName =
     Object.entries(user).length > 0 && user.constructor === Object
