@@ -6,8 +6,8 @@ import { useForm, Controller } from "react-hook-form";
 import axios from 'axios';
 import {tokenHeader} from '../../../constant/tokenHeader';
 import Cookies from 'js-cookie'
-import jsonp from 'fetch-jsonp';
-import querystring from 'querystring';
+// import jsonp from 'fetch-jsonp';
+// import querystring from 'querystring';
 
 const myToken = Cookies.get('token')
 

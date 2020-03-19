@@ -40,7 +40,8 @@ const UserProfile = () => {
         <OfflineAvailUser isUpdate={runFun}  profileData={profileData}/>
         <UserLanguage isUpdate={runFun} profileData={profileData} />
         <UserSkill isUpdate={runFun} profileData={profileData} />
-        <UserDigitalProfile />
+        { profileData && profileData.digitalProfile ? <UserDigitalProfile isUpdate={runFun} profileData={profileData} /> : null}
+        
       </div>
     </div>
   );
