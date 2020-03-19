@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Row, Col, Select } from "antd";
-import {apiURL} from '../../constant/url'
+import { apiURL } from "../../constant/url";
 
 import Card from "../common/card";
 import Filter from "../filters/filter";
@@ -29,7 +29,7 @@ const Gig = () => {
       </Col>
     ));
 
-/* ----------------------- fetching gig without status ----------------------- */
+  /* ----------------------- fetching gig without status ----------------------- */
   useEffect(() => {
     axios
       .get(`${apiURL}/mission/fetch`)
@@ -77,7 +77,7 @@ const Gig = () => {
               <Option value="popular">Popular</Option>
             </Select>
           </div>
-          {gigCard && gigCard}
+          <div className="card-container">{gigCard && gigCard}</div>
         </Col>
       </Row>
     </div>
