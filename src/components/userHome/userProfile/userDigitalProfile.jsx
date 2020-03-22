@@ -1,4 +1,4 @@
-import React,{useState, Fragment} from "react";
+import React, { useState, Fragment } from "react";
 import { Button, Input, Modal, Icon } from "antd";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -46,24 +46,27 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
     //   tiktok:  digitalProfileData.tiktok ? digitalProfileData.tiktok : null,
     // })
   }, [isRerender])
+// =======
+// const UserDigitalProfile = ({ profileData, isUpdate }) => {
+//   const digitalProfile = profileData && profileData.digitalProfile;
+//   console.table(digitalProfile);
+//   const [isModalVisible, setIsModalVisible] = useState(false);
+//   const [isRerender, setIsRerender] = useState(false);
+
+//   useEffect(() => {
+//     setIsDisabled({
+//       facebook: digitalProfile.facebook.trim() ? true : false,
+//       instagram: digitalProfile.instagram.trim() ? true : false,
+//       tiktok: digitalProfile.tiktok.trim() ? true : false
+//     });
+//   }, [isRerender]);
+// >>>>>>> d2deb26790e62f0d238b218663bb8437f0a9a7df
 
   // console.table(DigitalProfile)
 
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = data => {
     console.log(data.objectiveTextarea);
-    // axios
-    //   .put(
-    //     `${apiURL}/resume/addobjective?careerObjectives=${data.objectiveTextarea}`,
-    //     null,
-    //     tokenHeader
-    //   )
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    //   .catch(e => {
-    //     console.log(e.response);
-    //   });
   };
 
   const handleCancel = () => {
@@ -72,19 +75,18 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
 
   const handleProfileButton = () => {
     // setIsModalVisible(true);
-    const url = 'user/update';
+    const url = "user/update";
     const data = {
-      digitalProfile: {...SM}
-    }
-    axios.put(url,data)
-      .then(res => {
-        console.log(res.data)
-        isUpdate()
-        setIsRerender(Math.random())
-      })
+      digitalProfile: { ...SM }
+    };
+    axios.put(url, data).then(res => {
+      console.log(res.data);
+      isUpdate();
+      setIsRerender(Math.random());
+    });
   };
 
-  const [SM, setSM] = useState({})
+  const [SM, setSM] = useState({});
   const onChange = (e, media) => {
 
     const SocialMediaID = e.target.value.trim();
@@ -98,23 +100,18 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
     
   }
 
-  console.log('SOCIAL MEDIA')
-  console.table(SM)
-
+  // const SMHandler = () => {};
   // useEffect(() => {
-    
   // }, [])
+  // const [isDisabled, setIsDisabled] = useState({});
 
+  const setDisableHandler = val => {
+    setIsDisabled({ ...isDisabled, [val]: false });
+  };
 
-
-  const setDisableHandler = (val) => {
-    setIsDisabled({...isDisabled, [val]: false})
-  }
-
-  console.log('isDisable', isDisabled)
+  console.log("isDisable", isDisabled);
 
   return (
-     
     <div className="avatar-digital-profile-block">
       <div className="avatar-digital-profile-content-block">
         <img className="avatar-digital-profile-img" src={five} alt=""></img>

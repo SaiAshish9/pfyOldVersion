@@ -1,18 +1,21 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect, useState, useContext, useRef } from "react";
+import { Button, Modal } from "antd";
 import axios from "axios";
-import { Button, Modal, Icon } from "antd";
-import { apiURL } from "../../constant/url";
+import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+/* --------------------------------- ****** --------------------------------- */
 import { tokenHeader } from "../../constant/tokenHeader";
-import InternshipContext from "../../context/internshipContext";
+import { apiURL } from "../../constant/url";
+import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
+import { arrayValidation } from "../validation/validation";
 import CompanyQueForm from "./companyQuesForm";
 import checkIcon from "./img/checkIcon.svg";
 import removeIcon from "./img/removeIcon.svg";
-import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
-import { arrayValidation } from "../validation/validation";
 
 const InternshipDetail = props => {
   // const { internship } = useContext(InternshipContext);
+  const myCookie = Cookies.get("token");
+
   const [internship, setInternship] = useState();
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -21,17 +24,14 @@ const InternshipDetail = props => {
   const [isSelected, setIsSelected] = useState(false);
   const [isRejected, setIsRejected] = useState(false);
   const [companyQuestion, setCompanyQuestion] = useState("");
-  // const [answer, setAnswer] = useState([]);
+  const [isMyCookie, setIsMyCookie] = useState(!!myCookie);
+  useEffect(() => {
+    setIsMyCookie(!!myCookie);
+  }, [isMyCookie, myCookie]);
 
-  // useEffect(() => {
-  //   console.log(answer);
-  // }, [answer]);
   const selectedInternshipId = props.match.params.id;
   const myInternship = internship;
-  //   internship.length > 0 &&
-  //   internship.find(
-  //     thisInternship => thisInternship._id === selectedInternshipId
-  //   );
+
   //#region
   /* --------------------------- internship provider state --------------------------- */
   const companyLogo = myInternship && myInternship.company.logoUrl;
@@ -57,37 +57,50 @@ const InternshipDetail = props => {
   //#endregion
 
   useEffect(() => {
-    axios
-      .get(
-        `${apiURL}/internship/fetchone_with_status/${selectedInternshipId}`,
-        tokenHeader
-      )
-      .then(res => {
-        console.log(res);
-        if (res.data.appliedStatus === 300) {
-          setIsApply(true);
+    if (isMyCookie) {
+      axios
+        .get(`/internship/fetchone_with_status/${selectedInternshipId}`)
+        .then(res => {
+          console.log(res);
+          if (res.data.appliedStatus === 300) {
+            setIsApply(true);
+            setInternship(res.data);
+          } else if (res.data.appliedStatus === 301) {
+            setIsShortlisted(true);
+            setInternship(res.data);
+          } else if (res.data.appliedStatus === 302) {
+            setIsSelected(true);
+            setInternship(res.data);
+          } else if (res.data.appliedStatus === 303) {
+            setIsRejected(true);
+            setInternship(res.data);
+          } else {
+            setInternship(res.data);
+            setCompanyQuestion(res.data.questions);
+          }
+        })
+        .catch(e => {
+          console.log("error" + e);
+        });
+    } else {
+      axios
+        .get(`internship/fetchone/${selectedInternshipId}`)
+        .then(res => {
           setInternship(res.data);
-        } else if (res.data.appliedStatus === 301) {
-          setIsShortlisted(true);
-          setInternship(res.data);
-        } else if (res.data.appliedStatus === 302) {
-          setIsSelected(true);
-          setInternship(res.data);
-        } else if (res.data.appliedStatus === 303) {
-          setIsRejected(true);
-          setInternship(res.data);
-        } else {
-          setInternship(res.data);
-          setCompanyQuestion(res.data.questions);
-        }
-      })
-      .catch(e => {
-        console.log("error" + e);
-      });
+          // console.log(res.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
   }, [modalVisible]);
 
   const handleApply = () => {
-    setModalVisible(true);
+    if (isMyCookie) {
+      setModalVisible(true);
+    } else {
+      setModalVisible(false);
+    }
   };
 
   const handleSubmitModal = () => {

@@ -1,22 +1,20 @@
-/* eslint-disable jsx-a11y/no-redundant-roles */
-/* eslint-disable jsx-a11y/img-redundant-alt */
-/* eslint-disable jsx-a11y/alt-text */
-import React, { useState, useEffect, useContext } from "react";
+import { Col, Row, Select } from "antd";
 import axios from "axios";
-
-import { Row, Col, Select } from "antd";
-import InternshipContext from "../../context/internshipContext";
-import Filter from "../filters/filter";
-import Card from "../common/card";
-import { arrayValidation } from "../validation/validation";
+import React, { useEffect, useState } from "react";
+/* -------------------------------- ******** -------------------------------- */
 import { apiURL } from "../../constant/url";
+import InternshipContext from "../../context/internshipContext";
+import Card from "../common/card";
+import Filter from "../filters/filter";
+import { arrayValidation } from "../validation/validation";
 
 const cardStyle = {
   display: "flex",
   justifyContent: "center"
 };
+
 const { Option } = Select;
-const Internship = () => {
+export default function Internship() {
   const [internship, setInternship] = useState(InternshipContext);
   const [arrangeCard, setArrangeCard] = useState("latest");
 
@@ -81,10 +79,11 @@ const Internship = () => {
               <Option value="popular">Popular</Option>
             </Select>
           </div>
-          <div className="card-container">{myInternshipCard && myInternshipCard}</div>
+          <div className="card-container">
+            {myInternshipCard && myInternshipCard}
+          </div>
         </Col>
       </Row>
     </div>
   );
-};
-export default Internship;
+}
