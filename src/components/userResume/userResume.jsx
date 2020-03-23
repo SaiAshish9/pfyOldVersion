@@ -10,7 +10,7 @@ import Position from "./position";
 import Training from "./training";
 import Project from "./project";
 import DigitalProfile from "./digitalProfile";
-import Achievement from "./achievement";
+import Achievement from "./achievement"; 
 
 import UserCard from "../common/userCard";
 

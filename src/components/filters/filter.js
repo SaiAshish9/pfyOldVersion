@@ -12,6 +12,8 @@ const Filter = () => {
       <Collapse>
         <Panel header="Categories" key="1">
           <Checkbox>finance</Checkbox>
+          <Checkbox>finance</Checkbox>
+          <Checkbox>finance</Checkbox>
         </Panel>
         <Panel header="Work Location" key="2">
           <Checkbox>in office</Checkbox>
