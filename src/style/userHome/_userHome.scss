@@ -231,6 +231,11 @@ $card-background-color: #fff;
           margin: 0px;
         }
       }
+      .about-content-block{
+        padding-left: 0.75rem;
+        margin-top: 1rem;
+        border-left: 2px solid #5468d1;
+      }
     }
     .about-avatar-button {
       @extend %user-button;
@@ -245,10 +250,27 @@ $card-background-color: #fff;
         @extend %user-icon;
       }
       .offline-available-avatar-content {
+        .vehicles{
+          display: flex;
+          margin:  1rem;
+          justify-content: space-around;
+          .single-vehicle{
+              width: 8rem;
+              padding: 1rem ;
+              // align-self: flex-end;
+              box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+              border-radius: 8px;
+          }
+      }
         @extend %user-content;
         h2 {
           margin: 0px;
         }
+      }
+      .offline-gigs{
+        margin: 15px;
+        padding-left: 10px;
+        border-left: 2px solid #5468d1;
       }
     }
     .offline-available-avatar-button {
@@ -273,6 +295,19 @@ $card-background-color: #fff;
     .language-of-avatar-button {
       @extend %user-button;
     }
+    .selected-languages{
+      display: flex;
+      // justify-content: space-between;
+      flex-wrap: wrap;
+      border-left: 2px solid #5468d1;
+      padding-left: 10px;
+      margin-top: 15px;
+      .single-selected-language{
+        padding: 0.5rem 0.15rem;
+        // border-radius: 8px;
+        // border: 1px solid #ccc;
+      }
+    }
   }
 
   .skill-of-avatar-block {
@@ -292,7 +327,20 @@ $card-background-color: #fff;
     .skill-of-avatar-button {
       @extend %user-button;
     }
+    
+    .skill-list{
+      padding-left: 10px;
+      margin-top: 15px;
+      border-left: 2px solid #5468d1;
+      display: flex;
+      flex-wrap: wrap;
+      .single-skill{
+        padding: 0.5rem 0.15rem;
+      }
+    }
   }
+
+ 
 
   .avatar-digital-profile-block {
     @extend %user-block;

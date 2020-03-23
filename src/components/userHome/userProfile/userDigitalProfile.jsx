@@ -7,6 +7,8 @@ import six from "./img/(6).svg";
 import seven from "./img/(7).svg";
 import eight from "./img/(8).svg";
 import addIcon from "./img/addIcon.svg";
+import editIcon from './img/editIcon.svg';
+
 
 const UserDigitalProfile = ({ profileData, isUpdate }) => {
   const digitalProfileData = profileData
@@ -59,7 +61,7 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
     axios.put(url, data).then(res => {
       console.log(res.data);
       isUpdate();
-      setIsRerender(Math.random());
+      // setIsRerender(Math.random());
     });
   };
 
@@ -90,13 +92,13 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
           </div>
         </div>
         <img
-          src={addIcon}
+          src={isDisabled.facebook || isDisabled.instagram || isDisabled.tiktok ? editIcon : addIcon }
           alt=""
-          onClick={handleProfileButton}
-          style={{ alignSelf: "baseline" }}
+          onClick={() => setIsModalVisible(true)}
+          style={{ alignSelf: "baseline", cursor: "pointer" }}
         />
       </div>
-
+      {/* <div className="social-media-block">
       <div className="fb-block">
         <img src={six} alt=""></img>
         <Input
@@ -165,17 +167,10 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
           <Icon onClick={() => setDisableHandler("tiktok")} type="edit"></Icon>
         </div>
       </div>
-
-      {/* <Button
-        type="primary"
-        shape="round"
-        className="avatar-digital-profile-button"
-        onClick={handleProfileButton}
-      >
-        Add
-      </Button> */}
+      </div> */}
+      
       <Modal
-        title="Basic Modal"
+        title="Add Social Media Accounts"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
@@ -185,11 +180,18 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
           style={{ display: "flex", flexDirection: "column" }}
           className="objective-block-one__form"
         >
+          <div className="social-media-input">
+            <Input onChange={(e) => onChange(e, "facebook")}  className="social-media-single-input" addonBefore="facebook" defaultValue={digitalProfileData.facebook} />
+            <Input onChange={(e) => onChange(e, "instagram")} className="social-media-single-input" addonBefore="instagram" defaultValue={digitalProfileData.instagram} />
+            <Input onChange={(e) => onChange(e, "tiktok")} className="social-media-single-input" addonBefore="tiktok" defaultValue={digitalProfileData.tiktok} />
+          </div>
+          
           <Button
+            onClick={handleProfileButton}
             htmlType="submit"
             className="objective-block-one__buttonTwo"
-            style={{ alignSelf: "center", marginTop: "32px" }}
-          >
+            style={{ alignSelf: "center", marginTop: "32px" }}>
+            
             Done
           </Button>
         </form>

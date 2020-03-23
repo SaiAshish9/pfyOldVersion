@@ -1,0 +1,117 @@
+
+.objective-block-one__form{
+
+    .objective-block-one__buttonTwo{
+        background-color: #5468d1;
+        padding: 0 1.5rem;
+        border-radius: 1rem;
+        color: white;
+    }
+    .objective-modal__textarea{
+        box-shadow:  0px 0px 6px 0px rgba(0, 0, 0, 0.16);
+        border: solid 1px #e5e5e5;
+    }
+    
+}
+
+.social-media-input{
+    .social-media-single-input{
+        padding: 0.25rem 0;
+    }
+}
+
+.avatar-profile-detail-block{
+    .add-icon{
+        cursor: pointer;
+    }
+}
+
+.add-location-block{
+    text-align: center;
+    .ant-modal{
+        width: 65%;
+    }
+    .heading-1, .heading-2, .heading-3{
+        color: #707070;
+        font-size: 1.1rem;
+    }
+    .detect-location-btn{
+        background-color: #137efc;
+        border: none;
+        margin-top: 1rem;
+    }
+    .heading-2{
+        margin-top: 1.5rem;
+    }
+    .yes-no-btn{
+        margin-top: 1rem;
+        .yes-btn{
+            background-color: #137efc;
+            margin-right: 1rem;
+            padding: 0 2rem;
+        }
+        .no-btn{
+            background-color: #fff;
+            border: 1px solid #137efc;
+            color: #137efc;
+            padding: 0 2rem;
+        }
+    }
+    .heading-3{
+        margin-top: 1.5rem;
+    }
+    .vehicles{
+        display: flex;
+        margin:  1rem;
+        justify-content: space-around;
+        .single-vehicle{
+            width: 8rem;
+            padding: 1rem ;
+            // align-self: flex-end;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+            border-radius: 8px;
+        }
+    }
+    .add-location-btn{
+        margin-top: 1.2rem;
+        background-color: #5468d1;
+        color: #fff;
+        border-radius: none;
+        padding: 0 2rem;
+    }
+    
+}
+
+.add-languages-modal{
+    .languages-list{
+        display: flex;
+        flex-wrap: wrap;
+        .single-language{
+            text-align: center;
+            width: 6rem;
+            margin: 0.5rem 0.25rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    }
+    .submit-btn{
+        padding: 0 2rem;
+        align-self: center;
+        margin-top: 32px;
+        background-color: #5468d1;
+        color: #fff;
+
+    }
+}
+
+.add-skill-modal{
+    .submit-btn{
+      padding: 0 2rem;
+      color: #fff;
+      background-color: #5468d1 ;
+    }
+  }
+
+

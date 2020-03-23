@@ -6,10 +6,12 @@ import { apiURL } from "../../../constant/url";
 import { tokenHeader } from "../../../constant/tokenHeader";
 import userFaceIcon from "./img/(1).svg";
 import addIcon from "./img/addIcon.svg";
+import editIcon from './img/editIcon.svg';
 
 const AboutUser = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm();
+  const aboutMeData = props.profileData.aboutMe;
 
   const onSubmit = data => {
     console.log(data);
@@ -45,18 +47,22 @@ const AboutUser = props => {
           <img src={userFaceIcon} alt="" className="about-avatar-img"></img>
           <div className="about-avatar-content">
             <h2>About me</h2>
-            <p>
+            <div className="about-content-block">
+            <p className="about-content-block__p">
               {props.profileData
                 ? props.profileData.aboutMe
                 : "Tell us about yourself"}{" "}
             </p>
+            </div>
+            
           </div>
         </div>
         <img
-          src={addIcon}
+          src={aboutMeData ? editIcon : addIcon}
           alt=""
           onClick={handleAboutButton}
-          style={{ alignSelf: "baseline" }}
+          style={{ alignSelf: "baseline", cursor: "pointer" }}
+          className="add-icon"
         />
       </div>
 
@@ -69,7 +75,7 @@ const AboutUser = props => {
         Add
       </Button> */}
       <Modal
-        title="About Me"
+        title="Add About Yourself"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
@@ -79,11 +85,13 @@ const AboutUser = props => {
           style={{ display: "flex", flexDirection: "column" }}
           className="objective-block-one__form"
         >
+          <p style={{color: "#818181"}}>Description</p>
           <textarea
             name="aboutMe"
             ref={register}
-            // defaultValue={}
-            placeholder="please enter about you..."
+            defaultValue={aboutMeData ? aboutMeData : null}
+            rows={5}
+            // placeholder="please enter about you..."
             // style={inputStyle}
             className="objective-modal__textarea"
           />
@@ -92,7 +100,7 @@ const AboutUser = props => {
             className="objective-block-one__buttonTwo"
             style={{ alignSelf: "center", marginTop: "32px" }}
           >
-            Done
+            Save
           </Button>
         </form>
       </Modal>
