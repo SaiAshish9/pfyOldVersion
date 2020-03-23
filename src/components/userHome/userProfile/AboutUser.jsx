@@ -4,46 +4,31 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { apiURL } from "../../../constant/url";
 import { tokenHeader } from "../../../constant/tokenHeader";
+import userFaceIcon from "./img/(1).svg";
+import addIcon from "./img/addIcon.svg";
 
-import userFaceIcon from "./img/userFaceIcon.svg";
-
-const AboutUser = (props) => {
+const AboutUser = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  // const [profileData, setProfileData] = useState(null)
-  // const [isRerender, setIsRerender] = useState(false)
-
   const { register, handleSubmit, watch, errors } = useForm();
-
-  // GET PROFILE
-  // useEffect(() => {
-  //   const url = 'user/';
-  //   axios.get(url)
-  //     .then(res => {
-  //       const profileData = res.data;
-  //       console.log('PROFILE IS HERE', profileData)
-  //       setProfileData(profileData)
-  //     })
-  // }, [isRerender])
 
   const onSubmit = data => {
     console.log(data);
   };
 
-  const onSubmitAboutMe = (data) => {
-    const url = 'user/update'
+  const onSubmitAboutMe = data => {
+    const url = "user/update";
     const data1 = {
       aboutMe: data.aboutMe
-    }
-    axios.put(url,data1)
-      .then(res => {
-        console.log(res.data)
-        // setIsRerender(!isRerender)
-        props.isUpdate()
-        setIsModalVisible(false)
-      })
-    console.log('in about me handler ')
-    console.log(data.aboutMe)
-  }
+    };
+    axios.put(url, data1).then(res => {
+      console.log(res.data);
+      // setIsRerender(!isRerender)
+      props.isUpdate();
+      setIsModalVisible(false);
+    });
+    console.log("in about me handler ");
+    console.log(data.aboutMe);
+  };
 
   const handleCancel = () => {
     setIsModalVisible(false);
@@ -56,21 +41,33 @@ const AboutUser = (props) => {
   return (
     <div className="about-avatar-block">
       <div className="about-avatar-content-block">
-        <img src={userFaceIcon} alt="" className="about-avatar-img"></img>
-        <div className="about-avatar-content">
-          <h2>About me</h2>
-          <p>{props.profileData ? props.profileData.aboutMe : "Tell us about yourself" } </p>
+        <div style={{ display: "flex" }}>
+          <img src={userFaceIcon} alt="" className="about-avatar-img"></img>
+          <div className="about-avatar-content">
+            <h2>About me</h2>
+            <p>
+              {props.profileData
+                ? props.profileData.aboutMe
+                : "Tell us about yourself"}{" "}
+            </p>
+          </div>
         </div>
+        <img
+          src={addIcon}
+          alt=""
+          onClick={handleAboutButton}
+          style={{ alignSelf: "baseline" }}
+        />
       </div>
 
-      <Button
+      {/* <Button
         type="primary"
         shape="round"
         className="about-avatar-button"
         onClick={handleAboutButton}
       >
         Add
-      </Button>
+      </Button> */}
       <Modal
         title="About Me"
         visible={isModalVisible}

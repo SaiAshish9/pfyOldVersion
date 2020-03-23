@@ -1,21 +1,41 @@
+/* ----------------------- design for custum ant modal ---------------------- */
+.ant-modal-mask {
+  backdrop-filter: blur(4px);
+  background-color: transparent;
+}
+.ant-modal-header {
+  background-color: #fff !important;
+  padding: 16px 24px 0px 24px;
+  border-bottom: none;
+  .ant-modal-title {
+    width: 101%;
+    border-bottom: 1px solid #ebeaea;
+    padding-bottom: 4px;
+    color: #818181 !important;
+  }
+}
+/* -------------------------------- ********* ------------------------------- */
+
 .resume-with-userCard-block {
-  background-color: $base-color;
+  background-color: #f3f3f3;
   font-family: $myFont;
   word-spacing: $wordSpace;
   display: flex;
-  padding: 100px 60px 80px 60px;
-  justify-content: space-around;
+  padding: 100px 0px 80px 0px;
+  justify-content: center;
   align-items: flex-start;
   .resume-block {
-    padding: 40px;
-    width: 72%;
+    margin-left: 45px;
+    padding: 30px 35px;
+    width: 52.15%;
     background: $card-background-color;
     border-radius: 8px;
 
     %block-one {
       border-radius: 8px;
-      box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
-      border: solid 1px rgba(0, 0, 0, 0.16);
+      // box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+      // border: solid 1px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.16);
       background-color: #ffffff;
       margin-bottom: 20px;
       display: flex;
@@ -23,10 +43,10 @@
     }
     %block-two {
       display: flex;
-      margin: 20px 40px 40px 40px;
+      margin: 20px 26px;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: 12px;
+      position: relative;
     }
 
     %block-two-icon {
@@ -37,8 +57,8 @@
       margin: 0px 0px 0px 10px;
     }
     %block-two__button {
-      align-self: center;
-      margin-bottom: 20px;
+      align-self: baseline;
+      margin-bottom: 0px;
     }
 
     %content__block {
@@ -68,19 +88,26 @@
       .objective-block-two {
         @extend %block-two;
         .objective-block-two-icon {
+          align-self: baseline;
         }
-        .objective-block-two-heading {
-          @extend %block-two-heading;
+        .objective-block-heading-content {
+          .objective-block-two-heading {
+            @extend %block-two-heading;
+          }
+          .objective-content-block {
+            padding-left: 10px;
+            margin-top: 15px;
+            border-left: 2px solid #5468d1;
+            .objective-content-block__p {
+            }
+          }
         }
-      }
-      .objective-content-block {
-        margin: 0px 40px 20px 40px;
-
-        .objective-content-block__p {
+        .objective-block-one-button {
+          @extend %block-two__button;
         }
-      }
-      .objective-block-one-button {
-        @extend %block-two__button;
+        .objective-edit-icon {
+          align-self: baseline;
+        }
       }
     }
 
@@ -89,51 +116,61 @@
       .education-block-two {
         @extend %block-two;
         .education-block-two-icon {
+          align-self: baseline;
         }
-        .education-block-two-heading {
-          @extend %block-two-heading;
-        }
-      }
-      .education-content-block-three {
-        .education-content-block {
-          display: flex;
-          justify-content: space-between;
-          margin: 0px 40px 20px 40px;
-          .education-content-sec-one {
-            .education-content-sec-one__h1 {
-              @extend %content__h1;
-            }
-            .education-content-sec-one__h2 {
-              @extend %content__h2;
-            }
-            .education-content-sec-one__h4 {
-              @extend %content__h4;
-            }
-            .education-content-sec-one-block-one {
+        .education-block-heading-content {
+          .education-block-two-heading {
+            @extend %block-two-heading;
+          }
+          .education-content-block-three {
+            .education-content-block {
+              padding-left: 10px;
+              margin-top: 15px;
+              margin-right: 80px;
+              border-left: 2px solid #5468d1;
+
               display: flex;
-              .education-content-sec-one-block-one__h4-one {
-                @extend %content__h4;
-                margin-right: 4px;
+
+              .education-content-sec-one {
+                .education-content-sec-one__h1 {
+                  @extend %content__h1;
+                }
+                .education-content-sec-one__h2 {
+                  @extend %content__h2;
+                }
+                .education-content-sec-one__h4 {
+                  @extend %content__h4;
+                }
+                .education-content-sec-one-block-one {
+                  display: flex;
+                  .education-content-sec-one-block-one__h4-one {
+                    @extend %content__h4;
+                    margin-right: 4px;
+                  }
+                  .education-content-sec-one-block-one__h4-two {
+                    @extend %content__h4;
+                  }
+                }
+                .education-content-sec-one-block-two {
+                  display: flex;
+                  .education-content-sec-one-block-two__h5-one {
+                    @extend %content__h5;
+                  }
+                  .education-content-sec-one-block-two__h5-two {
+                    @extend %content__h5;
+                  }
+                }
               }
-              .education-content-sec-one-block-one__h4-two {
-                @extend %content__h4;
-              }
-            }
-            .education-content-sec-one-block-two {
-              display: flex;
-              .education-content-sec-one-block-two__h5-one {
-                @extend %content__h5;
-              }
-              .education-content-sec-one-block-two__h5-two {
-                @extend %content__h5;
+              .education-edit-delete-icon {
+                position: absolute;
+                right: 0px;
               }
             }
           }
         }
-      }
-
-      .education-block-one-button {
-        @extend %block-two__button;
+        .education-block-one-button {
+          @extend %block-two__button;
+        }
       }
     }
 
@@ -200,52 +237,60 @@
       .experience-block-two {
         @extend %block-two;
         .experience-block-two-icon {
+          align-self: baseline;
         }
-        .experience-block-two-heading {
-          @extend %block-two-heading;
-        }
-      }
+        .experience-block-heading-content {
+          .experience-block-two-heading {
+            @extend %block-two-heading;
+          }
+          .experience-content-block {
+            padding-left: 10px;
+            margin-top: 15px;
+            margin-right: 80px;
+            border-left: 2px solid #5468d1;
 
-      .experience-content-block {
-        display: flex;
-        justify-content: space-between;
-        margin: 0px 40px 20px 40px;
-        .experience-content-sec-one {
-          .experience-content-sec-one__h1 {
-            @extend %content__h1;
-          }
-          .experience-content-sec-one__h2 {
-            @extend %content__h2;
-          }
-          .experience-content-sec-one__p {
-            @extend %content__p;
-          }
-          .experience-content-sec-one__h4 {
-            @extend %content__h4;
-          }
-          .experience-content-sec-one-block-one {
             display: flex;
-            .experience-content-sec-one-block-one__h5-one {
-              @extend %content__h5;
-              margin-right: 4px;
+            .experience-content-sec-one {
+              .experience-content-sec-one__h1 {
+                @extend %content__h1;
+              }
+              .experience-content-sec-one__h2 {
+                @extend %content__h2;
+              }
+              .experience-content-sec-one__p {
+                @extend %content__p;
+              }
+              .experience-content-sec-one__h4 {
+                @extend %content__h4;
+              }
+              .experience-content-sec-one-block-one {
+                display: flex;
+                .experience-content-sec-one-block-one__h5-one {
+                  @extend %content__h5;
+                  margin-right: 4px;
+                }
+                .experience-content-sec-one-block-one__h5-two {
+                  @extend %content__h5;
+                  margin-right: 4px;
+                }
+                .experience-content-sec-one-block-one__h5-three {
+                  @extend %content__h5;
+                  margin-right: 4px;
+                }
+                .experience-content-sec-one-block-one__h5-four {
+                  @extend %content__h5;
+                }
+              }
             }
-            .experience-content-sec-one-block-one__h5-two {
-              @extend %content__h5;
-              margin-right: 4px;
-            }
-            .experience-content-sec-one-block-one__h5-three {
-              @extend %content__h5;
-              margin-right: 4px;
-            }
-            .experience-content-sec-one-block-one__h5-four {
-              @extend %content__h5;
+            .experience-edit-delete-icon {
+              position: absolute;
+              right: 0px;
             }
           }
         }
-      }
-
-      .experience-block-one-button {
-        @extend %block-two__button;
+        .experience-block-one-button {
+          @extend %block-two__button;
+        }
       }
     }
 
@@ -254,27 +299,36 @@
       .position-block-two {
         @extend %block-two;
         .position-block-two-icon {
+          align-self: baseline;
         }
-        .position-block-two-heading {
-          @extend %block-two-heading;
-        }
-      }
-      .position-content-block {
-        display: flex;
-        justify-content: space-between;
-        margin: 0px 40px 20px 40px;
-        .position-content-sec-one {
-          .position-content-sec-one__h1 {
-            @extend %content__h1;
+        .position-block-heading-content {
+          .position-block-two-heading {
+            @extend %block-two-heading;
           }
-          .position-content-sec-one__p {
-            @extend %content__p;
-          }
-        }
-      }
+          .position-content-block {
+            padding-left: 10px;
+            margin-top: 15px;
+            margin-right: 80px;
+            border-left: 2px solid #5468d1;
 
-      .position-block-one-button {
-        @extend %block-two__button;
+            display: flex;
+            .experience-content .position-content-sec-one {
+              .position-content-sec-one__h1 {
+                @extend %content__h1;
+              }
+              .position-content-sec-one__p {
+                @extend %content__p;
+              }
+            }
+            .position-edit-delete-icon {
+              position: absolute;
+              right: 0px;
+            }
+          }
+        }
+        .position-block-one-button {
+          @extend %block-two__button;
+        }
       }
     }
 
@@ -283,26 +337,36 @@
       .training-block-two {
         @extend %block-two;
         .training-block-two-icon {
+          align-self: baseline;
         }
-        .training-block-two-heading {
-          @extend %block-two-heading;
-        }
-      }
-      .training-content-block {
-        display: flex;
-        justify-content: space-between;
-        margin: 0px 40px 20px 40px;
-        .training-content-sec-one {
-          .training-content-sec-one__h1 {
-            @extend %content__h1;
+        .training-block-heading-content {
+          .training-block-two-heading {
+            @extend %block-two-heading;
           }
-          .training-content-sec-one__p {
-            @extend %content__p;
+          .training-content-block {
+            padding-left: 10px;
+            margin-top: 15px;
+            margin-right: 80px;
+            border-left: 2px solid #5468d1;
+
+            display: flex;
+            .training-content-sec-one {
+              .training-content-sec-one__h1 {
+                @extend %content__h1;
+              }
+              .training-content-sec-one__p {
+                @extend %content__p;
+              }
+            }
+            .training-edit-delete-icon {
+              position: absolute;
+              right: 0px;
+            }
           }
         }
-      }
-      .training-block-one-button {
-        @extend %block-two__button;
+        .training-block-one-button {
+          @extend %block-two__button;
+        }
       }
     }
 
@@ -311,48 +375,58 @@
       .project-block-two {
         @extend %block-two;
         .project-block-two-icon {
+          align-self: baseline;
         }
-        .project-block-two-heading {
-          @extend %block-two-heading;
-        }
-      }
-      .project-content-block {
-        display: flex;
-        justify-content: space-between;
-        margin: 0px 40px 20px 40px;
-        .project-content-sec-one {
-          .project-content-sec-one__h1 {
-            @extend %content__h1;
+        .project-block-heading-content {
+          .project-block-two-heading {
+            @extend %block-two-heading;
           }
-          .project-content-sec-one__p {
-            @extend %content__p;
-          }
-          .project-content-sec-one__a {
-            @extend %content__h4;
-            color: #0000ee;
-          }
-          .project-content-sec-one-block-one {
+          .project-content-block {
+            padding-left: 10px;
+            margin-top: 15px;
+            margin-right: 80px;
+            border-left: 2px solid #5468d1;
+
             display: flex;
-            .project-content-sec-one-block-one__h5-one {
-              @extend %content__h5;
-              margin-right: 4px;
+            .project-content-sec-one {
+              .project-content-sec-one__h1 {
+                @extend %content__h1;
+              }
+              .project-content-sec-one__p {
+                @extend %content__p;
+              }
+              .project-content-sec-one__a {
+                @extend %content__h4;
+                color: #0000ee;
+              }
+              .project-content-sec-one-block-one {
+                display: flex;
+                .project-content-sec-one-block-one__h5-one {
+                  @extend %content__h5;
+                  margin-right: 4px;
+                }
+                .project-content-sec-one-block-one__h5-two {
+                  @extend %content__h5;
+                  margin-right: 4px;
+                }
+                .project-content-sec-one-block-one__h5-three {
+                  @extend %content__h5;
+                  margin-right: 4px;
+                }
+                .project-content-sec-one-block-one__h5-four {
+                  @extend %content__h5;
+                }
+              }
             }
-            .project-content-sec-one-block-one__h5-two {
-              @extend %content__h5;
-              margin-right: 4px;
-            }
-            .project-content-sec-one-block-one__h5-three {
-              @extend %content__h5;
-              margin-right: 4px;
-            }
-            .project-content-sec-one-block-one__h5-four {
-              @extend %content__h5;
+            .project-edit-delete-icon {
+              position: absolute;
+              right: 0px;
             }
           }
         }
-      }
-      .project-block-one-button {
-        @extend %block-two__button;
+        .project-block-one-button {
+          @extend %block-two__button;
+        }
       }
     }
 
@@ -382,23 +456,32 @@
       .achievement-block-two {
         @extend %block-two;
         .achievement-block-two-icon {
+          align-self: baseline;
         }
-        .achievement-block-two-heading {
-          @extend %block-two-heading;
-        }
-      }
+        .achievement-block-heading-content {
+          .achievement-block-two-heading {
+            @extend %block-two-heading;
+          }
+          .achievement-content-block {
+            padding-left: 10px;
+            margin-top: 15px;
+            margin-right: 80px;
+            border-left: 2px solid #5468d1;
 
-      .achievement-content-block {
-        display: flex;
-        justify-content: space-between;
-        margin: 0px 40px 20px 40px;
-        .achievement-content-sec-one {
-          .achievement-content-sec-one__p {
+            display: flex;
+            .achievement-content-sec-one {
+              .achievement-content-sec-one__p {
+              }
+            }
+            .achievement-edit-delete-icon {
+              position: absolute;
+              right: 0px;
+            }
           }
         }
-      }
-      .achievement-block-one-button {
-        @extend %block-two__button;
+        .achievement-block-one-button {
+          @extend %block-two__button;
+        }
       }
     }
   }

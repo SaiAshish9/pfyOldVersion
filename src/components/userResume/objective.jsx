@@ -6,6 +6,7 @@ import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 
 import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
+import addIcon from "./img/addIcon.svg";
 
 const Objective = ({ careerObjective, updateResume, loader }) => {
   //#region
@@ -50,9 +51,11 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
     <div className="objective-block-one">
       <div
         className="objective-block-two"
-        style={{
-          borderBottom: !!careerObjective ? "1px solid #CECFCF" : "none"
-        }}
+        style={
+          {
+            // borderBottom: !!careerObjective ? "1px solid #CECFCF" : "none"
+          }
+        }
       >
         <section style={{ display: "flex" }}>
           <img
@@ -60,37 +63,45 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
             alt=""
             className="objective-block-two-icon"
           ></img>
-          <h2 className="objective-block-two-heading">Career Objective</h2>
+          <div className="objective-block-heading-content">
+            <h2 className="objective-block-two-heading">Career Objective</h2>
+            {loader ? (
+              <div
+                className="objective-content-block"
+                style={{ height: "100px", overflow: "hidden" }}
+              >
+                <Skeleton />
+              </div>
+            ) : !!careerObjective ? (
+              <div className="objective-content-block">
+                <p className="objective-content-block__p">{careerObjective}</p>
+              </div>
+            ) : null}
+          </div>
         </section>
-        <section>
-          {!!careerObjective && (
+
+        {!!careerObjective ? (
+          <section className="objective-edit-icon">
             <Tooltip title="edit">
               <Icon type="edit" onClick={handleObjectiveButton}></Icon>
             </Tooltip>
-          )}
-        </section>
+          </section>
+        ) : (
+          // <Button
+          //   shape="round"
+          //   onClick={handleObjectiveButton}
+          // >
+          //   Add
+          // </Button>
+          <img
+            src={addIcon}
+            alt=""
+            className="objective-block-one-button"
+            onClick={handleObjectiveButton}
+          />
+        )}
       </div>
 
-      {loader ? (
-        <div
-          className="objective-content-block"
-          style={{ height: "100px", overflow: "hidden" }}
-        >
-          <Skeleton />
-        </div>
-      ) : !!careerObjective ? (
-        <div className="objective-content-block">
-          <p className="objective-content-block__p">{careerObjective}</p>
-        </div>
-      ) : (
-        <Button
-          shape="round"
-          className="objective-block-one-button"
-          onClick={handleObjectiveButton}
-        >
-          Add
-        </Button>
-      )}
       <Modal
         class="modal-block"
         title="Add Career Objectives"

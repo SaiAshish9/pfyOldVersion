@@ -20,10 +20,6 @@ const UserResume = () => {
   const [isLoader, setIsLoader] = useState(true);
   console.log(userResumeData);
 
-  // useEffect(() => {
-  //   console.log(userResumeData);
-  // }, [updater, userResumeData]);
-
   useEffect(() => {
     console.log("updater", updater);
     axios
@@ -35,8 +31,6 @@ const UserResume = () => {
       })
       .catch(e => console.log(e.response));
   }, [updater]);
-
- 
 
   return (
     <div className="resume-with-userCard-block">

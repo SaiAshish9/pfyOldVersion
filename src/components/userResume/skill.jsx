@@ -14,6 +14,8 @@ import marketingIcon from "./img/skillImg/marketingIcon.svg";
 import otherIcon from "./img/skillImg/otherIcon.svg";
 import technicalIcon from "./img/skillImg/technicalIcon.svg";
 
+import addIcon from "./img/addIcon.svg";
+
 const proficiencyRate = [
   "Beginner",
   "Intermediate",
@@ -270,6 +272,7 @@ export default function Skill({ skill }) {
           ></img>
           <h2 className="skill-block-two-heading">Skills</h2>
         </section>
+        <Icon type="plus-circle" onClick={handleSkillButton} />
       </div>
       <div className="skill-data-main-block">
         {arrayValidation(skillDummy) &&
@@ -310,15 +313,6 @@ export default function Skill({ skill }) {
             </div>
           ))}
       </div>
-
-      <Button
-        // type="primary"
-        shape="round"
-        className="skill-block-one-button"
-        onClick={handleSkillButton}
-      >
-        Add
-      </Button>
 
       <Modal
         width={600}

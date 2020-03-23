@@ -6,7 +6,10 @@ import { arrayValidation } from "../validation/validation.js";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import userCard from "../common/userCard.jsx";
-import positionIcon from "./img/headingImg/positionIcon.svg";
+import positionIcon from "./img/headingImg/educationIcon.svg";
+
+import addIcon from "./img/addIcon.svg";
+
 
 const Position = ({ position, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -76,73 +79,56 @@ const Position = ({ position, updateResume }) => {
 
   return (
     <div className="position-block-one">
-      <div
-        className="position-block-two"
-        style={{
-          borderBottom: arrayValidation(position) ? "1px solid #CECFCF" : "none"
-        }}
-      >
+      <div className="position-block-two" style={{}}>
         <section style={{ display: "flex" }}>
           <img
             src={positionIcon}
             alt=""
             className="position-block-two-icon"
           ></img>
-          <h2 className="position-block-two-heading">
-            Positions of Responsibilities
-          </h2>
-        </section>
-        {arrayValidation(position) && (
-          <section>
-            <Tooltip title="add">
-              <Icon type="plus-circle" onClick={handleAdd} />
-            </Tooltip>
-          </section>
-        )}
-      </div>
+          <div className="position-block-heading-content">
+            <h2 className="position-block-two-heading">
+              Positions of Responsibilities
+            </h2>
+            {arrayValidation(position) &&
+              position.map((thisPosition, index) => (
+                <div key={index} className="position-content-block">
+                  <section className="position-content-sec-one">
+                    <h1 className="position-content-sec-one__h1">
+                      {thisPosition.position}
+                    </h1>
+                    <p className="position-content-sec-one__p">
+                      {thisPosition.description}
+                    </p>
+                  </section>
 
-      {arrayValidation(position) ? (
-        position.map((thisPosition, index) => (
-          <div
-            key={index}
-            className="position-content-block"
-          >
-            <section className="position-content-sec-one">
-              <h1 className="position-content-sec-one__h1">
-                {thisPosition.position}
-              </h1>
-              <p className="position-content-sec-one__p">
-                {thisPosition.description}
-              </p>
-            </section>
-
-            <section>
-              <Tooltip title="edit">
-                <Icon
-                  type="edit"
-                  onClick={() => handleEdit(thisPosition)}
-                  style={{ marginRight: "32px" }}
-                ></Icon>
-              </Tooltip>
-              <Tooltip title="delete">
-                <Icon
-                  type="delete"
-                  onClick={() => handleDelete(thisPosition._id)}
-                />
-              </Tooltip>
-            </section>
+                  <section className="position-edit-delete-icon">
+                    <Tooltip title="edit">
+                      <Icon
+                        type="edit"
+                        onClick={() => handleEdit(thisPosition)}
+                        style={{ marginRight: "32px" }}
+                      ></Icon>
+                    </Tooltip>
+                    <Tooltip title="delete">
+                      <Icon
+                        type="delete"
+                        onClick={() => handleDelete(thisPosition._id)}
+                      />
+                    </Tooltip>
+                  </section>
+                </div>
+              ))}
           </div>
-        ))
-      ) : (
-        <Button
-          // type="primary"
-          shape="round"
-          className="position-block-one-button"
-          onClick={handleAdd}
-        >
-          Add
-        </Button>
-      )}
+        </section>
+        <Tooltip title="add">
+          <Icon
+            type="plus-circle"
+            onClick={handleAdd}
+            className="position-block-one-button"
+          />
+        </Tooltip>
+      </div>
 
       <Modal
         title="Add Position"

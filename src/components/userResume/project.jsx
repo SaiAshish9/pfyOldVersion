@@ -5,7 +5,10 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import { apiURL } from "../../constant/url";
 import { useForm, Controller } from "react-hook-form";
 import { arrayValidation } from "../validation/validation";
-import team from "./img/headingImg/team.svg";
+import team from "./img/headingImg/projectIcon.svg";
+
+import addIcon from "./img/addIcon.svg";
+
 
 const month = [
   "Jan",
@@ -112,79 +115,70 @@ const Project = ({ project, updateResume }) => {
   //#endregion
   return (
     <div className="project-block-one">
-      <div
-        className="project-block-two"
-        style={{
-          borderBottom: arrayValidation(project) ? "1px solid #CECFCF" : "none"
-        }}
-      >
+      <div className="project-block-two" style={{}}>
         <section style={{ display: "flex" }}>
           <img src={team} alt="" className="project-block-two-icon"></img>
-          <h2 className="project-block-two-heading">Projects</h2>
-        </section>
-        {arrayValidation(project) && (
-          <section>
-            <Tooltip title="add">
-              <Icon type="plus-circle" onClick={handleAdd} />
-            </Tooltip>
-          </section>
-        )}
-      </div>
-      {arrayValidation(project) ? (
-        project.map((myProject, index) => (
-          <div key={index} className="project-content-block ">
-            <section className="project-content-sec-one ">
-              <h1 className="project-content-sec-one__h1 ">
-                {myProject.title}
-              </h1>
-              <p className="project-content-sec-one__p">
-                {myProject.description}
-              </p>
-              <a className="project-content-sec-one__a " href={myProject.link} target="_blank">
-                {myProject.link}
-              </a>
-              <div className="project-content-sec-one-block-one ">
-                <h5 className="project-content-sec-one-block-one__h5-one ">
-                  {myProject.start.month}
-                </h5>
-                <h5 className="project-content-sec-one-block-one__h5-two ">
-                  {myProject.start.year} -
-                </h5>
-                <h5 className="project-content-sec-one-block-one__h5-three ">
-                  {myProject.end.month}
-                </h5>
-                <h5 className="project-content-sec-one-block-one__h5-four ">
-                  {myProject.end.year}
-                </h5>
-              </div>
-            </section>
-            <section>
-              <Tooltip title="edit">
-                <Icon
-                  type="edit"
-                  onClick={() => handleEdit(myProject)}
-                  style={{ marginRight: "32px" }}
-                ></Icon>
-              </Tooltip>
-              <Tooltip title="delete">
-                <Icon
-                  type="delete"
-                  onClick={() => handleDelete(myProject._id)}
-                />
-              </Tooltip>
-            </section>
+          <div className="project-block-heading-content">
+            <h2 className="project-block-two-heading">Projects</h2>
+            {arrayValidation(project) &&
+              project.map((myProject, index) => (
+                <div key={index} className="project-content-block ">
+                  <section className="project-content-sec-one ">
+                    <h1 className="project-content-sec-one__h1 ">
+                      {myProject.title}
+                    </h1>
+                    <p className="project-content-sec-one__p">
+                      {myProject.description}
+                    </p>
+                    <a
+                      className="project-content-sec-one__a "
+                      href={myProject.link}
+                      target="_blank"
+                    >
+                      {myProject.link}
+                    </a>
+                    <div className="project-content-sec-one-block-one ">
+                      <h5 className="project-content-sec-one-block-one__h5-one ">
+                        {myProject.start.month}
+                      </h5>
+                      <h5 className="project-content-sec-one-block-one__h5-two ">
+                        {myProject.start.year} -
+                      </h5>
+                      <h5 className="project-content-sec-one-block-one__h5-three ">
+                        {myProject.end.month}
+                      </h5>
+                      <h5 className="project-content-sec-one-block-one__h5-four ">
+                        {myProject.end.year}
+                      </h5>
+                    </div>
+                  </section>
+                  <section className="project-edit-delete-icon">
+                    <Tooltip title="edit">
+                      <Icon
+                        type="edit"
+                        onClick={() => handleEdit(myProject)}
+                        style={{ marginRight: "32px" }}
+                      ></Icon>
+                    </Tooltip>
+                    <Tooltip title="delete">
+                      <Icon
+                        type="delete"
+                        onClick={() => handleDelete(myProject._id)}
+                      />
+                    </Tooltip>
+                  </section>
+                </div>
+              ))}
           </div>
-        ))
-      ) : (
-        <Button
-          // type="primary"
-          shape="round"
-          className="project-block-one-button"
-          onClick={handleAdd}
-        >
-          Add
-        </Button>
-      )}
+        </section>
+        <Tooltip title="add">
+          <Icon
+            type="plus-circle"
+            onClick={handleAdd}
+            className="project-block-one-button"
+          />
+        </Tooltip>
+      </div>
 
       <Modal
         title="Add Project"

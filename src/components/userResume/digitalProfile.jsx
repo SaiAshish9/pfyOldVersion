@@ -5,7 +5,10 @@ import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import Axios from "axios";
 import { objectValidation } from "../validation/validation";
-import team from "./img/headingImg/team.svg";
+import team from "./img/headingImg/digitalProfileIcon.svg";
+
+import addIcon from "./img/addIcon.svg";
+
 
 const DigitalProfile = ({ digitalProfile, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
