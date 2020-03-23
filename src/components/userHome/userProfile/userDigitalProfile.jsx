@@ -11,16 +11,18 @@ import seven from "./img/(7).svg";
 import eight from "./img/(8).svg";
 import { useEffect } from "react";
 
-const UserDigitalProfile = ({profileData, isUpdate}) => {
-  const digitalProfileData = profileData ? profileData.digitalProfile : {
-    facebook:  null,
-    instagram:    null,
-    tiktok:  null,
-  }
+const UserDigitalProfile = ({ profileData, isUpdate }) => {
+  const digitalProfileData = profileData
+    ? profileData.digitalProfile
+    : {
+        facebook: null,
+        instagram: null,
+        tiktok: null
+      };
   // const digitalProfile = profileData && profileData.digitalProfile;
   // console.table(digitalProfile)
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isRerender, setIsRerender] = useState(false)
+  const [isRerender, setIsRerender] = useState(false);
   // const [DigitalProfile, setDigitalProfile] = useState({
   //   facebook:  null,
   //   instagram:    null,
@@ -30,37 +32,21 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
   const [isDisabled, setIsDisabled] = useState({
     facebook: false,
     instagram: false,
-    tiktok: false,
-    });
-    
-  
+    tiktok: false
+  });
+
   useEffect(() => {
     setIsDisabled({
-    facebook:  !!digitalProfileData.facebook ? true : false,
-    instagram:    !!digitalProfileData.instagram ? true : false,
-    tiktok:  !!digitalProfileData.tiktok ? true : false,
-    })
+      facebook: !!digitalProfileData.facebook ? true : false,
+      instagram: !!digitalProfileData.instagram ? true : false,
+      tiktok: !!digitalProfileData.tiktok ? true : false
+    });
     // setDigitalProfile({
     //   facebook:  digitalProfileData.facebook ? digitalProfileData.facebook : null,
     //   instagram:    digitalProfileData.instagram ? digitalProfileData.instagram : null,
     //   tiktok:  digitalProfileData.tiktok ? digitalProfileData.tiktok : null,
     // })
-  }, [isRerender])
-// =======
-// const UserDigitalProfile = ({ profileData, isUpdate }) => {
-//   const digitalProfile = profileData && profileData.digitalProfile;
-//   console.table(digitalProfile);
-//   const [isModalVisible, setIsModalVisible] = useState(false);
-//   const [isRerender, setIsRerender] = useState(false);
-
-//   useEffect(() => {
-//     setIsDisabled({
-//       facebook: digitalProfile.facebook.trim() ? true : false,
-//       instagram: digitalProfile.instagram.trim() ? true : false,
-//       tiktok: digitalProfile.tiktok.trim() ? true : false
-//     });
-//   }, [isRerender]);
-// >>>>>>> d2deb26790e62f0d238b218663bb8437f0a9a7df
+  }, [isRerender]);
 
   // console.table(DigitalProfile)
 
@@ -88,22 +74,19 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
 
   const [SM, setSM] = useState({});
   const onChange = (e, media) => {
-
     const SocialMediaID = e.target.value.trim();
-    console.log(e.target.value + ' and media ' + media)
+    console.log(e.target.value + " and media " + media);
 
-    setSM({...SM, [media]: SocialMediaID })
-  }
-  console.log(SM)
+    setSM({ ...SM, [media]: SocialMediaID });
+  };
+  console.log(SM);
 
-  const SMHandler = () => {
-    
-  }
+  const SMHandler = () => {};
 
-  // const SMHandler = () => {};
   // useEffect(() => {
+
   // }, [])
-  // const [isDisabled, setIsDisabled] = useState({});
+
 
   const setDisableHandler = val => {
     setIsDisabled({ ...isDisabled, [val]: false });
@@ -121,18 +104,71 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
       </div>
       <div className="fb-block">
         <img src={six} alt=""></img>
-        <Input style={{width: digitalProfileData.facebook  && isDisabled.facebook ? '73%' : '80%'}} disabled={isDisabled.facebook }  defaultValue={digitalProfileData.facebook} onChange={(e) => onChange(e, 'facebook')}  />
-        <div style={{cursor: "pointer", display: isDisabled.facebook ? 'inherit' : "none" }}><Icon onClick={() => setDisableHandler('facebook')}   type="edit"></Icon></div> 
+        <Input
+          style={{
+            width:
+              digitalProfileData.facebook && isDisabled.facebook ? "73%" : "80%"
+          }}
+          disabled={isDisabled.facebook}
+          defaultValue={digitalProfileData.facebook}
+          onChange={e => onChange(e, "facebook")}
+        />
+        <div
+          style={{
+            cursor: "pointer",
+            display: isDisabled.facebook ? "inherit" : "none"
+          }}
+        >
+          <Icon
+            onClick={() => setDisableHandler("facebook")}
+            type="edit"
+          ></Icon>
+        </div>
       </div>
       <div className="insta-block">
         <img src={seven} alt=""></img>
-        <Input style={{width: digitalProfileData.instagram  && isDisabled.instagram ? '73%' : '80%'}} disabled={isDisabled.instagram }  defaultValue={digitalProfileData.instagram} onChange={(e) => onChange(e, 'instagram')}></Input>
-        <div style={{cursor: "pointer", display: isDisabled.instagram ? 'inherit' : "none" }}><Icon onClick={() => setDisableHandler('instagram')}   type="edit"></Icon></div> 
+        <Input
+          style={{
+            width:
+              digitalProfileData.instagram && isDisabled.instagram
+                ? "73%"
+                : "80%"
+          }}
+          disabled={isDisabled.instagram}
+          defaultValue={digitalProfileData.instagram}
+          onChange={e => onChange(e, "instagram")}
+        ></Input>
+        <div
+          style={{
+            cursor: "pointer",
+            display: isDisabled.instagram ? "inherit" : "none"
+          }}
+        >
+          <Icon
+            onClick={() => setDisableHandler("instagram")}
+            type="edit"
+          ></Icon>
+        </div>
       </div>
       <div className="tik-tok-block">
         <img src={eight} alt=""></img>
-        <Input style={{width: digitalProfileData.tiktok  && isDisabled.tiktok ? '73%' : '80%'}} disabled={isDisabled.tiktok }  defaultValue={digitalProfileData.tiktok} onChange={(e) => onChange(e, 'tiktok')}></Input>
-        <div style={{cursor: "pointer", display: isDisabled.tiktok ? 'inherit' : "none" }}><Icon onClick={() => setDisableHandler('tiktok')}   type="edit"></Icon></div> 
+        <Input
+          style={{
+            width:
+              digitalProfileData.tiktok && isDisabled.tiktok ? "73%" : "80%"
+          }}
+          disabled={isDisabled.tiktok}
+          defaultValue={digitalProfileData.tiktok}
+          onChange={e => onChange(e, "tiktok")}
+        ></Input>
+        <div
+          style={{
+            cursor: "pointer",
+            display: isDisabled.tiktok ? "inherit" : "none"
+          }}
+        >
+          <Icon onClick={() => setDisableHandler("tiktok")} type="edit"></Icon>
+        </div>
       </div>
       <Button
         type="primary"
@@ -148,21 +184,21 @@ const UserDigitalProfile = ({profileData, isUpdate}) => {
         onCancel={handleCancel}
         footer={null}
       >
-      <form
-      onSubmit={handleSubmit(onSubmit)}
-      style={{ display: "flex", flexDirection: "column" }}
-      className="objective-block-one__form"
-    >
-      <Button
-        htmlType="submit"
-        className="objective-block-one__buttonTwo"
-        style={{ alignSelf: "center", marginTop: "32px" }}
-      >
-        Done
-      </Button>
-    </form>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          style={{ display: "flex", flexDirection: "column" }}
+          className="objective-block-one__form"
+        >
+          <Button
+            htmlType="submit"
+            className="objective-block-one__buttonTwo"
+            style={{ alignSelf: "center", marginTop: "32px" }}
+          >
+            Done
+          </Button>
+        </form>
       </Modal>
-    </div> 
+    </div>
   );
 };
 

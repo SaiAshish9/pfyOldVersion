@@ -61,9 +61,9 @@ const Wallet = () => {
     const url = "wallet/request_redemption";
     axios.post(url)
       .then(res => {
-        const msg = res.data;
-        console.log('REDEEM', msg)
-        message.info(msg)
+        const resData = res.data;
+        console.log('REDEEM', resData.message)
+        message.info(resData.message)
         setIsUpdate(Math.random())
       })
       .catch(err => {
