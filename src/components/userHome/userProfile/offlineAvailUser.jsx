@@ -6,7 +6,19 @@ import { apiURL } from "../../../constant/url";
 import { tokenHeader } from "../../../constant/tokenHeader";
 import two from "./img/(2).svg";
 import addIcon from "./img/addIcon.svg";
+import car from './car.svg';
+import bus from './bus.svg';
+import train from './train.svg';
+import twoWheeler from './two-wheeler.svg';
+import editIcon from './img/editIcon.svg';
 
+
+const textToImg = {
+  car: car,
+  bus: bus,
+  train: train,
+  bike: twoWheeler
+}
 
 const OfflineAvailUser = props => {
   const offlineGigsData = props.profileData
@@ -107,23 +119,25 @@ const OfflineAvailUser = props => {
           <img src={two} alt="" className="offline-available-avatar-img"></img>
           <div className="offline-available-avatar-content">
             <h2>Offline Gigs</h2>
-            <div>
-              {props.profileData
+            <div className="offline-gigs">
+               { props.profileData
                 ? props.profileData.offlineGigs.isWillingToTravel
-                  ? // props.profileData.offlineGigs
-                    arr.length > 0
-                    ? arr.map(d => <p key={Math.random()}>{d}</p>)
+                  ? arr.length > 0
+                    ? arr.map((d,index) => 
+                      <p>{d}</p>
+                    )
                     : null
                   : "no"
-                : "Can you travel to complete Gigs?"}
+                : "Can you travel to complete Gigs?" }
             </div>
           </div>
         </div>
         <img
-          src={addIcon}
+          src={ vehicle.bike || vehicle.bus || vehicle.car || vehicle.train ? editIcon : addIcon }
           alt=""
           onClick={handlePreferenceButton}
-          style={{ alignSelf: "baseline" }}
+          style={{ alignSelf: "baseline", cursor: "pointer" }}
+          className="add-icon"
         />
       </div>
 
@@ -136,71 +150,62 @@ const OfflineAvailUser = props => {
         Add
       </Button> */}
       <Modal
-        title="Basic Modal"
+        width={"80%"}
+        title="Add Location"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
+        className="add-loaction-modal"
       >
         <form
           // onSubmit={handleSubmit(onSubmit)}
           style={{ display: "flex", flexDirection: "column" }}
           className="objective-block-one__form"
         >
-          <h3>Can you travel to complete Gigs?</h3>
-          <div style={{ display: "flex" }}>
-            <Button onClick={handleYes}>YES</Button>
-            <Button onClick={handleNo}>NO</Button>
-          </div>
-          {openConveyance && (
-            <div style={{ display: "flex" }}>
-              <p
-                style={{
-                  marginLeft: "20px",
-                  color: vehicle["bike"] ? "darkblue" : "black"
-                }}
-                onClick={() => selectVehicleHandler("bike")}
-              >
-                BIKE
-              </p>
-              <p
-                style={{
-                  marginLeft: "20px",
-                  color: vehicle["car"] ? "darkblue" : "black"
-                }}
-                onClick={() => selectVehicleHandler("car")}
-              >
-                CAR
-              </p>
-              <p
-                style={{
-                  marginLeft: "20px",
-                  color: vehicle["train"] ? "darkblue" : "black"
-                }}
-                onClick={() => selectVehicleHandler("train")}
-              >
-                METRO
-              </p>
-              <p
-                style={{
-                  marginLeft: "20px",
-                  color: vehicle["bus"] ? "darkblue" : "black"
-                }}
-                onClick={() => selectVehicleHandler("bus")}
-              >
-                BUS
-              </p>
+          <div className="add-location-block">
+            <div>
+              <div className="heading-1">Share Your Location With Us To Perform Offline Gigs!</div>
+              <Button type="primary" shape="round" className="detect-location-btn" >
+                Detect My Location
+              </Button>
+
             </div>
-          )}
-          {openDone && (
-            <Button
-              htmlType="submit"
-              className="objective-block-one__buttonTwo"
-              style={{ alignSelf: "center", marginTop: "32px" }}
-              onClick={submitHandler}
-            >
-              DONE
-            </Button>
-          )}
+            <div>
+              <div className="heading-2">Are you willing to perform Offline Gigs In Your City?</div>
+              <div className="yes-no-btn">
+              <Button onClick={() => setOpenConveyance(true)} type="primary" shape="round" className="yes-btn" >
+                Yes
+              </Button>
+              <Button onClick={() => setOpenConveyance(false)} type="primary" shape="round" className="no-btn" >
+                No
+              </Button>
+              </div>
+
+              { openConveyance ? <div>
+                <div className="heading-3">How Will You Travel To Complete Offline Gigs?</div>
+                <div className="vehicles">
+                  <div onClick={() => selectVehicleHandler("car")}  style={{backgroundColor: vehicle["car"] ? '#ccc' : "" }} className="single-vehicle">
+                    <img src={car} alt=""/>
+                    <div>Car</div>
+                  </div>
+                  <div  onClick={() => selectVehicleHandler("bus")} style={{backgroundColor: vehicle["bus"] ? "#ccc" : ""}} className="single-vehicle">
+                    <img src={bus} alt=""/>
+                    <div>Bus</div>
+                  </div>
+                  <div  onClick={() => selectVehicleHandler("train")} style={{backgroundColor: vehicle["train"] ? "#ccc" : ""}} className="single-vehicle">
+                    <img src={train} alt=""/>
+                    <div>Train</div>
+                  </div>
+                  <div  onClick={() => selectVehicleHandler("bike")} style={{backgroundColor: vehicle["bike"] ? "#ccc" : ""}} className="single-vehicle">
+                    <img src={twoWheeler} alt=""/>
+                    <div>Two wheeler</div>
+                  </div>
+                </div>
+              </div> : null}
+              <Button onClick={submitHandler} shape="round" className='add-location-btn'>Save</Button>
+              
+            </div>
+          </div>
         </form>
       </Modal>
     </div>

@@ -6,6 +6,7 @@ import { apiURL } from "../../../constant/url";
 import { tokenHeader } from "../../../constant/tokenHeader";
 import three from "./img/(3).svg";
 import addIcon from "./img/addIcon.svg";
+import editIcon from './img/editIcon.svg'
 
 const { Option } = Select;
 
@@ -95,7 +96,7 @@ const UserLanguage = props => {
   let dataArr = [];
   if (props.profileData && props.profileData.languages) {
     dataArr = props.profileData.languages.map((lang, index) => (
-      <p key={index}>{lang}</p>
+      <div className="single-selected-language" key={index}>{lang}</div>
     ));
   }
 
@@ -109,6 +110,7 @@ const UserLanguage = props => {
   };
   console.log(selectLang);
 
+  
   return (
     <div className="language-of-avatar-block">
       <div className="language-of-avatar-content-block">
@@ -117,43 +119,45 @@ const UserLanguage = props => {
           <div className="language-of-avatar-content">
             <h2>Languages</h2>
             {props.profileData && props.profileData.languages
-              ? dataArr
+              ? <div className="selected-languages">
+                   {dataArr}
+                </div>
               : "Which language do you speak?"}{" "}
           </div>
         </div>
-        <img src={addIcon} alt="" onClick={handleLanguageButton} style={{alignSelf:"baseline"}} />
+        <img src={props.profileData && props.profileData.languages ? editIcon : addIcon} alt=""
+         onClick={handleLanguageButton}
+          style={{alignSelf:"baseline", cursor: "pointer"}} />
       </div>
-      {/* <Button
-        type="primary"
-        shape="round"
-        className="language-of-avatar-button"
-        onClick={handleLanguageButton}
-      >
-        Add
-      </Button> */}
+      
       <Modal
-        title="Basic Modal"
+        width={"67%"}
+        title="Add Languages"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
+        className="add-languages-modal"
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
           style={{ display: "flex", flexWrap: "wrap" }}
           className="objective-block-one__form"
         >
+          <div className="languages-list">
           {languages.map((lang, index) => (
             <div
+              className="single-language"
               onClick={() => selectHandler(lang)}
               style={{
-                margin: "0.5rem",
-                color: selectLang.includes(lang) ? "darkorange" : "inherit"
+                background: selectLang.includes(lang) ? "#ccc" : "inherit"
               }}
               key={lang}
             >
               {lang}
             </div>
           ))}
+          </div>
+          
           {/* <Controller
         as={<Select
           mode="multiple"
@@ -173,10 +177,11 @@ const UserLanguage = props => {
         </form>
         <div style={{ textAlign: "center" }}>
           <Button
+            shape={"round"}
             onClick={newSubmitHandler}
             htmlType="submit"
-            className="objective-block-one__buttonTwo"
-            style={{ alignSelf: "center", marginTop: "32px" }}
+            className="submit-btn"
+            style={{}}
           >
             Done
           </Button>

@@ -22,6 +22,8 @@ import storeAuditIcon from "./img/interestIcon/storeAuditIcon.svg";
 import videoMaking from "./img/interestIcon/videoMaking.svg";
 import writingIcon from "./img/interestIcon/writingIcon.svg";
 import four from "./img/(4).svg";
+import editIcon from './img/editIcon.svg';
+
 
 import addIcon from "./img/addIcon.svg";
 
@@ -110,7 +112,7 @@ const UserSkill = props => {
   console.log("SKILLS1", skills1);
   let skillData = [];
   if (props.profileData && props.profileData.skills) {
-    skillData = props.profileData.skills.map((el, i) => <p key={i}> {el} </p>);
+    skillData = props.profileData.skills.map((el, i) => <div className="single-skill" key={i}> {el} </div>);
   }
   return (
     <div className="skill-of-avatar-block">
@@ -119,25 +121,16 @@ const UserSkill = props => {
           <img className="skill-of-avatar-img" src={four} alt=""></img>
           <div className="skill-of-avatar-content">
             <h2>Skills</h2>
-            <div> {skillData ? skillData : "What are you good at?"} </div>
+            <div className="skill-list"> { skillData ? skillData : "What are you good at?" } </div>
           </div>
         </div>
         <img
-          src={addIcon}
+          src={skillData ? editIcon : addIcon}
           alt=""
           onClick={handleSkillButton}
-          style={{ alignSelf: "baseline" }}
+          style={{ alignSelf: "baseline", cursor: "pointer" }}
         />
       </div>
-
-      {/* <Button
-        type="primary"
-        shape="round"
-        className="skill-of-avatar-button"
-        onClick={handleSkillButton}
-      >
-        Add
-      </Button> */}
 
       <Modal
         width={"85%"}
@@ -145,6 +138,7 @@ const UserSkill = props => {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
+        className="add-skill-modal"
       >
         <div style={{ display: "flex", flexFlow: "wrap" }}>
           {skillImg.map((image, index) => (
@@ -174,9 +168,10 @@ const UserSkill = props => {
         </div>
         <div style={{ textAlign: "center" }}>
           <Button
+            shape="round"
             onClick={submitHandler}
             htmlType="submit"
-            className="objective-block-one__buttonTwo"
+            className="objective-block-one__buttonTwo submit-btn"
             style={{ alignSelf: "center", marginTop: "32px" }}
           >
             Done
