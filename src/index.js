@@ -7,10 +7,7 @@ import App from "./App";
 import "./index.css";
 import "./style/_style.scss";
 import "circular-std"; 
-// import axios from 'axios';
-// import Cookie from 'js-cookie';
 
-// import * as serviceWorker from './serviceWorker';
 axios.defaults.baseURL = 'https://pracify.com/testing/';
 axios.defaults.headers.common['token'] = Cookie.get('token');
 
