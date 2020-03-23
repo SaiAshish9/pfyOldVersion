@@ -1,17 +1,14 @@
-import React, { useState, Fragment } from "react";
-import { Button, Input, Modal, Icon } from "antd";
-import { useForm } from "react-hook-form";
+import { Button, Icon, Input, Modal } from "antd";
 import axios from "axios";
-import { apiURL } from "../../../constant/url";
-import { tokenHeader } from "../../../constant/tokenHeader";
-
-import addIcon from "./img/addIcon.svg";
-
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import five from "./img/(5).svg";
 import six from "./img/(6).svg";
 import seven from "./img/(7).svg";
 import eight from "./img/(8).svg";
-import { useEffect } from "react";
+import addIcon from "./img/addIcon.svg";
+
+
 
 const UserDigitalProfile = ({ profileData, isUpdate }) => {
   const digitalProfileData = profileData
@@ -84,6 +81,11 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
   console.log(SM);
 
   const SMHandler = () => {};
+
+  // const SMHandler = () => {};
+  // useEffect(() => {
+  // }, [])
+  // const [isDisabled, setIsDisabled] = useState({});
 
   const setDisableHandler = val => {
     setIsDisabled({ ...isDisabled, [val]: false });

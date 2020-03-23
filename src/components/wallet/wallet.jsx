@@ -1,35 +1,113 @@
-import React from "react";
-import { Button, Icon } from "antd";
+import React,{useState, useEffect} from "react";
+import { Button, Icon, Tabs, message } from "antd";
 import coinIcon from "./coin.svg";
 import dateIcon from "./dateIcon.svg";
 import rupee1 from "./rupee1.svg";
 // import rupee2 from "./rupee2.svg";
-import timeIcon from "./timeIcon.svg";
+import PaymentMethodModal from './paymentMethodModal';
+import axios from 'axios';
+import Earnings from './earnings';
+import Transactions from './transactions';
+
+const { TabPane } = Tabs;
+
 
 const Wallet = () => {
-  const a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const a = [1, 2, 3];
+  const [isShow, setIsShow] = useState(false)
+  const [walletBalance, setWalletBalance] = useState(null)
+  const [earnings, setEarnings] = useState(null)
+  const [transactions, setTransactions] = useState(null)
+  const [isUpdate, setIsUpdate] = useState(null)
+
+  const isModalOpen = () =>{
+    setIsShow(true)
+  }
+
+  const isClose = () => {
+    setIsShow(false)
+  }
+
+  useEffect(() => {
+    const url = "wallet/fetch";
+    axios.get(url)
+      .then(res => {
+        const data = res.data
+        console.table(data)
+        setWalletBalance(data.wallet)
+      })
+
+      // fetch my earnings
+      const url2 = 'wallet/my_earnings';
+      axios.get(url2)
+        .then(res => {
+          const earnings = res.data;
+          console.log('EARNINGS', earnings)
+          setEarnings(earnings)
+        })
+
+        // fetch money transactions
+
+  const url3 = 'wallet/money_transfers';
+  axios.get(url3)
+    .then(res => {
+      const transactions = res.data;
+      console.log('TRANSACTIONS', transactions)
+      setTransactions(transactions)
+    })
+  }, [isUpdate])
+
+  const redeem = ( ) => {
+    const url = "wallet/request_redemption";
+    axios.post(url)
+      .then(res => {
+        const msg = res.data;
+        console.log('REDEEM', msg)
+        message.info(msg)
+        setIsUpdate(Math.random())
+      })
+      .catch(err => {
+        const msg = err.response.data.message
+        console.log(msg)
+        message.info(msg)
+      })
+  }
+  
+
+  const  callback = (key) => {
+    console.log(key);
+  }
 
   return (
     <div className="wallet" style={{}}>
+      <PaymentMethodModal isModalOpen={isShow} isClose={isClose}/>
       <div className="payment-summary">
         <div className="summary-container">
           <img src={coinIcon} alt="" className="money-image" />
           <div className="content">
-            <h1 className="total-money">RS. 400</h1>
+            <h1 className="total-money">RS. {walletBalance}</h1>
             <h4 className="message">Available Balance</h4>
           </div>
         </div>
 
         <div className="button-container">
-          <Button shape="round" className="add-payment">
+          <Button onClick={isModalOpen} shape="round" className="add-payment">
             ADD PAYMENT METHOD
           </Button>
-          <Button shape="round" className="redeem now">
+          { walletBalance ? <Button onClick={redeem} shape="round" className="redeem-now">
             REDEEM NOW
-          </Button>
+          </Button> : null}
         </div>
       </div>
-      {a.map((element, i) => {
+      <Tabs className="tab-options" defaultActiveKey="1" onChange={callback}>
+        <TabPane tab="Earnings" key="earnings">
+          <Earnings data={earnings}/>
+        </TabPane>
+        <TabPane tab="Transactions" key="transactions">
+          <Transactions data={transactions} />
+        </TabPane>
+      </Tabs>
+      {/* {a.map((element, i) => {
         return (
           <div className="transaction-detail" key={i}>
             <div className="message">
@@ -55,7 +133,7 @@ const Wallet = () => {
             </div>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 };

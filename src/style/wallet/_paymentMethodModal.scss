@@ -1,0 +1,55 @@
+// .wallet{
+    .payment_method_modal{
+        .ant-modal-content{
+            .ant-modal-header{
+                background-color: #fff;
+                .ant-modal-title{
+                    color: black;
+                    text-align: center;
+                }
+            }
+        } 
+        .payment_method_modal_title{
+            color: #827f7f;
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .ant-modal-footer{
+            border-top: none;
+        }
+        .submit_btn{
+            padding: 0 2rem;
+            border-radius: 1rem;
+        }
+        .paytm_input{
+            margin-top: 1.5rem;
+            .heading{
+                margin: 0.25rem;
+            }
+        }
+        .bank_input{
+            margin-top: 1.5rem;
+            .heading{
+                margin: 0.25rem;
+            }
+        }
+    }
+    .tab-options{
+        margin-top: 1rem;
+    }
+// }
+
+.wallet{
+    .payment-summary{
+        .add-payment, .redeem-now{
+            color: #252eb7;
+            font-weight: 500;
+        }
+    }
+    
+}
+
+
+
+
