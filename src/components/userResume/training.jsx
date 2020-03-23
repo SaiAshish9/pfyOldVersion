@@ -9,7 +9,6 @@ import trainingIcon from "./img/headingImg/experienceIcon.svg";
 
 import addIcon from "./img/addIcon.svg";
 
-
 const Training = ({ training, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [trainingData, setTrainingData] = useState(false);
@@ -106,8 +105,9 @@ const Training = ({ training, updateResume }) => {
         </section>
 
         <Tooltip title="add">
-          <Icon
-            type="plus-circle"
+          <img
+            src={addIcon}
+            alt=""
             onClick={handleAdd}
             className="training-block-one-button"
           />

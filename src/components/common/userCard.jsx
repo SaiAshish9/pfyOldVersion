@@ -43,36 +43,37 @@ export default function UserCard(props) {
   };
 
   return (
-    <div className="userProfile-block" onClick={handleCard}>
-      <EditProfile show={isShow} isClose={isClose} />
-      {/* <div className="edit-icon" style={{textAlign: "end", fontSize:"1.2rem"}}> <Icon onClick={openModal} type="edit"></Icon></div> */}
-      <div className="avatar-block">
-        <div className="avatar-img-block">
-          <img
-            src={!!userData ? userData.imgUrl : ""}
-            alt=""
-            className="avatar__img"
-          ></img>
+    <div className="userProfile-with-profileScore-block">
+      <div className="userProfile-block" onClick={handleCard}>
+        <EditProfile show={isShow} isClose={isClose} />
+        {/* <div className="edit-icon" style={{textAlign: "end", fontSize:"1.2rem"}}> <Icon onClick={openModal} type="edit"></Icon></div> */}
+        <div className="avatar-block">
+          <div className="avatar-img-block">
+            <img
+              src={!!userData ? userData.imgUrl : ""}
+              alt=""
+              className="avatar__img"
+            ></img>
+          </div>
         </div>
-      </div>
-      <h2 style={{ textAlign: "center", fontSize: "22px", margin: "0px" }}>
-        {!!userData && userData.firstName}
-      </h2>
-      <div className="avatar-intro-block">
-        <div className="mail-block">
-          {/* <img src={emailIcon} alt=""></img> */}
-          <p>{!!userData && userData.email}</p>
+        <h2 style={{ textAlign: "center", fontSize: "22px", margin: "0px" }}>
+          {!!userData && userData.firstName}
+        </h2>
+        <div className="avatar-intro-block">
+          <div className="mail-block">
+            {/* <img src={emailIcon} alt=""></img> */}
+            <p>{!!userData && userData.email}</p>
+          </div>
+          <div className="number-block">
+            <p>{!!userData && userData.phone}</p>
+            {/* <img src={phoneIcon} alt=""></img> */}
+          </div>
+          <div className="residence-block">
+            {/* <img src={locationIcon} alt=""></img> */}
+            <h2>{!!userData && userData.city}</h2>
+          </div>
         </div>
-        <div className="number-block">
-          <p>{!!userData && userData.phone}</p>
-          {/* <img src={phoneIcon} alt=""></img> */}
-        </div>
-        <div className="residence-block">
-          {/* <img src={locationIcon} alt=""></img> */}
-          <h2>{!!userData && userData.city}</h2>
-        </div>
-      </div>
-      {/* <div className="divider-block"></div>
+        {/* <div className="divider-block"></div>
       <div className="profile-Score">
         <p className="profile-Score__para">Profile Score</p>
         <Progress
@@ -80,6 +81,19 @@ export default function UserCard(props) {
           status="active"
         />
       </div> */}
+      </div>
+      <div className="profile-Score-block">
+        <h1 className="profile-Score__h1">Your Profile Score</h1>
+        <Progress
+          type="circle"
+          percent={!!userData && userData.profileScore}
+          status="active"
+          strokeWidth={15}
+          strokeColor="#6dff5d"
+          width={160}
+          className="profile-progressBar"
+        />
+      </div>
     </div>
   );
 }

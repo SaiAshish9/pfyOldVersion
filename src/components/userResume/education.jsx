@@ -165,7 +165,7 @@ export default function Education({ education, updateResume }) {
         </section>
         <section className="education-block-one-button">
           <Tooltip title="add">
-            <Icon type="plus-circle" onClick={handleAddEducation} />
+            <img src={addIcon} alt=""  onClick={handleAddEducation} className=""/>
           </Tooltip>
         </section>
       </div>

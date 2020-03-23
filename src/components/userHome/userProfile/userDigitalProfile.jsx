@@ -10,8 +10,6 @@ import addIcon from "./img/addIcon.svg";
 import editIcon from './img/editIcon.svg';
 
 
-
-
 const UserDigitalProfile = ({ profileData, isUpdate }) => {
   const digitalProfileData = profileData
     ? profileData.digitalProfile

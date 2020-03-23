@@ -1,28 +1,15 @@
-.user-edit-profile-modal{
-    .ant-modal-footer{
-        text-align: center;
-        border-top: none;
-    }
-    .ant-modal-content{
-        border-radius: 0.5rem;
-        .ant-modal-close{
-            color: #fff;
-        }
-    }
-    .ant-modal-header{
-        border-radius: 0.5rem 0.5rem 0 0;
-        background-color: #252eb7;
-        .ant-modal-title{
-            color: #fff;
-        }
-    }
+.user-edit-profile-modal {
+  .ant-modal-footer {
+    text-align: center;
+    border-top: none;
+  }
 
-    .user-icon{
-        width: 4rem;
-        height: 4rem;
-        background-color: #ccc;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-    }
+  .user-icon {
+    width: 4rem;
+    height: 4rem;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+  }
 }

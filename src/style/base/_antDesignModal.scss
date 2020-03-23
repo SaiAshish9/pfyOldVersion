@@ -1,0 +1,21 @@
+/* ----------------------- design for custum ant modal ---------------------- */
+.ant-modal-mask {
+  backdrop-filter: blur(4px);
+  background-color: transparent;
+}
+.ant-modal-content {
+  font-family: $myFont;
+  word-spacing: $wordSpace;
+  .ant-modal-header {
+    background-color: #fff;
+    padding: 16px 24px 0px 24px;
+    border-bottom: none;
+    .ant-modal-title {
+      width: 101%;
+      border-bottom: 1px solid #ebeaea;
+      padding-bottom: 4px;
+      color: #818181;
+    }
+  }
+}
+/* -------------------------------- ********* ------------------------------- */

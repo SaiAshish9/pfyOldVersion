@@ -150,7 +150,7 @@ const OfflineAvailUser = props => {
         Add
       </Button> */}
       <Modal
-        width={"80%"}
+        width={"60%"}
         title="Add Location"
         visible={isModalVisible}
         onCancel={handleCancel}

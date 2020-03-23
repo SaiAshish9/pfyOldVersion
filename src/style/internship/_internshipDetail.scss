@@ -1,63 +1,61 @@
 .internship-details-page {
   font-family: $myFont;
-  background-color: #fafafa;
-  padding: 100px 60px 80px 60px;
   word-spacing: $wordSpace;
+  background-color: #fafafa;
+  padding: 100px 0px 80px 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   .internship-main-block {
-    width: 70%;
-    // border: 1px solid black;
-    padding: 20px 0px;
+    width: 55%;
+    padding: 20px 46px 46px 46px;
     border-radius: 8px;
     background-color: #fff;
 
     // margin:80px;
     .internship-provider-block-One {
       display: flex;
-      // justify-content: space-between;
       margin-top: 20px;
-      margin-bottom: 40px;
+      border-bottom: 1px solid #e8e8e8;
+      padding-bottom: 24px;
 
       .internship-provider-block-two {
         display: flex;
-        margin-left: 40px;
+        // margin-left: 40px;
       }
       .internship-provider-block-three {
-        margin-left: 40px;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 134px;
-        width: 100px;
-        height: 100px;
-        margin: auto;
-        border-radius: 100%;
+        width: 120px;
+        height: 120px;
         border: 1px solid rgba(0, 0, 0, 0.4);
         img {
           width: 100%;
         }
       }
       .internship-provider-block-four {
-        margin-left: 40px;
+        margin-left: 32px;
         .internship-provider-heading-one {
+          line-height: 1.43;
+          margin: 0px;
         }
         .internship-provider-heading-two {
           color: $fontDark;
+          font-size: 22px;
+          line-height: 1.36;
         }
         .update-message-block {
           display: flex;
           align-items: center;
+          border: 1px solid #1bba27;
+          padding-right: 82px;
+          border-radius: 3px;
           .update-message-block__icon {
             width: 22px;
+            margin: 8px 32px 8px 36px;
           }
           .update-message-block__span {
-            margin-left: 8px;
             font-size: 14px;
             font-weight: 500;
-            color: #333743;
+            color: #1bba27;
           }
           .update-message-block__span.link {
             color: red;
@@ -67,17 +65,25 @@
     }
 
     .internship-brief-block {
+      margin-top: 20px;
       display: flex;
       justify-content: space-evenly;
-      margin: auto;
-      width: 95%;
-      padding: 10px;
+      // margin: auto;
+      // padding: 10px;
       border-radius: 8px;
-      background: #f9f9fd;
+      // background: #f9f9fd;
       .internship-brief-content {
-        // display: flex;
-        // flex-direction: column;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width: 100px;
+        height: 95px;
+
+        border-radius: 7px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+        background-color: #f3f3f3;
         h5 {
           color: $fontDarker;
           font-size: 14px;
@@ -91,16 +97,10 @@
       }
     }
     .boundary-one {
-      border-bottom: 1px solid lightGray;
-      width: 90%;
-      margin: 20px auto 40px;
-      // margin-left: auto;
-      // margin-right: auto;
-      // margin-bottom: 40px ;
-      // margin-top: 20px ;
+      border-bottom: 1px solid #e8e8e8;
+      margin: 20px auto 36px;
     }
     .internship-detail-block {
-      margin-left: 40px;
       margin-right: 40px;
     }
     .apply-block {
@@ -113,7 +113,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 -2px 14px 0 #a5adba;
+      box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.16);
+      .apply-button-block {
+        width: 207px;
+        height: 40px;
+        border-radius: 26px;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
+        background-image: linear-gradient(103deg, #5a87e5 4%, #37cfdd 95%);
+      }
     }
   }
 }

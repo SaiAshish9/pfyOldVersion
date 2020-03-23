@@ -96,54 +96,69 @@ const UserInternship = () => {
     });
 
   return (
-    <div style={{ padding: "100px 60px 80px 60px" }}>
-      <h1>Internship</h1>
-      <Tabs defaultActiveKey="1" onChange={handleTabChange} animated={false}>
-        <TabPane tab="Applied" key="1">
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "wrap",
-              justifyContent: "center"
-            }}
-          >
-            {userApplied ? userApplied : "no applied internship"}
-          </div>
-        </TabPane>
-        <TabPane tab="Shortlisted" key="2">
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "wrap",
-              justifyContent: "center"
-            }}
-          >
-            {userShortlisted ? userShortlisted : "not shortlisted"}
-          </div>
-        </TabPane>
-        <TabPane tab="Selected" key="3">
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "wrap",
-              justifyContent: "center"
-            }}
-          >
-            {userSelected ? userSelected : "not selected"}
-          </div>
-        </TabPane>
-        <TabPane tab="Rejected" key="4">
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "wrap",
-              justifyContent: "center"
-            }}
-          >
-            {userRejected ? userRejected : "not confirmation"}
-          </div>
-        </TabPane>
-      </Tabs>
+    <div
+      style={{
+        padding: "100px 60px 80px 60px",
+        background: "#f3f3f3",
+        minHeight: "680px"
+      }}
+    >
+      <div
+        className=""
+        style={{
+          backgroundColor: "#fff",
+          padding: "35px 45px",
+          borderRadius: "8px"
+        }}
+      >
+        <h1>Internship</h1>
+        <Tabs defaultActiveKey="1" onChange={handleTabChange} animated={false}>
+          <TabPane tab="Applied" key="1">
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "wrap"
+                // justifyContent: "center"
+              }}
+            >
+              {userApplied ? userApplied : "no applied internship"}
+            </div>
+          </TabPane>
+          <TabPane tab="Shortlisted" key="2">
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "wrap"
+                // justifyContent: "center"
+              }}
+            >
+              {userShortlisted ? userShortlisted : "not shortlisted"}
+            </div>
+          </TabPane>
+          <TabPane tab="Selected" key="3">
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "wrap"
+                // justifyContent: "center"
+              }}
+            >
+              {userSelected ? userSelected : "not selected"}
+            </div>
+          </TabPane>
+          <TabPane tab="Rejected" key="4">
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "wrap"
+                // justifyContent: "center"
+              }}
+            >
+              {userRejected ? userRejected : "not confirmation"}
+            </div>
+          </TabPane>
+        </Tabs>
+      </div>
     </div>
   );
 };

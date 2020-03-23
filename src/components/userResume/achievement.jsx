@@ -94,12 +94,12 @@ const Achievement = ({ achievement, updateResume }) => {
         </section>
 
         <Tooltip title="add">
-          <Icon
-            type="plus-circle"
+          <img
+            src={addIcon}
+            alt=""
             onClick={handleAdd}
             className="achievement-block-one-button"
           />
-          {/* <img src={addIcon} alt="" /> */}
         </Tooltip>
       </div>
 
