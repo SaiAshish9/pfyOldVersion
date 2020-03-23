@@ -16,15 +16,9 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
         instagram: null,
         tiktok: null
       };
-  // const digitalProfile = profileData && profileData.digitalProfile;
-  // console.table(digitalProfile)
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isRerender, setIsRerender] = useState(false);
-  // const [DigitalProfile, setDigitalProfile] = useState({
-  //   facebook:  null,
-  //   instagram:    null,
-  //   tiktok:  null,
-  // })
+ 
 
   const [isDisabled, setIsDisabled] = useState({
     facebook: false,
@@ -79,11 +73,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
   console.log(SM);
 
   const SMHandler = () => {};
-
-  // const SMHandler = () => {};
-  // useEffect(() => {
-  // }, [])
-  // const [isDisabled, setIsDisabled] = useState({});
 
   const setDisableHandler = val => {
     setIsDisabled({ ...isDisabled, [val]: false });
