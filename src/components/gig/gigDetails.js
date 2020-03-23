@@ -224,7 +224,7 @@ export default function GigDetail(props) {
                 <h4>{task}</h4>
               </div>
               <div className="gig-brief-content">
-                <h5>Apply Before</h5>
+                <h5>Deadline</h5>
                 <h4>{appliedBeforeTime}</h4>
               </div>
               <div className="gig-brief-content">

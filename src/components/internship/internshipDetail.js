@@ -199,7 +199,7 @@ const InternshipDetail = props => {
                 <h4>{duration}</h4>
               </div>
               <div className="internship-brief-content">
-                <h5>Apply Before</h5>
+                <h5>Deadline</h5>
                 <h4>{appliedBeforeTime}</h4>
               </div>
               <div className="internship-brief-content">

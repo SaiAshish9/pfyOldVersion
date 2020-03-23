@@ -11,6 +11,8 @@
     padding: 20px 46px 46px 46px;
     border-radius: 8px;
     background-color: #fff;
+    border: 1px solid #d3d3d3;
+
 
     .gig-provider-block-One {
       display: flex;
@@ -80,17 +82,18 @@
         padding: 10px;
         width: 100px;
         height: 95px;
+        border: 1px solid #d3d3d3;
 
         border-radius: 7px;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
         background-color: #f3f3f3;
         h5 {
-          color: $fontDarker;
+          color: $fontLight;
           font-size: 14px;
           margin-bottom: 1px;
         }
         h4 {
-          color: $fontLight;
+          color: $fontDarker;
           font-size: 16px;
           margin-bottom: 0px;
         }
