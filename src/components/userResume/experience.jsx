@@ -7,6 +7,8 @@ import { arrayValidation } from "../validation/validation";
 import axios from "axios";
 import experienceIcon from "./img/headingImg/experienceIcon.svg";
 
+import addIcon from "./img/addIcon.svg";
+
 const month = [
   "Jan",
   "Feb",
@@ -114,84 +116,78 @@ const Experience = ({ workExperience, updateResume }) => {
 
   return (
     <div className="experience-block-one">
-      <div
-        className="experience-block-two"
-        style={{
-          borderBottom: arrayValidation(workExperience) ? "1px solid #CECFCF" : "none"
-        }}
-      >
+      <div className="experience-block-two" style={{}}>
         <section style={{ display: "flex" }}>
           <img
             src={experienceIcon}
             alt=""
             className="experience-block-two-icon"
           ></img>
-          <h2 className="experience-block-two-heading">Work Experience</h2>
-        </section>
-        {arrayValidation(workExperience) && (
-          <section>
-            <Tooltip title="add">
-              <Icon type="plus-circle" onClick={handleAdd} />
-            </Tooltip>
-          </section>
-        )}
-      </div>
-      {arrayValidation(workExperience) ? (
-        workExperience.map((myExp, index) => (
-          <div key={index} className="experience-content-block ">
-            <section className="experience-content-sec-one ">
-              <h1 className="experience-content-sec-one__h1 ">
-                {myExp.organisation}
-              </h1>
-              <h2 className="experience-content-sec-one__h2 ">
-                {myExp.designation}
-              </h2>
-              <p className="experience-content-sec-one__p ">
-                {myExp.description}
-              </p>
-              <h4 className="experience-content-sec-one__h4 ">
-                {myExp.location}
-              </h4>
-              <div className="experience-content-sec-one-block-one ">
-                <h5 className="experience-content-sec-one-block-one__h5-one ">
-                  {myExp.start.month}
-                </h5>
-                <h5 className="experience-content-sec-one-block-one__h5-two ">
-                  {myExp.start.year}
-                </h5>
-                <h5 className="experience-content-sec-one-block-one__h5-three ">
-                  {(!isCurrentlyWorking && !!myExp.end && myExp.end.month) ||
-                    "Present"}
-                </h5>
-                <h5 className="experience-content-sec-one-block-one__h5-four ">
-                  {!isCurrentlyWorking && !!myExp.end && myExp.end.year}
-                </h5>
-              </div>
-            </section>
-            <section>
-              <Tooltip title="edit">
-                <Icon
-                  type="edit"
-                  onClick={() => handleEdit(myExp)}
-                  style={{ marginRight: "32px" }}
-                ></Icon>
-              </Tooltip>
-              <Tooltip title="delete">
-                <Icon type="delete" onClick={() => handleDelete(myExp._id)} />
-              </Tooltip>
-            </section>
+          <div className="experience-block-heading-content">
+            <h2 className="experience-block-two-heading">Work Experience</h2>
+            {arrayValidation(workExperience) &&
+              workExperience.map((myExp, index) => (
+                <div key={index} className="experience-content-block">
+                  <section className="experience-content-sec-one ">
+                    <h1 className="experience-content-sec-one__h1 ">
+                      {myExp.organisation}
+                    </h1>
+                    <h2 className="experience-content-sec-one__h2 ">
+                      {myExp.designation}
+                    </h2>
+                    <p className="experience-content-sec-one__p ">
+                      {myExp.description}
+                    </p>
+                    <h4 className="experience-content-sec-one__h4 ">
+                      {myExp.location}
+                    </h4>
+                    <div className="experience-content-sec-one-block-one ">
+                      <h5 className="experience-content-sec-one-block-one__h5-one ">
+                        {myExp.start.month}
+                      </h5>
+                      <h5 className="experience-content-sec-one-block-one__h5-two ">
+                        {myExp.start.year}
+                      </h5>
+                      <h5 className="experience-content-sec-one-block-one__h5-three ">
+                        {(!isCurrentlyWorking &&
+                          !!myExp.end &&
+                          myExp.end.month) ||
+                          "Present"}
+                      </h5>
+                      <h5 className="experience-content-sec-one-block-one__h5-four ">
+                        {!isCurrentlyWorking && !!myExp.end && myExp.end.year}
+                      </h5>
+                    </div>
+                  </section>
+                  <section className="experience-edit-delete-icon">
+                    <Tooltip title="edit">
+                      <Icon
+                        type="edit"
+                        onClick={() => handleEdit(myExp)}
+                        style={{ marginRight: "32px" }}
+                      ></Icon>
+                    </Tooltip>
+                    <Tooltip title="delete">
+                      <Icon
+                        type="delete"
+                        onClick={() => handleDelete(myExp._id)}
+                      />
+                    </Tooltip>
+                  </section>
+                </div>
+              ))}
           </div>
-        ))
-      ) : (
-        <Button
-          // type="primary"
-          shape="round"
-          className="experience-block-one-button"
-          onClick={handleAdd}
-        >
-          Add
-        </Button>
-      )}
+        </section>
+
+        <Tooltip title="add">
+          <Icon
+            type="plus-circle"
+            className="experience-block-one-button"
+            onClick={handleAdd}
+          />
+        </Tooltip>
+      </div>
+
       <Modal
         title="Add Experience"
         visible={isModalVisible}

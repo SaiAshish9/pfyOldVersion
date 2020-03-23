@@ -6,7 +6,9 @@ import { useForm } from "react-hook-form";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { arrayValidation } from "../validation/validation";
 import { apiURL } from "../../constant/url";
-import team from "./img/headingImg/team.svg";
+import team from "./img/headingImg/achievementIcon.svg";
+
+import addIcon from "./img/addIcon.svg";
 
 const Achievement = ({ achievement, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -61,56 +63,46 @@ const Achievement = ({ achievement, updateResume }) => {
 
   return (
     <div className="achievement-block-one">
-      <div
-        className="achievement-block-two"
-        style={{
-          borderBottom: arrayValidation(achievement)
-            ? "1px solid #CECFCF"
-            : "none"
-        }}
-      >
+      <div className="achievement-block-two" style={{}}>
         <section style={{ display: "flex" }}>
           <img src={team} alt="" className="achievement-block-two-icon"></img>
-          <h2 className="achievement-block-two-heading">Achievements</h2>
-        </section>
-        {arrayValidation(achievement) && (
-          <section>
-            <Tooltip title="add">
-              <Icon type="plus-circle" onClick={handleAdd} />
-            </Tooltip>
-          </section>
-        )}
-      </div>
-      {arrayValidation(achievement) ? (
-        achievement.map((myAchievement, index) => (
-          <div key={index} className="achievement-content-block">
-            <section className="achievement-content-sec-one">
-              <p className="achievement-content-sec-one__p">{myAchievement}</p>
-            </section>
-            <section>
-              <Tooltip title="edit">
-                <Icon
-                  type="edit"
-                  onClick={() => handleEdit(myAchievement)}
-                  style={{ marginRight: "32px" }}
-                ></Icon>
-              </Tooltip>
-              <Tooltip title="delete">
-                <Icon type="delete" onClick={() => handleDelete(index)} />
-              </Tooltip>
-            </section>
+          <div className="achievement-block-heading-content">
+            <h2 className="achievement-block-two-heading">Achievements</h2>
+            {arrayValidation(achievement) &&
+              achievement.map((myAchievement, index) => (
+                <div key={index} className="achievement-content-block">
+                  <section className="achievement-content-sec-one">
+                    <p className="achievement-content-sec-one__p">
+                      {myAchievement}
+                    </p>
+                  </section>
+                  <section className="achievement-edit-delete-icon ">
+                    <Tooltip title="edit">
+                      <Icon
+                        type="edit"
+                        onClick={() => handleEdit(myAchievement)}
+                        style={{ marginRight: "32px" }}
+                      ></Icon>
+                    </Tooltip>
+                    <Tooltip title="delete">
+                      <Icon type="delete" onClick={() => handleDelete(index)} />
+                    </Tooltip>
+                  </section>
+                </div>
+              ))}
           </div>
-        ))
-      ) : (
-        <Button
-          // type="primary"
-          shape="round"
-          className="achievement-block-one-button"
-          onClick={handleAdd}
-        >
-          Add
-        </Button>
-      )}
+        </section>
+
+        <Tooltip title="add">
+          <Icon
+            type="plus-circle"
+            onClick={handleAdd}
+            className="achievement-block-one-button"
+          />
+          {/* <img src={addIcon} alt="" /> */}
+        </Tooltip>
+      </div>
+
       <Modal
         title="Add Achievement"
         visible={isModalVisible}

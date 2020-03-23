@@ -7,6 +7,9 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import { objectValidation } from "../validation/validation";
 import educationIcon from "./img/headingImg/educationIcon.svg";
 
+import addIcon from "./img/addIcon.svg";
+
+
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
 
@@ -126,7 +129,7 @@ export default function Education({ education, updateResume }) {
             </h5>
           </div>
         </section>
-        <section>
+        <section className="education-edit-delete-icon" style={{}}>
           <Tooltip title="edit">
             <Icon type="edit" onClick={() => handleEdit(educationData)}></Icon>
           </Tooltip>
@@ -139,48 +142,34 @@ export default function Education({ education, updateResume }) {
 
   return (
     <div className="education-block-one">
-      <div
-        className="education-block-two"
-        style={{
-          borderBottom:
-            !!education && objectValidation(education)
-              ? "1px solid #CECFCF"
-              : "none"
-        }}
-      >
+      <div className="education-block-two" style={{}}>
         <section style={{ display: "flex" }}>
           <img
             src={educationIcon}
             alt=""
             className="education-block-two-icon"
           ></img>
-          <h2 className="education-block-two-heading">Education</h2>
+          <div className="education-block-heading-content">
+            <h2 className="education-block-two-heading">Education</h2>
+            {objectValidation(education) ? (
+              <div className="education-content-block-three">
+                {objectValidation(education.tenth) &&
+                  printEducation(education.tenth)}
+                {objectValidation(education.twelfth) &&
+                  printEducation(education.twelfth)}
+                {objectValidation(education.UG) && printEducation(education.UG)}
+                {objectValidation(education.PG) && printEducation(education.PG)}
+              </div>
+            ) : null}
+          </div>
         </section>
-        {!!education && objectValidation(education) && (
-          <section>
-            <Tooltip title="add">
-              <Icon type="plus-circle" onClick={handleAddEducation} />
-            </Tooltip>
-          </section>
-        )}
+        <section className="education-block-one-button">
+          <Tooltip title="add">
+            <Icon type="plus-circle" onClick={handleAddEducation} />
+          </Tooltip>
+        </section>
       </div>
-      {objectValidation(education) ? (
-        <div className="education-content-block-three">
-          {objectValidation(education.tenth) && printEducation(education.tenth)}
-          {objectValidation(education.twelfth) &&
-            printEducation(education.twelfth)}
-          {objectValidation(education.UG) && printEducation(education.UG)}
-          {objectValidation(education.PG) && printEducation(education.PG)}
-        </div>
-      ) : (
-        <Button
-          shape="round"
-          className="education-block-one-button"
-          onClick={handleAddEducation}
-        >
-          Add
-        </Button>
-      )}
+
       <Modal
         title="Add Qualification"
         visible={isModalVisible}
@@ -189,7 +178,6 @@ export default function Education({ education, updateResume }) {
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
-          // style={{ display: "flex", flexDirection: "column" }}
           className="education-modal__form"
         >
           <section className="education-modal-sec-one">

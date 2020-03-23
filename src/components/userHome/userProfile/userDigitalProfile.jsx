@@ -5,6 +5,8 @@ import axios from "axios";
 import { apiURL } from "../../../constant/url";
 import { tokenHeader } from "../../../constant/tokenHeader";
 
+import addIcon from "./img/addIcon.svg";
+
 import five from "./img/(5).svg";
 import six from "./img/(6).svg";
 import seven from "./img/(7).svg";
@@ -83,11 +85,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
 
   const SMHandler = () => {};
 
-  // useEffect(() => {
-
-  // }, [])
-
-
   const setDisableHandler = val => {
     setIsDisabled({ ...isDisabled, [val]: false });
   };
@@ -97,11 +94,20 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
   return (
     <div className="avatar-digital-profile-block">
       <div className="avatar-digital-profile-content-block">
-        <img className="avatar-digital-profile-img" src={five} alt=""></img>
-        <div className="avatar-digital-profile-content">
-          <h2>Digital Profile</h2>
+        <div className="" style={{ display: "flex" }}>
+          <img className="avatar-digital-profile-img" src={five} alt=""></img>
+          <div className="avatar-digital-profile-content">
+            <h2>Digital Profile</h2>
+          </div>
         </div>
+        <img
+          src={addIcon}
+          alt=""
+          onClick={handleProfileButton}
+          style={{ alignSelf: "baseline" }}
+        />
       </div>
+
       <div className="fb-block">
         <img src={six} alt=""></img>
         <Input
@@ -170,14 +176,15 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
           <Icon onClick={() => setDisableHandler("tiktok")} type="edit"></Icon>
         </div>
       </div>
-      <Button
+
+      {/* <Button
         type="primary"
         shape="round"
         className="avatar-digital-profile-button"
         onClick={handleProfileButton}
       >
         Add
-      </Button>
+      </Button> */}
       <Modal
         title="Basic Modal"
         visible={isModalVisible}

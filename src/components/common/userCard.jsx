@@ -7,16 +7,15 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import phoneIcon from "./img/phoneIcon.svg";
 import emailIcon from "./img/emailIcon.svg";
 import locationIcon from "./img/locationIcon.svg";
-import EditProfile from '../userHome/userProfile/editProfile';
+import EditProfile from "../userHome/userProfile/editProfile";
 import { useLocation } from "react-router-dom";
 
-
 export default function UserCard(props) {
-  const myUserProfile = props.myUserProfile
+  const myUserProfile = props.myUserProfile;
   const history = useHistory();
   const location = useLocation();
   const [userData, setUserData] = useState();
-  const [isShow, setIsShow] = useState(false)
+  const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
     axios
@@ -33,22 +32,20 @@ export default function UserCard(props) {
   console.log("userData", userData);
 
   const handleCard = () => {
-    if(location.pathname !== '/profile')
-        history.push("/profile")
-    
+    if (location.pathname !== "/profile") history.push("/profile");
   };
   const openModal = () => {
-    setIsShow(!isShow)
-  }
+    setIsShow(!isShow);
+  };
 
   const isClose = () => {
-    setIsShow(false)
-  }
+    setIsShow(false);
+  };
 
   return (
     <div className="userProfile-block" onClick={handleCard}>
       <EditProfile show={isShow} isClose={isClose} />
-      <div className="edit-icon" style={{textAlign: "end", fontSize:"1.2rem"}}> <Icon onClick={openModal} type="edit"></Icon></div>
+      {/* <div className="edit-icon" style={{textAlign: "end", fontSize:"1.2rem"}}> <Icon onClick={openModal} type="edit"></Icon></div> */}
       <div className="avatar-block">
         <div className="avatar-img-block">
           <img
@@ -57,30 +54,32 @@ export default function UserCard(props) {
             className="avatar__img"
           ></img>
         </div>
-        <h2>{!!userData && userData.firstName}</h2>
       </div>
+      <h2 style={{ textAlign: "center", fontSize: "22px", margin: "0px" }}>
+        {!!userData && userData.firstName}
+      </h2>
       <div className="avatar-intro-block">
-        <div className="residence-block">
-          <img src={locationIcon} alt=""></img>
-          <p>{!!userData && userData.city}</p>
-        </div>
         <div className="mail-block">
-          <img src={emailIcon} alt=""></img>
+          {/* <img src={emailIcon} alt=""></img> */}
           <p>{!!userData && userData.email}</p>
         </div>
         <div className="number-block">
-          <img src={phoneIcon} alt=""></img>
           <p>{!!userData && userData.phone}</p>
+          {/* <img src={phoneIcon} alt=""></img> */}
+        </div>
+        <div className="residence-block">
+          {/* <img src={locationIcon} alt=""></img> */}
+          <h2>{!!userData && userData.city}</h2>
         </div>
       </div>
-      <div className="divider-block"></div>
+      {/* <div className="divider-block"></div>
       <div className="profile-Score">
         <p className="profile-Score__para">Profile Score</p>
         <Progress
           percent={!!userData && userData.profileScore}
           status="active"
         />
-      </div>
+      </div> */}
     </div>
   );
 }

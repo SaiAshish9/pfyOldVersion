@@ -5,7 +5,10 @@ import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { arrayValidation } from "../validation/validation";
 import { useForm } from "react-hook-form";
-import trainingIcon from "./img/headingImg/trainingIcon.svg";
+import trainingIcon from "./img/headingImg/experienceIcon.svg";
+
+import addIcon from "./img/addIcon.svg";
+
 
 const Training = ({ training, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -62,66 +65,55 @@ const Training = ({ training, updateResume }) => {
 
   return (
     <div className="training-block-one">
-      <div
-        className="training-block-two"
-        style={{
-          borderBottom: arrayValidation(training) ? "1px solid #CECFCF" : "none"
-        }}
-      >
+      <div className="training-block-two" style={{}}>
         <section style={{ display: "flex" }}>
           <img
             src={trainingIcon}
             alt=""
             className="training-block-two-icon"
           ></img>
-          <h2 className="training-block-two-heading">Trainings</h2>
-        </section>
-        {arrayValidation(training) && (
-          <section>
-            <Tooltip title="add">
-              <Icon type="plus-circle" onClick={handleAdd} />
-            </Tooltip>
-          </section>
-        )}
-      </div>
-      {arrayValidation(training) ? (
-        training.map((myTraining, index) => (
-          <div key={index} className="training-content-block">
-            <section className="training-content-sec-one">
-              <h1 className="training-content-sec-one__h1">
-                {myTraining.title}
-              </h1>
-              <p className="training-content-sec-one__p">
-                {myTraining.description}
-              </p>
-            </section>
-            <section>
-              <Tooltip title="edit">
-                <Icon
-                  type="edit"
-                  onClick={() => handleEdit(myTraining)}
-                  style={{ marginRight: "32px" }}
-                ></Icon>
-              </Tooltip>
-              <Tooltip title="delete">
-                <Icon
-                  type="delete"
-                  onClick={() => handleDelete(myTraining._id)}
-                />
-              </Tooltip>
-            </section>
+          <div className="training-block-heading-content">
+            <h2 className="training-block-two-heading">Trainings</h2>
+            {arrayValidation(training) &&
+              training.map((myTraining, index) => (
+                <div key={index} className="training-content-block">
+                  <section className="training-content-sec-one">
+                    <h1 className="training-content-sec-one__h1">
+                      {myTraining.title}
+                    </h1>
+                    <p className="training-content-sec-one__p">
+                      {myTraining.description}
+                    </p>
+                  </section>
+                  <section className="training-edit-delete-icon">
+                    <Tooltip title="edit">
+                      <Icon
+                        type="edit"
+                        onClick={() => handleEdit(myTraining)}
+                        style={{ marginRight: "32px" }}
+                      ></Icon>
+                    </Tooltip>
+                    <Tooltip title="delete">
+                      <Icon
+                        type="delete"
+                        onClick={() => handleDelete(myTraining._id)}
+                      />
+                    </Tooltip>
+                  </section>
+                </div>
+              ))}
           </div>
-        ))
-      ) : (
-        <Button
-          // type="primary"
-          shape="round"
-          className="training-block-one-button"
-          onClick={handleAdd}
-        >
-          Add
-        </Button>
-      )}
+        </section>
+
+        <Tooltip title="add">
+          <Icon
+            type="plus-circle"
+            onClick={handleAdd}
+            className="training-block-one-button"
+          />
+        </Tooltip>
+      </div>
+
       <Modal
         title="Add Training"
         visible={isModalVisible}
