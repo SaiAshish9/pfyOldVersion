@@ -9,7 +9,6 @@ import team from "./img/headingImg/digitalProfileIcon.svg";
 
 import addIcon from "./img/addIcon.svg";
 
-
 const DigitalProfile = ({ digitalProfile, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, errors, control } = useForm();
@@ -33,7 +32,7 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
     setIsModalVisible(false);
   };
 
-  const handleDigitalProfileButton = () => {
+  const handleAdd = () => {
     setIsModalVisible(true);
   };
 
@@ -87,6 +86,16 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
             Digital Profiles
           </h2>
         </section>
+
+        <Tooltip title="add">
+          <img
+            src={addIcon}
+            alt=""
+            onClick={handleAdd}
+            className="digital-block-one-button"
+          />
+        </Tooltip>
+
         {isAllData() && (
           <section>
             <Tooltip title="edit">
@@ -95,7 +104,7 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
           </section>
         )}
       </div>
-      {!!digitalProfile && objectValidation(digitalProfile) && isAllData() ? (
+      {!!digitalProfile && objectValidation(digitalProfile) && isAllData() && (
         <div>
           {!!digitalProfile.facebook &&
             printDigitalProfile(digitalProfile.facebook, "Facebook")}
@@ -118,15 +127,6 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
           {!!digitalProfile.medium &&
             printDigitalProfile(digitalProfile.medium, "Medium")}
         </div>
-      ) : (
-        <Button
-          // type="primary"
-          shape="round"
-          className="digital-profile-block-one-button"
-          onClick={handleDigitalProfileButton}
-        >
-          Add
-        </Button>
       )}
       <Modal
         title="Basic Modal"

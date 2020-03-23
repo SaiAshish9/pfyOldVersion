@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Popover, Rate, Icon } from "antd";
+import { Button, Modal, Popover, Rate, Icon, Tooltip } from "antd";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
@@ -62,7 +62,7 @@ export default function Skill({ skill }) {
     setIsModalVisible(false);
   };
 
-  const handleSkillButton = () => {
+  const handleAdd = () => {
     setIsModalVisible(true);
   };
 
@@ -272,7 +272,14 @@ export default function Skill({ skill }) {
           ></img>
           <h2 className="skill-block-two-heading">Skills</h2>
         </section>
-        <Icon type="plus-circle" onClick={handleSkillButton} />
+        <Tooltip title="add">
+          <img
+            src={addIcon}
+            alt=""
+            onClick={handleAdd}
+            className="skill-block-one-button"
+          />
+        </Tooltip>
       </div>
       <div className="skill-data-main-block">
         {arrayValidation(skillDummy) &&

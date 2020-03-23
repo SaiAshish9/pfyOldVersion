@@ -8,8 +8,6 @@ import seven from "./img/(7).svg";
 import eight from "./img/(8).svg";
 import addIcon from "./img/addIcon.svg";
 
-
-
 const UserDigitalProfile = ({ profileData, isUpdate }) => {
   const digitalProfileData = profileData
     ? profileData.digitalProfile

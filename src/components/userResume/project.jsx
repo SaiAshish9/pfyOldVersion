@@ -9,7 +9,6 @@ import team from "./img/headingImg/projectIcon.svg";
 
 import addIcon from "./img/addIcon.svg";
 
-
 const month = [
   "Jan",
   "Feb",
@@ -172,8 +171,9 @@ const Project = ({ project, updateResume }) => {
           </div>
         </section>
         <Tooltip title="add">
-          <Icon
-            type="plus-circle"
+          <img
+            src={addIcon}
+            alt=""
             onClick={handleAdd}
             className="project-block-one-button"
           />

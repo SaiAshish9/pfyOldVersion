@@ -10,7 +10,6 @@ import positionIcon from "./img/headingImg/educationIcon.svg";
 
 import addIcon from "./img/addIcon.svg";
 
-
 const Position = ({ position, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [positionData, setPositionData] = useState(false);
@@ -122,8 +121,9 @@ const Position = ({ position, updateResume }) => {
           </div>
         </section>
         <Tooltip title="add">
-          <Icon
-            type="plus-circle"
+          <img
+            src={addIcon}
+            alt=""
             onClick={handleAdd}
             className="position-block-one-button"
           />

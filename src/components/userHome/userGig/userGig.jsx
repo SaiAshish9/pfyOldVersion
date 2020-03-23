@@ -14,7 +14,6 @@ const UserGig = () => {
     axios
       .get(`${apiURL}/mission/mymissions`, tokenHeader)
       .then(res => {
-        // setGig(res.data.internships);
         console.log(res.data);
         setGig(res.data);
       })
@@ -27,26 +26,11 @@ const UserGig = () => {
   useEffect(() => {
     console.log(gig[0]);
     console.log(gig.length > 0 && gig[0].missionId);
-    // console.log(gig[0]);
-    // console.log(gig.missionId);
   }, [gig]);
 
   const handleTabChange = key => {
     console.log(key);
   };
-
-  // const a = (data)=>{
-  //   arrayValidation(applied) &&
-  // applied.map((appliedGig, index) => {
-  //   const userGig = appliedGig.missionId;
-  //   console.log(userGig)
-  //   return (
-  //     <div style={{ margin: "20px 20px" }} key={index}>
-  //       <Card gig={userGig}></Card>
-  //     </div>
-  //   );
-  // });
-  // }
 
   const applied =
     arrayValidation(gig) && gig.filter(myGig => myGig.status === 601);
@@ -83,76 +67,91 @@ const UserGig = () => {
   const userFailed = getCard(failed);
 
   return (
-    <div style={{ padding: "100px 60px 80px 60px" }}>
-      <h1>Gig</h1>
-      <Tabs defaultActiveKey="1" onChange={handleTabChange} animated={false}>
-        <TabPane tab="Applied" key="1">
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "wrap",
-              justifyContent: "center"
-            }}
-          >
-            {userApplied ? userApplied : "no applied internship"}
-          </div>
-        </TabPane>
-        <TabPane tab="Shortlisted" key="2">
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "wrap",
-              justifyContent: "center"
-            }}
-          >
-            {userShortlisted ? userShortlisted : "not shortlisted"}
-          </div>
-        </TabPane>
-        <TabPane tab="Selected" key="3">
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "wrap",
-              justifyContent: "center"
-            }}
-          >
-            {userSelected ? userSelected : "not selected"}
-          </div>
-        </TabPane>
-        <TabPane tab="Rejected" key="4">
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "wrap",
-              justifyContent: "center"
-            }}
-          >
-            {userRejected ? userRejected : "not confirmation"}
-          </div>
-        </TabPane>
-        <TabPane tab="Completed" key="5">
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "wrap",
-              justifyContent: "center"
-            }}
-          >
-            {userCompleted ? userCompleted : "not confirmation"}
-          </div>
-        </TabPane>
-        <TabPane tab="Failed" key="6">
-          <div
-            style={{
-              display: "flex",
-              flexFlow: "wrap",
-              justifyContent: "center"
-            }}
-          >
-            {userFailed ? userFailed : "not confirmation"}
-          </div>
-        </TabPane>
-      </Tabs>
+    <div
+      style={{
+        padding: "100px 60px 80px 60px",
+        background: "#f3f3f3",
+        minHeight: "680px"
+      }}
+    >
+      <div
+        className=""
+        style={{
+          backgroundColor: "#fff",
+          padding: "35px 45px",
+          borderRadius: "8px"
+        }}
+      >
+        <h1>Gig</h1>
+        <Tabs defaultActiveKey="1" onChange={handleTabChange} animated={false}>
+          <TabPane tab="Applied" key="1">
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "wrap"
+                // justifyContent: "center"
+              }}
+            >
+              {userApplied ? userApplied : "no applied internship"}
+            </div>
+          </TabPane>
+          <TabPane tab="Shortlisted" key="2">
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "wrap"
+                // justifyContent: "center"
+              }}
+            >
+              {userShortlisted ? userShortlisted : "not shortlisted"}
+            </div>
+          </TabPane>
+          <TabPane tab="Selected" key="3">
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "wrap"
+                // justifyContent: "center"
+              }}
+            >
+              {userSelected ? userSelected : "not selected"}
+            </div>
+          </TabPane>
+          <TabPane tab="Rejected" key="4">
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "wrap"
+                // justifyContent: "center"
+              }}
+            >
+              {userRejected ? userRejected : "not confirmation"}
+            </div>
+          </TabPane>
+          <TabPane tab="Completed" key="5">
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "wrap"
+                // justifyContent: "center"
+              }}
+            >
+              {userCompleted ? userCompleted : "not confirmation"}
+            </div>
+          </TabPane>
+          <TabPane tab="Failed" key="6">
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "wrap"
+                // justifyContent: "center"
+              }}
+            >
+              {userFailed ? userFailed : "not confirmation"}
+            </div>
+          </TabPane>
+        </Tabs>
+      </div>
     </div>
   );
 };

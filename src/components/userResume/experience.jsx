@@ -180,10 +180,11 @@ const Experience = ({ workExperience, updateResume }) => {
         </section>
 
         <Tooltip title="add">
-          <Icon
-            type="plus-circle"
-            className="experience-block-one-button"
+        <img
+            src={addIcon}
+            alt=""
             onClick={handleAdd}
+            className="experience-block-one-button"
           />
         </Tooltip>
       </div>
