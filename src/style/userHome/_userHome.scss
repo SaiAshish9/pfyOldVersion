@@ -267,10 +267,35 @@ $card-background-color: #fff;
           margin: 0px;
         }
       }
-      .offline-gigs {
-        margin: 15px;
+      .offline-gigs{
+        margin-top: 15px;
         padding-left: 10px;
         border-left: 2px solid #5468d1;
+        .pin-img{
+          margin-right: 0.5rem;
+        }
+        .location-name{
+          margin-bottom: 1rem;
+          color: #6b6b6b;
+        }
+          .willing-to-travel-btn {
+            padding: 8px 1rem;
+            border: 1px solid #137efc;
+            border-radius: 3rem;
+            color: #137efc;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .btn-and-vehicles{
+          display: flex;
+          justify-content: space-around;
+          .vehicles{
+            margin: 0 1rem;
+            .vehicle{
+              margin: 0 0.5rem;
+            }
+          }
+        }
       }
     }
     .offline-available-avatar-button {
@@ -302,10 +327,11 @@ $card-background-color: #fff;
       border-left: 2px solid #5468d1;
       padding-left: 10px;
       margin-top: 15px;
-      .single-selected-language {
-        padding: 0.5rem 0.15rem;
-        // border-radius: 8px;
-        // border: 1px solid #ccc;
+      .single-selected-language{
+        padding: 0.5rem 1.5rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin: 0.25rem;
       }
     }
   }
@@ -334,8 +360,11 @@ $card-background-color: #fff;
       border-left: 2px solid #5468d1;
       display: flex;
       flex-wrap: wrap;
-      .single-skill {
-        padding: 0.5rem 0.15rem;
+      .single-skill{
+        padding: 0.5rem 1.25rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin: 0.25rem;
       }
     }
   }
@@ -349,6 +378,20 @@ $card-background-color: #fff;
       }
       .avatar-digital-profile-content {
         @extend %user-content;
+      }
+    }
+    .social-media{
+      width: 80%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+      .single-icon{
+        font-size: 3em;
+        padding: 0.25rem 1rem;
+        margin: 0 0.25rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
       }
     }
     .fb-block {

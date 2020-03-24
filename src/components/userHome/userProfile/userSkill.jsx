@@ -125,7 +125,7 @@ const UserSkill = props => {
           </div>
         </div>
         <img
-          src={skillData ? editIcon : addIcon}
+          src={skillData.length > 0 ? editIcon : addIcon}
           alt=""
           onClick={handleSkillButton}
           style={{ alignSelf: "baseline", cursor: "pointer" }}

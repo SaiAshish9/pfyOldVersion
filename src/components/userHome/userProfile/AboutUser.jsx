@@ -11,7 +11,7 @@ import editIcon from './img/editIcon.svg';
 const AboutUser = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm();
-  const aboutMeData = props.profileData.aboutMe;
+  const aboutMeData = props.profileData.aboutMe.trim();
 
   const onSubmit = data => {
     console.log(data);
@@ -19,12 +19,15 @@ const AboutUser = props => {
 
   const onSubmitAboutMe = data => {
     const url = "user/update";
+    console.log('%c ABOUT ME', 'font-size: 20px, color: darkblue')
+    console.log(data.aboutMe)
     const data1 = {
-      aboutMe: data.aboutMe
+      aboutMe: data.aboutMe ? data.aboutMe : " "
     };
     axios.put(url, data1).then(res => {
       console.log(res.data);
       // setIsRerender(!isRerender)
+
       props.isUpdate();
       setIsModalVisible(false);
     });

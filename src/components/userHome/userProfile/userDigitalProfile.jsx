@@ -30,9 +30,9 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
 
   useEffect(() => {
     setIsDisabled({
-      facebook: !!digitalProfileData.facebook ? true : false,
-      instagram: !!digitalProfileData.instagram ? true : false,
-      tiktok: !!digitalProfileData.tiktok ? true : false
+      facebook: !!digitalProfileData.facebook.trim() ? true : false,
+      instagram: !!digitalProfileData.instagram.trim() ? true : false,
+      tiktok: !!digitalProfileData.tiktok.trim() ? true : false
     });
     // setDigitalProfile({
     //   facebook:  digitalProfileData.facebook ? digitalProfileData.facebook : null,
@@ -61,6 +61,7 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
     axios.put(url, data).then(res => {
       console.log(res.data);
       isUpdate();
+      setIsModalVisible(false)
       // setIsRerender(Math.random());
     });
   };
@@ -69,7 +70,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
   const onChange = (e, media) => {
     const SocialMediaID = e.target.value.trim();
     console.log(e.target.value + " and media " + media);
-
     setSM({ ...SM, [media]: SocialMediaID });
   };
   console.log(SM);
@@ -92,82 +92,16 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
           </div>
         </div>
         <img
-          src={isDisabled.facebook || isDisabled.instagram || isDisabled.tiktok ? editIcon : addIcon }
+          src={digitalProfileData.facebook || digitalProfileData.instagram || digitalProfileData.tiktok  ? editIcon : addIcon }
           alt=""
           onClick={() => setIsModalVisible(true)}
           style={{ alignSelf: "baseline", cursor: "pointer" }}
         />
       </div>
-      {/* <div className="social-media-block">
-      <div className="fb-block">
-        <img src={six} alt=""></img>
-        <Input
-          style={{
-            width:
-              digitalProfileData.facebook && isDisabled.facebook ? "73%" : "80%"
-          }}
-          disabled={isDisabled.facebook}
-          defaultValue={digitalProfileData.facebook}
-          onChange={e => onChange(e, "facebook")}
-        />
-        <div
-          style={{
-            cursor: "pointer",
-            display: isDisabled.facebook ? "inherit" : "none"
-          }}
-        >
-          <Icon
-            onClick={() => setDisableHandler("facebook")}
-            type="edit"
-          ></Icon>
-        </div>
+      <div className="social-media">
+          {digitalProfileData.facebook ? <i style={{color: "#3b5999"}} className="single-icon fa fa-facebook " aria-hidden="true"></i> : null}
+          {digitalProfileData.instagram ? <i style={{color: "#e95950"}} className="single-icon fa fa-instagram " aria-hidden="true"></i>: null  }      
       </div>
-      <div className="insta-block">
-        <img src={seven} alt=""></img>
-        <Input
-          style={{
-            width:
-              digitalProfileData.instagram && isDisabled.instagram
-                ? "73%"
-                : "80%"
-          }}
-          disabled={isDisabled.instagram}
-          defaultValue={digitalProfileData.instagram}
-          onChange={e => onChange(e, "instagram")}
-        ></Input>
-        <div
-          style={{
-            cursor: "pointer",
-            display: isDisabled.instagram ? "inherit" : "none"
-          }}
-        >
-          <Icon
-            onClick={() => setDisableHandler("instagram")}
-            type="edit"
-          ></Icon>
-        </div>
-      </div>
-      <div className="tik-tok-block">
-        <img src={eight} alt=""></img>
-        <Input
-          style={{
-            width:
-              digitalProfileData.tiktok && isDisabled.tiktok ? "73%" : "80%"
-          }}
-          disabled={isDisabled.tiktok}
-          defaultValue={digitalProfileData.tiktok}
-          onChange={e => onChange(e, "tiktok")}
-        ></Input>
-        <div
-          style={{
-            cursor: "pointer",
-            display: isDisabled.tiktok ? "inherit" : "none"
-          }}
-        >
-          <Icon onClick={() => setDisableHandler("tiktok")} type="edit"></Icon>
-        </div>
-      </div>
-      </div> */}
       
       <Modal
         title="Add Social Media Accounts"

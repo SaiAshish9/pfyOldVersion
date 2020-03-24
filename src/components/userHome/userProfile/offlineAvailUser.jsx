@@ -10,6 +10,12 @@ import car from './car.svg';
 import bus from './bus.svg';
 import train from './train.svg';
 import twoWheeler from './two-wheeler.svg';
+import train2 from './train2.svg';
+import bus2 from './bus2.svg';
+import car2 from './car2.svg';
+import bike2 from './bike2.svg';
+import pin from './pin.svg'
+
 import editIcon from './img/editIcon.svg';
 
 
@@ -21,9 +27,8 @@ const textToImg = {
 }
 
 const OfflineAvailUser = props => {
-  const offlineGigsData = props.profileData
-    ? props.profileData.offlineGigs.mode
-    : { bus: false, train: false, car: false, bike: false };
+  const vehiclesData = props.profileData.offlineGigs.mode;
+  const offlineGigsData = props.profileData ? props.profileData.offlineGigs.mode : { bus: false, train: false, car: false, bike: false };
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [openDone, setOpenDone] = useState(false);
   const [openConveyance, setOpenConveyance] = useState(false);
@@ -36,6 +41,9 @@ const OfflineAvailUser = props => {
 
   useEffect(() => {
     setVehicle(offlineGigsData);
+    if(offlineGigsData.bus || offlineGigsData.train || offlineGigsData.bike ||offlineGigsData.bike){
+      setOpenConveyance(true)
+    }
   }, []);
 
   const { register, handleSubmit, watch, errors } = useForm();
@@ -52,12 +60,18 @@ const OfflineAvailUser = props => {
     setIsModalVisible(true);
   };
   const handleYes = () => {
-    setOpenDone(true);
+    // setOpenDone(true);
     setOpenConveyance(true);
   };
   const handleNo = () => {
-    setOpenDone(true);
+    // setOpenDone(true);
     setOpenConveyance(false);
+    setVehicle({
+      bus: false,
+      train: false,
+      car: false,
+      bike: false
+    })
   };
 
   // let vehicle = {
@@ -79,7 +93,7 @@ const OfflineAvailUser = props => {
     let data1 = {
       offlineGigs: {
         mode: {
-          ...vehicle
+           ...vehicle
         },
         location: props.profileData.offlineGigs.location,
         isWillingToTravel: openConveyance
@@ -120,20 +134,22 @@ const OfflineAvailUser = props => {
           <div className="offline-available-avatar-content">
             <h2>Offline Gigs</h2>
             <div className="offline-gigs">
-               { props.profileData
-                ? props.profileData.offlineGigs.isWillingToTravel
-                  ? arr.length > 0
-                    ? arr.map((d,index) => 
-                      <p>{d}</p>
-                    )
-                    : null
-                  : "no"
-                : "Can you travel to complete Gigs?" }
+               <div className="location-name"> <img className="pin-img" src={pin} alt=""/> { props.profileData.offlineGigs.location ? props.profileData.offlineGigs.location : null }</div>
+               <div className="btn-and-vehicles">
+                <div className="willing-to-travel-btn">Willing to travel</div>
+                <div className="vehicles">
+                    {vehiclesData.bike ? <img className="vehicle" src={bike2} alt=""/> : null}
+                    {vehiclesData.car ? <img className="vehicle" src={car2} alt=""/>: null}
+                    {vehiclesData.bus ? <img className="vehicle" src={bus2} alt=""/>: null}
+                    {vehiclesData.train ? <img className="vehicle" src={train2} alt=""/>: null}
+                  </div> 
+               </div>
+               
             </div>
           </div>
         </div>
         <img
-          src={ vehicle.bike || vehicle.bus || vehicle.car || vehicle.train ? editIcon : addIcon }
+          src={ vehicle.bike || vehicle.bus || vehicle.car || vehicle.train || props.profileData.offlineGigs.location ? editIcon : addIcon }
           alt=""
           onClick={handlePreferenceButton}
           style={{ alignSelf: "baseline", cursor: "pointer" }}
@@ -173,10 +189,10 @@ const OfflineAvailUser = props => {
             <div>
               <div className="heading-2">Are you willing to perform Offline Gigs In Your City?</div>
               <div className="yes-no-btn">
-              <Button onClick={() => setOpenConveyance(true)} type="primary" shape="round" className="yes-btn" >
+              <Button onClick={handleYes} type="primary" shape="round" className="yes-btn" >
                 Yes
               </Button>
-              <Button onClick={() => setOpenConveyance(false)} type="primary" shape="round" className="no-btn" >
+              <Button onClick={handleNo} type="primary" shape="round" className="no-btn" >
                 No
               </Button>
               </div>
