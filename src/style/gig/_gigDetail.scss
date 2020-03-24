@@ -5,6 +5,7 @@
   padding: 100px 0px 80px 0px;
   display: flex;
   justify-content: center;
+  min-height: 680px;
 
   .gig-main-block {
     width: 55%;
@@ -16,7 +17,7 @@
 
     .gig-provider-block-One {
       display: flex;
-      margin-top: 20px;
+      margin: 20px 0px;
       border-bottom: 1px solid #e8e8e8;
       padding-bottom: 24px;
 
@@ -67,7 +68,6 @@
     }
 
     .gig-brief-block {
-      margin-top: 20px;
       display: flex;
       justify-content: space-evenly;
       // margin: auto;

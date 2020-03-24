@@ -135,6 +135,7 @@ const Position = ({ position, updateResume }) => {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
+        width={680}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

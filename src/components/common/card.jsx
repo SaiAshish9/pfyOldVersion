@@ -7,10 +7,10 @@ import calendarIcon from "./img/calendarIcon.svg";
 import rupeeIcon from "./img/rupeeIcon.svg";
 import taskIcon from "./img/taskIcon.svg";
 import clockIcon from "./img/clockIcon.svg";
-const Card = props => {
+
+export default function Card(props) {
   const gig = props.gig;
   const internship = props.internship;
-
   /* ---------------------------- variable setting ---------------------------- */
   //#region
   const gigCompany = internship
@@ -80,5 +80,4 @@ const Card = props => {
       </div>
     </Link>
   );
-};
-export default Card;
+}

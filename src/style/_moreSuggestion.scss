@@ -1,4 +1,4 @@
-div.moreGig-main-block {
+div.moreGigOrInternship-main-block {
   margin-left: 50px;
   width: 23%;
   div.support-block {
@@ -18,38 +18,84 @@ div.moreGig-main-block {
       }
     }
   }
-  div.more-gig-block1 {
+  div.similar-gigOrInternship-block1 {
     margin-top: 24px;
-    h3.more-gig-block1__h3 {
+    h3.similar-gigOrInternship-block1__h3 {
     }
-    div.more-gig-block2 {
+    div.similar-gigOrInternship-block2 {
       background-color: #fff;
       display: flex;
-      align-items: center;
-      border: 1px solid #15335d;
-      padding: 4px 16px;
-      border-radius: 8px;
-      div.more-gig-block3-img-block {
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        height: 50px;
-        margin: auto;
-        border-radius: 100%;
+      padding: 16px 18px;
+      border: 1px solid #d3d3d3;
+      border-radius: 6px;
+      // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+      // border-radius: 2px;
+      transition: box-shadow 83ms;
+      &:hover {
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      div.similar-gigOrInternship-block3-img-block {
+        width: 75px;
+        height: 75px;
         border: 1px solid rgba(0, 0, 0, 0.4);
-        img.more-gig-block3__img {
+        img.similar-gigOrInternship-block3__img {
           width: 100%;
         }
       }
-      div.more-gig-block4-content-block {
-        margin-left: 16px;
-        h4.more-gig-block4__h4 {
-          margin: 0px;
+      div.similar-gigOrInternship-block4-content-block {
+        margin-left: 24px;
+        overflow: hidden;
+        flex: 1;
+
+        h4.similar-gigOrInternship-block4__h4 {
+          color: #333743;
+          line-height: 1.43;
+          font-size: 14px;
+          font-weight: 500;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
-        p.more-gig-block4__p {
+        p.similar-gigOrInternship-block4__p {
           margin: 0px;
+          padding-bottom: 6px;
+          border-bottom: 1px solid #d3d3d3;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        div.info-main-graphic-block {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 2px;
+          div.info-graphic-block-one {
+            display: flex;
+            flex: 1;
+
+            img {
+            }
+
+            .info-graphic-block-one__p {
+              font-size: 12px;
+              margin: 0px 0px 0px 4px;
+            }
+          }
+
+          div.info-graphic-block-two {
+            display: flex;
+            flex: 1;
+
+            img {
+            }
+
+            .info-graphic-block-two__p {
+              font-size: 12px;
+              margin: 0px 0px 0px 4px;
+            }
+          }
         }
       }
     }

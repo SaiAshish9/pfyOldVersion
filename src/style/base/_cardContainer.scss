@@ -5,12 +5,14 @@
 
   .full-page {
     padding: 100px 60px 80px 60px;
+    min-height: 740px;
     
     /* border: 1px solid; */
     .card-holder-box {
       border-radius: 8px;
       background-color: #fff;
       width: 74%;
+      border: 1px solid #d3d3d3;
       // margin-left: 80px;
       .card-heading-box {
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);

@@ -117,7 +117,7 @@ const InternshipDetail = props => {
     <div className="internship-details-page">
       <div className="internship-main-block">
         <Tabs defaultActiveKey="1">
-          <TabPane tab="Tab 1" key="1">
+          <TabPane tab="Internship Description" key="1">
             <div className="internship-provider-block-One">
               <div className="internship-provider-block-two">
                 <div className="internship-provider-block-three">
@@ -282,8 +282,79 @@ const InternshipDetail = props => {
               </Button>
             </div>
           </TabPane>
-          <TabPane tab="Tab 2" key="2">
-            <p>sdkfnasknfdfaks</p>
+          <TabPane tab={`About the ${internshipProvider}`} key="2">
+            <div className="internship-provider-block-One">
+              <div className="internship-provider-block-two">
+                <div className="internship-provider-block-three">
+                  <img src={companyLogo ? companyLogo : ""}></img>
+                </div>
+                <div className="internship-provider-block-four">
+                  <h1 className="internship-provider-heading-one">
+                    {designation}
+                  </h1>
+                  <h3 className="internship-provider-heading-two">
+                    {internshipProvider}
+                  </h3>
+                  {isApply && (
+                    <div className="update-message-block">
+                      <img
+                        alt=""
+                        src={checkIcon}
+                        className="update-message-block__icon"
+                      ></img>
+                      <span className="update-message-block__span">
+                        You've applied to this internship
+                      </span>
+                    </div>
+                  )}
+                  {isShortlisted && (
+                    <div className="update-message-block">
+                      <img
+                        alt=""
+                        src={checkIcon}
+                        className="update-message-block__icon"
+                      ></img>
+                      <span className="update-message-block__span">
+                        You are shortlisted for this internship
+                      </span>
+                    </div>
+                  )}
+                  {isSelected && (
+                    <div className="update-message-block">
+                      <img
+                        alt=""
+                        src={checkIcon}
+                        className="update-message-block__icon"
+                      ></img>
+                      <span className="update-message-block__span">
+                        You are selected for this internship
+                      </span>
+                    </div>
+                  )}
+                  {isRejected && (
+                    <div className="update-message-block">
+                      <img
+                        alt=""
+                        src={removeIcon}
+                        className="update-message-block__icon"
+                      ></img>
+                      <span className="update-message-block__span">
+                        You've been rejected
+                      </span>
+                      <span className="update-message-block__span link">
+                        learn more
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="internship-detail-block">
+              <div>
+                <h2>{internshipProvider}</h2>
+                <p>{aboutInternshipProvider}</p>
+              </div>
+            </div>
           </TabPane>
         </Tabs>
         <Modal

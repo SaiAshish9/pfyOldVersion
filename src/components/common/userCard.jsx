@@ -82,8 +82,8 @@ export default function UserCard(props) {
         />
       </div> */}
       </div>
-      <div className="profile-Score-block">
-        <h1 className="profile-Score__h1">Your Profile Score</h1>
+      <div className="gig-Score-block">
+        <h1 className="gig-Score__h1">Your Gig Score</h1>
         <Progress
           type="circle"
           percent={!!userData && userData.profileScore}
@@ -91,7 +91,7 @@ export default function UserCard(props) {
           strokeWidth={15}
           strokeColor="#6dff5d"
           width={160}
-          className="profile-progressBar"
+          className="gig-progressBar"
         />
       </div>
     </div>

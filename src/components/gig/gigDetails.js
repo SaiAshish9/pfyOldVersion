@@ -130,7 +130,7 @@ export default function GigDetail(props) {
     <div className="gig-details-page">
       <div className="gig-main-block">
         <Tabs defaultActiveKey="1">
-          <TabPane tab="Tab 1" key="1">
+          <TabPane tab="Gig Description" key="1">
             <div className="gig-provider-block-One">
               <div className="gig-provider-block-two">
                 <div className="gig-provider-block-three">
@@ -253,11 +253,6 @@ export default function GigDetail(props) {
               </div>
               <br />
               <div>
-                <h2>About {gigProvider}</h2>
-                <p>{aboutGigProvider}</p>
-              </div>
-              <br />
-              <div>
                 <h2>About the Gig</h2>
                 <p>{aboutGig}</p>
               </div>
@@ -301,8 +296,96 @@ export default function GigDetail(props) {
               </Button>
             </div>
           </TabPane>
-          <TabPane tab="Tab 2" key="2">
-            Content of Tab Pane 2
+          <TabPane tab={`About the ${gigProvider}`} key="2">
+            <div className="gig-provider-block-One">
+              <div className="gig-provider-block-two">
+                <div className="gig-provider-block-three">
+                  <img src={companyLogo ? companyLogo : ""}></img>
+                </div>
+                <div className="gig-provider-block-four">
+                  <h1 className="gig-provider-heading-one">{designation}</h1>
+                  <h3 className="gig-provider-heading-two">{gigProvider}</h3>
+                  {isApply && (
+                    <div className="update-message-block">
+                      <img
+                        className="update-message-block__icon"
+                        alt=""
+                        src={checkIcon}
+                      ></img>
+                      <span className="update-message-block__span">
+                        You've applied to this Gig
+                      </span>
+                    </div>
+                  )}
+                  {isShortlisted && (
+                    <div className="update-message-block">
+                      <img
+                        className="update-message-block__icon"
+                        alt=""
+                        src={checkIcon}
+                      ></img>
+                      <span className="update-message-block__span">
+                        You are shortlisted for this Gig
+                      </span>
+                    </div>
+                  )}
+                  {isSelected && (
+                    <div className="update-message-block">
+                      <img
+                        className="update-message-block__icon"
+                        alt=""
+                        src={checkIcon}
+                      ></img>
+                      <span className="update-message-block__span">
+                        You are selected for this Gig
+                      </span>
+                    </div>
+                  )}
+                  {isRejected && (
+                    <div className="update-message-block">
+                      <img
+                        className="update-message-block__icon"
+                        alt=""
+                        src={removeIcon}
+                      ></img>
+                      <span className="update-message-block__span">
+                        You've been rejected
+                      </span>
+                      <span className="update-message-block__span link">
+                        learn more
+                      </span>
+                    </div>
+                  )}
+                  {isCompleted && (
+                    <div className="update-message-block">
+                      <img
+                        className="update-message-block__icon"
+                        alt=""
+                        src={checkIcon}
+                      ></img>
+                      <span className="update-message-block__span">
+                        Congratulations! you've successfully complete this Gig
+                      </span>
+                    </div>
+                  )}
+                  {isFailed && (
+                    <div className="update-message-block">
+                      <img alt="" src={removeIcon}></img>
+                      <span className="update-message-block__span">
+                        Sorry! your gig has been failed
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="gig-detail-block">
+              <div>
+                <h2>{gigProvider}</h2>
+                <p>{aboutGigProvider}</p>
+              </div>
+            </div>
           </TabPane>
         </Tabs>
         <Modal
