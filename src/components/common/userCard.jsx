@@ -56,10 +56,10 @@ export default function UserCard(props) {
             ></img>
           </div>
         </div>
-        <h2 style={{ textAlign: "center", fontSize: "22px", margin: "0px" }}>
-          {!!userData && userData.firstName}
-        </h2>
         <div className="avatar-intro-block">
+          <h2 style={{ textAlign: "center", fontSize: "22px", margin: "0px" }}>
+            {!!userData && userData.firstName}
+          </h2>
           <div className="mail-block">
             {/* <img src={emailIcon} alt=""></img> */}
             <p>{!!userData && userData.email}</p>

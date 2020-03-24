@@ -1,16 +1,14 @@
 import axios from 'axios';
-import "circular-std";
 import Cookie from 'js-cookie';
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
 import "./style/_style.scss";
-import "circular-std"; 
+import "circular-std";
 
 axios.defaults.baseURL = 'https://pracify.com/testing/';
 axios.defaults.headers.common['token'] = Cookie.get('token');
-
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
