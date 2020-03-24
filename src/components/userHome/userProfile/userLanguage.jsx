@@ -59,7 +59,6 @@ const UserLanguage = props => {
   const languagesArr = [];
 
   const newSubmitHandler = () => {
-    if (selectLang.length > 0) {
       const url = "user/update";
       const data1 = {
         languages: [...selectLang]
@@ -69,7 +68,6 @@ const UserLanguage = props => {
         props.isUpdate();
         setIsModalVisible(false);
       });
-    }
   };
 
   const onSubmit = data => {
@@ -125,7 +123,7 @@ const UserLanguage = props => {
               : "Which language do you speak?"}{" "}
           </div>
         </div>
-        <img src={props.profileData && props.profileData.languages ? editIcon : addIcon} alt=""
+        <img src={props.profileData && props.profileData.languages.length > 0 ? editIcon : addIcon} alt=""
          onClick={handleLanguageButton}
           style={{alignSelf:"baseline", cursor: "pointer"}} />
       </div>
