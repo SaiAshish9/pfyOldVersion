@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, Tooltip, Icon } from "antd";
+import { Button, Modal, Tooltip, Icon , Descriptions} from "antd";
 import axios from "axios";
 
 import { useForm } from "react-hook-form";
@@ -115,6 +115,7 @@ const Achievement = ({ achievement, updateResume }) => {
           style={{ display: "flex", flexDirection: "column" }}
           className="achievement-modal__form "
         >
+          <label className="input-label">Description</label>
           <textarea
             name="achievement"
             ref={register}

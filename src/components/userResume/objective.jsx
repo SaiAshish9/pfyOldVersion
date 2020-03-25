@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Skeleton, Button, Modal, Icon, Tooltip } from "antd";
+import { Skeleton, Button, Modal, Icon, Tooltip , Descriptions} from "antd";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
@@ -103,7 +103,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
       </div>
 
       <Modal
-        class="modal-block"
+        className="user-info-fetcher-modal"
         title="Add Career Objectives"
         visible={isModalVisible}
         onCancel={handleCancel}
@@ -114,6 +114,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
           onSubmit={handleSubmit(onSubmit)}
           className="objective-modal__form"
         >
+          <label className="input-label">Description</label>
           <textarea
             name="objectiveTextarea"
             ref={register}
@@ -135,3 +136,6 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
 };
 
 export default Objective;
+
+
+

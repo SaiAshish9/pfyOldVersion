@@ -53,7 +53,7 @@ const UserGig = () => {
       const userGig = userCardData.mission;
       console.log(userGig);
       return (
-        <div style={{ margin: "20px 20px" }} key={index}>
+        <div style={{ margin: "20px 20px 20px 1px" }} key={index}>
           <Card gig={userGig}></Card>
         </div>
       );

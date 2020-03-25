@@ -26,9 +26,6 @@ const UserInternship = () => {
   useEffect(() => {
     console.log(internship);
     console.log(internship.length > 0 && internship[0].status);
-    // const a = internship[0]
-
-    // console.log(a.status);
   }, [internship]);
 
   const handleTabChange = key => {
@@ -56,7 +53,7 @@ const UserInternship = () => {
     applied.map((appliedInternship, index) => {
       const userInternship = appliedInternship.internship;
       return (
-        <div style={{ margin: "20px 20px" }} key={index}>
+        <div style={{ margin: "20px 20px 20px 1px" }} key={index}>
           <Card internship={userInternship}></Card>
         </div>
       );
@@ -67,7 +64,7 @@ const UserInternship = () => {
     shortlisted.map((shortlistedInternship, index) => {
       const userInternship = shortlistedInternship.internship;
       return (
-        <div style={{ margin: "20px 20px" }} key={index}>
+        <div style={{ margin: "20px 20px 20px 1px" }} key={index}>
           <Card internship={userInternship}></Card>
         </div>
       );
@@ -78,7 +75,7 @@ const UserInternship = () => {
     selected.map((selectedInternship, index) => {
       const userInternship = selectedInternship.internship;
       return (
-        <div style={{ margin: "20px 20px" }} key={index}>
+        <div style={{ margin: "20px 20px 20px 1px" }} key={index}>
           <Card internship={userInternship}></Card>
         </div>
       );
@@ -89,7 +86,7 @@ const UserInternship = () => {
     rejected.map((rejectedInternship, index) => {
       const userInternship = rejectedInternship.internship;
       return (
-        <div style={{ margin: "20px 20px" }} key={index}>
+        <div style={{ margin: "20px 20px 20px 1px" }} key={index}>
           <Card internship={userInternship}></Card>
         </div>
       );

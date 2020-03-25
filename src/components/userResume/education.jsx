@@ -9,7 +9,6 @@ import educationIcon from "./img/headingImg/educationIcon.svg";
 
 import addIcon from "./img/addIcon.svg";
 
-
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
 
@@ -165,7 +164,12 @@ export default function Education({ education, updateResume }) {
         </section>
         <section className="education-block-one-button">
           <Tooltip title="add">
-            <img src={addIcon} alt=""  onClick={handleAddEducation} className=""/>
+            <img
+              src={addIcon}
+              alt=""
+              onClick={handleAddEducation}
+              className=""
+            />
           </Tooltip>
         </section>
       </div>
@@ -182,7 +186,7 @@ export default function Education({ education, updateResume }) {
           className="education-modal__form"
         >
           <section className="education-modal-sec-one">
-            <h3 className="education-modal-sec-one__head">Institute type</h3>
+            <label className="input-label">Institute type</label>
             <select
               name="educationType.typeNo"
               ref={register}
@@ -196,7 +200,7 @@ export default function Education({ education, updateResume }) {
           </section>
 
           <section className="education-modal-sec-two">
-            <h3 className="education-modal-sec-two__head">Institute Name</h3>
+            <label className="input-label">Institute Name</label>
             <input
               name="instituteName"
               ref={register}
@@ -207,9 +211,9 @@ export default function Education({ education, updateResume }) {
 
           <section className="education-modal-sec-three">
             {standardSelect === "0" || standardSelect === "1" ? (
-              <h3 className="education-modal-sec-three__head ">Course Name</h3>
+              <label className="input-label ">Course Name</label>
             ) : (
-              <h3 className="education-modal-sec-three__head ">Board Name</h3>
+              <label className="input-label ">Board Name</label>
             )}
             <input
               name="course"
@@ -220,7 +224,7 @@ export default function Education({ education, updateResume }) {
           </section>
 
           <section className="education-modal-sec-four">
-            <h3 className="education-modal-sec-four__head ">Marks</h3>
+            <label className="input-label ">Marks</label>
             <div className="education-modal-sec-four-block">
               <input
                 name="marks.val"
@@ -241,9 +245,7 @@ export default function Education({ education, updateResume }) {
 
           <div className="education-modal-block">
             <section className="education-modal-block-sec-one">
-              <h3 className="education-modal-block-sec-one__head-one">
-                Start Year
-              </h3>
+              <label className="input-label">Start Year</label>
               <select
                 name="startYear"
                 ref={register}
@@ -261,9 +263,7 @@ export default function Education({ education, updateResume }) {
 
             {!isCheckbox && (
               <section className="education-modal-block-sec-two">
-                <h3 className="education-modal-block-sec-two__head-one">
-                  End year
-                </h3>
+                <label className="input-label">End year</label>
                 <select
                   name="endYear"
                   ref={register}
@@ -289,9 +289,9 @@ export default function Education({ education, updateResume }) {
               className="education-modal-sec-five__checkbox"
               // defaultValue={false}
             />
-            <h3 className="education-modal-sec-five__head">
+            <label className="education-modal-sec-five__head">
               Currently studying here
-            </h3>
+            </label>
           </section>
 
           <Button

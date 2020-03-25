@@ -214,11 +214,7 @@ const InternshipDetail = props => {
             <div className="boundary-one" />
 
             <div className="internship-detail-block">
-              <div>
-                <h2>About {internshipProvider}</h2>
-                <p>{aboutInternshipProvider}</p>
-              </div>
-              <br />
+              
               <div>
                 <h2>Responsibilities</h2>
                 {arrayValidation(internResponsibilities) &&
