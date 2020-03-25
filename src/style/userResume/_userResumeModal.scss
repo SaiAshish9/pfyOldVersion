@@ -32,7 +32,6 @@
   opacity: 0.6;
   line-height: 1.38;
   margin: 0px;
-  // padding-bottom: 12px;
 }
 
 %modal-form {
@@ -83,7 +82,7 @@
   border: solid 1px #e5e5e5;
   background-color: #ffffff;
   word-spacing: $wordSpace;
-  text-indent: 6px;
+  padding-left: 8px;
   // height: 40px;
 }
 

@@ -5,7 +5,7 @@ import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import Axios from "axios";
 import { objectValidation } from "../validation/validation";
-import team from "./img/headingImg/digitalProfileIcon.svg";
+import digitalProfileIcon from "./img/headingImg/digitalProfileIcon.svg";
 
 import addIcon from "./img/addIcon.svg";
 
@@ -70,15 +70,10 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
 
   return (
     <div className="digital-profile-block-one">
-      <div
-        className="digital-profile-block-two"
-        style={{
-          borderBottom: isAllData() ? "1px solid #CECFCF" : "none"
-        }}
-      >
+      <div className="digital-profile-block-two" style={{}}>
         <section style={{ display: "flex" }}>
           <img
-            src={team}
+            src={digitalProfileIcon}
             alt=""
             className="digital-profile-block-two-icon"
           ></img>
@@ -87,21 +82,21 @@ const DigitalProfile = ({ digitalProfile, updateResume }) => {
           </h2>
         </section>
 
-        <Tooltip title="add">
-          <img
-            src={addIcon}
-            alt=""
-            onClick={handleAdd}
-            className="digital-block-one-button"
-          />
-        </Tooltip>
-
-        {isAllData() && (
+        {isAllData() ? (
           <section>
             <Tooltip title="edit">
               <Icon type="edit" onClick={handleEdit} />
             </Tooltip>
           </section>
+        ) : (
+          <Tooltip title="add">
+            <img
+              src={addIcon}
+              alt=""
+              onClick={handleAdd}
+              className="digital-block-one-button"
+            />
+          </Tooltip>
         )}
       </div>
       {!!digitalProfile && objectValidation(digitalProfile) && isAllData() && (

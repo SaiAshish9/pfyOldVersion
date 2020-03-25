@@ -136,19 +136,30 @@ const Project = ({ project, updateResume }) => {
                     >
                       {myProject.link}
                     </a>
+                    {console.log("myProject", myProject)}
+
                     <div className="project-content-sec-one-block-one ">
-                      <h5 className="project-content-sec-one-block-one__h5-one ">
-                        {myProject.start.month}
-                      </h5>
-                      <h5 className="project-content-sec-one-block-one__h5-two ">
-                        {myProject.start.year} -
-                      </h5>
-                      <h5 className="project-content-sec-one-block-one__h5-three ">
-                        {myProject.end.month}
-                      </h5>
-                      <h5 className="project-content-sec-one-block-one__h5-four ">
-                        {myProject.end.year}
-                      </h5>
+                      {myProject.start.month && (
+                        <h5 className="project-content-sec-one-block-one__h5-one ">
+                          {myProject.start.month}
+                        </h5>
+                      )}
+
+                      {myProject.start.year && (
+                        <h5 className="project-content-sec-one-block-one__h5-two ">
+                          {myProject.start.year}
+                        </h5>
+                      )}
+                      {!!myProject.end && (
+                        <h5 className="project-content-sec-one-block-one__h5-three ">
+                          - {myProject.end.month}
+                        </h5>
+                      )}
+                      {!!myProject.end && (
+                        <h5 className="project-content-sec-one-block-one__h5-four ">
+                          {myProject.end.year}
+                        </h5>
+                      )}
                     </div>
                   </section>
                   <section className="project-edit-delete-icon">
@@ -186,7 +197,6 @@ const Project = ({ project, updateResume }) => {
         onCancel={handleCancel}
         footer={null}
         width={680}
-
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

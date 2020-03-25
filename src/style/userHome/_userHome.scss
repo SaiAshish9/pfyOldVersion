@@ -192,8 +192,8 @@ $card-background-color: #fff;
 }
 
 %user-content {
-  margin-left: 20px;
-  line-height: 1;
+  margin-left: 0px;
+  // line-height: 1;
 }
 
 %user-button {
@@ -228,13 +228,16 @@ $card-background-color: #fff;
       .about-avatar-content {
         @extend %user-content;
         h2 {
-          margin: 0px;
+          font-size: 18px;
+          margin: 0px 0px 0px 10px;
         }
       }
       .about-content-block {
-        padding-left: 0.75rem;
-        margin-top: 1rem;
+        padding-left: 10px;
         border-left: 2px solid #5468d1;
+        .about-content-block__p {
+          margin: 15px 0px 0px 0px;
+        }
       }
     }
     .about-avatar-button {
@@ -264,34 +267,35 @@ $card-background-color: #fff;
         }
         @extend %user-content;
         h2 {
-          margin: 0px;
+          font-size: 18px;
+          margin: 0px 0px 0px 10px;
         }
       }
-      .offline-gigs{
+      .offline-gigs {
         margin-top: 15px;
         padding-left: 10px;
         border-left: 2px solid #5468d1;
-        .pin-img{
+        .pin-img {
           margin-right: 0.5rem;
         }
-        .location-name{
+        .location-name {
           margin-bottom: 1rem;
           color: #6b6b6b;
         }
-          .willing-to-travel-btn {
-            padding: 8px 1rem;
-            border: 1px solid #137efc;
-            border-radius: 3rem;
-            color: #137efc;
-            font-weight: 500;
-            cursor: pointer;
+        .willing-to-travel-btn {
+          padding: 8px 1rem;
+          border: 1px solid #137efc;
+          border-radius: 3rem;
+          color: #137efc;
+          font-weight: 500;
+          cursor: pointer;
         }
-        .btn-and-vehicles{
+        .btn-and-vehicles {
           display: flex;
           justify-content: space-around;
-          .vehicles{
+          .vehicles {
             margin: 0 1rem;
-            .vehicle{
+            .vehicle {
               margin: 0 0.5rem;
             }
           }
@@ -313,7 +317,8 @@ $card-background-color: #fff;
       .language-of-avatar-content {
         @extend %user-content;
         h2 {
-          margin: 0px;
+          font-size: 18px;
+          margin: 0px 0px 0px 10px;
         }
       }
     }
@@ -322,16 +327,15 @@ $card-background-color: #fff;
     }
     .selected-languages {
       display: flex;
-      // justify-content: space-between;
       flex-wrap: wrap;
       border-left: 2px solid #5468d1;
       padding-left: 10px;
       margin-top: 15px;
-      .single-selected-language{
+      .single-selected-language {
         padding: 0.5rem 1.5rem;
         border: 1px solid #ccc;
         border-radius: 8px;
-        margin: 0.25rem;
+        margin: 4px 8px 4px 0px;
       }
     }
   }
@@ -346,7 +350,8 @@ $card-background-color: #fff;
       .skill-of-avatar-content {
         @extend %user-content;
         h2 {
-          margin: 0px;
+          font-size: 18px;
+          margin: 0px 0px 0px 10px;
         }
       }
     }
@@ -360,11 +365,11 @@ $card-background-color: #fff;
       border-left: 2px solid #5468d1;
       display: flex;
       flex-wrap: wrap;
-      .single-skill{
+      .single-skill {
         padding: 0.5rem 1.25rem;
         border-radius: 8px;
         border: 1px solid #ccc;
-        margin: 0.25rem;
+        margin: 4px 8px 4px 0px;
       }
     }
   }
@@ -375,21 +380,26 @@ $card-background-color: #fff;
       @extend %user-content-with-icon;
       .avatar-digital-profile-img {
         @extend %user-icon;
+        margin-top: 2px;
       }
       .avatar-digital-profile-content {
         @extend %user-content;
+        h2 {
+          font-size: 18px;
+          margin: 0px 0px 0px 10px;
+        }
       }
     }
-    .social-media{
+    .social-media {
       width: 80%;
       margin: auto;
       display: flex;
       justify-content: center;
-      margin-bottom: 1rem;
-      .single-icon{
+      // margin-bottom: 1rem;
+      .single-icon {
         font-size: 3em;
         padding: 0.25rem 1rem;
-        margin: 0 0.25rem;
+        margin: 0px 0.25rem 20px 0.25rem;
         border: 1px solid #ccc;
         border-radius: 8px;
       }

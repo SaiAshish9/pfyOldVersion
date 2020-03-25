@@ -22,8 +22,7 @@ import storeAuditIcon from "./img/interestIcon/storeAuditIcon.svg";
 import videoMaking from "./img/interestIcon/videoMaking.svg";
 import writingIcon from "./img/interestIcon/writingIcon.svg";
 import four from "./img/(4).svg";
-import editIcon from './img/editIcon.svg';
-
+import editIcon from "./img/editIcon.svg";
 
 import addIcon from "./img/addIcon.svg";
 
@@ -112,7 +111,12 @@ const UserSkill = props => {
   console.log("SKILLS1", skills1);
   let skillData = [];
   if (props.profileData && props.profileData.skills) {
-    skillData = props.profileData.skills.map((el, i) => <div className="single-skill" key={i}> {el} </div>);
+    skillData = props.profileData.skills.map((el, i) => (
+      <div className="single-skill" key={i}>
+        {" "}
+        {el}{" "}
+      </div>
+    ));
   }
   return (
     <div className="skill-of-avatar-block">
@@ -121,7 +125,11 @@ const UserSkill = props => {
           <img className="skill-of-avatar-img" src={four} alt=""></img>
           <div className="skill-of-avatar-content">
             <h2>Skills</h2>
-            <div className="skill-list"> { skillData ? skillData : "What are you good at?" } </div>
+            {skillData ? (
+              <div className="skill-list">{skillData}</div>
+            ) : (
+              <div className="skill-list">What are you good at?</div>
+            )}
           </div>
         </div>
         <img
