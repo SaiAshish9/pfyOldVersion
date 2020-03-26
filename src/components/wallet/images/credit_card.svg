@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="376" height="230.574" viewBox="0 0 376 230.574">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.027" y1="0.045" x2="1.021" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#364f6b"/>
+      <stop offset="1" stop-color="#1b2836"/>
+    </linearGradient>
+    <filter id="Path_4" x="0" y="0" width="376" height="230.574" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.4"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_5" x="54.896" y="53.99" width="69.391" height="49.709" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_206" data-name="Group 206" transform="translate(8 -47)">
+    <g transform="matrix(1, 0, 0, 1, -8, 47)" filter="url(#Path_4)">
+      <path id="Path_4-2" data-name="Path 4" d="M24.055,0H291.945A24.055,24.055,0,0,1,316,24.055V146.519a24.055,24.055,0,0,1-24.055,24.055H24.055A24.055,24.055,0,0,1,0,146.519V24.055A24.055,24.055,0,0,1,24.055,0Z" transform="translate(30 25)" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Subtraction_4" data-name="Subtraction 4" d="M144.332,100.6H3.647A77.106,77.106,0,0,1,144.332,39.372V100.6Z" transform="translate(193.667 141.978)" fill="#fff" opacity="0.12"/>
+    <path id="Subtraction_2" data-name="Subtraction 2" d="M77.086,125.743A77.023,77.023,0,0,1,0,48.657,76.761,76.761,0,0,1,17.293,0H78.726V125.726C78.16,125.738,77.608,125.743,77.086,125.743Z" transform="translate(259.274 72)" fill="#fff" opacity="0.12"/>
+    <g transform="matrix(1, 0, 0, 1, -8, 47)" filter="url(#Path_5)">
+      <path id="Path_5-2" data-name="Path 5" d="M5.467,0H45.924a5.467,5.467,0,0,1,5.467,5.467V26.242a5.467,5.467,0,0,1-5.467,5.467H5.467A5.467,5.467,0,0,1,0,26.242V5.467A5.467,5.467,0,0,1,5.467,0Z" transform="translate(63.9 59.99)" fill="#fff" opacity="0.77"/>
+    </g>
+    <g id="Group_7" data-name="Group 7" transform="translate(55.896 107.536)">
+      <g id="Group_3" data-name="Group 3" transform="translate(0 9.841)">
+        <line id="Line_1" data-name="Line 1" x2="16.401" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+        <line id="Line_2" data-name="Line 2" x2="16.401" transform="translate(0 10.934)" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+        <line id="Line_3" data-name="Line 3" y2="10.934" transform="translate(16.401)" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+        <line id="Line_6" data-name="Line 6" x1="18.588" transform="translate(16.401 5.467)" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+      </g>
+      <g id="Group_4" data-name="Group 4" transform="translate(34.99 9.841)">
+        <line id="Line_1-2" data-name="Line 1" x1="16.401" transform="translate(0)" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+        <line id="Line_2-2" data-name="Line 2" x1="16.401" transform="translate(0 10.934)" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+        <line id="Line_3-2" data-name="Line 3" y2="10.934" transform="translate(0)" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+      </g>
+      <g id="Group_5" data-name="Group 5" transform="translate(16.401)">
+        <line id="Line_4" data-name="Line 4" y1="9.841" x2="9.294" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+        <line id="Line_5" data-name="Line 5" x1="9.294" y1="9.841" transform="translate(9.294)" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+      </g>
+      <g id="Group_6" data-name="Group 6" transform="translate(16.401 20.775)">
+        <line id="Line_4-2" data-name="Line 4" x2="9.294" y2="9.841" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+        <line id="Line_5-2" data-name="Line 5" x1="9.294" y2="9.841" transform="translate(9.294)" fill="none" stroke="#364f6b" stroke-width="0.1"/>
+      </g>
+    </g>
+  </g>
+</svg>

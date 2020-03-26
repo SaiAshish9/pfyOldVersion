@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import dateIcon from "./dateIcon.svg";
-import rupee1 from "./rupee1.svg";
-import timeIcon from "./timeIcon.svg";
+import dateIcon from "./images/dateIcon.svg";
+import rupee1 from "./images/rupee1.svg";
+import timeIcon from "./images/timeIcon.svg";
 import moment from 'moment';
 
 const codeToText = {

@@ -60,7 +60,10 @@ const InternshipDetail = props => {
   useEffect(() => {
     if (isMyCookie) {
       axios
-        .get(`/internship/fetchone_with_status/${selectedInternshipId}`)
+        .get(
+          `${apiURL}/internship/fetchone_with_status/${selectedInternshipId}`,
+          tokenHeader
+        )
         .then(res => {
           console.log(res);
           if (res.data.appliedStatus === 300) {
@@ -214,7 +217,6 @@ const InternshipDetail = props => {
             <div className="boundary-one" />
 
             <div className="internship-detail-block">
-              
               <div>
                 <h2>Responsibilities</h2>
                 {arrayValidation(internResponsibilities) &&
