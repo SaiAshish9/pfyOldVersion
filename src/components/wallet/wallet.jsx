@@ -7,16 +7,20 @@ import creditCardImg from "./images/credit_card.svg";
 import envelop from "./images/envelop.svg";
 import future from "./images/future.svg";
 import transactionImg from "./images/transactionImg.svg";
+import PaymentMethod from './paymentMethodModal';
+import Transactions from "./transactions";
+import Earnings from "./earnings";
 
 const { TabPane } = Tabs;
 
 const Wallet = () => {
   const a = [1, 2, 3];
   const [isShow, setIsShow] = useState(false);
-  const [walletBalance, setWalletBalance] = useState(null);
+  const [walletDetails, setWalletDetails] = useState(null);
   const [earnings, setEarnings] = useState(null);
   const [transactions, setTransactions] = useState(null);
   const [isUpdate, setIsUpdate] = useState(null);
+  // const [isShow, setIsShow]
 
   const isModalOpen = () => {
     setIsShow(true);
@@ -31,7 +35,7 @@ const Wallet = () => {
     axios.get(url).then(res => {
       const data = res.data;
       console.table(data);
-      setWalletBalance(data.wallet);
+      setWalletDetails(data);
     });
 
     // fetch my earnings
@@ -49,29 +53,19 @@ const Wallet = () => {
       const transactions = res.data;
       console.log("TRANSACTIONS", transactions);
       setTransactions(transactions);
+      // setName()
     });
   }, [isUpdate]);
 
-  const redeem = () => {
-    const url = "wallet/request_redemption";
-    axios
-      .post(url)
-      .then(res => {
-        const resData = res.data;
-        console.log("REDEEM", resData.message);
-        message.info(resData.message);
-        setIsUpdate(Math.random());
-      })
-      .catch(err => {
-        const msg = err.response.data.message;
-        console.log(msg);
-        message.info(msg);
-      });
-  };
+  
 
   const callback = key => {
     console.log(key);
   };
+
+  const isUpdateHandler = () => {
+    setIsUpdate(Math.random())
+  }
 
   const arr = [1, 2, 3];
   return (
@@ -105,105 +99,13 @@ const Wallet = () => {
     //   </Tabs>
     // </div>
     <div className="wallet">
-      <div className="earning-block">
-        <div className="earning-inner-block">
-          <div className="payment-btn-and-earning">
-            <div className="coin-img">
-              <img src={coinIcon} alt="" />
-            </div>
-            <div className="buttons">
-              <Button className="redeem-btn" shape={"round"}>
-                Redeem Now
-              </Button>
-              <Button className="add-payment-method-btn" shape={"round"}>
-                Add Payment Method
-              </Button>
-            </div>
-          </div>
-          <div className="earning-list-block">
-            <div className="title">Earnings</div>
-            <div className="list">
-              {arr.map(el => (
-                <div className="single-item">
-                  <div className="envelop-img">
-                    <img src={envelop} alt="" />
-                  </div>
-                  <div className="earning-description">
-                    <div>
-                      <div className="earning-description-title">
-                        Post on Instagram
-                      </div>
-                      <div className="earning-description-date">
-                        <img src={calender} alt="" />
-                        <span className="description-date-string">
-                          28 Dec 2020
-                        </span>{" "}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="earning-description-amount">RS 50</div>
-                      <div className="earning-description-status">
-                        {" "}
-                        <img src={future} alt="" />{" "}
-                        <span className="description-status-string">
-                          Completed
-                        </span>{" "}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* <PaymentMethod isModalOpen={isShow} isClose={isClose} /> */}
+      {earnings && walletDetails ? <Earnings data={earnings} details={walletDetails} isUpdate={isUpdateHandler} /> : null}
+      {transactions && walletDetails ? <Transactions data={transactions} details={walletDetails}  /> : null}
+
       </div>
-      <div className="transaction-block">
-        <div className="credit-card-block">
-          <img src={creditCardImg} alt="" className="credit-card__img" />
-        </div>
-        <div className="transaction-inner-block">
-          <h1 className="transaction__h1">Transactions</h1>
-          {arr.map(el => {
-            return (
-              <div className="transaction-content-block">
-                <div className="transaction-img-block">
-                  <img
-                    src={transactionImg}
-                    alt=""
-                    className="transaction__img"
-                  />
-                </div>
-                <div className="transaction-title-or-date">
-                  <h3 className="transaction-title__h3">Amount Paid</h3>
-                  <div className="transaction-date">
-                    <img
-                      src={calender}
-                      alt=""
-                      className="transaction-date__img"
-                    />
-                    <span className="transaction-date__span">28 Dec 2020</span>{" "}
-                  </div>
-                </div>
-                <div className="transaction-summary-block">
-                  <h1 className="transaction-summary__h1">RS 50</h1>
-                  <div className="transaction-summary__status">
-                    {" "}
-                    <img
-                      src={future}
-                      alt=""
-                      className="transaction-summary-status__img"
-                    />{" "}
-                    <span className="transaction-summary-status__img">
-                      Completed
-                    </span>{" "}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
+      
+      
   );
 };
 

@@ -18,17 +18,28 @@
         // .ant-modal-footer{
         //     border-top: none;
         // }
-        .submit_btn{
+        .submit_btn_block{
+            margin-top: 1rem;
             padding: 0 2rem;
             border-radius: 1rem;
+            text-align: center;
+            .submit_btn{
+                padding: 0 2rem;
+                border: none;
+                border-radius: 2rem;
+                height: 2.5rem;
+                background: #6668c4;
+            }
         }
         .paytm_input{
             margin-top: 1.5rem;
+            text-align: initial;
             .heading{
                 margin: 0.25rem;
             }
         }
         .bank_input{
+            text-align: initial;
             margin-top: 1.5rem;
             .heading{
                 margin: 0.25rem;

@@ -209,9 +209,56 @@
     background-color: #ccc;
     min-height: 100vh;
     div.credit-card-block {
+      position: relative;
       text-align: center;
       margin-top: 48px;
       img.credit-card__img {
+      }
+      .credit-card__amount{
+        position: absolute;
+        top: 1.1rem;
+        left: 16.2rem;
+        font-weight: 900;
+        color: #5468d1;
+        font-size: 13px;
+      }
+      .credit-card__details{
+        position: relative;
+        bottom: 5rem;
+        right: 5.5rem;
+        color: #fff;
+        .credit-card__number{
+          font-size: 1rem;
+        }
+        .credit-card__holder{
+          font-size: 9px;
+          padding-right: 2rem;
+        }
+        .credit-card__name{
+          font-size: 1rem;
+          font-weight: 500;
+          padding-left: 1.5rem;
+        }
+      }
+      .credit-card__validity{
+        position: relative;
+        color: white;
+        bottom: 7.75rem;
+        left: 4rem;
+        .credit-card__validity-duration{
+          font-size: 1rem;
+          font-weight: 500;
+        }
+        .credit-card__validity-span{
+          font-size: 9px;
+          padding-right: 2.3rem;
+        }
+      }
+      .credit-card__title{
+        font-size: 9px;
+        font-weight: 900;
+        color: black;
+}
       }
     }
 
@@ -222,6 +269,7 @@
       margin: auto;
       h1.transaction__h1 {
         margin: 52px 0px 1.2rem 0px;
+        margin-top: -2rem;
         line-height: 1;
       }
 
@@ -252,7 +300,7 @@
 
             span.transaction-date__span {
               margin-left: 8px;
-              font-size: 12px;
+              // font-size: 12px;
             }
           }
         }
@@ -275,11 +323,11 @@
 
             span.transaction-summary-status__img {
               margin-left: 8px;
-              font-size: 12px;
+              // font-size: 12px; 
             }
           }
         }
       }
     }
   }
-}
+

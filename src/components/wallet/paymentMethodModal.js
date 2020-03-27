@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import { Modal, Button, Radio, Input } from 'antd';
+import { Modal, Button, Radio, Input, Tabs } from 'antd';
 import axios from 'axios';
+const { TabPane } = Tabs;
 
 
 export default function PaymentMethodModal(props) {
@@ -9,18 +10,18 @@ export default function PaymentMethodModal(props) {
     const [radioOption, setRadioOption] = useState(false)
     const [paytmDetails, setPaytmDetails] = useState({})
     const [bankDetails, setBankDetails] = useState({})
+    const [paymentMode, setPaymentMode] = useState("paytm")
 
     const showModal = () => {
         setVisible(true);
       };
     
       const handleOk = e => {
-        // console.log(e);
-        if(radioOption){
+        console.log(e);
             const url = "wallet/add_payment_method";
-            const dataToBeSend = radioOption === "paytm" ? paytmDetails : bankDetails;
+            const dataToBeSend = paymentMode === "paytm" ? paytmDetails : bankDetails;
             const data = {
-                [radioOption]: dataToBeSend
+                [paymentMode]: dataToBeSend
             }
             console.table(dataToBeSend)
             axios.post(url, data)
@@ -28,7 +29,6 @@ export default function PaymentMethodModal(props) {
                 console.log(res.data)
                 props.isClose()
             })
-        }
         // setVisible(false);
       };
     
@@ -57,41 +57,22 @@ export default function PaymentMethodModal(props) {
           setBankDetails({...bankDetails, [key]: e.target.value })
       }
       console.table(bankDetails)
-    
-    return (
-        <div>
-        <Modal
-          title="Add Payment Method"
-          visible={props.isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-          className={"payment_method_modal"}
-          footer={[
-            <Button key="submit" type="primary"
-            className="submit_btn"
-            onClick={handleOk}
-            // loading={loading} onClick={this.handleOk}
-            >
-            Submit
-          </Button>
-          ]}
-        >
-        <div className="payment_method_modal_title">Tell us where you want you redeem your wallet balance</div>
-        <Radio.Group onChange={onChange} value={radioOption}>
-        <Radio style={radioStyle}  value={"paytm"}>
-          Add Paytm Details
-        </Radio>
-        <Radio  style={radioStyle} value={"bank"}>
-          Add Bank Details
-        </Radio>
-        </Radio.Group>
-        <div className="paytm_input" style={{display: radioOption === "paytm" ? "block" : "none" }}>
+
+      const TabOnChangeHandler = (key) => {
+        console.log(key)
+        setPaymentMode(key)
+      }
+    const paytm = (
+      <div className="paytm_input" >
             <div className="heading" >Name of wallet user</div>
             <Input onChange={(e) => paytmChangeHandler(e, "holder_name")} placeholder="please enter name" />
             <div className="heading" >Number of wallet holder</div>
             <Input onChange={(e) => paytmChangeHandler(e, "number")} placeholder="please enter number" />
         </div>
-        <div className="bank_input" style={{display: radioOption === "bank" ? "block" : "none"}} >
+    );
+
+    const bank = (
+      <div className="bank_input" >
             <div className="heading" >A/C Holders Name </div>
             <Input onChange={(e) => bankChangeHandler(e, "account_holder_name")} placeholder="please enter name" />
             <div className="heading" >A/C Number</div>
@@ -104,6 +85,47 @@ export default function PaymentMethodModal(props) {
             <Input onChange={(e) => bankChangeHandler(e, "ifsc_code")} placeholder="please enter IFSC code" />
             
         </div>
+    )
+    return (
+        <div>
+        <Modal
+          title="Add Payment Method"
+          visible={props.isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          className={"payment_method_modal"}
+          footer={null}
+        >
+        <div className="payment_method_modal_title">Tell us where you want you redeem your wallet balance</div>
+        {/* <Radio.Group onChange={onChange} value={radioOption}>
+        <Radio style={radioStyle}  value={"paytm"}>
+          Add Paytm Details
+        </Radio>
+        <Radio  style={radioStyle} value={"bank"}>
+          Add Bank Details
+        </Radio>
+        </Radio.Group> */}
+        <Tabs style={{textAlign: "center"}} defaultActiveKey="paytm" onChange={TabOnChangeHandler} >
+          <TabPane tab="Add Paytm Details" key="paytm">
+            {paytm}
+          </TabPane>
+          <TabPane tab="Add Bank Details" key="bank">
+            {bank}
+          </TabPane>
+        </Tabs>
+        <div className="submit_btn_block">
+        <Button key="submit" type="primary"
+            className="submit_btn"
+            onClick={handleOk}
+            // style={{textAlign: "center"}}
+            // loading={loading} onClick={this.handleOk}
+            >
+            Submit
+        </Button>
+        </div>
+        
+        
+        
         </Modal>
       </div>
     )
