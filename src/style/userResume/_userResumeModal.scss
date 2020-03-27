@@ -491,8 +491,11 @@
   .skill-subCategory-block {
     display: flex;
     flex-flow: wrap;
+
     .skill-subCategory-block-two {
       display: flex;
+      position: relative;
+
       .skill-subCategory-content-block {
         margin: 10px 0px 10px 20px;
         padding: 5px 10px;
@@ -502,7 +505,11 @@
         }
       }
       .delete-icon {
-        align-self: flex-end;
+        // align-self: flex-end;
+        cursor: pointer;
+        position: absolute;
+        right: -4px;
+        bottom: 8px;
       }
     }
   }

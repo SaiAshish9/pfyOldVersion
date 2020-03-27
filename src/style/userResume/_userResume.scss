@@ -1,6 +1,3 @@
-
-
-
 .resume-with-userCard-block {
   background-color: #f3f3f3;
   font-family: $myFont;
@@ -182,36 +179,46 @@
         .skill-data-icon-block {
           margin-bottom: 12px;
           .skill-data-align-block {
-            position: relative;
-
             .skill-data-block {
+              position: relative;
               display: flex;
               align-items: center;
-              border: 1px solid;
-              border-radius: 18px;
-              padding: 0px 12px;
+              padding: 0.5rem 1.5rem;
+              border: 1px solid #ccc;
+              border-radius: 8px;
+              margin: 0px 8px 4px 0px;
               .skill-data__p {
-                margin: 0px;
+                margin: 0px 8px 0px 0px;
               }
 
               .skill-data__rating {
               }
-            }
-            .skill-edit-data__rating {
-              position: absolute;
-              justify-content: flex-end;
-              top: 1px;
-              width: 100%;
-              border-radius: 18px;
-              background-color: rgba(200, 200, 200, 0.8);
-              .ant-rate {
-                margin-right: 12px;
+              .skill-edit-data__rating {
+                position: absolute;
+                justify-content: center;
+                width: 100%;
+                background-color: currentColor;
+                display: flex;
+                align-items: center;
+                padding: 0.5rem 1.5rem;
+                border: 1px solid rgb(204, 204, 204);
+                border-radius: 8px;
+                margin: 0px 8px 0px -24px;
+
+                .ant-rate {
+                  margin-right: 12px;
+                }
+                .cancel__icon {
+                  position: absolute;
+                  right: -5px;
+                  bottom: -5px;
+                  cursor: pointer;
+                }
               }
             }
           }
 
-          .skill-data__icon {
-          }
+          
         }
       }
 

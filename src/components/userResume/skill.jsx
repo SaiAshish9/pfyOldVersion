@@ -13,6 +13,7 @@ import legalIcon from "./img/skillImg/legalIcon.svg";
 import marketingIcon from "./img/skillImg/marketingIcon.svg";
 import otherIcon from "./img/skillImg/otherIcon.svg";
 import technicalIcon from "./img/skillImg/technicalIcon.svg";
+import cancelIcon from "./img/cancelIcon.svg";
 
 import addIcon from "./img/addIcon.svg";
 
@@ -302,25 +303,29 @@ export default function Skill({ skill }) {
                     value={skill.rating}
                     className="skill-data__rating"
                   />
-                </div>
-                <div style={editDisplay()} className="skill-edit-data__rating">
-                  <Rate
-                    tooltips={proficiencyRate}
-                    defaultValue={skill.rating}
-                    onChange={value => onSkillRateChange(skill.name, value)}
-                  />
+                  <div
+                    style={editDisplay()}
+                    className="skill-edit-data__rating"
+                  >
+                    <Rate
+                      tooltips={proficiencyRate}
+                      defaultValue={skill.rating}
+                      onChange={value => onSkillRateChange(skill.name, value)}
+                    />
+                    <Tooltip title="remove">
+                      <img
+                        src={cancelIcon}
+                        alt=""
+                        onClick={() => handleDelete(skill.name)}
+                        className="cancel__icon"
+                      />
+                    </Tooltip>
+                  </div>
                 </div>
               </div>
-
-              <Icon
-                type="delete"
-                onClick={() => handleDelete(skill.name)}
-                className="skill-data__icon"
-              ></Icon>
             </div>
           ))}
       </div>
-
       <Modal
         width={600}
         title="Add Skills"
@@ -382,11 +387,18 @@ export default function Skill({ skill }) {
                       </Popover>
                     </div>
                     {!!selectedSkillCategory(thisSkillData.name) && (
-                      <Icon
-                        type="delete"
+                      <img
+                        src={cancelIcon}
+                        alt=""
                         className="delete-icon"
                         onClick={() => handleDelete(thisSkillData.name)}
-                      ></Icon>
+                      />
+
+                      // <Icon
+                      //   type="delete"
+                      //   className="delete-icon"
+                      //   onClick={() => handleDelete(thisSkillData.name)}
+                      // ></Icon>
                     )}
                   </div>
                 ))}
