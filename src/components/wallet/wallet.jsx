@@ -1,6 +1,6 @@
-import { Button, message, Tabs } from "antd";
+import { Button, message, Tabs, Skeleton, Col, Row } from "antd";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import calender from "./images/calender.svg";
 import coinIcon from "./images/coin.svg";
 import creditCardImg from "./images/credit_card.svg";
@@ -99,10 +99,16 @@ const Wallet = () => {
     //   </Tabs>
     // </div>
     <div className="wallet">
-      {/* <PaymentMethod isModalOpen={isShow} isClose={isClose} /> */}
-      {earnings && walletDetails ? <Earnings data={earnings} details={walletDetails} isUpdate={isUpdateHandler} /> : null}
-      {transactions && walletDetails ? <Transactions data={transactions} details={walletDetails}  /> : null}
-
+  {earnings && walletDetails && transactions  ?
+  <Fragment>
+   <Earnings data={earnings} details={walletDetails} isUpdate={isUpdateHandler} />
+      <Transactions data={transactions} details={walletDetails}  />
+  </Fragment>:
+    <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{width: "100%" , marginTop:"2rem"}}> 
+    <Col className="gutter-row" span={18}><Skeleton active /></Col> 
+    <Col className="gutter-row" span={6}><Skeleton /></Col> 
+    </Row> 
+     }   
       </div>
       
       

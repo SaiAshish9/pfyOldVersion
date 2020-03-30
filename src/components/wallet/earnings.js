@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import {Button, message } from 'antd';
+import {Button, message, Icon } from 'antd';
 import dateIcon from "./images/dateIcon.svg";
 import rupee1 from "./images/rupee1.svg";
 import timeIcon from "./images/timeIcon.svg";
@@ -10,6 +10,7 @@ import future from "./images/future.svg";
 import calender from "./images/calender.svg";
 import PaymentMethod from './paymentMethodModal';
 import axios from 'axios';
+import noDetails from './images/noDetails.jpg'
 
 
 const codeToText = {
@@ -21,6 +22,10 @@ const codeToText = {
 
 export default function Earnings({data, details, isUpdate}) {
   const [isShow, setIsShow] = useState(false);
+
+  console.log("%c Details","font-size: 25px, color: darkorange")
+  // console.log(details)
+  console.log(data)
 
   const isModalOpen = () => {
     setIsShow(true);
@@ -73,7 +78,7 @@ export default function Earnings({data, details, isUpdate}) {
               <div className="earning-list-block">
                 <div className="title">Earnings</div>
                 <div className="list">
-                { data && data.map((earning, index) => 
+                { data.length ? data.map((earning, index) => 
                     <div key={index} className="single-item">
                       <div className="envelop-img">
                         <img src={envelop} alt="" />
@@ -102,7 +107,13 @@ export default function Earnings({data, details, isUpdate}) {
                         </div>
                       </div>
                     </div>
-                  )}
+                  ) : <Fragment>
+                  <div style={{display: "flex", alignItems:"center"}}>
+                    <Icon style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle" /> 
+                    <div style={{fontSize: "1.5rem", fontFamily: "CircularStd" }}>Your Wallet Is <br/> Currently Empty</div>
+                    <img src={noDetails} alt="" />
+                  </div>
+                </Fragment>}
                 </div>
                 </div>
               </div>

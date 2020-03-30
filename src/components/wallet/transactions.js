@@ -7,6 +7,7 @@ import future from "./images/future.svg";
 import transactionImg from "./images/transactionImg.svg";
 import calender from "./images/calender.svg";
 import creditCardImg from "./images/credit_card.svg";
+import { Icon } from 'antd';
 
 
 
@@ -17,6 +18,8 @@ const codeToText = {
 
 export default function Transactions({data, details}) {
   const arr = [1,2,3]
+  console.log("%c Details", 'font-size: 25px')
+  console.log(data, details)
     return (
       <Fragment>
       <div className="transaction-block">
@@ -44,7 +47,7 @@ export default function Transactions({data, details}) {
           </div> : null } 
           <div className="transaction-inner-block">
             <h1 className="transaction__h1">Transactions</h1>
-        {data && data.map((trans, index) =>
+        {data.length ? data.map((trans, index) =>
                 <div key={index} className="transaction-content-block">
                   <div className="transaction-img-block">
                     <img
@@ -79,11 +82,17 @@ export default function Transactions({data, details}) {
                     </div>
                   </div>
                 </div>
-              
-            )}
+            ): 
+            <Fragment>
+              <div style={{display: "flex", alignItems:"center"}}>
+                <Icon style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle" /> 
+                
+                <div style={{fontSize: "1.5rem", fontFamily: "CircularStd" }}>There is currently <br/> No Transaction</div>
+              </div>
+            </Fragment> }
           </div>
         
-        )}
+      
         </div>
         
         </Fragment>
