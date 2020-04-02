@@ -1,0 +1,56 @@
+.verify-student-status-form{
+    .status-form-single-input{
+        .status-form-title{
+            margin: 0.75rem 0rem 0.2rem 0;
+        }
+    }
+    .status-form-instruction{
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+        margin: 2rem 0;
+        // border: 1px solid #ccc;
+
+        .title{
+            font-size: 1rem;
+            color: black;
+        }
+        .single-instruction{
+            margin: 0;
+            font-size: 0.75rem;
+        }
+    }
+    .status-form-upload{
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem 0;
+    }
+    .status-form-submit{
+        margin: auto;
+        display: block;
+        width: 10rem;
+        background: #6668c4;
+        color: white;
+        border-radius: 3rem;
+        height: 3rem;
+        margin-top: 2rem;
+    }
+    .document-image1, .document-image2 {
+        .ant-upload-select-picture-card{
+            width: 15rem;
+            border-radius: 21px;
+            border: 2px dashed #ccc;
+            .upload-text-content{
+                display: flex;
+                justify-content: space-evenly;
+                .text{
+                    width: 57%;
+                }
+                .icon{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+

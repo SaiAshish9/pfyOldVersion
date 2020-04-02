@@ -1,0 +1,65 @@
+%heading{
+    font-size: 1.3rem;
+    color: black;
+    font-family: CircularStd;
+    margin-bottom: 0.5rem;
+}
+
+%button{
+    background-color: #137efc;
+    color: white;
+    margin: 0 1rem;
+    width: 17.5rem;
+    height: 2.5rem;
+}
+
+
+.taskFlow{
+    .ant-modal-title{
+        font-size: 1.5rem;
+    }
+    .task-details-block{
+        .task-details-description{
+            .task-details-title{
+                @extend %heading;
+            }
+            .task-details-content{
+               
+            }
+        }
+        .task-details-instructions{
+            .task-details-instructions-title{
+                @extend %heading;
+            }
+            .task-details-instructions-content{
+                .single-instruction{
+                    margin: 0;
+                }
+            }
+        }
+    }
+    .task-reference-btn{
+        background-color: #f2f2f2;
+        font-family: CircularStd;
+        font-size: 1em;
+        font-weight: bold;
+        color: black;
+        height: 3rem;
+        margin: 1rem 0;
+    }
+    .download-and-copy-btn{
+        padding: 1.5rem 0;
+        .title{
+
+        }
+        .buttons{
+            .download-btn{
+                @extend %button;
+            }
+            .copy-btn{
+                @extend %button;
+            }
+        }
+    }
+}
+

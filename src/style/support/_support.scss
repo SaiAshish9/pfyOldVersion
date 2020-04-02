@@ -1,0 +1,77 @@
+%submit-btn {
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 3rem;
+    background-color: #6668c4;
+    border: none;
+}
+
+.support-modal{
+    .support-block{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+    .support-single-block{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        height: 10rem;
+        width: 9rem;
+        border-radius: 8px;
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+        margin: 0.5rem;
+        .support-single-block-text{
+            // font-size: 0.75rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+        img{
+            height: 86px;
+            width: 86px;
+        }
+    }
+    .support-faq{
+        .contact-us{
+            padding-top: 2rem;
+            text-align: center;
+            font-weight: 500;
+            .contact-us-link{
+                color: #137efc;
+                cursor: pointer;
+            }
+        }
+        .support-faq-submit-btn{
+            @extend %submit-btn
+        }
+    }
+    .query-form{
+        .query-form-title{
+            margin-bottom: 1rem;
+        }
+        .query-input{
+            margin-bottom: 0.75rem;
+        }
+        .query-submit-btn{
+            @extend %submit-btn
+        }
+        .ant-upload-picture-card-wrapper{
+            display: flex;
+            justify-content: center;
+            .ant-upload-select-picture-card{
+                width: 50%;
+                border: 2px dashed #ccc;
+                border-radius: 1rem;
+            }
+            
+        }
+        // .query-image{
+        //     display: flex;
+        //     justify-content: center;
+        // }
+    }
+}
