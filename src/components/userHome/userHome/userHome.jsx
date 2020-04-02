@@ -12,6 +12,8 @@ import UserContext from "../../../context/userContext";
 import { apiURL } from "../../../constant/url";
 import { tokenHeader } from "../../../constant/tokenHeader";
 import { objectValidation } from "../../validation/validation";
+import Score from "./score";
+import ScrollNumber from "antd/lib/badge/ScrollNumber";
 
 const UserHome = () => {
   const location = useLocation();
@@ -58,6 +60,7 @@ const UserHome = () => {
           </div>
         )}
         <Stat user={user} />
+        <Score />
         <GigOrInternship></GigOrInternship>
       </div>
     </UserContext.Provider>

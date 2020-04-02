@@ -2,143 +2,392 @@ $base-color: #f3f3f3;
 $card-background-color: #fff;
 
 .homePage-block {
-  padding: 100px 80px 0px 80px;
+  padding: 100px 0 52px;
   // margin-top: 40px;
-  background: $base-color;
+  background: #f4f4f4;
   .avatar-block {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 40px;
     .avatar-detail-block {
       display: flex;
+      border-radius: 16px;
       width: 48%;
-      padding: 20px;
-      box-shadow: 0 0 8px 0 #a5adba;
-      border-radius: 4px;
+      border: 0.2px solid #707070;
+
       cursor: pointer;
       background: $card-background-color;
-      .avatar-img-block {
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 120px;
-        height: 120px;
-        border-radius: 100%;
-        border: 1px solid rgba(0, 0, 0, 0.4);
-        img {
-          width: 100%;
-          height: 100%;
+      .avatar-border-block {
+        background-image: linear-gradient(91deg, #5468d1 0%, #7a69b8 97%);
+        padding: 45px 75px;
+        border-radius: 16px;
+        .avatar-img-block {
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 120px;
+          height: 120px;
+          border-radius: 100%;
+          border: 3px solid #fff;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
       .avatar-profile-block {
-        width: 60%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left: 60px;
+        align-items: center;
+        margin: 0px 60px;
+        h3 {
+          font-size: 22px;
+          margin: 0px;
+        }
+        .welcome-msg__p {
+          font-size: 16px;
+          margin: 0px;
+          font-weight: 500;
+        }
+        .ant-divider-horizontal {
+          margin: 12px 0px;
+        }
+        .notification-block {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          p {
+            margin: 0px 10px;
+            font-size: 16px;
+            flex: 1;
+            text-align: center;
+          }
+        }
       }
     }
-    .notification-detail-block {
-      display: flex;
-      width: 48%;
-      box-shadow: 0 0 8px 0 #a5adba;
-      border-radius: 4px;
-      justify-content: center;
-      background-color: $card-background-color;
+    .credit-card-block {
+      margin-left: 60px;
+      width: 29.28%;
+      position: relative;
+      // display: flex;
+      // width: 48%;
+      // box-shadow: 0 0 8px 0 #a5adba;
+      // border-radius: 4px;
+      // justify-content: center;
+      // background-color: $card-background-color;
+      .credit-card__img {
+        width: 100%;
+      }
+      .credit-card__check-wallet {
+        position: absolute;
+        top: 24px;
+        right: 48px;
+        cursor: pointer;
+        .credit-card__title {
+          img {
+            margin-bottom: 4px;
+            margin-left: 8px;
+          }
+        }
+      }
+      .credit-card__details {
+        position: absolute;
+        bottom: 34px;
+        left: 44px;
+        color: #fff;
+        .credit-card__number {
+        }
+        .credit-card__holder {
+        }
+        .credit-card__name {
+          font-size: 22px;
+        }
+      }
+      .credit-card__validity {
+        position: absolute;
+        bottom: 34px;
+        right: 96px;
+        color: #fff;
+        .credit-card__validity-duration {
+        }
+        .credit-card__validity-span {
+        }
+      }
     }
   }
 
   .stat-block {
     width: 100%;
-    margin-bottom: 40px;
-    .stat-heading-block {
-    }
+    padding: 48px 0px;
+    background: #fff;
+
     .stat-card-block {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
 
-      .stat-internship-block {
-        width: 30%; /* 100/5 */
-        border-radius: 8px;
-        box-shadow: 0 0 10px 0 rgba(58, 33, 191, 0.16);
+      %main-block {
+        position: relative;
         display: flex;
-        background-color: $card-background-color;
-        .internship-img-block {
-          height: 120px;
-          width: 100px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: #dcd5fb;
+        width: 13%;
+        background: white;
+        border-radius: 7px;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
+        margin-right: 50px;
+        cursor: pointer;
+      }
+      %image {
+        position: absolute;
+        left: -30px;
+        align-self: center;
+      }
+      %heading-para-block {
+        margin-left: 42px;
+        margin-right: 20px;
+        padding: 22px 0;
+      }
+      %heading {
+        font-size: 16px;
+        margin: 0px;
+      }
+      %paragraph {
+        font-size: 12px;
+        margin: 0px;
+        color: #000;
+      }
+      %arrow-icon {
+        position: absolute;
+        padding: 7px 9px;
+        border-radius: 7px 0 7px 0;
+        right: 0px;
+        bottom: 0px;
+      }
+
+      .student-status-block {
+        @extend %main-block;
+        margin-left: 30px;
+        .student-status__img {
+          @extend %image;
         }
-        .internship-data-block {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 64%;
-          // margin-left: 50px;
-        }
-        .icon {
-          align-self: center;
+        .student-status-text-block {
+          @extend %heading-para-block;
+          h1 {
+            @extend %heading;
+          }
+          p {
+            @extend %paragraph;
+          }
+          .arrowIcon-one {
+            @extend %arrow-icon;
+            background: #334d5c;
+          }
         }
       }
-      .stat-gig-block {
-        width: 30%; /* 100/5 */
-        border-radius: 8px;
-        box-shadow: 0 0 10px 0 rgba(58, 33, 191, 0.16);
-        display: flex;
-        background-color: $card-background-color;
-        .gig-img-block {
-          height: 120px;
-          width: 100px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: #dae8f9;
+      .my-gig-block {
+        @extend %main-block;
+        .my-gig__img {
+          @extend %image;
         }
-        .gig-data-block {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 64%;
-        }
-        .icon {
-          align-self: center;
+
+        .my-gig-text-block {
+          @extend %heading-para-block;
+          h1 {
+            @extend %heading;
+          }
+
+          p {
+            @extend %paragraph;
+          }
+
+          .arrowIcon-two {
+            @extend %arrow-icon;
+            background: #e05b49;
+          }
         }
       }
-      .stat-money-block {
-        width: 30%;
-        border-radius: 8px;
-        box-shadow: 0 0 10px 0 rgba(58, 33, 191, 0.16);
-        display: flex;
-        background-color: $card-background-color;
 
-        .money-img-block {
-          height: 120px;
-          width: 100px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: #f8ccd6;
+      .my-internship-block {
+        @extend %main-block;
+        .my-internship__img {
+          @extend %image;
         }
-        .money-data-block {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 64%;
+
+        .my-internship-text-block {
+          @extend %heading-para-block;
+          h1 {
+            @extend %heading;
+          }
+
+          p {
+            @extend %paragraph;
+          }
+
+          .arrowIcon-three {
+            @extend %arrow-icon;
+            background: #ffd05b;
+          }
         }
-        .icon {
-          align-self: center;
+      }
+
+      .my-resume-block {
+        @extend %main-block;
+        .my-resume__img {
+          @extend %image;
+        }
+
+        .my-resume-text-block {
+          @extend %heading-para-block;
+          h1 {
+            @extend %heading;
+          }
+
+          p {
+            @extend %paragraph;
+          }
+
+          .arrowIcon-four {
+            @extend %arrow-icon;
+            background: #7d7bb7;
+          }
+        }
+      }
+
+      .gig-profile-block {
+        @extend %main-block;
+        margin-right: 0px;
+        .gig-profile__img {
+          @extend %image;
+        }
+
+        .gig-profile-text-block {
+          @extend %heading-para-block;
+          h1 {
+            @extend %heading;
+          }
+
+          p {
+            @extend %paragraph;
+          }
+
+          .arrowIcon-five {
+            @extend %arrow-icon;
+            background: #90dfaa;
+          }
         }
       }
     }
   }
+
+  .score-main-block {
+    display: flex;
+    justify-content: center;
+    padding: 35px 0px;
+
+    .resume-score-block {
+      width: 39.16%;
+      border-radius: 16px;
+      background-color: #5284f7;
+      color: #fff;
+      display: flex;
+
+      .resume-score-img-block {
+        margin: 32px 0px 0px 32px;
+        align-self: baseline;
+        display: flex;
+        align-items: center;
+        background: white;
+        justify-content: center;
+        width: 130px;
+        border-radius: 50%;
+        height: 50px;
+      }
+
+      .resume-score-content {
+        padding: 32px 54px 32px 32px;
+        h1 {
+          color: #fff;
+          font-size: 26px;
+        }
+
+        p {
+          margin-bottom: 30px;
+        }
+
+        .resume-update__button {
+          border-radius: 19px;
+          box-shadow: -2px 3px 8px 0 rgba(0, 0, 0, 0.22);
+          background-color: #ffffff;
+          img {
+            margin-bottom: 4px;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+
+    .gig-profile-block {
+      width: 39.16%;
+      border-radius: 16px;
+      background-color: #5cd2c1;
+      color: #fff;
+      display: flex;
+      margin-left: 48px;
+
+      .gig-profile-img-block {
+        margin: 32px 0px 0px 32px;
+        align-self: baseline;
+        display: flex;
+        align-items: center;
+        background: white;
+        justify-content: center;
+        width: 130px;
+        border-radius: 50%;
+        height: 50px;
+      }
+
+      .gig-profile-content {
+        padding: 32px 54px 32px 32px;
+
+        h1 {
+          color: #fff;
+          font-size: 26px;
+        }
+
+        p {
+          margin-bottom: 30px;
+        }
+
+        .gig-profile-update__button {
+          border-radius: 19px;
+          box-shadow: -2px 3px 8px 0 rgba(0, 0, 0, 0.22);
+          background-color: #ffffff;
+          img {
+            margin-bottom: 4px;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+
   .gigOrInternship-block {
+    .ant-tabs {
+      background-color: #fff;
+      padding: 36px 115px;
+      .ant-tabs-bar {
+        display: flex;
+        justify-content: space-between;
+        h1 {
+          margin: 7px;
+          line-height: 1;
+        }
+      }
+    }
+
     .block {
       background-color: $card-background-color;
       margin-bottom: 20px;

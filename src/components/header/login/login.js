@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Button, Input, Modal } from "antd";
+import { Button, Input, Modal, Statistic } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
 import OTPInput from "otp-input-react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 /* -------------------------------- xxxxxxxxx ------------------------------- */
 import { apiURL } from "../../../constant/url";
@@ -17,6 +17,7 @@ const buttonStyle = {
   padding: "0px 50px"
 };
 
+const { Countdown } = Statistic;
 const Continue = () => {
   const history = useHistory();
   const [visible, setVisible] = useState(false);
@@ -25,16 +26,39 @@ const Continue = () => {
   const [passToken, setPassToken] = useState("");
 
   const [isContinue, setIsContinue] = useState(false);
+  const [isContinueDisable, setIsContinueDisable] = useState(true);
 
   const [OTP, setOTP] = useState("");
+  const [isResendOtpDisable, setIsResendOtpDisable] = useState(true);
+  // const [resendOtpAgain, setResendOtpAgain] = useState();
   const [proceedForOTP, setProceedForOTP] = useState(false);
+
   const [isVerified, setIsVerified] = useState(false);
+  const [isVerifiedDisable, setIsVerifiedDisable] = useState(true);
+
+  useEffect(() => {
+    setIsVerifiedDisable(OTP.length === 6 ? false : true);
+  }, [OTP]);
+
+  console.log("OTP.length", OTP.length);
 
   const showModal = () => {
     setVisible(true);
     if (!proceedForOTP) {
       recaptchaVerifier();
     }
+  };
+
+  /* -------------------------------- OTP timer ------------------------------- */
+  const [resendOTPDeadline, setResendOTPDeadline] = useState(
+    Date.now() + 1000 * 0
+  );
+  // useEffect(() => {
+  //   resendOTPDeadline = Date.now() + 1000 * 10;
+  // }, []);
+
+  const onResetOtpCountdownFinish = () => {
+    setIsResendOtpDisable(false);
   };
 
   const recaptchaVerifier = () => {
@@ -69,6 +93,17 @@ const Continue = () => {
       setPhone(myNumber);
     }
   };
+
+  useEffect(() => {
+    const phoneLength = phone.split("").length;
+    if (phoneLength >= 10) {
+      setIsContinueDisable(false);
+      // console.log("is this run");
+    } else {
+      setIsContinueDisable(true);
+    }
+    // console.log(phoneLength, "phoneLength");
+  }, [phone]);
 
   const handleVerifyButton = e => {
     e.preventDefault();
@@ -113,13 +148,15 @@ const Continue = () => {
           console.log(error);
         });
     } else {
-      console.log("please enter OTP");
+      console.log("OTP is not matching");
     }
   };
 
   const handleResendOTP = e => {
     e.preventDefault();
     setOTP("");
+    setIsResendOtpDisable(true);
+    // setResendOTPDeadline(Date.now() + 1000 * 60);
     firebasePhoneAuth();
   };
 
@@ -143,16 +180,19 @@ const Continue = () => {
         window.confirmResult = confirmResult;
         console.log("correct Number");
         console.log("+91" + phone);
+        // setResendOtpAgain(Math.random());
+        setResendOTPDeadline(Date.now() + 1000 * 60);
       })
       .catch(error => {
         console.log("incorrect Number");
         console.log("+91" + phone);
         console.log(error);
+        // setResendOTPDeadline(Date.now() + 1000 * 60);
       });
   };
 
   return (
-    <div>
+    <div className="login-button-main-block">
       <Button onClick={showModal} className="header__button1">
         Login
       </Button>
@@ -171,6 +211,7 @@ const Continue = () => {
           visible={visible}
           onCancel={handleModalCancel}
           footer={null}
+          // className="modal"
         >
           <div style={{ display: "flex" }}>
             <img
@@ -213,18 +254,43 @@ const Continue = () => {
                     <div
                       style={{
                         display: "flex",
-                        justifyContent: "space-between"
+                        justifyContent: "space-between",
+                        alignItems: "baseline"
                       }}
                     >
                       <h4>Enter OTP</h4>
 
-                      <h5
-                        size="small"
-                        style={{ cursor: "pointer", color: "#406AF8" }}
-                        onClick={handleResendOTP}
+                      <div
+                        style={{ display: "flex", alignItems: "center" }}
+                        className="resend-otp-block"
                       >
-                        Resend OTP
-                      </h5>
+                        <Countdown
+                          // title=""
+                          value={resendOTPDeadline}
+                          format="mm:ss"
+                          onFinish={onResetOtpCountdownFinish}
+                          valueStyle={{
+                            fontSize: "0.83em",
+                            fontWeight: "500",
+                            marginRight: "8px"
+                          }}
+                        />
+                        <Button
+                          size="small"
+                          style={{
+                            // cursor: "pointer",
+                            color: isResendOtpDisable ? "#B8B8B8" : "#406AF8",
+                            backgroundColor: "#fff",
+                            border: "none",
+                            fontSize: "0.83em",
+                            fontWeight: "500"
+                          }}
+                          onClick={handleResendOTP}
+                          disabled={isResendOtpDisable}
+                        >
+                          Resend OTP
+                        </Button>
+                      </div>
                     </div>
 
                     <OTPInput
@@ -255,6 +321,7 @@ const Continue = () => {
                     size="default"
                     style={buttonStyle}
                     onClick={handleVerifyButton}
+                    disabled={isVerifiedDisable}
                   >
                     VERIFY MOBILE
                   </Button>
@@ -266,6 +333,7 @@ const Continue = () => {
                     size="default"
                     style={buttonStyle}
                     onClick={handleLoginContinueButton}
+                    disabled={isContinueDisable}
                   >
                     CONTINUE
                   </Button>

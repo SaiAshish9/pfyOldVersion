@@ -25,6 +25,7 @@ const Header = () => {
   const handleWrapper = () => {
     setIsNavOpen(!isNavOpen);
   };
+
   const myMobileNav = {
     transition: "transform 1s ease-in-out",
     transform: isNavOpen ? "translate(0%,0px)" : "translate(100%,0px)"
@@ -45,7 +46,7 @@ const Header = () => {
                 </div>
 
                 <div onClick={handleNavIconClick} className="mobile-nav-menu">
-                  <MobileNavIcon />
+                  <MobileNavIcon isNavOpen={isNavOpen} />
                 </div>
               </div>
               <div className="mobile-nav" style={myMobileNav}>

@@ -13,6 +13,7 @@ import checkIcon from "../internship/img/checkIcon.svg";
 import removeIcon from "../internship/img/removeIcon.svg";
 import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
 import GigTask from "./gigTask";
+import moment from "moment";
 
 const { TabPane } = Tabs;
 export default function GigDetail(props) {
@@ -225,7 +226,7 @@ export default function GigDetail(props) {
               </div>
               <div className="gig-brief-content">
                 <h5>Deadline</h5>
-                <h4>{appliedBeforeTime}</h4>
+                <h4>{moment(appliedBeforeTime).format("DD MMM")}</h4>
               </div>
               <div className="gig-brief-content">
                 <h5>Type</h5>
