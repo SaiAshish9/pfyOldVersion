@@ -23,6 +23,12 @@ import Gig from "../components/gig/gig";
 import Internship from "../components/internship/internship";
 import GigDetail from "../components/gig/gigDetails";
 import InternshipDetail from "../components/internship/internshipDetail";
+// newComp
+import Support from '../components/NewComps/support/support';
+import VerifyStudentStatus from "../components/NewComps/verify_student_Status/verifyStudentStatus";
+import internshipApplication from "../components/NewComps/internshipApplication/internshipApplication";
+import TaskFlow from '../components/NewComps/taskFlow/taskFlow';
+
 
 const history = createBrowserHistory();
 
@@ -43,6 +49,7 @@ const AppRouter = () => {
         <CommonRoute path="/gigs" component={Gig} exact={true} />
         <CommonRoute path="/gig/:id" component={GigDetail} exact={true} />
         <CommonRoute path="/internships" component={Internship} exact={true} />
+        <CommonRoute path="/testing" component={TaskFlow} exact={true} />
         <CommonRoute
           path="/internship/:id"
           component={InternshipDetail}
