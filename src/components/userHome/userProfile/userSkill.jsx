@@ -141,7 +141,7 @@ const UserSkill = props => {
       </div>
 
       <Modal
-        width={"85%"}
+        width={"64%"}
         title="Add Skills"
         visible={isModalVisible}
         onCancel={handleCancel}
