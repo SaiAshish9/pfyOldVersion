@@ -22,14 +22,14 @@ div.moreGigOrInternship-main-block {
     margin-top: 24px;
     h3.similar-gigOrInternship-block1__h3 {
     }
-    div.similar-gigOrInternship-block2 {
+    .similar-gigOrInternship-block2 {
       background-color: #fff;
       display: flex;
       padding: 16px 18px;
       border-radius: 2px;
       box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
       transition: box-shadow 83ms;
-      margin-bottom:16px;
+      margin-bottom: 16px;
       &:hover {
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
         cursor: pointer;
@@ -64,6 +64,7 @@ div.moreGigOrInternship-main-block {
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
+          color: black;
         }
         div.info-main-graphic-block {
           display: flex;
@@ -79,6 +80,7 @@ div.moreGigOrInternship-main-block {
             .info-graphic-block-one__p {
               font-size: 12px;
               margin: 0px 0px 0px 4px;
+              color: black;
             }
           }
 
@@ -92,6 +94,7 @@ div.moreGigOrInternship-main-block {
             .info-graphic-block-two__p {
               font-size: 12px;
               margin: 0px 0px 0px 4px;
+              color: black;
             }
           }
         }

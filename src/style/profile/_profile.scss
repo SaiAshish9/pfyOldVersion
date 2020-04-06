@@ -96,6 +96,8 @@
   .languages-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+
     .single-language {
       text-align: center;
       width: 6rem;

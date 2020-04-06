@@ -33,7 +33,7 @@ export default function Score() {
             className="resume-update__button"
             onClick={handleUpdateResume}
           >
-            Update <img src={rightArrowBlackIcon} alt="" />
+            Update Now <img src={rightArrowBlackIcon} alt="" />
           </Button>
         </div>
       </div>
@@ -52,7 +52,7 @@ export default function Score() {
             className="gig-profile-update__button"
             onClick={handleUpdateGigProfile}
           >
-            Update <img src={rightArrowBlackIcon} alt="" />
+            Update Now <img src={rightArrowBlackIcon} alt="" />
           </Button>
         </div>
       </div>

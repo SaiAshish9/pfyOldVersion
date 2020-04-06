@@ -38,6 +38,8 @@ export default function GigDetail(props) {
 
   const myGig = gig;
 
+  console.log(myGig);
+
   //#region
   /* ------------------------ gig provider state ----------------------- */
   const companyLogo = myGig && myGig.company.logoUrl;
@@ -88,8 +90,7 @@ export default function GigDetail(props) {
             setGig(res.data);
             setIsFailed(true);
           } else {
-            console.log(res.data.questions);
-
+            console.log("gig details", res.data.questions);
             setGig(res.data);
             setCompanyQuestion(res.data.questions);
           }
@@ -403,7 +404,7 @@ export default function GigDetail(props) {
           />
         </Modal>
       </div>
-      <MoreSuggestion />
+      <MoreSuggestion isGigOrInternship="gig" category={designation} />
     </div>
   );
 }

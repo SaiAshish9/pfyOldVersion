@@ -15,7 +15,7 @@ $card-background-color: #fff;
       display: flex;
       border-radius: 16px;
       width: 48%;
-      border: 0.2px solid #707070;
+      box-shadow: 0 0 4px -1px black;
 
       cursor: pointer;
       background: $card-background-color;
@@ -136,7 +136,8 @@ $card-background-color: #fff;
         width: 13%;
         background: white;
         border-radius: 7px;
-        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
+        // box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
+        box-shadow: 0 0 4px -1px black;
         margin-right: 50px;
         cursor: pointer;
       }
@@ -319,7 +320,8 @@ $card-background-color: #fff;
 
         .resume-update__button {
           border-radius: 19px;
-          box-shadow: -2px 3px 8px 0 rgba(0, 0, 0, 0.22);
+          // box-shadow: -2px 3px 8px 0 rgba(0, 0, 0, 0.22);
+          font-weight: 700;
           background-color: #ffffff;
           img {
             margin-bottom: 4px;
@@ -363,7 +365,8 @@ $card-background-color: #fff;
 
         .gig-profile-update__button {
           border-radius: 19px;
-          box-shadow: -2px 3px 8px 0 rgba(0, 0, 0, 0.22);
+          // box-shadow: -2px 3px 8px 0 rgba(0, 0, 0, 0.22);
+          font-weight: 700;
           background-color: #ffffff;
           img {
             margin-bottom: 4px;

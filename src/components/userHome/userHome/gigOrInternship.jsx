@@ -43,7 +43,7 @@ export default function GigOrInternship() {
   const trendingCard = getCard(user.trending);
   const latestCard = getCard(user.latest);
 
-  const title = <h1>Work Opportunity</h1>;
+  const title = <h1>Work Opportunities</h1>;
   return (
     <div className="gigOrInternship-block">
       <Tabs defaultActiveKey="1" tabBarExtraContent={title}>

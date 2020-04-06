@@ -14,7 +14,7 @@ import removeIcon from "./img/removeIcon.svg";
 import moment from "moment";
 
 const { TabPane } = Tabs;
-const InternshipDetail = props => {
+export default function InternshipDetail(props) {
   // const { internship } = useContext(InternshipContext);
   const myCookie = Cookies.get("token");
 
@@ -370,10 +370,9 @@ const InternshipDetail = props => {
           />
         </Modal>
       </div>
-      <MoreSuggestion />
+      <MoreSuggestion isGigOrInternship="internship" category={designation} />
     </div>
   );
-};
-export default InternshipDetail;
+}
 
 // <ApplicationForm/>
