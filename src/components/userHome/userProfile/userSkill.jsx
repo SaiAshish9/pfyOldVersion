@@ -43,10 +43,10 @@ const skillImg = [
   { icon: socialMediaIcon, text: "Social Media" },
   { icon: storeAuditIcon, text: "Store Audit" },
   { icon: videoMaking, text: "Video Making" },
-  { icon: writingIcon, text: "Writing" }
+  { icon: writingIcon, text: "Writing" },
 ];
 
-const UserSkill = props => {
+const UserSkill = (props) => {
   const skillsData = props.profileData ? props.profileData.skills : [];
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm();
@@ -55,7 +55,7 @@ const UserSkill = props => {
     setSkills1([...skillsData]);
   }, []);
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     console.log(data.objectiveTextarea);
     // axios
     //   .put(
@@ -71,13 +71,13 @@ const UserSkill = props => {
     //   });
   };
 
-  const submitHandler = e => {
+  const submitHandler = (e) => {
     e.preventDefault();
     const url = "user/update";
     const data1 = {
-      skills: skills1
+      skills: skills1,
     };
-    axios.put(url, data1).then(res => {
+    axios.put(url, data1).then((res) => {
       console.log(res.data);
       props.isUpdate();
       setIsModalVisible(false);
@@ -94,7 +94,7 @@ const UserSkill = props => {
   // const skills = []
 
   const [skills1, setSkills1] = useState([]);
-  const selectHandler = val => {
+  const selectHandler = (val) => {
     // skills.push()
     if (!skills1.includes(val)) {
       // skills.push(val)
@@ -103,7 +103,7 @@ const UserSkill = props => {
     } else {
       const index = skills1.indexOf(val);
       if (index > -1) {
-        setSkills1(skills1.filter(el => el !== val));
+        setSkills1(skills1.filter((el) => el !== val));
       }
       console.log("already there");
     }
@@ -148,7 +148,13 @@ const UserSkill = props => {
         footer={null}
         className="add-skill-modal"
       >
-        <div style={{ display: "flex", flexFlow: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            flexFlow: "wrap",
+            justifyContent: "center",
+          }}
+        >
           {skillImg.map((image, index) => (
             <div
               onClick={() => selectHandler(image.text)}
@@ -157,12 +163,21 @@ const UserSkill = props => {
                 boxShadow:
                   skills1 && skills1.includes(image.text)
                     ? "2px 3px 5px #ccc"
-                    : "none",
+                    : "0 0 4px -1px black",
+                backgroundColor:
+                  skills1 && skills1.includes(image.text) ? "#5468d1" : "#fff",
+                color:
+                  skills1 && skills1.includes(image.text) ? "#fff" : "#000",
                 margin: "0.5rem",
-                padding: "10px 25px",
+                // padding: "20px 20px",
+                height: "100px",
+                width: "100px",
                 borderRadius: "5px",
-                textAlign: "center",
-                alignSelf: "center"
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer",
               }}
             >
               <img
@@ -170,7 +185,14 @@ const UserSkill = props => {
                 src={image.icon}
                 alt="No Img"
               ></img>
-              <div>{image.text}</div>
+              <div
+                style={{
+                  marginTop: "4px",
+                  textTransform: "capitalize",
+                }}
+              >
+                {image.text}
+              </div>
             </div>
           ))}
         </div>

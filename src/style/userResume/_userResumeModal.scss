@@ -31,7 +31,7 @@
   font-size: 16px;
   opacity: 0.6;
   line-height: 1.38;
-  margin: 0px;
+  margin-bottom: 8px;
 }
 
 %modal-form {
@@ -100,7 +100,7 @@
   }
   .objective-modal__textarea {
     @extend %modal-form__textarea;
-    height: 175px;
+    height: 112px;
   }
   .objective-modal__button {
     @extend %modal-form__button;
@@ -448,11 +448,43 @@
   }
 }
 
-.digitalProfile-modal-block {
-  display: flex;
-  justify-content: center;
-  .digitalProfile-modal-block-button {
-    @extend %modal-form__button;
+.digitalProfile-modal-main-block {
+  .digital-profile-input {
+    border-radius: 5px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+    margin-bottom: 20px;
+    .ant-input {
+      height: 43px;
+      // border-left: none;
+    }
+    .ant-input-group-addon {
+      background-color: #fff;
+      width: 164px;
+      // padding-right: 0px;
+      .digital-profile-logo-block {
+        display: flex;
+        align-items: center;
+        padding: 6px 0px;
+        .digital-profile-logo__img {
+          width: 29px;
+        }
+        .digital-profile-logo__p {
+          margin: 0px 20px 0px 30px;
+        }
+        // .digital-profile-divider {
+        //   border: 1px solid #d3d3d3;
+        //   height: 27px;
+        // }
+      }
+    }
+  }
+  .digitalProfile-button-block {
+    display: flex;
+    justify-content: center;
+
+    .digitalProfile__button {
+      @extend %modal-form__button;
+    }
   }
 }
 
@@ -465,7 +497,7 @@
 
   .achievement-modal-sec-one__textarea {
     @extend %modal-form__textarea;
-    height: 175px;
+    height: 112px;
   }
   .achievement-modal__button {
     @extend %modal-form__button;

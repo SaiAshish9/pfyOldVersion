@@ -20,12 +20,12 @@ export default function Education({ education, updateResume }) {
       isCurrently: false,
       startYear: year,
       educationType: {
-        typeNo: "4"
+        typeNo: "4",
       },
       marks: {
-        type: "CGPA"
-      }
-    }
+        type: "CGPA",
+      },
+    },
   });
 
   const isCheckbox = watch("isCurrently");
@@ -38,15 +38,15 @@ export default function Education({ education, updateResume }) {
     (val, index) => parseInt(myStartYear) + 9 - index
   );
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     console.log(data);
     axios
       .put(`${apiURL}/resume/addeducation`, data, tokenHeader)
-      .then(res => {
+      .then((res) => {
         console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
     setIsModalVisible(false);
@@ -68,7 +68,7 @@ export default function Education({ education, updateResume }) {
     // setValue("isCurrently", false);
   };
 
-  const handleEdit = educationData => {
+  const handleEdit = (educationData) => {
     // setSelectedEducation(educationData);
     console.log(educationData);
     setValue("educationType.typeNo", educationData.educationType.typeNo);
@@ -87,7 +87,7 @@ export default function Education({ education, updateResume }) {
   //   console.log("myEducation", educationData);
   // };
 
-  const printEducation = educationData => {
+  const printEducation = (educationData) => {
     const educationStandard =
       educationData.educationType.typeNo === 0
         ? "Graduation"
@@ -186,7 +186,7 @@ export default function Education({ education, updateResume }) {
           className="education-modal__form"
         >
           <section className="education-modal-sec-one">
-            <label className="input-label">Institute type</label>
+            <h2 className="input-label">Institute Type</h2>
             <select
               name="educationType.typeNo"
               ref={register}
@@ -200,7 +200,7 @@ export default function Education({ education, updateResume }) {
           </section>
 
           <section className="education-modal-sec-two">
-            <label className="input-label">Institute Name</label>
+            <h2 className="input-label">Institute Name</h2>
             <input
               name="instituteName"
               ref={register}
@@ -211,9 +211,9 @@ export default function Education({ education, updateResume }) {
 
           <section className="education-modal-sec-three">
             {standardSelect === "0" || standardSelect === "1" ? (
-              <label className="input-label ">Course Name</label>
+              <h2 className="input-label ">Course Name</h2>
             ) : (
-              <label className="input-label ">Board Name</label>
+              <h2 className="input-label ">Board Name</h2>
             )}
             <input
               name="course"
@@ -224,7 +224,7 @@ export default function Education({ education, updateResume }) {
           </section>
 
           <section className="education-modal-sec-four">
-            <label className="input-label ">Marks</label>
+            <h2 className="input-label ">Marks</h2>
             <div className="education-modal-sec-four-block">
               <input
                 name="marks.val"
@@ -245,7 +245,7 @@ export default function Education({ education, updateResume }) {
 
           <div className="education-modal-block">
             <section className="education-modal-block-sec-one">
-              <label className="input-label">Start Year</label>
+              <h2 className="input-label">Start Year</h2>
               <select
                 name="startYear"
                 ref={register}
@@ -263,7 +263,7 @@ export default function Education({ education, updateResume }) {
 
             {!isCheckbox && (
               <section className="education-modal-block-sec-two">
-                <label className="input-label">End year</label>
+                <h2 className="input-label">End year</h2>
                 <select
                   name="endYear"
                   ref={register}
@@ -289,9 +289,9 @@ export default function Education({ education, updateResume }) {
               className="education-modal-sec-five__checkbox"
               // defaultValue={false}
             />
-            <label className="education-modal-sec-five__head">
+            <h2 className="education-modal-sec-five__head">
               Currently studying here
-            </label>
+            </h2>
           </section>
 
           <Button

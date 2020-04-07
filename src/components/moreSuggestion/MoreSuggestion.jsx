@@ -20,21 +20,21 @@ export default function MoreSuggestion({ isGigOrInternship, category }) {
     if (isGigOrInternship === "gig") {
       axios
         .get(`${apiURL}/mission/fetch?pagesize=4&title=${category}`)
-        .then(res => {
+        .then((res) => {
           setSimilarGigOrInternship(res.data.missions);
           console.log("similar gig", res.data);
         })
-        .catch(e => {
+        .catch((e) => {
           console.log("similar gig error", e.res);
         });
     } else if (isGigOrInternship === "internship") {
       axios
         .get(`${apiURL}/internship/fetch_with_status?pagesize=4&category=xyz`)
-        .then(res => {
+        .then((res) => {
           setSimilarGigOrInternship(res.data.internships);
           console.log("similar internship", res.data);
         })
-        .catch(e => {
+        .catch((e) => {
           console.log("similar internship error", e);
         });
     }
@@ -73,19 +73,23 @@ export default function MoreSuggestion({ isGigOrInternship, category }) {
 
   return (
     <div className="moreGigOrInternship-main-block">
-      <div className="support-block">
-        <h3 className="support-block__h3">Support</h3>
-        <div className="support-question-block">
-          <img
-            alt=""
-            src={helpIcon}
-            className="support-question-block__img"
-          ></img>
-          <p className="support-question-block__p">Ask Questions</p>
+      {isGigOrInternship === "gig" && (
+        <div className="support-block">
+          <h3 className="support-block__h3">Support</h3>
+          <div className="support-question-block">
+            <img
+              alt=""
+              src={helpIcon}
+              className="support-question-block__img"
+            ></img>
+            <p className="support-question-block__p">Ask Questions</p>
+          </div>
         </div>
-      </div>
+      )}
       <div className="similar-gigOrInternship-block1">
-        <h3 className="similar-gigOrInternship-block1__h3">Similar Gigs</h3>
+        <h3 className="similar-gigOrInternship-block1__h3">
+          {isGigOrInternship === "gig" ? "Similar Gigs" : "Similar Internships"}
+        </h3>
         {arrayValidation(similarGigOrInternship) &&
           similarGigOrInternship.map((gigOrInternship, index) => {
             return (

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.15" height="28.15" viewBox="0 0 28.15 28.15">
+    <defs>
+        <clipPath id="prefix__clip-path">
+            <rect id="prefix__Rectangle_1909" width="28.15" height="28.15" data-name="Rectangle 1909" rx="4" transform="translate(34 413)" style="fill:#fff;stroke:#707070"/>
+        </clipPath>
+        <style>
+            .prefix__cls-4{fill:#ec407a}
+        </style>
+    </defs>
+    <g id="prefix__Mask_Group_80" data-name="Mask Group 80" transform="translate(-34 -413)">
+        <g id="prefix__dribbble" transform="translate(34 413)">
+            <path id="prefix__Path_2060" d="M14.075 0A14.075 14.075 0 1 1 0 14.075 14.075 14.075 0 0 1 14.075 0z" data-name="Path 2060" style="fill:#c2185b"/>
+            <g id="prefix__Group_1333" data-name="Group 1333" transform="translate(2.017 2.009)">
+                <path id="prefix__Path_2061" d="M20.06 4.491A12.047 12.047 0 0 0 9.9 1.968a57.078 57.078 0 0 1 3.963 6.473 28.43 28.43 0 0 0 6.2-3.95z" class="prefix__cls-4" data-name="Path 2061" transform="translate(-.305 -1.713)"/>
+                <path id="prefix__Path_2062" d="M15.493 12.962a22.482 22.482 0 0 1 8.2-.142 12 12 0 0 0-2.913-7.528 30.583 30.583 0 0 1-6.763 4.319q.8 1.653 1.476 3.352z" class="prefix__cls-4" data-name="Path 2062" transform="translate(.407 -1.094)"/>
+                <path id="prefix__Path_2063" d="M13.354 9.075a55.154 55.154 0 0 0-4.105-6.616 12.081 12.081 0 0 0-7.263 8.471 28.457 28.457 0 0 0 11.368-1.855z" class="prefix__cls-4" data-name="Path 2063" transform="translate(-1.673 -1.584)"/>
+                <path id="prefix__Path_2064" d="M15.654 12.708q-.63-1.549-1.359-3.058a29.7 29.7 0 0 1-12.55 2.036 11.923 11.923 0 0 0 2.807 8.492 22.617 22.617 0 0 1 11.1-7.47z" class="prefix__cls-4" data-name="Path 2064" transform="translate(-1.719 -.34)"/>
+                <path id="prefix__Path_2065" d="M15.9 13.5a57.134 57.134 0 0 1 2.263 8.226 12.047 12.047 0 0 0 5.093-8.26 20.5 20.5 0 0 0-7.356.034z" class="prefix__cls-4" data-name="Path 2065" transform="translate(.733 .266)"/>
+                <path id="prefix__Path_2066" d="M5.354 20.881a12 12 0 0 0 12.793 1.768 54.686 54.686 0 0 0-2.4-8.8 20.6 20.6 0 0 0-10.4 7.03z" class="prefix__cls-4" data-name="Path 2066" transform="translate(-1.091 .386)"/>
+            </g>
+        </g>
+    </g>
+</svg>
