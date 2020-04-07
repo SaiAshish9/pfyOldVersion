@@ -206,7 +206,7 @@
 
   div.transaction-block {
     width: 36%;
-    background-color: #ccc;
+    background-color: #f3f3f3;
     min-height: 100vh;
     div.credit-card-block {
       position: relative;
@@ -214,7 +214,7 @@
       margin-top: 48px;
       img.credit-card__img {
       }
-      .credit-card__amount{
+      .credit-card__amount {
         position: absolute;
         top: 1.1rem;
         left: 16.2rem;
@@ -222,112 +222,111 @@
         color: #5468d1;
         font-size: 13px;
       }
-      .credit-card__details{
+      .credit-card__details {
         position: relative;
         bottom: 5rem;
         right: 5.5rem;
         color: #fff;
-        .credit-card__number{
+        .credit-card__number {
           font-size: 1rem;
         }
-        .credit-card__holder{
+        .credit-card__holder {
           font-size: 9px;
           padding-right: 2rem;
         }
-        .credit-card__name{
+        .credit-card__name {
           font-size: 1rem;
           font-weight: 500;
           padding-left: 1.5rem;
         }
       }
-      .credit-card__validity{
+      .credit-card__validity {
         position: relative;
         color: white;
         bottom: 7.75rem;
         left: 4rem;
-        .credit-card__validity-duration{
+        .credit-card__validity-duration {
           font-size: 1rem;
           font-weight: 500;
         }
-        .credit-card__validity-span{
+        .credit-card__validity-span {
           font-size: 9px;
           padding-right: 2.3rem;
         }
       }
-      .credit-card__title{
+      .credit-card__title {
         font-size: 9px;
         font-weight: 900;
         color: black;
-}
       }
     }
+  }
 
-    div.transaction-inner-block {
+  div.transaction-inner-block {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+    h1.transaction__h1 {
+      margin: 52px 0px 1.2rem 0px;
+      margin-top: -2rem;
+      line-height: 1;
+    }
+
+    div.transaction-content-block {
       display: flex;
-      flex-direction: column;
-      width: fit-content;
-      margin: auto;
-      h1.transaction__h1 {
-        margin: 52px 0px 1.2rem 0px;
-        margin-top: -2rem;
-        line-height: 1;
+      padding: 20px;
+      margin-bottom: 20px;
+      background: #fff;
+      border-radius: 7px;
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16);
+      div.transaction-img-block {
+        img.transaction__img {
+        }
       }
 
-      div.transaction-content-block {
-        display: flex;
-        padding: 20px;
-        margin-bottom: 20px;
-        background: #fff;
-        border-radius: 7px;
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16);
-        div.transaction-img-block {
-          img.transaction__img {
-          }
+      div.transaction-title-or-date {
+        margin: 0px 36px 0px 24px;
+        h3.transaction-title__h3 {
+          margin: 0px 0px 16px 0px;
+          line-height: 1;
         }
 
-        div.transaction-title-or-date {
-          margin: 0px 36px 0px 24px;
-          h3.transaction-title__h3 {
-            margin: 0px 0px 16px 0px;
-            line-height: 1;
+        div.transaction-date {
+          display: flex;
+          align-items: center;
+          img.transaction-date__img {
           }
 
-          div.transaction-date {
-            display: flex;
-            align-items: center;
-            img.transaction-date__img {
-            }
-
-            span.transaction-date__span {
-              margin-left: 8px;
-              // font-size: 12px;
-            }
+          span.transaction-date__span {
+            margin-left: 8px;
+            // font-size: 12px;
           }
         }
+      }
 
-        div.transaction-summary-block {
-          text-align: end;
-          h1.transaction-summary__h1 {
-            margin: 0px 0px 14px 0px;
-            line-height: 1;
-            font-size: 18px;
-            font-weight: 700;
+      div.transaction-summary-block {
+        text-align: end;
+        h1.transaction-summary__h1 {
+          margin: 0px 0px 14px 0px;
+          line-height: 1;
+          font-size: 18px;
+          font-weight: 700;
+        }
+
+        div.transaction-summary__status {
+          display: flex;
+          align-items: center;
+          img.transaction-summary-status__img {
+            width: 16px;
           }
 
-          div.transaction-summary__status {
-            display: flex;
-            align-items: center;
-            img.transaction-summary-status__img {
-              width: 16px;
-            }
-
-            span.transaction-summary-status__img {
-              margin-left: 8px;
-              // font-size: 12px; 
-            }
+          span.transaction-summary-status__img {
+            margin-left: 8px;
+            // font-size: 12px;
           }
         }
       }
     }
   }
-
+}

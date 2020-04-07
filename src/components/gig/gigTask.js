@@ -16,7 +16,7 @@ export default function GigTask({
   isSelected,
   isShortlisted,
   selectedGigId,
-  isMyCookie
+  isMyCookie,
 }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [taskData, setTaskData] = useState([]);
@@ -50,20 +50,20 @@ export default function GigTask({
     console.log("selected file", collectedData);
   }, [collectedData]);
   //!-------------------------- handle all user input ------------------------- */
-  const handleFile = e => {
+  const handleFile = (e) => {
     const myFile = e.target.files[0];
     const data = new FormData();
     data.append("file", myFile);
     setUploadImage(data);
   };
 
-  const handleUserText = e => {
+  const handleUserText = (e) => {
     const myUserText = e.target.value;
     setUserText(myUserText);
     console.log("myUserText", myUserText);
   };
 
-  const handleUserLink = e => {
+  const handleUserLink = (e) => {
     const myUserLink = e.target.value;
     console.log("myUserText", myUserLink);
     setUserLink(myUserLink);
@@ -75,16 +75,16 @@ export default function GigTask({
       ...collectedData.submission,
       {
         type: 101,
-        text: userText
+        text: userText,
       },
       {
         type: 102,
-        text: uploadImage
+        text: uploadImage,
       },
       {
         type: 103,
-        text: userLink
-      }
+        text: userLink,
+      },
     ];
     console.log("all submission", { submission: myCollectedData });
   };
@@ -103,7 +103,7 @@ export default function GigTask({
       } else if (info.file.status === "error") {
         message.error(`${info.file.name} file upload failed.`);
       }
-    }
+    },
   };
 
   const proof =
@@ -152,14 +152,14 @@ export default function GigTask({
   const dummyTaskData = [];
   useEffect(() => {
     arrayValidation(gigTask) &&
-      gigTask.forEach(task => {
+      gigTask.forEach((task) => {
         axios
           .get(`${apiURL}/task/${selectedGigId}/${task._id}`, tokenHeader)
-          .then(res => {
+          .then((res) => {
             dummyTaskData.push(res.data);
             setTaskData(dummyTaskData);
           })
-          .catch(e => {
+          .catch((e) => {
             console.log(`%c Task Data`, "color:red", e.res);
           });
       });
@@ -167,9 +167,9 @@ export default function GigTask({
 
   //! ---------------------------------- test ---------------------------------- */
 
-  const handleStartTask = myGigTaskId => {
+  const handleStartTask = (myGigTaskId) => {
     setIsModalVisible(true);
-    const myTask = taskData.find(task => task._id === myGigTaskId);
+    const myTask = taskData.find((task) => task._id === myGigTaskId);
     setSelectedTask(myTask);
   };
 
@@ -185,43 +185,82 @@ export default function GigTask({
     isGigTaskLength === 1 ? 1 : isGigTaskLength === 2 ? 2 : 3;
 
   return (
-    <div>
-      <Carousel
-        slidesPerPage={lengthOfSlider}
-        arrowLeft={<Icon type="left" style={{ cursor: "pointer" }} />}
-        arrowRight={<Icon type="right" style={{ cursor: "pointer" }} />}
-        addArrowClickHandler
-      >
-        {arrayValidation(gigTask) &&
-          gigTask.map((task, index) => (
-            <div className="carousel-content-block" key={index}>
-              <h4 className="carousel-content-block__h4">{task.title}</h4>
-              <img
-                src={taskIcon}
-                className="carousel-content-block__img"
-                alt=""
-              ></img>
-              <Tooltip
-                title={
-                  !isMyCookie
-                    ? "please login first"
-                    : isSelected || isCompleted
-                    ? undefined
-                    : "You are not selected"
-                }
+    <>
+      {lengthOfSlider === 1 || 2 ? (
+        <div className="" style={{ display: "flex" }}>
+          {arrayValidation(gigTask) &&
+            gigTask.map((task, index) => (
+              <div
+                className="carousel-content-block"
+                key={index}
+                style={{ margin: "20px 8px 20px 6px", width: "290px" }}
               >
-                <Button
-                  shape="round"
-                  onClick={() => handleStartTask(task._id)}
-                  disabled={isButtonDisable}
-                  className="carousel-content-block__button"
+                <h4 className="carousel-content-block__h4">{task.title}</h4>
+                <img
+                  src={taskIcon}
+                  className="carousel-content-block__img"
+                  alt=""
+                ></img>
+                <Tooltip
+                  title={
+                    !isMyCookie
+                      ? "please login first"
+                      : isSelected || isCompleted
+                      ? undefined
+                      : "You are not selected"
+                  }
                 >
-                  Start Task
-                </Button>
-              </Tooltip>
-            </div>
-          ))}
-      </Carousel>
+                  <Button
+                    shape="round"
+                    onClick={() => handleStartTask(task._id)}
+                    disabled={isButtonDisable}
+                    className="carousel-content-block__button"
+                  >
+                    Start Task
+                  </Button>
+                </Tooltip>
+              </div>
+            ))}
+        </div>
+      ) : (
+        <Carousel
+          slidesPerPage={lengthOfSlider}
+          arrowLeft={<Icon type="left" style={{ cursor: "pointer" }} />}
+          arrowRight={<Icon type="right" style={{ cursor: "pointer" }} />}
+          addArrowClickHandler
+        >
+          {arrayValidation(gigTask) &&
+            gigTask.map((task, index) => (
+              <div className="carousel-content-block" key={index}>
+                <h4 className="carousel-content-block__h4">{task.title}</h4>
+                <img
+                  src={taskIcon}
+                  className="carousel-content-block__img"
+                  alt=""
+                ></img>
+                <Tooltip
+                  title={
+                    !isMyCookie
+                      ? "please login first"
+                      : isSelected || isCompleted
+                      ? undefined
+                      : "You are not selected"
+                  }
+                >
+                  <Button
+                    shape="round"
+                    onClick={() => handleStartTask(task._id)}
+                    disabled={isButtonDisable}
+                    className="carousel-content-block__button"
+                  >
+                    Start Task
+                  </Button>
+                </Tooltip>
+              </div>
+            ))}
+        </Carousel>
+      )}
+
       <Modal
         visible={isModalVisible}
         onCancel={handleModalCancel}
@@ -243,6 +282,6 @@ export default function GigTask({
           <Button onClick={handleTaskSubmit}>Submit</Button>
         </div>
       </Modal>
-    </div>
+    </>
   );
 }

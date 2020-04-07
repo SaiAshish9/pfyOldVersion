@@ -66,13 +66,23 @@
   background-color: #ffffff;
   height: 40px;
   word-spacing: $wordSpace;
-  text-indent: 8px;
+  padding-left: 8px;
+
+  font-size: 15px;
+  // font-weight: 500;
+
+  // text-indent: 8px;
 
   appearance: none;
   -webkit-appearance: none;
   background-image: url(../../components/userResume/img/expand_more.svg);
   background-position: right 10px center;
   background-repeat: no-repeat;
+
+  option {
+    font-size: 15px;
+    font-weight: 500;
+  }
 }
 
 %modal-form__textarea {

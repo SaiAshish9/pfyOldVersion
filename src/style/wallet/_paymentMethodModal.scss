@@ -1,66 +1,86 @@
 // .wallet{
-    .payment_method_modal{
-        // .ant-modal-content{
-        //     .ant-modal-header{
-        //         background-color: #fff;
-        //         .ant-modal-title{
-        //             color: black;
-        //             text-align: center;
-        //         }
-        //     }
-        // } 
-        .payment_method_modal_title{
-            color: #827f7f;
-            font-size: 1rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        // .ant-modal-footer{
-        //     border-top: none;
-        // }
-        .submit_btn_block{
-            margin-top: 1rem;
-            padding: 0 2rem;
-            border-radius: 1rem;
-            text-align: center;
-            .submit_btn{
-                padding: 0 2rem;
-                border: none;
-                border-radius: 2rem;
-                height: 2.5rem;
-                background: #6668c4;
-            }
-        }
-        .paytm_input{
-            margin-top: 1.5rem;
-            text-align: initial;
-            .heading{
-                margin: 0.25rem;
-            }
-        }
-        .bank_input{
-            text-align: initial;
-            margin-top: 1.5rem;
-            .heading{
-                margin: 0.25rem;
-            }
-        }
+.payment_method_modal {
+  // .ant-modal-content{
+  //     .ant-modal-header{
+  //         background-color: #fff;
+  //         .ant-modal-title{
+  //             color: black;
+  //             text-align: center;
+  //         }
+  //     }
+  // }
+  .payment_method_modal_title {
+    color: #827f7f;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  // .ant-modal-footer{
+  //     border-top: none;
+  // }
+  .submit_btn_block {
+    margin-top: 1rem;
+    padding: 0 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    .submit_btn {
+      padding: 0 2rem;
+      border: none;
+      border-radius: 2rem;
+      height: 2.5rem;
+      background: #6668c4;
     }
-    .tab-options{
-        margin-top: 1rem;
+  }
+  .paytm_input {
+    text-align: initial;
+    .heading {
+      color: #818181;
+      font-size: 16px;
+      opacity: 0.6;
+      line-height: 1.38;
+      margin: 20px 0 8px 0;
     }
+    .walletDetailInput {
+      border-radius: 4px;
+      box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.16);
+      border: solid 1px #e5e5e5;
+      background-color: #ffffff;
+      height: 40px;
+      word-spacing: -4px;
+      text-indent: 8px;
+    }
+  }
+  .bank_input {
+    text-align: initial;
+    .heading {
+      color: #818181;
+      font-size: 16px;
+      opacity: 0.6;
+      line-height: 1.38;
+      margin: 20px 0 8px 0;
+    }
+    .walletDetailInput {
+        border-radius: 4px;
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.16);
+        border: solid 1px #e5e5e5;
+        background-color: #ffffff;
+        height: 40px;
+        word-spacing: -4px;
+        text-indent: 8px;
+      }
+  }
+}
+.tab-options {
+  margin-top: 1rem;
+}
 // }
 
-.wallet{
-    .payment-summary{
-        .add-payment, .redeem-now{
-            color: #252eb7;
-            font-weight: 500;
-        }
+.wallet {
+  .payment-summary {
+    .add-payment,
+    .redeem-now {
+      color: #252eb7;
+      font-weight: 500;
     }
-    
+  }
 }
-
-
-
-

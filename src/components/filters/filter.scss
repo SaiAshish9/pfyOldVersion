@@ -7,8 +7,10 @@
   background: rgb(255, 255, 255);
 
   h1 {
+    position: relative;
+    bottom: 12px;
     font-weight: 400;
-    color: #808b9e;
+    color: #5f5f5f;
     font-size: 30px;
   }
 }
