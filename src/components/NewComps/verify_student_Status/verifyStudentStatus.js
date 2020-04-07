@@ -10,10 +10,12 @@ function getBase64(img, callback) {
   
 }
 
-export default function VerifyStudentStatus() {
+export default function VerifyStudentStatus(props) {
     const [visible, setVisible] = useState(false)
     const [imageUrl1, setImageUrl1] = useState(null)
     const [imageUrl2, setImageUrl2] = useState(null)
+    console.log(props.isShowVerify);
+    
 
 
     const showModal = () => {
@@ -23,12 +25,14 @@ export default function VerifyStudentStatus() {
       const handleOk = e => {
         console.log(e);
         setVisible(false)
+        props.isCloseVerify()
         
       };
     
       const handleCancel = e => {
         console.log(e);
         setVisible(false)
+        props.isCloseVerify()
         
       };
 
@@ -55,13 +59,13 @@ export default function VerifyStudentStatus() {
 
     return (
         <div>
-        <Button style={{marginTop: "10rem"}} type="primary" onClick={showModal}>
+        {/* <Button style={{marginTop: "10rem"}} type="primary" onClick={showModal}>
           Open Modal
-        </Button>
+        </Button> */}
         <Modal
           width={"50%"}
           title="Verify Student Status"
-          visible={visible}
+          visible={props.isShowVerify}
           onOk={handleOk}
           onCancel={handleCancel}
           footer={null}

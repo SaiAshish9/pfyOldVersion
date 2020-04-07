@@ -49,7 +49,7 @@ const AppRouter = () => {
         <CommonRoute path="/gigs" component={Gig} exact={true} />
         <CommonRoute path="/gig/:id" component={GigDetail} exact={true} />
         <CommonRoute path="/internships" component={Internship} exact={true} />
-        <CommonRoute path="/testing" component={TaskFlow} exact={true} />
+        <CommonRoute path="/testing" component={internshipApplication} exact={true} />
         <CommonRoute
           path="/internship/:id"
           component={InternshipDetail}

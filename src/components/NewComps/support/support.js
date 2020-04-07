@@ -1,20 +1,34 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState, Fragment, useEffect} from 'react';
 import {Modal, Button, Row, Col, Collapse, Form, Input, Upload, Icon } from 'antd';
 import gig from './img/gig.svg';
 import other from './img/other.svg';
 import internship from './img/internship.svg';
 import verification from './img/verification.svg';
+import Axios from 'axios';
 // import TextArea from 'antd/lib/input/TextArea';
 
 const { TextArea } = Input;
 
 
 const { Panel } = Collapse;
-export default function Support() {
+export default function Support(props) {
 
     const [visible, setVisible] = useState(false)
     const [imageUrl, setImageUrl] = useState(null)
+    const [supportData, setSupportData] = useState(null)
     const [selectedComp, setSelectedComp] = useState("supportTiles")
+
+    const getFAQ = (val) => {
+      Axios.get('support/fetch')
+        .then(res => {
+          let data = res.data;
+          if(val == "internshipSupport"){
+            data = data.internshipSupport;
+            setSupportData(data)
+          }
+           console.log(res.data)
+        })
+    }
 
     function getBase64(img, callback) {
       const reader = new FileReader();
@@ -49,27 +63,31 @@ export default function Support() {
         console.log(e);
         setVisible(false)
         setSelectedComp("supportTiles")
+        props.isClose();
       };
     
       const handleCancel = e => {
         console.log(e);
         setVisible(false);
         setSelectedComp("supportTiles")
+        props.isClose();
       };
 
     const selectHandler = val => {
       console.log(val)
       setSelectedComp("faq")
+      getFAQ(val);
     }
 
     const contactUsHandler = () =>{
       console.log('hey you clicked CONTACT US')
       setSelectedComp("queryFrom")
     }
+    
 
     const supportTiles = (
       <div className="support-block">
-            <div onClick={() => selectHandler("internship")} className="support-single-block">
+            <div onClick={() => selectHandler("internshipSupport")} className="support-single-block">
               <div style={{margin: "auto"}}>
                 <img src={internship} alt="" />
                 <br/>
@@ -86,18 +104,17 @@ export default function Support() {
             <div onClick={() => selectHandler("gig")} className="support-single-block">
             <div style={{margin: "auto"}}>
                 <img src={gig} alt="" /> <br/>
-                <span className="support-single-block-text">Gig  Support</span>
+                <span className="support-single-block-text">Gig Support</span>
               </div>
             </div>
             <div onClick={() => selectHandler("other")} className="support-single-block">
             <div style={{margin: "auto"}}>
                 <img src={other} alt="" /> <br/>
-                <span className="support-single-block-text">Other  Support</span>
+                <span className="support-single-block-text">Other Support</span>
               </div>
             </div>
           </div> ); 
     
-    const text = "Energetic individual looking to showcase excellent presentation skills and transform theoretical knowledge of banking principles into practical applications of current and saving Account Opening, Wealth Management, and Forex Transactions."
 
     const faq = (
   <div className="support-faq">
@@ -105,15 +122,12 @@ export default function Support() {
     <Collapse expandIconPosition={"right"}
      style={{border: "none", backgroundColor:"#fff"}}
       accordion>
-      <Panel header="Willing to travel for mission and internships ?" key="1">
-        <p>{text}</p>
+      {supportData ?
+      supportData.map((data, index) => 
+      <Panel header={data.question} key={index}>
+        <p>{data.answer}</p>
       </Panel>
-      <Panel header="Willing to travel for mission and internships ?" key="2">
-        <p>{text}</p>
-      </Panel>
-      <Panel header="Willing to travel for mission and internships ?" key="3">
-        <p>{text}</p>
-      </Panel>
+        ) : null}
     </Collapse>
     <div className="contact-us" >
     ----STILL NEED HELP? <span onClick={contactUsHandler} className="contact-us-link">CONTACT US!----</span> 
@@ -150,9 +164,6 @@ export default function Support() {
                 <div>{imageUrl}</div>
               </div> }
             </Upload>
-
-
-            
             <Button onClick={() => console.log("query-submit-clicked", imageUrl)} className="query-submit-btn" type="primary">Submit</Button>
           </div>
     )
@@ -173,18 +184,19 @@ const [multiComp, setComp] = useState({supportTiles, faq, queryFrom});
 
     return (
         <div>
-        <Button style={{marginTop: "10rem"}} type="primary" onClick={showModal}>
+        {/* <Button style={{marginTop: "10rem"}} type="primary" onClick={showModal}>
           Open Modal
-        </Button>
+        </Button> */}
         <Modal
+          // width={"50%"}
           className="support-modal"
           title="Support"
-          visible={visible}
+          visible={props.isShow}
           onOk={handleOk}
           onCancel={handleCancel}
           footer={null}
         >
-          {multiComp[selectedComp]}
+          {selectedComp === "supportTiles" ? supportTiles : selectedComp === "queryFrom" ? queryFrom : faq}
           
         </Modal>
         
