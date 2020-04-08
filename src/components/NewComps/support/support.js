@@ -16,6 +16,8 @@ export default function Support(props) {
     const [visible, setVisible] = useState(false)
     const [imageUrl, setImageUrl] = useState(null)
     const [supportData, setSupportData] = useState(null)
+    const [imgURL, setImgURL] = useState(null)
+    const [imageData, setImageData] = useState(null)
     const [selectedComp, setSelectedComp] = useState("supportTiles")
 
     const getFAQ = (val) => {
@@ -24,7 +26,7 @@ export default function Support(props) {
           let data = res.data;
           if(val == "internshipSupport"){
             data = data.internshipSupport;
-            setSupportData(data)
+            setSupportData(data);
           }
            console.log(res.data)
         })
@@ -38,6 +40,16 @@ export default function Support(props) {
     }
 
     const ImageUploadHandler = info => {
+      getBase64(info.file.originFileObj, imgurl => setImageUrl(imgurl));
+      Axios.get('https://pracify.com/testing/student_verification/signed_url_for_docs?fileType=image/jpeg')
+        .then(res => {
+          console.log(res.data)
+          setImgURL(res.data)
+          setImageData(info)
+          console.log(info)
+        })
+      console.log(info);
+      console.log("INFO..... ")
       if (info.file.status === 'uploading') {
         // this.setState({ loading: true });
         console.log("loading/..........")
@@ -62,15 +74,40 @@ export default function Support(props) {
       const handleOk = e => {
         console.log(e);
         setVisible(false)
-        setSelectedComp("supportTiles")
-        props.isClose();
+        // setSelectedComp("supportTiles")
+        setSupportData(null)
+        let img = imageData.file;
+        let lookupOptions = {
+          method: 'PUT', // or 'PUT'
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: img,
+        };
+
+        fetch('http://cors-anywhere.herokuapp.com/' + imgURL.url, lookupOptions)
+          .then(res => {
+            if(res.status==200){
+              console.log('%c File Sent', 'font-size: 25px, color: darkblue')
+              console.log(imgURL)
+            }
+          })
+          .then(data => console.log(data))
+          .catch(err => console.log(err))
+
+
+        // Axios.put(imgURL.url, img)
+        //   .then(res => console.log(res.data))
+        //   .catch(err => console.log(err))
+        // props.isClose();
       };
     
       const handleCancel = e => {
         console.log(e);
         setVisible(false);
         setSelectedComp("supportTiles")
-        props.isClose();
+        setSupportData(null)
+        // props.isClose();
       };
 
     const selectHandler = val => {
@@ -154,7 +191,7 @@ export default function Support(props) {
               listType="picture-card"
               className="avatar-uploader"
               showUploadList={false}
-              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              action="https://pracify.com/testing/student_verification/signed_url_for_docs?fileType=image/jpeg"
               // beforeUpload={beforeUpload}
               onChange={ImageUploadHandler}
             >
@@ -164,7 +201,7 @@ export default function Support(props) {
                 <div>{imageUrl}</div>
               </div> }
             </Upload>
-            <Button onClick={() => console.log("query-submit-clicked", imageUrl)} className="query-submit-btn" type="primary">Submit</Button>
+            <Button onClick={handleOk} className="query-submit-btn" type="primary">Submit</Button>
           </div>
     )
 
