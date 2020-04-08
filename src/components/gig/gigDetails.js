@@ -13,6 +13,7 @@ import checkIcon from "../internship/img/checkIcon.svg";
 import removeIcon from "../internship/img/removeIcon.svg";
 import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
 import GigTask from "./gigTask";
+import moment from "moment";
 
 const { TabPane } = Tabs;
 export default function GigDetail(props) {
@@ -36,6 +37,8 @@ export default function GigDetail(props) {
   const selectedGigId = props.match.params.id;
 
   const myGig = gig;
+
+  console.log(myGig);
 
   //#region
   /* ------------------------ gig provider state ----------------------- */
@@ -87,8 +90,7 @@ export default function GigDetail(props) {
             setGig(res.data);
             setIsFailed(true);
           } else {
-            console.log(res.data.questions);
-
+            console.log("gig details", res.data.questions);
             setGig(res.data);
             setCompanyQuestion(res.data.questions);
           }
@@ -225,7 +227,7 @@ export default function GigDetail(props) {
               </div>
               <div className="gig-brief-content">
                 <h5>Deadline</h5>
-                <h4>{appliedBeforeTime}</h4>
+                <h4>{moment(appliedBeforeTime).format("DD MMM")}</h4>
               </div>
               <div className="gig-brief-content">
                 <h5>Type</h5>
@@ -402,7 +404,7 @@ export default function GigDetail(props) {
           />
         </Modal>
       </div>
-      <MoreSuggestion />
+      <MoreSuggestion isGigOrInternship="gig" category={designation} />
     </div>
   );
 }

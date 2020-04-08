@@ -5,10 +5,13 @@
   padding: 20px;
   border-radius: 8px 8px 0px 0px;
   background: rgb(255, 255, 255);
+
   h1 {
+    position: relative;
+    bottom: 12px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.85);
-    color: #474e54;
+    color: #5f5f5f;
+    font-size: 30px;
   }
 }
 
@@ -28,12 +31,14 @@ div.ant-col.ant-col-6.filter-container {
       padding: 0px 20px;
       div.ant-collapse-item {
         border: none;
-        padding-bottom:20px ;
+        padding-bottom: 20px;
         div.ant-collapse-header {
           // width: 80%;
           // margin: auto;
           border-bottom: 1px solid #d9d9d9;
           padding: 0px;
+          color: #7a869a;
+          font-size: 19px;
           i.anticon.anticon-right.ant-collapse-arrow {
             right: -200px;
             svg {
@@ -51,12 +56,26 @@ div.ant-col.ant-col-6.filter-container {
             flex-direction: column;
             padding: 8px 0px 0px 4px;
             .ant-checkbox-wrapper {
-              margin-left: 0px;
+              margin: 0 0 8px 0;
               .ant-checkbox {
+                margin-right: 8px;
                 .ant-checkbox-input {
-                  .ant-checkbox-inner {
-                  }
                 }
+                .ant-checkbox-inner {
+                  background-color: #f3f3f3;
+                  border: 1px solid #d3d3d3;
+                }
+              }
+
+              span:nth-child(2) {
+                color: #000;
+                font-size: 15px;
+              }
+            }
+            .ant-checkbox.ant-checkbox-checked {
+              .ant-checkbox-inner {
+                background-color: #1890ff;
+                border-color: #1890ff;
               }
             }
           }
@@ -64,20 +83,6 @@ div.ant-col.ant-col-6.filter-container {
 
         div.ant-collapse-content.ant-collapse-content-inactive {
           padding-bottom: 20px;
-          div.ant-collapse-content-box {
-            label.ant-checkbox-wrapper {
-              span.ant-checkbox {
-                input.ant-checkbox-input {
-                }
-
-                span.ant-checkbox-inner {
-                }
-              }
-
-              span {
-              }
-            }
-          }
         }
       }
     }

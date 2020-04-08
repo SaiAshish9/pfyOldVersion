@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.15" height="28.15" viewBox="0 0 28.15 28.15">
+    <defs>
+        <clipPath id="prefix__clip-path">
+            <rect id="prefix__Rectangle_1909" width="28.15" height="28.15" data-name="Rectangle 1909" rx="4" transform="translate(34 509)" style="stroke:#707070;fill:#fff"/>
+        </clipPath>
+        <style>
+            .prefix__cls-3{fill:#ff8000}
+        </style>
+    </defs>
+    <g id="prefix__Mask_Group_82" data-name="Mask Group 82" transform="translate(-34 -509)">
+        <g id="prefix__blogger" transform="translate(34 509)">
+            <path id="prefix__Path_2070" d="M28.15 26.4a1.739 1.739 0 0 1-1.75 1.75H1.748A1.739 1.739 0 0 1 0 26.4V1.748A1.739 1.739 0 0 1 1.748 0H26.4a1.739 1.739 0 0 1 1.75 1.748z" class="prefix__cls-3" data-name="Path 2070"/>
+            <path id="prefix__Path_2071" d="M22.025 15.036c0-2.62-.776-3.689-3.4-3.689V8.92a4.767 4.767 0 0 0-4.465-4.368H9.745a5.007 5.007 0 0 0-5.192 5.242v6.989a5.044 5.044 0 0 0 5.242 5.242h7.038a5.034 5.034 0 0 0 5.194-5.242v-1.747z" data-name="Path 2071" transform="translate(.786 .787)" style="fill:#fff"/>
+            <g id="prefix__Group_1334" data-name="Group 1334" transform="translate(9.706 9.707)">
+                <path id="prefix__Path_2072" d="M13.372 10.7H9.489a1.213 1.213 0 1 1 0-2.427h3.882a1.213 1.213 0 1 1 0 2.427" class="prefix__cls-3" data-name="Path 2072" transform="translate(-8.276 -8.276)"/>
+                <path id="prefix__Path_2073" d="M15.8 16.082H9.489a1.213 1.213 0 1 1 0-2.427H15.8a1.213 1.213 0 0 1 0 2.427" class="prefix__cls-3" data-name="Path 2073" transform="translate(-8.276 -7.346)"/>
+            </g>
+        </g>
+    </g>
+</svg>

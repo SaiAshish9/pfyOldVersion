@@ -20,11 +20,11 @@ export default function UserCard(props) {
   useEffect(() => {
     axios
       .get(`${apiURL}/user/`, tokenHeader)
-      .then(res => {
+      .then((res) => {
         myUserProfile && myUserProfile(res.data);
         setUserData(res.data);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log("userData", e);
       });
   }, []);
@@ -32,8 +32,11 @@ export default function UserCard(props) {
   console.log("userData", userData);
 
   const handleCard = () => {
-    if (location.pathname !== "/profile") history.push("/profile");
+    if (location.pathname !== "/profile") {
+      history.push("/profile");
+    }
   };
+
   const openModal = () => {
     setIsShow(!isShow);
   };
@@ -73,27 +76,34 @@ export default function UserCard(props) {
             <h2>{!!userData && userData.city}</h2>
           </div>
         </div>
-        {/* <div className="divider-block"></div>
-      <div className="profile-Score">
-        <p className="profile-Score__para">Profile Score</p>
-        <Progress
-          percent={!!userData && userData.profileScore}
-          status="active"
-        />
-      </div> */}
       </div>
-      <div className="gig-Score-block">
-        <h1 className="gig-Score__h1">Your Gig Score</h1>
-        <Progress
-          type="circle"
-          percent={!!userData && userData.profileScore}
-          status="active"
-          strokeWidth={15}
-          strokeColor="#6dff5d"
-          width={160}
-          className="gig-progressBar"
-        />
-      </div>
+      {location.pathname === "/profile" ? (
+        <div className="gig-Score-block">
+          <h1 className="gig-Score__h1">Your Gig Profile Score</h1>
+          <Progress
+            type="circle"
+            percent={!!userData && userData.profileScore}
+            status="active"
+            strokeWidth={15}
+            strokeColor="#6dff5d"
+            width={160}
+            className="gig-progressBar"
+          />
+        </div>
+      ) : (
+        <div className="gig-Score-block">
+          <h1 className="gig-Score__h1">Your Resume Score</h1>
+          <Progress
+            type="circle"
+            percent={!!userData && userData.profileScore}
+            status="active"
+            strokeWidth={15}
+            strokeColor="#6dff5d"
+            width={160}
+            className="gig-progressBar"
+          />
+        </div>
+      )}
     </div>
   );
 }

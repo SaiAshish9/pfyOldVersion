@@ -6,15 +6,20 @@ import Login from "./login/login";
 export default function HeaderNavLink() {
   return (
     <>
-      <Link to="/internships" className="myLink1">
+      {/* //! do not delete this comment */}
+      {/* <Link to="/internships" className="myLink1">
         Internships
       </Link>
       <Link to="/gigs" className="myLink2">
         Gigs
-      </Link>
+      </Link> */}
 
       {<Login />}
-      <a href="https://business.pracify.com/" target="_blank">
+      <a
+        href="https://business.pracify.com/"
+        target="_blank"
+        className="header__button2__a"
+      >
         <Button className="header__button2">For Business</Button>
       </a>
     </>

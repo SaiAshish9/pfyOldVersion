@@ -51,12 +51,7 @@ const HIWcontainer = () => {
         </div>
         <img src={dottedIcon1} alt="" className="hiw-dotted__img1" />
       </div>
-      <div
-        // style={{
-        //   flexDirection: "row-reverse"
-        // }}
-        className="hiw-subContainer-different "
-      >
+      <div className="hiw-subContainer-different">
         <div className=" hiw-subContainer-content">
           <div className="hiw-subContainer-icon-container">
             <img

@@ -11,9 +11,10 @@ import { arrayValidation } from "../validation/validation";
 import CompanyQueForm from "./companyQuesForm";
 import checkIcon from "./img/checkIcon.svg";
 import removeIcon from "./img/removeIcon.svg";
+import moment from "moment";
 
 const { TabPane } = Tabs;
-const InternshipDetail = props => {
+export default function InternshipDetail(props) {
   // const { internship } = useContext(InternshipContext);
   const myCookie = Cookies.get("token");
 
@@ -203,7 +204,7 @@ const InternshipDetail = props => {
               </div>
               <div className="internship-brief-content">
                 <h5>Deadline</h5>
-                <h4>{appliedBeforeTime}</h4>
+                <h4>{moment(appliedBeforeTime).format("DD MMM")}</h4>
               </div>
               <div className="internship-brief-content">
                 <h5>Location</h5>
@@ -211,7 +212,7 @@ const InternshipDetail = props => {
               </div>
               <div className="internship-brief-content">
                 <h5>Starting</h5>
-                <h4>{internshipStartingTime}</h4>
+                <h4>{moment(internshipStartingTime).format("DD MMM")}</h4>
               </div>
             </div>
             <div className="boundary-one" />
@@ -369,10 +370,9 @@ const InternshipDetail = props => {
           />
         </Modal>
       </div>
-      <MoreSuggestion />
+      <MoreSuggestion isGigOrInternship="internship" category={designation} />
     </div>
   );
-};
-export default InternshipDetail;
+}
 
 // <ApplicationForm/>

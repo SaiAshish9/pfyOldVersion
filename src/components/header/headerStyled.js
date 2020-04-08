@@ -86,7 +86,7 @@ const MyHeader = styled.div`
     display: none;
     height: 100vh;
     width: 320px;
-    border: 1px solid;
+    /* border: 1px solid; */
     position: fixed;
     z-index: 50;
     align-self: flex-end;
@@ -106,6 +106,21 @@ const MyHeader = styled.div`
       }
       .myLink4 {
         margin-bottom: 12px;
+      }
+      .login-button-main-block {
+        margin: auto auto 20px auto;
+
+        .header__button1 {
+          color: white;
+          background: #3773b6;
+        }
+      }
+      .header__button2__a {
+        margin: auto;
+        .header__button2 {
+          color: white;
+          background: #3773b6;
+        }
       }
     }
   }
