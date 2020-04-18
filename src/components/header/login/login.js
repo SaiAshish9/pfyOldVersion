@@ -14,7 +14,7 @@ import UserForm from "./userForm";
 
 //! ---------------------------------- style --------------------------------- */
 const buttonStyle = {
-  padding: "0px 50px"
+  padding: "0px 50px",
 };
 
 const { Countdown } = Statistic;
@@ -43,10 +43,11 @@ const Continue = () => {
   console.log("OTP.length", OTP.length);
 
   const showModal = () => {
-    setVisible(true);
-    if (!proceedForOTP) {
-      recaptchaVerifier();
-    }
+    //! do not delete this content below
+    // setVisible(true);
+    // if (!proceedForOTP) {
+    //   recaptchaVerifier();
+    // }
   };
 
   /* -------------------------------- OTP timer ------------------------------- */
@@ -68,7 +69,7 @@ const Continue = () => {
           window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
             "recaptcha-container",
             {
-              size: "invisible"
+              size: "invisible",
             }
           );
         }, 1000);
@@ -87,7 +88,7 @@ const Continue = () => {
     setOTP("");
   };
 
-  const handlePhoneInput = e => {
+  const handlePhoneInput = (e) => {
     const myNumber = e.target.value;
     if (myNumber.length < 11 && myNumber.match(/^[0-9]*$/)) {
       setPhone(myNumber);
@@ -105,23 +106,23 @@ const Continue = () => {
     // console.log(phoneLength, "phoneLength");
   }, [phone]);
 
-  const handleVerifyButton = e => {
+  const handleVerifyButton = (e) => {
     e.preventDefault();
 
     if (window.confirmResult) {
       window.confirmResult
         .confirm(OTP)
-        .then(function(result) {
+        .then(function (result) {
           console.log(result);
           setPassToken(result.user.uid);
           const userCredential = {
             phone: result.user.phoneNumber,
-            passToken: result.user.uid
+            passToken: result.user.uid,
           };
 
           axios
             .post(`${apiURL}/auth/login`, userCredential)
-            .then(function(res) {
+            .then(function (res) {
               console.log(res);
               if (res.data.statusCode === 200) {
                 // const username = res.data.user.firstName;
@@ -130,7 +131,7 @@ const Continue = () => {
                 Cookies.set("token", res.data.token);
                 history.push({
                   pathname: "/home",
-                  state: { headers: { token: res.data.token } }
+                  state: { headers: { token: res.data.token } },
                 });
               } else if (res.data.statusCode === 210) {
                 setIsVerified(true);
@@ -138,12 +139,12 @@ const Continue = () => {
                 console.log("their is some error");
               }
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.log("error.response", error.response);
               console.log("no internet");
             });
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log("wrong OTP");
           console.log(error);
         });
@@ -152,7 +153,7 @@ const Continue = () => {
     }
   };
 
-  const handleResendOTP = e => {
+  const handleResendOTP = (e) => {
     e.preventDefault();
     setOTP("");
     setIsResendOtpDisable(true);
@@ -162,7 +163,7 @@ const Continue = () => {
 
   //! -------------------------------- firebase -------------------------------- */
 
-  const handleLoginContinueButton = e => {
+  const handleLoginContinueButton = (e) => {
     e.preventDefault();
     setIsContinue(true);
     setProceedForOTP(true);
@@ -175,7 +176,7 @@ const Continue = () => {
     firebase
       .auth()
       .signInWithPhoneNumber(`+91${phone}`, window.recaptchaVerifier)
-      .then(confirmResult => {
+      .then((confirmResult) => {
         console.log(confirmResult);
         window.confirmResult = confirmResult;
         console.log("correct Number");
@@ -183,7 +184,7 @@ const Continue = () => {
         // setResendOtpAgain(Math.random());
         setResendOTPDeadline(Date.now() + 1000 * 60);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("incorrect Number");
         console.log("+91" + phone);
         console.log(error);
@@ -255,7 +256,7 @@ const Continue = () => {
                       style={{
                         display: "flex",
                         justifyContent: "space-between",
-                        alignItems: "baseline"
+                        alignItems: "baseline",
                       }}
                     >
                       <h4>Enter OTP</h4>
@@ -272,7 +273,7 @@ const Continue = () => {
                           valueStyle={{
                             fontSize: "0.83em",
                             fontWeight: "500",
-                            marginRight: "8px"
+                            marginRight: "8px",
                           }}
                         />
                         <Button
@@ -283,7 +284,7 @@ const Continue = () => {
                             backgroundColor: "#fff",
                             border: "none",
                             fontSize: "0.83em",
-                            fontWeight: "500"
+                            fontWeight: "500",
                           }}
                           onClick={handleResendOTP}
                           disabled={isResendOtpDisable}
@@ -306,8 +307,8 @@ const Continue = () => {
                         borderColor: "#a9a9a9",
                         marginBottom: "12px",
                         "&:focus": {
-                          outline: "none !important"
-                        }
+                          outline: "none !important",
+                        },
                       }}
                     />
                   </div>

@@ -27,8 +27,8 @@ export default function Stat() {
           ></img>
 
           <div className="student-status-text-block">
-            <h1>Student Status</h1>
-            <p>Click To Complete Your Details</p>
+            <h1 className="heading">Student Status</h1>
+            <p className="para">Click To Complete Your Details</p>
             <img alt="" src={rightArrowIcon} className="arrowIcon-one" />
           </div>
         </Link>
@@ -36,8 +36,8 @@ export default function Stat() {
         <Link to="/my-gigs" className="my-gig-block">
           <img src={gigIcon} alt="img" className="my-gig__img"></img>
           <div className="my-gig-text-block">
-            <h1>My Gigs</h1>
-            <p>Check all your Gigs here</p>
+            <h1 className="heading">My Gigs</h1>
+            <p className="para">Check all your Gigs here</p>
             <img alt="" src={rightArrowIcon} className="arrowIcon-two" />
           </div>
         </Link>
@@ -48,16 +48,16 @@ export default function Stat() {
             className="my-internship__img"
           ></img>
           <div className="my-internship-text-block">
-            <h1>My Internship</h1>
-            <p>Check all your Internships</p>
+            <h1 className="heading">My Internship</h1>
+            <p className="para">Check all your Internships</p>
             <img alt="" src={rightArrowIcon} className="arrowIcon-three" />
           </div>
         </Link>
         <Link to="/resume" className="my-resume-block">
           <img src={resumeIcon} alt="img" className="my-resume__img"></img>
           <div className="my-resume-text-block">
-            <h1>My Resume</h1>
-            <p>Click To Check Your Resume</p>
+            <h1 className="heading">My Resume</h1>
+            <p className="para">Click To Check Your Resume</p>
             <img alt="" src={rightArrowIcon} className="arrowIcon-four" />
           </div>
         </Link>
@@ -68,8 +68,8 @@ export default function Stat() {
             className="gig-profile__img"
           ></img>
           <div className="gig-profile-text-block">
-            <h1>Gig Profile</h1>
-            <p>Here's Your Gig Profile</p>
+            <h1 className="heading">Gig Profile</h1>
+            <p className="para">Here's Your Gig Profile</p>
             <img alt="" src={rightArrowIcon} className="arrowIcon-five" />
           </div>
         </Link>
