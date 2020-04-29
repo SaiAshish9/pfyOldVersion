@@ -10,7 +10,7 @@ import creditCardImg from "./images/credit_card.svg";
 
 const codeToText = {
   801: "Amount Requested",
-  802: "Amount Received"
+  802: "Amount Received",
 };
 
 export default function Transactions({ data, details }) {
@@ -28,9 +28,7 @@ export default function Transactions({ data, details }) {
             <div className="credit-card__details">
               <div className="credit-card__number">xxxx 1 2 3 4</div>
               <div className="credit-card__holder">Card Holder</div>
-              <div className="credit-card__name">
-                {details.firstName + " " + details.lastName}
-              </div>
+              <div className="credit-card__name">{details.firstName}</div>
             </div>
             <div className="credit-card__validity">
               <span
