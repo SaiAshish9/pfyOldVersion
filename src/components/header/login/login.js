@@ -44,10 +44,10 @@ const Continue = () => {
 
   const showModal = () => {
     //! do not delete this content below
-    // setVisible(true);
-    // if (!proceedForOTP) {
-    //   recaptchaVerifier();
-    // }
+    setVisible(true);
+    if (!proceedForOTP) {
+      recaptchaVerifier();
+    }
   };
 
   /* -------------------------------- OTP timer ------------------------------- */
