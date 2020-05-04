@@ -65,16 +65,17 @@ const Continue = () => {
   const recaptchaVerifier = () => {
     if (!isVerified) {
       try {
-        setTimeout(() => {
-          window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
-            "recaptcha-container",
-            {
-              size: "invisible",
-            }
-          );
-        }, 1000);
+        // setTimeout(() => {
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+          "recaptcha-container",
+          {
+            size: "invisible",
+          }
+        );
+        // }, 1000);X
+        console.log(window.recaptchaVerifier);
       } catch (e) {
-        console.log("catch render before container");
+        console.log(e);
       }
     }
   };
@@ -141,7 +142,7 @@ const Continue = () => {
             })
             .catch(function (error) {
               console.log("error.response", error.response);
-              console.log("no internet");
+              console.log("");
             });
         })
         .catch(function (error) {
@@ -181,7 +182,6 @@ const Continue = () => {
         window.confirmResult = confirmResult;
         console.log("correct Number");
         console.log("+91" + phone);
-        // setResendOtpAgain(Math.random());
         setResendOTPDeadline(Date.now() + 1000 * 60);
       })
       .catch((error) => {
@@ -249,7 +249,6 @@ const Continue = () => {
                     onChange={handlePhoneInput}
                   />
                 </div>
-                <div id="recaptcha-container"></div>
                 {isContinue && (
                   <div>
                     <div
@@ -344,6 +343,7 @@ const Continue = () => {
           </div>
         </Modal>
       )}
+      <div id="recaptcha-container"></div>
     </div>
   );
 };
