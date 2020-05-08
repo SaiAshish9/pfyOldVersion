@@ -1,11 +1,12 @@
 import Carousel from "@brainhubeu/react-carousel";
-import { Button, Icon, Modal, Tooltip, Input, message, Upload } from "antd";
-import React, { useState, useEffect } from "react";
+import { Button, Icon, Input, message, Modal, Tooltip, Upload } from "antd";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+/* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../constant/tokenHeader";
 import { apiURL } from "../../constant/url";
-import { arrayValidation, objectValidation } from "../validation/validation";
+import { arrayValidation } from "../validation/validation";
 import taskIcon from "./taskIcon.svg";
-import axios from "axios";
 
 export default function GigTask({
   gigTask,
@@ -23,13 +24,10 @@ export default function GigTask({
   const [selectedTask, setSelectedTask] = useState();
 
   useEffect(() => {
-    // console.log("taskData", taskData);
     console.log("taskData", taskData);
     console.log("taskData length", taskData.length);
     console.log("selectedTask", selectedTask);
   }, [selectedTask, taskData]);
-
-  // axios.post(())
 
   const description = !!selectedTask && selectedTask.description;
   const instruction =
@@ -154,7 +152,7 @@ export default function GigTask({
     arrayValidation(gigTask) &&
       gigTask.forEach((task) => {
         axios
-          .get(`${apiURL}/task/${selectedGigId}/${task._id}`, tokenHeader)
+          .get(`task/${selectedGigId}/${task._id}`)
           .then((res) => {
             dummyTaskData.push(res.data);
             setTaskData(dummyTaskData);

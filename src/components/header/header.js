@@ -37,7 +37,7 @@ const Header = () => {
         render={({ x, y }) => {
           return (
             <MyHeader>
-              <div className="headerNav" scrollEffect={y}>
+              <div className="headerNav" scrolleffect={y}>
                 <div className="logo-container" onClick={handleLogo}>
                   <img src={pracifyLogo} alt="" className="logoIcon" />
                 </div>

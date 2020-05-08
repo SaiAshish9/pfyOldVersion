@@ -1,14 +1,11 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
+/* ---------------------------------- ***** --------------------------------- */
+import SmallCard from "../common/smallCard";
+import { arrayValidation } from "../validation/validation";
 import helpIcon from "./help.svg";
 
-import axios from "axios";
-import { apiURL } from "../../constant/url";
-import { arrayValidation } from "../validation/validation";
-
-import SmallCard from "../common/smallCard";
-
 export default function MoreSuggestion({ isGigOrInternship, category }) {
-  // {{url}}mission/fetch?page=0&pagesize=4&title=Test mission
   console.log("isGigOrInternship", isGigOrInternship, category);
   const [similarGigOrInternship, setSimilarGigOrInternship] = useState();
 
@@ -19,7 +16,7 @@ export default function MoreSuggestion({ isGigOrInternship, category }) {
   useEffect(() => {
     if (isGigOrInternship === "gig") {
       axios
-        .get(`${apiURL}/mission/fetch?pagesize=4&title=${category}`)
+        .get(`mission/fetch?pagesize=4&title=${category}`)
         .then((res) => {
           setSimilarGigOrInternship(res.data.missions);
           console.log("similar gig", res.data);
@@ -29,7 +26,7 @@ export default function MoreSuggestion({ isGigOrInternship, category }) {
         });
     } else if (isGigOrInternship === "internship") {
       axios
-        .get(`${apiURL}/internship/fetch_with_status?pagesize=4&category=xyz`)
+        .get(`internship/fetch_with_status?pagesize=4&category=xyz`)
         .then((res) => {
           setSimilarGigOrInternship(res.data.internships);
           console.log("similar internship", res.data);

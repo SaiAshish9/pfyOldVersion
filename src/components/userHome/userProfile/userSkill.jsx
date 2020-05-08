@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
-import { useForm } from "react-hook-form";
 import axios from "axios";
-import { apiURL } from "../../../constant/url";
-import { tokenHeader } from "../../../constant/tokenHeader";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+/* ---------------------------------- ***** --------------------------------- */
+import four from "./img/(4).svg";
+import addIcon from "./img/addIcon.svg";
+import editIcon from "./img/editIcon.svg";
 import comedyIcon from "./img/interestIcon/comedyIcon.svg";
 import danceIcon from "./img/interestIcon/danceIcon.svg";
 import dataEntryIcon from "./img/interestIcon/dataEntryIcon.svg";
@@ -21,10 +23,6 @@ import socialMediaIcon from "./img/interestIcon/socialMediaIcon.svg";
 import storeAuditIcon from "./img/interestIcon/storeAuditIcon.svg";
 import videoMaking from "./img/interestIcon/videoMaking.svg";
 import writingIcon from "./img/interestIcon/writingIcon.svg";
-import four from "./img/(4).svg";
-import editIcon from "./img/editIcon.svg";
-
-import addIcon from "./img/addIcon.svg";
 
 const skillImg = [
   { icon: comedyIcon, text: "comedy" },
@@ -59,14 +57,13 @@ const UserSkill = (props) => {
     console.log(data.objectiveTextarea);
     // axios
     //   .put(
-    //     `${apiURL}/resume/addobjective?careerObjectives=${data.objectiveTextarea}`,
-    //     null,
-    //     tokenHeader
+    //     `resume/addobjective?careerObjectives=${data.objectiveTextarea}`,
+    //     null
     //   )
-    //   .then(res => {
+    //   .then((res) => {
     //     console.log(res);
     //   })
-    //   .catch(e => {
+    //   .catch((e) => {
     //     console.log(e.response);
     //   });
   };

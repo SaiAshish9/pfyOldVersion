@@ -1,23 +1,22 @@
-import React, { useState, useEffect } from "react";
 import { Tabs } from "antd";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Card from "../../common/card";
-import { apiURL } from "../../../constant/url";
-import { tokenHeader } from "../../../constant/tokenHeader";
+/* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../../validation/validation";
 
-const UserGig = () => {
+export default function UserGig() {
   const { TabPane } = Tabs;
   const [gig, setGig] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${apiURL}/mission/mymissions`, tokenHeader)
-      .then(res => {
+      .get(`mission/mymissions`)
+      .then((res) => {
         console.log(res.data);
         setGig(res.data);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
   }, []);
@@ -28,26 +27,26 @@ const UserGig = () => {
     console.log(gig.length > 0 && gig[0].missionId);
   }, [gig]);
 
-  const handleTabChange = key => {
+  const handleTabChange = (key) => {
     console.log(key);
   };
 
   const applied =
-    arrayValidation(gig) && gig.filter(myGig => myGig.status === 601);
+    arrayValidation(gig) && gig.filter((myGig) => myGig.status === 601);
   console.log(applied);
   const shortlisted =
-    arrayValidation(gig) && gig.filter(myGig => myGig.status === 602);
+    arrayValidation(gig) && gig.filter((myGig) => myGig.status === 602);
   console.log(shortlisted);
   const selected =
-    arrayValidation(gig) && gig.filter(myGig => myGig.status === 603);
+    arrayValidation(gig) && gig.filter((myGig) => myGig.status === 603);
   const rejected =
-    arrayValidation(gig) && gig.filter(myGig => myGig.status === 604);
+    arrayValidation(gig) && gig.filter((myGig) => myGig.status === 604);
   const completed =
-    arrayValidation(gig) && gig.filter(myGig => myGig.status === 605);
+    arrayValidation(gig) && gig.filter((myGig) => myGig.status === 605);
   const failed =
-    arrayValidation(gig) && gig.filter(myGig => myGig.status === 606);
+    arrayValidation(gig) && gig.filter((myGig) => myGig.status === 606);
 
-  const getCard = dataOfCard =>
+  const getCard = (dataOfCard) =>
     arrayValidation(dataOfCard) &&
     dataOfCard.map((userCardData, index) => {
       const userGig = userCardData.mission;
@@ -71,7 +70,7 @@ const UserGig = () => {
       style={{
         padding: "100px 60px 80px 60px",
         background: "#f3f3f3",
-        minHeight: "680px"
+        minHeight: "680px",
       }}
     >
       <div
@@ -79,7 +78,7 @@ const UserGig = () => {
         style={{
           backgroundColor: "#fff",
           padding: "35px 45px",
-          borderRadius: "8px"
+          borderRadius: "8px",
         }}
       >
         <h1>Gig</h1>
@@ -88,7 +87,7 @@ const UserGig = () => {
             <div
               style={{
                 display: "flex",
-                flexFlow: "wrap"
+                flexFlow: "wrap",
                 // justifyContent: "center"
               }}
             >
@@ -99,7 +98,7 @@ const UserGig = () => {
             <div
               style={{
                 display: "flex",
-                flexFlow: "wrap"
+                flexFlow: "wrap",
                 // justifyContent: "center"
               }}
             >
@@ -110,7 +109,7 @@ const UserGig = () => {
             <div
               style={{
                 display: "flex",
-                flexFlow: "wrap"
+                flexFlow: "wrap",
                 // justifyContent: "center"
               }}
             >
@@ -121,7 +120,7 @@ const UserGig = () => {
             <div
               style={{
                 display: "flex",
-                flexFlow: "wrap"
+                flexFlow: "wrap",
                 // justifyContent: "center"
               }}
             >
@@ -132,7 +131,7 @@ const UserGig = () => {
             <div
               style={{
                 display: "flex",
-                flexFlow: "wrap"
+                flexFlow: "wrap",
                 // justifyContent: "center"
               }}
             >
@@ -143,7 +142,7 @@ const UserGig = () => {
             <div
               style={{
                 display: "flex",
-                flexFlow: "wrap"
+                flexFlow: "wrap",
                 // justifyContent: "center"
               }}
             >
@@ -154,5 +153,4 @@ const UserGig = () => {
       </div>
     </div>
   );
-};
-export default UserGig;
+}

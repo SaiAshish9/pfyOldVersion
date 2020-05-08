@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { Tabs } from "antd";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+/* ---------------------------------- ***** --------------------------------- */
 import Card from "../../common/card";
-import { tokenHeader } from "../../../constant/tokenHeader";
-import { apiURL } from "../../../constant/url";
-import { Tabs, Row, Col } from "antd";
 import { arrayValidation } from "../../validation/validation";
 import "./userInternship.css";
 
@@ -13,11 +12,11 @@ const UserInternship = () => {
 
   useEffect(() => {
     axios
-      .get(`${apiURL}/internship/myinternships`, tokenHeader)
-      .then(res => {
+      .get(`internship/myinternships`)
+      .then((res) => {
         setInternship(res.data.internships);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
   }, []);
@@ -28,23 +27,23 @@ const UserInternship = () => {
     console.log(internship.length > 0 && internship[0].status);
   }, [internship]);
 
-  const handleTabChange = key => {
+  const handleTabChange = (key) => {
     console.log(key);
   };
 
   const applied =
     arrayValidation(internship) &&
-    internship.filter(myInternship => myInternship.status === 300);
+    internship.filter((myInternship) => myInternship.status === 300);
   console.log(applied);
   const shortlisted =
     arrayValidation(internship) &&
-    internship.filter(myInternship => myInternship.status === 301);
+    internship.filter((myInternship) => myInternship.status === 301);
   const selected =
     arrayValidation(internship) &&
-    internship.filter(myInternship => myInternship.status === 302);
+    internship.filter((myInternship) => myInternship.status === 302);
   const rejected =
     arrayValidation(internship) &&
-    internship.filter(myInternship => myInternship.status === 303);
+    internship.filter((myInternship) => myInternship.status === 303);
 
   console.log(arrayValidation(applied));
 
@@ -97,7 +96,7 @@ const UserInternship = () => {
       style={{
         padding: "100px 60px 80px 60px",
         background: "#f3f3f3",
-        minHeight: "680px"
+        minHeight: "680px",
       }}
     >
       <div
@@ -105,7 +104,7 @@ const UserInternship = () => {
         style={{
           backgroundColor: "#fff",
           padding: "35px 45px",
-          borderRadius: "8px"
+          borderRadius: "8px",
         }}
       >
         <h1>Internship</h1>
@@ -114,7 +113,7 @@ const UserInternship = () => {
             <div
               style={{
                 display: "flex",
-                flexFlow: "wrap"
+                flexFlow: "wrap",
                 // justifyContent: "center"
               }}
             >
@@ -125,7 +124,7 @@ const UserInternship = () => {
             <div
               style={{
                 display: "flex",
-                flexFlow: "wrap"
+                flexFlow: "wrap",
                 // justifyContent: "center"
               }}
             >
@@ -136,7 +135,7 @@ const UserInternship = () => {
             <div
               style={{
                 display: "flex",
-                flexFlow: "wrap"
+                flexFlow: "wrap",
                 // justifyContent: "center"
               }}
             >
@@ -147,7 +146,7 @@ const UserInternship = () => {
             <div
               style={{
                 display: "flex",
-                flexFlow: "wrap"
+                flexFlow: "wrap",
                 // justifyContent: "center"
               }}
             >

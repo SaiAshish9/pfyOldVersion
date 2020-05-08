@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-import { Progress, Icon } from "antd";
+import { Progress } from "antd";
 import axios from "axios";
-import { apiURL } from "../../constant/url";
-import { tokenHeader } from "../../constant/tokenHeader";
-import phoneIcon from "./img/phoneIcon.svg";
-import emailIcon from "./img/emailIcon.svg";
-import locationIcon from "./img/locationIcon.svg";
+import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+/* ---------------------------------- ***** --------------------------------- */
 import EditProfile from "../userHome/userProfile/editProfile";
-import { useLocation } from "react-router-dom";
 
 export default function UserCard(props) {
   const myUserProfile = props.myUserProfile;
@@ -19,7 +14,7 @@ export default function UserCard(props) {
 
   useEffect(() => {
     axios
-      .get(`${apiURL}/user/`, tokenHeader)
+      .get("user")
       .then((res) => {
         myUserProfile && myUserProfile(res.data);
         setUserData(res.data);

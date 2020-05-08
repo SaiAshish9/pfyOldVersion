@@ -1,19 +1,17 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect, useState, useRef, useContext } from "react";
-import { Button, Icon, Modal, Tabs } from "antd";
+import "@brainhubeu/react-carousel/lib/style.css";
+import { Button, Modal, Tabs } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
-import "@brainhubeu/react-carousel/lib/style.css";
-import GigContext from "../../context/gigContext";
+import moment from "moment";
+import React, { useEffect, useState } from "react";
+/* ---------------------------------- ***** --------------------------------- */
 import CompanyQueForm from "../internship/companyQuesForm";
-import { apiURL } from "../../constant/url";
-import { tokenHeader } from "../../constant/tokenHeader";
-import { arrayValidation } from "../validation/validation";
 import checkIcon from "../internship/img/checkIcon.svg";
 import removeIcon from "../internship/img/removeIcon.svg";
 import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
+import { arrayValidation } from "../validation/validation";
 import GigTask from "./gigTask";
-import moment from "moment";
 
 const { TabPane } = Tabs;
 export default function GigDetail(props) {
@@ -65,11 +63,8 @@ export default function GigDetail(props) {
     console.log("myCookie", myCookie);
     if (isMyCookie) {
       axios
-        .get(
-          `${apiURL}/mission/fetchone_with_status/${selectedGigId}`,
-          tokenHeader
-        )
-        .then(res => {
+        .get(`mission/fetchone_with_status/${selectedGigId}`)
+        .then((res) => {
           console.log("response", res);
           if (res.data.appliedStatus === 601) {
             setIsApply(true);
@@ -95,17 +90,17 @@ export default function GigDetail(props) {
             setCompanyQuestion(res.data.questions);
           }
         })
-        .catch(e => {
+        .catch((e) => {
           console.log("error" + e);
         });
     } else {
       axios
         .get(`mission/fetchone/${selectedGigId}`)
-        .then(res => {
+        .then((res) => {
           setGig(res.data);
           console.log(res.data);
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
     }
@@ -262,7 +257,7 @@ export default function GigDetail(props) {
               <div>
                 <h2>Requirements</h2>
                 {arrayValidation(requirement) &&
-                  requirement.map(myRequirement => (
+                  requirement.map((myRequirement) => (
                     <p key={myRequirement.length}>
                       {requirement.indexOf(myRequirement) + 1}. {myRequirement}
                     </p>

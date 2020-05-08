@@ -1,24 +1,21 @@
-import React, { useState } from "react";
-import { Button, Modal, Input, Tooltip, Icon } from "antd";
-import { useForm, Controller } from "react-hook-form";
-import { apiURL } from "../../constant/url";
-import { tokenHeader } from "../../constant/tokenHeader";
+import { Button, Icon, Input, Modal, Tooltip } from "antd";
 import Axios from "axios";
+import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+/* ---------------------------------- ***** --------------------------------- */
 import { objectValidation } from "../validation/validation";
-import digitalProfileIcon from "./img/headingImg/digitalProfileIcon.svg";
-import facebookIcon from "./img/digitalProfileIcon/facebookIcon.svg";
+import addIcon from "./img/addIcon.svg";
 import behanceIcon from "./img/digitalProfileIcon/behanceIcon.svg";
 import blogIcon from "./img/digitalProfileIcon/blogIcon.svg";
 import dribbleIcon from "./img/digitalProfileIcon/dribbleIcon.svg";
+import facebookIcon from "./img/digitalProfileIcon/facebookIcon.svg";
 import githubIcon from "./img/digitalProfileIcon/githubIcon.svg";
-import youtubeIcon from "./img/digitalProfileIcon/youtubeIcon.svg";
-import linkedinIcon from "./img/digitalProfileIcon/linkedinIcon.svg";
 import instagramIcon from "./img/digitalProfileIcon/instagramIcon.svg";
-import quoraIcon from "./img/digitalProfileIcon/quoraIcon.svg";
+import linkedinIcon from "./img/digitalProfileIcon/linkedinIcon.svg";
 import mediumIcon from "./img/digitalProfileIcon/mediumIcon.svg";
-// import facebookIcon from "./img/digitalProfileIcon/";
-
-import addIcon from "./img/addIcon.svg";
+import quoraIcon from "./img/digitalProfileIcon/quoraIcon.svg";
+import youtubeIcon from "./img/digitalProfileIcon/youtubeIcon.svg";
+import digitalProfileIcon from "./img/headingImg/digitalProfileIcon.svg";
 
 export default function DigitalProfile({ digitalProfile, updateResume }) {
   console.log("digital Profile", digitalProfile);
@@ -28,7 +25,7 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
 
   const onSubmit = (data) => {
     console.log(data);
-    Axios.post(`${apiURL}/resume/add_digital_profiles`, data, tokenHeader)
+    Axios.post(`resume/add_digital_profiles`, data)
       .then((res) => {
         updateResume(Math.random());
       })
@@ -150,7 +147,7 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
           {!!digitalProfile.dribbble &&
             printDigitalProfile(
               digitalProfile.dribbble,
-              "Dribbble",
+              "Dribble",
               dribbleIcon
             )}
           {!!digitalProfile.quora &&

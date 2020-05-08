@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Button, Modal, Popover, Rate, Icon, Tooltip } from "antd";
+import { Icon, Modal, Popover, Rate, Tooltip } from "antd";
 import axios from "axios";
-import { apiURL } from "../../constant/url";
-import { tokenHeader } from "../../constant/tokenHeader";
+import React, { useEffect, useState } from "react";
+/* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
+import addIcon from "./img/addIcon.svg";
+import cancelIcon from "./img/cancelIcon.svg";
 import skillIcon from "./img/headingImg/skillIcon.svg";
 import creativeIcon from "./img/skillImg/creativeIcon.svg";
 import designIcon from "./img/skillImg/designIcon.svg";
@@ -13,16 +14,13 @@ import legalIcon from "./img/skillImg/legalIcon.svg";
 import marketingIcon from "./img/skillImg/marketingIcon.svg";
 import otherIcon from "./img/skillImg/otherIcon.svg";
 import technicalIcon from "./img/skillImg/technicalIcon.svg";
-import cancelIcon from "./img/cancelIcon.svg";
-
-import addIcon from "./img/addIcon.svg";
 
 const proficiencyRate = [
   "Beginner",
   "Intermediate",
   "Advance",
   "Professional",
-  "Expert"
+  "Expert",
 ];
 
 export default function Skill({ skill }) {
@@ -37,18 +35,18 @@ export default function Skill({ skill }) {
 
   useEffect(() => {
     axios
-      .get(`${apiURL}/skill/fetch`, tokenHeader)
-      .then(res => {
+      .get(`skill/fetch`)
+      .then((res) => {
         console.log("%c skill", "color:red", res.data);
         setSkillData(res.data);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log("skillss", e);
       });
   }, []);
 
   const allCategory =
-    arrayValidation(skillData) && skillData.map(data => data.category);
+    arrayValidation(skillData) && skillData.map((data) => data.category);
 
   const myCategory =
     arrayValidation(allCategory) &&
@@ -71,9 +69,9 @@ export default function Skill({ skill }) {
   const [isSubcategory, setIsSubcategory] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState();
 
-  const handleCategory = categoryData => {
+  const handleCategory = (categoryData) => {
     const selectedSkillData = skillData.filter(
-      mySkill => mySkill.category === categoryData
+      (mySkill) => mySkill.category === categoryData
     );
     setSelectedCategory(categoryData);
     setSubCategory(selectedSkillData);
@@ -93,7 +91,7 @@ export default function Skill({ skill }) {
   const [beforeRate, setBeforeRate] = useState({});
   const [allSkillData, setAllSkillData] = useState([]);
 
-  const handleSkillRate = value => {
+  const handleSkillRate = (value) => {
     console.log("skillss skillRate", value);
     const withRating = { ...beforeRate, rating: value };
     setSkillDummy([...skillDummy, withRating]);
@@ -108,7 +106,7 @@ export default function Skill({ skill }) {
     console.log("beforeRate", beforeRate);
   }, [allSkillData, beforeRate, skillDummy]);
 
-  const skillImage = category => {
+  const skillImage = (category) => {
     switch (category) {
       case "Creative":
         return (
@@ -193,7 +191,7 @@ export default function Skill({ skill }) {
     }
   };
 
-  const popoverContent = skillName => {
+  const popoverContent = (skillName) => {
     const matchSkillName = selectedSkillCategory(skillName);
 
     return (
@@ -208,42 +206,42 @@ export default function Skill({ skill }) {
     );
   };
 
-  const subCategoryStyle = skillName => {
+  const subCategoryStyle = (skillName) => {
     const matchSkillName = selectedSkillCategory(skillName);
     return {
       backgroundColor: !!matchSkillName ? "#406AF8" : "#fff",
       border: !!matchSkillName ? "none" : "1px solid",
-      color: !!matchSkillName ? "#fff" : "#000"
+      color: !!matchSkillName ? "#fff" : "#000",
     };
   };
 
-  const selectedSkillCategory = skillName => {
+  const selectedSkillCategory = (skillName) => {
     const matchedSkill =
       arrayValidation(skillDummy) &&
-      skillDummy.find(skill => skill.name === skillName);
+      skillDummy.find((skill) => skill.name === skillName);
     console.log(matchedSkill);
     return matchedSkill;
   };
 
-  const handleDelete = skillName => {
+  const handleDelete = (skillName) => {
     const skillAfterDelete = skillDummy.filter(
-      skill => skill.name !== skillName
+      (skill) => skill.name !== skillName
     );
     setSkillDummy(skillAfterDelete);
   };
 
   const [isEditSkill, setIsEditSkill] = useState(false);
 
-  const handleEditSkill = data => {
+  const handleEditSkill = (data) => {
     setIsEditSkill(data);
   };
 
   const onSkillRateChange = (skillName, value) => {
-    const a = skillDummy.map(skill => {
+    const a = skillDummy.map((skill) => {
       if (skill.name === skillName) {
         return {
           ...skill,
-          rating: value
+          rating: value,
         };
       } else {
         return skill;
@@ -255,7 +253,7 @@ export default function Skill({ skill }) {
 
   const editDisplay = () => {
     return {
-      display: isEditSkill ? "flex" : "none"
+      display: isEditSkill ? "flex" : "none",
     };
   };
 
@@ -310,7 +308,7 @@ export default function Skill({ skill }) {
                     <Rate
                       tooltips={proficiencyRate}
                       defaultValue={skill.rating}
-                      onChange={value => onSkillRateChange(skill.name, value)}
+                      onChange={(value) => onSkillRateChange(skill.name, value)}
                     />
                     <Tooltip title="remove">
                       <img
@@ -342,7 +340,7 @@ export default function Skill({ skill }) {
                 <div
                   key={index}
                   style={{
-                    width: "25%"
+                    width: "25%",
                   }}
                   className="skill-category-block"
                 >

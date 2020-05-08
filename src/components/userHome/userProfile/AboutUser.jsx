@@ -1,32 +1,31 @@
-import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
-import { useForm } from "react-hook-form";
 import axios from "axios";
-import { apiURL } from "../../../constant/url";
-import { tokenHeader } from "../../../constant/tokenHeader";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+/* ---------------------------------- ***** --------------------------------- */
 import userFaceIcon from "./img/(1).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 
-const AboutUser = props => {
+const AboutUser = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm();
   const aboutMeData = props.profileData.aboutMe.trim();
 
   console.log("aboutMeData", !!aboutMeData);
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     console.log(data);
   };
 
-  const onSubmitAboutMe = data => {
+  const onSubmitAboutMe = (data) => {
     const url = "user/update";
     console.log("%c ABOUT ME", "font-size: 20px, color: darkblue");
     console.log(data.aboutMe);
     const data1 = {
-      aboutMe: data.aboutMe ? data.aboutMe : " "
+      aboutMe: data.aboutMe ? data.aboutMe : " ",
     };
-    axios.put(url, data1).then(res => {
+    axios.put(url, data1).then((res) => {
       console.log(res.data);
       // setIsRerender(!isRerender)
 

@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Button, Modal, Checkbox, Tooltip, Icon, Select } from "antd";
+import { Button, Checkbox, Icon, Modal, Tooltip } from "antd";
 import axios from "axios";
-import { tokenHeader } from "../../constant/tokenHeader";
-import { apiURL } from "../../constant/url";
-import { useForm, Controller } from "react-hook-form";
+import React, { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+/* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
-import team from "./img/headingImg/projectIcon.svg";
-
 import addIcon from "./img/addIcon.svg";
+import team from "./img/headingImg/projectIcon.svg";
 
 const month = [
   "Jan",
@@ -21,7 +19,7 @@ const month = [
   "Sep",
   "Oct",
   "Nov",
-  "Dec"
+  "Dec",
 ];
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
@@ -35,9 +33,9 @@ const Project = ({ project, updateResume }) => {
     defaultValues: {
       isCurrently: false,
       start: {
-        year: year
-      }
-    }
+        year: year,
+      },
+    },
   });
 
   const isCurrentlyWorking = watch("isCurrently");
@@ -59,18 +57,18 @@ const Project = ({ project, updateResume }) => {
     console.log("check", projectData);
   }, [projectData]);
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     console.log("check", data);
     console.log("check", projectData);
     const myData = projectData ? { ...data, _id: projectData._id } : data;
     console.log("check", myData);
     axios
-      .post(`${apiURL}/resume/add_project`, myData, tokenHeader)
-      .then(res => {
+      .post(`resume/add_project`, myData)
+      .then((res) => {
         console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
     setProjectData(false);
@@ -86,7 +84,7 @@ const Project = ({ project, updateResume }) => {
     setIsModalVisible(true);
   };
 
-  const handleEdit = selectedProject => {
+  const handleEdit = (selectedProject) => {
     setProjectData(selectedProject);
     setIsModalVisible(true);
     setValue("title", selectedProject.title);
@@ -99,14 +97,14 @@ const Project = ({ project, updateResume }) => {
     setValue("isCurrently", selectedProject.isCurrently);
   };
 
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     axios
-      .delete(`${apiURL}/resume/delete_project/${id}`, tokenHeader)
-      .then(res => {
+      .delete(`resume/delete_project/${id}`)
+      .then((res) => {
         console.log("project data add successfully", res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
   };

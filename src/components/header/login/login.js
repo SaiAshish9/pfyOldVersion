@@ -3,10 +3,9 @@ import { Button, Input, Modal, Statistic } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
 import OTPInput from "otp-input-react";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-/* -------------------------------- xxxxxxxxx ------------------------------- */
-import { apiURL } from "../../../constant/url";
+/* ---------------------------------- ***** --------------------------------- */
 import { firebase } from "../../../firebase/firebase";
 import "./login.css";
 import loginImg from "./loginImg.png";
@@ -122,7 +121,7 @@ const Continue = () => {
           };
 
           axios
-            .post(`${apiURL}/auth/login`, userCredential)
+            .post(`auth/login`, userCredential)
             .then(function (res) {
               console.log(res);
               if (res.data.statusCode === 200) {

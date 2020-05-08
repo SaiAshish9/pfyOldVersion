@@ -33,6 +33,7 @@ export default function Card(props) {
 
   const id = gig ? gig._id : internship._id;
   const logo = gig ? gigCompany.logoUrl : internshipCompany.logoUrl;
+  console.log("company logo", logo);
   const title = gig ? gig.title : internship.designation;
   const companyName = gig
     ? gigCompany.companyName

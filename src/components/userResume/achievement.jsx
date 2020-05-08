@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import { Button, Modal, Tooltip, Icon , Descriptions} from "antd";
+import { Button, Icon, Modal, Tooltip } from "antd";
 import axios from "axios";
-
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { tokenHeader } from "../../constant/tokenHeader";
+/* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
-import { apiURL } from "../../constant/url";
-import team from "./img/headingImg/achievementIcon.svg";
-
 import addIcon from "./img/addIcon.svg";
+import team from "./img/headingImg/achievementIcon.svg";
 
 const Achievement = ({ achievement, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -18,16 +15,16 @@ const Achievement = ({ achievement, updateResume }) => {
 
   console.log(achievementData);
   // console.log(watch("achievement"));
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     const index = achievementData && achievement.indexOf(achievementData);
     const myData = achievementData ? { ...data, index } : data;
     axios
-      .post(`${apiURL}/resume/add_achievement`, myData, tokenHeader)
-      .then(res => {
+      .post(`resume/add_achievement`, myData)
+      .then((res) => {
         console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
     setAchievementData(false);
@@ -41,21 +38,21 @@ const Achievement = ({ achievement, updateResume }) => {
   const handleAdd = () => {
     setIsModalVisible(true);
   };
-  const handleEdit = selectedAchievement => {
+  const handleEdit = (selectedAchievement) => {
     setAchievementData(selectedAchievement);
     setIsModalVisible(true);
     setValue("achievement", selectedAchievement);
   };
 
-  const handleDelete = index => {
+  const handleDelete = (index) => {
     console.log(index);
     axios
-      .delete(`${apiURL}/resume/delete_achievement/${index}`, tokenHeader)
-      .then(res => {
+      .delete(`resume/delete_achievement/${index}`)
+      .then((res) => {
         // console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
     setIsModalVisible(false);

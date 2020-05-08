@@ -1,20 +1,18 @@
-import React, { useState } from "react";
-import { Skeleton, Button, Modal, Icon, Tooltip , Descriptions} from "antd";
-import { useForm } from "react-hook-form";
+import { Button, Icon, Modal, Skeleton, Tooltip } from "antd";
 import axios from "axios";
-import { apiURL } from "../../constant/url";
-import { tokenHeader } from "../../constant/tokenHeader";
-
-import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+/* ---------------------------------- ***** --------------------------------- */
 import addIcon from "./img/addIcon.svg";
+import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
 
 const Objective = ({ careerObjective, updateResume, loader }) => {
   //#region
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm({
     defaultValues: {
-      objectiveTextarea: careerObjective
-    }
+      objectiveTextarea: careerObjective,
+    },
   });
 
   const handleCancel = () => {
@@ -25,21 +23,20 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
     setIsModalVisible(true);
   };
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     console.log(data.objectiveTextarea);
     // let update=0
     // set(Math.random());
     axios
       .put(
-        `${apiURL}/resume/addobjective?careerObjectives=${data.objectiveTextarea}`,
-        null,
-        tokenHeader
+        `resume/addobjective?careerObjectives=${data.objectiveTextarea}`,
+        null
       )
-      .then(res => {
+      .then((res) => {
         console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
     setIsModalVisible(false);
@@ -136,6 +133,3 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
 };
 
 export default Objective;
-
-
-

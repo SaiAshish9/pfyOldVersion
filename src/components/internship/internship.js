@@ -1,8 +1,7 @@
 import { Col, Row, Select } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-/* -------------------------------- ******** -------------------------------- */
-import { apiURL } from "../../constant/url";
+/* ---------------------------------- ***** --------------------------------- */
 import InternshipContext from "../../context/internshipContext";
 import Card from "../common/card";
 import Filter from "../filters/filter";
@@ -10,7 +9,7 @@ import { arrayValidation } from "../validation/validation";
 
 const cardStyle = {
   display: "flex",
-  justifyContent: "center"
+  justifyContent: "center",
 };
 
 const { Option } = Select;
@@ -21,27 +20,27 @@ export default function Internship() {
   /* ----------------------- fetching Internship without status ----------------------- */
   useEffect(() => {
     axios
-      .get(`${apiURL}/internship/fetch`)
-      .then(function(response) {
+      .get(`internship/fetch`)
+      .then(function (response) {
         const internshipData = response.data.internships;
         setInternship(internshipData);
         console.log(internshipData);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       })
-      .finally(function() {});
+      .finally(function () {});
   }, []);
 
   const myInternshipCard =
     arrayValidation(internship) &&
-    internship.map(internship => (
+    internship.map((internship) => (
       <Col style={cardStyle} span={8} key={internship._id}>
         <Card internship={internship}></Card>
       </Col>
     ));
 
-  const handleArrangingCard = value => {
+  const handleArrangingCard = (value) => {
     setArrangeCard(value);
   };
 

@@ -1,17 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Button, Modal, Tabs } from "antd";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-/* --------------------------------- ****** --------------------------------- */
-import { tokenHeader } from "../../constant/tokenHeader";
-import { apiURL } from "../../constant/url";
+import moment from "moment";
+import React, { useEffect, useState } from "react";
+/* ---------------------------------- ***** --------------------------------- */
 import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
 import { arrayValidation } from "../validation/validation";
 import CompanyQueForm from "./companyQuesForm";
 import checkIcon from "./img/checkIcon.svg";
 import removeIcon from "./img/removeIcon.svg";
-import moment from "moment";
 
 const { TabPane } = Tabs;
 export default function InternshipDetail(props) {
@@ -61,11 +59,8 @@ export default function InternshipDetail(props) {
   useEffect(() => {
     if (isMyCookie) {
       axios
-        .get(
-          `${apiURL}/internship/fetchone_with_status/${selectedInternshipId}`,
-          tokenHeader
-        )
-        .then(res => {
+        .get(`internship/fetchone_with_status/${selectedInternshipId}`)
+        .then((res) => {
           console.log(res);
           if (res.data.appliedStatus === 300) {
             setIsApply(true);
@@ -84,17 +79,17 @@ export default function InternshipDetail(props) {
             setCompanyQuestion(res.data.questions);
           }
         })
-        .catch(e => {
+        .catch((e) => {
           console.log("error" + e);
         });
     } else {
       axios
         .get(`internship/fetchone/${selectedInternshipId}`)
-        .then(res => {
+        .then((res) => {
           setInternship(res.data);
           // console.log(res.data);
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
     }
@@ -221,7 +216,7 @@ export default function InternshipDetail(props) {
               <div>
                 <h2>Responsibilities</h2>
                 {arrayValidation(internResponsibilities) &&
-                  internResponsibilities.map(responsibility => (
+                  internResponsibilities.map((responsibility) => (
                     <p key={internResponsibilities.indexOf(responsibility)}>
                       {internResponsibilities.indexOf(responsibility) + 1}.{" "}
                       {responsibility}
@@ -232,7 +227,7 @@ export default function InternshipDetail(props) {
               <div>
                 <h2>Skills Required</h2>
                 {arrayValidation(skillRequired) &&
-                  skillRequired.map(skill => {
+                  skillRequired.map((skill) => {
                     return (
                       <p key={skill._id}>
                         {skillRequired.indexOf(skill) + 1}. {skill.skillName}
@@ -244,7 +239,7 @@ export default function InternshipDetail(props) {
               <div>
                 <h2>Benefits</h2>
                 {arrayValidation(benefit) &&
-                  benefit.map(myBenefit => {
+                  benefit.map((myBenefit) => {
                     return (
                       <p key={benefit.indexOf(myBenefit)}>
                         {benefit.indexOf(myBenefit) + 1}. {myBenefit}
@@ -256,7 +251,7 @@ export default function InternshipDetail(props) {
               <div>
                 <h2>Benefits</h2>
                 {arrayValidation(otherRequirement) &&
-                  otherRequirement.map(myOtherRequirement => {
+                  otherRequirement.map((myOtherRequirement) => {
                     return (
                       <p key={otherRequirement.indexOf(myOtherRequirement)}>
                         {otherRequirement.indexOf(myOtherRequirement) + 1}.{" "}

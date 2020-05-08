@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Button, Modal, Icon, Input, Tooltip } from "antd";
-import { useForm, Controller } from "react-hook-form";
+import { Button, Icon, Modal, Tooltip } from "antd";
 import axios from "axios";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+/* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation.js";
-import { apiURL } from "../../constant/url";
-import { tokenHeader } from "../../constant/tokenHeader";
-import userCard from "../common/userCard.jsx";
-import positionIcon from "./img/headingImg/educationIcon.svg";
-
 import addIcon from "./img/addIcon.svg";
+import positionIcon from "./img/headingImg/educationIcon.svg";
 
 const Position = ({ position, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -19,26 +16,26 @@ const Position = ({ position, updateResume }) => {
     defaultValues: {
       // position: positionData.position,
       // description: positionData.description
-    }
+    },
   });
   console.log(position);
   //! ---------------------------------- test ---------------------------------- */
   console.log(watch("position"));
   console.log(watch("description"));
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     console.log(data);
     const check = { ...data, _id: positionData._id };
     console.log(check);
     const myData = positionData._id ? { ...data, _id: positionData._id } : data;
     console.log(myData);
     axios
-      .post(`${apiURL}/resume/add_por`, myData, tokenHeader)
-      .then(res => {
+      .post(`resume/add_por`, myData)
+      .then((res) => {
         console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
     setPositionData(false);
@@ -55,7 +52,7 @@ const Position = ({ position, updateResume }) => {
     setIsModalVisible(true);
   };
 
-  const handleEdit = selectedPosition => {
+  const handleEdit = (selectedPosition) => {
     // console.log(selectedPosition);
     setPositionData(selectedPosition);
     setIsModalVisible(true);
@@ -63,15 +60,15 @@ const Position = ({ position, updateResume }) => {
     setValue("description", selectedPosition.description);
   };
 
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     console.log(id);
     axios
-      .delete(`${apiURL}/resume/delete_por/${id}`, tokenHeader)
-      .then(res => {
+      .delete(`resume/delete_por/${id}`)
+      .then((res) => {
         // console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
   };

@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
 import { Button, Input } from "antd";
 import axios from "axios";
-import { tokenHeader } from "../../constant/tokenHeader";
-import { apiURL } from "../../constant/url";
-import { responsiveArray } from "antd/lib/_util/responsiveObserve";
+import React, { useEffect, useState } from "react";
+/* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
 
-const CompanyQuesForm = props => {
+const CompanyQuesForm = (props) => {
   const { TextArea } = Input;
   const [answer, setAnswer] = useState([]);
-  const { companyQuestion, handleSubmitModal, selectedId, isInternshipOrGig } = props;
+  const {
+    companyQuestion,
+    handleSubmitModal,
+    selectedId,
+    isInternshipOrGig,
+  } = props;
 
   const onInputChange = (i, e) => {
     let newAnswer = [...answer];
@@ -22,40 +25,38 @@ const CompanyQuesForm = props => {
     console.log(answer);
   }, [answer]);
 
-  const handleSubmitApplication = e => {
+  const handleSubmitApplication = (e) => {
     e.preventDefault();
     const answerData = {
-      answers: answer
+      answers: answer,
     };
 
-    if(isInternshipOrGig==="internship"){
+    if (isInternshipOrGig === "internship") {
       axios
-      .put(`${apiURL}/internship/apply/${selectedId}`, answerData, tokenHeader)
-      .then(res => {
-        console.log(res);
-        console.log(answer);
-        // setCompanyQuestion(res.data.questions);
-      })
-      .catch(e => {
-        console.log("error" + e);
-        console.log(e.response);
-      });
+        .put(`internship/apply/${selectedId}`, answerData)
+        .then((res) => {
+          console.log(res);
+          console.log(answer);
+          // setCompanyQuestion(res.data.questions);
+        })
+        .catch((e) => {
+          console.log("error" + e);
+          console.log(e.response);
+        });
+    } else {
+      axios
+        .put(`mission/apply/${selectedId}`, answerData)
+        .then((res) => {
+          console.log(res);
+          // console.log(answer);
+          // setCompanyQuestion(res.data.questions);
+        })
+        .catch((e) => {
+          console.log("error" + e);
+          console.log(e.response);
+        });
     }
-    else{
-      axios
-      .put(`${apiURL}/mission/apply/${selectedId}`, answerData, tokenHeader)
-      .then(res => {
-        console.log(res);
-        // console.log(answer);
-        // setCompanyQuestion(res.data.questions);
-      })
-      .catch(e => {
-        console.log("error" + e);
-        console.log(e.response);
-      });
 
-    }
-   
     handleSubmitModal();
   };
 
@@ -72,7 +73,7 @@ const CompanyQuesForm = props => {
           <TextArea
             // value={answer[i]}
             required={true}
-            onChange={e => onInputChange(i, e)}
+            onChange={(e) => onInputChange(i, e)}
             placeholder="enter you answer"
             autoSize={{ minRows: 3, maxRows: 5 }}
           />

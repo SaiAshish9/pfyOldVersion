@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
-import { useForm } from "react-hook-form";
 import axios from "axios";
-import { apiURL } from "../../../constant/url";
-import { tokenHeader } from "../../../constant/tokenHeader";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+/* ---------------------------------- ***** --------------------------------- */
+import bike2 from "./bike2.svg";
+import bus from "./bus.svg";
+import bus2 from "./bus2.svg";
+import car from "./car.svg";
+import car2 from "./car2.svg";
 import two from "./img/(2).svg";
 import addIcon from "./img/addIcon.svg";
-import car from "./car.svg";
-import bus from "./bus.svg";
-import train from "./train.svg";
-import twoWheeler from "./two-wheeler.svg";
-import train2 from "./train2.svg";
-import bus2 from "./bus2.svg";
-import car2 from "./car2.svg";
-import bike2 from "./bike2.svg";
-import pin from "./pin.svg";
-
 import editIcon from "./img/editIcon.svg";
+import pin from "./pin.svg";
+import train from "./train.svg";
+import train2 from "./train2.svg";
+import twoWheeler from "./two-wheeler.svg";
 
 const textToImg = {
   car: car,
