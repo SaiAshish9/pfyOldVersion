@@ -18,10 +18,10 @@ const MyHeader = styled.div`
     z-index: 100;
     position: fixed;
     width: 100%;
-    background-color: #fff;
+    background-color: #ffffff00;
     padding: 12px 55px;
     transition: all 0.6s ease;
-    box-shadow: ${props =>
+    box-shadow: ${(props) =>
       props.scrollEffect > 20 ? "0px 2px 16px -6px black" : "none"};
 
     div.logo-container {
@@ -41,43 +41,52 @@ const MyHeader = styled.div`
       .myLink1 {
         text-decoration: none;
         padding: 10px 10px;
-        /* margin-right: 40px; */
-        color: #273152;
-        /* font-weight:600; */
-        font-size: 20px;
+        font-size: 18px;
+        color: #ffffff;
         &:hover {
           color: #406af8;
         }
       }
       .myLink2 {
-        font-size: 20px;
-        /* font-weight:600; */
-
+        font-size: 18px;
+        color: #ffffff;
         text-decoration: none;
         padding: 10px 10px;
         margin-right: 20px;
-        color: #273152;
         &:hover {
           color: #406af8;
         }
       }
       .header__button1 {
-        text-align: center;
-        border: solid 1px #252eb7;
-        padding: 0px 30px;
-        color: #252eb7;
-        height: 40px;
-        font-size: 1.25em;
         margin-right: 20px;
+        width: 122px;
+        height: 49px;
+        border-radius: 6px;
+        border: solid 2px #ffffff;
+        background-color: transparent;
+
+        font-size: 18px;
+        color: #ffffff;
+      }
+      .download-app-button {
+        margin-right: 20px;
+        width: 200px;
+        height: 49px;
+        border-radius: 6px;
+        background-color: #ffffff;
+        border: 1px solid #fff;
+        font-size: 18px;
+        color: #444584;
       }
       .header__button2 {
-        text-align: center;
-        font-size: 1.25em;
-        height: 40px;
-        border: solid 1px #252eb7;
-        background-color: #252eb7;
-        color: #fff;
-        margin-left: 12px;
+        width: 200px;
+        height: 49px;
+        border-radius: 6px;
+        background-color: #38bdba;
+        border: 1px solid #38bdba;
+
+        font-size: 18px;
+        color: #ffffff;
       }
     }
   }

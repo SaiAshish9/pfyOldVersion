@@ -15,6 +15,7 @@ export default function HeaderNavLink() {
       </Link>
 
       {<Login />}
+      <Button className="download-app-button">Download App</Button>
       <a
         href="https://business.pracify.com/"
         target="_blank"

@@ -1,0 +1,63 @@
+.workRemotely-main-block {
+  margin: 120px 60px 0 60px;
+  display: grid;
+  grid-column-gap: 40px;
+  grid-template:
+    "img message"
+    "img content";
+  .workRemotely-img {
+    grid-area: img;
+  }
+
+  .workRemotely-message-block {
+    grid-area: message;
+    align-self: end;
+    margin-bottom: 40px;
+
+    .workRemotely-message-header {
+      word-spacing: -6px;
+      width: fit-content;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      color: #333e49;
+    }
+
+    .workRemotely-message-para {
+      font-size: 22px;
+      text-align: center;
+      color: #333e49;
+    }
+  }
+
+  .workRemotely-content-main-block {
+    grid-area: content;
+
+    .workRemotely-content-block {
+      display: grid;
+      grid-column-gap: 40px;
+      margin-bottom: 40px;
+      grid-template:
+        "image header"
+        "image para";
+      .content-img {
+        grid-area: image;
+        align-self: center;
+      }
+
+      .content-header {
+        grid-area: header;
+        font-size: 24px;
+        font-weight: 500;
+        color: #38bdba;
+      }
+
+      .content-para {
+        grid-area: para;
+
+        font-size: 20px;
+        color: #333e49;
+      }
+    }
+  }
+}
