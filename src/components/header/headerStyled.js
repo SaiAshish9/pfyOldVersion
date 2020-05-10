@@ -18,7 +18,12 @@ const MyHeader = styled.div`
     z-index: 100;
     position: fixed;
     width: 100%;
-    background-color: #ffffff00;
+    background: linear-gradient(
+      90deg,
+      rgba(38, 39, 73, 1) 0%,
+      rgba(57, 58, 111, 1) 62%,
+      #424381
+    );
     padding: 12px 55px;
     transition: all 0.6s ease;
     box-shadow: ${(props) =>

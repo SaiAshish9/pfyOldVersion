@@ -3,7 +3,6 @@
   position: relative;
   top: 85px;
   margin: 0px 40px;
-  z-index: -1;
   .downloadPracifyApp-content-block {
     flex: 1;
     margin: 80px 0 0 98px;
@@ -43,6 +42,8 @@
 
     .download-button-block {
       display: flex;
+      width: 40%;
+      justify-content: space-between;
 
       .google-icon {
         width: 150px;
@@ -58,6 +59,8 @@
 
   .phone-mockup-block {
     flex: 0.5;
+    z-index: -1;
+
     .phone-mockup {
       width: 360px;
     }
