@@ -193,7 +193,10 @@ const Continue = () => {
 
   return (
     <div className="login-button-main-block">
-      <Button onClick={showModal} className="header__button1">
+      <Button
+        className="header__button1"
+        // onClick={showModal}
+      >
         Login
       </Button>
       {/*  FIXME remove true add isVerified */}
