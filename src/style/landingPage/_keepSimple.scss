@@ -6,10 +6,11 @@
     .keepSimple-message {
       position: relative;
       word-spacing: -8px;
-      font-size: 36px;
-      font-weight: bold;
       text-align: center;
       color: #333e49;
+      line-height: 44px;
+      font-weight: 600;
+      font-size: 40px;
 
       .funSvg1 {
         position: absolute;
@@ -57,9 +58,11 @@
       .content-subHeading {
         font-size: 32px;
         word-spacing: -8px;
-        font-weight: bold;
         color: #333e49;
-        margin: 0 60px 8px 60px;
+        margin: 0 0px 8px;
+
+        font-weight: 600;
+        line-height: 36px;
       }
 
       .content-para {

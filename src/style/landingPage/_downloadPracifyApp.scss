@@ -31,12 +31,28 @@
       width: 34%;
       margin-bottom: 20px;
       .country-code {
+        font-size: 20px;
+        color: #333e49;
+        margin-right: 12px;
       }
 
       .phone-input {
+        width: 182px;
+        height: 48px;
+        border: solid 1px #333e49;
+        border-radius: 0;
+        border-right: none;
       }
 
       .phone-button {
+        width: 102px;
+        height: 48px;
+        background-color: #38bdba;
+        border-radius: 0;
+        border: 2px solid #38bdba;
+
+        font-size: 18px;
+        color: #fff;
       }
     }
 

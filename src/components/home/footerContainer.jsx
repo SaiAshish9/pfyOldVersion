@@ -2,7 +2,7 @@ import React from "react";
 import { Icon } from "antd";
 import { Link } from "react-router-dom";
 import AOS from "aos";
-import logo from "./img/logo.png";
+import logo from "../../assets/img/logo.png";
 
 AOS.init();
 export default function FooterContainer() {
@@ -50,7 +50,7 @@ export default function FooterContainer() {
             to=""
             className="social__link"
             style={{
-              border: "none"
+              border: "none",
             }}
           >
             Contact Us
@@ -61,7 +61,7 @@ export default function FooterContainer() {
         style={{
           fontSize: "16px",
           textAlign: "center",
-          marginBottom: "0px"
+          marginBottom: "0px",
         }}
       >
         Made with{" "}
@@ -69,7 +69,7 @@ export default function FooterContainer() {
           type="heart"
           theme="filled"
           style={{
-            color: "Red"
+            color: "Red",
           }}
         />{" "}
         in India

@@ -1,6 +1,6 @@
 import { Button, Input } from "antd";
 import React from "react";
-import appleStoreIcon from "../../assets/img/landingPage/appleStoreIcon.png";
+import appleStoreIcon from "../../assets/img/landingPage/appleStoreIcon.svg";
 import googleStoreIcon from "../../assets/img/landingPage/googleStoreIcon.png";
 import pracifyMockup from "../../assets/img/landingPage/pracifyMockup.gif";
 export default function DownloadPracifyApp() {

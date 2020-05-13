@@ -36,7 +36,7 @@ export default function KeepSimple() {
     <div className="keepSimple-main-block">
       <div className="keepSimple-message-block">
         <h1 className="keepSimple-message">
-          Pracify is with you at every step, and we're here to keep
+          Pracify is with you at every step and we're here to keep
           <br /> your experience stress free and simple
           <img src={funSvg1} alt="" className="funSvg1"/>
           <img src={funSvg2} alt="" className="funSvg2"/>
