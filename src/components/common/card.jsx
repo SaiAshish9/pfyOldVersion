@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
-
 // import { GigCardStyled } from "../defaultStyled/defaultStyled";
 import calendarIcon from "./img/calendarIcon.svg";
 import rupeeIcon from "./img/rupeeIcon.svg";

@@ -14,7 +14,7 @@ export default function HeaderNavLink() {
         Gigs
       </Link>
 
-      {<Login />}
+      <Login />
       <Button className="download-app-button">Download App</Button>
       <a
         href="https://business.pracify.com/"
