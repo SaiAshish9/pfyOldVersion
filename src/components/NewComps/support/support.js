@@ -1,10 +1,12 @@
 import React, {useState, Fragment, useEffect} from 'react';
-import {Modal, Button, Row, Col, Collapse, Form, Input, Upload, Icon } from 'antd';
+import {Modal, Button, Row, Col, Collapse, Form, Input, Upload } from 'antd';
 import gig from './img/gig.svg';
 import other from './img/other.svg';
 import internship from './img/internship.svg';
 import verification from './img/verification.svg';
 import Axios from 'axios';
+import { UploadOutlined } from '@ant-design/icons';
+
 // import TextArea from 'antd/lib/input/TextArea';
 
 const { TextArea } = Input;
@@ -90,6 +92,7 @@ export default function Support(props) {
             if(res.status==200){
               console.log('%c File Sent', 'font-size: 25px, color: darkblue')
               console.log(imgURL)
+              props.isClose();
             }
           })
           .then(data => console.log(data))
@@ -107,7 +110,8 @@ export default function Support(props) {
         setVisible(false);
         setSelectedComp("supportTiles")
         setSupportData(null)
-        // props.isClose();
+
+        props.isClose();
       };
 
     const selectHandler = val => {
@@ -196,7 +200,7 @@ export default function Support(props) {
               onChange={ImageUploadHandler}
             >
               { imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : <div>
-                <Icon type={"upload"} />
+              <UploadOutlined />
                 <div className="ant-upload-text">Upload Screenshot <br/> (if amy) </div>
                 <div>{imageUrl}</div>
               </div> }

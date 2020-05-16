@@ -6,6 +6,8 @@ import { apiURL } from "../../constant/url";
 import { arrayValidation } from "../validation/validation";
 import axios from "axios";
 import experienceIcon from "./img/headingImg/experienceIcon.svg";
+import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
+
 
 import addIcon from "./img/addIcon.svg";
 
@@ -161,17 +163,19 @@ const Experience = ({ workExperience, updateResume }) => {
                   </section>
                   <section className="experience-edit-delete-icon">
                     <Tooltip title="edit">
-                      <Icon
+                      {/* <Icon
                         type="edit"
                         onClick={() => handleEdit(myExp)}
                         style={{ marginRight: "32px" }}
-                      ></Icon>
+                      ></Icon> */}
+                      <EditOutlined onClick={() => handleEdit(myExp)} style={{ marginRight: "32px" }} />
                     </Tooltip>
                     <Tooltip title="delete">
-                      <Icon
+                      {/* <Icon
                         type="delete"
                         onClick={() => handleDelete(myExp._id)}
-                      />
+                      /> */}
+                      <DeleteOutlined onClick={() => handleDelete(myExp._id)}/>
                     </Tooltip>
                   </section>
                 </div>

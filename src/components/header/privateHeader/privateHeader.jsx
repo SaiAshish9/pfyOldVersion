@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import "./privateHeader.scss";
 import Support from '../../NewComps/support/support';
 import VerifyStudentStatus from "../../NewComps/verify_student_Status/verifyStudentStatus";
+import { DownCircleFilled } from '@ant-design/icons';
 
 export default function PrivateHeader() {
   const [isShow, setIsShow] = useState(false)
@@ -107,7 +108,7 @@ export default function PrivateHeader() {
 
       <Dropdown overlay={menu} trigger={["click"]} className="ant-drop">
         <a className="ant-dropdown-link" href="#">
-          My Profile <Icon type="down" />
+          My Profile <DownCircleFilled />
         </a>
       </Dropdown>
     </div>

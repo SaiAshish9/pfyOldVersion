@@ -6,6 +6,7 @@ import { apiURL } from "../../constant/url";
 import { arrayValidation, objectValidation } from "../validation/validation";
 import taskIcon from "./taskIcon.svg";
 import axios from "axios";
+import { LeftCircleFilled, RightCircleFilled } from '@ant-design/icons';
 
 export default function GigTask({
   gigTask,
@@ -225,8 +226,8 @@ export default function GigTask({
       ) : (
         <Carousel
           slidesPerPage={lengthOfSlider}
-          arrowLeft={<Icon type="left" style={{ cursor: "pointer" }} />}
-          arrowRight={<Icon type="right" style={{ cursor: "pointer" }} />}
+          arrowLeft={<LeftCircleFilled />}
+          arrowRight={<RightCircleFilled />}
           addArrowClickHandler
         >
           {arrayValidation(gigTask) &&

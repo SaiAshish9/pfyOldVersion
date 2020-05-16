@@ -11,6 +11,8 @@ import calender from "./images/calender.svg";
 import PaymentMethod from './paymentMethodModal';
 import axios from 'axios';
 import noDetails from './images/noDetails.jpg'
+import { ExclamationCircleOutlined  } from '@ant-design/icons';
+
 
 
 const codeToText = {
@@ -121,7 +123,8 @@ export default function Earnings({data, details, isUpdate}) {
                     </div>
                   ) : <Fragment>
                   <div style={{display: "flex", alignItems:"center"}}>
-                    <Icon style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle" /> 
+                    {/* <Icon style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle" />  */}
+                    <ExclamationCircleOutlined style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle" />
                     <div style={{fontSize: "1.5rem", fontFamily: "CircularStd" }}>Your Wallet Is <br/> Currently Empty</div>
                     <img src={noDetails} alt="" />
                   </div>

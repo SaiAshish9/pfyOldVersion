@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { Modal, Button, Input, Select, Upload, Icon } from 'antd';
+import { Modal, Button, Input, Select, Upload } from 'antd';
+import {UploadOutlined} from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -103,7 +104,7 @@ export default function VerifyStudentStatus(props) {
                 { imageUrl1 ? <img src={imageUrl1} alt="avatar" style={{ width: '100%' }} /> : 
                 <div className="upload-text-content">
                   <div className="text"><p>Upload Front Side of The Document</p>  </div>
-                  <Icon className="icon" type={"upload"} />
+                  <UploadOutlined />
                   <div>{imageUrl1}</div>
                 </div> }
               </Upload>
@@ -121,7 +122,8 @@ export default function VerifyStudentStatus(props) {
                 { imageUrl2 ? <img src={imageUrl2} alt="avatar" style={{ width: '100%' }} /> : 
                 <div className="upload-text-content">
                   <div className="text"><p> Upload Back Side of The Document </p></div>
-                  <Icon className="icon" type={"upload"} />
+                  {/* <Icon className="icon" type={"upload"} /> */}
+                  <UploadOutlined />
                   <div>{imageUrl2}</div>
                 </div> }
               </Upload>

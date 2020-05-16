@@ -3,6 +3,7 @@ import { Icon } from "antd";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import logo from "./img/logo.png";
+import { HeartFilled  } from '@ant-design/icons';
 
 AOS.init();
 export default function FooterContainer() {
@@ -65,13 +66,14 @@ export default function FooterContainer() {
         }}
       >
         Made with{" "}
-        <Icon
+        {/* <Icon
           type="heart"
           theme="filled"
           style={{
             color: "Red"
           }}
-        />{" "}
+        />{" "} */}
+        <HeartFilled theme="filled" style={{color: "Red" }} />
         in India
         <br />
       </p>

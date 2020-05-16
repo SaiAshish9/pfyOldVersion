@@ -8,6 +8,7 @@ import transactionImg from "./images/transactionImg.svg";
 import calender from "./images/calender.svg";
 import creditCardImg from "./images/credit_card.svg";
 import { Icon } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 
 
@@ -87,7 +88,8 @@ export default function Transactions({data, details}) {
             ): 
             <Fragment>
               <div style={{display: "flex", alignItems:"center", marginTop: "5rem"}}>
-                <Icon style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle" /> 
+                {/* <Icon style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle" />  */}
+                <ExclamationCircleOutlined style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle"/>
                 
                 <div style={{fontSize: "1.5rem", fontFamily: "CircularStd" }}>There is currently <br/> No Transaction</div>
               </div>

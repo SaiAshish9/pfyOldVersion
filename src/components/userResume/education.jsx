@@ -6,6 +6,8 @@ import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { objectValidation } from "../validation/validation";
 import educationIcon from "./img/headingImg/educationIcon.svg";
+import {EditOutlined} from '@ant-design/icons';
+
 
 import addIcon from "./img/addIcon.svg";
 
@@ -130,7 +132,8 @@ export default function Education({ education, updateResume }) {
         </section>
         <section className="education-edit-delete-icon" style={{}}>
           <Tooltip title="edit">
-            <Icon type="edit" onClick={() => handleEdit(educationData)}></Icon>
+            {/* <Icon type="edit" onClick={() => handleEdit(educationData)}></Icon> */}
+            <EditOutlined onClick={() => handleEdit(educationData)} />
           </Tooltip>
         </section>
       </div>

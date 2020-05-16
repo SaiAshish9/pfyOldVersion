@@ -1,0 +1,54 @@
+# Query: <Icon
+
+23 results - 16 files
+
+src\components\common\userCard.jsx:
+  52:         {/* <div className="edit-icon" style={{textAlign: "end", fontSize:"1.2rem"}}> <Icon onClick={openModal} type="edit"></Icon></div> */}
+
+src\components\gig\gigTask.js:
+  228:           arrowLeft={}
+  229:           arrowRight={}
+
+src\components\header\privateHeader\privateHeader.jsx:
+  110:           My Profile 
+
+src\components\home\footerContainer.jsx:
+  68:         
+
+src\components\userHome\userHome\stat.jsx:
+  2: // import { <Icon } from "antd";
+
+src\components\userResume\achievement.jsx:
+  81:                      
+  88:                       
+
+src\components\userResume\digitalProfile.jsx:
+  110:               
+
+src\components\userResume\education.jsx:
+  133:             
+
+src\components\userResume\experience.jsx:
+  164:                       
+
+src\components\userResume\objective.jsx:
+  87:               {/* <Icon type="edit" onClick={handleObjectiveButton}></Icon> */}
+
+src\components\userResume\position.jsx:
+  106:                      
+
+src\components\userResume\project.jsx:
+  167:                      
+
+src\components\userResume\skill.jsx:
+  366:                
+  397:                       // <Icon
+
+src\components\userResume\training.jsx:
+  89:                      
+
+src\components\wallet\earnings.js:
+  124:                     
+
+src\components\wallet\transactions.js:
+  90:                 

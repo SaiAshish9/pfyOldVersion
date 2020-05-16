@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Button, Radio, Input, Tabs } from "antd";
+import { Modal, Button, Radio, Input, Tabs, Form, InputNumber } from "antd";
 import axios from "axios";
 const { TabPane } = Tabs;
 
@@ -10,6 +10,14 @@ export default function PaymentMethodModal(props) {
   const [bankDetails, setBankDetails] = useState({});
   const [paymentMode, setPaymentMode] = useState("paytm");
 
+  const onFinish = values => {
+    console.log('Success:', values);
+  };
+
+  const onFinishFailed = errorInfo => {
+    console.log('Failed:', errorInfo);
+  };
+  
   const showModal = () => {
     setVisible(true);
   };
@@ -61,7 +69,64 @@ export default function PaymentMethodModal(props) {
   };
   const paytm = (
     <div className="paytm_input">
+      <Form
+      name="basic"
+      initialValues={{
+        remember: true,
+      }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+    >
       <div className="heading">Name of wallet user</div>
+      <Form.Item
+        // label="Name of wallet user"
+        name="name"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your name!',
+          },
+        ]}
+      >
+        <Input className="walletDetailInput" placeholder="please enter name" />
+      </Form.Item>
+
+      <div className="heading">Number of wallet holder</div>
+      <Form.Item
+        // label="Number of wallet holder"
+        name="number"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your mobile number!',
+          },
+          // {
+          //   type: "number",
+          //   message: "Please input valid mobile number"
+          // },
+          {
+            max: 10,
+            message: "Please input valid mobile number"
+          }
+        ]}
+      >
+        <Input className="walletDetailInput" style={{width: "100%"}}  placeholder="please enter number" />
+      </Form.Item>
+
+      <Form.Item style={{textAlign: "center"}}>
+      <Button
+            htmlType="submit"
+            type="primary"
+            className="submit_btn"
+            // onClick={handleOk}
+            // style={{textAlign: "center"}}
+            // loading={loading} onClick={this.handleOk}
+          >
+            Submit
+          </Button>
+      </Form.Item>
+    </Form>
+      {/* <div className="heading">Name of wallet user</div>
       <Input
         className="walletDetailInput"
         onChange={(e) => paytmChangeHandler(e, "holder_name")}
@@ -72,7 +137,7 @@ export default function PaymentMethodModal(props) {
         className="walletDetailInput"
         onChange={(e) => paytmChangeHandler(e, "number")}
         placeholder="please enter number"
-      />
+      /> */}
     </div>
   );
 
@@ -110,6 +175,7 @@ export default function PaymentMethodModal(props) {
       />
     </div>
   );
+ 
   return (
     <div>
       <Modal
@@ -145,7 +211,7 @@ export default function PaymentMethodModal(props) {
           </TabPane>
         </Tabs>
         <div className="submit_btn_block">
-          <Button
+          {/* <Button
             key="submit"
             type="primary"
             className="submit_btn"
@@ -154,7 +220,7 @@ export default function PaymentMethodModal(props) {
             // loading={loading} onClick={this.handleOk}
           >
             Submit
-          </Button>
+          </Button> */}
         </div>
       </Modal>
     </div>

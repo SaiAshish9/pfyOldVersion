@@ -7,6 +7,7 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import { arrayValidation } from "../validation/validation";
 import { apiURL } from "../../constant/url";
 import team from "./img/headingImg/achievementIcon.svg";
+import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 import addIcon from "./img/addIcon.svg";
 
@@ -78,14 +79,16 @@ const Achievement = ({ achievement, updateResume }) => {
                   </section>
                   <section className="achievement-edit-delete-icon ">
                     <Tooltip title="edit">
-                      <Icon
+                      {/* <Icon
                         type="edit"
                         onClick={() => handleEdit(myAchievement)}
                         style={{ marginRight: "32px" }}
-                      ></Icon>
+                      ></Icon> */}
+                      <EditOutlined  onClick={() => handleEdit(myAchievement)} style={{ marginRight: "32px" }}/>
                     </Tooltip>
                     <Tooltip title="delete">
-                      <Icon type="delete" onClick={() => handleDelete(index)} />
+                      {/* <Icon type="delete" onClick={() => handleDelete(index)} /> */}
+                      <DeleteOutlined  onClick={() => handleDelete(index)} />
                     </Tooltip>
                   </section>
                 </div>

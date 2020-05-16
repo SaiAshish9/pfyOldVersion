@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
+import {EditOutlined} from '@ant-design/icons';
+
 
 import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
 import addIcon from "./img/addIcon.svg";
@@ -83,7 +85,9 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
         {!!careerObjective ? (
           <section className="objective-edit-icon">
             <Tooltip title="edit">
-              <Icon type="edit" onClick={handleObjectiveButton}></Icon>
+              {/* <Icon type="edit" onClick={handleObjectiveButton}></Icon> */}
+              <EditOutlined onClick={handleObjectiveButton} />
+
             </Tooltip>
           </section>
         ) : (

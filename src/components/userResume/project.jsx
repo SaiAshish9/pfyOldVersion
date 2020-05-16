@@ -6,6 +6,7 @@ import { apiURL } from "../../constant/url";
 import { useForm, Controller } from "react-hook-form";
 import { arrayValidation } from "../validation/validation";
 import team from "./img/headingImg/projectIcon.svg";
+import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 import addIcon from "./img/addIcon.svg";
 
@@ -164,17 +165,19 @@ const Project = ({ project, updateResume }) => {
                   </section>
                   <section className="project-edit-delete-icon">
                     <Tooltip title="edit">
-                      <Icon
+                      {/* <Icon
                         type="edit"
                         onClick={() => handleEdit(myProject)}
                         style={{ marginRight: "32px" }}
-                      ></Icon>
+                      ></Icon> */}
+                      <EditOutlined  onClick={() => handleEdit(myProject)} style={{ marginRight: "32px" }} />
                     </Tooltip>
                     <Tooltip title="delete">
-                      <Icon
+                      {/* <Icon
                         type="delete"
                         onClick={() => handleDelete(myProject._id)}
-                      />
+                      /> */}
+                      <DeleteOutlined onClick={() => handleDelete(myProject._id)}/>
                     </Tooltip>
                   </section>
                 </div>

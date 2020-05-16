@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import trainingIcon from "./img/headingImg/experienceIcon.svg";
 
 import addIcon from "./img/addIcon.svg";
+import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
+
 
 const Training = ({ training, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -86,17 +88,19 @@ const Training = ({ training, updateResume }) => {
                   </section>
                   <section className="training-edit-delete-icon">
                     <Tooltip title="edit">
-                      <Icon
+                      {/* <Icon
                         type="edit"
                         onClick={() => handleEdit(myTraining)}
                         style={{ marginRight: "32px" }}
-                      ></Icon>
+                      ></Icon> */}
+                      <EditOutlined onClick={() => handleEdit(myTraining)} style={{ marginRight: "32px" }}/>
                     </Tooltip>
                     <Tooltip title="delete">
-                      <Icon
+                      {/* <Icon
                         type="delete"
                         onClick={() => handleDelete(myTraining._id)}
-                      />
+                      /> */}
+                      <DeleteOutlined onClick={() => handleDelete(myTraining._id)}/>
                     </Tooltip>
                   </section>
                 </div>

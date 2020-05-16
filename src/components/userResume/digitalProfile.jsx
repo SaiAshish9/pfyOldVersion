@@ -17,6 +17,7 @@ import instagramIcon from "./img/digitalProfileIcon/instagramIcon.svg";
 import quoraIcon from "./img/digitalProfileIcon/quoraIcon.svg";
 import mediumIcon from "./img/digitalProfileIcon/mediumIcon.svg";
 // import facebookIcon from "./img/digitalProfileIcon/";
+import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 import addIcon from "./img/addIcon.svg";
 
@@ -107,7 +108,8 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
         {isAllData() ? (
           <section>
             <Tooltip title="edit">
-              <Icon type="edit" onClick={handleEdit} />
+              {/* <Icon type="edit" onClick={handleEdit} /> */}
+              <EditOutlined onClick={handleEdit} />
             </Tooltip>
           </section>
         ) : (

@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { Modal, Button, Input, Icon  } from 'antd';
+import {RightOutlined} from '@ant-design/icons';
+
 
 export default function TaskFlow() {
     const [visible, setVisible] = useState(false)
@@ -57,7 +59,7 @@ export default function TaskFlow() {
                     
                     </div>
                 </div>
-                <Button className="task-reference-btn">Task Reference <Icon type="right"/> </Button>
+                <Button className="task-reference-btn">Task Reference <RightOutlined /> </Button>
                 <div className="download-and-copy-btn">
                     <div className="title">
                     After Reading the instructions click on the buttons below

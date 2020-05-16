@@ -15,6 +15,8 @@ import otherIcon from "./img/skillImg/otherIcon.svg";
 import technicalIcon from "./img/skillImg/technicalIcon.svg";
 import cancelIcon from "./img/cancelIcon.svg";
 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+
 import addIcon from "./img/addIcon.svg";
 
 const proficiencyRate = [
@@ -363,7 +365,8 @@ export default function Skill({ skill }) {
           {isSubcategory && (
             <div className="skill-subCategory-block">
               <div>
-                <Icon type="arrow-left" onClick={handleBack} />
+                {/* <Icon type="arrow-left" onClick={handleBack} /> */}
+                <ArrowLeftOutlined  onClick={handleBack}/>
                 <div>{skillImage(selectedCategory)}</div>
               </div>
               <div className=""></div>
