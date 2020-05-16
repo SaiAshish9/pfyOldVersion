@@ -195,7 +195,7 @@ const Continue = () => {
     <div className="login-button-main-block">
       <Button
         className="header__button1"
-        onClick={showModal}
+        // onClick={showModal}
       >
         Login
       </Button>
