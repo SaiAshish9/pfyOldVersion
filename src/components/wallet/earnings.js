@@ -16,13 +16,12 @@ import { ExclamationCircleOutlined  } from '@ant-design/icons';
 
 
 const codeToText = {
-    901: "Not Redeemed",
-    902: "Requested",
-    903: "Completed"
-}
+  901: "Not Redeemed",
+  902: "Requested",
+  903: "Completed",
+};
 
-
-export default function Earnings({data, details, isUpdate}) {
+export default function Earnings({ data, details, isUpdate }) {
   const [isShow, setIsShow] = useState(false);
 
   console.log("%c Details","font-size: 25px, color: darkorange")
@@ -32,7 +31,7 @@ export default function Earnings({data, details, isUpdate}) {
   const isModalOpen = () => {
     setIsShow(true);
   };
-  
+
   const isClose = () => {
     setIsShow(false);
   };
@@ -42,14 +41,14 @@ export default function Earnings({data, details, isUpdate}) {
     if(details.wallet){
       axios
       .post(url)
-      .then(res => {
+      .then((res) => {
         const resData = res.data;
         console.log("REDEEM", resData.message);
         message.info(resData.message);
         // setIsUpdate(Math.random());
         isUpdate();
       })
-      .catch(err => {
+      .catch((err) => {
         const msg = err.response.data.message;
         console.log(msg);
         message.info(msg);
@@ -63,7 +62,6 @@ export default function Earnings({data, details, isUpdate}) {
   const arr = [1,2,3]
     console.log(data)
     return (
-        <Fragment>
           <div className="earning-block">
               <PaymentMethod isModalOpen={isShow} isClose={isClose} />
             <div className="earning-inner-block">
@@ -87,7 +85,7 @@ export default function Earnings({data, details, isUpdate}) {
                   </Button>
                 </div>
               </div>
-        
+        </div>
             
               <div className="earning-list-block">
                 <div className="title">Earnings</div>
@@ -101,40 +99,39 @@ export default function Earnings({data, details, isUpdate}) {
                         <div>
                           <div className="earning-description-title">
                           {earning.mission.title}
-                          </div>
-                          <div className="earning-description-date">
-                            <img src={calender} alt="" />
-                            <span className="description-date-string">
-                            {moment(earning.createdAt).format("DD MMM YYYY")}
-                            </span>{" "}
-                          </div>
                         </div>
-                        <div>
-                          <div className="earning-description-amount">{earning.amount}</div>
-                          <div className="earning-description-status">
-                            {" "}
-                            <img src={future} alt="" />{" "}
-                            <span className="description-status-string">
-                            { codeToText[earning.status] }
-                            </span>{" "}
-                          </div>
+                        <div className="earning-description-date">
+                          <img src={calender} alt="" />
+                          <span className="description-date-string">
+                            {moment(earning.createdAt).format("DD MMM YYYY")}
+                          </span>{" "}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="earning-description-amount">
+                          {earning.amount}
+                        </div>
+                        <div className="earning-description-status">
+                          {" "}
+                          <img src={future} alt="" />{" "}
+                          <span className="description-status-string">
+                            {codeToText[earning.status]}
+                          </span>{" "}
                         </div>
                       </div>
                     </div>
-                  ) : <Fragment>
+                    </div>
+                   ) : 
                   <div style={{display: "flex", alignItems:"center"}}>
-                    {/* <Icon style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle" />  */}
                     <ExclamationCircleOutlined style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle" />
                     <div style={{fontSize: "1.5rem", fontFamily: "CircularStd" }}>Your Wallet Is <br/> Currently Empty</div>
                     <img src={noDetails} alt="" />
                   </div>
-                </Fragment>}
+                }
                 </div>
                 </div>
               </div>
-           </div>
 
-        </Fragment>
-        
-    )
+
+  )
 }

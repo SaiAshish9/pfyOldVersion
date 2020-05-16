@@ -1,19 +1,14 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useEffect, useState, useContext } from "react";
+import { Col, Row, Select } from "antd";
 import axios from "axios";
-import { Row, Col, Select } from "antd";
-import { apiURL } from "../../constant/url";
-
+import React, { useEffect, useState } from "react";
+/* ---------------------------------- ***** --------------------------------- */
 import Card from "../common/card";
 import Filter from "../filters/filter";
 import { arrayValidation } from "../validation/validation";
 
-import GigContext from "../../context/gigContext";
-
 const cardStyle = {
   display: "flex",
-  justifyContent: "center"
+  justifyContent: "center",
 };
 const { Option } = Select;
 
@@ -23,7 +18,7 @@ const Gig = () => {
 
   const gigCard =
     arrayValidation(gig) &&
-    gig.map(gig => (
+    gig.map((gig) => (
       <Col style={cardStyle} span={8} key={gig._id}>
         <Card gig={gig} />
       </Col>
@@ -32,21 +27,21 @@ const Gig = () => {
   /* ----------------------- fetching gig without status ----------------------- */
   useEffect(() => {
     axios
-      .get(`${apiURL}/mission/fetch`)
-      .then(function(response) {
+      .get(`mission/fetch`)
+      .then(function (response) {
         // handle success
         const gigData = response.data.missions;
         setGig(gigData);
         console.log(gigData);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // handle error
         console.log(error);
       })
-      .finally(function() {});
+      .finally(function () {});
   }, []);
 
-  const handleArrangingCard = value => {
+  const handleArrangingCard = (value) => {
     setArrangeCard(value);
   };
 

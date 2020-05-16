@@ -4,19 +4,16 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-/* --------------------------------- xxxxxxx -------------------------------- */
-// import indianCity from "../../../staticData/cityData.json";
-import { arrayValidation } from "../../validation/validation";
-import { apiURL } from "../../../constant/url";
+/* ---------------------------------- ***** --------------------------------- */
 import femaleImage from "./image/female.png";
 import maleImage from "./image/male.png";
 
 const buttonStyle = {
-  padding: "0px 50px"
+  padding: "0px 50px",
 };
 
 const profileInput = {
-  marginBottom: "12px"
+  marginBottom: "12px",
 };
 
 const UserForm = ({ phone, passToken, handleModalCancel }) => {
@@ -32,32 +29,24 @@ const UserForm = ({ phone, passToken, handleModalCancel }) => {
   const [DOB, setDOB] = useState("");
   const [gender, setGender] = useState("");
 
-  // console.log("JSON.parse(indianCity.city)", JSON.parse(indianCity));
-
-  // const myCity = JSON.parse(indianCity.city).map(city, i => (
-  //   <Option value={city} key={i}>
-  //     {city}
-  //   </Option>
-  // ));
-
-  const handleFirstName = e => {
+  const handleFirstName = (e) => {
     const userFirstName = e.target.value;
     console.log(`"first name" ${userFirstName}`);
     setFirstName(userFirstName);
   };
 
-  const handleLastName = e => {
+  const handleLastName = (e) => {
     const userLastName = e.target.value;
     console.log(`"last name" ${userLastName}`);
     setLastName(userLastName);
   };
 
-  const handleEmail = e => {
+  const handleEmail = (e) => {
     const userEmail = e.target.value;
     setEmail(userEmail);
   };
 
-  const handleCity = value => {
+  const handleCity = (value) => {
     setCity(value);
   };
   const handleDOB = (date, dateString) => {
@@ -65,12 +54,12 @@ const UserForm = ({ phone, passToken, handleModalCancel }) => {
     setDOB(dateString);
   };
 
-  const handleGender = userGender => {
+  const handleGender = (userGender) => {
     console.log(userGender);
     setGender(userGender);
   };
 
-  const handleProfileContinueButton = e => {
+  const handleProfileContinueButton = (e) => {
     e.preventDefault();
     const userData = {
       firstName: firstName,
@@ -80,31 +69,28 @@ const UserForm = ({ phone, passToken, handleModalCancel }) => {
       city: city,
       dob: DOB,
       gender: gender,
-      passToken: passToken
+      passToken: passToken,
     };
 
     axios
-      .post(`${apiURL}/auth/register`, userData)
-      .then(res => {
+      .post(`auth/register`, userData)
+      .then((res) => {
         Cookies.set("token", res.data.token);
         console.log(res);
-        // const username = res.data.user.firstName;
-        // const id = res.data.user._id;
         handleModalCancel();
         history.push(`/home`);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error.response);
       });
 
-    console.log(firstName);
-    console.log(lastName);
-    console.log(email);
-    // console.log(phone);
-    console.log(city);
-    console.log(DOB);
-    console.log(gender);
-    console.log(passToken);
+    // console.log(firstName);
+    // console.log(lastName);
+    // console.log(email);
+    // console.log(city);
+    // console.log(DOB);
+    // console.log(gender);
+    // console.log(passToken);
   };
 
   return (

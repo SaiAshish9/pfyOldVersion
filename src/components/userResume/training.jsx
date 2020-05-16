@@ -1,15 +1,13 @@
-import React, { useState } from "react";
-import { Button, Modal, Tooltip, Icon } from "antd";
+import { Button, Icon, Modal, Tooltip } from "antd";
 import axios from "axios";
-import { apiURL } from "../../constant/url";
-import { tokenHeader } from "../../constant/tokenHeader";
-import { arrayValidation } from "../validation/validation";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import trainingIcon from "./img/headingImg/experienceIcon.svg";
-
+/* ---------------------------------- ***** --------------------------------- */
+import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
 import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
+import trainingIcon from "./img/headingImg/experienceIcon.svg";
 
 const Training = ({ training, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -17,17 +15,17 @@ const Training = ({ training, updateResume }) => {
 
   const { register, handleSubmit, errors, watch, setValue } = useForm();
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     const myTrainingData = trainingData._id
       ? { ...data, _id: trainingData._id }
       : data;
     axios
-      .post(`${apiURL}/resume/add_training`, myTrainingData, tokenHeader)
-      .then(res => {
+      .post(`resume/add_training`, myTrainingData)
+      .then((res) => {
         console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
     setTrainingData(false);
@@ -44,22 +42,22 @@ const Training = ({ training, updateResume }) => {
     setIsModalVisible(true);
   };
 
-  const handleEdit = selectedTraining => {
+  const handleEdit = (selectedTraining) => {
     setTrainingData(selectedTraining);
     setIsModalVisible(true);
     setValue("title", selectedTraining.title);
     setValue("description", selectedTraining.description);
   };
 
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     console.log(id);
     axios
-      .delete(`${apiURL}/resume/delete_training/${id}`, tokenHeader)
-      .then(res => {
+      .delete(`resume/delete_training/${id}`)
+      .then((res) => {
         console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
   };
@@ -124,7 +122,6 @@ const Training = ({ training, updateResume }) => {
         onCancel={handleCancel}
         footer={null}
         width={680}
-
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

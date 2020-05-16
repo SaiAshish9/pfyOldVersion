@@ -152,7 +152,7 @@ $card-background-color: #fff;
         margin-right: 20px;
         padding: 22px 0;
       }
-      %heading {
+      %headingStat {
         font-size: 16px;
         margin: 0px;
       }
@@ -177,10 +177,10 @@ $card-background-color: #fff;
         }
         .student-status-text-block {
           @extend %heading-para-block;
-          h1 {
-            @extend %heading;
+          h1.heading {
+            @extend %headingStat;
           }
-          p {
+          p.para {
             @extend %paragraph;
           }
           .arrowIcon-one {
@@ -197,11 +197,11 @@ $card-background-color: #fff;
 
         .my-gig-text-block {
           @extend %heading-para-block;
-          h1 {
-            @extend %heading;
+          h1.heading {
+            @extend %headingStat;
           }
 
-          p {
+          p.para {
             @extend %paragraph;
           }
 
@@ -220,11 +220,11 @@ $card-background-color: #fff;
 
         .my-internship-text-block {
           @extend %heading-para-block;
-          h1 {
-            @extend %heading;
+          h1.heading {
+            @extend %headingStat;
           }
 
-          p {
+          p.para {
             @extend %paragraph;
           }
 
@@ -243,11 +243,11 @@ $card-background-color: #fff;
 
         .my-resume-text-block {
           @extend %heading-para-block;
-          h1 {
-            @extend %heading;
+          h1.heading {
+            @extend %headingStat;
           }
 
-          p {
+          p.para {
             @extend %paragraph;
           }
 
@@ -267,11 +267,11 @@ $card-background-color: #fff;
 
         .gig-profile-text-block {
           @extend %heading-para-block;
-          h1 {
-            @extend %heading;
+          h1.heading {
+            @extend %headingStat;
           }
 
-          p {
+          p.para {
             @extend %paragraph;
           }
 
@@ -651,10 +651,15 @@ $card-background-color: #fff;
       // margin-bottom: 1rem;
       .single-icon {
         font-size: 3em;
-        padding: 0.25rem 1rem;
+        // padding: 0.25rem 1rem;
         margin: 0px 0.25rem 20px 0.25rem;
         border: 1px solid #ccc;
         border-radius: 8px;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
     .fb-block {

@@ -1,29 +1,23 @@
-import React, { useEffect, useState, useReducer } from "react";
 import { Card, Skeleton } from "antd";
-import { useLocation } from "react-router-dom";
-
 import axios from "axios";
-
-import Avatar from "./avatar";
-import Stat from "./stat";
-import GigOrInternship from "./gigOrInternship";
-import userReducer from "../../../reducer/userReducer";
+import React, { useEffect, useReducer } from "react";
+/* ---------------------------------- ***** --------------------------------- */
 import UserContext from "../../../context/userContext";
-import { apiURL } from "../../../constant/url";
-import { tokenHeader } from "../../../constant/tokenHeader";
+import userReducer from "../../../reducer/userReducer";
 import { objectValidation } from "../../validation/validation";
+import Avatar from "./avatar";
+import GigOrInternship from "./gigOrInternship";
 import Score from "./score";
-import ScrollNumber from "antd/lib/badge/ScrollNumber";
+import Stat from "./stat";
 
 const UserHome = () => {
-  const location = useLocation();
   const [user, userDispatch] = useReducer(userReducer, {});
 
   //* --- initially home page take token data by
   //* --- passing token into history at login page
   //* --- after that home uses cookies for token
-  const token =
-    location.state && location.state.headers ? location.state : tokenHeader;
+  // const token =
+  //   location.state && location.state.headers ? location.state : tokenHeader;
 
   useEffect(() => {
     console.log("user home data", user);
@@ -31,18 +25,16 @@ const UserHome = () => {
 
   useEffect(() => {
     axios
-      .get(`${apiURL}/home`, token)
-      .then(res => {
+      .get(`home`)
+      .then((res) => {
         let userData = res.data;
         console.log("User Home Data", res.data);
         userDispatch({ type: "MY_USER", userData });
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
   }, []);
-
-  useEffect(() => {}, []);
 
   return (
     <UserContext.Provider value={{ user, userDispatch }}>

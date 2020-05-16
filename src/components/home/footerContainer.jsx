@@ -51,7 +51,7 @@ export default function FooterContainer() {
             to=""
             className="social__link"
             style={{
-              border: "none"
+              border: "none",
             }}
           >
             Contact Us
@@ -62,7 +62,7 @@ export default function FooterContainer() {
         style={{
           fontSize: "16px",
           textAlign: "center",
-          marginBottom: "0px"
+          marginBottom: "0px",
         }}
       >
         Made with{" "}
@@ -70,7 +70,7 @@ export default function FooterContainer() {
           type="heart"
           theme="filled"
           style={{
-            color: "Red"
+            color: "Red",
           }}
         />{" "} */}
         <HeartFilled theme="filled" style={{color: "Red" }} />

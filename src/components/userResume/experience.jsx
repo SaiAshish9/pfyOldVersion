@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import { Button, Modal, Checkbox, Tooltip, Icon, Input } from "antd";
-import { useForm, Controller } from "react-hook-form";
-import { tokenHeader } from "../../constant/tokenHeader";
-import { apiURL } from "../../constant/url";
-import { arrayValidation } from "../validation/validation";
+import { Button, Checkbox, Icon, Modal, Tooltip } from "antd";
 import axios from "axios";
+import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { arrayValidation } from "../validation/validation";
 import experienceIcon from "./img/headingImg/experienceIcon.svg";
 import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
@@ -23,7 +21,7 @@ const month = [
   "Sep",
   "Oct",
   "Nov",
-  "Dec"
+  "Dec",
 ];
 
 const year = new Date().getFullYear();
@@ -39,9 +37,9 @@ const Experience = ({ workExperience, updateResume }) => {
       isWorkHome: false,
       isCurrently: false,
       start: {
-        year: year
-      }
-    }
+        year: year,
+      },
+    },
   });
 
   const myStartYear = watch("start.year");
@@ -58,18 +56,18 @@ const Experience = ({ workExperience, updateResume }) => {
     </option>
   ));
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     console.log(data);
     const myExpData = experienceData._id
       ? { ...data, _id: experienceData._id }
       : data;
     axios
-      .post(`${apiURL}/resume/add_experience`, myExpData, tokenHeader)
-      .then(res => {
+      .post(`resume/add_experience`, myExpData)
+      .then((res) => {
         console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
     setExperienceData(false);
@@ -85,7 +83,7 @@ const Experience = ({ workExperience, updateResume }) => {
     setIsModalVisible(true);
   };
 
-  const handleEdit = selectedExp => {
+  const handleEdit = (selectedExp) => {
     console.log(selectedExp);
     setExperienceData(selectedExp);
     setIsModalVisible(true);
@@ -99,14 +97,14 @@ const Experience = ({ workExperience, updateResume }) => {
     setValue("isCurrently", selectedExp.isCurrently);
   };
 
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     axios
-      .delete(`${apiURL}/resume/delete_experience/${id}`, tokenHeader)
-      .then(res => {
+      .delete(`resume/delete_experience/${id}`)
+      .then((res) => {
         console.log(res);
         updateResume(Math.random());
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e.response);
       });
   };
@@ -184,7 +182,7 @@ const Experience = ({ workExperience, updateResume }) => {
         </section>
 
         <Tooltip title="add">
-        <img
+          <img
             src={addIcon}
             alt=""
             onClick={handleAdd}

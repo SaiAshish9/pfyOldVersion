@@ -1,0 +1,112 @@
+.hero-main-block {
+  // box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.16);
+  // border-bottom: solid 20px #ffffff;
+  padding: 100px 50px 0 50px;
+  background-image: url("../../assets/img/landingPage/heroBackground.png");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: bottom;
+  background-position-y: -70px;
+
+  display: flex;
+  .hero-content {
+    padding: 130px 50px 0 0px;
+    .hero-content-heading {
+      word-spacing: -18px;
+      line-height: 58px;
+      margin-bottom: 16px;
+
+      font-size: 54px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .hero-content-para {
+      font-size: 24px;
+      line-height: 32px;
+      color: #ffffff;
+      margin-right: 120px;
+    }
+
+    .hero-content-button {
+      width: 13em;
+      height: 4em;
+      border-radius: 2em;
+      border: solid 2px #ffffff;
+      background-color: transparent;
+
+      font-size: 1.25em;
+      line-height: 1.82;
+      color: #ffffff;
+    }
+  }
+
+  .hero-img {
+    margin-top: 50px;
+  }
+}
+
+
+
+@media screen and (min-width: 1030px) and (max-width: 1230px){
+  .hero-main-block{
+    // background-position-y: -70px;
+    .hero-img{
+      width: 40vw;
+    }
+    .hero-content{
+      padding: 4.5em 0 0 0;
+      .hero-content-heading{
+        font-size: 3em;
+      }
+      
+      .hero-content-para{
+        margin-right: 1em ;
+      }
+    }
+    .hero-img{
+      width: 50vw;
+      height: 70vh;
+    }
+  }
+}
+
+
+
+@media screen and (min-width: 320px) and (max-width: 1030px){
+  .hero-main-block{
+    // background-size: unset;
+    
+    background-position-y: 0;
+    padding: 2em;
+    .hero-content{
+      padding: 5em 0 0 0;
+      .hero-content-heading{
+        font-size: 3em;
+      }
+      
+      .hero-content-para{
+        margin-right: 1em ;
+      }
+    }
+    .hero-img{
+      width: 50vw;
+      height: 70vh;
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 820px){
+  .hero-main-block{
+    background-position-y: -15em;
+    background-size: 700%;
+  }
+  .hero-content{
+    width: 55vw;
+    padding: 9.5em 0 0 0;
+    .hero-content-button{
+      height: 10em;
+      width: 3em;
+    }
+  }
+}

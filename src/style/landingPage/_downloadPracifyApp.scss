@@ -1,0 +1,117 @@
+.downloadPracifyApp-main-block {
+  display: grid;
+  // position: relative;
+  top: 85px;
+  margin: 0px 40px;
+  grid-template-columns: 1fr 1fr;
+  .downloadPracifyApp-content-block {
+    flex: 1;
+    margin: 80px 0 0 98px;
+    .downloadPracifyApp-header {
+      font-size: 3em;
+      margin-bottom: 8px;
+      word-spacing: -12px;
+      font-weight: 500;
+      color: #333e49;
+    }
+
+    .downloadPracifyApp-para {
+      margin: 0 200px 20px 0;
+      font-size: 20px;
+      color: #333e49;
+      span: {
+        font-size: 22px;
+        font-weight: 500;
+        color: #333e49;
+      }
+    }
+
+    .phone-input-block {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 20px;
+      .country-code {
+        font-size: 20px;
+        color: #333e49;
+        margin-right: 12px;
+      }
+
+      .phone-input {
+        width: 182px;
+        height: 48px;
+        border: solid 1px #333e49;
+        border-radius: 0;
+        border-right: none;
+      }
+
+      .phone-button {
+        width: 102px;
+        height: 48px;
+        background-color: #38bdba;
+        border-radius: 0;
+        border: 2px solid #38bdba;
+
+        font-size: 18px;
+        color: #fff;
+      }
+    }
+
+    .download-button-block {
+      display: flex;
+      width: 40%;
+      justify-content: space-between;
+
+      .google-icon {
+        width: 150px;
+        height: 50px;
+      }
+
+      .apple-icon {
+        width: 150px;
+        height: 50px;
+      }
+    }
+  }
+
+  .phone-mockup-block {
+    flex: 0.5;
+    z-index: -1;
+
+    .phone-mockup {
+      width: 40vw;
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 799px){
+  .downloadPracifyApp-main-block{
+    margin: auto;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    text-align: center;
+    flex-direction: column-reverse;
+    // width: 100vw;
+    .phone-input-block{
+      width: 100% !important;
+    }
+    .downloadPracifyApp-content-block{
+      margin: 0;
+      .downloadPracifyApp-para{
+        margin-right: 0em;
+        text-align: center;
+      }
+      .download-button-block{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+      }
+    }
+    // .phone-mockup{
+    //   width: 40vw;
+    // }
+  }
+  
+}

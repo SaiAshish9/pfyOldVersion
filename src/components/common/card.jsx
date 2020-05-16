@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
-
 // import { GigCardStyled } from "../defaultStyled/defaultStyled";
 import calendarIcon from "./img/calendarIcon.svg";
 import rupeeIcon from "./img/rupeeIcon.svg";
@@ -33,6 +32,7 @@ export default function Card(props) {
 
   const id = gig ? gig._id : internship._id;
   const logo = gig ? gigCompany.logoUrl : internshipCompany.logoUrl;
+  console.log("company logo", logo);
   const title = gig ? gig.title : internship.designation;
   const companyName = gig
     ? gigCompany.companyName

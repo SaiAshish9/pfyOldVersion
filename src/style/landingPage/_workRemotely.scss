@@ -1,0 +1,93 @@
+.workRemotely-main-block {
+  margin: 120px 60px 0 60px;
+  display: grid;
+  grid-column-gap: 40px;
+  grid-template:
+    "img message"
+    "img content";
+  .workRemotely-img {
+    grid-area: img;
+    width: 50vw;
+  }
+
+  .workRemotely-message-block {
+    grid-area: message;
+    align-self: end;
+    justify-self: flex-start;
+    margin-bottom: 40px;
+
+    .workRemotely-message-header {
+      word-spacing: -6px;
+      width: fit-content;
+      font-weight: 600;
+      font-size: 2em;
+      text-align: center;
+      color: #333e49;
+      // margin-right: 11px;
+    }
+
+    .workRemotely-message-para {
+      font-size: 1.4em;
+      text-align: center;
+      color: #333e49;
+    }
+  }
+
+  .workRemotely-content-main-block {
+    grid-area: content;
+
+    .workRemotely-content-block {
+      display: grid;
+      grid-column-gap: 40px;
+      margin-bottom: 40px;
+      // grid-template-columns: .3fr 1fr;
+      grid-template:
+        "image header"
+        "image para" / .25fr 1fr;
+      .content-img {
+        grid-area: image;
+        align-self: center;
+        justify-self: center;
+        height: 4em;
+        width: 4em;
+
+      }
+
+      .content-header {
+        grid-area: header;
+        font-size: 1.5em;
+        font-weight: 500;
+        color: #38bdba;
+      }
+
+      .content-para {
+        grid-area: para;
+
+        font-size: 1.25em;
+        color: #333e49;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .workRemotely-main-block{
+    .workRemotely-message-header{
+      margin: auto !important;
+    }
+    display: block;
+    grid-template-columns: 1fr !important;
+    grid-gap: 1em;
+    margin: 1em;
+    .workRemotely-img{
+      width: 100vw;
+      height: 50vh;
+      // padding: 0 15em;
+    }
+    .content-img{
+      height: 4em;
+      width: 4em;
+    }
+    
+  }
+}

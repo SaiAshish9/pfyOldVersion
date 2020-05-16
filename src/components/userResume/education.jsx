@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { Button, Modal, Checkbox, Tooltip, Icon } from "antd";
-import { useForm, Controller } from "react-hook-form";
+import { Button, Checkbox, Icon, Modal, Tooltip } from "antd";
 import axios from "axios";
-import { apiURL } from "../../constant/url";
-import { tokenHeader } from "../../constant/tokenHeader";
+import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+/* ---------------------------------- ***** --------------------------------- */
 import { objectValidation } from "../validation/validation";
 import educationIcon from "./img/headingImg/educationIcon.svg";
 import {EditOutlined} from '@ant-design/icons';
@@ -43,7 +42,7 @@ export default function Education({ education, updateResume }) {
   const onSubmit = (data) => {
     console.log(data);
     axios
-      .put(`${apiURL}/resume/addeducation`, data, tokenHeader)
+      .put(`resume/addeducation`, data)
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
@@ -60,14 +59,6 @@ export default function Education({ education, updateResume }) {
 
   const handleAddEducation = () => {
     setIsModalVisible(true);
-    // setValue("educationType.typeNo", educationData.educationType.typeNo);
-    // setValue("instituteName", "");
-    // setValue("course", "");
-    // setValue("marks.val", "");
-    // setValue("marks.type", educationData.marks.type);
-    // setValue("startYear", year);
-    // setValue("allEndYear", year);
-    // setValue("isCurrently", false);
   };
 
   const handleEdit = (educationData) => {

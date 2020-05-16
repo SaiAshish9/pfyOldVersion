@@ -1,22 +1,14 @@
-import React, {useState} from 'react';
-import {Modal, Button, Row, Col, Upload,message, Input, DatePicker, Select, InputNumber} from 'antd';
+import { Button, Col, DatePicker, Input, message, Modal, Row, Select, Upload } from 'antd';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import React, { useState } from 'react';
+import { Controller, useForm } from "react-hook-form";
+/* ---------------------------------- ***** --------------------------------- */
+import { tokenHeader } from '../../../constant/tokenHeader';
 import './editProfile.scss';
 import userImg from './user.svg';
-import { useForm, Controller } from "react-hook-form";
-import axios from 'axios';
-import {tokenHeader} from '../../../constant/tokenHeader';
-import Cookies from 'js-cookie'
-// import jsonp from 'fetch-jsonp';
-// import querystring from 'querystring';
 
 const myToken = Cookies.get('token')
-
-// import { Select } from 'antd';
-
-// const { Option } = Select;
-
-
-
 const { Option } = Select;
 
 export default function EditProfile(props) {
@@ -33,7 +25,6 @@ export default function EditProfile(props) {
       myObj.lastName = name[1]
     }
     delete myObj.name;
-    // myObj.firstName = data.name.trim().split(' ')
     console.table(myObj)
     const url = 'user/update';
     setConfirmLoading(true)

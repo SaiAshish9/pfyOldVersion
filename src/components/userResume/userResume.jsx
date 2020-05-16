@@ -1,18 +1,16 @@
-import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
-import { tokenHeader } from "../../constant/tokenHeader";
-import { apiURL } from "../../constant/url";
-import Objective from "./objective";
-import Education from "./education";
-import Skill from "./skill";
-import Experience from "./experience";
-import Position from "./position";
-import Training from "./training";
-import Project from "./project";
-import DigitalProfile from "./digitalProfile";
-import Achievement from "./achievement"; 
-
+import React, { useEffect, useState } from "react";
+/* ---------------------------------- ***** --------------------------------- */
 import UserCard from "../common/userCard";
+import Achievement from "./achievement";
+import DigitalProfile from "./digitalProfile";
+import Education from "./education";
+import Experience from "./experience";
+import Objective from "./objective";
+import Position from "./position";
+import Project from "./project";
+import Skill from "./skill";
+import Training from "./training";
 
 const UserResume = () => {
   const [userResumeData, setUserResumeData] = useState({});
@@ -23,20 +21,20 @@ const UserResume = () => {
   useEffect(() => {
     console.log("updater", updater);
     axios
-      .get(`${apiURL}/resume/me`, tokenHeader)
-      .then(res => {
+      .get("resume/me")
+      .then((res) => {
         console.log("user resume data", res.data);
         setIsLoader(false);
         setUserResumeData(res.data.resume);
       })
-      .catch(e => console.log(e.response));
+      .catch((e) => console.log(e.response));
   }, [updater]);
 
   return (
     <div className="resume-with-userCard-block">
       <UserCard />
       <div className="resume-block">
-        <Objective 
+        <Objective
           careerObjective={userResumeData.careerObjectives}
           updateResume={setUpdater}
           loader={isLoader}

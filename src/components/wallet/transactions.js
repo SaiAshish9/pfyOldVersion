@@ -32,15 +32,9 @@ export default function Transactions({data, details}) {
                   Rs {details.wallet}
             </div>
             <div className="credit-card__details">
-                <div className="credit-card__number">
-                  x x x x 1 2 3 4              
-                </div>
-                <div className="credit-card__holder">
-                  Card Holder
-                </div>
-                <div className="credit-card__name">
-                  {details.firstName}
-                </div>
+              <div className="credit-card__number">xxxx 1 2 3 4</div>
+              <div className="credit-card__holder">Card Holder</div>
+              <div className="credit-card__name">{details.firstName}</div>
             </div>
             <div className="credit-card__validity">
               <span style={{fontSize: "9px"}} className="credit-card__validity-span" >Validity</span> <br/>

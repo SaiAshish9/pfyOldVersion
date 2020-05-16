@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "antd";
+import React, { useState } from "react";
 import { Scroll } from "react-fns";
 import { useHistory } from "react-router-dom";
-
-import { MyHeader } from "./headerStyled";
-import Login from "./login/login";
-import pracifyLogo from "./logo.png";
-
+import pracifyLogo from "../../assets/img/logo.png";
 import HeaderNavLink from "./headerNavLink";
+import { MyHeader } from "./headerStyled";
 import MobileNavIcon from "./mobileNavIcon";
+
+
 
 const Header = () => {
   const history = useHistory();
@@ -37,7 +35,7 @@ const Header = () => {
         render={({ x, y }) => {
           return (
             <MyHeader>
-              <div className="headerNav" scrollEffect={y}>
+              <div className="headerNav" scrolleffect={y}>
                 <div className="logo-container" onClick={handleLogo}>
                   <img src={pracifyLogo} alt="" className="logoIcon" />
                 </div>

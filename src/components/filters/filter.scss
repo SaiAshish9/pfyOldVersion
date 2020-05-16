@@ -1,7 +1,7 @@
 .filter-text {
-  position: fixed;
+  position: absolute;
   border: 1px solid #d9d9d9;
-  width: 21%;
+  width: 100%;
   padding: 20px;
   border-radius: 8px 8px 0px 0px;
   background: rgb(255, 255, 255);
@@ -21,11 +21,11 @@ div.ant-col.ant-col-6.filter-container {
 
   div.filter-container {
     div.ant-collapse.ant-collapse-icon-position-left {
-      top: 162px;
+      top: 72px;
       background: rgb(255, 255, 255);
       border-radius: 0px 0px 8px 8px;
-      position: fixed;
-      width: 21%;
+      position: absolute;
+      width: 100%;
       border-top: none;
       border-bottom: 1px solid #d9d9d9;
       padding: 0px 20px;
@@ -40,7 +40,8 @@ div.ant-col.ant-col-6.filter-container {
           color: #7a869a;
           font-size: 19px;
           i.anticon.anticon-right.ant-collapse-arrow {
-            right: -200px;
+            width: fit-content;
+    right: 4px;
             svg {
               path {
               }

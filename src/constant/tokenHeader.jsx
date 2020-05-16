@@ -1,8 +1,8 @@
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 
-const myToken = Cookies.get('token')
+const myToken = Cookies.get("token");
 export const tokenHeader = {
-    headers: {
-        token:myToken
-    }
-}
+  headers: {
+    token: myToken,
+  },
+};

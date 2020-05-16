@@ -1,0 +1,245 @@
+.footer-main-block {
+  background-color: #444584;
+  // padding: 70px 70px 40px 70px;
+  .border-block {
+    display: flex;
+    border-bottom: 2px solid #ffffffa4;
+    padding: 70px 0px 20px 0px;
+    margin: 0 4em;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .pracify-section {
+      // flex: 1.76;
+      // flex: 1 1 300px;
+      width: 40vw;
+      .logo-block {
+        position: relative;
+        bottom: 16px;
+        .logoImg {
+        }
+      }
+
+      .pracify__para {
+        padding: 16px;
+        border-radius: 14px;
+        background-color: #696a9d;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #ffffff;
+      }
+
+      .address__para {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #ffffff;
+      }
+
+      .copyright__para {
+        font-size: 12px;
+        line-height: 1.5;
+        color: #ffffff;
+        .copyright__icon {
+        }
+      }
+
+      .love__para {
+        font-size: 12px;
+        line-height: 1.5;
+        color: #ffffff;
+        .love-icon {
+        }
+      }
+
+      .download-pracify-block {
+        .google-playStore-icon {
+          width: 162px;
+        }
+
+        .apple-playStore-icon {
+          margin-left: 12px;
+        }
+      }
+    }
+
+    %header {
+      margin-bottom: 32px;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.5;
+      letter-spacing: 1px;
+      color: #ffffff;
+    }
+    %link {
+      opacity: 0.7;
+      font-size: 18px;
+      line-height: 1.67;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    .company-block {
+      // flex: 1 1 100px;
+      width: 12vw;
+      margin-left: 108px;
+
+      .footer__header {
+        @extend%header;
+      }
+
+      .footer__link {
+        @extend%link;
+      }
+    }
+
+    .legal-block {
+      // flex: 1 1 100px;
+      width: 12vw;
+      .footer__header {
+        @extend%header;
+      }
+
+      .footer__link {
+        @extend%link;
+      }
+    }
+
+    .get-in-touch-block {
+      // flex: 1 1 100px;
+      width: 12vw;
+
+      .footer__header {
+        @extend%header;
+      }
+
+      .footer__link {
+        @extend%link;
+      }
+    }
+  }
+
+  .sub-footer {
+    margin: 16px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .social-block {
+      display: flex;
+      .footer__link {
+        margin-right: 16px;
+      }
+      .footer__link:nth-child(1) {
+        margin-right: 8px;
+      }
+    }
+
+    .love__para {
+      font-size: 18px;
+      color: #ffffff;
+      margin: 0;
+      .love-icon {
+      }
+    }
+
+    .download-pracify-block {
+      .google-playStore-icon {
+        width: 9em;
+        height: 3em;
+      }
+
+      .apple-playStore-icon {
+        width: 9em;
+        height: 3em;
+        margin-left: 12px;
+      }
+    }
+  }
+  .copyright-block {
+    height: 43px;
+    background-color: #f0f0fb;
+    display: flex;
+    align-items: center;
+    .copyright__para {
+      margin: 0 70px;
+      .copyright__icon {
+      }
+    }
+  }
+
+  
+  // footer
+  @media screen and (min-width: 768px) and (max-width: 1090px) {
+    .border-block {
+      // flex: 1 1 50vw;
+      justify-content: space-between;
+      .pracify-section{
+        // flex: 1 1 300px;
+        width: 50vw;
+      }
+      .company-block{
+        // flex: 1 1 300px;
+        width: 20vw;
+        margin: 0;
+      }
+      .legal-block{
+        // flex: 1 1 300px;
+        width: 20vw;
+      }
+      .get-in-touch-block{
+        // flex: 1 1 300px;
+        width: 20vw;
+      }
+    }
+    .hero-main-block{
+      background-position-y: 0px;
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 768px) {
+    .border-block {
+      // flex: 1 1 50vw;
+      justify-content: space-between;
+      margin: 0 2em;
+      .pracify-section{
+        // flex: 1 1 300px;
+        width: 100vw;
+        text-align: center;
+      }
+      .company-block{
+        // flex: 1 1 300px;
+        width: 100vw;
+        margin: 0;
+        text-align: center;
+      }
+      .legal-block{
+        // flex: 1 1 300px;
+        width: 100vw;
+        text-align: center;
+      }
+      .get-in-touch-block{
+        // flex: 1 1 300px;
+        width: 100vw;
+        text-align: center;
+      }
+      
+    }
+    .sub-footer{
+      display: flex;
+      flex-direction: column;
+      margin: 1em 2em;
+      .download-pracify-block{
+        text-align: center;
+      }
+      .download-pracify-block{
+        .apple-playStore-icon{
+          margin: 0;
+        }
+      }
+    }
+    .copyright-block{
+      .copyright__para{
+        margin: 0 1em;
+      }
+    }
+  }
+}
+
+
+
