@@ -6,7 +6,6 @@ import Login from "./login/login";
 export default function HeaderNavLink() {
   return (
     <>
-      {/* //! do not delete this content below */}
       <Link to="/internships" className="myLink1">
         Internships
       </Link>

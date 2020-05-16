@@ -364,7 +364,7 @@ export default function Skill({ skill }) {
           {isSubcategory && (
             <div className="skill-subCategory-block">
               <div>
-                {/* <Icon type="arrow-left" onClick={handleBack} /> */}
+                {/* <Icon type="arrow-left"z onClick={handleBack} /> */}
                 <ArrowLeftOutlined  onClick={handleBack}/>
                 <div>{skillImage(selectedCategory)}</div>
               </div>

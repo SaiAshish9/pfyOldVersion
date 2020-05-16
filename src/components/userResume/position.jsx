@@ -8,7 +8,7 @@ import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
 import userCard from "../common/userCard.jsx";
 import positionIcon from "./img/headingImg/educationIcon.svg";
-import { EditOutlined,DeleteOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 import addIcon from "./img/addIcon.svg";
 
@@ -110,16 +110,20 @@ const Position = ({ position, updateResume }) => {
                         onClick={() => handleEdit(thisPosition)}
                         style={{ marginRight: "32px" }}
                       ></Icon> */}
-                      <EditOutlined onClick={() => handleEdit(thisPosition)} style={{ marginRight: "32px" }} />
+                      <EditOutlined
+                        onClick={() => handleEdit(thisPosition)}
+                        style={{ marginRight: "32px" }}
+                      />
                     </Tooltip>
                     <Tooltip title="delete">
                       {/* <Icon
                         type="delete"
                         onClick={() => handleDelete(thisPosition._id)}
                       /> */}
-                      <DeleteOutlined onClick={() => handleDelete(thisPosition._id)} />
+                      <DeleteOutlined
+                        onClick={() => handleDelete(thisPosition._id)}
+                      />
                     </Tooltip>
-
                   </section>
                 </div>
               ))}

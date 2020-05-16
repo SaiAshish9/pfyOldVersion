@@ -2,7 +2,7 @@
 import { Button, Input, Modal, Statistic } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
-import OTPInput from "otp-input-react";
+// import OTPInput from "otp-input-react";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
@@ -295,7 +295,7 @@ const Continue = () => {
                       </div>
                     </div>
 
-                    <OTPInput
+                    {/* <OTPInput
                       value={OTP}
                       onChange={setOTP}
                       autoFocus={true}
@@ -311,7 +311,7 @@ const Continue = () => {
                           outline: "none !important",
                         },
                       }}
-                    />
+                    /> */}
                   </div>
                 )}
 
