@@ -85,8 +85,11 @@
 
 
 @media screen and (min-width: 320px) and (max-width: 799px) {
+  
   .downloadPracifyApp-main-block {
     margin: auto;
+    margin-bottom: 7em !important;
+    margin-top: -5em;
     width: 90vw;
     display: flex;
     flex-direction: column;
@@ -99,9 +102,14 @@
     }
     .downloadPracifyApp-content-block {
       margin: 0;
+      .downloadPracifyApp-header{
+        font-size: 1.5em !important;
+        word-spacing: 0;
+      }
       .downloadPracifyApp-para {
         margin-right: 0em;
         text-align: center;
+        font-size: 1.2em;
       }
       .download-button-block {
         display: flex;
@@ -109,8 +117,9 @@
         margin: auto;
       }
     }
-    // .phone-mockup{
-    //   width: 40vw;
-    // }
+    .phone-mockup{
+      width: 70vw !important;
+      height: 70vh;
+    }
   }
 }

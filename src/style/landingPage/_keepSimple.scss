@@ -56,7 +56,7 @@
       }
 
       .content-subHeading {
-        font-size: 32px;
+        font-size: 2.2em;
         word-spacing: -8px;
         color: #333e49;
         margin: 0 0px 8px;
@@ -110,16 +110,22 @@
   
   @media screen and (min-width: 320px) and (max-width: 768px){
     .keepSimple-main-block{
+      margin-bottom: 5em;
       .keepSimple-message {
-        font-size: 2em !important;
+        font-size: 1.5em !important;
         padding: 0 0.5em;
       }
     .content-main-block{
-      
       width: 100vw;
       // margin: 2em !important;
       display: block !important;
       text-align: center;
+      .content-subHeading{
+        font-size: 1.5em !important;
+      }
+      .content-para{
+        font-size: 1.25em !important;
+      }
       .content-block{
         width: 100vw;
         margin: 0 !important;
