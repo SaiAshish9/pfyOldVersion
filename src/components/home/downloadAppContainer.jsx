@@ -22,6 +22,7 @@ const DownloadAppContainer = () => {
             data-aos="fade-up"
             href="https://play.google.com/store/apps/details?id=com.pracify"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <img
               src={googleStoreIcon}

@@ -5,7 +5,7 @@ import { Controller, useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
 import team from "./img/headingImg/projectIcon.svg";
-import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 import addIcon from "./img/addIcon.svg";
 
@@ -133,6 +133,7 @@ const Project = ({ project, updateResume }) => {
                       className="project-content-sec-one__a "
                       href={myProject.link}
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {myProject.link}
                     </a>
@@ -169,14 +170,19 @@ const Project = ({ project, updateResume }) => {
                         onClick={() => handleEdit(myProject)}
                         style={{ marginRight: "32px" }}
                       ></Icon> */}
-                      <EditOutlined  onClick={() => handleEdit(myProject)} style={{ marginRight: "32px" }} />
+                      <EditOutlined
+                        onClick={() => handleEdit(myProject)}
+                        style={{ marginRight: "32px" }}
+                      />
                     </Tooltip>
                     <Tooltip title="delete">
                       {/* <Icon
                         type="delete"
                         onClick={() => handleDelete(myProject._id)}
                       /> */}
-                      <DeleteOutlined onClick={() => handleDelete(myProject._id)}/>
+                      <DeleteOutlined
+                        onClick={() => handleDelete(myProject._id)}
+                      />
                     </Tooltip>
                   </section>
                 </div>

@@ -21,7 +21,11 @@ export default function HeaderNavLink() {
 
       <Login />
       <Button className="download-app-button">Download App</Button>
-      <a href="https://business.pracify.com/" target="_blank">
+      <a
+        href="https://business.pracify.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Button className="header__button2">For Business</Button>
       </a>
     </>
