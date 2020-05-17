@@ -49,8 +49,12 @@ export default function Internship() {
   }, [arrangeCard]);
 
   return (
-    <div className="card-container">
-      <Row className="full-page" gutter={[0, 24]}>
+    <div className="card-container-main-block">
+      <Row
+        className="full-page"
+        gutter={[0, 24]}
+        style={{ marginTop: "0", marginBottom: 0 }}
+      >
         <Col className="filter-container" style={{ padding: "0px" }} span={6}>
           <Filter />
         </Col>

@@ -17,7 +17,7 @@ const buttonStyle = {
 };
 
 const { Countdown } = Statistic;
-const Continue = () => {
+export default function Continue() {
   const history = useHistory();
   const [visible, setVisible] = useState(false);
 
@@ -193,9 +193,8 @@ const Continue = () => {
 
   return (
     <div className="login-button-main-block">
-      <Button
-        className="header__button1"
-        // onClick={showModal}
+      <Button className="header__button1" 
+      // onClick={showModal}
       >
         Login
       </Button>
@@ -294,7 +293,11 @@ const Continue = () => {
                         </Button>
                       </div>
                     </div>
-
+                    <Input
+                      maxLength={6}
+                      value={OTP}
+                      onChange={(e) => setOTP(e.target.value)}
+                    ></Input>
                     {/* <OTPInput
                       value={OTP}
                       onChange={setOTP}
@@ -310,8 +313,7 @@ const Continue = () => {
                         "&:focus": {
                           outline: "none !important",
                         },
-                      }}
-                    /> */}
+                      }} */}
                   </div>
                 )}
 
@@ -348,5 +350,4 @@ const Continue = () => {
       <div id="recaptcha-container"></div>
     </div>
   );
-};
-export default Continue;
+}

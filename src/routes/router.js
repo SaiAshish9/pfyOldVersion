@@ -30,12 +30,8 @@ const AppRouter = () => {
   return (
     <Router history={history}>
       <Switch>
-        <PublicRoute path="/" component={OldLandingPage} exact={true} />
-        <PublicRoute
-          path="/new_landing_page"
-          component={LandingPage}
-          exact={true}
-        />
+        {/* <PublicRoute path="/" component={OldLandingPage} exact={true} /> */}
+        <PublicRoute path="/" component={LandingPage} exact={true} />
 
         <PublicRoute path="/get-started" component={GetStarted} exact={true} />
         <PublicRoute path="/about-us" component={AboutUs} exact={true} />

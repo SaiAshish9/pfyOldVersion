@@ -1,13 +1,13 @@
-.card-container {
+.card-container-main-block {
   font-family: $myFont;
-  background-color: #f3f3f3;
   word-spacing: $wordSpace;
 
   .full-page {
     padding: 100px 60px 80px 60px;
     min-height: 740px;
-    
-    /* border: 1px solid; */
+    background-color: #f3f3f3;
+    flex-flow: initial;
+
     .card-holder-box {
       border-radius: 8px;
       background-color: #fff;
@@ -30,16 +30,16 @@
           color: #a2adc3;
           margin-left: 12px;
         }
-        .ant-select.ant-select-enabled{
+        .ant-select.ant-select-enabled {
           text-indent: 16px;
         }
       }
-      .card-container{
+      .card-container {
         margin: auto;
         width: 95%;
+        display: flex;
+        flex-wrap: wrap;
       }
     }
   }
 }
-
-

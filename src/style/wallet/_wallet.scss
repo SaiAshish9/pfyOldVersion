@@ -152,50 +152,51 @@
           }
         }
       }
-
-      .earning-list-block {
-        padding: 1rem 0;
-        .title {
-          font-size: 1.5rem;
-          font-weight: bold;
-          margin: 2rem 0 1rem 0;
-        }
-        .list {
-          .single-item {
-            padding: 1.2rem;
-            margin: 1.2rem 0;
-            padding: 1rem 1.5rem;
-            border-radius: 7px;
-            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
-            border: 1px solid #ccc;
+    }
+    .earning-list-block {
+      padding: 1rem 0;
+      width: 85%;
+      margin: auto;
+      .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 2rem 0 1rem 0;
+      }
+      .list {
+        .single-item {
+          padding: 1.2rem;
+          margin: 1.2rem 0;
+          padding: 1rem 1.5rem;
+          border-radius: 7px;
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+          border: 1px solid #ccc;
+          display: flex;
+          .envelop-img {
+          }
+          .earning-description {
+            margin-left: 2rem;
             display: flex;
-            .envelop-img {
+            justify-content: space-between;
+            width: 100%;
+            .earning-description-title {
+              font-size: 1.1rem;
+              font-weight: bold;
             }
-            .earning-description {
-              margin-left: 2rem;
-              display: flex;
-              justify-content: space-between;
-              width: 100%;
-              .earning-description-title {
-                font-size: 1.1rem;
-                font-weight: bold;
+            .earning-description-date {
+              margin-top: 5px;
+              .description-date-string {
+                vertical-align: middle;
+                margin-left: 0.5rem;
               }
-              .earning-description-date {
-                margin-top: 5px;
-                .description-date-string {
-                  vertical-align: middle;
-                  margin-left: 0.5rem;
-                }
-              }
-              .earning-description-amount {
-                font-size: 1.5rem;
-                font-weight: bolder;
-                color: #5468d1;
-              }
-              .earning-description-status {
-                .description-status-string {
-                  vertical-align: middle;
-                }
+            }
+            .earning-description-amount {
+              font-size: 1.5rem;
+              font-weight: bolder;
+              color: #5468d1;
+            }
+            .earning-description-status {
+              .description-status-string {
+                vertical-align: middle;
               }
             }
           }
