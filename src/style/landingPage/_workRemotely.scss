@@ -71,6 +71,9 @@
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .workRemotely-main-block{
+    .workRemotely-content-block{
+      margin-bottom: 1em !important;
+    }
     .workRemotely-message-header{
       margin: auto !important;
       font-size: 1.5em !important;
