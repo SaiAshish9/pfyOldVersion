@@ -18,6 +18,8 @@ export default function DownloadPracifyApp() {
           <br />
           <span>Send the download link to your phone</span>
         </p>
+      </div>
+      <div className="download-link-block">
         <div className="phone-input-block">
           <span className="country-code">+91</span>
           <Input placeholder="Your Phone" className="phone-input"></Input>

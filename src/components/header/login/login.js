@@ -193,7 +193,11 @@ export default function Continue() {
 
   return (
     <div className="login-button-main-block">
-      <Button className="header__button1" onClick={showModal}>
+      <Button
+        className="header__button1"
+
+        // onClick={showModal}
+      >
         Login
       </Button>
       {/*  FIXME remove true add isVerified */}

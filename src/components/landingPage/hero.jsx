@@ -12,7 +12,9 @@ export default function Hero() {
         </p>
         <Button className="hero-content-button">Get Started</Button>
       </div>
-      <img src={heroImg} alt="" className="hero-img" />
+      <div className="hero-img-block">
+        <img src={heroImg} alt="" className="hero-img" />
+      </div>
     </div>
   );
 }

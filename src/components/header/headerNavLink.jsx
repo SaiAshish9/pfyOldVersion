@@ -7,13 +7,13 @@ export default function HeaderNavLink() {
   return (
     <>
       <Link
-        to="/internships"
+        // to="/internships"
         className="myLink1"
       >
         Internships
       </Link>
       <Link
-        to="/gigs"
+        // to="/gigs"
         className="myLink2"
       >
         Gigs

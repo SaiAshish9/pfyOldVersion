@@ -1,10 +1,13 @@
 .downloadPracifyApp-main-block {
-  display: flex;
+  display: grid;
+  grid-template:
+    "head mockUp"
+    "link mockUp" 1fr;
   position: relative;
   top: 85px;
   margin: 0px 40px;
   .downloadPracifyApp-content-block {
-    flex: 1;
+    grid-area: head;
     margin: 80px 0 0 98px;
     .downloadPracifyApp-header {
       font-size: 41px;
@@ -24,11 +27,14 @@
         color: #333e49;
       }
     }
-
+  }
+  .download-link-block {
+    grid-area: link;
+    margin: 0px 0 0 98px;
     .phone-input-block {
       display: flex;
       align-items: center;
-      width: 34%;
+      width: 50%;
       margin-bottom: 20px;
       .country-code {
         font-size: 20px;
@@ -37,11 +43,9 @@
       }
 
       .phone-input {
-        width: 182px;
         height: 48px;
         border: solid 1px #333e49;
         border-radius: 0;
-        border-right: none;
       }
 
       .phone-button {
@@ -50,16 +54,14 @@
         background-color: #38bdba;
         border-radius: 0;
         border: 2px solid #38bdba;
-
         font-size: 18px;
         color: #fff;
       }
     }
-
     .download-button-block {
       display: flex;
-      width: 40%;
-      justify-content: space-between;
+      width: 50%;
+      justify-content: left;
 
       .google-icon {
         width: 150px;
@@ -69,57 +71,192 @@
       .apple-icon {
         width: 150px;
         height: 50px;
+        margin-left: 20px;
       }
     }
   }
-
   .phone-mockup-block {
-    flex: 0.5;
+    grid-area: mockUp;
     z-index: -1;
 
     .phone-mockup {
       width: 360px;
     }
   }
-}
-
-
-@media screen and (min-width: 320px) and (max-width: 799px) {
-  
-  .downloadPracifyApp-main-block {
-    margin: auto;
-    margin-bottom: 8em !important;
-    margin-top: -5em;
-    width: 90vw;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
-    text-align: center;
-    flex-direction: column-reverse;
-    // width: 100vw;
-    .phone-input-block {
-      width: 100% !important;
-    }
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
     .downloadPracifyApp-content-block {
-      margin: 0;
-      .downloadPracifyApp-header{
-        font-size: 1.5em !important;
-        // word-spacing: 0;
+      margin: 80px 0 0 48px;
+      .downloadPracifyApp-header {
+        font-size: 30px;
       }
+
       .downloadPracifyApp-para {
-        margin-right: 0em;
-        text-align: center;
-        font-size: 1.2em;
-      }
-      .download-button-block {
-        display: flex;
-        justify-content: center;
-        margin: auto;
+        margin: 0 176px 20px 0;
+        font-size: 18px;
+        span {
+          font-size: 18px;
+        }
       }
     }
-    .phone-mockup{
-      width: 70vw !important;
-      height: 65vh;
+    .download-link-block {
+      margin-left: 48px;
+      .phone-input-block {
+        width: 65%;
+
+        .phone-input {
+          height: 36px;
+        }
+
+        .phone-button {
+          height: 36px;
+          font-size: 16px;
+        }
+      }
+
+      .download-button-block {
+        width: 65%;
+        justify-content: left;
+      }
+    }
+  }
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    .downloadPracifyApp-content-block {
+      margin: 30px 0 0 30px;
+      .downloadPracifyApp-header {
+
+        font-size: 28px;
+      }
+
+      .downloadPracifyApp-para {
+        margin: 0 0px 20px 0;
+        font-size: 16px;
+        span {
+        }
+      }
+    }
+    .download-link-block {
+      margin-left: 30px;
+      .phone-input-block {
+        width: 65%;
+
+        .phone-input {
+          height: 36px;
+        }
+
+        .phone-button {
+          height: 36px;
+          font-size: 16px;
+        }
+      }
+
+      .download-button-block {
+        width: 65%;
+        justify-content: left;
+      }
+    }
+    .phone-mockup-block {
+      .phone-mockup {
+        position: relative;
+        bottom: 12px;
+        width: 274px;
+      }
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    grid-template: "head" "mockUp" "link"/1fr;
+    top: 0;
+    .downloadPracifyApp-content-block {
+      margin: 40px 0 0 0px;
+      .downloadPracifyApp-header {
+
+        font-size: 28px;
+      }
+
+      .downloadPracifyApp-para {
+        margin: 0 0px 20px 0;
+        font-size: 16px;
+        span {
+        }
+      }
+    }
+    .download-link-block {
+      margin: 0 0 40px 0;
+      .phone-input-block {
+        width: initial;
+
+        .phone-input {
+          height: 36px;
+        }
+
+        .phone-button {
+          height: 36px;
+          font-size: 16px;
+        }
+      }
+
+      .download-button-block {
+        width: initial;
+        justify-content: center;
+      }
+    }
+    .phone-mockup-block {
+      width: initial;
+      text-align: center;
+      .phone-mockup {
+        width: 50%;
+        bottom: 0px;
+      }
+    }
+  }
+  @media (max-width: $mobileScreen) {
+    grid-template: "head" "mockUp" "link"/1fr;
+    top: 0;
+    margin: 0 20px;
+    .downloadPracifyApp-content-block {
+      margin: 60px 0 0 0px;
+      .downloadPracifyApp-header {
+        font-size: 20px;
+      }
+
+      .downloadPracifyApp-para {
+        margin: 0;
+        font-size: 14px;
+      }
+    }
+    .download-link-block {
+      margin: 0 0 20px 0;
+      .phone-input-block {
+        width: initial;
+        .phone-input {
+          height: 36px;
+        }
+        .phone-button {
+          height: 36px;
+          font-size: 16px;
+        }
+      }
+
+      .download-button-block {
+        width: initial;
+        justify-content: center;
+        .google-icon {
+          width: 112.5px;
+          height: 37.5px;
+        }
+        .apple-icon {
+          width: 112.5px;
+          height: 37.5px;
+        }
+      }
+    }
+    .phone-mockup-block {
+      width: initial;
+      text-align: center;
+      .phone-mockup {
+        width: 80%;
+        position: relative;
+        bottom: 0px;
+      }
     }
   }
 }

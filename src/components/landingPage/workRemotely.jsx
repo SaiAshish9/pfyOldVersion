@@ -26,10 +26,12 @@ const content = [
 export default function WorkRemotely() {
   return (
     <div className="workRemotely-main-block">
-      <img src={WRHeroImg} alt="" className="workRemotely-img" />
+      <div className="workRemotely-img-block">
+        <img src={WRHeroImg} alt="" className="workRemotely-img" />
+      </div>
       <div className="workRemotely-message-block">
         <h1 className="workRemotely-message-header">
-          With Pracify you can work from <br /> wherever you want,whenever you
+          With Pracify you can work from <br /> wherever you want, whenever you
           want
         </h1>
         <p className="workRemotely-message-para">
