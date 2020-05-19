@@ -17,7 +17,7 @@
     margin-bottom: 40px;
 
     .workRemotely-message-header {
-      word-spacing: -6px;
+      // word-spacing: -6px;
       width: fit-content;
       font-weight: 600;
       font-size: 2em;
@@ -62,8 +62,7 @@
 
       .content-para {
         grid-area: para;
-
-        font-size: 1.25em;
+        font-size: 1.2em;
         color: #333e49;
       }
     }
@@ -72,17 +71,24 @@
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .workRemotely-main-block{
+    .workRemotely-content-block{
+      margin-bottom: 1em !important;
+    }
     .workRemotely-message-header{
       margin: auto !important;
+      font-size: 1.5em !important;
     }
     display: block;
     grid-template-columns: 1fr !important;
     grid-gap: 1em;
     margin: 1em;
+    .workRemotely-message-para{
+      font-size: 1.25em !important;
+    }
     .workRemotely-img{
       width: 100vw;
       height: 50vh;
-      // padding: 0 15em;
+      padding: 0 4em;
     }
     .content-img{
       height: 4em;

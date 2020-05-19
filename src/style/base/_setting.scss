@@ -1,5 +1,9 @@
+@font-face {
+  font-family: Lato;
+  src: url("../../assets/fonts/lato/Lato-Regular.ttf") format("truetype");
+}
 //! ---------------------------------- font ---------------------------------- */
-$myFont: CircularStd;
+$myFont: Lato, sans-serif;
 
 $fontDarker: #333743;
 $fontDark: #474e54;
@@ -15,4 +19,4 @@ $bold1x: 500;
 $bold2x: 600;
 $bold3x: 700;
 
-$wordSpace: -4px;
+$wordSpace: initial;

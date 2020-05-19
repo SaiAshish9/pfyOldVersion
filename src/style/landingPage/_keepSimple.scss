@@ -5,7 +5,7 @@
     justify-content: center;
     .keepSimple-message {
       position: relative;
-      word-spacing: -8px;
+      // word-spacing: -8px;
       text-align: center;
       color: #333e49;
       line-height: 44px;
@@ -56,13 +56,13 @@
       }
 
       .content-subHeading {
-        font-size: 32px;
-        word-spacing: -8px;
+        font-size: 2.2em;
+        // word-spacing: -8px;
         color: #333e49;
         margin: 0 0px 8px;
 
         font-weight: 600;
-        line-height: 36px;
+        // line-height: 36px;
       }
 
       .content-para {
@@ -110,21 +110,29 @@
   
   @media screen and (min-width: 320px) and (max-width: 768px){
     .keepSimple-main-block{
+      margin-bottom: 5em;
       .keepSimple-message {
-        font-size: 2em !important;
+        font-size: 1.5em !important;
         padding: 0 0.5em;
+        line-height: initial !important;
       }
     .content-main-block{
-      
       width: 100vw;
       // margin: 2em !important;
       display: block !important;
       text-align: center;
+      .content-subHeading{
+        font-size: 1.5em !important;
+      }
+      .content-para{
+        font-size: 1.2em !important;
+      }
       .content-block{
         width: 100vw;
         margin: 0 !important;
+        margin-bottom: 2em !important;
         img{
-          width: 100vw;
+          width: 80vw;
         }
       }
   }

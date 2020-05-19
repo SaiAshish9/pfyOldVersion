@@ -12,7 +12,7 @@
   .hero-content {
     padding: 130px 50px 0 0px;
     .hero-content-heading {
-      word-spacing: -18px;
+      // word-spacing: -18px;
       line-height: 58px;
       margin-bottom: 16px;
 
@@ -82,11 +82,13 @@
     .hero-content{
       padding: 5em 0 0 0;
       .hero-content-heading{
-        font-size: 3em;
+        font-size: 2.5em;
+        line-height: initial;
       }
       
       .hero-content-para{
         margin-right: 1em ;
+        font-size: 1.25em;
       }
     }
     .hero-img{
@@ -100,13 +102,14 @@
   .hero-main-block{
     background-position-y: -15em;
     background-size: 700%;
+    height: 75vh;
   }
   .hero-content{
     width: 55vw;
     padding: 9.5em 0 0 0;
     .hero-content-button{
-      height: 10em;
-      width: 3em;
+      height: 3em !important;
+      width: 10em !important;
     }
   }
 }
