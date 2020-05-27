@@ -8,6 +8,7 @@ import facebook from "../../assets/img/facebook.svg";
 import instagram from "../../assets/img/instagram.svg";
 import linkedIn from "../../assets/img/linkedin.svg";
 import twitter from "../../assets/img/twitter.svg";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 export default function Footer() {
   return (
     <div className="footer-main-block">
@@ -28,7 +29,9 @@ export default function Footer() {
         </div>
         <div className="company-block">
           <h3 className="footer__header">Company</h3>
-          <p className="footer__link">About</p>
+          <Link to="/about_us">
+            <p className="footer__link">About</p>
+          </Link>
           <p className="footer__link">Team</p>
           <p className="footer__link">Careers</p>
         </div>

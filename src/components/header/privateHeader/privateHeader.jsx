@@ -1,116 +1,83 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {useState} from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
-import { Button, Menu, Dropdown, Icon } from "antd";
-import Cookies from "js-cookie";
-import "./privateHeader.scss";
-import Support from '../../NewComps/support/support';
-import VerifyStudentStatus from "../../NewComps/verify_student_Status/verifyStudentStatus";
-import { DownCircleFilled } from '@ant-design/icons';
+import { CloseOutlined } from "@ant-design/icons";
+import React, { useState } from "react";
+import { Scroll } from "react-fns";
+import { useHistory } from "react-router-dom";
+/* ---------------------------------- ***** --------------------------------- */
+import pracifyLogo from "../../../assets/img/logoDark.png";
+import menuIcon from "../../../assets/img/menuIcon.svg";
+import PrivateHeaderNavLink from "./privateHeaderNavLink";
 
 export default function PrivateHeader() {
-  const [isShow, setIsShow] = useState(false)
-  const [isShowVerify, setIsShowVerify] = useState(false)
-
-  const location = useLocation().pathname;
   const history = useHistory();
-  const handleLogout = () => {
-    Cookies.remove("token");
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const handleLogo = () => {
     history.push("/");
   };
 
-  const closeVerify = () => {
-    console.log("in close verify");
-    setIsShowVerify(false);
-  }
+  const handleNavIconClick = () => {
+    setIsNavOpen(!isNavOpen);
+  };
 
-  const ShowVerify = () => {
-    setIsShowVerify(true);
-  }
-  console.log(isShowVerify);
-  
+  const handleWrapper = () => {
+    setIsNavOpen(!isNavOpen);
+  };
 
-  const menu = (
-    <Menu>
-      <Menu.Item key="0">
-        <Link to="/my-internships">My Internship</Link>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <Link to="/my-gigs">My Gig</Link>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <p onClick={ShowVerify}>Verify</p>
-      </Menu.Item>
-      <Menu.Divider />
-      <Menu.Item key="3">
-        <Button type="primary" onClick={handleLogout}>
-          Logout
-        </Button>
-      </Menu.Item>
-    </Menu>
-  );
+  console.log(isNavOpen);
 
-  const showSupport = () => {
-    setIsShow(true);
-  }
-
-  const isClose = () => {
-    setIsShow(false);
-  }
-
+  const myMobileNav = {
+    transition: "transform .3s ease-in-out",
+    transform: isNavOpen ? "translate(0%,0px)" : "translate(100%,0px)",
+  };
   return (
-    <div className="headerNav">
-      <VerifyStudentStatus isCloseVerify={closeVerify} isShowVerify={isShowVerify} />
-      <div className="link-container">
-        {location === "/home" ? (
-          <p className="myLink">Home</p>
-        ) : (
-          <Link to="/home" className="myLink">
-            Home
-          </Link>
-        )}
-        {location === "/resume" ? (
-          <p className="myLink">Resume</p>
-        ) : (
-          <Link to="/resume" className="myLink">
-            Resume
-          </Link>
-        )}
+    <>
+      <Scroll
+        render={({ x, y }) => {
+          return (
+            <div className="private-main-nav">
+              <div
+                className="headerNav"
+                style={{
+                  height: 60,
+                  background: "#fff",
+                  transition: "all 0.6s ease 0s",
+                  boxShadow:
+                    y > 20
+                      ? "0px 2px 16px -6px black"
+                      : "0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2)",
+                }}
+              >
+                <div className="logo-container" onClick={handleLogo}>
+                  <img src={pracifyLogo} alt="" className="logoIcon" />
+                </div>
 
-        {location === "/gigs" ? (
-          <p className="myLink">Gig</p>
-        ) : (
-          <Link to="/gigs" className="myLink">
-            Gig
-          </Link>
-        )}
+                <div className="link-container">
+                  <PrivateHeaderNavLink></PrivateHeaderNavLink>
+                </div>
 
-        {location === "/internships" ? (
-          <p className="myLink">Internship</p>
-        ) : (
-          <Link to="/internships" className="myLink">
-            Internship
-          </Link>
-        )}
-
-        {location === "/wallet" ? (
-          <p className="myLink">Wallet</p>
-        ) : (
-          <Link to="/wallet" className="myLink">
-            Wallet
-          </Link>
-        )}
-
-      <p onClick={showSupport}  className="myLink">Support</p>
-      <Support isShow={isShow} isClose={isClose} />
-
-      </div>
-
-      <Dropdown overlay={menu} trigger={["click"]} className="ant-drop">
-        <a className="ant-dropdown-link" href="#">
-          My Profile <DownCircleFilled />
-        </a>
-      </Dropdown>
-    </div>
+                {!isNavOpen && (
+                  <div onClick={handleNavIconClick} className="mobile-nav-menu">
+                    <img src={menuIcon} alt="" className="menu-icon" />
+                  </div>
+                )}
+              </div>
+              <div className="private-mobile-nav" style={myMobileNav}>
+                <div className="mobile-nav-link">
+                  {isNavOpen && (
+                    <CloseOutlined
+                      className="nav-close-icon"
+                      onClick={handleNavIconClick}
+                    />
+                  )}
+                  <PrivateHeaderNavLink />
+                </div>
+              </div>
+            </div>
+          );
+        }}
+      />
+      {isNavOpen && <div className="wrapper" onClick={handleWrapper}></div>}
+    </>
   );
 }

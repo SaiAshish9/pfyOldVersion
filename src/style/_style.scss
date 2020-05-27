@@ -7,11 +7,13 @@
 
 @import "./header/mobileNavIcon";
 @import "./header/header";
-
+@import "./headerPrivate/privateHeader";
 @import "./home/home";
 @import "./landingPage/landingPage";
+@import "./about/about";
 
-@import "./_userForm";
+@import "./login/login";
+
 @import "./moreSuggestion";
 
 @import "./userHome/userHome";

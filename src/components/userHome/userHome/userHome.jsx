@@ -16,8 +16,6 @@ const UserHome = () => {
   //* --- initially home page take token data by
   //* --- passing token into history at login page
   //* --- after that home uses cookies for token
-  // const token =
-  //   location.state && location.state.headers ? location.state : tokenHeader;
 
   useEffect(() => {
     console.log("user home data", user);
@@ -43,10 +41,10 @@ const UserHome = () => {
           <Avatar />
         ) : (
           <div className="avatar-block">
-            <Card style={{ width: "48%" }}>
+            <Card style={{ width: "40%", marginRight: 40 }}>
               <Skeleton avatar active />
             </Card>
-            <Card style={{ width: "48%" }}>
+            <Card style={{ width: "40%" }}>
               <Skeleton avatar active />
             </Card>
           </div>

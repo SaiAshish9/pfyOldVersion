@@ -1,0 +1,191 @@
+@import "./userForm";
+%input {
+  border-radius: 0px;
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: #d3d3d3;
+  font-size: 15px;
+  &:focus,
+  &:hover,
+  &:focus-within {
+    border-width: 0 0 2px 0 !important;
+    border-style: solid;
+    border-color: #00bfa6;
+    box-shadow: none !important;
+  }
+  .ant-input-prefix {
+    line-height: 1.2;
+    margin-right: 12px;
+  }
+}
+%select {
+  width: 100%;
+  font-size: 15px;
+  // margin-bottom: 25px;
+  .ant-select-selector {
+    border-radius: 0px;
+    border-width: 0 0 2px 0;
+    border-color: #d3d3d3;
+    border-style: solid;
+    &:focus,
+    &:hover,
+    &:focus-within {
+      border-width: 0 0 2px 0 !important;
+      border-style: solid;
+      border-color: #00bfa6;
+      box-shadow: none !important;
+    }
+  }
+}
+
+.login-main-block {
+  background-image: url("../../assets/img/login/GCyanCircle.svg"),
+    url("../../assets/img/login/GCyanStar.svg"),
+    url("../../assets/img/login/GDarkBlueCircle.svg"),
+    url("../../assets/img/login/GOrangeCircle.svg"),
+    url("../../assets/img/login/GPinkTriangle.svg"),
+    url("../../assets/img/login/GPurpleTriangle.svg"),
+    url("../../assets/img/login/GYellowTriangle.svg");
+  background-position: -120px -120px, 80px 50%, 50% 80%, 132% 220px, right top,
+    left bottom, 50% 20%;
+  background-repeat: no-repeat;
+
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 40px;
+  #recaptcha-container {
+    position: absolute;
+  }
+  .login-hero-main-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.22;
+      color: #000000;
+    }
+
+    p {
+      font-size: 22px;
+      line-height: 1.23;
+      text-align: center;
+      color: #333e49;
+    }
+
+    img {
+    }
+  }
+
+  .login-block {
+    padding: 55px 65px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.16);
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.21;
+      text-align: center;
+      color: #333e49;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.19;
+      text-align: center;
+      color: #333e49;
+    }
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      .login-number {
+        @extend%input;
+        margin-bottom: 40px;
+      }
+
+      .ant-btn[disabled] {
+        color: rgba(0, 0, 0, 0.25);
+        background-color: #f5f5f5;
+        border-color: #d9d9d9;
+      }
+
+      .sendOTP-button {
+        border-radius: 3px;
+        border: solid 1px #38bdba;
+        background-color: #ffffff;
+        height: 46px;
+
+        font-size: 15px;
+        line-height: 1.2;
+        color: #38bdba;
+      }
+    }
+  }
+  .otp-block {
+    padding: 55px 65px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.16);
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.21;
+      text-align: center;
+      color: #333e49;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.19;
+      text-align: center;
+      color: #333e49;
+    }
+
+    h5 {
+      cursor: pointer;
+      color: #38bdba;
+      text-align: right;
+    }
+
+    .otp-form {
+      display: flex;
+      flex-direction: column;
+      .otp-input {
+        @extend%input;
+        margin-bottom: 20px;
+      }
+
+      .resend-otp-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        .resend-otp-button {
+          background-color: #fff;
+          color: #38bdba;
+          border: none;
+          font-size: 0.83em;
+          font-weight: 500;
+        }
+      }
+      .ant-btn[disabled] {
+        color: rgba(0, 0, 0, 0.25);
+        background-color: #f5f5f5;
+        border-color: #d9d9d9;
+      }
+      .confirm-otp-button {
+        border-radius: 3px;
+        border: solid 1px #38bdba;
+        background-color: #ffffff;
+        height: 46px;
+
+        font-size: 15px;
+        line-height: 1.2;
+        color: #38bdba;
+      }
+    }
+  }
+}

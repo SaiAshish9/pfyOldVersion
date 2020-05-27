@@ -93,7 +93,7 @@ export default function InternshipDetail(props) {
           console.log(e);
         });
     }
-  }, [modalVisible]);
+  }, [isMyCookie, modalVisible, selectedInternshipId]);
 
   const handleApply = () => {
     if (isMyCookie) {

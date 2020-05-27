@@ -30,10 +30,9 @@ const Header = () => {
   };
 
   return (
-    <div>
+    <>
       <Scroll
         render={({ x, y }) => {
-          // console.log(y);
           return (
             <div className="main-nav">
               <div
@@ -73,7 +72,7 @@ const Header = () => {
         }}
       />
       {isNavOpen && <div className="wrapper" onClick={handleWrapper}></div>}
-    </div>
+    </>
   );
 };
 

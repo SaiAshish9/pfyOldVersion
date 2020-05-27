@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="prefix__Group_598" width="363" height="306" data-name="Group 598" viewBox="0 0 363 306">
+    <defs>
+        <linearGradient id="prefix__linear-gradient" x1=".5" x2=".5" y1="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="gray" stop-opacity=".251"/>
+            <stop offset=".54" stop-color="gray" stop-opacity=".122"/>
+            <stop offset="1" stop-color="gray" stop-opacity=".102"/>
+        </linearGradient>
+        <linearGradient id="prefix__linear-gradient-3" x1=".5" x2=".5" y1="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-opacity=".122"/>
+            <stop offset=".55" stop-opacity=".09"/>
+            <stop offset="1" stop-opacity=".02"/>
+        </linearGradient>
+        <linearGradient id="prefix__linear-gradient-13" x1="0" x2="1" y1=".5" y2=".5" xlink:href="#prefix__linear-gradient-3"/>
+        <linearGradient id="prefix__linear-gradient-19" x1="0" x2="1" y1=".5" y2=".5" xlink:href="#prefix__linear-gradient"/>
+        <linearGradient id="prefix__linear-gradient-21" xlink:href="#prefix__linear-gradient"/>
+        <style>
+            .prefix__cls-15{opacity:.2}.prefix__cls-13{fill:#38bdba}.prefix__cls-3{fill:url(#prefix__linear-gradient)}.prefix__cls-4{fill:#444584}.prefix__cls-5{fill:url(#prefix__linear-gradient-3)}.prefix__cls-6{fill:url(#prefix__linear-gradient-13)}.prefix__cls-15,.prefix__cls-7{fill:#fff}.prefix__cls-11{fill:#263238}.prefix__cls-12{fill:#f8c198}
+        </style>
+    </defs>
+    <path id="prefix__Rectangle_1618" d="M0 0H305V306H0z" data-name="Rectangle 1618" transform="translate(29)" style="opacity:.2;fill:#6668c4"/>
+    <path id="prefix__Rectangle_1619" d="M0 0H213.469V249.257H0z" data-name="Rectangle 1619" transform="translate(74.924 28.567)" style="opacity:.5;fill:#38bdba"/>
+    <path id="prefix__Rectangle_1620" d="M0 0H114V219H0z" class="prefix__cls-3" data-name="Rectangle 1620" transform="translate(249 44)"/>
+    <path id="prefix__Rectangle_1621" d="M0 0H114V219H0z" class="prefix__cls-3" data-name="Rectangle 1621" transform="translate(0 45)"/>
+    <path id="prefix__Rectangle_1622" d="M0 0H107V212H0z" class="prefix__cls-4" data-name="Rectangle 1622" transform="translate(253 47)"/>
+    <path id="prefix__Rectangle_1623" d="M0 0H108V212H0z" class="prefix__cls-4" data-name="Rectangle 1623" transform="rotate(180 55.5 129.5)"/>
+    <path id="prefix__Rectangle_1624" d="M0 0H72V13H0z" class="prefix__cls-5" data-name="Rectangle 1624" transform="translate(21 67)"/>
+    <path id="prefix__Rectangle_1625" d="M0 0H71V12H0z" class="prefix__cls-5" data-name="Rectangle 1625" transform="translate(271 87)"/>
+    <path id="prefix__Rectangle_1626" d="M0 0H71V14H0z" class="prefix__cls-5" data-name="Rectangle 1626" transform="translate(271 106)"/>
+    <path id="prefix__Rectangle_1627" d="M0 0H71V13H0z" class="prefix__cls-5" data-name="Rectangle 1627" transform="translate(271 126)"/>
+    <path id="prefix__Rectangle_1628" d="M0 0H71V12H0z" class="prefix__cls-5" data-name="Rectangle 1628" transform="translate(271 147)"/>
+    <path id="prefix__Rectangle_1629" d="M0 0H71V13H0z" class="prefix__cls-5" data-name="Rectangle 1629" transform="translate(271 167)"/>
+    <path id="prefix__Rectangle_1630" d="M0 0H71V14H0z" class="prefix__cls-5" data-name="Rectangle 1630" transform="translate(271 186)"/>
+    <path id="prefix__Rectangle_1631" d="M0 0H71V12H0z" class="prefix__cls-5" data-name="Rectangle 1631" transform="translate(271 207)"/>
+    <path id="prefix__Rectangle_1632" d="M0 0H71V13H0z" class="prefix__cls-5" data-name="Rectangle 1632" transform="translate(271 227)"/>
+    <path id="prefix__Rectangle_1633" d="M0 0H71V13H0z" class="prefix__cls-5" data-name="Rectangle 1633" transform="translate(271 67)"/>
+    <path id="prefix__Rectangle_1634" d="M0 0H72V13H0z" class="prefix__cls-6" data-name="Rectangle 1634" transform="translate(21 87)"/>
+    <path id="prefix__Rectangle_1635" d="M0 0H72V14H0z" class="prefix__cls-6" data-name="Rectangle 1635" transform="translate(21 106)"/>
+    <path id="prefix__Rectangle_1636" d="M0 0H72V13H0z" class="prefix__cls-6" data-name="Rectangle 1636" transform="translate(21 126)"/>
+    <path id="prefix__Rectangle_1637" d="M0 0H72V12H0z" class="prefix__cls-6" data-name="Rectangle 1637" transform="translate(21 147)"/>
+    <path id="prefix__Rectangle_1638" d="M0 0H72V13H0z" class="prefix__cls-6" data-name="Rectangle 1638" transform="translate(21 167)"/>
+    <path id="prefix__Rectangle_1639" d="M0 0H69V10H0z" class="prefix__cls-7" data-name="Rectangle 1639" transform="translate(23 68)"/>
+    <path id="prefix__Rectangle_1640" d="M0 0H68.645V10.046H0z" class="prefix__cls-7" data-name="Rectangle 1640" transform="translate(22.812 87.899)"/>
+    <path id="prefix__Rectangle_1641" d="M0 0H68.645V10.046H0z" class="prefix__cls-7" data-name="Rectangle 1641" transform="translate(22.812 107.99)"/>
+    <path id="prefix__Rectangle_1642" d="M0 0H68.645V10.046H0z" class="prefix__cls-7" data-name="Rectangle 1642" transform="translate(22.812 128.082)"/>
+    <path id="prefix__Rectangle_1643" d="M0 0H68.645V10.046H0z" class="prefix__cls-7" data-name="Rectangle 1643" transform="translate(22.812 148.173)"/>
+    <path id="prefix__Rectangle_1644" d="M0 0H68.645V10.046H0z" class="prefix__cls-7" data-name="Rectangle 1644" transform="translate(22.812 168.264)"/>
+    <path id="prefix__Rectangle_1645" d="M0 0H72V14H0z" class="prefix__cls-6" data-name="Rectangle 1645" transform="translate(21 186)"/>
+    <path id="prefix__Rectangle_1646" d="M0 0H68.645V10.046H0z" class="prefix__cls-7" data-name="Rectangle 1646" transform="translate(22.812 188.355)"/>
+    <path id="prefix__Rectangle_1647" d="M0 0H68.645V10.046H0z" class="prefix__cls-7" data-name="Rectangle 1647" transform="translate(22.812 188.355)"/>
+    <path id="prefix__Rectangle_1648" d="M0 0H68.645V10.046H0z" class="prefix__cls-7" data-name="Rectangle 1648" transform="translate(22.812 208.447)"/>
+    <path id="prefix__Rectangle_1649" d="M0 0H68.645V10.046H0z" class="prefix__cls-7" data-name="Rectangle 1649" transform="translate(22.812 228.538)"/>
+    <path id="prefix__Rectangle_1650" d="M0 0H69V10H0z" class="prefix__cls-7" data-name="Rectangle 1650" transform="translate(272 68)"/>
+    <path id="prefix__Rectangle_1651" d="M0 0H69V10H0z" class="prefix__cls-7" data-name="Rectangle 1651" transform="translate(272 88)"/>
+    <path id="prefix__Rectangle_1652" d="M0 0H69V11H0z" class="prefix__cls-7" data-name="Rectangle 1652" transform="translate(272 107)"/>
+    <path id="prefix__Rectangle_1653" d="M0 0H69V10H0z" class="prefix__cls-7" data-name="Rectangle 1653" transform="translate(272 128)"/>
+    <path id="prefix__Rectangle_1654" d="M0 0H69V10H0z" class="prefix__cls-7" data-name="Rectangle 1654" transform="translate(272 148)"/>
+    <path id="prefix__Rectangle_1655" d="M0 0H69V11H0z" class="prefix__cls-7" data-name="Rectangle 1655" transform="translate(272 168)"/>
+    <path id="prefix__Rectangle_1656" d="M0 0H69V9H0z" class="prefix__cls-7" data-name="Rectangle 1656" transform="translate(272 189)"/>
+    <path id="prefix__Rectangle_1657" d="M0 0H69V10H0z" class="prefix__cls-7" data-name="Rectangle 1657" transform="translate(272 208)"/>
+    <path id="prefix__Rectangle_1658" d="M0 0H69V11H0z" class="prefix__cls-7" data-name="Rectangle 1658" transform="translate(272 228)"/>
+    <path id="prefix__Rectangle_1659" d="M0 0H253V16H0z" data-name="Rectangle 1659" transform="translate(55 270)"/>
+    <path id="prefix__Rectangle_1660" d="M0 0H249V12H0z" class="prefix__cls-4" data-name="Rectangle 1660" transform="translate(57 272)"/>
+    <path id="prefix__Rectangle_1661" d="M0 0H252V16H0z" class="prefix__cls-3" data-name="Rectangle 1661" transform="translate(56 21)"/>
+    <path id="prefix__Path_3327" d="M0 0h249v13H0z" class="prefix__cls-4" data-name="Path 3327" transform="translate(57 22)"/>
+    <path id="prefix__Rectangle_1663" d="M0 0H122V212H0z" data-name="Rectangle 1663" transform="translate(121 47)" style="fill:#263238;opacity:.5"/>
+    <path id="prefix__Path_3311" d="M540.841 410.821c2.93 3.926-1.457 8.564-1.457 8.564l.737.255c-1.084 1.2-5.366 6.622-21.874 31.141-21.138 31.393-49.621 39.224-49.621 39.224a35.159 35.159 0 0 0-11.607-5.99v-2.964a34.741 34.741 0 0 0 23.147-22.385 35.612 35.612 0 0 0 3.826-16.09c0-20.091-16.646-36.39-37.177-36.39s-37.177 16.295-37.177 36.39a35.611 35.611 0 0 0 3.826 16.09 34.741 34.741 0 0 0 23.147 22.385v2.964A35.159 35.159 0 0 0 425 490.006s-28.5-7.84-49.634-39.232c-16.508-24.52-20.79-29.944-21.874-31.141l.737-.255s-4.374-4.638-1.457-8.564-19.317-8.564-16.768 0 5.831 12.846 5.831 12.846 46.545 73.408 70.843 85.538a33.665 33.665 0 0 0-.862 7.584v14.273h69.976v-14.273a33.663 33.663 0 0 0-.862-7.584c24.277-12.138 70.843-85.534 70.843-85.534s3.282-4.282 5.831-12.846-19.68-3.918-16.763.003z" data-name="Path 3311" transform="translate(-264.729 -271.417)"/>
+    <circle id="prefix__Ellipse_661" cx="35.603" cy="35.603" r="35.603" class="prefix__cls-11" data-name="Ellipse 661" transform="translate(146.473 137.462)"/>
+    <circle id="prefix__Ellipse_662" cx="33.511" cy="33.511" r="33.511" class="prefix__cls-12" data-name="Ellipse 662" transform="translate(148.566 145.142)"/>
+    <circle id="prefix__Ellipse_663" cx="4.19" cy="4.19" r="4.19" class="prefix__cls-11" data-name="Ellipse 663" transform="translate(164.623 167.13)"/>
+    <circle id="prefix__Ellipse_664" cx="4.19" cy="4.19" r="4.19" class="prefix__cls-11" data-name="Ellipse 664" transform="translate(191.85 167.13)"/>
+    <path id="prefix__Path_3312" d="M597.2 544.6c0 2.511-4.374 6.634-9.773 6.634s-9.774-4.123-9.774-6.634 4.374-2.445 9.774-2.445 9.773-.062 9.773 2.445z" class="prefix__cls-7" data-name="Path 3312" transform="translate(-405.347 -350.598)"/>
+    <circle id="prefix__Ellipse_665" cx="1.398" cy="1.398" r="1.398" class="prefix__cls-7" data-name="Ellipse 665" transform="translate(168.461 169.922)"/>
+    <circle id="prefix__Ellipse_666" cx="1.398" cy="1.398" r="1.398" class="prefix__cls-7" data-name="Ellipse 666" transform="translate(196.036 169.922)"/>
+    <path id="prefix__Path_3313" d="M578.966 439.477a4.326 4.326 0 0 1-4.094-3.8 5.023 5.023 0 0 1 2.93-4.918 1.432 1.432 0 0 1 .615-.159c.7 0 1.051.837 1.277 1.5a8.4 8.4 0 0 0 3.909 5.023c1.959.954 4.7.465 5.73-1.452a5.551 5.551 0 0 1-2.344-7.681c.624-.992 1.595-1.833 1.791-2.989.36-2.093-1.934-3.616-3.964-4.244-5.86-1.812-26.286-2.013-27.412 6.731-1.179 9.222 15.129 13.212 21.562 11.989z" class="prefix__cls-11" data-name="Path 3313" transform="translate(-393.541 -279.425)"/>
+    <ellipse id="prefix__Ellipse_667" cx="2.093" cy="5.935" class="prefix__cls-12" data-name="Ellipse 667" rx="2.093" ry="5.935" transform="rotate(-21.57 531.281 -296.03)"/>
+    <ellipse id="prefix__Ellipse_668" cx="5.935" cy="2.093" class="prefix__cls-12" data-name="Ellipse 668" rx="5.935" ry="2.093" transform="rotate(-68.47 240.085 -62.461)"/>
+    <path id="prefix__Path_3314" d="M644.8 512.741s27.278-7.66 47.524-38.378 21.293-30.8 21.293-30.8l10.82 4.274s-50.261 80.984-71.9 85.174-7.737-20.27-7.737-20.27z" class="prefix__cls-13" data-name="Path 3314" transform="translate(-441.834 -293.269)"/>
+    <path id="prefix__Path_3315" d="M812.83 425.577s4.186-4.537 1.4-8.371 18.5-8.371 16.056 0-5.584 12.557-5.584 12.557z" class="prefix__cls-12" data-name="Path 3315" transform="translate(-542.088 -275.198)"/>
+    <path id="prefix__Path_3316" d="M440.467 512.741s-27.278-7.66-47.524-38.378-21.293-30.8-21.293-30.8l-10.82 4.274s50.266 80.984 71.91 85.174 7.727-20.27 7.727-20.27z" class="prefix__cls-13" data-name="Path 3316" transform="translate(-279.28 -293.269)"/>
+    <path id="prefix__Path_3317" d="M364.652 425.577s-4.186-4.537-1.4-8.371-18.5-8.371-16.056 0 5.584 12.557 5.584 12.557z" class="prefix__cls-12" data-name="Path 3317" transform="translate(-271.24 -275.198)"/>
+    <g id="prefix__Group_597" data-name="Group 597" transform="translate(164.48 142.744)" style="opacity:.2">
+        <path id="prefix__Path_3318" d="M624.79 426.258c-.2 1.155-1.172 1.992-1.792 2.989a5.616 5.616 0 0 0 1.39 7.116 5.354 5.354 0 0 1 .356-4.663c.624-.992 1.595-1.833 1.792-2.989a3.28 3.28 0 0 0-1.729-3.181 2.511 2.511 0 0 1-.017.728z" class="prefix__cls-7" data-name="Path 3318" transform="translate(-595.771 -425.53)"/>
+        <path id="prefix__Path_3319" d="M600.234 443.1c-.134-.314-.26-.632-.368-.95-.226-.666-.573-1.482-1.277-1.5a1.431 1.431 0 0 0-.615.159 5.023 5.023 0 0 0-2.93 4.918 4.408 4.408 0 0 0 1.871 3.077 3.93 3.93 0 0 1-.125-.632 5.023 5.023 0 0 1 2.93-4.918 1.621 1.621 0 0 1 .514-.154z" class="prefix__cls-7" data-name="Path 3319" transform="translate(-579.933 -434.321)"/>
+        <path id="prefix__Path_3320" d="M576.31 454.21c-5.09.214-13.3-1.729-17.35-5.86 3.022 6.429 15.508 9.121 20.928 8.087a4.219 4.219 0 0 1-3.578-2.227z" class="prefix__cls-7" data-name="Path 3320" transform="translate(-558.96 -438.798)"/>
+        <path id="prefix__Path_3321" d="M619.115 453.825a4.606 4.606 0 0 1-5.337.887 6.087 6.087 0 0 1-1.549-1.092 7.468 7.468 0 0 0 3.294 3.533c1.959.95 4.7.465 5.73-1.452a4.973 4.973 0 0 1-2.138-1.876z" class="prefix__cls-7" data-name="Path 3321" transform="translate(-589.933 -441.862)"/>
+    </g>
+    <path id="prefix__Path_3322" d="M732.657 453.218s-50.266 80.984-71.931 85.174a25.251 25.251 0 0 1-3.8.465 22.2 22.2 0 0 0 5.194-.465c21.644-4.186 71.91-85.174 71.91-85.174l-1.122-.4a4.676 4.676 0 0 1-.251.4z" class="prefix__cls-15" data-name="Path 3322" transform="translate(-451.443 -298.653)"/>
+    <path id="prefix__Path_3323" d="M362.237 453.218s50.263 80.982 71.931 85.174a25.252 25.252 0 0 0 3.8.465 22.2 22.2 0 0 1-5.194-.465c-21.644-4.186-71.91-85.174-71.91-85.174l1.122-.4a4.672 4.672 0 0 0 .251.4z" class="prefix__cls-15" data-name="Path 3323" transform="translate(-279.298 -298.653)"/>
+    <path id="prefix__Path_3324" d="M388.451 506.88a33.511 33.511 0 0 1 33.511 33.511v13.963H354.94v-13.963a33.511 33.511 0 0 1 33.511-33.511z" class="prefix__cls-13" data-name="Path 3324" transform="translate(-206.374 -294.716)"/>
+    <path id="prefix__Path_3325" d="M596.754 591.8a33.872 33.872 0 0 0-3.654.2c.423 0 .8-.026 1.21-.026a33.511 33.511 0 0 1 33.51 33.51v13.786h2.444v-13.96a33.511 33.511 0 0 0-33.51-33.51z" class="prefix__cls-15" data-name="Path 3325" transform="translate(-414.329 -379.461)"/>
+    <path id="prefix__Path_3326" d="M553.62 591.8a33.872 33.872 0 0 1 3.654.2c-.423 0-.8-.026-1.21-.026a33.511 33.511 0 0 0-33.511 33.51v13.786h-2.443v-13.96a33.51 33.51 0 0 1 33.51-33.51z" class="prefix__cls-15" data-name="Path 3326" transform="translate(-371.891 -379.461)"/>
+    <rect id="prefix__Rectangle_1664" width="19.547" height="23.561" class="prefix__cls-12" data-name="Rectangle 1664" rx="9.774" transform="translate(172.303 202.913)"/>
+</svg>

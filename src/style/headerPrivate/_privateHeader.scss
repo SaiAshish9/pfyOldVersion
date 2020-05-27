@@ -1,0 +1,135 @@
+@import "./privateHeaderNav";
+
+.private-main-nav {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  .headerNav {
+    display: flex;
+    top: 0px;
+    height: 60px;
+    align-items: center;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(38, 39, 73, 1) 0%,
+      rgba(57, 58, 111, 1) 62%,
+      #424381
+    );
+    padding: 12px 55px;
+    transition: all 0.6 ease-in;
+    font-family: avenir, sans-serif;
+
+    .logo-container {
+      cursor: pointer;
+      margin-right: 60px;
+      .logoIcon {
+        width: 178px;
+      }
+    }
+    .link-container {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mobile-nav-menu {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 840px) {
+    .headerNav {
+      .mobile-nav-menu {
+        display: block;
+        .menu-icon {
+          cursor: pointer;
+        }
+      }
+
+      .link-container {
+        display: none;
+      }
+
+      .logo-container {
+        .logoIcon {
+          width: 120px;
+        }
+      }
+    }
+    .private-mobile-nav {
+      display: block;
+    }
+  }
+}
+
+.private-mobile-nav {
+  display: none;
+  height: 100vh;
+  width: 320px;
+  // border: 1px solid;
+  position: fixed;
+  z-index: 50;
+  align-self: flex-end;
+  background-color: rgba($color: #fff, $alpha: 0.9);
+  .mobile-nav-link {
+    position: relative;
+    .nav-close-icon {
+      position: absolute;
+      top: -32px;
+      left: 20px;
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .myLink1 {
+      margin-bottom: 12px;
+    }
+    .myLink2 {
+      margin-bottom: 12px;
+    }
+    .myLink3 {
+      margin-bottom: 12px;
+    }
+    .myLink4 {
+      margin-bottom: 12px;
+    }
+
+    .login-button-main-block {
+      margin-bottom: 40px;
+
+      .header__button1 {
+        color: white;
+        background: #3773b6;
+      }
+    }
+    .download-app-button {
+      margin-bottom: 12px;
+    }
+    // .for-business-anchor {
+    //   margin: auto;
+    .header__button2 {
+      color: white;
+      background: #3773b6;
+    }
+  }
+}
+
+.wrapper {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 25;
+  background-color: rgba(211, 211, 211, 0.6);
+  @media screen and (max-width: 840px) {
+    display: block;
+  }
+}

@@ -19,41 +19,39 @@ export default function Score() {
   return (
     <div className="score-main-block">
       <div className="resume-score-block">
-        <div className="resume-score-img-block">
-          <img src={resumeIcon} alt="" className="" />
-        </div>
         <div className="resume-score-content">
           <h1 className="">You Resume Score Is 40%</h1>
           <p className="">
-            Recruiters prefer hiring interns with a resume score of 60%.
-            Increase your resume score today to boost your chances of landing
-            your next Dream Internship.
+            Recruiters prefer hiring interns with a resume score of 60% or
+            above.
           </p>
           <Button
             className="resume-update__button"
             onClick={handleUpdateResume}
           >
-            Update Now <img src={rightArrowBlackIcon} alt="" />
+            UPDATE RESUME
           </Button>
+        </div>
+        <div className="resume-score-img-block">
+          <img src={resumeIcon} alt="" className="" />
         </div>
       </div>
       <div className="gig-profile-block">
-        <div className="gig-profile-img-block">
-          <img src={gigProfileIcon} alt="" className="" />
-        </div>
         <div className="gig-profile-content">
           <h1 className="">Your Gig Profile Score Is 50%</h1>
           <p className="">
             Companies prefer hiring workers with a gig profile score of at least
-            70%. Update your Gig profile now to increase your chances of landing
-            your next Gig.
+            70%.
           </p>
           <Button
             className="gig-profile-update__button"
             onClick={handleUpdateGigProfile}
           >
-            Update Now <img src={rightArrowBlackIcon} alt="" />
+            UPDATE GIG PROFILE
           </Button>
+        </div>
+        <div className="gig-profile-img-block">
+          <img src={gigProfileIcon} alt="" className="" />
         </div>
       </div>
     </div>

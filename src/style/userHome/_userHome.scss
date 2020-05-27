@@ -72,7 +72,7 @@ $card-background-color: #fff;
     }
     .credit-card-block {
       margin-left: 60px;
-      width: 29.28%;
+      width: 395px;
       position: relative;
       // display: flex;
       // width: 48%;
@@ -135,10 +135,10 @@ $card-background-color: #fff;
         position: relative;
         display: flex;
         width: 13%;
-        background: white;
+        // background: white;
         border-radius: 7px;
         // box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
-        box-shadow: 0 0 4px -1px black;
+        // box-shadow: 0 0 4px -1px black;
         margin-right: 50px;
         cursor: pointer;
       }
@@ -171,6 +171,8 @@ $card-background-color: #fff;
 
       .student-status-block {
         @extend %main-block;
+        border: solid 0.5px #334d5c;
+        background-color: #eff9ff;
         margin-left: 30px;
         .student-status__img {
           @extend %image;
@@ -191,6 +193,8 @@ $card-background-color: #fff;
       }
       .my-gig-block {
         @extend %main-block;
+        border: solid 0.5px #e05b49;
+        background-color: #fff4f2;
         .my-gig__img {
           @extend %image;
         }
@@ -214,6 +218,9 @@ $card-background-color: #fff;
 
       .my-internship-block {
         @extend %main-block;
+        border: solid 0.5px #ffd05b;
+        background-color: #fffbf1;
+
         .my-internship__img {
           @extend %image;
         }
@@ -237,6 +244,8 @@ $card-background-color: #fff;
 
       .my-resume-block {
         @extend %main-block;
+        border: solid 0.5px #444584;
+        background-color: #e8e8ff;
         .my-resume__img {
           @extend %image;
         }
@@ -260,6 +269,8 @@ $card-background-color: #fff;
 
       .gig-profile-block {
         @extend %main-block;
+        border: solid 0.5px #90dfaa;
+        background-color: #ecfff2;
         margin-right: 0px;
         .gig-profile__img {
           @extend %image;
@@ -287,92 +298,94 @@ $card-background-color: #fff;
   .score-main-block {
     display: flex;
     justify-content: center;
-    padding: 35px 0px;
+    padding: 35px 20px;
 
     .resume-score-block {
-      width: 39.16%;
-      border-radius: 16px;
-      background-color: #5284f7;
-      color: #fff;
+      padding: 20px 30px 20px 44px;
       display: flex;
+      align-items: center;
+      width: 529px;
+      border-radius: 6px;
+      border: solid 1px #7bc3c2;
+      background-color: #f3fefd;
 
       .resume-score-img-block {
-        margin: 32px 0px 0px 32px;
-        align-self: baseline;
-        display: flex;
-        align-items: center;
-        background: white;
-        justify-content: center;
-        width: 130px;
-        border-radius: 50%;
-        height: 50px;
+        background-image: url("../../assets/img/circleBlue.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-left: 40px;
       }
 
       .resume-score-content {
-        padding: 32px 54px 32px 32px;
         h1 {
-          color: #fff;
-          font-size: 26px;
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 1.42;
+          color: #333743;
         }
 
         p {
-          margin-bottom: 30px;
+          margin-right: 26px;
+          font-size: 17px;
+          line-height: 1.35;
+          color: #525252;
         }
 
         .resume-update__button {
-          border-radius: 19px;
-          // box-shadow: -2px 3px 8px 0 rgba(0, 0, 0, 0.22);
+          padding: 0;
+          border: none;
+          background: transparent;
           font-weight: 700;
-          background-color: #ffffff;
-          img {
-            margin-bottom: 4px;
-            margin-left: 8px;
-          }
+
+          font-size: 17px;
+          line-height: 1.35;
+          color: #52bdb2;
         }
       }
     }
 
     .gig-profile-block {
-      width: 39.16%;
-      border-radius: 16px;
-      background-color: #5cd2c1;
-      color: #fff;
+      padding: 20px 30px 20px 44px;
       display: flex;
-      margin-left: 48px;
+      align-items: center;
+      width: 529px;
+      border-radius: 6px;
+      border: solid 1px #cecee5;
+      background-color: #f0f0ff;
+      margin-left: 30px;
 
       .gig-profile-img-block {
-        margin: 32px 0px 0px 32px;
-        align-self: baseline;
-        display: flex;
-        align-items: center;
-        background: white;
-        justify-content: center;
-        width: 130px;
-        border-radius: 50%;
-        height: 50px;
+        width: 150px;
+        background-image: url("../../assets/img/circlePurple.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-left: 40px;
       }
 
       .gig-profile-content {
-        padding: 32px 54px 32px 32px;
-
         h1 {
-          color: #fff;
-          font-size: 26px;
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 1.42;
+          color: #333743;
         }
 
         p {
-          margin-bottom: 30px;
+          margin-right: 40px;
+          font-size: 17px;
+          line-height: 1.35;
+          color: #525252;
         }
 
         .gig-profile-update__button {
-          border-radius: 19px;
-          // box-shadow: -2px 3px 8px 0 rgba(0, 0, 0, 0.22);
+          padding: 0;
+          border: none;
+          background: transparent;
           font-weight: 700;
-          background-color: #ffffff;
-          img {
-            margin-bottom: 4px;
-            margin-left: 8px;
-          }
+
+          font-size: 17px;
+          line-height: 1.35;
+          color: #444584;
         }
       }
     }

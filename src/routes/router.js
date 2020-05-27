@@ -23,6 +23,7 @@ import Wallet from "../components/wallet/wallet";
 import CommonRoute from "./commonRoute";
 import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
+import Login from "../components/login/login";
 
 const history = createBrowserHistory();
 
@@ -30,12 +31,12 @@ const AppRouter = () => {
   return (
     <Router history={history}>
       <Switch>
-        {/* <PublicRoute path="/" component={OldLandingPage} exact={true} /> */}
         <PublicRoute path="/" component={LandingPage} exact={true} />
-
         <PublicRoute path="/get-started" component={GetStarted} exact={true} />
-        <PublicRoute path="/about-us" component={AboutUs} exact={true} />
+        <PublicRoute path="/about_us" component={AboutUs} exact={true} />
         <PublicRoute path="/faqs" component={Faqs} exact={true} />
+        {/* <PublicRoute path="/login" component={Login} exact={true} /> */}
+        <PublicRoute path="/login" component={Login} exact={true} />
         <PublicRoute
           path="/get-in-contact"
           component={GetInContact}

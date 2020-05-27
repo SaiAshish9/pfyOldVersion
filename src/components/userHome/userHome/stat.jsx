@@ -41,6 +41,15 @@ export default function Stat() {
             <img alt="" src={rightArrowIcon} className="arrowIcon-two" />
           </div>
         </Link>
+        <Link to="/resume" className="my-resume-block">
+          <img src={resumeIcon} alt="img" className="my-resume__img"></img>
+          <div className="my-resume-text-block">
+            <h1 className="heading">My Resume</h1>
+            <p className="para">Click To Check Your Resume</p>
+            <img alt="" src={rightArrowIcon} className="arrowIcon-four" />
+          </div>
+        </Link>
+
         <Link to="/my-internships" className="my-internship-block">
           <img
             src={internshipIcon}
@@ -51,14 +60,6 @@ export default function Stat() {
             <h1 className="heading">My Internship</h1>
             <p className="para">Check all your Internships</p>
             <img alt="" src={rightArrowIcon} className="arrowIcon-three" />
-          </div>
-        </Link>
-        <Link to="/resume" className="my-resume-block">
-          <img src={resumeIcon} alt="img" className="my-resume__img"></img>
-          <div className="my-resume-text-block">
-            <h1 className="heading">My Resume</h1>
-            <p className="para">Click To Check Your Resume</p>
-            <img alt="" src={rightArrowIcon} className="arrowIcon-four" />
           </div>
         </Link>
         <Link to="/my-profile" className="gig-profile-block">

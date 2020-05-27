@@ -1,0 +1,103 @@
+.aboutUs-main-block {
+  padding-top: 120px;
+  .aboutUs-block {
+    padding: 40px 100px 80px 100px;
+    .aboutUs-subBlock {
+      margin-bottom: 80px;
+      display: grid;
+      grid-template:
+        "head img"
+        "paraOne img"
+        "paraTwo img"
+        "button img";
+
+      .aboutUs-head {
+        grid-area: head;
+        align-self: flex-end;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.22;
+        color: #333e49;
+      }
+
+      .aboutUs-paraOne {
+        grid-area: paraOne;
+        font-size: 18px;
+        line-height: 1.22;
+        color: #333e49;
+        width: 93%;
+      }
+
+      .aboutUs-paraTwo {
+        grid-area: paraTwo;
+        align-self: flex-start;
+        font-size: 18px;
+        line-height: 1.22;
+        color: #333e49;
+        width: 92%;
+      }
+
+      .aboutUsButton {
+        grid-area: button;
+        width: 272px;
+        height: 56px;
+        border-radius: 28px;
+        border: solid 2px #444584;
+        background-color: #ffffff;
+
+        font-size: 24px;
+        line-height: 1.21;
+        color: #444584;
+      }
+
+      .aboutUs-img {
+        grid-area: img;
+      }
+    }
+    .aboutUs-subBlock:nth-child(2) {
+      grid-template:
+        "img head"
+        "img paraOne"
+        "img paraTwo"
+        "img button";
+      grid-column-gap: 70px;
+      h1 {
+        width: initial;
+      }
+      p {
+        width: initial;
+      }
+    }
+  }
+  .aboutUs-contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+
+    border-radius: 24px;
+    background-image: linear-gradient(295deg, #38bdba 0%, #1c5f5d 50%);
+    .aboutUs-contact-head {
+      margin: 0;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.22;
+      text-align: left;
+      color: #ffffff;
+    }
+
+    .aboutUs-contact-button {
+      width: 220px;
+      height: 56px;
+      margin-left: 120px;
+      border-radius: 28px;
+      border: 1px solid #38bdba;
+      box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #38bdba;
+    }
+  }
+}
