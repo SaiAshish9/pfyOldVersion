@@ -3,6 +3,8 @@ import React from "react";
 import { Route, Router, Switch } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import AboutUs from "../components/aboutUs/aboutUs";
+import ContactUs from "../components/landingPageContactUs/contactUs";
+
 import Career from "../components/career/career";
 import Faqs from "../components/faqs/faqs";
 import GetInContact from "../components/getInContact/getInContact";
@@ -36,6 +38,11 @@ const AppRouter = () => {
         <PublicRoute path="/get-started" component={GetStarted} exact={true} />
         <PublicRoute path="/about_us" component={AboutUs} exact={true} />
         <PublicRoute path="/career" component={Career} exact={true} />
+        <PublicRoute
+          path="/contact_us"
+          component={ContactUs}
+          exact={true}
+        ></PublicRoute>
         <PublicRoute path="/faqs" component={Faqs} exact={true} />
         {/* <PublicRoute path="/login" component={Login} exact={true} /> */}
         <PublicRoute path="/login" component={Login} exact={true} />

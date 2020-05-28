@@ -44,7 +44,9 @@ export default function Footer() {
         </div>
         <div className="get-in-touch-block">
           <h3 className="footer__header">Get In Touch</h3>
-          <p className="footer__link">Contact Us</p>
+          <Link to="/contact_us">
+            <p className="footer__link">Contact Us</p>
+          </Link>
           <p className="footer__link">College Festivals</p>
         </div>
       </div>
