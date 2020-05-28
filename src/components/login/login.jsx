@@ -141,7 +141,6 @@ export default function Login() {
     e.preventDefault();
     setIsSendOTP(true);
     setProceedForOTP(true);
-
     console.log("+91" + phone);
     firebasePhoneAuth();
   };

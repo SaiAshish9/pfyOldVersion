@@ -15,11 +15,26 @@
 }
 
 .user-profile-dropDown {
+  display: flex;
+  align-items: center;
+  .header-avatar-img-block {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
   .user-profile {
     font-size: 18px;
     line-height: 1.44;
     text-align: left;
     color: #000000;
-    margin-right: 16px;
+    margin: 0 16px;
   }
 }

@@ -1,0 +1,49 @@
+.career-main-block {
+  padding-top: 120px;
+  .workWithUs-block {
+    padding: 0px 40px;
+    margin: auto;
+    text-align: center;
+    .workWithUs-head {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.22;
+      color: #333e49;
+    }
+
+    .workWithUs-para {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.22;
+      color: #333e49;
+    }
+
+    .openings-button {
+      width: 200px;
+      height: 65px;
+      border-radius: 5px;
+      background-color: #699eee;
+
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.22;
+      color: #ffffff;
+    }
+  }
+
+  .career-hero-block {
+    padding: 0 40px 80px;
+    display: flex;
+    align-items: flex-end;
+    .career-hero-para-block {
+      .career-hero-para {
+        font-size: 18px;
+        line-height: 1.22;
+        color: #333e49;
+      }
+    }
+
+    .career-hero-img {
+    }
+  }
+}

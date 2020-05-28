@@ -33,7 +33,9 @@ export default function Footer() {
             <p className="footer__link">About</p>
           </Link>
           <p className="footer__link">Team</p>
-          <p className="footer__link">Careers</p>
+          <Link to="/career">
+            <p className="footer__link">Careers</p>
+          </Link>
         </div>
         <div className="legal-block">
           <h3 className="footer__header">Legal</h3>

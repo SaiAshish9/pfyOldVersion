@@ -1,12 +1,20 @@
 import { DownCircleFilled } from "@ant-design/icons";
 import { Button, Dropdown, Menu } from "antd";
 import Cookies from "js-cookie";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import Support from "../../NewComps/support/support";
 import VerifyStudentStatus from "../../NewComps/verify_student_Status/verifyStudentStatus";
+import UserContext from "../../../context/userContext";
+import { objectValidation } from "../../validation/validation";
+import userBlankImg from "../../../assets/img/userBlankImg.svg";
 
 export default function PrivateHeaderNavLink() {
+  const { user } = useContext(UserContext);
+  console.log(user);
+  const userName = objectValidation(user) ? user.user.firstName : "";
+  const userImg = objectValidation(user) ? user.user.imgUrl : userBlankImg;
+
   const [isShow, setIsShow] = useState(false);
   const [isShowVerify, setIsShowVerify] = useState(false);
 
@@ -108,7 +116,10 @@ export default function PrivateHeaderNavLink() {
         className="user-profile-dropDown"
       >
         <a href="#foo" name="foo">
-          <span className="user-profile">My Profile</span>
+          <span className="header-avatar-img-block">
+            <img src={userImg} alt="img"></img>
+          </span>
+          <span className="user-profile">Hi {userName}</span>
           <DownCircleFilled />
         </a>
       </Dropdown>

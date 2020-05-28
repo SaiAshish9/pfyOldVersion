@@ -7,20 +7,15 @@ import rightArrowBlackIcon from "../userHome/img/rightArrowBlackIcon.svg";
 import creditCardImg from "./img/credit_card.svg";
 import UserContext from "../../../context/userContext";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { objectValidation } from "../../validation/validation";
+import userBlankImg from "../../../assets/img/userBlankImg.svg";
 
 const Avatar = () => {
   const history = useHistory();
   const { user } = useContext(UserContext);
 
-  const userName =
-    Object.entries(user).length > 0 && user.constructor === Object
-      ? user.user.firstName
-      : "";
-
-  const userImg =
-    Object.entries(user).length > 0 && user.constructor === Object
-      ? user.user.imgUrl
-      : "";
+  const userName = objectValidation(user) ? user.user.firstName : "";
+  const userImg = objectValidation(user) ? user.user.imgUrl : userBlankImg;
 
   console.log(Object.entries(user).length > 0);
   console.log(user.constructor === Object);
