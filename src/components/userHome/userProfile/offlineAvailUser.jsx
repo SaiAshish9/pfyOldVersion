@@ -15,6 +15,7 @@ import pin from "./pin.svg";
 import train from "./train.svg";
 import train2 from "./train2.svg";
 import twoWheeler from "./two-wheeler.svg";
+import { tokenHeader } from "../../../constant/tokenHeader";
 
 const textToImg = {
   car: car,
@@ -106,7 +107,7 @@ const OfflineAvailUser = (props) => {
     console.log("DATA IS READY");
     console.table(data1);
     axios
-      .put(url, data1)
+      .put(url, data1, tokenHeader)
       .then((res) => {
         console.log(res.data);
         setIsModalVisible(false);

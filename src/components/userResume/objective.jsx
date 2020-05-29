@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
-import {EditOutlined} from '@ant-design/icons';
-
+import { EditOutlined } from "@ant-design/icons";
 
 import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
 import addIcon from "./img/addIcon.svg";
@@ -34,7 +33,8 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
     axios
       .put(
         `resume/addobjective?careerObjectives=${data.objectiveTextarea}`,
-        null
+        null,
+        tokenHeader
       )
       .then((res) => {
         console.log(res);
@@ -86,7 +86,6 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
             <Tooltip title="edit">
               {/* <Icon type="edit" onClick={handleObjectiveButton}></Icon> */}
               <EditOutlined onClick={handleObjectiveButton} />
-
             </Tooltip>
           </section>
         ) : (

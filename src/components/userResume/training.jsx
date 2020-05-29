@@ -5,9 +5,10 @@ import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
-import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 import trainingIcon from "./img/headingImg/experienceIcon.svg";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const Training = ({ training, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -20,7 +21,7 @@ const Training = ({ training, updateResume }) => {
       ? { ...data, _id: trainingData._id }
       : data;
     axios
-      .post(`resume/add_training`, myTrainingData)
+      .post(`resume/add_training`, myTrainingData, tokenHeader)
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
@@ -52,7 +53,7 @@ const Training = ({ training, updateResume }) => {
   const handleDelete = (id) => {
     console.log(id);
     axios
-      .delete(`resume/delete_training/${id}`)
+      .delete(`resume/delete_training/${id}`, tokenHeader)
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
@@ -91,14 +92,19 @@ const Training = ({ training, updateResume }) => {
                         onClick={() => handleEdit(myTraining)}
                         style={{ marginRight: "32px" }}
                       ></Icon> */}
-                      <EditOutlined onClick={() => handleEdit(myTraining)} style={{ marginRight: "32px" }}/>
+                      <EditOutlined
+                        onClick={() => handleEdit(myTraining)}
+                        style={{ marginRight: "32px" }}
+                      />
                     </Tooltip>
                     <Tooltip title="delete">
                       {/* <Icon
                         type="delete"
                         onClick={() => handleDelete(myTraining._id)}
                       /> */}
-                      <DeleteOutlined onClick={() => handleDelete(myTraining._id)}/>
+                      <DeleteOutlined
+                        onClick={() => handleDelete(myTraining._id)}
+                      />
                     </Tooltip>
                   </section>
                 </div>

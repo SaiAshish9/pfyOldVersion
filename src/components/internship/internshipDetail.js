@@ -18,6 +18,7 @@ import rupeeIcon from "../../assets/img/internship/rupeeIcon.svg";
 import responsibilityIcon from "../../assets/img/internship/responsibilityIcon.svg";
 import benefitIcon from "../../assets/img/internship/benefitIcon.svg";
 import skillRequiredIcon from "../../assets/img/internship/skillRequiredIcon.svg";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const { TabPane } = Tabs;
 export default function InternshipDetail(props) {
@@ -70,7 +71,10 @@ export default function InternshipDetail(props) {
   useEffect(() => {
     if (isMyCookie) {
       axios
-        .get(`internship/fetchone_with_status/${selectedInternshipId}`)
+        .get(
+          `internship/fetchone_with_status/${selectedInternshipId}`,
+          tokenHeader
+        )
         .then((res) => {
           console.log(res);
           if (res.data.appliedStatus === 300) {

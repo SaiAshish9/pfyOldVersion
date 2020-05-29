@@ -18,6 +18,7 @@ import responsibilityIcon from "../../assets/img/gig/responsibilityIcon.svg";
 
 import { arrayValidation } from "../validation/validation";
 import GigTask from "./gigTask";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const { TabPane } = Tabs;
 export default function GigDetail(props) {
@@ -70,7 +71,7 @@ export default function GigDetail(props) {
     console.log("myCookie", myCookie);
     if (isMyCookie) {
       axios
-        .get(`mission/fetchone_with_status/${selectedGigId}`)
+        .get(`mission/fetchone_with_status/${selectedGigId}`, tokenHeader)
         .then((res) => {
           console.log("response", res);
           if (res.data.appliedStatus === 601) {

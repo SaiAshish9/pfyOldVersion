@@ -5,10 +5,10 @@ import { Controller, useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { objectValidation } from "../validation/validation";
 import educationIcon from "./img/headingImg/educationIcon.svg";
-import {EditOutlined} from '@ant-design/icons';
-
+import { EditOutlined } from "@ant-design/icons";
 
 import addIcon from "./img/addIcon.svg";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
@@ -42,7 +42,7 @@ export default function Education({ education, updateResume }) {
   const onSubmit = (data) => {
     console.log(data);
     axios
-      .put(`resume/addeducation`, data)
+      .put(`resume/addeducation`, data, tokenHeader)
       .then((res) => {
         console.log(res);
         updateResume(Math.random());

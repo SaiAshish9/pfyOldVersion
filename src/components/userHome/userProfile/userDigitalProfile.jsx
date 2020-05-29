@@ -10,6 +10,7 @@ import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import facebookIcon from "./img/facebookIcon.svg";
 import instagramIcon from "./img/instagramIcon.svg";
+import { tokenHeader } from "../../../constant/tokenHeader";
 
 const UserDigitalProfile = ({ profileData, isUpdate }) => {
   const digitalProfileData = profileData
@@ -58,7 +59,7 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
     const data = {
       digitalProfile: { ...SM },
     };
-    axios.put(url, data).then((res) => {
+    axios.put(url, data, tokenHeader).then((res) => {
       console.log(res.data);
       isUpdate();
       setIsModalVisible(false);

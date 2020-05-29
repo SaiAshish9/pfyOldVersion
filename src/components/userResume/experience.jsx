@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { arrayValidation } from "../validation/validation";
 import experienceIcon from "./img/headingImg/experienceIcon.svg";
-import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
-
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 import addIcon from "./img/addIcon.svg";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const month = [
   "Jan",
@@ -62,7 +62,7 @@ const Experience = ({ workExperience, updateResume }) => {
       ? { ...data, _id: experienceData._id }
       : data;
     axios
-      .post(`resume/add_experience`, myExpData)
+      .post(`resume/add_experience`, myExpData, tokenHeader)
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
@@ -99,7 +99,7 @@ const Experience = ({ workExperience, updateResume }) => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`resume/delete_experience/${id}`)
+      .delete(`resume/delete_experience/${id}`, tokenHeader)
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
@@ -166,14 +166,17 @@ const Experience = ({ workExperience, updateResume }) => {
                         onClick={() => handleEdit(myExp)}
                         style={{ marginRight: "32px" }}
                       ></Icon> */}
-                      <EditOutlined onClick={() => handleEdit(myExp)} style={{ marginRight: "32px" }} />
+                      <EditOutlined
+                        onClick={() => handleEdit(myExp)}
+                        style={{ marginRight: "32px" }}
+                      />
                     </Tooltip>
                     <Tooltip title="delete">
                       {/* <Icon
                         type="delete"
                         onClick={() => handleDelete(myExp._id)}
                       /> */}
-                      <DeleteOutlined onClick={() => handleDelete(myExp._id)}/>
+                      <DeleteOutlined onClick={() => handleDelete(myExp._id)} />
                     </Tooltip>
                   </section>
                 </div>

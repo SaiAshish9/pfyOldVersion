@@ -15,8 +15,8 @@ import marketingIcon from "./img/skillImg/marketingIcon.svg";
 import otherIcon from "./img/skillImg/otherIcon.svg";
 import technicalIcon from "./img/skillImg/technicalIcon.svg";
 
-import { ArrowLeftOutlined } from '@ant-design/icons';
-
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const proficiencyRate = [
   "Beginner",
@@ -38,7 +38,7 @@ export default function Skill({ skill }) {
 
   useEffect(() => {
     axios
-      .get(`skill/fetch`)
+      .get(`skill/fetch`, tokenHeader)
       .then((res) => {
         console.log("%c skill", "color:red", res.data);
         setSkillData(res.data);
@@ -365,7 +365,7 @@ export default function Skill({ skill }) {
             <div className="skill-subCategory-block">
               <div>
                 {/* <Icon type="arrow-left"z onClick={handleBack} /> */}
-                <ArrowLeftOutlined  onClick={handleBack}/>
+                <ArrowLeftOutlined onClick={handleBack} />
                 <div>{skillImage(selectedCategory)}</div>
               </div>
               <div className=""></div>

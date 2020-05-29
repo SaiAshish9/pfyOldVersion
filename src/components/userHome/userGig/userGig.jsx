@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../../common/card";
 /* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../../validation/validation";
+import { tokenHeader } from "../../../constant/tokenHeader";
 
 export default function UserGig() {
   const { TabPane } = Tabs;
@@ -11,7 +12,7 @@ export default function UserGig() {
 
   useEffect(() => {
     axios
-      .get(`mission/mymissions`)
+      .get(`mission/mymissions`, tokenHeader)
       .then((res) => {
         console.log(res.data);
         setGig(res.data);

@@ -7,7 +7,7 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import { apiURL } from "../../constant/url";
 import { arrayValidation } from "../validation/validation";
 import taskIcon from "./taskIcon.svg";
-import { LeftCircleFilled, RightCircleFilled } from '@ant-design/icons';
+import { LeftCircleFilled, RightCircleFilled } from "@ant-design/icons";
 
 export default function GigTask({
   gigTask,
@@ -153,7 +153,7 @@ export default function GigTask({
     arrayValidation(gigTask) &&
       gigTask.forEach((task) => {
         axios
-          .get(`task/${selectedGigId}/${task._id}`)
+          .get(`task/${selectedGigId}/${task._id}`, tokenHeader)
           .then((res) => {
             dummyTaskData.push(res.data);
             setTaskData(dummyTaskData);

@@ -12,6 +12,7 @@ import PaymentMethod from "./paymentMethodModal";
 import axios from "axios";
 import noDetails from "./images/noDetails.jpg";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const codeToText = {
   901: "Not Redeemed",
@@ -38,7 +39,7 @@ export default function Earnings({ data, details, isUpdate }) {
     const url = "wallet/request_redemption";
     if (details.wallet) {
       axios
-        .post(url)
+        .post(url, tokenHeader)
         .then((res) => {
           const resData = res.data;
           console.log("REDEEM", resData.message);

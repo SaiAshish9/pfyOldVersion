@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import userFaceIcon from "./img/(1).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
+import { tokenHeader } from "../../../constant/tokenHeader";
 
 const AboutUser = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -25,10 +26,8 @@ const AboutUser = (props) => {
     const data1 = {
       aboutMe: data.aboutMe ? data.aboutMe : " ",
     };
-    axios.put(url, data1).then((res) => {
+    axios.put(url, data1, tokenHeader).then((res) => {
       console.log(res.data);
-      // setIsRerender(!isRerender)
-
       props.isUpdate();
       setIsModalVisible(false);
     });

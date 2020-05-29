@@ -11,6 +11,7 @@ import Position from "./position";
 import Project from "./project";
 import Skill from "./skill";
 import Training from "./training";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const UserResume = () => {
   const [userResumeData, setUserResumeData] = useState({});
@@ -21,7 +22,7 @@ const UserResume = () => {
   useEffect(() => {
     console.log("updater", updater);
     axios
-      .get("resume/me")
+      .get("resume/me", tokenHeader)
       .then((res) => {
         console.log("user resume data", res.data);
         setIsLoader(false);

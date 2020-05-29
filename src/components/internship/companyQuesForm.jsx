@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const CompanyQuesForm = (props) => {
   const { TextArea } = Input;
@@ -33,7 +34,7 @@ const CompanyQuesForm = (props) => {
 
     if (isInternshipOrGig === "internship") {
       axios
-        .put(`internship/apply/${selectedId}`, answerData)
+        .put(`internship/apply/${selectedId}`, answerData, tokenHeader)
         .then((res) => {
           console.log(res);
           console.log(answer);
@@ -45,7 +46,7 @@ const CompanyQuesForm = (props) => {
         });
     } else {
       axios
-        .put(`mission/apply/${selectedId}`, answerData)
+        .put(`mission/apply/${selectedId}`, answerData, tokenHeader)
         .then((res) => {
           console.log(res);
           // console.log(answer);

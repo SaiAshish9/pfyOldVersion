@@ -6,9 +6,10 @@ import { useForm } from "react-hook-form";
 import { arrayValidation } from "../validation/validation";
 import { apiURL } from "../../constant/url";
 import team from "./img/headingImg/achievementIcon.svg";
-import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 import addIcon from "./img/addIcon.svg";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const Achievement = ({ achievement, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -22,7 +23,7 @@ const Achievement = ({ achievement, updateResume }) => {
     const index = achievementData && achievement.indexOf(achievementData);
     const myData = achievementData ? { ...data, index } : data;
     axios
-      .post(`resume/add_achievement`, myData)
+      .post(`resume/add_achievement`, myData, tokenHeader)
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
@@ -83,11 +84,14 @@ const Achievement = ({ achievement, updateResume }) => {
                         onClick={() => handleEdit(myAchievement)}
                         style={{ marginRight: "32px" }}
                       ></Icon> */}
-                      <EditOutlined  onClick={() => handleEdit(myAchievement)} style={{ marginRight: "32px" }}/>
+                      <EditOutlined
+                        onClick={() => handleEdit(myAchievement)}
+                        style={{ marginRight: "32px" }}
+                      />
                     </Tooltip>
                     <Tooltip title="delete">
                       {/* <Icon type="delete" onClick={() => handleDelete(index)} /> */}
-                      <DeleteOutlined  onClick={() => handleDelete(index)} />
+                      <DeleteOutlined onClick={() => handleDelete(index)} />
                     </Tooltip>
                   </section>
                 </div>

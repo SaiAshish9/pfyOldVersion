@@ -23,6 +23,7 @@ import socialMediaIcon from "./img/interestIcon/socialMediaIcon.svg";
 import storeAuditIcon from "./img/interestIcon/storeAuditIcon.svg";
 import videoMaking from "./img/interestIcon/videoMaking.svg";
 import writingIcon from "./img/interestIcon/writingIcon.svg";
+import { tokenHeader } from "../../../constant/tokenHeader";
 
 const skillImg = [
   { icon: comedyIcon, text: "comedy" },
@@ -74,7 +75,7 @@ const UserSkill = (props) => {
     const data1 = {
       skills: skills1,
     };
-    axios.put(url, data1).then((res) => {
+    axios.put(url, data1, tokenHeader).then((res) => {
       console.log(res.data);
       props.isUpdate();
       setIsModalVisible(false);

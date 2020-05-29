@@ -7,9 +7,10 @@ import creditCardImg from "./images/credit_card.svg";
 import envelop from "./images/envelop.svg";
 import future from "./images/future.svg";
 import transactionImg from "./images/transactionImg.svg";
-import PaymentMethod from './paymentMethodModal';
+import PaymentMethod from "./paymentMethodModal";
 import Transactions from "./transactions";
 import Earnings from "./earnings";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const { TabPane } = Tabs;
 
@@ -32,7 +33,7 @@ const Wallet = () => {
 
   useEffect(() => {
     const url = "wallet/fetch";
-    axios.get(url).then(res => {
+    axios.get(url, tokenHeader).then((res) => {
       const data = res.data;
       console.table(data);
       setWalletDetails(data);
@@ -40,7 +41,7 @@ const Wallet = () => {
 
     // fetch my earnings
     const url2 = "wallet/my_earnings";
-    axios.get(url2).then(res => {
+    axios.get(url2, tokenHeader).then((res) => {
       const earnings = res.data;
       console.log("EARNINGS", earnings);
       setEarnings(earnings);
@@ -49,7 +50,7 @@ const Wallet = () => {
     // fetch money transactions
 
     const url3 = "wallet/money_transfers";
-    axios.get(url3).then(res => {
+    axios.get(url3, tokenHeader).then((res) => {
       const transactions = res.data;
       console.log("TRANSACTIONS", transactions);
       setTransactions(transactions);
@@ -57,15 +58,13 @@ const Wallet = () => {
     });
   }, [isUpdate]);
 
-  
-
-  const callback = key => {
+  const callback = (key) => {
     console.log(key);
   };
 
   const isUpdateHandler = () => {
-    setIsUpdate(Math.random())
-  }
+    setIsUpdate(Math.random());
+  };
 
   const arr = [1, 2, 3];
   return (
@@ -100,12 +99,17 @@ const Wallet = () => {
     // </div>
     <div className="wallet">
       {/* <PaymentMethod isModalOpen={isShow} isClose={isClose} /> */}
-      {earnings && walletDetails ? <Earnings data={earnings} details={walletDetails} isUpdate={isUpdateHandler} /> : null}
-      {transactions && walletDetails ? <Transactions data={transactions} details={walletDetails}  /> : null}
-
-      </div>
-      
-      
+      {earnings && walletDetails ? (
+        <Earnings
+          data={earnings}
+          details={walletDetails}
+          isUpdate={isUpdateHandler}
+        />
+      ) : null}
+      {transactions && walletDetails ? (
+        <Transactions data={transactions} details={walletDetails} />
+      ) : null}
+    </div>
   );
 };
 

@@ -14,11 +14,12 @@ import instagramIcon from "./img/digitalProfileIcon/instagramIcon.svg";
 import linkedinIcon from "./img/digitalProfileIcon/linkedinIcon.svg";
 import mediumIcon from "./img/digitalProfileIcon/mediumIcon.svg";
 // import facebookIcon from "./img/digitalProfileIcon/";
-import {DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 import quoraIcon from "./img/digitalProfileIcon/quoraIcon.svg";
 import youtubeIcon from "./img/digitalProfileIcon/youtubeIcon.svg";
 import digitalProfileIcon from "./img/headingImg/digitalProfileIcon.svg";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 export default function DigitalProfile({ digitalProfile, updateResume }) {
   console.log("digital Profile", digitalProfile);
@@ -28,7 +29,7 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
 
   const onSubmit = (data) => {
     console.log(data);
-    Axios.post(`resume/add_digital_profiles`, data)
+    Axios.post(`resume/add_digital_profiles`, data, tokenHeader)
       .then((res) => {
         updateResume(Math.random());
       })

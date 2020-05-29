@@ -17,8 +17,8 @@ const App = () => {
   const [user, userDispatch] = useReducer(UserReducer, {});
 
   axios.defaults.baseURL = "https://pracify.com/testing/";
-  const token = Cookie.get("token");
-  axios.defaults.headers.common["token"] = token ? token : null;
+  // const token = Cookie.get("token");
+  // axios.defaults.headers.common["token"] = token ? token : null;
 
   useEffect(() => {
     getUser(userDispatch);

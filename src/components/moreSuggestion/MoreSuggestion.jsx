@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import SmallCard from "../common/smallCard";
 import { arrayValidation } from "../validation/validation";
 import helpIcon from "./help.svg";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 export default function MoreSuggestion({ isGigOrInternship, category }) {
   console.log("isGigOrInternship", isGigOrInternship, category);
@@ -26,7 +27,10 @@ export default function MoreSuggestion({ isGigOrInternship, category }) {
         });
     } else if (isGigOrInternship === "internship") {
       axios
-        .get(`internship/fetch_with_status?pagesize=4&category=xyz`)
+        .get(
+          `internship/fetch_with_status?pagesize=4&category=${category}`,
+          tokenHeader
+        )
         .then((res) => {
           setSimilarGigOrInternship(res.data.internships);
           console.log("similar internship", res.data);
@@ -36,37 +40,6 @@ export default function MoreSuggestion({ isGigOrInternship, category }) {
         });
     }
   }, [category, isGigOrInternship]);
-
-  // const gigCompany = internship
-  //   ? false
-  //   : gig.company
-  //   ? gig.company
-  //   : gig.companyId;
-
-  // const internshipCompany = gig
-  //   ? false
-  //   : internship.company
-  //   ? internship.company
-  //   : internship.companyId;
-
-  // const gigTasks = internship
-  //   ? false
-  //   : Array.isArray(gig.tasks)
-  //   ? gig.tasks.length
-  //   : gig.tasks;
-
-  // const id = gig ? gig._id : internship._id;
-  // const logo = gig ? gigCompany.logoUrl : internshipCompany.logoUrl;
-  // const title = gig ? gig.title : internship.designation;
-  // const companyName = gig
-  //   ? gigCompany.companyName
-  //   : internshipCompany.companyName;
-  // const amount = gig ? gig.reward : internship.stipend;
-  // const durationLength = gig ? `${gigTasks} Task` : internship.duration;
-  // const icon = gig ? taskIcon : calendarIcon;
-  // const applyBefore = gig ? gig.applyBefore : internship.applyBefore;
-
-  // const DetailPath = gig ? `/gig/${id}` : `/internship/${id}`;
 
   return (
     <div className="moreGigOrInternship-main-block">

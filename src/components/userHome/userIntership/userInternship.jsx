@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../../common/card";
 import { arrayValidation } from "../../validation/validation";
 import "./userInternship.css";
+import { tokenHeader } from "../../../constant/tokenHeader";
 
 const UserInternship = () => {
   const { TabPane } = Tabs;
@@ -12,7 +13,7 @@ const UserInternship = () => {
 
   useEffect(() => {
     axios
-      .get(`internship/myinternships`)
+      .get(`internship/myinternships`, tokenHeader)
       .then((res) => {
         setInternship(res.data.internships);
       })

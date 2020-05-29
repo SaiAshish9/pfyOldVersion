@@ -8,6 +8,7 @@ import UserDigitalProfile from "./userDigitalProfile";
 import axios from "axios";
 
 import UserCard from "../../common/userCard";
+import { tokenHeader } from "../../../constant/tokenHeader";
 
 const UserProfile = () => {
   const [profileData, setProfileData] = useState();
@@ -16,14 +17,14 @@ const UserProfile = () => {
   // GET PROFILE
   useEffect(() => {
     const url = "user/";
-    axios.get(url).then(res => {
+    axios.get(url, tokenHeader).then((res) => {
       const profileData = res.data;
       console.log("PROFILE IS HERE", profileData);
       setProfileData(profileData);
     });
   }, [isUpdate]);
 
-  const myUserProfile = myProfileData => {
+  const myUserProfile = (myProfileData) => {
     console.log("myProfileData", myProfileData);
   };
 

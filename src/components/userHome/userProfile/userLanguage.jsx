@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import three from "./img/(3).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
+import { tokenHeader } from "../../../constant/tokenHeader";
 
 const { Option } = Select;
 
@@ -62,7 +63,7 @@ const UserLanguage = (props) => {
     const data1 = {
       languages: [...selectLang],
     };
-    axios.put(url, data1).then((res) => {
+    axios.put(url, data1, tokenHeader).then((res) => {
       console.log(res.data);
       props.isUpdate();
       setIsModalVisible(false);
@@ -76,7 +77,7 @@ const UserLanguage = (props) => {
       const data1 = {
         languages: [...data.languages],
       };
-      axios.put(url, data1).then((res) => {
+      axios.put(url, data1, tokenHeader).then((res) => {
         console.log(res.data);
         props.isUpdate();
         setIsModalVisible(false);
