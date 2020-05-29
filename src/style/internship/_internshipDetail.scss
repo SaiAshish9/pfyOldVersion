@@ -1,6 +1,5 @@
 .internship-details-page {
   font-family: $myFont;
-  // word-spacing: $wordSpace;
   background-color: #fafafa;
   padding: 100px 0px 80px 0px;
   display: flex;
@@ -18,91 +17,148 @@
     .internship-provider-block-One {
       display: flex;
       margin: 20px 0px;
-      border-bottom: 1px solid #e8e8e8;
       padding-bottom: 24px;
 
       .internship-provider-block-two {
         display: flex;
-      }
-      .internship-provider-block-three {
-        width: 120px;
-        height: 120px;
-        border: 1px solid rgba(0, 0, 0, 0.4);
-        img {
-          width: 100%;
-        }
-      }
-      .internship-provider-block-four {
-        margin-left: 32px;
-        .internship-provider-heading-one {
-          line-height: 1.43;
-          margin: 0px;
-        }
-        .internship-provider-heading-two {
-          color: $fontDark;
-          font-size: 22px;
-          line-height: 1.36;
-        }
-        .update-message-block {
-          display: flex;
-          align-items: center;
-          border: 1px solid #1bba27;
-          padding-right: 82px;
-          border-radius: 3px;
-          .update-message-block__icon {
-            width: 22px;
-            margin: 8px 32px 8px 36px;
+        align-items: center;
+        .internship-provider-block-three {
+          width: 86px;
+          height: 86px;
+          border: 1px solid rgba(0, 0, 0, 0.4);
+          img {
+            width: 100%;
           }
-          .update-message-block__span {
-            font-size: 14px;
-            font-weight: 500;
-            color: #1bba27;
+        }
+        .internship-provider-block-four {
+          margin-left: 32px;
+          .internship-provider-heading-one {
+            margin: 0;
+            font-size: 20px;
+            color: #000000;
           }
-          .update-message-block__span.link {
-            color: red;
+          .internship-provider-heading-two {
+            opacity: 0.6;
+            font-size: 16px;
+            color: #000000;
+          }
+          .update-message-block {
+            display: flex;
+            align-items: center;
+            border: 1px solid #1bba27;
+            padding-right: 82px;
+            border-radius: 3px;
+            .update-message-block__icon {
+              width: 22px;
+              margin: 8px 32px 8px 36px;
+            }
+            .update-message-block__span {
+              font-size: 14px;
+              font-weight: 500;
+              color: #1bba27;
+            }
+            .update-message-block__span.link {
+              color: red;
+            }
           }
         }
       }
     }
 
     .internship-brief-block {
-      display: flex;
-      justify-content: space-between;
-      // margin: auto;
-      // padding: 10px;
+      display: grid;
+      grid-template:
+        "stipend duration"
+        "location position"
+        "update update";
       border-radius: 8px;
-      // background: #f9f9fd;
-      .internship-brief-content {
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      margin: 2px 2px 40px 2px;
+      %box {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-        padding: 10px;
-        width: 100px;
-        height: 95px;
-        border: 1px solid #d3d3d3;
-
-        border-radius: 7px;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
-        background-color: #f3f3f3;
-        h5 {
-          color: $fontLight;
-          font-size: 14px;
-          margin-bottom: 1px;
+        justify-content: center;
+        padding: 16px;
+        img {
+          margin-right: 12px;
         }
-        h4 {
-          color: $fontDarker;
+      }
+      .internship-brief-content-one {
+        grid-area: stipend;
+        border-right: 1px solid #e8e8e8;
+        border-bottom: 1px solid #e8e8e8;
+        @extend%box;
+      }
+      .internship-brief-content-two {
+        grid-area: duration;
+        border-bottom: 1px solid #e8e8e8;
+        @extend%box;
+      }
+      .internship-brief-content-three {
+        grid-area: location;
+        border-right: 1px solid #e8e8e8;
+        border-bottom: 1px solid #e8e8e8;
+        @extend%box;
+      }
+      .internship-brief-content-four {
+        grid-area: position;
+        border-bottom: 1px solid #e8e8e8;
+        @extend%box;
+      }
+      .internship-brief-content-five {
+        grid-area: update;
+        @extend%box;
+      }
+    }
+    // .boundary-one {
+    //   border-bottom: 1px solid #e8e8e8;
+    //   margin: 20px auto 36px;
+    // }
+    .internship-detail-block {
+      margin: 2px 2px 40px 2px;
+      border-radius: 10px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+      .internship-detail-content {
+        padding: 20px;
+        display: grid;
+        grid-template:
+          "img head"
+          "img para" /0fr 1fr;
+        border-bottom: 1px solid #e8e8e8;
+        img {
+          grid-area: img;
+          margin-right: 12px;
+        }
+        h2 {
+          grid-area: head;
+          font-size: 18px;
+          line-height: 1;
+          color: #333e49;
+        }
+        p {
+          grid-area: para;
+          opacity: 0.5;
           font-size: 16px;
-          margin-bottom: 0px;
+          line-height: 1.13;
+          color: #000000;
         }
       }
     }
-    .boundary-one {
-      border-bottom: 1px solid #e8e8e8;
-      margin: 20px auto 36px;
-    }
-    .internship-detail-block {
-      margin-right: 40px;
+    .internship-provider-detail-block {
+      .internship-provider-head {
+        opacity: 0.8;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #000000;
+      }
+      .internship-provider-para {
+        opacity: 0.5;
+        font-size: 16px;
+        line-height: 1.38;
+        color: #000000;
+      }
     }
     .apply-block {
       position: fixed;
@@ -116,11 +172,16 @@
       justify-content: center;
       box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.16);
       .apply-button-block {
-        width: 207px;
-        height: 40px;
+        width: 200px;
+        height: 50px;
         border-radius: 26px;
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
-        background-image: linear-gradient(103deg, #5a87e5 4%, #37cfdd 95%);
+        background-color: #38bdba;
+        border: 1px solid #38bdba;
+
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffffff;
       }
     }
   }

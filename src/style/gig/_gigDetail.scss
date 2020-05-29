@@ -1,6 +1,5 @@
 .gig-details-page {
   font-family: $myFont;
-  // word-spacing: $wordSpace;
   background-color: #fafafa;
   padding: 100px 0px 80px 0px;
   display: flex;
@@ -17,16 +16,15 @@
     .gig-provider-block-One {
       display: flex;
       margin: 20px 0px;
-      border-bottom: 1px solid #e8e8e8;
       padding-bottom: 24px;
 
       .gig-provider-block-two {
         display: flex;
-        // margin-left: 40px;
+        align-items: center;
       }
       .gig-provider-block-three {
-        width: 120px;
-        height: 120px;
+        width: 86px;
+        height: 86px;
         border: 1px solid rgba(0, 0, 0, 0.4);
         img {
           width: 100%;
@@ -35,13 +33,14 @@
       .gig-provider-block-four {
         margin-left: 32px;
         .gig-provider-heading-one {
-          line-height: 1.43;
-          margin: 0px;
+          margin: 0;
+          font-size: 20px;
+          color: #000000;
         }
         .gig-provider-heading-two {
-          color: $fontDark;
-          font-size: 22px;
-          line-height: 1.36;
+          opacity: 0.6;
+          font-size: 16px;
+          color: #000000;
         }
         .update-message-block {
           display: flex;
@@ -67,83 +66,120 @@
     }
 
     .gig-brief-block {
-      display: flex;
-      justify-content: space-evenly;
-      // margin: auto;
-      // padding: 10px;
+      display: grid;
+      grid-template:
+        "reward task"
+        "update update";
       border-radius: 8px;
-      // background: #f9f9fd;
-      .gig-brief-content {
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      margin: 2px 2px 40px 2px;
+      %box {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-        padding: 10px;
-        width: 100px;
-        height: 95px;
-        border: 1px solid #d3d3d3;
-
-        border-radius: 7px;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
-        background-color: #f3f3f3;
-        h5 {
-          color: $fontLight;
-          font-size: 14px;
-          margin-bottom: 1px;
+        justify-content: center;
+        padding: 16px;
+        img {
+          margin-right: 12px;
         }
-        h4 {
-          color: $fontDarker;
+      }
+      .gig-brief-content-one {
+        grid-area: reward;
+        border-right: 1px solid #e8e8e8;
+        border-bottom: 1px solid #e8e8e8;
+        @extend%box;
+      }
+      .gig-brief-content-two {
+        grid-area: task;
+        border-bottom: 1px solid #e8e8e8;
+        @extend%box;
+      }
+      .gig-brief-content-three {
+        grid-area: update;
+        @extend%box;
+      }
+    }
+
+    .gig-detail-block {
+      margin: 2px 2px 40px 2px;
+      border-radius: 10px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+      .gig-detail-content {
+        padding: 20px;
+        display: grid;
+        grid-template:
+          "img head"
+          "img para" /0fr 1fr;
+        border-bottom: 1px solid #e8e8e8;
+        img {
+          grid-area: img;
+          margin-right: 12px;
+        }
+        h2 {
+          grid-area: head;
+          font-size: 18px;
+          line-height: 1;
+          color: #333e49;
+        }
+        p {
+          grid-area: para;
+          opacity: 0.5;
           font-size: 16px;
-          margin-bottom: 0px;
+          line-height: 1.13;
+          color: #000000;
+        }
+      }
+
+      div.carousel-block {
+        div.carousel-content-block {
+          // border: 1px solid;
+          padding: 20px;
+          width: 95%;
+          text-align: center;
+          box-shadow: 0 0 8px 0 #cecfcf;
+          margin: 20px 0px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          border-radius: 4px;
+          background-color: #f9f9fd;
+          h4.carousel-content-block__h4 {
+            font-size: 16px;
+            width: 90%;
+            // margin: 0 auto;
+            text-align: center;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+
+          img.carousel-content-block__img {
+            margin-bottom: 12px;
+          }
+
+          button.carousel-content-block__button {
+            color: #fff;
+            background-color: rgba(37, 46, 183, 0.36);
+            border: 1px solid rgba(37, 46, 183, 0.36);
+          }
         }
       }
     }
-    .boundary-one {
-      border-bottom: 1px solid #e8e8e8;
-      margin: 20px auto 36px;
-    }
-    .gig-detail-block {
-      margin-right: 40px;
-      div {
-        h2 {
-        }
-        div.carousel-block {
-          div.carousel-content-block {
-            // border: 1px solid;
-            padding: 20px;
-            width: 95%;
-            text-align: center;
-            box-shadow: 0 0 8px 0 #cecfcf;
-            margin: 20px 0px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            border-radius: 4px;
-            background-color: #f9f9fd;
-            h4.carousel-content-block__h4 {
-              font-size: 16px;
-              width: 90%;
-              // margin: 0 auto;
-              text-align: center;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              overflow: hidden;
-            }
 
-            img.carousel-content-block__img {
-              margin-bottom: 12px;
-            }
-
-            button.carousel-content-block__button {
-              color: #fff;
-              background-color: rgba(37, 46, 183, 0.36);
-              border: 1px solid rgba(37, 46, 183, 0.36);
-            }
-          }
-          div {
-          }
-        }
+    .gig-provider-detail-block {
+      .gig-provider-head {
+        opacity: 0.8;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #000000;
+      }
+      .gig-provider-para {
+        opacity: 0.5;
+        font-size: 16px;
+        line-height: 1.38;
+        color: #000000;
       }
     }
     .apply-block {
@@ -158,11 +194,16 @@
       justify-content: center;
       box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.16);
       .apply-button-block {
-        width: 207px;
-        height: 40px;
+        width: 200px;
+        height: 50px;
         border-radius: 26px;
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
-        background-image: linear-gradient(103deg, #5a87e5 4%, #37cfdd 95%);
+        background-color: #38bdba;
+        border: 1px solid #38bdba;
+
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffffff;
       }
     }
   }

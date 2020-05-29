@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__Page-1" width="20.273" height="20.273" viewBox="0 0 20.273 20.273">
+    <defs>
+        <style>
+            .prefix__cls-3{fill:#95a5a5}.prefix__cls-4{fill:#c03a2b}
+        </style>
+    </defs>
+    <g id="prefix___001---Calendar" data-name="001---Calendar">
+        <path id="prefix__Shape" d="M20.273 14v13.981a1.4 1.4 0 0 1-1.4 1.4H1.4a1.4 1.4 0 0 1-1.4-1.4V14z" transform="translate(0 -9.107)" style="fill:#ecf0f1"/>
+        <path id="prefix__Shape-2" d="M20.273 4.4v3.144H0V4.4A1.4 1.4 0 0 1 1.4 3h17.475a1.4 1.4 0 0 1 1.398 1.4z" data-name="Shape" transform="translate(0 -1.951)" style="fill:#e64c3c"/>
+        <g id="prefix__Group_436" data-name="Group 436" transform="translate(2.097 7.34)">
+            <rect id="prefix__Rectangle-path" width="2.097" height="1.748" class="prefix__cls-3" rx=".874"/>
+            <rect id="prefix__Rectangle-path-2" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(3.495)"/>
+            <rect id="prefix__Rectangle-path-3" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(6.991)"/>
+            <rect id="prefix__Rectangle-path-4" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(10.486)"/>
+            <rect id="prefix__Rectangle-path-5" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(13.981)"/>
+            <rect id="prefix__Rectangle-path-6" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(0 3.146)"/>
+            <rect id="prefix__Rectangle-path-7" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(3.495 3.146)"/>
+            <rect id="prefix__Rectangle-path-8" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(6.991 3.146)"/>
+            <rect id="prefix__Rectangle-path-9" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(10.486 3.146)"/>
+            <rect id="prefix__Rectangle-path-10" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(13.981 3.146)"/>
+            <rect id="prefix__Rectangle-path-11" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(0 6.292)"/>
+            <rect id="prefix__Rectangle-path-12" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(3.495 6.292)"/>
+            <rect id="prefix__Rectangle-path-13" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(6.991 6.292)"/>
+            <rect id="prefix__Rectangle-path-14" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(10.486 6.292)"/>
+            <rect id="prefix__Rectangle-path-15" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(13.981 6.292)"/>
+            <rect id="prefix__Rectangle-path-16" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(0 9.437)"/>
+            <rect id="prefix__Rectangle-path-17" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(3.495 9.437)"/>
+            <rect id="prefix__Rectangle-path-18" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(6.991 9.437)"/>
+            <rect id="prefix__Rectangle-path-19" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(10.486 9.437)"/>
+            <rect id="prefix__Rectangle-path-20" width="2.097" height="1.748" class="prefix__cls-3" data-name="Rectangle-path" rx=".874" transform="translate(13.981 9.437)"/>
+        </g>
+        <path id="prefix__Shape-3" d="M42.447 3A1.65 1.65 0 0 1 43.5 4.506a1.751 1.751 0 0 1-3.5 0A1.65 1.65 0 0 1 41.049 3z" class="prefix__cls-4" data-name="Shape" transform="translate(-26.019 -1.951)"/>
+        <path id="prefix__Shape-4" d="M10.447 3A1.65 1.65 0 0 1 11.5 4.506a1.7 1.7 0 0 1-1.748 1.64A1.7 1.7 0 0 1 8 4.506 1.65 1.65 0 0 1 9.049 3z" class="prefix__cls-4" data-name="Shape" transform="translate(-5.204 -1.951)"/>
+        <rect id="prefix__Rectangle-path-21" width="1.398" height="2.796" class="prefix__cls-3" data-name="Rectangle-path" rx=".699" transform="translate(15.03)"/>
+        <rect id="prefix__Rectangle-path-22" width="1.398" height="2.796" class="prefix__cls-3" data-name="Rectangle-path" rx=".699" transform="translate(3.845)"/>
+    </g>
+</svg>

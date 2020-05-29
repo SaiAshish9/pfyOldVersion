@@ -80,7 +80,7 @@
 .contactUs-form-field {
   top: 20px;
   .ant-modal-content {
-    padding: 10px 80px;
+    padding: 40px 80px 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
 
@@ -91,6 +91,7 @@
         font-size: 34px;
         font-weight: 500;
         line-height: 0.94;
+        border-bottom: none;
         color: #333e49;
       }
     }

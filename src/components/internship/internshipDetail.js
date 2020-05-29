@@ -10,6 +10,14 @@ import { arrayValidation } from "../validation/validation";
 import CompanyQueForm from "./companyQuesForm";
 import checkIcon from "./img/checkIcon.svg";
 import removeIcon from "./img/removeIcon.svg";
+import calenderDateIcon from "../../assets/img/internship/calenderDateIcon.svg";
+import calenderIcon from "../../assets/img/internship/calenderIcon.svg";
+import locationIcon from "../../assets/img/internship/locationIcon.svg";
+import positionIcon from "../../assets/img/internship/positionIcon.svg";
+import rupeeIcon from "../../assets/img/internship/rupeeIcon.svg";
+import responsibilityIcon from "../../assets/img/internship/responsibilityIcon.svg";
+import benefitIcon from "../../assets/img/internship/benefitIcon.svg";
+import skillRequiredIcon from "../../assets/img/internship/skillRequiredIcon.svg";
 
 const { TabPane } = Tabs;
 export default function InternshipDetail(props) {
@@ -17,6 +25,7 @@ export default function InternshipDetail(props) {
   const myCookie = Cookies.get("token");
 
   const [internship, setInternship] = useState();
+  console.log("internship", internship);
 
   const [modalVisible, setModalVisible] = useState(false);
   const [isApply, setIsApply] = useState(false);
@@ -50,6 +59,8 @@ export default function InternshipDetail(props) {
   /* ---------------------------- internship detail state ---------------------------- */
   const aboutInternshipProvider =
     myInternship && myInternship.company.aboutCompany;
+  const companyWebsite = myInternship && myInternship.company.websiteLink;
+
   const internResponsibilities = myInternship && myInternship.responsibilities;
   const skillRequired = myInternship && myInternship.skillsRequired;
   const benefit = myInternship && myInternship.benefits;
@@ -120,100 +131,52 @@ export default function InternshipDetail(props) {
             <div className="internship-provider-block-One">
               <div className="internship-provider-block-two">
                 <div className="internship-provider-block-three">
-                  <img src={companyLogo ? companyLogo : ""}></img>
+                  <img src={companyLogo ? companyLogo : ""} alt=""></img>
                 </div>
                 <div className="internship-provider-block-four">
                   <h1 className="internship-provider-heading-one">
                     {designation}
                   </h1>
-                  <h3 className="internship-provider-heading-two">
+                  <span className="internship-provider-heading-two">
                     {internshipProvider}
-                  </h3>
-                  {isApply && (
-                    <div className="update-message-block">
-                      <img
-                        alt=""
-                        src={checkIcon}
-                        className="update-message-block__icon"
-                      ></img>
-                      <span className="update-message-block__span">
-                        You've applied to this internship
-                      </span>
-                    </div>
-                  )}
-                  {isShortlisted && (
-                    <div className="update-message-block">
-                      <img
-                        alt=""
-                        src={checkIcon}
-                        className="update-message-block__icon"
-                      ></img>
-                      <span className="update-message-block__span">
-                        You are shortlisted for this internship
-                      </span>
-                    </div>
-                  )}
-                  {isSelected && (
-                    <div className="update-message-block">
-                      <img
-                        alt=""
-                        src={checkIcon}
-                        className="update-message-block__icon"
-                      ></img>
-                      <span className="update-message-block__span">
-                        You are selected for this internship
-                      </span>
-                    </div>
-                  )}
-                  {isRejected && (
-                    <div className="update-message-block">
-                      <img
-                        alt=""
-                        src={removeIcon}
-                        className="update-message-block__icon"
-                      ></img>
-                      <span className="update-message-block__span">
-                        You've been rejected
-                      </span>
-                      <span className="update-message-block__span link">
-                        learn more
-                      </span>
-                    </div>
-                  )}
+                  </span>
                 </div>
               </div>
             </div>
 
             <div className="internship-brief-block">
-              <div className="internship-brief-content">
-                <h5>Positions</h5>
-                <h4>{numberOfPositions}</h4>
+              <div className="internship-brief-content-one">
+                <img src={rupeeIcon} alt="" className="" />
+                <span>Stipend: Rs. {stipend}</span>
               </div>
-              <div className="internship-brief-content">
-                <h5>Stipend</h5>
-                <h4>{stipend}</h4>
+
+              <div className="internship-brief-content-two">
+                <img src={calenderIcon} alt="" className="" />
+                <span>Duration: {duration}</span>
               </div>
-              <div className="internship-brief-content">
-                <h5>Duration</h5>
-                <h4>{duration}</h4>
+
+              <div className="internship-brief-content-three">
+                <img src={locationIcon} alt="" className="" />
+                <span>Location: {internshipLocation}</span>
               </div>
-              <div className="internship-brief-content">
-                <h5>Deadline</h5>
-                <h4>{moment(appliedBeforeTime).format("DD MMM")}</h4>
+
+              <div className="internship-brief-content-four">
+                <img src={positionIcon} alt="" className="" />
+                <span>Positions: {numberOfPositions}</span>
               </div>
-              <div className="internship-brief-content">
-                <h5>Location</h5>
-                <h4>{internshipLocation}</h4>
-              </div>
-              <div className="internship-brief-content">
-                <h5>Starting</h5>
-                <h4>{moment(internshipStartingTime).format("DD MMM")}</h4>
+
+              <div className="internship-brief-content-five">
+                <img src={calenderDateIcon} alt="" className="" />
+                <span>
+                  Apply Before:{" "}
+                  {moment(appliedBeforeTime).format("Do MMMM YYYY")}
+                </span>
               </div>
             </div>
-            <div className="boundary-one" />
 
             <div className="internship-detail-block">
-              <div>
+              <div className="internship-detail-content">
+                <img src={responsibilityIcon} alt="" />
                 <h2>Responsibilities</h2>
                 {arrayValidation(internResponsibilities) &&
                   internResponsibilities.map((responsibility) => (
@@ -223,8 +186,8 @@ export default function InternshipDetail(props) {
                     </p>
                   ))}
               </div>
-              <br />
-              <div>
+              <div className="internship-detail-content">
+                <img src={skillRequiredIcon} alt="" />
                 <h2>Skills Required</h2>
                 {arrayValidation(skillRequired) &&
                   skillRequired.map((skill) => {
@@ -235,8 +198,8 @@ export default function InternshipDetail(props) {
                     );
                   })}
               </div>
-              <br />
-              <div>
+              <div className="internship-detail-content">
+                <img src={benefitIcon} alt="" />
                 <h2>Benefits</h2>
                 {arrayValidation(benefit) &&
                   benefit.map((myBenefit) => {
@@ -247,9 +210,9 @@ export default function InternshipDetail(props) {
                     );
                   })}
               </div>
-              <br />
-              <div>
-                <h2>Benefits</h2>
+              <div className="internship-detail-content">
+                <img src={responsibilityIcon} alt="" />
+                <h2>Requirements</h2>
                 {arrayValidation(otherRequirement) &&
                   otherRequirement.map((myOtherRequirement) => {
                     return (
@@ -260,7 +223,6 @@ export default function InternshipDetail(props) {
                     );
                   })}
               </div>
-              <br />
             </div>
 
             <div className="apply-block">
@@ -271,8 +233,8 @@ export default function InternshipDetail(props) {
                 className="apply-button-block"
               >
                 {isApply || isRejected || isSelected || isShortlisted
-                  ? "APPLIED"
-                  : "APPLY NOW"}
+                  ? "Applied"
+                  : "Apply Now"}
               </Button>
             </div>
           </TabPane>
@@ -286,67 +248,27 @@ export default function InternshipDetail(props) {
                   <h1 className="internship-provider-heading-one">
                     {designation}
                   </h1>
-                  <h3 className="internship-provider-heading-two">
+                  <span className="internship-provider-heading-two">
                     {internshipProvider}
-                  </h3>
-                  {isApply && (
-                    <div className="update-message-block">
-                      <img
-                        alt=""
-                        src={checkIcon}
-                        className="update-message-block__icon"
-                      ></img>
-                      <span className="update-message-block__span">
-                        You've applied to this internship
-                      </span>
-                    </div>
-                  )}
-                  {isShortlisted && (
-                    <div className="update-message-block">
-                      <img
-                        alt=""
-                        src={checkIcon}
-                        className="update-message-block__icon"
-                      ></img>
-                      <span className="update-message-block__span">
-                        You are shortlisted for this internship
-                      </span>
-                    </div>
-                  )}
-                  {isSelected && (
-                    <div className="update-message-block">
-                      <img
-                        alt=""
-                        src={checkIcon}
-                        className="update-message-block__icon"
-                      ></img>
-                      <span className="update-message-block__span">
-                        You are selected for this internship
-                      </span>
-                    </div>
-                  )}
-                  {isRejected && (
-                    <div className="update-message-block">
-                      <img
-                        alt=""
-                        src={removeIcon}
-                        className="update-message-block__icon"
-                      ></img>
-                      <span className="update-message-block__span">
-                        You've been rejected
-                      </span>
-                      <span className="update-message-block__span link">
-                        learn more
-                      </span>
-                    </div>
-                  )}
+                  </span>
                 </div>
               </div>
             </div>
-            <div className="internship-detail-block">
+            <div className="internship-provider-detail-block">
               <div>
-                <h2>{internshipProvider}</h2>
-                <p>{aboutInternshipProvider}</p>
+                <h2 className="internship-provider-head">
+                  About {internshipProvider}
+                </h2>
+                <p className="internship-provider-para">
+                  {aboutInternshipProvider}
+                </p>
+              </div>
+              <br />
+              <div className="">
+                <h2 className="internship-provider-head">
+                  {internshipProvider} Website
+                </h2>
+                <p className="internship-provider-para">{companyWebsite}</p>
               </div>
             </div>
           </TabPane>
@@ -371,3 +293,56 @@ export default function InternshipDetail(props) {
 }
 
 // <ApplicationForm/>
+
+//TODO
+// {isApply && (
+//   <div className="update-message-block">
+//     <img
+//       alt=""
+//       src={checkIcon}
+//       className="update-message-block__icon"
+//     ></img>
+//     <span className="update-message-block__span">
+//       You've applied to this internship
+//     </span>
+//   </div>
+// )}
+// {isShortlisted && (
+//   <div className="update-message-block">
+//     <img
+//       alt=""
+//       src={checkIcon}
+//       className="update-message-block__icon"
+//     ></img>
+//     <span className="update-message-block__span">
+//       You are shortlisted for this internship
+//     </span>
+//   </div>
+// )}
+// {isSelected && (
+//   <div className="update-message-block">
+//     <img
+//       alt=""
+//       src={checkIcon}
+//       className="update-message-block__icon"
+//     ></img>
+//     <span className="update-message-block__span">
+//       You are selected for this internship
+//     </span>
+//   </div>
+// )}
+// {isRejected && (
+//   <div className="update-message-block">
+//     <img
+//       alt=""
+//       src={removeIcon}
+//       className="update-message-block__icon"
+//     ></img>
+//     <span className="update-message-block__span">
+//       You've been rejected
+//     </span>
+//     <span className="update-message-block__span link">
+//       learn more
+//     </span>
+//   </div>
+// )}

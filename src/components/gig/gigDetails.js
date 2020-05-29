@@ -10,6 +10,12 @@ import CompanyQueForm from "../internship/companyQuesForm";
 import checkIcon from "../internship/img/checkIcon.svg";
 import removeIcon from "../internship/img/removeIcon.svg";
 import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
+import calendarDateIcon from "../../assets/img/gig/calendarDateIcon.svg";
+import rupeeIcon from "../../assets/img/gig/rupeeIcon.svg";
+import taskIcon from "../../assets/img/gig/taskIcon.svg";
+import descriptionIcon from "../../assets/img/gig/descriptionIcon.svg";
+import responsibilityIcon from "../../assets/img/gig/responsibilityIcon.svg";
+
 import { arrayValidation } from "../validation/validation";
 import GigTask from "./gigTask";
 
@@ -52,6 +58,7 @@ export default function GigDetail(props) {
 
   /* ------------------------- gig detail state ------------------------ */
   const aboutGigProvider = myGig && myGig.company.aboutCompany;
+  const companyWebsite = myGig && myGig.company.websiteLink;
   const aboutGig = myGig && myGig.about;
   const requirement = myGig && myGig.requirements;
 
@@ -136,104 +143,36 @@ export default function GigDetail(props) {
                 <div className="gig-provider-block-four">
                   <h1 className="gig-provider-heading-one">{designation}</h1>
                   <h3 className="gig-provider-heading-two">{gigProvider}</h3>
-                  {isApply && (
-                    <div className="update-message-block">
-                      <img
-                        className="update-message-block__icon"
-                        alt=""
-                        src={checkIcon}
-                      ></img>
-                      <span className="update-message-block__span">
-                        You've applied to this Gig
-                      </span>
-                    </div>
-                  )}
-                  {isShortlisted && (
-                    <div className="update-message-block">
-                      <img
-                        className="update-message-block__icon"
-                        alt=""
-                        src={checkIcon}
-                      ></img>
-                      <span className="update-message-block__span">
-                        You are shortlisted for this Gig
-                      </span>
-                    </div>
-                  )}
-                  {isSelected && (
-                    <div className="update-message-block">
-                      <img
-                        className="update-message-block__icon"
-                        alt=""
-                        src={checkIcon}
-                      ></img>
-                      <span className="update-message-block__span">
-                        You are selected for this Gig
-                      </span>
-                    </div>
-                  )}
-                  {isRejected && (
-                    <div className="update-message-block">
-                      <img
-                        className="update-message-block__icon"
-                        alt=""
-                        src={removeIcon}
-                      ></img>
-                      <span className="update-message-block__span">
-                        You've been rejected
-                      </span>
-                      <span className="update-message-block__span link">
-                        learn more
-                      </span>
-                    </div>
-                  )}
-                  {isCompleted && (
-                    <div className="update-message-block">
-                      <img
-                        className="update-message-block__icon"
-                        alt=""
-                        src={checkIcon}
-                      ></img>
-                      <span className="update-message-block__span">
-                        Congratulations! you've successfully complete this Gig
-                      </span>
-                    </div>
-                  )}
-                  {isFailed && (
-                    <div className="update-message-block">
-                      <img alt="" src={removeIcon}></img>
-                      <span className="update-message-block__span">
-                        Sorry! your gig has been failed
-                      </span>
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
 
             <div className="gig-brief-block">
-              <div className="gig-brief-content">
-                <h5>Rewards</h5>
-                <h4>{reward}</h4>
+              <div className="gig-brief-content-one">
+                <img src={rupeeIcon} alt="" className="" />
+                <span>Rewards: Rs. {reward}</span>
               </div>
-              <div className="gig-brief-content">
-                <h5>Tasks</h5>
-                <h4>{task}</h4>
+              <div className="gig-brief-content-two">
+                <img src={taskIcon} alt="" className="" />
+                <span>Tasks: Rs. {task}</span>
               </div>
-              <div className="gig-brief-content">
-                <h5>Deadline</h5>
-                <h4>{moment(appliedBeforeTime).format("DD MMM")}</h4>
-              </div>
-              <div className="gig-brief-content">
-                <h5>Type</h5>
-                <h4>{type}</h4>
+              <div className="gig-brief-content-three">
+                <img src={calendarDateIcon} alt="" className="" />
+                <span>
+                  Apply Before:{" "}
+                  {moment(appliedBeforeTime).format("Do MMMM YYYY")}
+                </span>
               </div>
             </div>
-            <div className="boundary-one" />
 
             <div className="gig-detail-block">
+              <div className="gig-detail-content">
+                <img src={descriptionIcon} alt="" className="" />
+                <h2>Description</h2>
+                <p>{aboutGig}</p>
+              </div>
               <div>
-                <h2>Task to be done</h2>
+                <h2>Tasks to Perform</h2>
                 <div className="carousel-block">
                   <GigTask
                     gigTask={gigTask}
@@ -248,13 +187,8 @@ export default function GigDetail(props) {
                   />
                 </div>
               </div>
-              <br />
-              <div>
-                <h2>About the Gig</h2>
-                <p>{aboutGig}</p>
-              </div>
-              <br />
-              <div>
+              <div className="gig-detail-content">
+                <img src={responsibilityIcon} alt="" className="" />
                 <h2>Requirements</h2>
                 {arrayValidation(requirement) &&
                   requirement.map((myRequirement) => (
@@ -263,9 +197,7 @@ export default function GigDetail(props) {
                     </p>
                   ))}
               </div>
-              <br />
             </div>
-
             <div className="apply-block">
               <Button
                 type="primary"
@@ -377,10 +309,15 @@ export default function GigDetail(props) {
               </div>
             </div>
 
-            <div className="gig-detail-block">
+            <div className="gig-provider-detail-block">
               <div>
-                <h2>{gigProvider}</h2>
-                <p>{aboutGigProvider}</p>
+                <h2 className="gig-provider-head">About {gigProvider}</h2>
+                <p className="gig-provider-para">{aboutGigProvider}</p>
+              </div>
+              <br />
+              <div className="">
+                <h2 className="gig-provider-head">{gigProvider} Website</h2>
+                <p className="gig-provider-para">{companyWebsite}</p>
               </div>
             </div>
           </TabPane>
@@ -403,3 +340,75 @@ export default function GigDetail(props) {
     </div>
   );
 }
+
+// {isApply && (
+//   <div className="update-message-block">
+//     <img
+//       className="update-message-block__icon"
+//       alt=""
+//       src={checkIcon}
+//     ></img>
+//     <span className="update-message-block__span">
+//       You've applied to this Gig
+//     </span>
+//   </div>
+// )}
+// {isShortlisted && (
+//   <div className="update-message-block">
+//     <img
+//       className="update-message-block__icon"
+//       alt=""
+//       src={checkIcon}
+//     ></img>
+//     <span className="update-message-block__span">
+//       You are shortlisted for this Gig
+//     </span>
+//   </div>
+// )}
+// {isSelected && (
+//   <div className="update-message-block">
+//     <img
+//       className="update-message-block__icon"
+//       alt=""
+//       src={checkIcon}
+//     ></img>
+//     <span className="update-message-block__span">
+//       You are selected for this Gig
+//     </span>
+//   </div>
+// )}
+// {isRejected && (
+//   <div className="update-message-block">
+//     <img
+//       className="update-message-block__icon"
+//       alt=""
+//       src={removeIcon}
+//     ></img>
+//     <span className="update-message-block__span">
+//       You've been rejected
+//     </span>
+//     <span className="update-message-block__span link">
+//       learn more
+//     </span>
+//   </div>
+// )}
+// {isCompleted && (
+//   <div className="update-message-block">
+//     <img
+//       className="update-message-block__icon"
+//       alt=""
+//       src={checkIcon}
+//     ></img>
+//     <span className="update-message-block__span">
+//       Congratulations! you've successfully complete this Gig
+//     </span>
+//   </div>
+// )}
+// {isFailed && (
+//   <div className="update-message-block">
+//     <img alt="" src={removeIcon}></img>
+//     <span className="update-message-block__span">
+//       Sorry! your gig has been failed
+//     </span>
+//   </div>
+// )}
