@@ -33,8 +33,6 @@ import cookies from "js-cookie";
 const history = createBrowserHistory();
 
 const AppRouter = () => {
-  const isToken = cookies.get("token");
-
   return (
     <Router history={history}>
       <Switch>
@@ -62,29 +60,15 @@ const AppRouter = () => {
         />
 
         {/* //! ---------------------------------- common Route --------------------------------- */}
-        <PrivateRoute path="/gigs" component={Gig} exact={true} />
-        <PrivateRoute path="/gig/:id" component={GigDetail} exact={true} />
-        <PrivateRoute path="/internships" component={Internship} exact={true} />
-        <PrivateRoute
+        <CommonRoute path="/gigs" component={Gig} exact={true} />
+        <CommonRoute path="/gig/:id" component={GigDetail} exact={true} />
+        <CommonRoute path="/internships" component={Internship} exact={true} />
+        <CommonRoute
           path="/testing"
           component={internshipApplication}
           exact={true}
         />
-        <PrivateRoute
-          path="/internship/:id"
-          component={InternshipDetail}
-          exact={true}
-        />
-
-        <PublicRoute path="/gigs" component={Gig} exact={true} />
-        <PublicRoute path="/gig/:id" component={GigDetail} exact={true} />
-        <PublicRoute path="/internships" component={Internship} exact={true} />
-        <PublicRoute
-          path="/testing"
-          component={internshipApplication}
-          exact={true}
-        />
-        <PublicRoute
+        <CommonRoute
           path="/internship/:id"
           component={InternshipDetail}
           exact={true}
