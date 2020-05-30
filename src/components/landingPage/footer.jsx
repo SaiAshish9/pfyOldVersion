@@ -39,7 +39,9 @@ export default function Footer() {
         </div>
         <div className="legal-block">
           <h3 className="footer__header">Legal</h3>
-          <p className="footer__link">Terms & Conditions</p>
+          <Link to="/partner_with_us">
+            <p className="footer__link">Terms & Conditions</p>
+          </Link>
           <p className="footer__link">Privacy Policy</p>
         </div>
         <div className="get-in-touch-block">

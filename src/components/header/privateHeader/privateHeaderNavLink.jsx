@@ -76,7 +76,7 @@ export default function PrivateHeaderNavLink() {
           </Link>
         )}
         {location === "/gigs" ? (
-          <span className="myLink">Gig</span>
+          <span className="myLink">Gigs</span>
         ) : (
           <Link to="/gigs" className="myLink">
             Gigs
@@ -84,7 +84,7 @@ export default function PrivateHeaderNavLink() {
         )}
 
         {location === "/internships" ? (
-          <span className="myLink">Internship</span>
+          <span className="myLink">Internships</span>
         ) : (
           <Link to="/internships" className="myLink">
             Internships
