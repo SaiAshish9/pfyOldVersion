@@ -5,7 +5,7 @@ import resumeIcon from "./img/updateResumeIcon.svg";
 import gigProfileIcon from "./img/updateGigProfileIcon.svg";
 import rightArrowBlackIcon from "./img/rightArrowBlackIcon.svg";
 
-export default function Score() {
+export default function Score({ user }) {
   const history = useHistory();
 
   const handleUpdateResume = () => {
@@ -20,7 +20,9 @@ export default function Score() {
     <div className="score-main-block">
       <div className="resume-score-block">
         <div className="resume-score-content">
-          <h1 className="">You Resume Score Is 40%</h1>
+          <h1 className="">
+            You Resume Score Is {user.resumeScore && user.resumeScore}%
+          </h1>
           <p className="">
             Recruiters prefer hiring interns with a resume score of 60% or
             above.
@@ -38,7 +40,9 @@ export default function Score() {
       </div>
       <div className="gig-profile-block">
         <div className="gig-profile-content">
-          <h1 className="">Your Gig Profile Score Is 50%</h1>
+          <h1 className="">
+            Your Gig Profile Score Is {user.profileScore && user.profileScore}%
+          </h1>
           <p className="">
             Companies prefer hiring workers with a gig profile score of at least
             70%.

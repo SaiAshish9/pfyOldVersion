@@ -37,7 +37,7 @@ export default function EditProfile(props) {
     console.table(myObj);
     const url = "user/update";
     setConfirmLoading(true);
-    axios.put(url, myObj, tokenHeader).then((res) => {
+    axios.put(url, myObj, tokenHeader()).then((res) => {
       console.log("RESPONSE IS ");
       console.log(res.data);
       setConfirmLoading(false);
@@ -95,7 +95,7 @@ export default function EditProfile(props) {
     // colleges = []
     const url = `college/fetch?search=${value}`;
     console.log("URL IS " + url);
-    axios.get(url, tokenHeader).then((res) => {
+    axios.get(url, tokenHeader()).then((res) => {
       const collegeObject = res.data;
       console.log(collegeObject);
 
@@ -126,7 +126,7 @@ export default function EditProfile(props) {
       // fetch(value, data => setCollegeData({data}) );
       const url = `college/fetch?search=${value}`;
       console.log("URL IS " + url);
-      axios.get(url, tokenHeader).then((res) => {
+      axios.get(url, tokenHeader()).then((res) => {
         const data = res.data;
         setCollegeData({ data });
       });

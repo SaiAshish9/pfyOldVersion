@@ -14,7 +14,6 @@ export default function VerifyStudentStatus(props) {
   const [visible, setVisible] = useState(false);
   const [imageUrl1, setImageUrl1] = useState(null);
   const [imageUrl2, setImageUrl2] = useState(null);
-  console.log(props.isShowVerify);
 
   const showModal = () => {
     setVisible(true);

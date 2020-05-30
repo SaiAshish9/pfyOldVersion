@@ -1,7 +1,8 @@
 import { Card, Skeleton } from "antd";
-import React, { useEffect, useReducer, useContext } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { tokenHeader } from "../../../constant/tokenHeader";
 /* ---------------------------------- ***** --------------------------------- */
-import UserContext, { getUser } from "../../../context/userContext";
 // import userReducer from "../../../reducer/userReducer";
 import { objectValidation } from "../../validation/validation";
 import Avatar from "./avatar";
@@ -10,22 +11,24 @@ import Score from "./score";
 import Stat from "./stat";
 
 const UserHome = () => {
-  // const [user, userDispatch] = useReducer(userReducer, {});
-  const { user, userDispatch } = useContext(UserContext);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    console.log("user home data", user);
-  }, [user]);
-
-  //fetching data
-  // useEffect(() => {
-  //   getUser(userDispatch);
-  // }, []);
+    axios
+      .get(`home`, tokenHeader())
+      .then((res) => {
+        const userData = res.data;
+        setUser(userData);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
+  }, []);
 
   return (
     <div className="homePage-block">
       {objectValidation(user) ? (
-        <Avatar />
+        <Avatar user={user} />
       ) : (
         <div className="avatar-block">
           <Card style={{ width: "40%", marginRight: 40 }}>
@@ -37,8 +40,8 @@ const UserHome = () => {
         </div>
       )}
       <Stat />
-      <Score />
-      <GigOrInternship></GigOrInternship>
+      <Score user={user} />
+      <GigOrInternship user={user}></GigOrInternship>
     </div>
   );
 };

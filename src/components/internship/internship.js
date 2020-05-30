@@ -44,10 +44,6 @@ export default function Internship() {
     setArrangeCard(value);
   };
 
-  useEffect(() => {
-    console.log(arrangeCard);
-  }, [arrangeCard]);
-
   return (
     <div className="card-container-main-block">
       <Row

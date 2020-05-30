@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
+import { Tabs } from "antd";
+import React from "react";
 import Card from "../../common/card";
 import { arrayValidation } from "../../validation/validation";
-import UserContext from "../../../context/userContext";
-import { Tabs } from "antd";
 
 const { TabPane } = Tabs;
-export default function GigOrInternship() {
-  const { user } = useContext(UserContext);
-
-  const margin = index => {
+export default function GigOrInternship({ user }) {
+  const margin = (index) => {
     if (index === 0) {
       console.log(index);
       return { marginLeft: "0px" };
@@ -18,7 +15,7 @@ export default function GigOrInternship() {
     }
   };
 
-  const getCard = dataOfCard => {
+  const getCard = (dataOfCard) => {
     return (
       arrayValidation(dataOfCard) &&
       dataOfCard.map((userCardData, index) => {

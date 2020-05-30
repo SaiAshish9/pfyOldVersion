@@ -62,7 +62,7 @@ const Experience = ({ workExperience, updateResume }) => {
       ? { ...data, _id: experienceData._id }
       : data;
     axios
-      .post(`resume/add_experience`, myExpData, tokenHeader)
+      .post(`resume/add_experience`, myExpData, tokenHeader())
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
@@ -99,7 +99,7 @@ const Experience = ({ workExperience, updateResume }) => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`resume/delete_experience/${id}`, tokenHeader)
+      .delete(`resume/delete_experience/${id}`, tokenHeader())
       .then((res) => {
         console.log(res);
         updateResume(Math.random());

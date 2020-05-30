@@ -1,19 +1,13 @@
-import React, { useContext } from "react";
-// import { <Icon } from "antd";
-import { useHistory, Link } from "react-router-dom";
-import studentStatusIcon from "./img/linkStudentStatusIcon.svg";
+import React from "react";
+import { Link } from "react-router-dom";
 import gigIcon from "./img/linkGigIcon.svg";
+import gigProfileIcon from "./img/linkGigProfileIcon.svg";
 import internshipIcon from "./img/linkInternshipIcon.svg";
 import resumeIcon from "./img/linkResumeIcon.svg";
-import gigProfileIcon from "./img/linkGigProfileIcon.svg";
+import studentStatusIcon from "./img/linkStudentStatusIcon.svg";
 import rightArrowIcon from "./img/rightArrowIcon2.svg";
-import clipboard from "./img/clipboard.png";
-import rupee from "./img/rupee.png";
-import UserContext from "../../../context/userContext";
 
 export default function Stat() {
-  const { user } = useContext(UserContext);
-
   // console.log(user);
 
   return (

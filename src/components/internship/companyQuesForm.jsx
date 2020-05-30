@@ -34,7 +34,7 @@ const CompanyQuesForm = (props) => {
 
     if (isInternshipOrGig === "internship") {
       axios
-        .put(`internship/apply/${selectedId}`, answerData, tokenHeader)
+        .put(`internship/apply/${selectedId}`, answerData, tokenHeader())
         .then((res) => {
           console.log(res);
           console.log(answer);
@@ -46,7 +46,7 @@ const CompanyQuesForm = (props) => {
         });
     } else {
       axios
-        .put(`mission/apply/${selectedId}`, answerData, tokenHeader)
+        .put(`mission/apply/${selectedId}`, answerData, tokenHeader())
         .then((res) => {
           console.log(res);
           // console.log(answer);

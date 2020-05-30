@@ -28,10 +28,13 @@ import CommonRoute from "./commonRoute";
 import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
 import Login from "../components/login/login";
+import cookies from "js-cookie";
 
 const history = createBrowserHistory();
 
 const AppRouter = () => {
+  const isToken = cookies.get("token");
+
   return (
     <Router history={history}>
       <Switch>
@@ -58,19 +61,35 @@ const AppRouter = () => {
           exact={true}
         />
 
-        <CommonRoute path="/gigs" component={Gig} exact={true} />
-        <CommonRoute path="/gig/:id" component={GigDetail} exact={true} />
-        <CommonRoute path="/internships" component={Internship} exact={true} />
-        <CommonRoute
+        {/* //! ---------------------------------- common Route --------------------------------- */}
+        <PrivateRoute path="/gigs" component={Gig} exact={true} />
+        <PrivateRoute path="/gig/:id" component={GigDetail} exact={true} />
+        <PrivateRoute path="/internships" component={Internship} exact={true} />
+        <PrivateRoute
           path="/testing"
           component={internshipApplication}
           exact={true}
         />
-        <CommonRoute
+        <PrivateRoute
           path="/internship/:id"
           component={InternshipDetail}
           exact={true}
         />
+
+        <PublicRoute path="/gigs" component={Gig} exact={true} />
+        <PublicRoute path="/gig/:id" component={GigDetail} exact={true} />
+        <PublicRoute path="/internships" component={Internship} exact={true} />
+        <PublicRoute
+          path="/testing"
+          component={internshipApplication}
+          exact={true}
+        />
+        <PublicRoute
+          path="/internship/:id"
+          component={InternshipDetail}
+          exact={true}
+        />
+        {/* //!  ------------------------------------------ */}
 
         <PrivateRoute path="/home" component={UserHome} exact={true} />
         <PrivateRoute

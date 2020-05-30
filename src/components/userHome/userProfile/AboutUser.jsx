@@ -26,7 +26,7 @@ const AboutUser = (props) => {
     const data1 = {
       aboutMe: data.aboutMe ? data.aboutMe : " ",
     };
-    axios.put(url, data1, tokenHeader).then((res) => {
+    axios.put(url, data1, tokenHeader()).then((res) => {
       console.log(res.data);
       props.isUpdate();
       setIsModalVisible(false);

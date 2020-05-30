@@ -24,8 +24,6 @@ export default function PrivateHeader() {
     setIsNavOpen(!isNavOpen);
   };
 
-  console.log(isNavOpen);
-
   const myMobileNav = {
     transition: "transform .3s ease-in-out",
     transform: isNavOpen ? "translate(0%,0px)" : "translate(100%,0px)",

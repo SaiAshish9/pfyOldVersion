@@ -12,7 +12,7 @@ export default function UserGig() {
 
   useEffect(() => {
     axios
-      .get(`mission/mymissions`, tokenHeader)
+      .get(`mission/mymissions`, tokenHeader())
       .then((res) => {
         console.log(res.data);
         setGig(res.data);

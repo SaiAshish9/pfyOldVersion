@@ -66,7 +66,7 @@ const Project = ({ project, updateResume }) => {
     const myData = projectData ? { ...data, _id: projectData._id } : data;
     console.log("check", myData);
     axios
-      .post(`resume/add_project`, myData, tokenHeader)
+      .post(`resume/add_project`, myData, tokenHeader())
       .then((res) => {
         console.log(res);
         updateResume(Math.random());

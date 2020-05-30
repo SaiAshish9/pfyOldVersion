@@ -73,7 +73,7 @@ export default function InternshipDetail(props) {
       axios
         .get(
           `internship/fetchone_with_status/${selectedInternshipId}`,
-          tokenHeader
+          tokenHeader()
         )
         .then((res) => {
           console.log(res);

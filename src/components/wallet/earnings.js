@@ -39,7 +39,7 @@ export default function Earnings({ data, details, isUpdate }) {
     const url = "wallet/request_redemption";
     if (details.wallet) {
       axios
-        .post(url, tokenHeader)
+        .post(url, tokenHeader())
         .then((res) => {
           const resData = res.data;
           console.log("REDEEM", resData.message);

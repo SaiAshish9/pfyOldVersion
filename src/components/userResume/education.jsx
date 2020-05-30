@@ -42,7 +42,7 @@ export default function Education({ education, updateResume }) {
   const onSubmit = (data) => {
     console.log(data);
     axios
-      .put(`resume/addeducation`, data, tokenHeader)
+      .put(`resume/addeducation`, data, tokenHeader())
       .then((res) => {
         console.log(res);
         updateResume(Math.random());

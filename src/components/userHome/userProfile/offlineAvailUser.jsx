@@ -107,7 +107,7 @@ const OfflineAvailUser = (props) => {
     console.log("DATA IS READY");
     console.table(data1);
     axios
-      .put(url, data1, tokenHeader)
+      .put(url, data1, tokenHeader())
       .then((res) => {
         console.log(res.data);
         setIsModalVisible(false);

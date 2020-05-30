@@ -6,22 +6,22 @@ import PrivateHeader from "../components/header/privateHeader/privateHeader";
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const isToken = Cookies.get("token");
   return (
-        <Route
-          {...rest}
-          component={props =>
-            isToken ? (
-              <div>
-                <div>
-                  <PrivateHeader />
-                  <Component {...props} />
-                </div>
-              </div>
-            ) : (
-              <Redirect to="/" />
-            )
-          }
-        />
+    <>
+      {<PrivateHeader />}
+      <Route
+        {...rest}
+        component={(props) =>
+          isToken ? (
+            <>
+              <Component {...props} />
+            </>
+          ) : (
+            <Redirect to="/" />
+          )
+        }
+      />
+    </>
   );
 };
 
-export default PrivateRoute;            
+export default PrivateRoute;

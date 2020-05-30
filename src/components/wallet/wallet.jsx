@@ -33,7 +33,7 @@ const Wallet = () => {
 
   useEffect(() => {
     const url = "wallet/fetch";
-    axios.get(url, tokenHeader).then((res) => {
+    axios.get(url, tokenHeader()).then((res) => {
       const data = res.data;
       console.table(data);
       setWalletDetails(data);
@@ -41,7 +41,7 @@ const Wallet = () => {
 
     // fetch my earnings
     const url2 = "wallet/my_earnings";
-    axios.get(url2, tokenHeader).then((res) => {
+    axios.get(url2, tokenHeader()).then((res) => {
       const earnings = res.data;
       console.log("EARNINGS", earnings);
       setEarnings(earnings);
@@ -50,7 +50,7 @@ const Wallet = () => {
     // fetch money transactions
 
     const url3 = "wallet/money_transfers";
-    axios.get(url3, tokenHeader).then((res) => {
+    axios.get(url3, tokenHeader()).then((res) => {
       const transactions = res.data;
       console.log("TRANSACTIONS", transactions);
       setTransactions(transactions);

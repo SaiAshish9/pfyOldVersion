@@ -1,18 +1,15 @@
-import React, { useContext } from "react";
+import { Divider } from "antd";
+import React from "react";
 import { useHistory } from "react-router-dom";
-import { Progress, Divider, Icon } from "antd";
-import notificationIcon from "../userHome/img/notificationIcon.svg";
-import rightArrowIcon from "../userHome/img/rightArrowIcon.svg";
-import rightArrowBlackIcon from "../userHome/img/rightArrowBlackIcon.svg";
-import creditCardImg from "./img/credit_card.svg";
-import UserContext from "../../../context/userContext";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { objectValidation } from "../../validation/validation";
 import userBlankImg from "../../../assets/img/userBlankImg.svg";
+import { objectValidation } from "../../validation/validation";
+import notificationIcon from "../userHome/img/notificationIcon.svg";
+import rightArrowBlackIcon from "../userHome/img/rightArrowBlackIcon.svg";
+import rightArrowIcon from "../userHome/img/rightArrowIcon.svg";
+import creditCardImg from "./img/credit_card.svg";
 
-const Avatar = () => {
+const Avatar = ({ user }) => {
   const history = useHistory();
-  const { user } = useContext(UserContext);
 
   const userName = objectValidation(user) ? user.user.firstName : "";
   const userImg = objectValidation(user) ? user.user.imgUrl : userBlankImg;

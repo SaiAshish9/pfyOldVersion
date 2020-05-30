@@ -34,7 +34,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
       .put(
         `resume/addobjective?careerObjectives=${data.objectiveTextarea}`,
         null,
-        tokenHeader
+        tokenHeader()
       )
       .then((res) => {
         console.log(res);

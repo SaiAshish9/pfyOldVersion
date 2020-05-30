@@ -31,7 +31,7 @@ export default function PaymentMethodModal(props) {
       [paymentMode]: dataToBeSend,
     };
     console.table(dataToBeSend);
-    axios.post(url, data, tokenHeader).then((res) => {
+    axios.post(url, data, tokenHeader()).then((res) => {
       console.log(res.data);
       props.isClose();
     });

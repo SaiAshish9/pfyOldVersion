@@ -71,7 +71,7 @@ export default function GigDetail(props) {
     console.log("myCookie", myCookie);
     if (isMyCookie) {
       axios
-        .get(`mission/fetchone_with_status/${selectedGigId}`, tokenHeader)
+        .get(`mission/fetchone_with_status/${selectedGigId}`, tokenHeader())
         .then((res) => {
           console.log("response", res);
           if (res.data.appliedStatus === 601) {

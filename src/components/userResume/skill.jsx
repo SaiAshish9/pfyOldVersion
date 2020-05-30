@@ -38,7 +38,7 @@ export default function Skill({ skill }) {
 
   useEffect(() => {
     axios
-      .get(`skill/fetch`, tokenHeader)
+      .get(`skill/fetch`, tokenHeader())
       .then((res) => {
         console.log("%c skill", "color:red", res.data);
         setSkillData(res.data);

@@ -13,7 +13,7 @@ const UserInternship = () => {
 
   useEffect(() => {
     axios
-      .get(`internship/myinternships`, tokenHeader)
+      .get(`internship/myinternships`, tokenHeader())
       .then((res) => {
         setInternship(res.data.internships);
       })

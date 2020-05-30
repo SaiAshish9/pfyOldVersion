@@ -75,7 +75,7 @@ const UserSkill = (props) => {
     const data1 = {
       skills: skills1,
     };
-    axios.put(url, data1, tokenHeader).then((res) => {
+    axios.put(url, data1, tokenHeader()).then((res) => {
       console.log(res.data);
       props.isUpdate();
       setIsModalVisible(false);

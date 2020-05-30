@@ -88,11 +88,11 @@ export default function GigTask({
     console.log("all submission", { submission: myCollectedData });
   };
   //! ---------------------------------- **** ---------------------------------- */
-
+  const userTokenHeader = tokenHeader();
   const props = {
     name: "file",
     action: `${apiURL}/task/get_image_url_for_task_submission`,
-    tokenHeader,
+    userTokenHeader,
     onChange(info) {
       if (info.file.status !== "uploading") {
         console.log(info.file, info.fileList);
@@ -153,7 +153,7 @@ export default function GigTask({
     arrayValidation(gigTask) &&
       gigTask.forEach((task) => {
         axios
-          .get(`task/${selectedGigId}/${task._id}`, tokenHeader)
+          .get(`task/${selectedGigId}/${task._id}`, tokenHeader())
           .then((res) => {
             dummyTaskData.push(res.data);
             setTaskData(dummyTaskData);

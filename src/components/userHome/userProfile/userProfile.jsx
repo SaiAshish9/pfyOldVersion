@@ -17,7 +17,7 @@ const UserProfile = () => {
   // GET PROFILE
   useEffect(() => {
     const url = "user/";
-    axios.get(url, tokenHeader).then((res) => {
+    axios.get(url, tokenHeader()).then((res) => {
       const profileData = res.data;
       console.log("PROFILE IS HERE", profileData);
       setProfileData(profileData);

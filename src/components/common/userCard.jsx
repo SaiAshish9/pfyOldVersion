@@ -15,7 +15,7 @@ export default function UserCard(props) {
 
   useEffect(() => {
     axios
-      .get("user", tokenHeader)
+      .get("user", tokenHeader())
       .then((res) => {
         myUserProfile && myUserProfile(res.data);
         setUserData(res.data);

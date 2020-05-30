@@ -63,7 +63,7 @@ const UserLanguage = (props) => {
     const data1 = {
       languages: [...selectLang],
     };
-    axios.put(url, data1, tokenHeader).then((res) => {
+    axios.put(url, data1, tokenHeader()).then((res) => {
       console.log(res.data);
       props.isUpdate();
       setIsModalVisible(false);
@@ -77,7 +77,7 @@ const UserLanguage = (props) => {
       const data1 = {
         languages: [...data.languages],
       };
-      axios.put(url, data1, tokenHeader).then((res) => {
+      axios.put(url, data1, tokenHeader()).then((res) => {
         console.log(res.data);
         props.isUpdate();
         setIsModalVisible(false);

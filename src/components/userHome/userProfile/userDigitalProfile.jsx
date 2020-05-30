@@ -59,7 +59,7 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
     const data = {
       digitalProfile: { ...SM },
     };
-    axios.put(url, data, tokenHeader).then((res) => {
+    axios.put(url, data, tokenHeader()).then((res) => {
       console.log(res.data);
       isUpdate();
       setIsModalVisible(false);

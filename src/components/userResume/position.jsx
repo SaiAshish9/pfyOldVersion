@@ -35,7 +35,7 @@ const Position = ({ position, updateResume }) => {
     const myData = positionData._id ? { ...data, _id: positionData._id } : data;
     console.log(myData);
     axios
-      .post(`resume/add_por`, myData, tokenHeader)
+      .post(`resume/add_por`, myData, tokenHeader())
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
@@ -68,7 +68,7 @@ const Position = ({ position, updateResume }) => {
   const handleDelete = (id) => {
     console.log(id);
     axios
-      .delete(`resume/delete_por/${id}`, tokenHeader)
+      .delete(`resume/delete_por/${id}`, tokenHeader())
       .then((res) => {
         // console.log(res);
         updateResume(Math.random());

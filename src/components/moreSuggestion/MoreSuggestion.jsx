@@ -29,7 +29,7 @@ export default function MoreSuggestion({ isGigOrInternship, category }) {
       axios
         .get(
           `internship/fetch_with_status?pagesize=4&category=${category}`,
-          tokenHeader
+          tokenHeader()
         )
         .then((res) => {
           setSimilarGigOrInternship(res.data.internships);

@@ -23,7 +23,7 @@ const Achievement = ({ achievement, updateResume }) => {
     const index = achievementData && achievement.indexOf(achievementData);
     const myData = achievementData ? { ...data, index } : data;
     axios
-      .post(`resume/add_achievement`, myData, tokenHeader)
+      .post(`resume/add_achievement`, myData, tokenHeader())
       .then((res) => {
         console.log(res);
         updateResume(Math.random());

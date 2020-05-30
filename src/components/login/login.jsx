@@ -26,7 +26,7 @@ export default function Login() {
   const [isSendOTP, setIsSendOTP] = useState(false);
   const [isSendOTPDisable, setIsSendOTPDisable] = useState(true);
 
-  // const [isOTPConfirm, setIsOTPConfirm] = useState(login.registrationRequired);
+  const [isOTPConfirm, setIsOTPConfirm] = useState(false);
   const [isOTPConfirmDisable, setIsOTPConfirmDisable] = useState(true);
 
   const [OTP, setOTP] = useState("");
@@ -100,7 +100,15 @@ export default function Login() {
             passToken: result.user.uid,
           };
 
-          loginUser(userCredential, history, loginDispatch);
+          const registrationRequired = () => {
+            setIsOTPConfirm(true);
+          };
+          loginUser(
+            userCredential,
+            registrationRequired,
+            history,
+            loginDispatch
+          );
 
           // axios
           //   .post(`auth/login`, userCredential)
@@ -203,7 +211,7 @@ export default function Login() {
           </form>
         </div>
       )}
-      {isSendOTP && !login.registrationRequired && (
+      {isSendOTP && !isOTPConfirm && (
         <div className="otp-block">
           <h1>Verify OTP</h1>
           <p>
@@ -252,9 +260,7 @@ export default function Login() {
           </form>
         </div>
       )}
-      {login.registrationRequired && (
-        <UserForm phone={phone} passToken={passToken} />
-      )}
+      {isOTPConfirm && <UserForm phone={phone} passToken={passToken} />}
     </div>
   );
 }

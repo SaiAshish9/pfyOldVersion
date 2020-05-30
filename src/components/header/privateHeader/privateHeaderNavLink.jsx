@@ -1,17 +1,30 @@
 import { DownCircleFilled } from "@ant-design/icons";
 import { Button, Dropdown, Menu } from "antd";
+import axios from "axios";
 import Cookies from "js-cookie";
-import React, { useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import userBlankImg from "../../../assets/img/userBlankImg.svg";
+import { tokenHeader } from "../../../constant/tokenHeader";
 import Support from "../../NewComps/support/support";
 import VerifyStudentStatus from "../../NewComps/verify_student_Status/verifyStudentStatus";
-import UserContext from "../../../context/userContext";
 import { objectValidation } from "../../validation/validation";
-import userBlankImg from "../../../assets/img/userBlankImg.svg";
 
 export default function PrivateHeaderNavLink() {
-  const { user } = useContext(UserContext);
-  console.log(user);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`home`, tokenHeader())
+      .then((res) => {
+        const userData = res.data;
+        setUser(userData);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
+  }, []);
+
   const userName = objectValidation(user) ? user.user.firstName : "";
   const userImg = objectValidation(user) ? user.user.imgUrl : userBlankImg;
 
@@ -33,7 +46,6 @@ export default function PrivateHeaderNavLink() {
   const ShowVerify = () => {
     setIsShowVerify(true);
   };
-  console.log(isShowVerify);
 
   const myProfileMenu = (
     <Menu>
@@ -62,8 +74,6 @@ export default function PrivateHeaderNavLink() {
   const isClose = () => {
     setIsShow(false);
   };
-
-  const handleAnchor = () => {};
 
   return (
     <>

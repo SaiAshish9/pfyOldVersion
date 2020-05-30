@@ -1,9 +1,10 @@
 import Cookies from "js-cookie";
 
-const myToken = Cookies.get("token");
-console.log(myToken);
-export const tokenHeader = {
-  headers: {
-    token: myToken,
-  },
+export const tokenHeader = () => {
+  console.log(Cookies.get("token"));
+  return {
+    headers: {
+      token: Cookies.get("token"),
+    },
+  };
 };

@@ -22,7 +22,7 @@ export default function Support(props) {
   const [selectedComp, setSelectedComp] = useState("supportTiles");
 
   const getFAQ = (val) => {
-    Axios.get("support/fetch", tokenHeader).then((res) => {
+    Axios.get("support/fetch", tokenHeader()).then((res) => {
       let data = res.data;
       if (val === "internshipSupport") {
         data = data.internshipSupport;
@@ -42,7 +42,7 @@ export default function Support(props) {
     getBase64(info.file.originFileObj, (imgurl) => setImageUrl(imgurl));
     Axios.get(
       "https://pracify.com/testing/student_verification/signed_url_for_docs?fileType=image/jpeg",
-      tokenHeader
+      tokenHeader()
     ).then((res) => {
       console.log(res.data);
       setImgURL(res.data);

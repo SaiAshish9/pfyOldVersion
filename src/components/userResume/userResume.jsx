@@ -22,7 +22,7 @@ const UserResume = () => {
   useEffect(() => {
     console.log("updater", updater);
     axios
-      .get("resume/me", tokenHeader)
+      .get("resume/me", tokenHeader())
       .then((res) => {
         console.log("user resume data", res.data);
         setIsLoader(false);

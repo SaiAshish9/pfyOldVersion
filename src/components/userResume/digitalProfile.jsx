@@ -29,7 +29,7 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
 
   const onSubmit = (data) => {
     console.log(data);
-    Axios.post(`resume/add_digital_profiles`, data, tokenHeader)
+    Axios.post(`resume/add_digital_profiles`, data, tokenHeader())
       .then((res) => {
         updateResume(Math.random());
       })

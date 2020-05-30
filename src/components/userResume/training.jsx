@@ -21,7 +21,7 @@ const Training = ({ training, updateResume }) => {
       ? { ...data, _id: trainingData._id }
       : data;
     axios
-      .post(`resume/add_training`, myTrainingData, tokenHeader)
+      .post(`resume/add_training`, myTrainingData, tokenHeader())
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
@@ -53,7 +53,7 @@ const Training = ({ training, updateResume }) => {
   const handleDelete = (id) => {
     console.log(id);
     axios
-      .delete(`resume/delete_training/${id}`, tokenHeader)
+      .delete(`resume/delete_training/${id}`, tokenHeader())
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
