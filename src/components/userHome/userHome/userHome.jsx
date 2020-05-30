@@ -11,7 +11,7 @@ import Stat from "./stat";
 
 const UserHome = () => {
   // const [user, userDispatch] = useReducer(userReducer, {});
-  const { user } = useContext(UserContext);
+  const { user, userDispatch } = useContext(UserContext);
 
   useEffect(() => {
     console.log("user home data", user);
@@ -20,7 +20,7 @@ const UserHome = () => {
   //fetching data
   // useEffect(() => {
   //   getUser(userDispatch);
-  // }, [userDispatch]);
+  // }, []);
 
   return (
     <div className="homePage-block">

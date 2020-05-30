@@ -2,20 +2,23 @@
 import { Button, Input, Statistic } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import loginHeroImg from "../../assets/img/login/loginHeroImg.svg";
 import phoneNumberIcon from "../../assets/img/login/phoneNumberIcon.svg";
 import { firebase } from "../../firebase/firebase";
 import UserForm from "./userForm";
+import LoginContext, { loginUser } from "../../context/loginContext";
 
 //! ---------------------------------- style --------------------------------- */
 
 const { Countdown } = Statistic;
 export default function Login() {
   const history = useHistory();
-  const [visible, setVisible] = useState(false);
+  const { login, loginDispatch } = useContext(LoginContext);
+
+  console.log("mainPoint", login);
 
   const [phone, setPhone] = useState("");
   const [passToken, setPassToken] = useState("");
@@ -23,7 +26,7 @@ export default function Login() {
   const [isSendOTP, setIsSendOTP] = useState(false);
   const [isSendOTPDisable, setIsSendOTPDisable] = useState(true);
 
-  const [isOTPConfirm, setIsOTPConfirm] = useState(false);
+  // const [isOTPConfirm, setIsOTPConfirm] = useState(login.registrationRequired);
   const [isOTPConfirmDisable, setIsOTPConfirmDisable] = useState(true);
 
   const [OTP, setOTP] = useState("");
@@ -63,10 +66,6 @@ export default function Login() {
     }
   };
 
-  const handleModalCancel = () => {
-    setVisible(false);
-  };
-
   const handleChangePhone = () => {
     setIsSendOTP(false);
     setOTP("");
@@ -88,6 +87,7 @@ export default function Login() {
     }
   }, [phone]);
 
+  //TODO
   const handleConfirmOTP = (e) => {
     e.preventDefault();
     if (window.confirmResult) {
@@ -99,26 +99,29 @@ export default function Login() {
             phone: result.user.phoneNumber,
             passToken: result.user.uid,
           };
-          axios
-            .post(`auth/login`, userCredential)
-            .then(function (res) {
-              console.log(res);
-              if (res.data.statusCode === 200) {
-                Cookies.set("token", res.data.token);
-                history.push({
-                  pathname: "/home",
-                  state: { headers: { token: res.data.token } },
-                });
-              } else if (res.data.statusCode === 210) {
-                setIsOTPConfirm(true);
-              } else {
-                console.log("their is some error");
-              }
-            })
-            .catch(function (error) {
-              console.log("error.response", error.response);
-              console.log("");
-            });
+
+          loginUser(userCredential, history, loginDispatch);
+
+          // axios
+          //   .post(`auth/login`, userCredential)
+          //   .then(function (res) {
+          //     console.log(res);
+          //     if (res.data.statusCode === 200) {
+          //       Cookies.set("token", res.data.token);
+          //       history.push({
+          //         pathname: "/home",
+          //         state: { headers: { token: res.data.token } },
+          //       });
+          //     } else if (res.data.statusCode === 210) {
+          //       setIsOTPConfirm(true);
+          //     } else {
+          //       console.log("their is some error");
+          //     }
+          //   })
+          //   .catch(function (error) {
+          //     console.log("error.response", error.response);
+          //     console.log("");
+          //   });
         })
         .catch(function (error) {
           console.log("wrong OTP");
@@ -200,8 +203,7 @@ export default function Login() {
           </form>
         </div>
       )}
-      {/*  FIXME remove true add isOTPConfirm */}
-      {isSendOTP && !isOTPConfirm && (
+      {isSendOTP && !login.registrationRequired && (
         <div className="otp-block">
           <h1>Verify OTP</h1>
           <p>
@@ -250,12 +252,8 @@ export default function Login() {
           </form>
         </div>
       )}
-      {isOTPConfirm && (
-        <UserForm
-          phone={phone}
-          passToken={passToken}
-          handleModalCancel={handleModalCancel}
-        />
+      {login.registrationRequired && (
+        <UserForm phone={phone} passToken={passToken} />
       )}
     </div>
   );

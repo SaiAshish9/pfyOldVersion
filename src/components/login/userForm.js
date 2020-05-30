@@ -14,7 +14,7 @@ import genderIcon from "../../assets/img/login/genderIcon.svg";
 
 const { Option } = Select;
 
-const UserForm = ({ phone, passToken, handleModalCancel }) => {
+const UserForm = ({ phone, passToken }) => {
   const history = useHistory();
 
   const [firstName, setFirstName] = useState("");
@@ -71,7 +71,6 @@ const UserForm = ({ phone, passToken, handleModalCancel }) => {
       .then((res) => {
         Cookies.set("token", res.data.token);
         console.log(res);
-        handleModalCancel();
         history.push(`/home`);
       })
       .catch((error) => {
