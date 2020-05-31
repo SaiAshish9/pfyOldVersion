@@ -1,14 +1,14 @@
-import { Button, Checkbox, Icon, Modal, Tooltip } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
+import { Button, Checkbox, Modal, Tooltip } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { tokenHeader } from "../../constant/tokenHeader";
 /* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
-import team from "./img/headingImg/projectIcon.svg";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-
 import addIcon from "./img/addIcon.svg";
-import { tokenHeader } from "../../constant/tokenHeader";
+import editIcon from "./img/editIcon.svg";
+import team from "./img/headingImg/projectIcon.svg";
 
 const month = [
   "Jan",
@@ -166,21 +166,15 @@ const Project = ({ project, updateResume }) => {
                   </section>
                   <section className="project-edit-delete-icon">
                     <Tooltip title="edit">
-                      {/* <Icon
-                        type="edit"
-                        onClick={() => handleEdit(myProject)}
-                        style={{ marginRight: "32px" }}
-                      ></Icon> */}
-                      <EditOutlined
+                      <img
+                        src={editIcon}
+                        alt=""
+                        className=""
                         onClick={() => handleEdit(myProject)}
                         style={{ marginRight: "32px" }}
                       />
                     </Tooltip>
                     <Tooltip title="delete">
-                      {/* <Icon
-                        type="delete"
-                        onClick={() => handleDelete(myProject._id)}
-                      /> */}
                       <DeleteOutlined
                         onClick={() => handleDelete(myProject._id)}
                       />
@@ -205,7 +199,7 @@ const Project = ({ project, updateResume }) => {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        width={680}
+        width={780}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

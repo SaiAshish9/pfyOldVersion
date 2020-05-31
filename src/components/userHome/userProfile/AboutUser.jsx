@@ -86,7 +86,7 @@ const AboutUser = (props) => {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        width={680}
+        width={780}
       >
         <form
           onSubmit={handleSubmit(onSubmitAboutMe)}

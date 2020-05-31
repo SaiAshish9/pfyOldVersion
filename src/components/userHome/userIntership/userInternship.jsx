@@ -3,8 +3,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import Card from "../../common/card";
+import UserStatusCard from "../userStatusCard";
 import { arrayValidation } from "../../validation/validation";
-import "./userInternship.css";
 import { tokenHeader } from "../../../constant/tokenHeader";
 
 const UserInternship = () => {
@@ -48,113 +48,36 @@ const UserInternship = () => {
 
   console.log(arrayValidation(applied));
 
-  const userApplied =
-    arrayValidation(applied) &&
-    applied.map((appliedInternship, index) => {
-      const userInternship = appliedInternship.internship;
+  const getCard = (dataOfCard, status) =>
+    arrayValidation(dataOfCard) &&
+    dataOfCard.map((userCardData, index) => {
+      console.log("userCardData", userCardData);
+      const userInternship = userCardData.internship;
+      console.log("userInternship", userInternship);
       return (
-        <div style={{ margin: "20px 20px 20px 1px" }} key={index}>
-          <Card internship={userInternship}></Card>
-        </div>
+        <UserStatusCard
+          aboutCard={userInternship}
+          status={status}
+          key={index}
+        ></UserStatusCard>
       );
     });
 
-  const userShortlisted =
-    arrayValidation(shortlisted) &&
-    shortlisted.map((shortlistedInternship, index) => {
-      const userInternship = shortlistedInternship.internship;
-      return (
-        <div style={{ margin: "20px 20px 20px 1px" }} key={index}>
-          <Card internship={userInternship}></Card>
-        </div>
-      );
-    });
-
-  const userSelected =
-    arrayValidation(selected) &&
-    selected.map((selectedInternship, index) => {
-      const userInternship = selectedInternship.internship;
-      return (
-        <div style={{ margin: "20px 20px 20px 1px" }} key={index}>
-          <Card internship={userInternship}></Card>
-        </div>
-      );
-    });
-
-  const userRejected =
-    arrayValidation(rejected) &&
-    rejected.map((rejectedInternship, index) => {
-      const userInternship = rejectedInternship.internship;
-      return (
-        <div style={{ margin: "20px 20px 20px 1px" }} key={index}>
-          <Card internship={userInternship}></Card>
-        </div>
-      );
-    });
+  const userApplied = getCard(applied, "Applied");
+  const userShortlisted = getCard(shortlisted, "Shortlisted");
+  const userSelected = getCard(selected, "Selected");
+  const userRejected = getCard(rejected, "Rejected");
 
   return (
-    <div
-      style={{
-        padding: "100px 60px 80px 60px",
-        background: "#f3f3f3",
-        minHeight: "680px",
-      }}
-    >
-      <div
-        className=""
-        style={{
-          backgroundColor: "#fff",
-          padding: "35px 45px",
-          borderRadius: "8px",
-        }}
-      >
-        <h1>Internship</h1>
-        <Tabs defaultActiveKey="1" onChange={handleTabChange} animated={false}>
-          <TabPane tab="Applied" key="1">
-            <div
-              style={{
-                display: "flex",
-                flexFlow: "wrap",
-                // justifyContent: "center"
-              }}
-            >
-              {userApplied ? userApplied : "no applied internship"}
-            </div>
-          </TabPane>
-          <TabPane tab="Shortlisted" key="2">
-            <div
-              style={{
-                display: "flex",
-                flexFlow: "wrap",
-                // justifyContent: "center"
-              }}
-            >
-              {userShortlisted ? userShortlisted : "not shortlisted"}
-            </div>
-          </TabPane>
-          <TabPane tab="Selected" key="3">
-            <div
-              style={{
-                display: "flex",
-                flexFlow: "wrap",
-                // justifyContent: "center"
-              }}
-            >
-              {userSelected ? userSelected : "not selected"}
-            </div>
-          </TabPane>
-          <TabPane tab="Rejected" key="4">
-            <div
-              style={{
-                display: "flex",
-                flexFlow: "wrap",
-                // justifyContent: "center"
-              }}
-            >
-              {userRejected ? userRejected : "not confirmation"}
-            </div>
-          </TabPane>
-        </Tabs>
+    <div className="userStatus-main-block">
+      <div className="userStatus-content-block">
+        <h1 className="userStatus-head">Internship</h1>
+        <div className="userStatus-card-main-block">
+          {userApplied && userApplied}
+          {userShortlisted && userShortlisted}
+          {userSelected && userSelected}
+          {userRejected && userRejected}
+        </div>
       </div>
     </div>
   );

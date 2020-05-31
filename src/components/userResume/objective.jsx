@@ -1,13 +1,11 @@
-import { Button, Icon, Modal, Skeleton, Tooltip } from "antd";
+import { Button, Modal, Skeleton, Tooltip } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
-import { EditOutlined } from "@ant-design/icons";
-
-import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
 import addIcon from "./img/addIcon.svg";
+import editIcon from "./img/editIcon.svg";
+import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
 
 const Objective = ({ careerObjective, updateResume, loader }) => {
   //#region
@@ -50,14 +48,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
   //#endregion
   return (
     <div className="objective-block-one">
-      <div
-        className="objective-block-two"
-        style={
-          {
-            // borderBottom: !!careerObjective ? "1px solid #CECFCF" : "none"
-          }
-        }
-      >
+      <div className="objective-block-two" style={{}}>
         <section style={{ display: "flex" }}>
           <img
             src={objectiveIcon}
@@ -85,16 +76,15 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
           <section className="objective-edit-icon">
             <Tooltip title="edit">
               {/* <Icon type="edit" onClick={handleObjectiveButton}></Icon> */}
-              <EditOutlined onClick={handleObjectiveButton} />
+              <img
+                onClick={handleObjectiveButton}
+                src={editIcon}
+                alt=""
+                className=""
+              />
             </Tooltip>
           </section>
         ) : (
-          // <Button
-          //   shape="round"
-          //   onClick={handleObjectiveButton}
-          // >
-          //   Add
-          // </Button>
           <img
             src={addIcon}
             alt=""
@@ -105,12 +95,12 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
       </div>
 
       <Modal
-        className="user-info-fetcher-modal"
+        className=""
         title="Add Career Objectives"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        width={680}
+        width={780}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

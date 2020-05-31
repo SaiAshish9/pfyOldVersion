@@ -43,23 +43,28 @@ export default function PrivateHeaderNavLink() {
     setIsShowVerify(false);
   };
 
-  const ShowVerify = () => {
-    setIsShowVerify(true);
+  const ShowVerify = (e) => {
+    if (e.key === "4") {
+      setIsShowVerify(true);
+    }
   };
 
   const myProfileMenu = (
-    <Menu>
+    <Menu onClick={ShowVerify}>
       <Menu.Item key="0">
-        <Link to="/my-internships">My Internship</Link>
+        <Link to="/profile">My Profile</Link>
       </Menu.Item>
       <Menu.Item key="1">
+        <Link to="/my-internships">My Internship</Link>
+      </Menu.Item>
+      <Menu.Item key="3">
         <Link to="/my-gigs">My Gig</Link>
       </Menu.Item>
-      <Menu.Item key="2">
-        <span onClick={ShowVerify}>Verify</span>
+      <Menu.Item key="4">
+        <span>Verify</span>
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item key="3">
+      <Menu.Item key="5">
         <Button type="primary" onClick={handleLogout}>
           Logout
         </Button>
@@ -125,7 +130,7 @@ export default function PrivateHeaderNavLink() {
         trigger={["click"]}
         className="user-profile-dropDown"
       >
-        <a href="#foo" name="foo">
+        <a href="#foo" name="foo" onClick={(e) => e.preventDefault()}>
           <span className="header-avatar-img-block">
             <img src={userImg} alt="img"></img>
           </span>

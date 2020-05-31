@@ -9,6 +9,7 @@ import team from "./img/headingImg/achievementIcon.svg";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 import addIcon from "./img/addIcon.svg";
+import editIcon from "./img/editIcon.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
 
 const Achievement = ({ achievement, updateResume }) => {
@@ -84,7 +85,9 @@ const Achievement = ({ achievement, updateResume }) => {
                         onClick={() => handleEdit(myAchievement)}
                         style={{ marginRight: "32px" }}
                       ></Icon> */}
-                      <EditOutlined
+                      <img
+                        src={editIcon}
+                        alt=""
                         onClick={() => handleEdit(myAchievement)}
                         style={{ marginRight: "32px" }}
                       />
@@ -114,7 +117,7 @@ const Achievement = ({ achievement, updateResume }) => {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        width={680}
+        width={780}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

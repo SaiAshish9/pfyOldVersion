@@ -1,13 +1,13 @@
-import { Button, Checkbox, Icon, Modal, Tooltip } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
+import { Button, Checkbox, Modal, Tooltip } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { arrayValidation } from "../validation/validation";
-import experienceIcon from "./img/headingImg/experienceIcon.svg";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-
-import addIcon from "./img/addIcon.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
+import { arrayValidation } from "../validation/validation";
+import addIcon from "./img/addIcon.svg";
+import editIcon from "./img/editIcon.svg";
+import experienceIcon from "./img/headingImg/experienceIcon.svg";
 
 const month = [
   "Jan",
@@ -161,21 +161,15 @@ const Experience = ({ workExperience, updateResume }) => {
                   </section>
                   <section className="experience-edit-delete-icon">
                     <Tooltip title="edit">
-                      {/* <Icon
-                        type="edit"
+                      <img
+                        src={editIcon}
                         onClick={() => handleEdit(myExp)}
                         style={{ marginRight: "32px" }}
-                      ></Icon> */}
-                      <EditOutlined
-                        onClick={() => handleEdit(myExp)}
-                        style={{ marginRight: "32px" }}
+                        alt=""
+                        className=""
                       />
                     </Tooltip>
                     <Tooltip title="delete">
-                      {/* <Icon
-                        type="delete"
-                        onClick={() => handleDelete(myExp._id)}
-                      /> */}
                       <DeleteOutlined onClick={() => handleDelete(myExp._id)} />
                     </Tooltip>
                   </section>
@@ -199,7 +193,7 @@ const Experience = ({ workExperience, updateResume }) => {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        width={680}
+        width={780}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

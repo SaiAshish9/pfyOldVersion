@@ -5,7 +5,9 @@ import { useHistory, useLocation } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import EditProfile from "../userHome/userProfile/editProfile";
 import { tokenHeader } from "../../constant/tokenHeader";
-
+import phoneIcon from "./img/phoneIcon.svg";
+import emailIcon from "./img/emailIcon.svg";
+import locationIcon from "./img/locationIcon.svg";
 export default function UserCard(props) {
   const myUserProfile = props.myUserProfile;
   const history = useHistory();
@@ -45,7 +47,6 @@ export default function UserCard(props) {
     <div className="userProfile-with-profileScore-block">
       <div className="userProfile-block" onClick={handleCard}>
         <EditProfile show={isShow} isClose={isClose} />
-        {/* <div className="edit-icon" style={{textAlign: "end", fontSize:"1.2rem"}}> <Icon onClick={openModal} type="edit"></Icon></div> */}
         <div className="avatar-block">
           <div className="avatar-img-block">
             <img
@@ -56,20 +57,20 @@ export default function UserCard(props) {
           </div>
         </div>
         <div className="avatar-intro-block">
-          <h2 style={{ textAlign: "center", fontSize: "22px", margin: "0px" }}>
-            {!!userData && userData.firstName}
-          </h2>
+          <h2 className="avatar-name">{!!userData && userData.firstName}</h2>
           <div className="mail-block">
-            {/* <img src={emailIcon} alt=""></img> */}
+            <img src={emailIcon} alt=""></img>
             <p>{!!userData && userData.email}</p>
           </div>
-          <div className="number-block">
-            <p>{!!userData && userData.phone}</p>
-            {/* <img src={phoneIcon} alt=""></img> */}
-          </div>
-          <div className="residence-block">
-            {/* <img src={locationIcon} alt=""></img> */}
-            <h2>{!!userData && userData.city}</h2>
+          <div className="numLocBlock">
+            <div className="number-block">
+              <img src={phoneIcon} alt=""></img>
+              <p>{!!userData && userData.phone}</p>
+            </div>
+            <div className="residence-block">
+              <img src={locationIcon} alt=""></img>
+              <p>{!!userData && userData.city}</p>
+            </div>
           </div>
         </div>
       </div>

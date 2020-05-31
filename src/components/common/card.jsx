@@ -72,7 +72,6 @@ export default function Card(props) {
           <div className="applyBefore-block">
             <img src={clockIcon} alt="" className="applyBefore-img"></img>
             <p className="due-time">
-              {/* Apply Before: {moment("03 30 2020").fromNow()} */}
               Apply Before: {moment(applyBefore).format("DD MMM YYYY")}
             </p>
           </div>

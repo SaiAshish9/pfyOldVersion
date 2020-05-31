@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
+import editIcon from "./img/editIcon.svg";
+
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 import trainingIcon from "./img/headingImg/experienceIcon.svg";
@@ -87,21 +89,15 @@ const Training = ({ training, updateResume }) => {
                   </section>
                   <section className="training-edit-delete-icon">
                     <Tooltip title="edit">
-                      {/* <Icon
-                        type="edit"
+                      <img
+                        src={editIcon}
                         onClick={() => handleEdit(myTraining)}
                         style={{ marginRight: "32px" }}
-                      ></Icon> */}
-                      <EditOutlined
-                        onClick={() => handleEdit(myTraining)}
-                        style={{ marginRight: "32px" }}
+                        alt=""
+                        className=""
                       />
                     </Tooltip>
                     <Tooltip title="delete">
-                      {/* <Icon
-                        type="delete"
-                        onClick={() => handleDelete(myTraining._id)}
-                      /> */}
                       <DeleteOutlined
                         onClick={() => handleDelete(myTraining._id)}
                       />
@@ -127,7 +123,7 @@ const Training = ({ training, updateResume }) => {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        width={680}
+        width={780}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

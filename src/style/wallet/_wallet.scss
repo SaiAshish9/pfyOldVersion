@@ -211,23 +211,25 @@
     min-height: 100vh;
     div.credit-card-block-wallet {
       position: relative;
+      width: fit-content;
+      height: 171px;
       text-align: center;
-      margin-top: 48px;
-      padding: 0 5rem;
+      margin: 48px 80px;
       img.credit-card__img {
       }
       .credit-card__amount {
         position: absolute;
-        top: 1.1rem;
-        left: 16.5rem;
+        top: 17px;
+        right: 24px;
         font-weight: 900;
         color: #5468d1;
         font-size: 13px;
       }
       .credit-card__details {
-        position: relative;
-        bottom: 5rem;
-        right: 5.5rem;
+        position: absolute;
+        text-align: left;
+        bottom: 20px;
+        left: 36px;
         color: #fff;
         .credit-card__number {
           font-size: 1rem;
@@ -243,17 +245,17 @@
         }
       }
       .credit-card__validity {
-        position: relative;
+        position: absolute;
+        text-align: left;
         color: white;
-        bottom: 7.75rem;
-        left: 4rem;
+        bottom: 20px;
+        right: 50px;
         .credit-card__validity-duration {
           font-size: 1rem;
           font-weight: 500;
         }
         .credit-card__validity-span {
           font-size: 9px;
-          padding-right: 2.3rem;
         }
       }
       .credit-card__title {
@@ -271,7 +273,6 @@
     margin: auto;
     h1.transaction__h1 {
       margin: 52px 0px 1.2rem 0px;
-      margin-top: -2rem;
       line-height: 1;
     }
 

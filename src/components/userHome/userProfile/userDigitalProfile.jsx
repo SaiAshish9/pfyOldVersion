@@ -134,7 +134,7 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
         title="Add Social Media Accounts"
         visible={isModalVisible}
         onCancel={handleCancel}
-        width={680}
+        width={780}
         footer={null}
       >
         <form

@@ -1,0 +1,73 @@
+.userStatus-main-block {
+  padding: 100px 60px 80px;
+  background: #f3f3f3;
+  min-height: 680px;
+  .userStatus-content-block {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 2px;
+    .userStatus-head {
+      margin: 0 0 0 20px;
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: #333e49;
+    }
+
+    .userStatus-card-main-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      .userStatus-card {
+        margin: 30px 20px;
+        padding: 24px;
+        width: 252px;
+        height: 231px;
+        border-radius: 4px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+        background-color: #ffffff;
+        .userStatus-img-block {
+          margin-bottom: 14px;
+          width: 70px;
+          height: 70px;
+          border: 1px solid #d3d3d3;
+          .userStatus-img {
+          }
+        }
+
+        .userStatus-title {
+          margin: 0;
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 1.44;
+          color: #333e49;
+        }
+
+        .userStatus-companyName {
+          margin-bottom: 20px;
+          opacity: 0.8;
+          font-size: 14px;
+          line-height: 1.38;
+
+          color: #000000;
+        }
+
+        .userStatus-span-block {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 204px;
+          height: 31px;
+          border-radius: 3px;
+          background-color: #ededf3;
+          .userStatus-span {
+            font-size: 13px;
+            line-height: 1.46;
+            text-align: center;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}

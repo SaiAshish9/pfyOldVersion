@@ -5,6 +5,8 @@ import { Controller, useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { objectValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
+import editIcon from "./img/editIcon.svg";
+
 import behanceIcon from "./img/digitalProfileIcon/behanceIcon.svg";
 import blogIcon from "./img/digitalProfileIcon/blogIcon.svg";
 import dribbleIcon from "./img/digitalProfileIcon/dribbleIcon.svg";
@@ -109,7 +111,7 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
           <section>
             <Tooltip title="edit">
               {/* <Icon type="edit" onClick={handleEdit} /> */}
-              <EditOutlined onClick={handleEdit} />
+              <img src={editIcon} alt="" onClick={handleEdit} />
             </Tooltip>
           </section>
         ) : (
@@ -168,7 +170,7 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        width={680}
+        width={780}
         className="digitalProfile-modal-main-block"
       >
         <form onSubmit={handleSubmit(onSubmit)}>

@@ -1,4 +1,4 @@
-import { Button, Checkbox, Icon, Modal, Tooltip } from "antd";
+import { Button, Checkbox, Modal, Tooltip } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -8,6 +8,7 @@ import educationIcon from "./img/headingImg/educationIcon.svg";
 import { EditOutlined } from "@ant-design/icons";
 
 import addIcon from "./img/addIcon.svg";
+import editIcon from "./img/editIcon.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
 
 const year = new Date().getFullYear();
@@ -124,7 +125,12 @@ export default function Education({ education, updateResume }) {
         <section className="education-edit-delete-icon" style={{}}>
           <Tooltip title="edit">
             {/* <Icon type="edit" onClick={() => handleEdit(educationData)}></Icon> */}
-            <EditOutlined onClick={() => handleEdit(educationData)} />
+            <img
+              src={editIcon}
+              alt=""
+              className=""
+              onClick={() => handleEdit(educationData)}
+            />
           </Tooltip>
         </section>
       </div>
@@ -173,7 +179,7 @@ export default function Education({ education, updateResume }) {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        width={680}
+        width={780}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

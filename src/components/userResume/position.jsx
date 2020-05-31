@@ -11,6 +11,7 @@ import positionIcon from "./img/headingImg/educationIcon.svg";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 import addIcon from "./img/addIcon.svg";
+import editIcon from "./img/editIcon.svg";
 
 const Position = ({ position, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -105,21 +106,15 @@ const Position = ({ position, updateResume }) => {
 
                   <section className="position-edit-delete-icon">
                     <Tooltip title="edit">
-                      {/* <Icon
-                        type="edit"
+                      <img
+                        src={editIcon}
                         onClick={() => handleEdit(thisPosition)}
                         style={{ marginRight: "32px" }}
-                      ></Icon> */}
-                      <EditOutlined
-                        onClick={() => handleEdit(thisPosition)}
-                        style={{ marginRight: "32px" }}
+                        alt=""
+                        className=""
                       />
                     </Tooltip>
                     <Tooltip title="delete">
-                      {/* <Icon
-                        type="delete"
-                        onClick={() => handleDelete(thisPosition._id)}
-                      /> */}
                       <DeleteOutlined
                         onClick={() => handleDelete(thisPosition._id)}
                       />
@@ -144,7 +139,7 @@ const Position = ({ position, updateResume }) => {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        width={680}
+        width={780}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

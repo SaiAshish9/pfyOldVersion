@@ -1,7 +1,9 @@
-import { Icon, Modal, Popover, Rate, Tooltip } from "antd";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import { Modal, Popover, Rate, Tooltip } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
+import { tokenHeader } from "../../constant/tokenHeader";
 import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
 import cancelIcon from "./img/cancelIcon.svg";
@@ -14,9 +16,6 @@ import legalIcon from "./img/skillImg/legalIcon.svg";
 import marketingIcon from "./img/skillImg/marketingIcon.svg";
 import otherIcon from "./img/skillImg/otherIcon.svg";
 import technicalIcon from "./img/skillImg/technicalIcon.svg";
-
-import { ArrowLeftOutlined } from "@ant-design/icons";
-import { tokenHeader } from "../../constant/tokenHeader";
 
 const proficiencyRate = [
   "Beginner",

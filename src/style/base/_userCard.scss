@@ -10,9 +10,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-image: url("../../components/common/img/userCardBackground.svg");
-      background-position: bottom;
-      border-radius: 8px;
+      background-color: #444584;
+      border-radius: 8px 8px 0 0;
       margin-bottom: 24px;
       .avatar-img-block {
         overflow: hidden;
@@ -31,50 +30,66 @@
       }
     }
     .avatar-intro-block {
-      margin-left: 20px;
+      margin: 0 20px;
       display: flex;
       flex-direction: column;
-      align-items: end;
-      .residence-block {
-        display: flex;
-        img {
-          width: 15px;
-          margin-right: 8px;
-        }
-        h2 {
-          margin-top: 4px;
-          font-size: 20px;
-          text-transform: capitalize;
-        }
+      align-items: center;
+      .avatar-name {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.44;
+        color: #333e49;
       }
       .mail-block {
         display: flex;
         img {
           width: 15px;
-          height: 24px;
-          margin-right: 8px;
+          margin: 0 8px 11px 0;
         }
         p {
-          margin: 0px;
+          opacity: 0.9;
+          font-size: 13px;
+          line-height: 1.46;
+          color: #333e49;
         }
       }
-      .number-block {
+      .numLocBlock {
         display: flex;
-        img {
-          width: 15px;
-          height: 21px;
-          margin-right: 8px;
+        margin-bottom: 36px;
+        .number-block {
+          display: flex;
+          padding-right: 16px;
+          border-right: 1px solid #d3d3d3;
+          img {
+            width: 15px;
+            margin: 2px 8px 0 0;
+          }
+          p {
+            margin: 0px;
+            opacity: 0.9;
+            font-size: 13px;
+            line-height: 1.46;
+            color: #333e49;
+          }
         }
-        p {
-          margin: 0px;
+        .residence-block {
+          display: flex;
+          padding-left: 16px;
+          img {
+            width: 15px;
+            margin-right: 8px;
+          }
+          p {
+            margin: 0px;
+            opacity: 0.9;
+            font-size: 13px;
+            line-height: 1.46;
+            color: #333e49;
+          }
         }
       }
     }
-    .divider-block {
-      border-bottom: 1px solid #cecfcf;
-      width: 90%;
-      margin: auto;
-    }
+
     .profile-Score {
       width: 90%;
       margin: 8px auto;
