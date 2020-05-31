@@ -1,9 +1,9 @@
+import { Button } from "antd";
 import React from "react";
 import brandPartnershipIcon from "../../assets/img/partnerWithPracify/brandPartnershipIcon.svg";
 import cashSponsorshipIcon from "../../assets/img/partnerWithPracify/cashSponsorshipIcon.svg";
 import promoteEventIcon from "../../assets/img/partnerWithPracify/promoteEventIcon.svg";
 import pwpHeroImg from "../../assets/img/partnerWithPracify/pwpHeroImg.svg";
-import { Button } from "antd";
 import Footer from "../landingPage/footer";
 
 const pwpData = [
@@ -30,9 +30,10 @@ export default function PartnerWithPracify() {
       <div className="pwp-hero-block">
         <h1 className="pwp-hero-head">Partner with Pracify!</h1>
         <p className="pwp-hero-para">
-          We love partnering with college societies across India. We know you need
-          sponsorship to organize a great event and we've got a way to help you out, 
-          just complete some tasks and earn cash sponsorship for your college festival.
+          We love partnering with college societies across India. We know you
+          need sponsorship to organize a great event and we've got a way to help
+          you out, just complete some tasks and earn cash sponsorship for your
+          college festival.
         </p>
         <img src={pwpHeroImg} alt="" className="pwp-hero-img" />
         <Button className="pwp-hero-button">Let's Partner</Button>

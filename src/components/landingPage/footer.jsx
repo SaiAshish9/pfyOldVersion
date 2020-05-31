@@ -42,7 +42,9 @@ export default function Footer() {
           <Link to="/partner_with_us">
             <p className="footer__link">Terms & Conditions</p>
           </Link>
-          <p className="footer__link">Privacy Policy</p>
+          <Link to="/how_pracify_work">
+            <p className="footer__link">Privacy Policy</p>
+          </Link>
         </div>
         <div className="get-in-touch-block">
           <h3 className="footer__header">Get In Touch</h3>

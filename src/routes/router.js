@@ -5,6 +5,7 @@ import { Route, Router, Switch } from "react-router-dom";
 import AboutUs from "../components/aboutUs/aboutUs";
 import ContactUs from "../components/landingPageContactUs/contactUs";
 import PartnerWithPracify from "../components/partnerWithPracify/partnerWithPracify";
+import HowItWork from "../components/howItWork/howItWork";
 
 import Career from "../components/career/career";
 import Faqs from "../components/faqs/faqs";
@@ -40,6 +41,11 @@ const AppRouter = () => {
         <PublicRoute path="/get-started" component={GetStarted} exact={true} />
         <PublicRoute path="/about_us" component={AboutUs} exact={true} />
         <PublicRoute path="/career" component={Career} exact={true} />
+        <PublicRoute
+          path="/how_pracify_work"
+          component={HowItWork}
+          exact={true}
+        />
         <PublicRoute
           path="/partner_with_us"
           component={PartnerWithPracify}
