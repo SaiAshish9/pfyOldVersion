@@ -32,7 +32,7 @@ export default function UserCard(props) {
   return (
     <div className="userProfile-with-profileScore-block">
       <div className="userProfile-block">
-        <EditProfile />
+        {/* <EditProfile /> */}
         <div className="avatar-block">
           <div className="avatar-img-block">
             <img

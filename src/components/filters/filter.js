@@ -45,24 +45,12 @@ const Filter = () => {
             </>
           )}
         </Panel>
-        <Panel header="Work Location" key="2">
-          {isGigs && (
-            <>
-              <Checkbox>Online</Checkbox>
-              <Checkbox>Offline</Checkbox>
-            </>
-          )}
-          {isInternship && (
-            <>
-              <Checkbox>inOffice</Checkbox>
-              <Checkbox>Work From Home</Checkbox>
-            </>
-          )}
-        </Panel>
-        <Panel header="Monetary Benefit" key="3">
-          <Checkbox>Paid</Checkbox>
-          <Checkbox>Unpaid</Checkbox>
-        </Panel>
+        {isInternship && (
+          <Panel header="Work Location" key="2">
+            <Checkbox>inOffice</Checkbox>
+            <Checkbox>Work From Home</Checkbox>
+          </Panel>
+        )}
       </Collapse>
     </div>
   );

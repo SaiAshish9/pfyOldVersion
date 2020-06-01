@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__time" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <style>
+            .prefix__cls-5{fill:#575f64}.prefix__cls-6{fill:#474f54}
+        </style>
+    </defs>
+    <circle id="prefix__Ellipse_563" cx="10" cy="10" r="10" data-name="Ellipse 563" style="fill:#fe8205"/>
+    <path id="prefix__Path_2746" d="M266 10a10.039 10.039 0 0 0-10-10v20a10.039 10.039 0 0 0 10-10z" data-name="Path 2746" transform="translate(-246)" style="fill:#fa5d0f"/>
+    <path id="prefix__Path_2747" d="M68.617 61a7.637 7.637 0 1 0 7.617 7.617A7.626 7.626 0 0 0 68.617 61z" data-name="Path 2747" transform="translate(-58.617 -58.617)" style="fill:#f0f7ff"/>
+    <path id="prefix__Path_2748" d="M263.617 68.617A7.626 7.626 0 0 0 256 61v15.273a7.659 7.659 0 0 0 7.617-7.656z" data-name="Path 2748" transform="translate(-246 -58.617)" style="fill:#dfe7f4"/>
+    <path id="prefix__Path_2749" d="M241.586 121a.586.586 0 0 0-.586.586v5.859a.586.586 0 1 0 1.172 0v-5.859a.586.586 0 0 0-.586-.586z" class="prefix__cls-5" data-name="Path 2749" transform="translate(-231.586 -116.273)"/>
+    <path id="prefix__Path_2750" d="M256.586 127.445v-5.859A.586.586 0 0 0 256 121v7.031a.586.586 0 0 0 .586-.586z" class="prefix__cls-6" data-name="Path 2750" transform="translate(-246 -116.273)"/>
+    <path id="prefix__Path_2751" d="M216.273 241h-4.687a.586.586 0 0 0 0 1.172h4.688a.586.586 0 0 0 0-1.172z" class="prefix__cls-5" data-name="Path 2751" transform="translate(-202.758 -231.586)"/>
+    <path id="prefix__Path_2752" d="M260.1 241.586a.586.586 0 0 0-.586-.586H256v1.172h3.516a.586.586 0 0 0 .584-.586z" class="prefix__cls-6" data-name="Path 2752" transform="translate(-246 -231.586)"/>
+</svg>

@@ -1,5 +1,6 @@
-import { Col, Row, Select } from "antd";
+import { Col, Row, Select, Input   } from "antd";
 import axios from "axios";
+import { SearchOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import InternshipContext from "../../context/internshipContext";
@@ -69,14 +70,27 @@ export default function Internship() {
             </div>
 
             {/* ----------------------------- custom element ----------------------------- */}
-            <Select
-              defaultValue="latest"
-              placeholder="Select"
-              onChange={handleArrangingCard}
-            >
-              <Option value="latest">Latest</Option>
-              <Option value="popular">Popular</Option>
-            </Select>
+            <div className="filter-input">
+              <span className="sort-content">
+                <span className="sort-by-text">Sort By :</span>
+                <Select
+                  className=""
+                  defaultValue="latest"
+                  placeholder="Select a person"
+                  onChange={handleArrangingCard}
+                >
+                  <Option value="latest">Latest</Option>
+                  <Option value="popular">Popular</Option>
+                </Select>
+              </span>
+
+              <Input
+                className="search-by-company"
+                prefix={<SearchOutlined />}
+                placeholder="Search by Company Name"
+                onChange={(e) => console.log(e.target.value)}
+              />
+            </div>
           </div>
           <div className="card-container">
             {myInternshipCard && myInternshipCard}

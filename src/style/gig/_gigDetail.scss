@@ -124,17 +124,17 @@
           "img head"
           "img para" /0fr 1fr;
         border-bottom: 1px solid #e8e8e8;
-        img {
+        .gig-detail-img {
           grid-area: img;
           margin-right: 12px;
         }
-        h2 {
+        .gig-detail-head {
           grid-area: head;
           font-size: 18px;
           line-height: 1;
           color: #333e49;
         }
-        p {
+        .gig-detail-para {
           grid-area: para;
           opacity: 0.5;
           font-size: 16px;

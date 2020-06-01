@@ -6,18 +6,21 @@ import Header from "../components/header/header";
 const PublicRoute = ({ component: Component, ...rest }) => {
   const isToken = Cookies.get("token");
   return (
-    <Route
-      {...rest}
-      component={(props) =>
-        isToken ? (
-          <Redirect to="/home" />
-        ) : (
-          <>
-            <Component {...props} />
-          </>
-        )
-      }
-    />
+    <>
+      {!isToken && <Header />}
+      <Route
+        {...rest}
+        component={(props) =>
+          isToken ? (
+            <Redirect to="/home" />
+          ) : (
+            <>
+              <Component {...props} />
+            </>
+          )
+        }
+      />
+    </>
   );
 };
 

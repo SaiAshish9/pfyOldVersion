@@ -21,8 +21,6 @@ const AppRouter = () => {
 
   return (
     <Router history={history}>
-      <Header />
-      <PrivateHeader />
       <SwitchRoute />
     </Router>
   );

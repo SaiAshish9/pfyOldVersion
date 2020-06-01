@@ -1,5 +1,6 @@
-import { Col, Row, Select } from "antd";
+import { Col, Row, Select, Input } from "antd";
 import axios from "axios";
+import { SearchOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import Card from "../common/card";
@@ -45,6 +46,10 @@ const Gig = () => {
     setArrangeCard(value);
   };
 
+  const handleSearch = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <div className="card-container-main-block">
       <Row
@@ -67,14 +72,27 @@ const Gig = () => {
                 <h2 className="card-heading-two">({gig.length} Results)</h2>
               )}
             </div>
-            <Select
-              defaultValue="latest"
-              placeholder="Select a person"
-              onChange={handleArrangingCard}
-            >
-              <Option value="latest">Latest</Option>
-              <Option value="popular">Popular</Option>
-            </Select>
+            <div className="filter-input">
+              <span className="sort-content">
+                <span className="sort-by-text">Sort By :</span>
+                <Select
+                  className=""
+                  defaultValue="latest"
+                  placeholder="Select a person"
+                  onChange={handleArrangingCard}
+                >
+                  <Option value="latest">Latest</Option>
+                  <Option value="popular">Popular</Option>
+                </Select>
+              </span>
+
+              <Input
+                className="search-by-company"
+                prefix={<SearchOutlined />}
+                placeholder="Search by Company Name"
+                onChange={handleSearch}
+              />
+            </div>
           </div>
           <div className="card-container">{gigCard && gigCard}</div>
         </Col>

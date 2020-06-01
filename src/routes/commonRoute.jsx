@@ -8,6 +8,7 @@ const CommonRoute = ({ component: Component, ...rest }) => {
   const isToken = Cookies.get("token");
   return (
     <>
+      {isToken ? <PrivateHeader /> : <Header />}
       <Route {...rest} component={(props) => <Component {...props} />} />
     </>
   );
