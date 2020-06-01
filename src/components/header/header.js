@@ -1,14 +1,21 @@
 import { CloseOutlined } from "@ant-design/icons";
+import cookies from "js-cookie";
 import React, { useState } from "react";
 import { Scroll } from "react-fns";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import menuIcon from "../../assets/img/menuIcon.svg";
 import pracifyLogo from "../../assets/img/logo.png";
 import HeaderNavLink from "./headerNavLink";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const Header = () => {
+  const userToken = cookies.get("token");
   const history = useHistory();
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const location = useLocation();
+
+  const pathWithoutHeader = location.pathname === "/login";
+  console.log("pathWithoutHeader", pathWithoutHeader);
 
   const handleLogo = () => {
     history.push("/");
@@ -29,8 +36,13 @@ const Header = () => {
     transform: isNavOpen ? "translate(0%,0px)" : "translate(100%,0px)",
   };
 
+  //FIXME  Problem
+  const { headers } = tokenHeader();
+  console.log("headers", headers);
   return (
-    <>
+    <div
+      style={{ display: pathWithoutHeader || headers.token ? "none" : "block" }}
+    >
       <Scroll
         render={({ x, y }) => {
           return (
@@ -72,7 +84,7 @@ const Header = () => {
         }}
       />
       {isNavOpen && <div className="wrapper" onClick={handleWrapper}></div>}
-    </>
+    </div>
   );
 };
 

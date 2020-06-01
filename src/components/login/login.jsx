@@ -18,8 +18,6 @@ export default function Login() {
   const history = useHistory();
   const { login, loginDispatch } = useContext(LoginContext);
 
-  console.log("mainPoint", login);
-
   const [phone, setPhone] = useState("");
   const [passToken, setPassToken] = useState("");
 

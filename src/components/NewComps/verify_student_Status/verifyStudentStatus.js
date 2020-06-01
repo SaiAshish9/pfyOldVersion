@@ -10,25 +10,13 @@ function getBase64(img, callback) {
   reader.readAsDataURL(img);
 }
 
-export default function VerifyStudentStatus(props) {
-  const [visible, setVisible] = useState(false);
+export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
+  // console.log("props", props);
   const [imageUrl1, setImageUrl1] = useState(null);
   const [imageUrl2, setImageUrl2] = useState(null);
 
-  const showModal = () => {
-    setVisible(true);
-  };
-
-  const handleOk = (e) => {
-    console.log(e);
-    setVisible(false);
-    props.isCloseVerify();
-  };
-
-  const handleCancel = (e) => {
-    console.log(e);
-    setVisible(false);
-    props.isCloseVerify();
+  const handleCancel = () => {
+    closeModal();
   };
 
   const handleChange = (value) => {
@@ -56,8 +44,7 @@ export default function VerifyStudentStatus(props) {
     <Modal
       width={"50%"}
       title="Verify Student Status"
-      visible={props.isShowVerify}
-      onOk={handleOk}
+      visible={isVisibleModal}
       onCancel={handleCancel}
       footer={null}
     >
@@ -71,7 +58,7 @@ export default function VerifyStudentStatus(props) {
           <Select
             defaultValue="aadhar"
             style={{ width: "100%" }}
-            onChange={handleCancel}
+            onChange={handleChange}
           >
             <Option value="aadhar">Aadhar</Option>
             <Option value="10th">10th Marksheet</Option>

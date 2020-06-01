@@ -15,20 +15,20 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../../constant/tokenHeader";
+import editIcon from "./img/editIcon.svg";
 import "./editProfile.scss";
 import userImg from "./user.svg";
 
 const myToken = Cookies.get("token");
 const { Option } = Select;
 
-export default function EditProfile(props) {
+export default function EditProfile() {
   const { control, handleSubmit, watch, register } = useForm();
   const onSubmit = (data) => {
     console.log("%c submitted data ", "font-size: 20px, color: red");
     console.table(data);
     const myObj = { ...data, dob: data.dob._d.toISOString() };
     const name = data.name.trim().split(" ");
-    // const hasLastName = name.length  >= 2
     if (name.length >= 2) {
       myObj.firstName = name[0];
       myObj.lastName = name[1];
@@ -41,7 +41,6 @@ export default function EditProfile(props) {
       console.log("RESPONSE IS ");
       console.log(res.data);
       setConfirmLoading(false);
-      props.isClose();
       // setVisible(false)
     });
   };
@@ -69,22 +68,13 @@ export default function EditProfile(props) {
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
 
-  // const showModal = () => {
-  //   setVisible(true);
-  // };
-
-  const handleOk = () => {
-    setConfirmLoading(true);
-    setTimeout(() => {
-      // setVisible(false)
-      setConfirmLoading(false);
-    }, 2000);
+  const showModal = () => {
+    setVisible(true);
   };
 
   const handleCancel = () => {
     console.log("Clicked cancel button");
-    props.isClose();
-    // setVisible(false)
+    setVisible(false);
   };
 
   const email = watch("email");
@@ -92,19 +82,11 @@ export default function EditProfile(props) {
 
   let colleges = [];
   const collegeListHandler = (value) => {
-    // colleges = []
     const url = `college/fetch?search=${value}`;
     console.log("URL IS " + url);
     axios.get(url, tokenHeader()).then((res) => {
       const collegeObject = res.data;
       console.log(collegeObject);
-
-      // colleges = collegeObject.map(college =>
-      //   <Option
-      //       key={college['College Name']}>
-      //          {college['College Name']}
-      //   </Option>
-      //   )
 
       collegeObject.forEach((college) => {
         colleges.push(
@@ -550,31 +532,33 @@ export default function EditProfile(props) {
         ))
       : null;
   return (
-    <div style={{ marginTop: "0rem" }}>
-      {/* <Button type="primary" onClick={showModal}>
-          Open Modal with async logic
-        </Button> */}
+    <>
+      <div
+        className="user-edit-icon-block"
+        style={{
+          position: "absolute",
+          right: "12px",
+          top: "6px",
+          cursor: "pointer",
+        }}
+      >
+        <img src={editIcon} alt="" className="" onClick={showModal} />
+      </div>
       <Modal
         width="1000px"
         className="user-edit-profile-modal"
         title="Edit Profile"
-        visible={props.show}
-        onOk={handleOk}
+        visible={visible}
+        // onOk={handleOk}
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
-        footer={
-          [
-            // <Button style={{backgroundColor: "#252eb7", padding: "0 2.5rem", borderRadius: "5rem" , height: "2.5rem"}} key="submit" type="primary" loading={confirmLoading} onClick={handleOk}>
-            //   Done
-            // </Button>,
-          ]
-        }
+        footer={null}
       >
         <form onSubmit={handleSubmit(onSubmit)}>
           <Row style={{ padding: "0 2rem" }} justify="center">
             <Col style={{ display: "flex", padding: "1rem" }} span={12}>
               <div className="user-icon" style={{ backgroundColor: "#ccc" }}>
-                <img src={userImg} alt=""/>
+                <img src={userImg} alt="" />
               </div>
               <div
                 className="upload-btn"
@@ -593,15 +577,6 @@ export default function EditProfile(props) {
                 </Upload>
               </div>
             </Col>
-            {/* <Col style={{padding: "1rem"}} className="email" span={12}>
-              <div style={{fontSize: "1rem", fontWeight: 500}} >Email</div>
-              <Controller
-                as={<Input placeholder="" />}
-                name="email"
-                control={control}
-              />
-            
-            </Col> */}
             <Col span={12} style={{ padding: "1rem" }}>
               <div style={{ fontSize: "1rem", fontWeight: 500 }}>Name</div>
               <Controller
@@ -713,6 +688,6 @@ export default function EditProfile(props) {
           </Row>
         </form>
       </Modal>
-    </div>
+    </>
   );
 }

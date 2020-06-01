@@ -116,7 +116,7 @@ export default function PaymentMethodModal(props) {
           />
         </Form.Item>
 
-        <Form.Item style={{ textAlign: "center" }}>
+        <Form.Item style={{ textAlign: "center", margin: "30px 0 0 0" }}>
           <Button
             htmlType="submit"
             type="primary"
@@ -176,7 +176,7 @@ export default function PaymentMethodModal(props) {
         onChange={(e) => bankChangeHandler(e, "ifsc_code")}
         placeholder="please enter IFSC code"
       />
-      <Form.Item style={{ textAlign: "center" }}>
+      <Form.Item style={{ textAlign: "center", margin: "30px 0 0 0" }}>
         <Button
           htmlType="submit"
           type="primary"

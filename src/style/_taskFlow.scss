@@ -1,7 +1,7 @@
 %heading{
     font-size: 1.3rem;
     color: black;
-    font-family: CircularStd;
+    font-family: $myFont;
     margin-bottom: 0.5rem;
 }
 
@@ -39,8 +39,8 @@
         }
     }
     .task-reference-btn{
-        background-color: #f2f2f2;
-        font-family: CircularStd;
+        background-color: hsl(0, 0%, 95%);
+        font-family: $myFont;
         font-size: 1em;
         font-weight: bold;
         color: black;

@@ -13,6 +13,19 @@
     background-color: #fff;
     border: 1px solid #d3d3d3;
 
+    .ant-tabs-tab {
+      &:hover {
+        color: #000;
+      }
+    }
+    .ant-tabs-tab.ant-tabs-tab-active {
+      font-weight: 600;
+      color: #000;
+    }
+    .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+      background-color: #000;
+    }
+
     .gig-provider-block-One {
       display: flex;
       margin: 20px 0px;

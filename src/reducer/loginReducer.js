@@ -5,7 +5,11 @@ export default function loginReducer(state, action) {
     }
 
     case "LOGIN_FAIL": {
-      return { ...state, loginError: action.errorData };
+      return {
+        ...state,
+        userToken: action.userToken,
+        loginError: action.errorData,
+      };
     }
     default:
       return state;

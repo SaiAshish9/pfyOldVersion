@@ -13,10 +13,11 @@ import designingIcon from "./img/interestIcon/designingIcon.svg";
 import drawingIcon from "./img/interestIcon/drawingIcon.svg";
 import fashionIcon from "./img/interestIcon/fashionIcon.svg";
 import fieldWorkIcon from "./img/interestIcon/fieldWorkIcon.svg";
-import hindiIcon from "./img/interestIcon/hindiIcon.svg";
+import musicIcon from "./img/interestIcon/musicIcon.svg";
 import marketingIcon from "./img/interestIcon/marketingIcon.svg";
 import photographyIcon from "./img/interestIcon/photographyIcon.svg";
 import rappingIcon from "./img/interestIcon/rappingIcon.svg";
+import researchIcon from "./img/interestIcon/researchIcon.svg";
 import samplingIcon from "./img/interestIcon/samplingIcon.svg";
 import singingIcon from "./img/interestIcon/singingIcon.svg";
 import socialMediaIcon from "./img/interestIcon/socialMediaIcon.svg";
@@ -33,10 +34,11 @@ const skillImg = [
   { icon: drawingIcon, text: "Drawing" },
   { icon: fashionIcon, text: "Fashion" },
   { icon: fieldWorkIcon, text: "Field Work" },
-  { icon: hindiIcon, text: "Hindi" },
+  { icon: musicIcon, text: "Music" },
   { icon: marketingIcon, text: "Marketing" },
   { icon: photographyIcon, text: "Photography" },
   { icon: rappingIcon, text: "Rapping" },
+  { icon: researchIcon, text: "Research" },
   { icon: samplingIcon, text: "Sampling" },
   { icon: singingIcon, text: "Singing" },
   { icon: socialMediaIcon, text: "Social Media" },

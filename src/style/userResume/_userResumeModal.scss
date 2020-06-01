@@ -54,7 +54,6 @@
   border: solid 1px #e5e5e5;
   background-color: #ffffff;
   height: 40px;
-  // word-spacing: $wordSpace;
   text-indent: 8px;
 }
 
@@ -65,13 +64,10 @@
   border: solid 1px #e5e5e5;
   background-color: #ffffff;
   height: 40px;
-  // word-spacing: $wordSpace;
+  
   padding-left: 8px;
 
   font-size: 15px;
-  // font-weight: 500;
-
-  // text-indent: 8px;
 
   appearance: none;
   -webkit-appearance: none;
@@ -484,7 +480,7 @@
       }
     }
   }
-  
+
   .digitalProfile-button-block {
     display: flex;
     justify-content: center;

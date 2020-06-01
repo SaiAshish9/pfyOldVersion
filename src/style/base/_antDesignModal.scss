@@ -5,8 +5,8 @@
 }
 .ant-modal-content {
   font-family: $myFont;
-  // word-spacing: $wordSpace;
-  padding:38px 45px;
+  padding: 38px 45px;
+  border-radius: 16px;
   .ant-modal-header {
     background-color: #fff;
     padding: 0px;
@@ -15,11 +15,14 @@
       width: 101%;
       border-bottom: 1px solid #ebeaea;
       padding-bottom: 4px;
-      color: #818181;
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: #333e49;
     }
   }
-  .ant-modal-body{
-    padding:24px 0px 0px 0px
+  .ant-modal-body {
+    padding: 24px 0px 0px 0px;
   }
 }
 /* -------------------------------- ********* ------------------------------- */

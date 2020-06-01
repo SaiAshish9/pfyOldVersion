@@ -141,8 +141,8 @@ export default function PrivateHeaderNavLink() {
 
       <Support isShow={isShow} isClose={isClose} />
       <VerifyStudentStatus
-        isCloseVerify={closeVerify}
-        isShowVerify={isShowVerify}
+        closeModal={closeVerify}
+        isVisibleModal={isShowVerify}
       />
     </>
   );

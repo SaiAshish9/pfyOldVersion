@@ -1,15 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { CloseOutlined } from "@ant-design/icons";
-import React, { useState } from "react";
+import cookies from "js-cookie";
+import React, { useState, useEffect } from "react";
 import { Scroll } from "react-fns";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import pracifyLogo from "../../../assets/img/logoDark.png";
 import menuIcon from "../../../assets/img/menuIcon.svg";
 import PrivateHeaderNavLink from "./privateHeaderNavLink";
+import { tokenHeader } from "../../../constant/tokenHeader";
 
 export default function PrivateHeader() {
+  // const userToken = cookies.get("token");
   const history = useHistory();
+  const location = useLocation();
+
+  const pathWithoutHeader = location.pathname === "/login";
+  console.log("pathWithoutHeader", pathWithoutHeader);
+
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleLogo = () => {
@@ -28,8 +36,19 @@ export default function PrivateHeader() {
     transition: "transform .3s ease-in-out",
     transform: isNavOpen ? "translate(0%,0px)" : "translate(100%,0px)",
   };
+
+  //FIXME  Problem
+  const { headers } = tokenHeader();
+  const [userToken, setUserToken] = useState(headers.token);
+
+  useEffect(() => {
+    setUserToken(headers.token);
+  }, [headers.token]);
+
+  console.log("headers", headers);
+  console.log("headers", userToken);
   return (
-    <>
+    <div style={{ display: userToken ? "display" : "none" }}>
       <Scroll
         render={({ x, y }) => {
           return (
@@ -76,6 +95,6 @@ export default function PrivateHeader() {
         }}
       />
       {isNavOpen && <div className="wrapper" onClick={handleWrapper}></div>}
-    </>
+    </div>
   );
 }

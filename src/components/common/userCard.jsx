@@ -29,24 +29,10 @@ export default function UserCard(props) {
 
   console.log("userData", userData);
 
-  const handleCard = () => {
-    if (location.pathname !== "/profile") {
-      history.push("/profile");
-    }
-  };
-
-  const openModal = () => {
-    setIsShow(!isShow);
-  };
-
-  const isClose = () => {
-    setIsShow(false);
-  };
-
   return (
     <div className="userProfile-with-profileScore-block">
-      <div className="userProfile-block" onClick={handleCard}>
-        <EditProfile show={isShow} isClose={isClose} />
+      <div className="userProfile-block">
+        <EditProfile />
         <div className="avatar-block">
           <div className="avatar-img-block">
             <img

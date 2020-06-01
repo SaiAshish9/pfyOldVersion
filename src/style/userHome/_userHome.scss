@@ -2,6 +2,7 @@ $base-color: #f3f3f3;
 $card-background-color: #fff;
 
 .homePage-block {
+  font-family: $myFont;
   padding: 100px 0 52px;
   // margin-top: 40px;
   background: #f4f4f4;
@@ -398,6 +399,18 @@ $card-background-color: #fff;
       .ant-tabs-bar {
         display: flex;
         justify-content: space-between;
+        .ant-tabs-tab {
+          &:hover {
+            color: #000;
+          }
+        }
+        .ant-tabs-tab.ant-tabs-tab-active {
+          font-weight: 600;
+          color: #000;
+        }
+        .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+          background-color: #000;
+        }
         h1 {
           margin: 7px;
           line-height: 1;
@@ -454,7 +467,7 @@ $card-background-color: #fff;
 }
 
 %user-icon {
-  align-self: end;
+  align-self: flex-start;
 }
 
 %user-content {
@@ -469,6 +482,7 @@ $card-background-color: #fff;
 
 .profilePage-block {
   background-color: $base-color;
+  font-family: $myFont;
   display: flex;
   padding: 100px 0px 80px 0px;
 

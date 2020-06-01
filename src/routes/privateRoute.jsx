@@ -7,7 +7,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const isToken = Cookies.get("token");
   return (
     <>
-      {<PrivateHeader />}
+      {/* {<PrivateHeader />} */}
       <Route
         {...rest}
         component={(props) =>

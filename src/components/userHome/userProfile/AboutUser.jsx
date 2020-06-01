@@ -73,14 +73,6 @@ const AboutUser = (props) => {
         />
       </div>
 
-      {/* <Button
-        type="primary"
-        shape="round"
-        className="about-avatar-button"
-        onClick={handleAboutButton}
-      >
-        Add
-      </Button> */}
       <Modal
         title="Add About Yourself"
         visible={isModalVisible}

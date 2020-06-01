@@ -6,6 +6,7 @@ import internshipReducer from "./reducer/internshipReducer";
 import loginReducer from "./reducer/loginReducer";
 import AppRouter from "./routes/router";
 
+
 const App = () => {
   const [internship, internshipDispatch] = useReducer(internshipReducer, []);
   const [gig, gigDispatch] = useReducer(gigReducer, []);
@@ -14,12 +15,13 @@ const App = () => {
     loginError: "",
   });
 
-
   return (
     // <InternshipContext.Provider value={{ internship, internshipDispatch }}>
     //   <GigContext.Provider value={{ gig, gigDispatch }}>
     <LoginContext.Provider value={{ login, loginDispatch }}>
-      <AppRouter />
+      <div className="">
+        <AppRouter />
+      </div>
     </LoginContext.Provider>
     // </InternshipContext.Provider>
   );
