@@ -29,14 +29,13 @@ div.moreGigOrInternship-main-block {
     }
     .similar-gigOrInternship-block2 {
       background-color: #fff;
+      border-radius: 6px;
       display: flex;
       padding: 16px 18px;
-      border-radius: 2px;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
       transition: box-shadow 83ms;
       margin-bottom: 16px;
       &:hover {
-        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
         cursor: pointer;
       }
 

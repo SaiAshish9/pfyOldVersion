@@ -305,7 +305,7 @@ export default function InternshipDetail(props) {
               </Button>
             </div>
           </TabPane>
-          <TabPane tab={`About the ${internshipProvider}`} key="2">
+          <TabPane tab={`About The Company`} key="2">
             <div className="internship-provider-block-One">
               <div className="internship-provider-block-two">
                 <div className="internship-provider-block-three">

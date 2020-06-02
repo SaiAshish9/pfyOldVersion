@@ -116,3 +116,76 @@
     }
   }
 }
+
+.upload-img-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 30%;
+  padding: 55px 36px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  .userForm-header {
+    margin-bottom: 50px;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.21;
+    text-align: center;
+    color: #333e49;
+  }
+  .upload-img-content {
+    line-height: 1;
+    .ant-upload {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      width: 136px;
+      height: 136px;
+      border-radius: 68px;
+    }
+    .dummy-img-block {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .upload-img-msg {
+    margin: 20px 0px 40px;
+    font-size: 18px;
+    line-height: 1.22;
+    text-align: center;
+    color: #333e49;
+  }
+  .userImg-upload-img-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .userImg-upload-img-one {
+      width: 146px;
+      height: 46px;
+      border-radius: 3px;
+      border: solid 1px #444584;
+
+      font-size: 15px;
+      line-height: 1.2;
+      color: #444584;
+    }
+    .userImg-upload-img-two {
+      width: 146px;
+      height: 46px;
+      border-radius: 3px;
+      border: solid 1px #38bdba;
+
+      font-size: 15px;
+      line-height: 1.2;
+      color: #38bdba;
+    }
+  }
+}

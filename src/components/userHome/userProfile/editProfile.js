@@ -54,10 +54,6 @@ export default function EditProfile() {
         console.log(info.file, info.fileList);
       }
       if (info.file.status === "done") {
-        // const url = 'user/check_image';
-        // axios.post(url,data)
-        //   .then()
-
         message.success(`${info.file.name} file uploaded successfully`);
       } else if (info.file.status === "error") {
         message.error(`${info.file.name} file upload failed.`);
@@ -545,7 +541,7 @@ export default function EditProfile() {
         <img src={editIcon} alt="" className="" onClick={showModal} />
       </div>
       <Modal
-        width="1000px"
+        width={780}
         className="user-edit-profile-modal"
         title="Edit Profile"
         visible={visible}

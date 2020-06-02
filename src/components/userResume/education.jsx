@@ -1,6 +1,6 @@
 import { Button, Checkbox, Modal, Tooltip } from "antd";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { objectValidation } from "../validation/validation";
@@ -16,10 +16,14 @@ const startYear = Array.from(new Array(60), (val, index) => year - index);
 
 export default function Education({ education, updateResume }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [currentlyStudying, setCurrentlyStudying] = useState(false);
+
+  useEffect(() => {
+    console.log(currentlyStudying);
+  }, [currentlyStudying]);
 
   const { register, handleSubmit, errors, control, watch, setValue } = useForm({
     defaultValues: {
-      isCurrently: false,
       startYear: year,
       educationType: {
         typeNo: "4",
@@ -31,6 +35,8 @@ export default function Education({ education, updateResume }) {
   });
 
   const isCheckbox = watch("isCurrently");
+  console.log("isCheckbox", isCheckbox);
+
   const myStartYear = watch("startYear");
   const standardSelect = watch("educationType.typeNo");
   console.log("standardSelect", standardSelect);
@@ -41,9 +47,10 @@ export default function Education({ education, updateResume }) {
   );
 
   const onSubmit = (data) => {
-    console.log(data);
+    const myData = { ...data, isCurrently: currentlyStudying };
+    console.log("datadata", myData);
     axios
-      .put(`resume/addeducation`, data, tokenHeader())
+      .put(`resume/addeducation`, myData, tokenHeader())
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
@@ -63,7 +70,6 @@ export default function Education({ education, updateResume }) {
   };
 
   const handleEdit = (educationData) => {
-    // setSelectedEducation(educationData);
     console.log(educationData);
     setValue("educationType.typeNo", educationData.educationType.typeNo);
     setValue("instituteName", educationData.instituteName);
@@ -72,8 +78,7 @@ export default function Education({ education, updateResume }) {
     setValue("marks.type", educationData.marks.type);
     setValue("startYear", educationData.startYear);
     setValue("endYear", educationData.endYear);
-    setValue("isCurrently", educationData.isCurrently);
-
+    setCurrentlyStudying("isCurrently", educationData.isCurrently);
     setIsModalVisible(true);
   };
 
@@ -124,7 +129,6 @@ export default function Education({ education, updateResume }) {
         </section>
         <section className="education-edit-delete-icon" style={{}}>
           <Tooltip title="edit">
-            {/* <Icon type="edit" onClick={() => handleEdit(educationData)}></Icon> */}
             <img
               src={editIcon}
               alt=""
@@ -261,7 +265,7 @@ export default function Education({ education, updateResume }) {
               </select>
             </section>
 
-            {!isCheckbox && (
+            {!currentlyStudying && (
               <section className="education-modal-block-sec-two">
                 <h2 className="input-label">End year</h2>
                 <select
@@ -282,13 +286,16 @@ export default function Education({ education, updateResume }) {
           </div>
 
           <section className="education-modal-sec-five">
-            <Controller
-              as={<Checkbox />}
-              name="isCurrently"
-              control={control}
+            {/* //TODO */}
+            <Checkbox
+              onChange={(e) => {
+                setCurrentlyStudying(e.target.checked);
+              }}
               className="education-modal-sec-five__checkbox"
-              // defaultValue={false}
             />
+            {/* name="isCurrently" control={control}
+            defaultValue={false} */}
+
             <h2 className="education-modal-sec-five__head">
               Currently studying here
             </h2>

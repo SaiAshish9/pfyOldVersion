@@ -62,6 +62,7 @@ export default function PaymentMethodModal(props) {
   const bankChangeHandler = (e, key) => {
     setBankDetails({ ...bankDetails, [key]: e.target.value });
   };
+
   console.table(bankDetails);
 
   const TabOnChangeHandler = (key) => {
@@ -117,30 +118,11 @@ export default function PaymentMethodModal(props) {
         </Form.Item>
 
         <Form.Item style={{ textAlign: "center", margin: "30px 0 0 0" }}>
-          <Button
-            htmlType="submit"
-            type="primary"
-            className="submit_btn"
-            // onClick={handleOk}
-            // style={{textAlign: "center"}}
-            // loading={loading} onClick={this.handleOk}
-          >
+          <Button htmlType="submit" type="primary" className="submit_btn">
             Submit
           </Button>
         </Form.Item>
       </Form>
-      {/* <div className="heading">Name of wallet user</div>
-      <Input
-        className="walletDetailInput"
-        onChange={(e) => paytmChangeHandler(e, "holder_name")}
-        placeholder="please enter name"
-      />
-      <div className="heading">Number of wallet holder</div>
-      <Input
-        className="walletDetailInput"
-        onChange={(e) => paytmChangeHandler(e, "number")}
-        placeholder="please enter number"
-      /> */}
     </div>
   );
 
@@ -164,12 +146,12 @@ export default function PaymentMethodModal(props) {
         onChange={(e) => bankChangeHandler(e, "bank_name")}
         placeholder="please enter bank name"
       />
-      <div className="heading">Branch Name</div>
+      {/* <div className="heading">Branch Name</div>
       <Input
         className="walletDetailInput"
         onChange={(e) => bankChangeHandler(e, "branch_number")}
         placeholder="please enter branch number"
-      />
+      /> */}
       <div className="heading">IFSC </div>
       <Input
         className="walletDetailInput"
@@ -177,14 +159,7 @@ export default function PaymentMethodModal(props) {
         placeholder="please enter IFSC code"
       />
       <Form.Item style={{ textAlign: "center", margin: "30px 0 0 0" }}>
-        <Button
-          htmlType="submit"
-          type="primary"
-          className="submit_btn"
-          // onClick={handleOk}
-          // style={{textAlign: "center"}}
-          // loading={loading} onClick={this.handleOk}
-        >
+        <Button htmlType="submit" type="primary" className="submit_btn">
           Submit
         </Button>
       </Form.Item>

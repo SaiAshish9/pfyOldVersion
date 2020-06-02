@@ -29,17 +29,14 @@ const Gig = () => {
   useEffect(() => {
     axios
       .get(`mission/fetch`)
-      .then(function (response) {
-        // handle success
+      .then((response) => {
         const gigData = response.data.missions;
         setGig(gigData);
         console.log(gigData);
       })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .finally(function () {});
+      .catch((error) => {
+        console.log(error.response);
+      });
   }, []);
 
   const handleArrangingCard = (value) => {

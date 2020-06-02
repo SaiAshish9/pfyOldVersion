@@ -21,10 +21,11 @@ $card-background-color: #fff;
       cursor: pointer;
       background: $card-background-color;
       .avatar-border-block {
-        background-image: linear-gradient(91deg, #5468d1 0%, #7a69b8 97%);
+        background-color: #444584;
         padding: 45px 75px;
         border-radius: 16px;
         .avatar-img-block {
+          background-color: #fff;
           overflow: hidden;
           display: flex;
           justify-content: center;
@@ -495,7 +496,7 @@ $card-background-color: #fff;
     margin-left: 45px;
     padding: 30px 35px;
     border-radius: 8px;
-    border: 1px solid #d3d3d3;
+    // border: 1px solid #d3d3d3;
   }
 
   .about-avatar-block {

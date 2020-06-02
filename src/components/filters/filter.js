@@ -16,7 +16,7 @@ const Filter = () => {
       </div>
       <Collapse
         defaultActiveKey={
-          (isGigs && ["1", "2", "3"]) || (isInternship && ["1"])
+          (isGigs && ["1", "2", "3"]) || (isInternship && ["1", "2"])
         }
       >
         <Panel header="Categories" key="1">
@@ -46,7 +46,7 @@ const Filter = () => {
           )}
         </Panel>
         {isInternship && (
-          <Panel header="Work Location" key="2">
+          <Panel header="Type" key="2">
             <Checkbox>inOffice</Checkbox>
             <Checkbox>Work From Home</Checkbox>
           </Panel>

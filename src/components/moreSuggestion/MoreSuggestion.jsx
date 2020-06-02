@@ -15,6 +15,7 @@ export default function MoreSuggestion({ isGigOrInternship, category }) {
   }, [similarGigOrInternship]);
 
   useEffect(() => {
+    console.log("similar gig", category);
     if (isGigOrInternship === "gig") {
       axios
         .get(`mission/fetch?pagesize=4&title=${category}`)

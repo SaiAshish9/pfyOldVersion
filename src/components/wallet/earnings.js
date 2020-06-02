@@ -10,7 +10,7 @@ import future from "./images/future.svg";
 import calender from "./images/calender.svg";
 import PaymentMethod from "./paymentMethodModal";
 import axios from "axios";
-import noDetails from "./images/noDetails.jpg";
+import noDetails from "./images/noDetails.svg";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { tokenHeader } from "../../constant/tokenHeader";
 
@@ -22,10 +22,6 @@ const codeToText = {
 
 export default function Earnings({ data, details, isUpdate }) {
   const [isShow, setIsShow] = useState(false);
-
-  console.log("%c Details", "font-size: 25px, color: darkorange");
-  // console.log(details)
-  console.log(data);
 
   const isModalOpen = () => {
     setIsShow(true);
@@ -44,7 +40,6 @@ export default function Earnings({ data, details, isUpdate }) {
           const resData = res.data;
           console.log("REDEEM", resData.message);
           message.info(resData.message);
-          // setIsUpdate(Math.random());
           isUpdate();
         })
         .catch((err) => {
@@ -57,7 +52,6 @@ export default function Earnings({ data, details, isUpdate }) {
     }
   };
 
-  const arr = [1, 2, 3];
   console.log(data);
   return (
     <div className="earning-block">
@@ -75,9 +69,11 @@ export default function Earnings({ data, details, isUpdate }) {
             {/* <Button style={{marginLeft: details.wallet ? "0" : "12rem" }} onClick={isModalOpen} className="add-payment-method-btn" shape={"round"}>
                     Add Payment Method
                   </Button>  */}
-            <Button onClick={redeem} className="redeem-btn" shape={"round"}>
-              Redeem Now
-            </Button>
+            {data.length > 0 && (
+              <Button onClick={redeem} className="redeem-btn" shape={"round"}>
+                Redeem Now
+              </Button>
+            )}
             <Button
               onClick={isModalOpen}
               className="add-payment-method-btn"
@@ -134,7 +130,9 @@ export default function Earnings({ data, details, isUpdate }) {
               <div style={{ fontSize: "1.5rem", fontFamily: "CircularStd" }}>
                 Your Wallet Is <br /> Currently Empty
               </div>
-              <img src={noDetails} alt="" />
+              <div className="" style={{ marginLeft: "98px" }}>
+                <img src={noDetails} alt="" />
+              </div>
             </div>
           )}
         </div>

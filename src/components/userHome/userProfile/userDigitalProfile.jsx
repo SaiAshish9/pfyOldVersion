@@ -7,7 +7,7 @@ import six from "./img/(6).svg";
 import seven from "./img/(7).svg";
 import eight from "./img/(8).svg";
 import addIcon from "./img/addIcon.svg";
-import editIcon from "./img/editIcon.svg";
+import editIcon from "./img/editIconBlue.svg";
 import facebookIcon from "./img/facebookIcon.svg";
 import instagramIcon from "./img/instagramIcon.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
@@ -21,28 +21,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
         tiktok: null,
       };
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isRerender, setIsRerender] = useState(false);
-
-  const [isDisabled, setIsDisabled] = useState({
-    facebook: false,
-    instagram: false,
-    tiktok: false,
-  });
-
-  useEffect(() => {
-    setIsDisabled({
-      facebook: !!digitalProfileData.facebook.trim() ? true : false,
-      instagram: !!digitalProfileData.instagram.trim() ? true : false,
-      tiktok: !!digitalProfileData.tiktok.trim() ? true : false,
-    });
-    // setDigitalProfile({
-    //   facebook:  digitalProfileData.facebook ? digitalProfileData.facebook : null,
-    //   instagram:    digitalProfileData.instagram ? digitalProfileData.instagram : null,
-    //   tiktok:  digitalProfileData.tiktok ? digitalProfileData.tiktok : null,
-    // })
-  }, [isRerender]);
-
-  // console.table(DigitalProfile)
 
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
@@ -54,7 +32,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
   };
 
   const handleProfileButton = () => {
-    // setIsModalVisible(true);
     const url = "user/update";
     const data = {
       digitalProfile: { ...SM },
@@ -63,7 +40,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
       console.log(res.data);
       isUpdate();
       setIsModalVisible(false);
-      // setIsRerender(Math.random());
     });
   };
 
@@ -74,14 +50,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
     setSM({ ...SM, [media]: SocialMediaID });
   };
   console.log(SM);
-
-  const SMHandler = () => {};
-
-  const setDisableHandler = (val) => {
-    setIsDisabled({ ...isDisabled, [val]: false });
-  };
-
-  console.log("isDisable", isDisabled);
 
   const addon = (icon, text) => (
     <div className="digital-profile-logo-block">

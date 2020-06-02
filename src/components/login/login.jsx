@@ -107,27 +107,6 @@ export default function Login() {
             history,
             loginDispatch
           );
-
-          // axios
-          //   .post(`auth/login`, userCredential)
-          //   .then(function (res) {
-          //     console.log(res);
-          //     if (res.data.statusCode === 200) {
-          //       Cookies.set("token", res.data.token);
-          //       history.push({
-          //         pathname: "/home",
-          //         state: { headers: { token: res.data.token } },
-          //       });
-          //     } else if (res.data.statusCode === 210) {
-          //       setIsOTPConfirm(true);
-          //     } else {
-          //       console.log("their is some error");
-          //     }
-          //   })
-          //   .catch(function (error) {
-          //     console.log("error.response", error.response);
-          //     console.log("");
-          //   });
         })
         .catch(function (error) {
           console.log("wrong OTP");

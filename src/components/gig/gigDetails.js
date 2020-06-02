@@ -304,7 +304,7 @@ export default function GigDetail(props) {
               </Button>
             </div>
           </TabPane>
-          <TabPane tab={`About the ${gigProvider}`} key="2">
+          <TabPane tab={`About The Company`} key="2">
             <div className="gig-provider-block-One">
               <div className="gig-provider-block-two">
                 <div className="gig-provider-block-three">
