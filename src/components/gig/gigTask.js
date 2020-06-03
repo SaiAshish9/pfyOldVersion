@@ -6,8 +6,8 @@ import React, { useEffect, useState } from "react";
 import { tokenHeader } from "../../constant/tokenHeader";
 import { apiURL } from "../../constant/url";
 import { arrayValidation } from "../validation/validation";
-import taskIcon from "./taskIcon.svg";
 import { RightOutlined,LeftCircleFilled, RightCircleFilled } from "@ant-design/icons";
+import taskIcon from "../../assets/img/gig/taskIcon.svg";
 
 export default function GigTask({
   gigTask,

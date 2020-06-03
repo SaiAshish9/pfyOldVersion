@@ -120,40 +120,29 @@ export default function Support(props) {
         onClick={() => selectHandler("internshipSupport")}
         className="support-single-block"
       >
-        <div style={{ margin: "auto" }}>
-          <img src={internship} alt="" />
-          <br />
-          <span className="support-single-block-text">Internship Support</span>
-        </div>
+        <img src={internship} alt="" />
+        <span className="support-single-block-text">Internship Support</span>
       </div>
       <div
         onClick={() => selectHandler("verification")}
         className="support-single-block"
       >
-        <div style={{ margin: "auto" }}>
-          <img src={verification} alt="" /> <br />
-          <span className="support-single-block-text">
-            Verification Support
-          </span>
-        </div>
+        <img src={verification} alt="" />
+        <span className="support-single-block-text">Verification Support</span>
       </div>
       <div
         onClick={() => selectHandler("gig")}
         className="support-single-block"
       >
-        <div style={{ margin: "auto" }}>
-          <img src={gig} alt="" /> <br />
-          <span className="support-single-block-text">Gig Support</span>
-        </div>
+        <img src={gig} alt="" />
+        <span className="support-single-block-text">Gig Support</span>
       </div>
       <div
         onClick={() => selectHandler("other")}
         className="support-single-block"
       >
-        <div style={{ margin: "auto" }}>
-          <img src={other} alt="" /> <br />
-          <span className="support-single-block-text">Other Support</span>
-        </div>
+        <img src={other} alt="" />
+        <span className="support-single-block-text">Other Support</span>
       </div>
     </div>
   );
@@ -232,6 +221,7 @@ export default function Support(props) {
   return (
     <Modal
       className="support-modal"
+      width={674}
       title="Support"
       visible={props.isShow}
       onOk={handleOk}
