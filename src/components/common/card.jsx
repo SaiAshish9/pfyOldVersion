@@ -6,6 +6,7 @@ import calendarIcon from "./img/calendarIcon.svg";
 import rupeeIcon from "./img/rupeeIcon.svg";
 import taskIcon from "./img/taskIcon.svg";
 import clockIcon from "./img/clockIcon.svg";
+import { s3URL } from "../../constant/url";
 
 export default function Card(props) {
   const gig = props.gig;
@@ -51,7 +52,7 @@ export default function Card(props) {
       <div className="my-card-block">
         <div>
           <div className="logo">
-            <img src={logo} style={{ width: "100%" }} alt=""></img>
+            <img src={(s3URL+logo)} alt=""></img>
           </div>
           <h4 className="designation" style={{}}>
             {title}
