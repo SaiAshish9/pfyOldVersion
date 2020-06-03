@@ -5,19 +5,15 @@
   flex-direction: column;
   flex-wrap: nowrap;
   .headerNav {
+    background: #fff;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     top: 0px;
     height: 70px;
-    align-items: center;
     z-index: 100;
     position: fixed;
     width: 100%;
-    background: linear-gradient(
-      90deg,
-      rgba(38, 39, 73, 1) 0%,
-      rgba(57, 58, 111, 1) 62%,
-      #424381
-    );
     padding: 12px 55px;
     transition: all 0.6 ease-in;
     font-family: $myFont;
@@ -89,18 +85,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .myLink1 {
-      margin-bottom: 12px;
-    }
-    .myLink2 {
-      margin-bottom: 12px;
-    }
-    .myLink3 {
-      margin-bottom: 12px;
-    }
-    .myLink4 {
-      margin-bottom: 12px;
-    }
 
     .login-button-main-block {
       margin-bottom: 40px;

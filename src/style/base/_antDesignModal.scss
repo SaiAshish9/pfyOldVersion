@@ -5,8 +5,15 @@
 }
 .ant-modal-content {
   font-family: $myFont;
-  padding: 38px 45px;
+  padding: 36px 36px;
   border-radius: 16px;
+  .ant-modal-close {
+    top: 28px;
+    right: 22px;
+    .ant-modal-close-x {
+      font-size: 26px;
+    }
+  }
   .ant-modal-header {
     background-color: #fff;
     padding: 0px;
@@ -22,7 +29,7 @@
     }
   }
   .ant-modal-body {
-    padding: 24px 0px 0px 0px;
+    padding: 24px 0 0 0;
   }
 }
 /* -------------------------------- ********* ------------------------------- */

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Input, Select, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
+import uploadBtn from "../../../assets/img/uploadBtn.svg";
 
 const { Option } = Select;
 
@@ -25,8 +26,7 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
 
   const ImageUploadHandler = (info, side) => {
     if (info.file.status === "uploading") {
-      // this.setState({ loading: true });
-      console.log("loading/..........");
+      console.log("loading..........");
       return;
     }
     if (info.file.status === "done") {
@@ -42,7 +42,7 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
 
   return (
     <Modal
-      width={"50%"}
+      width={680}
       title="Verify Student Status"
       visible={isVisibleModal}
       onCancel={handleCancel}
@@ -56,9 +56,9 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
         <div className="status-form-single-input">
           <p className="status-form-title">Upload Document</p>
           <Select
-            defaultValue="aadhar"
             style={{ width: "100%" }}
             onChange={handleChange}
+            placeholder="Select Document Type"
           >
             <Option value="aadhar">Aadhar</Option>
             <Option value="10th">10th Marksheet</Option>
@@ -78,55 +78,48 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
           </p>
         </div>
         <div className="status-form-upload">
-          <div>
-            <Upload
-              className="document-image1"
-              name="document"
-              listType="picture-card"
-              showUploadList={false}
-              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-              // beforeUpload={beforeUpload}
-              onChange={(info) => ImageUploadHandler(info, "front")}
-            >
-              {imageUrl1 ? (
-                <img src={imageUrl1} alt="avatar" style={{ width: "100%" }} />
-              ) : (
-                <div className="upload-text-content">
-                  <div className="text">
-                    <p>Upload Front Side of The Document</p>{" "}
-                  </div>
-                  <UploadOutlined />
-                  <div>{imageUrl1}</div>
+          <Upload
+            className="document-image1"
+            name="document"
+            listType="picture-card"
+            showUploadList={false}
+            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            // beforeUpload={beforeUpload}
+            onChange={(info) => ImageUploadHandler(info, "front")}
+          >
+            {imageUrl1 ? (
+              <img src={imageUrl1} alt="avatar" style={{ width: "100%" }} />
+            ) : (
+              <div className="upload-content">
+                <div className="upload-imgBtn-block">
+                  <img src={uploadBtn} alt="" className="upload-imgBtn" />
                 </div>
-              )}
-            </Upload>
-          </div>
-          <div>
-            <Upload
-              className="document-image2"
-              name="document"
-              listType="picture-card"
-              showUploadList={false}
-              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-              // beforeUpload={beforeUpload}
-              onChange={(info) => ImageUploadHandler(info, "back")}
-            >
-              {imageUrl2 ? (
-                <img src={imageUrl2} alt="avatar" style={{ width: "100%" }} />
-              ) : (
-                <div className="upload-text-content">
-                  <div className="text">
-                    <p> Upload Back Side of The Document </p>
-                  </div>
-                  {/* <Icon className="icon" type={"upload"} /> */}
-                  <UploadOutlined />
-                  <div>{imageUrl2}</div>
+                <p className="upload-text">Upload Front Side of The Document</p>
+              </div>
+            )}
+          </Upload>
+          <Upload
+            className="document-image2"
+            name="document"
+            listType="picture-card"
+            showUploadList={false}
+            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            // beforeUpload={beforeUpload}
+            onChange={(info) => ImageUploadHandler(info, "back")}
+          >
+            {imageUrl2 ? (
+              <img src={imageUrl2} alt="avatar" style={{ width: "100%" }} />
+            ) : (
+              <div className="upload-content">
+                <div className="upload-imgBtn-block">
+                  <img src={uploadBtn} alt="" className="upload-imgBtn" />
                 </div>
-              )}
-            </Upload>
-          </div>
+                <p className="upload-text">Upload Back Side of The Document</p>
+              </div>
+            )}
+          </Upload>
         </div>
-        <Button className="status-form-submit">Submit</Button>
+        <Button className="status-form-submit">Next</Button>
       </div>
     </Modal>
   );

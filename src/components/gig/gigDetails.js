@@ -300,7 +300,7 @@ export default function GigDetail(props) {
                 onClick={handleApply}
                 className="apply-button-block"
               >
-                {!notApplied ? "APPLIED" : "APPLY NOW"}
+                {notApplied ? "Apply Now" : "Applied"}
               </Button>
             </div>
           </TabPane>
@@ -331,6 +331,8 @@ export default function GigDetail(props) {
           </TabPane>
         </Tabs>
         <Modal
+          width={780}
+          title="Gig Application"
           visible={modalVisible}
           onCancel={handleModalCancel}
           footer={null}
@@ -340,7 +342,6 @@ export default function GigDetail(props) {
             selectedId={selectedGigId}
             companyQuestion={companyQuestion}
             handleSubmitModal={handleSubmitModal}
-            // refs={node => (myRef = node)}
           />
         </Modal>
       </div>

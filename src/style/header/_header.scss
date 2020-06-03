@@ -4,10 +4,10 @@
   flex-wrap: nowrap;
   div.headerNav {
     display: flex;
-    top: 0px;
     justify-content: space-between;
-    height: 80px;
     align-items: center;
+    top: 0px;
+    height: 80px;
     z-index: 100;
     position: fixed;
     width: 100%;

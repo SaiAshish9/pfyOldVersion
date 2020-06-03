@@ -56,8 +56,6 @@ export default function PrivateHeader() {
               <div
                 className="headerNav"
                 style={{
-                  height: 60,
-                  background: "#fff",
                   transition: "all 0.6s ease 0s",
                   boxShadow:
                     y > 20

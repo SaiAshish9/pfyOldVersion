@@ -1,23 +1,24 @@
-import { Button, Input } from "antd";
+import { Button, Input, Modal } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
 import { tokenHeader } from "../../constant/tokenHeader";
+import { findAllByAltText } from "@testing-library/react";
 
-const CompanyQuesForm = (props) => {
-  const { TextArea } = Input;
-  const [answer, setAnswer] = useState([]);
+const { TextArea } = Input;
+export default function CompanyQuesForm(props) {
   const {
     companyQuestion,
     handleSubmitModal,
     selectedId,
     isInternshipOrGig,
   } = props;
+  const [answer, setAnswer] = useState([]);
+  const [isApplicationSubmitted, setIsApplicationSubmitted] = useState(false);
 
   const onInputChange = (i, e) => {
     let newAnswer = [...answer];
-    // console.log(newAnswer)
     newAnswer[i] = e.target.value;
     setAnswer(newAnswer);
   };
@@ -31,64 +32,74 @@ const CompanyQuesForm = (props) => {
     const answerData = {
       answers: answer,
     };
-
     if (isInternshipOrGig === "internship") {
       axios
         .put(`internship/apply/${selectedId}`, answerData, tokenHeader())
         .then((res) => {
-          console.log(res);
-          console.log(answer);
-          // setCompanyQuestion(res.data.questions);
+          setIsApplicationSubmitted(true);
+          handleSubmitModal();
         })
         .catch((e) => {
-          console.log("error" + e);
           console.log(e.response);
         });
     } else {
       axios
         .put(`mission/apply/${selectedId}`, answerData, tokenHeader())
         .then((res) => {
-          console.log(res);
-          // console.log(answer);
-          // setCompanyQuestion(res.data.questions);
+          setIsApplicationSubmitted(true);
+          handleSubmitModal();
         })
         .catch((e) => {
           console.log("error" + e);
           console.log(e.response);
         });
     }
-
-    handleSubmitModal();
   };
 
   console.log(answer);
 
   const question =
     arrayValidation(companyQuestion) &&
-    companyQuestion.map((question, i) => {
-      return (
-        <div key={i}>
-          <p>
-            {i + 1}. {question.question}
-          </p>
-          <TextArea
-            // value={answer[i]}
-            required={true}
-            onChange={(e) => onInputChange(i, e)}
-            placeholder="enter you answer"
-            autoSize={{ minRows: 3, maxRows: 5 }}
-          />
-        </div>
-      );
-    });
+    companyQuestion.map((question, i) => (
+      <div key={i} className="company-ques-block">
+        <p className="company-ques-para">{question.question}</p>
+        <TextArea
+          className="company-ques-textarea"
+          required={true}
+          onChange={(e) => onInputChange(i, e)}
+          placeholder="enter you answer"
+        />
+      </div>
+    ));
+
+  const handleCancelModal = () => {
+    setIsApplicationSubmitted(false);
+  };
 
   return (
-    <div>
-      <h1> Internship Application </h1>
-      <div></div>
+    <>
       {question}
-      <Button onClick={handleSubmitApplication}>Submit Application</Button>
-    </div>
+      <div className="company-ques-btn-block">
+        <Button className="company-ques-btn" onClick={handleSubmitApplication}>
+          Submit Application
+        </Button>
+      </div>
+      <Modal
+        width={460}
+        visible={isApplicationSubmitted}
+        onCancel={handleCancelModal}
+        className="sbm-vrf-modal"
+        footer={
+          <>
+            <h3 className="sbm-vrf-head">
+              Your application has been received!
+            </h3>
+            <Button className="sbm-vrf-btn" onClick={handleCancelModal}>
+              OK
+            </Button>
+          </>
+        }
+      ></Modal>
+    </>
   );
-};
-export default CompanyQuesForm;
+}

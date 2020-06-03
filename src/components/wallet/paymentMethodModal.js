@@ -117,7 +117,7 @@ export default function PaymentMethodModal(props) {
           />
         </Form.Item>
 
-        <Form.Item style={{ textAlign: "center", margin: "30px 0 0 0" }}>
+        <Form.Item className="submit_btn_block">
           <Button htmlType="submit" type="primary" className="submit_btn">
             Submit
           </Button>
@@ -158,7 +158,7 @@ export default function PaymentMethodModal(props) {
         onChange={(e) => bankChangeHandler(e, "ifsc_code")}
         placeholder="please enter IFSC code"
       />
-      <Form.Item style={{ textAlign: "center", margin: "30px 0 0 0" }}>
+      <Form.Item className="submit_btn_block">
         <Button htmlType="submit" type="primary" className="submit_btn">
           Submit
         </Button>
@@ -181,7 +181,7 @@ export default function PaymentMethodModal(props) {
           Tell us where you want you redeem your wallet balance
         </div>
         <Tabs
-          style={{ textAlign: "center" }}
+          style={{ textAlign: "center", padding: "0 28px" }}
           defaultActiveKey="paytm"
           onChange={TabOnChangeHandler}
         >
@@ -192,18 +192,6 @@ export default function PaymentMethodModal(props) {
             {bank}
           </TabPane>
         </Tabs>
-        <div className="submit_btn_block">
-          {/* <Button
-            key="submit"
-            type="primary"
-            className="submit_btn"
-            onClick={handleOk}
-            // style={{textAlign: "center"}}
-            // loading={loading} onClick={this.handleOk}
-          >
-            Submit
-          </Button> */}
-        </div>
       </Modal>
     </div>
   );

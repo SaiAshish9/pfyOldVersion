@@ -1,0 +1,69 @@
+.company-ques-block {
+  margin-bottom: 12px;
+  .company-ques-para {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #333e49;
+  }
+  .company-ques-textarea {
+    min-height: 134px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.16);
+    border: solid 1px #e5e5e5;
+    background-color: #ffffff;
+    height: 40px;
+  }
+}
+.company-ques-btn-block {
+  text-align: center;
+  .company-ques-btn {
+    width: 263px;
+    height: 45px;
+    margin: 30px 0 0 0;
+    padding: 0 2rem;
+    border: none;
+    border-radius: 2rem;
+    height: 2.5rem;
+    background: #444584;
+
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+  }
+}
+.sbm-vrf-modal {
+  .ant-modal-content {
+    height: 380px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+    .ant-modal-close {
+      display: none;
+    }
+    .ant-modal-footer {
+      width: 100%;
+      text-align: center;
+      padding: 20px 16px;
+      .sbm-vrf-head {
+        font-size: 22px;
+        font-weight: 500;
+        color: #1bba27;
+      }
+      .sbm-vrf-btn {
+        width: 174px;
+        height: 54px;
+        border-radius: 24px;
+        background-color: #444584;
+        border: 1px solid #444584;
+
+        font-weight: 600;
+        letter-spacing: 1px;
+        line-height: 1.42;
+        color: #ffffff;
+      }
+    }
+  }
+}

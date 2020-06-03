@@ -295,13 +295,11 @@ export default function InternshipDetail(props) {
             <div className="apply-block">
               <Button
                 type="primary"
-                disabled={isApply || isRejected || isSelected || isShortlisted}
+                disabled={!notApplied}
                 onClick={handleApply}
                 className="apply-button-block"
               >
-                {isApply || isRejected || isSelected || isShortlisted
-                  ? "Applied"
-                  : "Apply Now"}
+                {notApplied ? "Apply Now" : "Applied"}
               </Button>
             </div>
           </TabPane>
@@ -341,6 +339,8 @@ export default function InternshipDetail(props) {
           </TabPane>
         </Tabs>
         <Modal
+          width={780}
+          title="Internship Application"
           visible={modalVisible}
           onCancel={handleModalCancel}
           footer={null}
@@ -350,7 +350,6 @@ export default function InternshipDetail(props) {
             selectedId={selectedInternshipId}
             companyQuestion={companyQuestion}
             handleSubmitModal={handleSubmitModal}
-            // refs={node => (myRef = node)}
           />
         </Modal>
       </div>
@@ -358,7 +357,3 @@ export default function InternshipDetail(props) {
     </div>
   );
 }
-
-// <ApplicationForm/>
-
-//TODO
