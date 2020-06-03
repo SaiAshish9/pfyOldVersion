@@ -1,5 +1,5 @@
 import Carousel from "@brainhubeu/react-carousel";
-import { Button, Icon, Input, message, Modal, Tooltip, Upload } from "antd";
+import { Button, Icon, Input, message, Modal, Tooltip, Upload, Tag } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
@@ -7,7 +7,7 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import { apiURL } from "../../constant/url";
 import { arrayValidation } from "../validation/validation";
 import taskIcon from "./taskIcon.svg";
-import { LeftCircleFilled, RightCircleFilled } from "@ant-design/icons";
+import { RightOutlined,LeftCircleFilled, RightCircleFilled } from "@ant-design/icons";
 
 export default function GigTask({
   gigTask,
@@ -23,6 +23,13 @@ export default function GigTask({
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [taskData, setTaskData] = useState([]);
   const [selectedTask, setSelectedTask] = useState();
+  const [form, setForm] = useState([]);
+  const [loader,setLoader] = useState(false);
+  const proofTypes = {
+    101: "text",
+    102: "image",
+    103: "link",
+  };
 
   useEffect(() => {
     console.log("taskData", taskData);
@@ -30,8 +37,10 @@ export default function GigTask({
     console.log("selectedTask", selectedTask);
   }, [selectedTask, taskData]);
 
-  const description = !!selectedTask && selectedTask.description;
-  const instruction =
+  const description = () => !!selectedTask && selectedTask.description;
+  const taskId = () => !!selectedTask && selectedTask._id;
+
+  const instruction = () =>
     !!selectedTask &&
     arrayValidation(selectedTask.instruction) &&
     selectedTask.instruction.map((instruction, index) => (
@@ -41,93 +50,103 @@ export default function GigTask({
       </div>
     ));
 
-  const [userText, setUserText] = useState("");
-  const [uploadImage, setUploadImage] = useState("");
-  const [userLink, setUserLink] = useState("");
-  const [collectedData, setCollectedData] = useState({ submission: [] });
-  useEffect(() => {
-    console.log("selected file", collectedData);
-  }, [collectedData]);
   //!-------------------------- handle all user input ------------------------- */
-  const handleFile = (e) => {
-    const myFile = e.target.files[0];
-    const data = new FormData();
-    data.append("file", myFile);
-    setUploadImage(data);
+  const handleFile = (info, index, type) => {
+    console.log(info.file, info.fileList);
+    handleFormChange(index, type, info.file.originFileObj);
+    if (info.file.status !== "uploading") {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === "done") {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === "error") {
+      message.error(`${info.file.name} file upload failed.`);
+    }
   };
 
-  const handleUserText = (e) => {
-    const myUserText = e.target.value;
-    setUserText(myUserText);
-    console.log("myUserText", myUserText);
+  const handleFormChange = (index, type, value) => {
+    console.log(form);
+    setForm((form) => {
+      form[index][proofTypes[type]] = value;
+      return form;
+    });
   };
-
-  const handleUserLink = (e) => {
-    const myUserLink = e.target.value;
-    console.log("myUserText", myUserLink);
-    setUserLink(myUserLink);
-  };
-
-  const handleTaskSubmit = () => {
-    console.table(userLink, uploadImage, userText);
-    const myCollectedData = [
-      ...collectedData.submission,
-      {
-        type: 101,
-        text: userText,
-      },
-      {
-        type: 102,
-        text: uploadImage,
-      },
-      {
-        type: 103,
-        text: userLink,
-      },
-    ];
-    console.log("all submission", { submission: myCollectedData });
+  const handleTaskSubmit = async () => {
+    try{
+      setLoader(true);
+    
+    const submission = await Promise.all(
+      form.map(async (val) => {
+        if (val.type === 102) {
+          const response = await axios.get(
+            `task/get_image_url_for_task_submission?fileType=${val.image.type}`,
+            tokenHeader()
+          );
+          const data = response.data;
+          await axios.put(data.url, val.image);
+          val.image = data.key;
+          return val;
+        }
+        return val;
+      })
+    
+    );
+    console.log("all submission", submission);
+    await axios.post(
+      `task/submit/${selectedGigId}/${taskId()}`,
+      { submission },
+      tokenHeader()
+    );
+    setLoader(false)
+    setIsModalVisible(false);
+  }catch(err){
+      setLoader(false)
+  }
   };
   //! ---------------------------------- **** ---------------------------------- */
-  const userTokenHeader = tokenHeader();
+
   const props = {
     name: "file",
-    action: `${apiURL}/task/get_image_url_for_task_submission`,
-    userTokenHeader,
-    onChange(info) {
-      if (info.file.status !== "uploading") {
-        console.log(info.file, info.fileList);
-      }
-      if (info.file.status === "done") {
-        message.success(`${info.file.name} file uploaded successfully`);
-      } else if (info.file.status === "error") {
-        message.error(`${info.file.name} file upload failed.`);
-      }
-    },
+    action: null,
+    multiple: false,
   };
 
-  const proof =
+  const proof = () =>
     !!selectedTask &&
     arrayValidation(selectedTask.proof) &&
     selectedTask.proof.map((proof, index) => (
       <div className="" key={index}>
         {proof.type === 101 ? (
-          <div className="">
-            <h3>Submit Work</h3>
-            <p>{proof.message}</p>
-            <Input onChange={handleUserText}></Input>
+          <div className="task__input">
+            <h3>{proof.message}</h3>
+            <Input
+              onChange={(e) =>
+                handleFormChange(index, proof.type, e.target.value)
+              }
+              key={proof._id}
+              value={form[index] && form[index][proof.type]}
+            ></Input>
           </div>
         ) : proof.type === 102 ? (
-          <div className="">
-            <h3> Submit Proof</h3>
-
-            <Upload {...props}>
-              <Button>Click to Upload</Button>
+          <div className="task__input">
+            <Upload
+              {...props}
+              onChange={(info) => handleFile(info, index, proof.type)}
+            >
+              <h3>Upload Picture</h3>
+              <Button className="task__upload-btn">Click to Upload</Button>
             </Upload>
           </div>
         ) : proof.type === 103 ? (
-          <div className="">
+          <div className="task__input">
             <h3>Give the link</h3>
-            <Input onChange={handleUserLink}></Input>
+            <Input
+              onChange={(e) =>
+                handleFormChange(index, proof.type, e.target.value)
+              }
+              value={form[index] && form[index][proof.type]}
+              key={proof._id}
+            ></Input>
           </div>
         ) : proof.type === 104 ? (
           <h3>This is Lead</h3>
@@ -137,7 +156,7 @@ export default function GigTask({
       </div>
     ));
 
-  const checklist =
+  const checklist = () =>
     !!selectedTask &&
     arrayValidation(selectedTask.checkList) &&
     selectedTask.checkList.map((checklist, index) => (
@@ -148,117 +167,82 @@ export default function GigTask({
     ));
 
   //! ------------------------ Our Data for all the task ----------------------- */
-  const dummyTaskData = [];
-  useEffect(() => {
-    arrayValidation(gigTask) &&
-      gigTask.forEach((task) => {
-        axios
-          .get(`task/${selectedGigId}/${task._id}`, tokenHeader())
-          .then((res) => {
-            dummyTaskData.push(res.data);
-            setTaskData(dummyTaskData);
-          })
-          .catch((e) => {
-            console.log(`%c Task Data`, "color:red", e.res);
-          });
-      });
-  }, [gigTask]);
 
+  useEffect(() => {
+    if (selectedTask) {
+      console.log(JSON.stringify(selectedTask.proof));
+      const formFeilds = selectedTask.proof.map((proof, index) => ({
+        type: proof.type,
+        [proofTypes[proof.type]]: null,
+      }));
+      console.log(formFeilds);
+      setForm(formFeilds);
+    }
+  }, [selectedTask]);
+  const fetchTasks = async () => {
+    if(!arrayValidation(gigTask)) return ;
+    await Promise.all(gigTask.map(async (task) => {
+      const response = await axios.get(`task/${selectedGigId}/${task._id}`, tokenHeader())
+      const data = response.data;
+      setTaskData(tasks => [...tasks,data]);
+    }));
+  }
+  useEffect(() => {
+    console.log(isSelected)
+    if(isSelected) fetchTasks()
+  }, [isSelected]);
+  console.log(form);
   //! ---------------------------------- test ---------------------------------- */
 
   const handleStartTask = (myGigTaskId) => {
-    setIsModalVisible(true);
     const myTask = taskData.find((task) => task._id === myGigTaskId);
+    if(myTask && !myTask.submission){
+    setIsModalVisible(true);
     setSelectedTask(myTask);
+    }
   };
 
   const handleModalCancel = () => {
     setIsModalVisible(false);
+    setForm([]);
   };
 
   //* ------------------ Start task button disabled if user not selected ------------------ */
-  const isButtonDisable = isSelected || isCompleted ? false : true;
+  // const isButtonDisable = isSelected || isCompleted ? false : true;
+  const getPromptMessage = (index) => {
+    if(!isApply) return "Apply To Continue"
+    if(isShortlisted) return "Wait For Your Selection"
+    if(isSelected && taskData[index] && !taskData[index].submission) return "Click To Continue"
+    if(isSelected && taskData[index] && taskData[index].submission) return "Waiting For Approval"
+    if(isRejected) return "You are not selected"
+  }
 
-  const isGigTaskLength = arrayValidation(gigTask) && gigTask.length;
-  let lengthOfSlider =
-    isGigTaskLength === 1 ? 1 : isGigTaskLength === 2 ? 2 : 3;
 
   return (
     <>
-      {lengthOfSlider === 1 || 2 ? (
-        <div className="" style={{ display: "flex" }}>
-          {arrayValidation(gigTask) &&
-            gigTask.map((task, index) => (
-              <div
-                className="carousel-content-block"
-                key={index}
-                style={{ margin: "20px 8px 20px 6px", width: "290px" }}
-              >
-                <h4 className="carousel-content-block__h4">{task.title}</h4>
-                <img
-                  src={taskIcon}
-                  className="carousel-content-block__img"
-                  alt=""
-                ></img>
-                <Tooltip
-                  title={
-                    !isMyCookie
-                      ? "please login first"
-                      : isSelected || isCompleted
-                      ? undefined
-                      : "You are not selected"
-                  }
-                >
-                  <Button
-                    shape="round"
-                    onClick={() => handleStartTask(task._id)}
-                    disabled={isButtonDisable}
-                    className="carousel-content-block__button"
-                  >
-                    Start Task
-                  </Button>
-                </Tooltip>
+      <div className="">
+        {arrayValidation(gigTask) &&
+          gigTask.map((task, index) => (
+            <Tooltip title={getPromptMessage(index)} color={"#38bdba"} key={index}>
+            <div
+              className="carousel-content-block"
+              key={index}
+              style={{ margin: "20px 8px 20px 6px"}}
+              onClick={() => handleStartTask(task._id)}
+            >
+              <div className="carousel-content-block__content">
+              <h4 className="carousel-content-block__h4">{task.title}</h4>
+              <p className="carousel-content-block__p">{task.description}</p>
+              {taskData[index] && taskData[index].submission ? <Tag color="green">Task Submitted</Tag>: null}
               </div>
-            ))}
-        </div>
-      ) : (
-        <Carousel
-          slidesPerPage={lengthOfSlider}
-          arrowLeft={<LeftCircleFilled />}
-          arrowRight={<RightCircleFilled />}
-          addArrowClickHandler
-        >
-          {arrayValidation(gigTask) &&
-            gigTask.map((task, index) => (
-              <div className="carousel-content-block" key={index}>
-                <h4 className="carousel-content-block__h4">{task.title}</h4>
-                <img
-                  src={taskIcon}
-                  className="carousel-content-block__img"
-                  alt=""
-                ></img>
-                <Tooltip
-                  title={
-                    !isMyCookie
-                      ? "please login first"
-                      : isSelected || isCompleted
-                      ? undefined
-                      : "You are not selected"
-                  }
-                >
-                  <Button
-                    shape="round"
-                    onClick={() => handleStartTask(task._id)}
-                    disabled={isButtonDisable}
-                    className="carousel-content-block__button"
-                  >
-                    Start Task
-                  </Button>
-                </Tooltip>
+              <div className="carousel-content-block__icon">
+              <RightOutlined />
               </div>
-            ))}
-        </Carousel>
-      )}
+            
+            </div>
+            </Tooltip>
+          ))}
+      </div>
 
       <Modal
         visible={isModalVisible}
@@ -266,19 +250,25 @@ export default function GigTask({
         footer={null}
       >
         {/* TODO */}
-        <div>
-          <h3>Task Description</h3>
-          <p>{description}</p>
-          <h3>Instructions</h3>
-          {instruction}
-          <div className="">{proof}</div>
+        <div className="task">
+          <h3 className="task__header">Task Description</h3>
+          <p className="task__description">{description()}</p>
+          <h3 className="task__header">Instructions</h3>
+          {instruction()}
+          <div className="">
+            <h3 className="task__header">Submit Work</h3>
+
+            <div>{proof()}</div>
+          </div>
           <div className="" style={{ marginTop: "18px" }}>
             <h3>Task Check List</h3>
-            {checklist}
+            {checklist()}
           </div>
         </div>
         <div className="" style={{ textAlign: "center" }}>
-          <Button onClick={handleTaskSubmit}>Submit</Button>
+          <Button loading={loader} className="task__submit-btn" onClick={handleTaskSubmit}>
+            Submit
+          </Button>
         </div>
       </Modal>
     </>

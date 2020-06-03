@@ -79,19 +79,24 @@ export default function GigDetail(props) {
             setIsApply(true);
             setGig(res.data);
           } else if (res.data.appliedStatus === 602) {
+           
             setGig(res.data);
             setIsShortlisted(true);
           } else if (res.data.appliedStatus === 603) {
+           
             setGig(res.data);
             setIsSelected(true);
           } else if (res.data.appliedStatus === 604) {
             setGig(res.data);
+           
             setIsRejected(true);
           } else if (res.data.appliedStatus === 605) {
             setGig(res.data);
+           
             setIsCompleted(true);
           } else if (res.data.appliedStatus === 606) {
             setGig(res.data);
+           
             setIsFailed(true);
           } else {
             console.log("gig details", res.data.questions);
@@ -163,7 +168,7 @@ export default function GigDetail(props) {
               </div>
               <div className="gig-brief-content-two">
                 <img src={taskIcon} alt="" className="" />
-                <span>Tasks: Rs. {task}</span>
+                <span>Tasks: {task}</span>
               </div>
               <div
                 className="gig-brief-content-three"
@@ -268,7 +273,7 @@ export default function GigDetail(props) {
                   <GigTask
                     gigTask={gigTask}
                     selectedGigId={selectedGigId}
-                    isApply={isApply}
+                    isApply={!notApplied}
                     isCompleted={isCompleted}
                     isFailed={isFailed}
                     isRejected={isRejected}

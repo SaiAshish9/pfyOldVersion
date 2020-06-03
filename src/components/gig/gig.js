@@ -92,7 +92,9 @@ const Gig = () => {
             </div>
           </div>
           <div className="card-container">{gigCard && gigCard}</div>
+        
         </Col>
+        
       </Row>
     </div>
   );
