@@ -4,7 +4,6 @@ $card-background-color: #fff;
 .homePage-block {
   font-family: $myFont;
   padding: 100px 0 52px;
-  // margin-top: 40px;
   background: #f4f4f4;
   .avatar-block {
     width: 100%;
@@ -496,7 +495,6 @@ $card-background-color: #fff;
     margin-left: 45px;
     padding: 30px 35px;
     border-radius: 8px;
-    // border: 1px solid #d3d3d3;
   }
 
   .about-avatar-block {
@@ -541,7 +539,6 @@ $card-background-color: #fff;
           .single-vehicle {
             width: 8rem;
             padding: 1rem;
-            // align-self: flex-end;
             box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
             border-radius: 8px;
           }
@@ -553,14 +550,13 @@ $card-background-color: #fff;
         }
       }
       .offline-gigs {
-        margin-top: 15px;
         padding-left: 10px;
         border-left: 2px solid #5468d1;
         .pin-img {
           margin-right: 0.5rem;
         }
         .location-name {
-          margin-bottom: 1rem;
+          margin: 15px 0;
           color: #6b6b6b;
         }
         .willing-to-travel-btn {
@@ -572,6 +568,7 @@ $card-background-color: #fff;
           cursor: pointer;
         }
         .btn-and-vehicles {
+          margin-top: 15px;
           display: flex;
           justify-content: space-around;
           .vehicles {
@@ -676,10 +673,8 @@ $card-background-color: #fff;
       margin: auto;
       display: flex;
       justify-content: center;
-      // margin-bottom: 1rem;
       .single-icon {
         font-size: 3em;
-        // padding: 0.25rem 1rem;
         margin: 0px 0.25rem 20px 0.25rem;
         border: 1px solid #ccc;
         border-radius: 8px;

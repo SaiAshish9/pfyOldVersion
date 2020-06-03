@@ -10,10 +10,8 @@ import emailIcon from "./img/emailIcon.svg";
 import locationIcon from "./img/locationIcon.svg";
 export default function UserCard(props) {
   const myUserProfile = props.myUserProfile;
-  const history = useHistory();
   const location = useLocation();
   const [userData, setUserData] = useState();
-  const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
     axios
@@ -32,7 +30,6 @@ export default function UserCard(props) {
   return (
     <div className="userProfile-with-profileScore-block">
       <div className="userProfile-block">
-        {/* <EditProfile /> */}
         <div className="avatar-block">
           <div className="avatar-img-block">
             <img

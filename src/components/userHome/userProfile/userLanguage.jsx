@@ -5,8 +5,9 @@ import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import three from "./img/(3).svg";
 import addIcon from "./img/addIcon.svg";
-import editIcon from "./img/editIcon.svg";
+import editIcon from "./img/editIconBlue.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
+import { arrayValidation } from "../../validation/validation";
 
 const { Option } = Select;
 
@@ -50,39 +51,21 @@ const UserLanguage = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const languagesData = props.profileData ? props.profileData.languages : [];
 
-  const { register, handleSubmit, watch, errors, control } = useForm();
-
-  useEffect(() => {
-    setSelectLang([...languagesData]);
-  }, []);
-
-  const languagesArr = [];
-
   const newSubmitHandler = () => {
     const url = "user/update";
     const data1 = {
       languages: [...selectLang],
     };
-    axios.put(url, data1, tokenHeader()).then((res) => {
-      console.log(res.data);
-      props.isUpdate();
-      setIsModalVisible(false);
-    });
-  };
-
-  const onSubmit = (data) => {
-    console.log(data.languages);
-    if (data.languages.length > 0) {
-      const url = "user/update";
-      const data1 = {
-        languages: [...data.languages],
-      };
-      axios.put(url, data1, tokenHeader()).then((res) => {
+    axios
+      .put(url, data1, tokenHeader())
+      .then((res) => {
         console.log(res.data);
         props.isUpdate();
         setIsModalVisible(false);
+      })
+      .catch((error) => {
+        console.log(error.res);
       });
-    }
   };
 
   const handleCancel = () => {
@@ -100,7 +83,7 @@ const UserLanguage = (props) => {
     ));
   }
 
-  const [selectLang, setSelectLang] = useState([]);
+  const [selectLang, setSelectLang] = useState(languagesData);
   const selectHandler = (lang) => {
     if (!selectLang.includes(lang)) {
       setSelectLang([...selectLang, lang]);
@@ -108,7 +91,6 @@ const UserLanguage = (props) => {
       setSelectLang(selectLang.filter((el) => el !== lang));
     }
   };
-  console.log(selectLang);
 
   return (
     <div className="language-of-avatar-block">
@@ -117,11 +99,16 @@ const UserLanguage = (props) => {
           <img className="language-of-avatar-img" src={three} alt=""></img>
           <div className="language-of-avatar-content">
             <h2>Languages</h2>
-            {props.profileData && props.profileData.languages ? (
-              <div className="selected-languages">{dataArr}</div>
-            ) : (
-              "Which language do you speak?"
-            )}{" "}
+            {
+              arrayValidation(languagesData) && (
+                <div className="selected-languages">{dataArr}</div>
+              )
+              // : (
+              //   <span style={{ marginLeft: 10 }}>
+              //     Which language do you speak?
+              //   </span>
+              // )
+            }
           </div>
         </div>
         <img
@@ -145,7 +132,7 @@ const UserLanguage = (props) => {
         className="add-languages-modal"
       >
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          // onSubmit={handleSubmit(onSubmit)}
           style={{ display: "flex", flexWrap: "wrap" }}
           className="objective-block-one__form"
         >
@@ -163,23 +150,6 @@ const UserLanguage = (props) => {
               </div>
             ))}
           </div>
-
-          {/* <Controller
-        as={<Select
-          mode="multiple"
-          style={{ width: '100%' }}
-          placeholder="Please select languages"
-          // defaultValue={['English']}
-          // onChange={handleChange}
-        >
-          {languages.map((lang, index) =>
-            <Option key={lang}>{lang}</Option>
-          )}
-        </Select>}
-        control={control}
-        name="languages"
-        // defaultValue={{ value: 'English' }}
-      /> */}
         </form>
         <div style={{ textAlign: "center" }}>
           <Button
@@ -189,7 +159,7 @@ const UserLanguage = (props) => {
             className="submit-btn"
             style={{}}
           >
-            Done
+            SAVE
           </Button>
         </div>
       </Modal>

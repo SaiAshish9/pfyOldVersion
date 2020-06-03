@@ -1,8 +1,9 @@
 import { Button, Modal } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
+import detectLocationIcon from "../../../assets/img/detectLocationIcon.svg";
+import { tokenHeader } from "../../../constant/tokenHeader";
 import bike2 from "./bike2.svg";
 import bus from "./bus.svg";
 import bus2 from "./bus2.svg";
@@ -10,12 +11,11 @@ import car from "./car.svg";
 import car2 from "./car2.svg";
 import two from "./img/(2).svg";
 import addIcon from "./img/addIcon.svg";
-import editIcon from "./img/editIcon.svg";
+import editIcon from "./img/editIconBlue.svg";
 import pin from "./pin.svg";
 import train from "./train.svg";
 import train2 from "./train2.svg";
 import twoWheeler from "./two-wheeler.svg";
-import { tokenHeader } from "../../../constant/tokenHeader";
 
 const textToImg = {
   car: car,
@@ -24,14 +24,13 @@ const textToImg = {
   bike: twoWheeler,
 };
 
-const OfflineAvailUser = (props) => {
+export default function OfflineAvailUser(props) {
   const vehiclesData = props.profileData.offlineGigs.mode;
   const offlineGigsData = props.profileData
     ? props.profileData.offlineGigs.mode
     : { bus: false, train: false, car: false, bike: false };
+
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [openDone, setOpenDone] = useState(false);
-  const [openConveyance, setOpenConveyance] = useState(false);
   const [vehicle, setVehicle] = useState({
     bus: false,
     train: false,
@@ -39,37 +38,30 @@ const OfflineAvailUser = (props) => {
     bike: false,
   });
 
+  const isAnyVehicle =
+    vehicle.bike || vehicle.bus || vehicle.car || vehicle.train;
+
+  const [openConveyance, setOpenConveyance] = useState(isAnyVehicle);
+
   useEffect(() => {
     setVehicle(offlineGigsData);
-    if (
-      offlineGigsData.bus ||
-      offlineGigsData.train ||
-      offlineGigsData.bike ||
-      offlineGigsData.bike
-    ) {
+    if (isAnyVehicle) {
       setOpenConveyance(true);
     }
   }, [offlineGigsData]);
 
-  const { register, handleSubmit, watch, errors } = useForm();
-
-  const onSubmit = (data) => {
-    console.log("ON SUBMIT ", data);
-    console.log(data.objectiveTextarea);
-  };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
   const handlePreferenceButton = () => {
     setIsModalVisible(true);
   };
+
   const handleYes = () => {
-    // setOpenDone(true);
     setOpenConveyance(true);
   };
   const handleNo = () => {
-    // setOpenDone(true);
     setOpenConveyance(false);
     setVehicle({
       bus: false,
@@ -79,20 +71,11 @@ const OfflineAvailUser = (props) => {
     });
   };
 
-  // let vehicle = {
-  //   "bus": false,
-  //   "metro": false,
-  //   "car": false,
-  //   "bike": false
-  // }
-
   const selectVehicleHandler = (val) => {
     setVehicle({ ...vehicle, [val]: !vehicle[val] });
   };
-  console.table(vehicle);
 
   const submitHandler = (e) => {
-    console.log("IN SUBMIT HANDLER");
     e.preventDefault();
     const url = "user/update";
     let data1 = {
@@ -101,11 +84,10 @@ const OfflineAvailUser = (props) => {
           ...vehicle,
         },
         location: props.profileData.offlineGigs.location,
-        isWillingToTravel: openConveyance,
+        isWillingToTravel: isAnyVehicle,
       },
     };
-    console.log("DATA IS READY");
-    console.table(data1);
+
     axios
       .put(url, data1, tokenHeader())
       .then((res) => {
@@ -115,21 +97,6 @@ const OfflineAvailUser = (props) => {
       })
       .catch((err) => console.log(err));
   };
-
-  let arr = [];
-  if (props.profileData && props.profileData.offlineGigs.isWillingToTravel) {
-    const vehiclesData = props.profileData.offlineGigs.mode;
-    for (let key in vehiclesData) {
-      if (vehiclesData[key]) {
-        arr.push(vehiclesData);
-      }
-      arr = Object.entries(vehiclesData).map((data) =>
-        data[1] ? data[0] : null
-      );
-    }
-  }
-  console.log("ARRAY");
-  console.log(arr);
 
   const [userLocation, setUserLocation] = useState({
     longitude: null,
@@ -184,41 +151,37 @@ const OfflineAvailUser = (props) => {
           <div className="offline-available-avatar-content">
             <h2>Offline Gigs</h2>
             <div className="offline-gigs">
-              <div className="location-name">
-                {" "}
-                <img className="pin-img" src={pin} alt="" />{" "}
-                {userLocation.userAddress}
-                {/* {props.profileData.offlineGigs.location
-                  ? props.profileData.offlineGigs.location
-                  : null} */}
-              </div>
-              <div className="btn-and-vehicles">
-                <div className="willing-to-travel-btn">Willing to travel</div>
-                <div className="vehicles">
-                  {vehiclesData.bike ? (
-                    <img className="vehicle" src={bike2} alt="" />
-                  ) : null}
-                  {vehiclesData.car ? (
-                    <img className="vehicle" src={car2} alt="" />
-                  ) : null}
-                  {vehiclesData.bus ? (
-                    <img className="vehicle" src={bus2} alt="" />
-                  ) : null}
-                  {vehiclesData.train ? (
-                    <img className="vehicle" src={train2} alt="" />
-                  ) : null}
+              {userLocation.userAddress && (
+                <div className="location-name">
+                  <img className="pin-img" src={pin} alt="" />
+                  <span>Show the location here</span>
                 </div>
-              </div>
+              )}
+              {isAnyVehicle && (
+                <div className="btn-and-vehicles">
+                  {/* <div className="willing-to-travel-btn">Willing to travel</div> */}
+                  <div className="vehicles">
+                    {vehiclesData.bike ? (
+                      <img className="vehicle" src={bike2} alt="" />
+                    ) : null}
+                    {vehiclesData.car ? (
+                      <img className="vehicle" src={car2} alt="" />
+                    ) : null}
+                    {vehiclesData.bus ? (
+                      <img className="vehicle" src={bus2} alt="" />
+                    ) : null}
+                    {vehiclesData.train ? (
+                      <img className="vehicle" src={train2} alt="" />
+                    ) : null}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
         <img
           src={
-            vehicle.bike ||
-            vehicle.bus ||
-            vehicle.car ||
-            vehicle.train ||
-            props.profileData.offlineGigs.location
+            isAnyVehicle || props.profileData.offlineGigs.location
               ? editIcon
               : addIcon
           }
@@ -228,25 +191,15 @@ const OfflineAvailUser = (props) => {
           className="add-icon"
         />
       </div>
-
-      {/* <Button
-        type="primary"
-        shape="round"
-        className="offline-available-avatar-button"
-        onClick={handlePreferenceButton}
-      >
-        Add
-      </Button> */}
       <Modal
-        width={"60%"}
+        width={780}
         title="Add Location"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
-        className="add-loaction-modal"
+        className="add-location-modal"
       >
         <form
-          // onSubmit={handleSubmit(onSubmit)}
           style={{ display: "flex", flexDirection: "column" }}
           className="objective-block-one__form"
         >
@@ -261,7 +214,12 @@ const OfflineAvailUser = (props) => {
                 className="detect-location-btn"
                 onClick={getLocation}
               >
-                Detect My Location
+                <img
+                  src={detectLocationIcon}
+                  alt=""
+                  className="detect-location-btn-img"
+                />
+                <span>Detect My Location</span>
               </Button>
             </div>
             <div>
@@ -274,6 +232,11 @@ const OfflineAvailUser = (props) => {
                   type="primary"
                   shape="round"
                   className="yes-btn"
+                  style={{
+                    backgroundColor:
+                      isAnyVehicle || openConveyance ? "#444584" : "#fff",
+                    color: isAnyVehicle || openConveyance ? "#fff" : "#444584",
+                  }}
                 >
                   Yes
                 </Button>
@@ -282,12 +245,18 @@ const OfflineAvailUser = (props) => {
                   type="primary"
                   shape="round"
                   className="no-btn"
+                  style={{
+                    backgroundColor:
+                      !isAnyVehicle || !openConveyance ? "#444584" : "#fff",
+                    color:
+                      !isAnyVehicle || !openConveyance ? "#fff" : "#444584",
+                  }}
                 >
                   No
                 </Button>
               </div>
 
-              {openConveyance ? (
+              {isAnyVehicle || openConveyance ? (
                 <div>
                   <div className="heading-3">
                     How Will You Travel To Complete Offline Gigs?
@@ -335,7 +304,7 @@ const OfflineAvailUser = (props) => {
                 shape="round"
                 className="add-location-btn"
               >
-                Save
+                SAVE
               </Button>
             </div>
           </div>
@@ -343,10 +312,4 @@ const OfflineAvailUser = (props) => {
       </Modal>
     </div>
   );
-};
-
-export default OfflineAvailUser;
-
-// Assamese	Dogri	Hindi	Kashmiri	Maithili	Manipuri	Nepali	Punjabi	Sindhi	Telugu	Bengali
-// Bodo	Gujarati	Kannada	Konkani	Malayalam	Marathi	Oriya	Santhali	Tamil	Urdu	Sanskrit
-// Italian	Mandarin	Korean	Spanish	Portugese	Russian	Japanese	Arabic	French 	German
+}

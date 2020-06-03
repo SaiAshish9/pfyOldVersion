@@ -64,7 +64,7 @@
   border: solid 1px #e5e5e5;
   background-color: #ffffff;
   height: 40px;
-  
+
   padding-left: 8px;
 
   font-size: 15px;
@@ -95,7 +95,15 @@
 %modal-form__button {
   align-self: center;
   margin-top: 32px;
-  background-color: #5468d1;
+  width: 115px;
+  height: 38px;
+  border-radius: 19px;
+  border: 1px solid #444584;
+  background-color: #444584;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 600;
   color: white;
 }
 
@@ -455,13 +463,24 @@
 }
 
 .digitalProfile-modal-main-block {
+  .ant-modal-body {
+    padding: 24px 32px 0;
+  }
   .digital-profile-input {
     border-radius: 5px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
     margin-bottom: 20px;
     .ant-input {
       height: 43px;
-      // border-left: none;
+      border-left: none;
+      &:hover,
+      &:focus,
+      &:focus-within {
+        border-width: 1px 1px 1px 0 !important;
+        border-color: rgba(0, 0, 0, 0.16);
+        border-style: solid;
+        box-shadow: none !important;
+      }
     }
     .ant-input-group-addon {
       background-color: #fff;
@@ -470,7 +489,7 @@
       .digital-profile-logo-block {
         display: flex;
         align-items: center;
-        padding: 6px 0px;
+        border-right: 1px solid #d3d3d3;
         .digital-profile-logo__img {
           width: 29px;
         }

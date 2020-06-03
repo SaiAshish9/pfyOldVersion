@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import four from "./img/(4).svg";
 import addIcon from "./img/addIcon.svg";
-import editIcon from "./img/editIcon.svg";
+import editIcon from "./img/editIconBlue.svg";
 import comedyIcon from "./img/interestIcon/comedyIcon.svg";
 import danceIcon from "./img/interestIcon/danceIcon.svg";
 import dataEntryIcon from "./img/interestIcon/dataEntryIcon.svg";
@@ -25,6 +25,7 @@ import storeAuditIcon from "./img/interestIcon/storeAuditIcon.svg";
 import videoMaking from "./img/interestIcon/videoMaking.svg";
 import writingIcon from "./img/interestIcon/writingIcon.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
+import { arrayValidation } from "../../validation/validation";
 
 const skillImg = [
   { icon: comedyIcon, text: "comedy" },
@@ -52,25 +53,6 @@ const UserSkill = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm();
 
-  useEffect(() => {
-    setSkills1([...skillsData]);
-  }, []);
-
-  const onSubmit = (data) => {
-    console.log(data.objectiveTextarea);
-    // axios
-    //   .put(
-    //     `resume/addobjective?careerObjectives=${data.objectiveTextarea}`,
-    //     null
-    //   )
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((e) => {
-    //     console.log(e.response);
-    //   });
-  };
-
   const submitHandler = (e) => {
     e.preventDefault();
     const url = "user/update";
@@ -83,23 +65,16 @@ const UserSkill = (props) => {
       setIsModalVisible(false);
     });
   };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };
   const handleSkillButton = () => {
     setIsModalVisible(true);
   };
-
-  // const skills = []
-
-  const [skills1, setSkills1] = useState([]);
+  const [skills1, setSkills1] = useState(skillsData);
   const selectHandler = (val) => {
-    // skills.push()
     if (!skills1.includes(val)) {
-      // skills.push(val)
       setSkills1([...skills1, val]);
-      // console.log(skills)
     } else {
       const index = skills1.indexOf(val);
       if (index > -1) {
@@ -108,16 +83,7 @@ const UserSkill = (props) => {
       console.log("already there");
     }
   };
-  console.log("SKILLS1", skills1);
-  let skillData = [];
-  if (props.profileData && props.profileData.skills) {
-    skillData = props.profileData.skills.map((el, i) => (
-      <div className="single-skill" key={i}>
-        {" "}
-        {el}{" "}
-      </div>
-    ));
-  }
+
   return (
     <div className="skill-of-avatar-block">
       <div className="skill-of-avatar-content-block">
@@ -125,15 +91,25 @@ const UserSkill = (props) => {
           <img className="skill-of-avatar-img" src={four} alt=""></img>
           <div className="skill-of-avatar-content">
             <h2>Skills</h2>
-            {skillData ? (
-              <div className="skill-list">{skillData}</div>
-            ) : (
-              <div className="skill-list">What are you good at?</div>
-            )}
+            {
+              arrayValidation(skillsData) && (
+                <div className="skill-list">
+                  {skillsData.map((el, i) => (
+                    <div className="single-skill" key={i}>
+                      {" "}
+                      {el}{" "}
+                    </div>
+                  ))}
+                </div>
+              )
+              // : (
+              //   <span style={{ marginLeft: "10px" }}>What are you good at?</span>
+              // )
+            }
           </div>
         </div>
         <img
-          src={skillData.length > 0 ? editIcon : addIcon}
+          src={skillsData.length > 0 ? editIcon : addIcon}
           alt=""
           onClick={handleSkillButton}
           style={{ alignSelf: "baseline", cursor: "pointer" }}
@@ -169,7 +145,6 @@ const UserSkill = (props) => {
                 color:
                   skills1 && skills1.includes(image.text) ? "#fff" : "#000",
                 margin: "0.5rem",
-                // padding: "20px 20px",
                 height: "100px",
                 width: "100px",
                 borderRadius: "5px",
@@ -204,7 +179,7 @@ const UserSkill = (props) => {
             className="objective-block-one__buttonTwo submit-btn"
             style={{ alignSelf: "center", marginTop: "32px" }}
           >
-            Done
+            SAVE
           </Button>
         </div>
       </Modal>

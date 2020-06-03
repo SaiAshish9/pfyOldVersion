@@ -16,38 +16,61 @@
     padding-left: 8px;
   }
   .objective-block-one__buttonTwo {
-    background-color: #5468d1;
+    width: 115px;
+    height: 38px;
+    background-color: #444584;
     padding: 0 1.5rem;
     border-radius: 1rem;
     color: white;
   }
 }
 
-.social-media-input {
-  .social-media-single-input {
-    border-radius: 5px;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
-    margin-bottom: 20px;
-    .ant-input {
-      height: 43px;
-      // border-left: none;
-    }
-    .ant-input-group-addon {
-      background-color: #fff;
-      width: 164px;
-      // padding-right: 0px;
-      .digital-profile-logo-block {
-        display: flex;
-        align-items: center;
-        padding: 6px 0px;
-        .digital-profile-logo__img {
-          width: 29px;
+.social-media-modal {
+  .ant-modal-body {
+    padding: 24px 32px 0;
+  }
+  .social-media-input {
+    .social-media-single-input {
+      border-radius: 5px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+      margin-bottom: 20px;
+      .ant-input {
+        height: 43px;
+        border-left: none;
+        &:hover,
+        &:focus,
+        &:focus-within {
+          border-width: 1px 1px 1px 0 !important;
+          border-color: rgba(0, 0, 0, 0.16);
+          border-style: solid;
+          box-shadow: none !important;
         }
-        .digital-profile-logo__p {
-          margin: 0px 20px 0px 30px;
+      }
+      .ant-input-group-addon {
+        background-color: #fff;
+        width: 164px;
+        // padding-right: 0px;
+        .digital-profile-logo-block {
+          display: flex;
+          align-items: center;
+          border-right: 1px solid #d3d3d3;
+          .digital-profile-logo__img {
+            width: 29px;
+          }
+          .digital-profile-logo__p {
+            margin: 0px 20px 0px 30px;
+          }
         }
       }
     }
+  }
+  .social-media-btn {
+    width: 115px;
+    height: 38px;
+    background-color: #444584;
+    padding: 0 1.5rem;
+    border-radius: 1rem;
+    color: white;
   }
 }
 
@@ -65,30 +88,54 @@
   .heading-1,
   .heading-2,
   .heading-3 {
-    color: #707070;
-    font-size: 1.1rem;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.36;
+    color: #333e49;
   }
   .detect-location-btn {
-    background-color: #137efc;
-    border: none;
+    width: 286px;
+    height: 47px;
+    background-color: #444584;
+    border: 1px solid #444584;
+    border-radius: 24px;
     margin-top: 1rem;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.44;
+    color: #ffffff;
+    .detect-location-btn-img {
+      margin-right: 20px;
+    }
   }
   .heading-2 {
     margin-top: 1.5rem;
   }
   .yes-no-btn {
     margin-top: 1rem;
-    .yes-btn {
-      background-color: #137efc;
-      margin-right: 1rem;
-      padding: 0 2rem;
-    }
+    .yes-btn,
     .no-btn {
-      background-color: #fff;
-      border: 1px solid #137efc;
-      color: #137efc;
-      padding: 0 2rem;
+      margin-right: 1rem;
+      width: 98px;
+      height: 45px;
+      border: 2px solid #444584;
+      border-radius: 23px;
+
+      font-size: 14px;
+      font-weight: 700;
+      // &:focus,
+      // &:focus-within,
+      // &:visited {
+      //   background-color: #444584;
+      //   color: #fff;
+      // }
     }
+    //  {
+    //   background-color: #fff;
+    //   border: 1px solid #137efc;
+    //   color: #137efc;
+    //   padding: 0 2rem;
+    // }
   }
   .heading-3 {
     margin-top: 1.5rem;
@@ -106,11 +153,16 @@
     }
   }
   .add-location-btn {
+    width: 115px;
     margin-top: 1.2rem;
-    background-color: #5468d1;
-    color: #fff;
-    border-radius: none;
-    padding: 0 2rem;
+    height: 38px;
+    border-radius: 19px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: #444584;
+
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
   }
 }
 
@@ -131,18 +183,22 @@
     }
   }
   .submit-btn {
+    width: 115px;
+    height: 38px;
     padding: 0 2rem;
     align-self: center;
     margin-top: 32px;
-    background-color: #5468d1;
+    background-color: #444584;
     color: #fff;
   }
 }
 
 .add-skill-modal {
   .submit-btn {
+    width: 115px;
+    height: 38px;
     padding: 0 2rem;
     color: #fff;
-    background-color: #5468d1;
+    background-color: #444584;
   }
 }

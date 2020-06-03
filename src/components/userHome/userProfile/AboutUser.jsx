@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import userFaceIcon from "./img/(1).svg";
 import addIcon from "./img/addIcon.svg";
-import editIcon from "./img/editIcon.svg";
+import editIcon from "./img/editIconBlue.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
 
 const AboutUser = (props) => {
@@ -50,11 +50,11 @@ const AboutUser = (props) => {
           <img src={userFaceIcon} alt="" className="about-avatar-img"></img>
           <div className="about-avatar-content">
             <h2>About me</h2>
-            {!aboutMeData && (
+            {/* {!aboutMeData && (
               <p style={{ margin: "0px 0px 0px 10px" }} className="">
                 Tell us about yourself
               </p>
-            )}
+            )} */}
             <div className="about-content-block">
               {!!aboutMeData && (
                 <p className="about-content-block__p">

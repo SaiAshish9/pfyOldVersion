@@ -1,16 +1,13 @@
-import { Button, Icon, Input, Modal } from "antd";
+import { Button, Input, Modal } from "antd";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
+import { tokenHeader } from "../../../constant/tokenHeader";
 import five from "./img/(5).svg";
-import six from "./img/(6).svg";
-import seven from "./img/(7).svg";
-import eight from "./img/(8).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
 import facebookIcon from "./img/facebookIcon.svg";
 import instagramIcon from "./img/instagramIcon.svg";
-import { tokenHeader } from "../../../constant/tokenHeader";
+import tikTokIcon from "./img/tikTokIcon.svg";
 
 const UserDigitalProfile = ({ profileData, isUpdate }) => {
   const digitalProfileData = profileData
@@ -21,11 +18,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
         tiktok: null,
       };
   const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => {
-    console.log(data.objectiveTextarea);
-  };
 
   const handleCancel = () => {
     setIsModalVisible(false);
@@ -55,7 +47,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
     <div className="digital-profile-logo-block">
       <img src={icon} alt="" className="digital-profile-logo__img" />
       <p className="digital-profile-logo__p">{text}</p>
-      {/* <div className="digital-profile-divider"></div> */}
     </div>
   );
 
@@ -104,12 +95,9 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
         onCancel={handleCancel}
         width={780}
         footer={null}
+        className="social-media-modal"
       >
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          style={{ display: "flex", flexDirection: "column" }}
-          className="objective-block-one__form"
-        >
+        <form style={{ display: "flex", flexDirection: "column" }} className="">
           <div className="social-media-input">
             <Input
               onChange={(e) => onChange(e, "facebook")}
@@ -126,7 +114,7 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
             <Input
               onChange={(e) => onChange(e, "tiktok")}
               className="social-media-single-input"
-              addonBefore={addon(instagramIcon, "TikTok")}
+              addonBefore={addon(tikTokIcon, "TikTok")}
               defaultValue={digitalProfileData.tiktok}
             />
           </div>
@@ -134,10 +122,10 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
           <Button
             onClick={handleProfileButton}
             htmlType="submit"
-            className="objective-block-one__buttonTwo"
-            style={{ alignSelf: "center", marginTop: "32px" }}
+            className="social-media-btn"
+            style={{ alignSelf: "center", marginTop: "12px" }}
           >
-            Done
+            SAVE
           </Button>
         </form>
       </Modal>

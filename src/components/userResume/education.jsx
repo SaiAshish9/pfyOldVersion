@@ -306,7 +306,7 @@ export default function Education({ education, updateResume }) {
             className="education-modal__button"
             shape="round"
           >
-            Done
+            SAVE
           </Button>
         </form>
       </Modal>
