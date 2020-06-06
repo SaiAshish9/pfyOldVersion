@@ -1,12 +1,12 @@
+import moment from "moment";
 import React from "react";
 import { Link } from "react-router-dom";
-import moment from "moment";
-// import { GigCardStyled } from "../defaultStyled/defaultStyled";
+/* ---------------------------------- ***** --------------------------------- */
+import { s3URL } from "../../constant/url";
 import calendarIcon from "./img/calendarIcon.svg";
+import clockIcon from "./img/clockIcon.svg";
 import rupeeIcon from "./img/rupeeIcon.svg";
 import taskIcon from "./img/taskIcon.svg";
-import clockIcon from "./img/clockIcon.svg";
-import { s3URL } from "../../constant/url";
 
 export default function Card(props) {
   const gig = props.gig;
@@ -52,11 +52,9 @@ export default function Card(props) {
       <div className="my-card-block">
         <div>
           <div className="logo">
-            <img src={(s3URL+logo)} alt=""></img>
+            <img src={s3URL + logo} alt=""></img>
           </div>
-          <h4 className="designation" style={{}}>
-            {title}
-          </h4>
+          <h4 className="designation">{title}</h4>
           <p className="company-name">{companyName}</p>
         </div>
         <div className="brief-info-main-block">

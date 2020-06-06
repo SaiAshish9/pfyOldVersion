@@ -5,8 +5,6 @@ import { Controller, useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { objectValidation } from "../validation/validation";
 import educationIcon from "./img/headingImg/educationIcon.svg";
-import { EditOutlined } from "@ant-design/icons";
-
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
@@ -18,20 +16,26 @@ export default function Education({ education, updateResume }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentlyStudying, setCurrentlyStudying] = useState(false);
 
-  useEffect(() => {
-    console.log(currentlyStudying);
-  }, [currentlyStudying]);
+  const customDefaultValue = (option, educationData) => {
+    if (option === "edit") {
+      console.log("bbb");
 
-  const { register, handleSubmit, errors, control, watch, setValue } = useForm({
-    defaultValues: {
-      startYear: year,
-      educationType: {
-        typeNo: "4",
-      },
-      marks: {
-        type: "CGPA",
-      },
-    },
+      setCurrentlyStudying("isCurrently", educationData.isCurrently);
+    } else {
+      return {
+        educationType: { typeNo: "" },
+        instituteName: "",
+        course: "",
+        marks: { val: "", type: "" },
+        startYear: "",
+        endYear: "",
+        isCurrently: false,
+      };
+    }
+  };
+
+  const { register, handleSubmit, watch, reset } = useForm({
+    defaultValues: customDefaultValue(),
   });
 
   const isCheckbox = watch("isCurrently");
@@ -48,7 +52,7 @@ export default function Education({ education, updateResume }) {
 
   const onSubmit = (data) => {
     const myData = { ...data, isCurrently: currentlyStudying };
-    console.log("datadata", myData);
+    console.log("dataData", myData);
     axios
       .put(`resume/addeducation`, myData, tokenHeader())
       .then((res) => {
@@ -67,24 +71,28 @@ export default function Education({ education, updateResume }) {
 
   const handleAddEducation = () => {
     setIsModalVisible(true);
+    customDefaultValue();
+    reset({
+      educationType: { typeNo: "" },
+      instituteName: "",
+      course: "",
+      marks: { val: "", type: "" },
+      startYear: "",
+      endYear: "",
+    });
   };
 
   const handleEdit = (educationData) => {
-    console.log(educationData);
-    setValue("educationType.typeNo", educationData.educationType.typeNo);
-    setValue("instituteName", educationData.instituteName);
-    setValue("course", educationData.course);
-    setValue("marks.val", educationData.marks.val);
-    setValue("marks.type", educationData.marks.type);
-    setValue("startYear", educationData.startYear);
-    setValue("endYear", educationData.endYear);
-    setCurrentlyStudying("isCurrently", educationData.isCurrently);
+    reset({
+      educationType: { typeNo: educationData.educationType.typeNo },
+      instituteName: educationData.instituteName,
+      course: educationData.course,
+      marks: { val: educationData.marks.val, type: educationData.marks.type },
+      startYear: educationData.startYear,
+      endYear: educationData.endYear,
+    });
     setIsModalVisible(true);
   };
-
-  // const handleDelete = educationData => {
-  //   console.log("myEducation", educationData);
-  // };
 
   const printEducation = (educationData) => {
     const educationStandard =
@@ -127,7 +135,7 @@ export default function Education({ education, updateResume }) {
             </h5>
           </div>
         </section>
-        <section className="education-edit-delete-icon" style={{}}>
+        <section className="education-edit-delete-icon">
           <Tooltip title="edit">
             <img
               src={editIcon}
@@ -286,15 +294,12 @@ export default function Education({ education, updateResume }) {
           </div>
 
           <section className="education-modal-sec-five">
-            {/* //TODO */}
             <Checkbox
               onChange={(e) => {
                 setCurrentlyStudying(e.target.checked);
               }}
               className="education-modal-sec-five__checkbox"
             />
-            {/* name="isCurrently" control={control}
-            defaultValue={false} */}
 
             <h2 className="education-modal-sec-five__head">
               Currently studying here

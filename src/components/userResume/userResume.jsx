@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
+import { tokenHeader } from "../../constant/tokenHeader";
 import UserCard from "../common/userCard";
 import Achievement from "./achievement";
 import DigitalProfile from "./digitalProfile";
@@ -11,7 +12,6 @@ import Position from "./position";
 import Project from "./project";
 import Skill from "./skill";
 import Training from "./training";
-import { tokenHeader } from "../../constant/tokenHeader";
 
 const UserResume = () => {
   const [userResumeData, setUserResumeData] = useState({});

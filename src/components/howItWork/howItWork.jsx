@@ -1,19 +1,25 @@
+import { Button, Tabs } from "antd";
 import React from "react";
-import { Tabs, Button } from "antd";
+import Lottie from "react-lottie";
+/* ---------------------------------- ***** --------------------------------- */
+import oneHiwCompanyAnim from "../../assets/animations/oneHiwCompanyAnim.json";
+import oneHiwWorkerAnim from "../../assets/animations/oneHiwWorkerAnim.json";
+import threeHiwCompanyAnim from "../../assets/animations/threeHiwCompanyAnim.json";
+import threeHiwWorkerAnim from "../../assets/animations/threeHiwWorkerAnim.json";
+import twoHiwCompanyAnim from "../../assets/animations/twoHiwCompanyAnim.json";
+import twoHiwWorkerAnim from "../../assets/animations/twoHiwWorkerAnim.json";
 import businessAdvtOne from "../../assets/img/howItWork/businessAdvtOne.svg";
-import businessAdvtTwo from "../../assets/img/howItWork/businessAdvtTwo.svg";
 import businessAdvtThree from "../../assets/img/howItWork/businessAdvtThree.svg";
-import firstIcon from "../../assets/img/howItWork/firstIcon.png";
+import businessAdvtTwo from "../../assets/img/howItWork/businessAdvtTwo.svg";
 import gigAdvtOne from "../../assets/img/howItWork/gigAdvtOne.svg";
-import gigAdvtTwo from "../../assets/img/howItWork/gigAdvtTwo.svg";
 import gigAdvtThree from "../../assets/img/howItWork/gigAdvtThree.svg";
+import gigAdvtTwo from "../../assets/img/howItWork/gigAdvtTwo.svg";
 import iconOne from "../../assets/img/howItWork/iconOne.svg";
-import iconTwo from "../../assets/img/howItWork/iconTwo.svg";
 import iconThree from "../../assets/img/howItWork/iconThree.svg";
-import secIcon from "../../assets/img/howItWork/secIcon.png";
-import thirdIcon from "../../assets/img/howItWork/thirdIcon.png";
-import propImgOne from "../../assets/img/howItWork/propImgOne.svg";
-import propImgTwo from "../../assets/img/howItWork/propImgTwo.svg";
+import iconTwo from "../../assets/img/howItWork/iconTwo.svg";
+import propIconOne from "../../assets/img/howItWork/propIconOne.svg";
+import propIconTwo from "../../assets/img/howItWork/propIconTwo.svg";
+import Footer from "../landingPage/footer";
 
 const { TabPane } = Tabs;
 
@@ -32,7 +38,7 @@ const gigWorker = [
       "Finding gigs on Pracify is easy, use your mobile or laptop to search and apply to gigs that match your skillset and interest.",
     paraTwo:
       "Apply using the single click 'Apply Now' button to show your interest to work with your favorite companies.",
-    imgTwo: firstIcon,
+    animation: oneHiwWorkerAnim,
   },
   {
     imgOne: iconTwo,
@@ -42,7 +48,7 @@ const gigWorker = [
       "Submit proof of completed work on the mobile app or on web by sharing the screenshot or links as asked by your company.",
     paraTwo:
       "Make sure the proof matches all the requirements listed by the company to ensure it doesn't get rejected.",
-    imgTwo: secIcon,
+    animation: twoHiwWorkerAnim,
   },
   {
     imgOne: iconThree,
@@ -52,7 +58,7 @@ const gigWorker = [
       "Get paid into your Pracify wallet once the company reviews your performance and approves it.",
     paraTwo:
       "You can transfer your earnings directly from your Pracify wallet into your Bank account or Paytm account.",
-    imgTwo: thirdIcon,
+    animation: threeHiwWorkerAnim,
   },
 ];
 const businessOwner = [
@@ -63,7 +69,7 @@ const businessOwner = [
     paraOne:
       "Create a Gig on Pracify with detailed description and requirements so that Gig workers matching the Gig requirements can apply to the Gig easily.",
     paraTwo: "",
-    imgTwo: firstIcon,
+    animation: oneHiwCompanyAnim,
   },
   {
     imgOne: iconTwo,
@@ -72,7 +78,7 @@ const businessOwner = [
     paraOne:
       "Select Gig workers who match your Gig requirements so that they can start working on your project and complete it at the earliest.",
     paraTwo: "",
-    imgTwo: secIcon,
+    animation: twoHiwCompanyAnim,
   },
   {
     imgOne: iconThree,
@@ -81,7 +87,7 @@ const businessOwner = [
     paraOne:
       "Review the performance of gig workers and approve work submitted by them if it matches the Gig requirements.",
     paraTwo: "You pay only for the work you approve!",
-    imgTwo: thirdIcon,
+    animation: threeHiwCompanyAnim,
   },
 ];
 
@@ -128,60 +134,89 @@ const businessOwnerAdvantage = [
 
 export default function HowItWork() {
   const heroHead = (head) => (
-    <div className="">
-      <h1 className="">{head}</h1>
+    <div className="hero-head-block">
+      <h1 className="hero-head">{head}</h1>
     </div>
   );
 
-  const hiw = (allData) => (
-    <div className="">
+  const hiw = (allData, cls) => (
+    <div className={`${cls}-hiw-main-block`}>
       {allData.map((data, index) => (
-        <div className="" key={index}>
-          <img src={data.imgOne} alt="" className="" />
-          <span className="">{data.spanOne}</span>
-          <span className="">{data.spanTwo}</span>
-          <p className="">{data.paraOne}</p>
-          <p className="">{data.paraTwo}</p>
-          <img src={data.imgTwo} alt="" className="" />
+        <div key={index} className={`${cls}-hiw-block`}>
+          <div className={`${cls}-hiw-img-block`}>
+            <img src={data.imgOne} alt="" className={`${cls}-hiw-img`} />
+          </div>
+          <div className={`${cls}-hiw-head-block`}>
+            <span className={`${cls}-hiw-head-spanOne`}>{data.spanOne}</span>
+            <span className={`${cls}-hiw-head-spanTwo`}>{data.spanTwo}</span>
+          </div>
+          <div className={`${cls}-hiw-para-block`}>
+            <p className={`${cls}-hiw-para-one`}>{data.paraOne}</p>
+            <p className={`${cls}-hiw-para-two`}>{data.paraTwo}</p>
+          </div>
+          <div className={`${cls}-hiw-animation-block`}>
+            <Lottie
+              className={`${cls}-hiw-animation`}
+              options={{
+                animationData: data.animation,
+                loop: true,
+                autoplay: true,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
+              }}
+              isStopped={false}
+              isPaused={false}
+            />
+          </div>
         </div>
       ))}
     </div>
   );
 
-  const advantage = (allAdvantage) => (
-    <div className=" ">
+  const advantage = (allAdvantage, cls) => (
+    <div className={`${cls}-advantage-main-block`}>
       {allAdvantage.map((data, index) => (
-        <div className="" key={index}>
-          <img src={data.img} alt="" className="" />
-          <h1 className="">{data.head}</h1>
-          <p className="">{data.para}</p>
+        <div key={index} className={`${cls}-advantage-block`}>
+          <img src={data.img} alt="" className={`${cls}-advantage-img`} />
+          <h1 className={`${cls}-advantage-head`}>{data.head}</h1>
+          <p className={`${cls}-advantage-para`}>{data.para}</p>
         </div>
       ))}
     </div>
   );
 
   return (
-    <div className="" style={{ marginTop: 120 }}>
-      <Tabs defaultActiveKey="1" type="card">
+    <div className="howItWork-main-block">
+      <Tabs defaultActiveKey="1" type="card" className="hiw-tab">
         <TabPane tab="For Gig Workers" key="1">
           {heroHead(gigWorkerHead)}
-          {hiw(gigWorker)}
-          <h1 className="">Advantages</h1>
-          {advantage(gigWorkerAdvantage)}
-          <div className="">
-            <Button>Start Working</Button>
+          <div className="worker-hiw-with-props">
+            <img src={propIconOne} alt="" className="worker-prop-one" />
+            <img src={propIconTwo} alt="" className="worker-prop-two" />
+            {hiw(gigWorker, "worker")}
+          </div>
+          <h1 className="worker-advantage-main-head">Advantages</h1>
+          {advantage(gigWorkerAdvantage, "worker")}
+          <div className="hiw-btn-block">
+            <Button className="hiw-btn">Start Working</Button>
           </div>
         </TabPane>
         <TabPane tab="For business Owner" key="2">
           {heroHead(businessOwnerHead)}
-          {hiw(businessOwner)}
-          <h1 className="">Advantages</h1>
-          {advantage(businessOwnerAdvantage)}
-          <div className="">
-            <Button>Publish a Gig</Button>
+          <div className="business-hiw-with-props">
+            <img src={propIconOne} alt="" className="business-prop-one" />
+            <img src={propIconTwo} alt="" className="business-prop-two" />
+            {hiw(businessOwner, "business")}
+          </div>
+          <h1 className="business-advantage-main-head">Advantages</h1>
+          {advantage(businessOwnerAdvantage, "business")}
+          <div className="hiw-btn-block">
+            <Button className="hiw-btn">Publish a Gig</Button>
           </div>
         </TabPane>
       </Tabs>
+      <Footer></Footer>
     </div>
   );
 }

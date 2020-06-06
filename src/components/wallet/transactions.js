@@ -43,7 +43,7 @@ export default function Transactions({ data, details }) {
                   Validity
                 </span>{" "}
                 <br />
-                <span className="credit-card__validity-duration">FOREVER</span>
+                <span className="credit-card__validity-duration">Forever</span>
               </div>
             </div>
           </Fragment>

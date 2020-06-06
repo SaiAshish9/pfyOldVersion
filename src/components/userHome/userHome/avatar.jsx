@@ -54,19 +54,16 @@ const Avatar = ({ user }) => {
           </span>
         </div>
         <div className="credit-card__details">
-          <div className="credit-card__number">x x x x 1 2 3 4</div>
+          <div className="credit-card__number">
+            <span>x x x x</span>
+            <span>1 2 3 4</span>
+          </div>
           <div className="credit-card__holder">Card Holder</div>
           <div className="credit-card__name">{userName}</div>
         </div>
         <div className="credit-card__validity">
-          <span
-            style={{ fontSize: "9px" }}
-            className="credit-card__validity-span"
-          >
-            Validity
-          </span>{" "}
-          <br />
-          <span className="credit-card__validity-duration">FOREVER</span>
+          <span className="credit-card__validity-span">Validity</span> <br />
+          <span className="credit-card__validity-duration">Forever</span>
         </div>
       </div>
     </div>

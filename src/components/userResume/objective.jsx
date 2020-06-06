@@ -26,8 +26,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
 
   const onSubmit = (data) => {
     console.log(data.objectiveTextarea);
-    // let update=0
-    // set(Math.random());
+
     axios
       .put(
         `resume/addobjective?careerObjectives=${data.objectiveTextarea}`,
@@ -75,7 +74,6 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
         {!!careerObjective ? (
           <section className="objective-edit-icon">
             <Tooltip title="edit">
-              {/* <Icon type="edit" onClick={handleObjectiveButton}></Icon> */}
               <img
                 onClick={handleObjectiveButton}
                 src={editIcon}

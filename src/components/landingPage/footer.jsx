@@ -9,6 +9,7 @@ import instagram from "../../assets/img/instagram.svg";
 import linkedIn from "../../assets/img/linkedin.svg";
 import twitter from "../../assets/img/twitter.svg";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 export default function Footer() {
   return (
     <div className="footer-main-block">
@@ -32,26 +33,26 @@ export default function Footer() {
           <Link to="/about_us">
             <p className="footer__link">About</p>
           </Link>
-          <p className="footer__link">Team</p>
+          <Link to="/how_pracify_work">
+            <p className="footer__link">How It Works</p>
+          </Link>
           <Link to="/career">
             <p className="footer__link">Careers</p>
           </Link>
         </div>
         <div className="legal-block">
           <h3 className="footer__header">Legal</h3>
-          <Link to="/partner_with_us">
-            <p className="footer__link">Terms & Conditions</p>
-          </Link>
-          <Link to="/how_pracify_work">
-            <p className="footer__link">Privacy Policy</p>
-          </Link>
+          <p className="footer__link">Terms & Conditions</p>
+          <p className="footer__link">Privacy Policy</p>
         </div>
         <div className="get-in-touch-block">
           <h3 className="footer__header">Get In Touch</h3>
           <Link to="/contact_us">
             <p className="footer__link">Contact Us</p>
           </Link>
-          <p className="footer__link">College Festivals</p>
+          <Link to="/partner_with_us">
+            <p className="footer__link">College Festivals</p>
+          </Link>
         </div>
       </div>
       <div className="sub-footer">
