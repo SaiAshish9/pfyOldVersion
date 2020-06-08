@@ -16,30 +16,20 @@ export default function Education({ education, updateResume }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentlyStudying, setCurrentlyStudying] = useState(false);
 
-  const customDefaultValue = (option, educationData) => {
-    if (option === "edit") {
-      console.log("bbb");
-
-      setCurrentlyStudying("isCurrently", educationData.isCurrently);
-    } else {
-      return {
-        educationType: { typeNo: "" },
-        instituteName: "",
-        course: "",
-        marks: { val: "", type: "" },
-        startYear: "",
-        endYear: "",
-        isCurrently: false,
-      };
-    }
+  const customDefaultValue = () => {
+    return {
+      educationType: { typeNo: "" },
+      instituteName: "",
+      course: "",
+      marks: { val: "", type: "" },
+      startYear: "",
+      endYear: "",
+    };
   };
 
   const { register, handleSubmit, watch, reset } = useForm({
     defaultValues: customDefaultValue(),
   });
-
-  const isCheckbox = watch("isCurrently");
-  console.log("isCheckbox", isCheckbox);
 
   const myStartYear = watch("startYear");
   const standardSelect = watch("educationType.typeNo");
@@ -70,8 +60,7 @@ export default function Education({ education, updateResume }) {
   };
 
   const handleAddEducation = () => {
-    setIsModalVisible(true);
-    customDefaultValue();
+    setCurrentlyStudying(false);
     reset({
       educationType: { typeNo: "" },
       instituteName: "",
@@ -80,9 +69,11 @@ export default function Education({ education, updateResume }) {
       startYear: "",
       endYear: "",
     });
+    setIsModalVisible(true);
   };
 
   const handleEdit = (educationData) => {
+    setCurrentlyStudying(educationData.isCurrently);
     reset({
       educationType: { typeNo: educationData.educationType.typeNo },
       instituteName: educationData.instituteName,
@@ -216,7 +207,6 @@ export default function Education({ education, updateResume }) {
             <input
               name="instituteName"
               ref={register}
-              placeholder="please enter the institute name"
               className="education-modal-sec-two__input"
             />
           </section>

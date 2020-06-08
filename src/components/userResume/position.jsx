@@ -171,7 +171,7 @@ const Position = ({ position, updateResume }) => {
             className="position-modal__button"
             shape="round"
           >
-            Done
+            SAVE
           </Button>
         </form>
       </Modal>

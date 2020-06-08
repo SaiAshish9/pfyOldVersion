@@ -1,5 +1,5 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { Modal, Popover, Rate, Tooltip } from "antd";
+import { Modal, Popover, Rate, Tooltip, Button } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
@@ -363,46 +363,54 @@ export default function Skill({ skill }) {
           {isSubcategory && (
             <div className="skill-subCategory-block">
               <div>
-                {/* <Icon type="arrow-left"z onClick={handleBack} /> */}
                 <ArrowLeftOutlined onClick={handleBack} />
                 <div>{skillImage(selectedCategory)}</div>
               </div>
-              <div className=""></div>
-              {arrayValidation(subCategory) &&
-                subCategory.map((thisSkillData, index) => (
-                  <div key={index} className="skill-subCategory-block-two">
-                    <div
-                      className="skill-subCategory-content-block"
-                      style={subCategoryStyle(thisSkillData.name)}
-                    >
-                      <Popover
-                        content={popoverContent(thisSkillData.name)}
-                        trigger="click"
+              <div className="subCategory-main-block">
+                {arrayValidation(subCategory) &&
+                  subCategory.map((thisSkillData, index) => (
+                    <div key={index} className="skill-subCategory-block-two">
+                      <div
+                        className="skill-subCategory-content-block"
+                        style={subCategoryStyle(thisSkillData.name)}
                       >
-                        <p
-                          onClick={() => handleSkillName(thisSkillData)}
-                          className="skill-subCategory-content__p"
+                        <Popover
+                          content={popoverContent(thisSkillData.name)}
+                          trigger="click"
                         >
-                          {thisSkillData.name}
-                        </p>
-                      </Popover>
-                    </div>
-                    {!!selectedSkillCategory(thisSkillData.name) && (
-                      <img
-                        src={cancelIcon}
-                        alt=""
-                        className="delete-icon"
-                        onClick={() => handleDelete(thisSkillData.name)}
-                      />
+                          <p
+                            onClick={() => handleSkillName(thisSkillData)}
+                            className="skill-subCategory-content__p"
+                          >
+                            {thisSkillData.name}
+                          </p>
+                        </Popover>
+                      </div>
+                      {!!selectedSkillCategory(thisSkillData.name) && (
+                        <img
+                          src={cancelIcon}
+                          alt=""
+                          className="delete-icon"
+                          onClick={() => handleDelete(thisSkillData.name)}
+                        />
 
-                      // <Icon
-                      //   type="delete"
-                      //   className="delete-icon"
-                      //   onClick={() => handleDelete(thisSkillData.name)}
-                      // ></Icon>
-                    )}
-                  </div>
-                ))}
+                        // <Icon
+                        //   type="delete"
+                        //   className="delete-icon"
+                        //   onClick={() => handleDelete(thisSkillData.name)}
+                        // ></Icon>
+                      )}
+                    </div>
+                  ))}
+              </div>
+              <Button
+                onClick={() => {
+                  setIsModalVisible(false);
+                }}
+                className="skill-save-btn"
+              >
+                SAVE
+              </Button>
             </div>
           )}
         </div>

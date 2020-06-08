@@ -15,7 +15,6 @@ export default function Footer() {
     <div className="footer-main-block">
       <div className="border-block">
         <div className="pracify-section">
-          {/* <h1 className="pracify__header">PRACIFY</h1> */}
           <div className="logo-block">
             <img src={logo} alt="" className="logoImg" />
           </div>

@@ -10,7 +10,7 @@ import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
 const Objective = ({ careerObjective, updateResume, loader }) => {
   //#region
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { register, handleSubmit, watch, errors } = useForm({
+  const { register, handleSubmit, watch } = useForm({
     defaultValues: {
       objectiveTextarea: careerObjective,
     },
@@ -117,7 +117,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
             className="objective-modal__button"
             shape="round"
           >
-            Done
+            SAVE
           </Button>
         </form>
       </Modal>

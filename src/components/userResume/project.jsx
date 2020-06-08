@@ -29,10 +29,12 @@ const startYear = Array.from(new Array(60), (val, index) => year - index);
 
 const Project = ({ project, updateResume }) => {
   //#region
+  console.log("project", project);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isCurrentlyWorking, setIsCurrentlyWorking] = useState(false);
   const [projectData, setProjectData] = useState(false);
 
-  const { register, handleSubmit, errors, watch, control, setValue } = useForm({
+  const { register, handleSubmit, watch, control, reset } = useForm({
     defaultValues: {
       isCurrently: false,
       start: {
@@ -40,8 +42,6 @@ const Project = ({ project, updateResume }) => {
       },
     },
   });
-
-  const isCurrentlyWorking = watch("isCurrently");
 
   const monthList = month.map((month, index) => (
     <option key={index} value={month}>
@@ -63,8 +63,9 @@ const Project = ({ project, updateResume }) => {
   const onSubmit = (data) => {
     console.log("check", data);
     console.log("check", projectData);
-    const myData = projectData ? { ...data, _id: projectData._id } : data;
-    console.log("check", myData);
+    const myData = projectData
+      ? { ...data, _id: projectData._id, isCurrently: isCurrentlyWorking }
+      : { ...data, isCurrently: isCurrentlyWorking };
     axios
       .post(`resume/add_project`, myData, tokenHeader())
       .then((res) => {
@@ -84,20 +85,40 @@ const Project = ({ project, updateResume }) => {
   };
 
   const handleAdd = () => {
+    setIsCurrentlyWorking(false);
+    reset({
+      title: "",
+      description: "",
+      link: "",
+      start: {
+        month: "",
+        year: "",
+      },
+      end: {
+        month: "",
+        year: "",
+      },
+    });
     setIsModalVisible(true);
   };
 
   const handleEdit = (selectedProject) => {
     setProjectData(selectedProject);
+    setIsCurrentlyWorking(selectedProject.isCurrently);
+    reset({
+      title: selectedProject.title,
+      description: selectedProject.description,
+      link: selectedProject.link,
+      start: {
+        month: selectedProject.start.month,
+        year: selectedProject.start.year,
+      },
+      end: {
+        month: selectedProject.end ? selectedProject.end.month : "",
+        year: selectedProject.end ? selectedProject.end.year : "",
+      },
+    });
     setIsModalVisible(true);
-    setValue("title", selectedProject.title);
-    setValue("description", selectedProject.description);
-    setValue("link", selectedProject.link);
-    setValue("start.month", selectedProject.start.month);
-    setValue("start.year", selectedProject.start.year);
-    setValue("end.month", selectedProject.end.month);
-    setValue("end.year", selectedProject.end.year);
-    setValue("isCurrently", selectedProject.isCurrently);
   };
 
   const handleDelete = (id) => {
@@ -139,7 +160,6 @@ const Project = ({ project, updateResume }) => {
                       {myProject.link}
                     </a>
                     {console.log("myProject", myProject)}
-
                     <div className="project-content-sec-one-block-one ">
                       {myProject.start.month && (
                         <h5 className="project-content-sec-one-block-one__h5-one ">
@@ -232,50 +252,24 @@ const Project = ({ project, updateResume }) => {
               className="project-modal-sec-three__input"
             />
           </section>
-
-          <section className="project-modal-sec-four">
-            <h2 className="project-modal-sec-four__head">Start From</h2>
-            <div className="project-modal-sec-four-block">
-              <select
-                name="start.month"
-                ref={register}
-                className="project-modal-sec-four__select-one"
-              >
-                {monthList}
-              </select>
-              <select
-                name="start.year"
-                ref={register}
-                className="project-modal-sec-four__select-two"
-              >
-                {startYear.map((year, index) => {
-                  return (
-                    <option key={index} value={year}>
-                      {year}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-          </section>
-
-          {!isCurrentlyWorking && (
-            <section className="project-modal-sec-five ">
-              <h2 className="project-modal-sec-five__head ">End On</h2>
-              <div className="project-modal-sec-five-block ">
+          <div className="startOrEndYear-block">
+            <section className="project-modal-sec-four">
+              <h2 className="project-modal-sec-four__head">From</h2>
+              <div className="project-modal-sec-four-block">
                 <select
-                  name="end.month"
+                  name="start.month"
                   ref={register}
-                  className="project-modal-sec-five__select-one "
+                  className="project-modal-sec-four__select-one"
                 >
                   {monthList}
                 </select>
+                <span className="date-separator">/</span>
                 <select
-                  name="end.year"
+                  name="start.year"
                   ref={register}
-                  className="project-modal-sec-five__select-two "
+                  className="project-modal-sec-four__select-two"
                 >
-                  {endYear.reverse().map((year, index) => {
+                  {startYear.map((year, index) => {
                     return (
                       <option key={index} value={year}>
                         {year}
@@ -285,15 +279,44 @@ const Project = ({ project, updateResume }) => {
                 </select>
               </div>
             </section>
-          )}
+            {!isCurrentlyWorking && (
+              <section className="project-modal-sec-five ">
+                <h2 className="project-modal-sec-five__head ">To</h2>
+                <div className="project-modal-sec-five-block ">
+                  <select
+                    name="end.month"
+                    ref={register}
+                    className="project-modal-sec-five__select-one "
+                  >
+                    {monthList}
+                  </select>
+                  <span className="date-separator">/</span>
+                  <select
+                    name="end.year"
+                    ref={register}
+                    className="project-modal-sec-five__select-two "
+                  >
+                    {endYear.reverse().map((year, index) => {
+                      return (
+                        <option key={index} value={year}>
+                          {year}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              </section>
+            )}
+          </div>
 
           <section className="project-modal-sec-six ">
-            <Controller
-              as={<Checkbox />}
-              name="isCurrently"
-              control={control}
-              className="project-modal-sec-six__checkbox "
-            />
+            <Checkbox
+              className="project-modal-sec-six__checkbox"
+              onChange={(e) => {
+                setIsCurrentlyWorking(e.target.checked);
+              }}
+            ></Checkbox>
+
             <h3 className="project-modal-sec-six__head ">
               Currently working on this project
             </h3>
@@ -303,7 +326,7 @@ const Project = ({ project, updateResume }) => {
             className="project-modal__button"
             shape="round"
           >
-            Done
+            SAVE
           </Button>
         </form>
       </Modal>

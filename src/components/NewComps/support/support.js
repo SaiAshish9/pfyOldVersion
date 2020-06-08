@@ -4,8 +4,8 @@ import gig from "./img/gig.svg";
 import other from "./img/other.svg";
 import internship from "./img/internship.svg";
 import verification from "./img/verification.svg";
+import uploadBtn from "../../../assets/img/uploadBtn.svg";
 import Axios from "axios";
-import { UploadOutlined } from "@ant-design/icons";
 import { tokenHeader } from "../../../constant/tokenHeader";
 
 // import TextArea from 'antd/lib/input/TextArea';
@@ -179,34 +179,33 @@ export default function Support(props) {
   const queryFrom = (
     <div className="query-form">
       <div className="query-form-title">Write Your Query</div>
-      <div className="query-input">
-        {/* <p>Subject</p> */}
-        <Input placeholder="Subject" />
-      </div>
-      <div className="query-input">
-        {/* <p>Description</p> */}
-        <TextArea rows={3} placeholder="description" />
+      <div className="query-input-block">
+        <div className="query-input">
+          <span className="query-label">Subject:</span>
+          <Input />
+        </div>
+        <div className="query-input">
+          <span className="query-label">Description:</span>
+          <TextArea rows={3} />
+        </div>
       </div>
 
       <Upload
         className="query-image"
         name="screenshot"
         listType="picture-card"
-        className="avatar-uploader"
         showUploadList={false}
         action="https://pracify.com/testing/student_verification/signed_url_for_docs?fileType=image/jpeg"
-        // beforeUpload={beforeUpload}
         onChange={ImageUploadHandler}
       >
         {imageUrl ? (
           <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
         ) : (
-          <div>
-            <UploadOutlined />
-            <div className="ant-upload-text">
-              Upload Screenshot <br /> (if amy){" "}
+          <div className="upload-content">
+            <div className="upload-imgBtn-block">
+              <img src={uploadBtn} alt="" className="upload-imgBtn" />
             </div>
-            <div>{imageUrl}</div>
+            <p className="upload-text">Upload Screenshot(if any)</p>
           </div>
         )}
       </Upload>
@@ -215,8 +214,6 @@ export default function Support(props) {
       </Button>
     </div>
   );
-
-  const [multiComp, setComp] = useState({ supportTiles, faq, queryFrom });
 
   return (
     <Modal

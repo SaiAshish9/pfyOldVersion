@@ -87,7 +87,7 @@ const UserSkill = (props) => {
   return (
     <div className="skill-of-avatar-block">
       <div className="skill-of-avatar-content-block">
-        <div className="" style={{ display: "flex" }}>
+        <div className="icon-heading">
           <img className="skill-of-avatar-img" src={four} alt=""></img>
           <div className="skill-of-avatar-content">
             <h2>Skills</h2>

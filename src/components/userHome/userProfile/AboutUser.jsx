@@ -46,15 +46,10 @@ const AboutUser = (props) => {
   return (
     <div className="about-avatar-block">
       <div className="about-avatar-content-block">
-        <div style={{ display: "flex" }}>
+        <div className="icon-heading">
           <img src={userFaceIcon} alt="" className="about-avatar-img"></img>
           <div className="about-avatar-content">
             <h2>About me</h2>
-            {/* {!aboutMeData && (
-              <p style={{ margin: "0px 0px 0px 10px" }} className="">
-                Tell us about yourself
-              </p>
-            )} */}
             <div className="about-content-block">
               {!!aboutMeData && (
                 <p className="about-content-block__p">

@@ -331,7 +331,7 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
               className="digitalProfile__button"
               shape="round"
             >
-              Done
+              SAVE
             </Button>
           </div>
         </form>

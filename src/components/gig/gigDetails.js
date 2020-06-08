@@ -14,6 +14,7 @@ import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
 import calendarDateIcon from "../../assets/img/gig/calendarDateIcon.svg";
 import rupeeIcon from "../../assets/img/gig/rupeeIcon.svg";
 import taskIcon from "../../assets/img/gig/taskIcon.svg";
+import taskPerformIcon from "../../assets/img/gig/taskPerformIcon.svg";
 import descriptionIcon from "../../assets/img/gig/descriptionIcon.svg";
 import responsibilityIcon from "../../assets/img/gig/responsibilityIcon.svg";
 
@@ -79,24 +80,22 @@ export default function GigDetail(props) {
             setIsApply(true);
             setGig(res.data);
           } else if (res.data.appliedStatus === 602) {
-           
             setGig(res.data);
             setIsShortlisted(true);
           } else if (res.data.appliedStatus === 603) {
-           
             setGig(res.data);
             setIsSelected(true);
           } else if (res.data.appliedStatus === 604) {
             setGig(res.data);
-           
+
             setIsRejected(true);
           } else if (res.data.appliedStatus === 605) {
             setGig(res.data);
-           
+
             setIsCompleted(true);
           } else if (res.data.appliedStatus === 606) {
             setGig(res.data);
-           
+
             setIsFailed(true);
           } else {
             console.log("gig details", res.data.questions);
@@ -267,7 +266,7 @@ export default function GigDetail(props) {
                 <p className="gig-detail-para">{aboutGig}</p>
               </div>
               <div className="gig-detail-content">
-                <img src={taskIcon} alt="" className="gig-detail-img" />
+                <img src={taskPerformIcon} alt="" className="gig-detail-img" />
                 <h2 className="gig-detail-head">Tasks to Perform</h2>
                 <div className="carousel-block">
                   <GigTask

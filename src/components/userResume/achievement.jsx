@@ -80,11 +80,6 @@ const Achievement = ({ achievement, updateResume }) => {
                   </section>
                   <section className="achievement-edit-delete-icon ">
                     <Tooltip title="edit">
-                      {/* <Icon
-                        type="edit"
-                        onClick={() => handleEdit(myAchievement)}
-                        style={{ marginRight: "32px" }}
-                      ></Icon> */}
                       <img
                         src={editIcon}
                         alt=""
@@ -93,7 +88,6 @@ const Achievement = ({ achievement, updateResume }) => {
                       />
                     </Tooltip>
                     <Tooltip title="delete">
-                      {/* <Icon type="delete" onClick={() => handleDelete(index)} /> */}
                       <DeleteOutlined onClick={() => handleDelete(index)} />
                     </Tooltip>
                   </section>
@@ -137,7 +131,7 @@ const Achievement = ({ achievement, updateResume }) => {
             style={{ alignSelf: "center", marginTop: "32px" }}
             shape="round"
           >
-            Done
+            SAVE
           </Button>
         </form>
       </Modal>

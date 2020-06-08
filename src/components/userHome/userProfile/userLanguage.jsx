@@ -95,20 +95,13 @@ const UserLanguage = (props) => {
   return (
     <div className="language-of-avatar-block">
       <div className="language-of-avatar-content-block">
-        <div style={{ display: "flex" }}>
+        <div className="icon-heading">
           <img className="language-of-avatar-img" src={three} alt=""></img>
           <div className="language-of-avatar-content">
             <h2>Languages</h2>
-            {
-              arrayValidation(languagesData) && (
-                <div className="selected-languages">{dataArr}</div>
-              )
-              // : (
-              //   <span style={{ marginLeft: 10 }}>
-              //     Which language do you speak?
-              //   </span>
-              // )
-            }
+            {arrayValidation(languagesData) && (
+              <div className="selected-languages">{dataArr}</div>
+            )}
           </div>
         </div>
         <img

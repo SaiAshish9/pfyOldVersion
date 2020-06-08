@@ -15,9 +15,6 @@ $card-background-color: #fff;
       display: flex;
       border-radius: 16px;
       width: 48%;
-      // box-shadow: 0 0 4px -1px black;
-
-      cursor: pointer;
       background: $card-background-color;
       .avatar-border-block {
         background-color: #444584;
@@ -483,6 +480,16 @@ $card-background-color: #fff;
   align-self: flex-start;
 }
 
+%icon-heading-block {
+  display: flex;
+  align-items: center;
+}
+%profile-heading {
+  font-size: 18px;
+  line-height: 1;
+  margin: 0px 0px 0px 10px;
+}
+
 %user-content {
   margin-left: 0px;
   // line-height: 1;
@@ -514,21 +521,23 @@ $card-background-color: #fff;
     @extend %user-block;
     .about-avatar-content-block {
       @extend %user-content-with-icon;
-      .about-avatar-img {
-        @extend %user-icon;
-      }
-      .about-avatar-content {
-        @extend %user-content;
-        h2 {
-          font-size: 18px;
-          margin: 0px 0px 0px 10px;
+      .icon-heading {
+        @extend%icon-heading-block;
+        .about-avatar-img {
+          @extend %user-icon;
         }
-      }
-      .about-content-block {
-        padding-left: 10px;
-        border-left: 2px solid #5468d1;
-        .about-content-block__p {
-          margin: 15px 0px 0px 0px;
+        .about-avatar-content {
+          @extend %user-content;
+          h2 {
+            @extend%profile-heading;
+          }
+        }
+        .about-content-block {
+          padding-left: 10px;
+          border-left: 2px solid #5468d1;
+          .about-content-block__p {
+            margin: 15px 0px 0px 0px;
+          }
         }
       }
     }
@@ -541,60 +550,62 @@ $card-background-color: #fff;
     @extend %user-block;
     .offline-available-avatar-content-block {
       @extend %user-content-with-icon;
-      .offline-available-avatar-img {
-        @extend %user-icon;
-      }
-      .offline-available-avatar-content {
-        .vehicles {
-          display: flex;
-          margin: 1rem;
-          justify-content: space-around;
-          .single-vehicle {
-            width: 8rem;
-            padding: 1rem;
-            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
-            border-radius: 8px;
+      .icon-heading {
+        @extend%icon-heading-block;
+        .offline-available-avatar-img {
+          @extend %user-icon;
+        }
+        .offline-available-avatar-content {
+          .vehicles {
+            display: flex;
+            margin: 1rem;
+            justify-content: space-around;
+            .single-vehicle {
+              width: 8rem;
+              padding: 1rem;
+              box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+              border-radius: 8px;
+            }
+          }
+          @extend %user-content;
+          h2 {
+            @extend%profile-heading;
           }
         }
-        @extend %user-content;
-        h2 {
-          font-size: 18px;
-          margin: 0px 0px 0px 10px;
-        }
-      }
-      .offline-gigs {
-        padding-left: 10px;
-        border-left: 2px solid #5468d1;
-        .pin-img {
-          margin-right: 0.5rem;
-        }
-        .location-name {
-          margin: 15px 0;
-          color: #6b6b6b;
-        }
-        .willing-to-travel-btn {
-          padding: 8px 1rem;
-          border: 1px solid #137efc;
-          border-radius: 3rem;
-          color: #137efc;
-          font-weight: 500;
-          cursor: pointer;
-        }
-        .btn-and-vehicles {
-          margin-top: 15px;
-          display: flex;
-          justify-content: space-around;
-          .vehicles {
-            margin: 0 1rem;
-            .vehicle {
-              margin: 0 0.5rem;
+        .offline-gigs {
+          padding-left: 10px;
+          border-left: 2px solid #5468d1;
+          .pin-img {
+            margin-right: 0.5rem;
+          }
+          .location-name {
+            margin: 15px 0;
+            color: #6b6b6b;
+          }
+          .willing-to-travel-btn {
+            padding: 8px 1rem;
+            border: 1px solid #137efc;
+            border-radius: 3rem;
+            color: #137efc;
+            font-weight: 500;
+            cursor: pointer;
+          }
+          .btn-and-vehicles {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-around;
+            .vehicles {
+              margin: 0 1rem;
+              .vehicle {
+                margin: 0 0.5rem;
+              }
             }
           }
         }
       }
-    }
-    .offline-available-avatar-button {
-      @extend %user-button;
+      .offline-available-avatar-button {
+        @extend %user-button;
+      }
     }
   }
 
@@ -602,14 +613,16 @@ $card-background-color: #fff;
     @extend %user-block;
     .language-of-avatar-content-block {
       @extend %user-content-with-icon;
-      .language-of-avatar-img {
-        @extend %user-icon;
-      }
-      .language-of-avatar-content {
-        @extend %user-content;
-        h2 {
-          font-size: 18px;
-          margin: 0px 0px 0px 10px;
+      .icon-heading {
+        @extend%icon-heading-block;
+        .language-of-avatar-img {
+          @extend %user-icon;
+        }
+        .language-of-avatar-content {
+          @extend %user-content;
+          h2 {
+            @extend%profile-heading;
+          }
         }
       }
     }
@@ -635,14 +648,16 @@ $card-background-color: #fff;
     @extend %user-block;
     .skill-of-avatar-content-block {
       @extend %user-content-with-icon;
-      .skill-of-avatar-img {
-        @extend %user-icon;
-      }
-      .skill-of-avatar-content {
-        @extend %user-content;
-        h2 {
-          font-size: 18px;
-          margin: 0px 0px 0px 10px;
+      .icon-heading {
+        @extend%icon-heading-block;
+        .skill-of-avatar-img {
+          @extend %user-icon;
+        }
+        .skill-of-avatar-content {
+          @extend %user-content;
+          h2 {
+            @extend%profile-heading;
+          }
         }
       }
     }
@@ -669,15 +684,17 @@ $card-background-color: #fff;
     @extend %user-block;
     .avatar-digital-profile-content-block {
       @extend %user-content-with-icon;
-      .avatar-digital-profile-img {
-        @extend %user-icon;
-        margin-top: 2px;
-      }
-      .avatar-digital-profile-content {
-        @extend %user-content;
-        h2 {
-          font-size: 18px;
-          margin: 0px 0px 0px 10px;
+      .icon-heading {
+        @extend%icon-heading-block;
+        .avatar-digital-profile-img {
+          @extend %user-icon;
+          margin-top: 2px;
+        }
+        .avatar-digital-profile-content {
+          @extend %user-content;
+          h2 {
+            @extend%profile-heading;
+          }
         }
       }
     }

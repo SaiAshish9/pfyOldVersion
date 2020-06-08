@@ -95,16 +95,15 @@ export default function Transactions({ data, details }) {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  marginTop: "5rem",
+                  marginTop: "2rem",
                 }}
               >
-                {/* <Icon style={{fontSize:"3.5rem", marginRight:"1rem"}} type="exclamation-circle" />  */}
                 <ExclamationCircleOutlined
                   style={{ fontSize: "3.5rem", marginRight: "1rem" }}
                   type="exclamation-circle"
                 />
 
-                <div style={{ fontSize: "1.5rem", fontFamily: "CircularStd" }}>
+                <div style={{ fontSize: "1.5rem" }}>
                   There is currently <br /> No Transaction
                 </div>
               </div>

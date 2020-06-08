@@ -53,7 +53,7 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
   return (
     <div className="avatar-digital-profile-block">
       <div className="avatar-digital-profile-content-block">
-        <div className="" style={{ display: "flex" }}>
+        <div className="icon-heading" >
           <img className="avatar-digital-profile-img" src={five} alt=""></img>
           <div className="avatar-digital-profile-content">
             <h2>Digital Profile</h2>

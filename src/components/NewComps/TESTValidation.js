@@ -1,24 +1,21 @@
-import React from 'react';
+import React from "react";
 // import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
 // import './index.css';
-import { Form, Input, Button } from 'antd';
-
-
+import { Form, Input, Button } from "antd";
 
 const TESTValidation = () => {
-    
-  const onFinish = values => {
-    console.log('Success:', values);
+  const onFinish = (values) => {
+    console.log("Success:", values);
   };
 
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
     <Form
-    style={{marginTop: "10rem"}}
+      style={{ marginTop: "10rem" }}
       name="basic"
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
@@ -29,7 +26,7 @@ const TESTValidation = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your NAME!',
+            message: "Please input your NAME!",
           },
         ]}
         onChange={(e) => console.log(e.target.value)}
@@ -43,14 +40,14 @@ const TESTValidation = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your password!',
+            message: "Please input your password!",
           },
         ]}
       >
         <Input.Password />
       </Form.Item>
 
-      <Form.Item >
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>

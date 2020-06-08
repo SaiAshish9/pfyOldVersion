@@ -32,12 +32,17 @@ const Experience = ({ workExperience, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [experienceData, setExperienceData] = useState(false);
 
-  const { register, handleSubmit, errors, control, watch, setValue } = useForm({
+  const { register, handleSubmit, errors, control, watch, reset } = useForm({
     defaultValues: {
       isWorkHome: false,
       isCurrently: false,
       start: {
-        year: year,
+        month: "",
+        year: "",
+      },
+      end: {
+        month: "",
+        year: "",
       },
     },
   });
@@ -80,21 +85,46 @@ const Experience = ({ workExperience, updateResume }) => {
   };
 
   const handleAdd = () => {
+    reset({
+      organisation: "",
+      designation: "",
+      description: "",
+      location: "",
+      isWorkHome: false,
+      start: {
+        month: "",
+        year: "",
+      },
+      end: {
+        month: "",
+        year: "",
+      },
+      isCurrently: false,
+    });
     setIsModalVisible(true);
   };
 
   const handleEdit = (selectedExp) => {
     console.log(selectedExp);
-    setExperienceData(selectedExp);
+
+    setExperienceData("selectedExp", selectedExp);
+    reset({
+      organisation: selectedExp.organisation,
+      designation: selectedExp.designation,
+      description: selectedExp.description,
+      location: selectedExp.location,
+      isWorkHome: selectedExp.isWorkHome,
+      start: {
+        month: selectedExp.start.month,
+        year: selectedExp.start.year,
+      },
+      end: {
+        month: !!selectedExp.end && selectedExp.end.month,
+        year: !!selectedExp.end && selectedExp.end.year,
+      },
+      isCurrently: selectedExp.isCurrently,
+    });
     setIsModalVisible(true);
-    setValue("organisation", selectedExp.organisation);
-    setValue("designation", selectedExp.designation);
-    setValue("description", selectedExp.description);
-    setValue("location", selectedExp.location);
-    setValue("isWorkHome", selectedExp.isWorkHome);
-    setValue("start.month", selectedExp.start.month);
-    setValue("start.year", selectedExp.start.year);
-    setValue("isCurrently", selectedExp.isCurrently);
   };
 
   const handleDelete = (id) => {
@@ -149,13 +179,10 @@ const Experience = ({ workExperience, updateResume }) => {
                         {myExp.start.year}
                       </h5>
                       <h5 className="experience-content-sec-one-block-one__h5-three ">
-                        {(!isCurrentlyWorking &&
-                          !!myExp.end &&
-                          myExp.end.month) ||
-                          "Present"}
+                        {(!!myExp.end && myExp.end.month) || "Present"}
                       </h5>
                       <h5 className="experience-content-sec-one-block-one__h5-four ">
-                        {!isCurrentlyWorking && !!myExp.end && myExp.end.year}
+                        {!!myExp.end && myExp.end.year}
                       </h5>
                     </div>
                   </section>
@@ -239,59 +266,27 @@ const Experience = ({ workExperience, updateResume }) => {
           )}
 
           <section className="experience-modal-sec-five">
-            <Controller
-              as={<Checkbox />}
-              name="isWorkHome"
-              control={control}
-              // defaultValue={false}
-            />
+            <Controller as={<Checkbox />} name="isWorkHome" control={control} />
             <h3 className="experience-modal-sec-five__head">Work from home</h3>
           </section>
-
-          <section className="experience-modal-sec-six">
-            <h3 className="experience-modal-sec-six__head">Start From</h3>
-            <div className="experience-modal-sec-six-block">
-              <select
-                name="start.month"
-                ref={register}
-                className="experience-modal-sec-six__select-one"
-              >
-                {monthList}
-              </select>
-
-              <select
-                name="start.year"
-                ref={register}
-                className="experience-modal-sec-six__select-two"
-              >
-                {startYear.map((year, index) => {
-                  return (
-                    <option key={index} value={year}>
-                      {year}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-          </section>
-
-          {!isCurrentlyWorking && (
-            <section className="experience-modal-sec-seven">
-              <h3 className="experience-modal-sec-seven__head">End On</h3>
-              <div className="experience-modal-sec-seven-block">
+          <div className="startOrEndYear-block">
+            <section className="experience-modal-sec-six">
+              <h3 className="experience-modal-sec-six__head">From</h3>
+              <div className="experience-modal-sec-six-block">
                 <select
-                  name="end.Month"
+                  name="start.month"
                   ref={register}
-                  className="experience-modal-sec-seven__select-one"
+                  className="experience-modal-sec-six__select-one"
                 >
                   {monthList}
                 </select>
+                <span className="date-separator">/</span>
                 <select
-                  name="end.Year"
+                  name="start.year"
                   ref={register}
-                  className="experience-modal-sec-seven__select-two"
+                  className="experience-modal-sec-six__select-two"
                 >
-                  {endYear.reverse().map((year, index) => {
+                  {startYear.map((year, index) => {
                     return (
                       <option key={index} value={year}>
                         {year}
@@ -301,7 +296,36 @@ const Experience = ({ workExperience, updateResume }) => {
                 </select>
               </div>
             </section>
-          )}
+
+            {!isCurrentlyWorking && (
+              <section className="experience-modal-sec-seven">
+                <h3 className="experience-modal-sec-seven__head">To</h3>
+                <div className="experience-modal-sec-seven-block">
+                  <select
+                    name="end.month"
+                    ref={register}
+                    className="experience-modal-sec-seven__select-one"
+                  >
+                    {monthList}
+                  </select>
+                  <span className="date-separator">/</span>
+                  <select
+                    name="end.year"
+                    ref={register}
+                    className="experience-modal-sec-seven__select-two"
+                  >
+                    {endYear.map((year, index) => {
+                      return (
+                        <option key={index} value={year}>
+                          {year}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              </section>
+            )}
+          </div>
 
           <section className="experience-modal-sec-eight">
             <Controller
@@ -319,7 +343,7 @@ const Experience = ({ workExperience, updateResume }) => {
             className="experience-modal__button"
             shape="round"
           >
-            Done
+            SAVE
           </Button>
         </form>
       </Modal>

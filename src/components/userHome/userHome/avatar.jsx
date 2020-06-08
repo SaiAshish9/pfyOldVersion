@@ -18,17 +18,13 @@ const Avatar = ({ user }) => {
   console.log(user.constructor === Object);
   console.log();
 
-  const handleAvatar = () => {
-    history.push("/profile");
-  };
-
   const handleCheckWallet = () => {
     history.push("/wallet");
   };
 
   return (
     <div className="avatar-block">
-      <div className="avatar-detail-block" onClick={handleAvatar}>
+      <div className="avatar-detail-block">
         <div className="avatar-border-block">
           <div className="avatar-img-block">
             <img src={userImg} alt="img"></img>

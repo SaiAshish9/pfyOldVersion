@@ -66,39 +66,8 @@ const Wallet = () => {
     setIsUpdate(Math.random());
   };
 
-  const arr = [1, 2, 3];
   return (
-    // <div className="wallet" style={{}}>
-    //   {/* <PaymentMethodModal isModalOpen={isShow} isClose={isClose}/> */}
-    //   <div className="payment-summary">
-    //     <div className="summary-container">
-    //       <img src={coinIcon} alt="" className="money-image" />
-    //       <div className="content">
-    //         <h1 className="total-money">RS. {walletBalance}</h1>
-    //         <h4 className="message">Available Balance</h4>
-    //       </div>
-    //     </div>
-
-    //     <div className="button-container">
-    //       <Button onClick={isModalOpen} shape="round" className="add-payment">
-    //         ADD PAYMENT METHOD
-    //       </Button>
-    //       { walletBalance ? <Button onClick={redeem} shape="round" className="redeem-now">
-    //         REDEEM NOW
-    //       </Button> : null}
-    //     </div>
-    //   </div>
-    //   <Tabs className="tab-options" defaultActiveKey="1" onChange={callback}>
-    //     <TabPane tab="Earnings" key="earnings">
-    //       {/* <Earnings data={earnings}/> */}
-    //     </TabPane>
-    //     <TabPane tab="Transactions" key="transactions">
-    //       {/* <Transactions data={transactions} /> */}
-    //     </TabPane>
-    //   </Tabs>
-    // </div>
     <div className="wallet">
-      {/* <PaymentMethod isModalOpen={isShow} isClose={isClose} /> */}
       {earnings && walletDetails ? (
         <Earnings
           data={earnings}

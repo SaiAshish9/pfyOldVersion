@@ -146,7 +146,7 @@ export default function OfflineAvailUser(props) {
   return (
     <div className="offline-available-avatar-block">
       <div className="offline-available-avatar-content-block">
-        <div className="" style={{ display: "flex" }}>
+        <div className="icon-heading">
           <img src={two} alt="" className="offline-available-avatar-img"></img>
           <div className="offline-available-avatar-content">
             <h2>Offline Gigs</h2>
@@ -233,9 +233,8 @@ export default function OfflineAvailUser(props) {
                   shape="round"
                   className="yes-btn"
                   style={{
-                    backgroundColor:
-                      isAnyVehicle || openConveyance ? "#444584" : "#fff",
-                    color: isAnyVehicle || openConveyance ? "#fff" : "#444584",
+                    backgroundColor: openConveyance ? "#444584" : "#fff",
+                    color: openConveyance ? "#fff" : "#444584",
                   }}
                 >
                   Yes
@@ -246,10 +245,8 @@ export default function OfflineAvailUser(props) {
                   shape="round"
                   className="no-btn"
                   style={{
-                    backgroundColor:
-                      !isAnyVehicle || !openConveyance ? "#444584" : "#fff",
-                    color:
-                      !isAnyVehicle || !openConveyance ? "#fff" : "#444584",
+                    backgroundColor: !openConveyance ? "#444584" : "#fff",
+                    color: !openConveyance ? "#fff" : "#444584",
                   }}
                 >
                   No

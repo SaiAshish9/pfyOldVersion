@@ -1,31 +1,3 @@
-// .ant-modal.user-info-fetcher-modal {
-//   div.ant-modal-content {
-//     // padding: 20px;
-//     button.ant-modal-close {
-//       span.ant-modal-close-x {
-//         i.anticon.anticon-close.ant-modal-close-icon {
-//           svg {
-//             path {
-//             }
-//           }
-//         }
-//       }
-//     }
-
-//     div.ant-modal-header {
-//       div#rcDialogTitle0.ant-modal-title {
-//       }
-//     }
-
-//     div.ant-modal-body {
-//       form.objective-modal__form {
-//         textarea.objective-modal__textarea {
-//         }
-//       }
-//     }
-//   }
-// }
-
 %inputLabel {
   color: #818181;
   font-size: 16px;
@@ -161,12 +133,12 @@
       display: flex;
       .education-modal-sec-four-block__input {
         @extend %modal-form__input;
-        width: 65%;
+        width: 120px;
       }
       .education-modal-sec-four-block__select {
         @extend %modal-form__select;
-        width: 30%;
-        margin-left: 5%;
+        width: 22%;
+        margin-left: 20px;
       }
     }
   }
@@ -174,8 +146,6 @@
   .education-modal-block {
     @extend %modal-form-sec;
     display: flex;
-    width: 65%;
-    justify-content: space-between;
     .education-modal-block-sec-one {
       display: flex;
       flex-direction: column;
@@ -190,6 +160,7 @@
     .education-modal-block-sec-two {
       display: flex;
       flex-direction: column;
+      margin-left: 20px;
 
       .input-label {
         @extend %inputLabel;
@@ -268,40 +239,55 @@
       margin: 0px 0px 0px 10px;
     }
   }
+  .startOrEndYear-block {
+    display: flex;
+    .experience-modal-sec-six {
+      width: 40%;
+      .experience-modal-sec-six__head {
+        @extend %inputLabel;
+      }
+      .experience-modal-sec-six-block {
+        display: flex;
+        align-items: center;
+        .experience-modal-sec-six__select-one {
+          @extend %modal-form__select;
+          width: 30%;
+          min-width: 84px;
+        }
+        .date-separator {
+          font-size: 24px;
+          margin: 0 12px;
+        }
+        .experience-modal-sec-six__select-two {
+          @extend %modal-form__select;
+          width: 30%;
+          min-width: 84px;
+        }
+      }
+    }
 
-  .experience-modal-sec-six {
-    .experience-modal-sec-six__head {
-      @extend %inputLabel;
-    }
-    .experience-modal-sec-six-block {
-      display: flex;
-      .experience-modal-sec-six__select-one {
-        @extend %modal-form__select;
-        width: 25%;
+    .experience-modal-sec-seven {
+      width: 40%;
+      .experience-modal-sec-seven__head {
+        @extend %inputLabel;
       }
-      .experience-modal-sec-six__select-two {
-        @extend %modal-form__select;
-        width: 25%;
-        margin-left: 12px;
-      }
-    }
-  }
-
-  .experience-modal-sec-seven {
-    .experience-modal-sec-seven__head {
-      @extend %inputLabel;
-      margin-top: 16px;
-    }
-    .experience-modal-sec-seven-block {
-      display: flex;
-      .experience-modal-sec-seven__select-one {
-        @extend %modal-form__select;
-        width: 25%;
-      }
-      .experience-modal-sec-seven__select-two {
-        @extend %modal-form__select;
-        width: 25%;
-        margin-left: 12px;
+      .experience-modal-sec-seven-block {
+        display: flex;
+        align-items: center;
+        .experience-modal-sec-seven__select-one {
+          @extend %modal-form__select;
+          width: 30%;
+          min-width: 84px;
+        }
+        .date-separator {
+          font-size: 24px;
+          margin: 0 12px;
+        }
+        .experience-modal-sec-seven__select-two {
+          @extend %modal-form__select;
+          width: 30%;
+          min-width: 84px;
+        }
       }
     }
   }
@@ -409,39 +395,56 @@
     }
   }
 
-  .project-modal-sec-four {
-    .project-modal-sec-four__head {
-      @extend %inputLabel;
-    }
-    .project-modal-sec-four-block {
-      display: flex;
-      .project-modal-sec-four__select-one {
-        @extend %modal-form__select;
-        width: 25%;
+  .startOrEndYear-block {
+    display: flex;
+    .project-modal-sec-four {
+      width: 40%;
+      .project-modal-sec-four__head {
+        @extend %inputLabel;
       }
-      .project-modal-sec-four__select-two {
-        @extend %modal-form__select;
-        width: 25%;
-        margin-left: 12px;
-      }
-    }
-  }
+      .project-modal-sec-four-block {
+        display: flex;
+        align-items: center;
+        .project-modal-sec-four__select-one {
+          @extend %modal-form__select;
+          width: 30%;
+          min-width: 84px;
+        }
+        .date-separator {
+          font-size: 24px;
+          margin: 0 24px;
+        }
 
-  .project-modal-sec-five {
-    .project-modal-sec-five__head {
-      @extend %inputLabel;
-      margin-top: 16px;
-    }
-    .project-modal-sec-five-block {
-      display: flex;
-      .project-modal-sec-five__select-one {
-        @extend %modal-form__select;
-        width: 25%;
+        .project-modal-sec-four__select-two {
+          @extend %modal-form__select;
+          width: 30%;
+          min-width: 84px;
+        }
       }
-      .project-modal-sec-five__select-two {
-        @extend %modal-form__select;
-        width: 25%;
-        margin-left: 12px;
+    }
+
+    .project-modal-sec-five {
+      width: 40%;
+      .project-modal-sec-five__head {
+        @extend %inputLabel;
+      }
+      .project-modal-sec-five-block {
+        display: flex;
+        align-items: center;
+        .project-modal-sec-five__select-one {
+          @extend %modal-form__select;
+          width: 30%;
+          min-width: 84px;
+        }
+        .date-separator {
+          font-size: 24px;
+          margin: 0 24px;
+        }
+        .project-modal-sec-five__select-two {
+          @extend %modal-form__select;
+          width: 30%;
+          min-width: 84px;
+        }
       }
     }
   }
@@ -544,27 +547,35 @@
   }
   .skill-subCategory-block {
     display: flex;
-    flex-flow: wrap;
-
-    .skill-subCategory-block-two {
+    flex-direction: column;
+    width: 100%;
+    .subCategory-main-block {
       display: flex;
-      position: relative;
+      flex-flow: wrap;
 
-      .skill-subCategory-content-block {
-        margin: 10px 0px 10px 20px;
-        padding: 5px 10px;
-        border-radius: 10px;
-        .skill-subCategory-content__p {
-          margin: 0px;
+      .skill-subCategory-block-two {
+        display: flex;
+        position: relative;
+
+        .skill-subCategory-content-block {
+          margin: 10px 0px 10px 20px;
+          padding: 5px 10px;
+          border-radius: 10px;
+          .skill-subCategory-content__p {
+            margin: 0px;
+          }
+        }
+        .delete-icon {
+          // align-self: flex-end;
+          cursor: pointer;
+          position: absolute;
+          right: -4px;
+          bottom: 8px;
         }
       }
-      .delete-icon {
-        // align-self: flex-end;
-        cursor: pointer;
-        position: absolute;
-        right: -4px;
-        bottom: 8px;
-      }
+    }
+    .skill-save-btn {
+      @extend%modal-form__button;
     }
   }
 }

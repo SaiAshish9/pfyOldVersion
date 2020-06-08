@@ -150,7 +150,7 @@ const Training = ({ training, updateResume }) => {
             className="training-modal__button "
             shape="round"
           >
-            Done
+            SAVE
           </Button>
         </form>
       </Modal>
