@@ -1,5 +1,6 @@
-import React from "react";
 import { Button } from "antd";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import businessImg from "../../assets/img/aboutUs/businessImg.svg";
 import gigWorkerImg from "../../assets/img/aboutUs/gigWorkerImg.svg";
 import youngWorker from "../../assets/img/aboutUs/youngWorker.svg";
@@ -35,6 +36,10 @@ const about = [
   },
 ];
 export default function AboutUs() {
+  const history = useHistory();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="aboutUs-main-block">
       <div className="aboutUs-block">
@@ -53,7 +58,12 @@ export default function AboutUs() {
           <h1 className="aboutUs-contact-head">
             Feel free to get in touch with us!
           </h1>
-          <Button className="aboutUs-contact-button">Contact Us</Button>
+          <Button
+            className="aboutUs-contact-button"
+            onClick={() => history.push("/contact_us")}
+          >
+            Contact Us
+          </Button>
         </div>
       </div>
 

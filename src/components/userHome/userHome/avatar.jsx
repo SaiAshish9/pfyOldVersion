@@ -8,7 +8,7 @@ import rightArrowBlackIcon from "../userHome/img/rightArrowBlackIcon.svg";
 import rightArrowIcon from "../userHome/img/rightArrowIcon.svg";
 import creditCardImg from "./img/credit_card.svg";
 
-const Avatar = ({ user }) => {
+const Avatar = ({ user, notification }) => {
   const history = useHistory();
 
   const userName = objectValidation(user) ? user.user.firstName : "";
@@ -37,7 +37,7 @@ const Avatar = ({ user }) => {
 
           <div className="notification-block">
             <img src={notificationIcon} alt="" className="notification-icon" />
-            <p>You have {"0"} New Notification!</p>
+            <p>You have {notification.length} New Notification!</p>
             <img src={rightArrowIcon} alt="" className="right-arrow" />
           </div>
         </div>

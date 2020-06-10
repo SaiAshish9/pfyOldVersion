@@ -1,13 +1,14 @@
 import { Progress } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
-import EditProfile from "../userHome/userProfile/editProfile";
 import { tokenHeader } from "../../constant/tokenHeader";
-import phoneIcon from "./img/phoneIcon.svg";
+import EditProfile from '../userHome/userProfile/editProfile.jsx';
 import emailIcon from "./img/emailIcon.svg";
 import locationIcon from "./img/locationIcon.svg";
+import phoneIcon from "./img/phoneIcon.svg";
+
 export default function UserCard(props) {
   const myUserProfile = props.myUserProfile;
   const location = useLocation();
@@ -30,6 +31,7 @@ export default function UserCard(props) {
   return (
     <div className="userProfile-with-profileScore-block">
       <div className="userProfile-block">
+      <EditProfile />
         <div className="avatar-block">
           <div className="avatar-img-block">
             <img

@@ -16,7 +16,14 @@ const userDetail = [
     label: "City",
     placeholder: "Your City",
     rule: [{ required: true, message: "please input your city!" }],
-    option: ["Delhi", "Mumbai", "Kolkata", "Bangalore", "Pune"],
+    option: [
+      { option: "Delhi", value: "Delhi" },
+      { option: "Mumbai", value: "Mumbai" },
+      { option: "Kolkata", value: "Kolkata" },
+      { option: "Bangalore", value: "Bangalore" },
+      { option: "Pune", value: "Pune" },
+    ],
+    value: ["Delhi", "Mumbai", "Kolkata", "Bangalore", "Pune"],
     inputType: "select",
   },
   {
@@ -112,7 +119,13 @@ const partnerDetail = [
     label: "City",
     placeholder: "Your City",
     rule: [{ required: true, message: "please input your city!" }],
-    option: ["Delhi", "Mumbai", "Kolkata", "Bangalore", "Pune"],
+    option: [
+      { option: "Delhi", value: "Delhi" },
+      { option: "Mumbai", value: "Mumbai" },
+      { option: "Kolkata", value: "Kolkata" },
+      { option: "Bangalore", value: "Bangalore" },
+      { option: "Pune", value: "Pune" },
+    ],
     inputType: "select",
   },
 

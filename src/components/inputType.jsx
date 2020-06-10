@@ -44,8 +44,8 @@ export default function InputType({
         <Form.Item name={name} rules={rule}>
           <Select placeholder={placeholder}>
             {option.map((optionName, index) => (
-              <Option value={optionName} key={index}>
-                {optionName}
+              <Option value={optionName.value} key={index}>
+                {optionName.option}
               </Option>
             ))}
           </Select>
@@ -58,6 +58,11 @@ export default function InputType({
             format="DD-MM-YYYY"
             placeholder={placeholder}
           ></RangePicker>
+        </Form.Item>
+      )}
+      {type === "date" && (
+        <Form.Item name={name} rules={rule}>
+          <DatePicker format="DD-MM-YYYY" placeholder={placeholder} />
         </Form.Item>
       )}
       {type === "radioButton" && (

@@ -66,6 +66,8 @@
         margin-right: 164px;
       }
       .worker-hiw-animation-block {
+        position: relative;
+        bottom: 72px;
         width: 340px;
       }
     }
@@ -113,7 +115,6 @@
     width: 46%;
   }
   .business-hiw-main-block {
-   
     .business-hiw-block {
       display: grid;
       grid-template:
@@ -165,6 +166,8 @@
         margin-right: 100px;
       }
       .business-hiw-animation-block {
+        position: relative;
+        bottom: 84px;
       }
     }
     .business-hiw-block:nth-child(2) {
@@ -187,7 +190,7 @@
       }
       .business-hiw-animation-block {
         position: relative;
-        bottom: 60px;
+        bottom: 90px;
       }
     }
   }

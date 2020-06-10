@@ -11,12 +11,15 @@ export default function HeaderNavLink() {
       <Link to="/gigs" className="myLink2">
         Gigs
       </Link>
-
       <Link to="/login">
         <Button className="header__button1">Login</Button>
       </Link>
       <Button className="download-app-button">Download App</Button>
-      <a href="https://business.pracify.com/" target="_blank">
+      <a
+        href="https://business.pracify.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Button className="header__button2">For Business</Button>
       </a>
     </>

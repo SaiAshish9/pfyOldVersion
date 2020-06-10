@@ -61,6 +61,12 @@
     .support-faq-submit-btn {
       @extend %submit-btn;
     }
+    .ant-collapse-content {
+      border-top: none;
+      .ant-collapse-content-box {
+        padding: 0 16px 16px;
+      }
+    }
   }
   .query-form {
     .query-form-title {

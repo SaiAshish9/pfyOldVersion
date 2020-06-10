@@ -1,14 +1,12 @@
-import React, { useState, Fragment, useEffect } from "react";
-import { Modal, Button, Row, Col, Collapse, Form, Input, Upload } from "antd";
-import gig from "./img/gig.svg";
-import other from "./img/other.svg";
-import internship from "./img/internship.svg";
-import verification from "./img/verification.svg";
-import uploadBtn from "../../../assets/img/uploadBtn.svg";
+import { Button, Collapse, Input, Modal, Upload } from "antd";
 import Axios from "axios";
+import React, { useState } from "react";
+import uploadBtn from "../../../assets/img/uploadBtn.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
-
-// import TextArea from 'antd/lib/input/TextArea';
+import gig from "./img/gig.svg";
+import internship from "./img/internship.svg";
+import other from "./img/other.svg";
+import verification from "./img/verification.svg";
 
 const { TextArea } = Input;
 
@@ -52,30 +50,23 @@ export default function Support(props) {
     console.log(info);
     console.log("INFO..... ");
     if (info.file.status === "uploading") {
-      // this.setState({ loading: true });
       console.log("loading/..........");
       return;
     }
     if (info.file.status === "done") {
-      // Get this url from response in real world.
       getBase64(info.file.originFileObj, (imgurl) => setImageUrl(imgurl));
       console.log("successfully uploaded ", info.file);
       console.log(imageUrl);
     }
   };
 
-  const showModal = () => {
-    setVisible(true);
-  };
-
   const handleOk = (e) => {
     console.log(e);
     setVisible(false);
-    // setSelectedComp("supportTiles")
     setSupportData(null);
     let img = imageData.file;
     let lookupOptions = {
-      method: "PUT", // or 'PUT'
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -95,7 +86,6 @@ export default function Support(props) {
   };
 
   const handleCancel = (e) => {
-    console.log(e);
     setVisible(false);
     setSelectedComp("supportTiles");
     setSupportData(null);
@@ -205,7 +195,7 @@ export default function Support(props) {
             <div className="upload-imgBtn-block">
               <img src={uploadBtn} alt="" className="upload-imgBtn" />
             </div>
-            <p className="upload-text">Upload Screenshot(if any)</p>
+            <p className="upload-text">Upload Screenshot (if any)</p>
           </div>
         )}
       </Upload>

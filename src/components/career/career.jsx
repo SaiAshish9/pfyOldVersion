@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "antd";
 import careerHeroImg from "../../assets/img/career/careerHeroImg.svg";
 import Footer from "../landingPage/footer";
 
 export default function Career() {
+  useEffect(() => {
+    window.scrollTo("0", "0");
+  }, []);
   return (
     <div className="career-main-block">
       <div className="workWithUs-block">

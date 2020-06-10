@@ -1,16 +1,15 @@
-import { Button, Icon, Modal, Tooltip } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
+import { Button, Modal, Tooltip } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
+import { tokenHeader } from "../../constant/tokenHeader";
 import { arrayValidation } from "../validation/validation";
-import { apiURL } from "../../constant/url";
-import team from "./img/headingImg/achievementIcon.svg";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
-import { tokenHeader } from "../../constant/tokenHeader";
+import team from "./img/headingImg/achievementIcon.svg";
+
 
 const Achievement = ({ achievement, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);

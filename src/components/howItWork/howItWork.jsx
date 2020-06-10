@@ -1,6 +1,7 @@
 import { Button, Tabs } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import Lottie from "react-lottie";
+import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import oneHiwCompanyAnim from "../../assets/animations/oneHiwCompanyAnim.json";
 import oneHiwWorkerAnim from "../../assets/animations/oneHiwWorkerAnim.json";
@@ -133,6 +134,8 @@ const businessOwnerAdvantage = [
 ];
 
 export default function HowItWork() {
+  const history = useHistory();
+
   const heroHead = (head) => (
     <div className="hero-head-block">
       <h1 className="hero-head">{head}</h1>
@@ -186,6 +189,10 @@ export default function HowItWork() {
     </div>
   );
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="howItWork-main-block">
       <Tabs defaultActiveKey="1" type="card" className="hiw-tab">
@@ -199,7 +206,9 @@ export default function HowItWork() {
           <h1 className="worker-advantage-main-head">Advantages</h1>
           {advantage(gigWorkerAdvantage, "worker")}
           <div className="hiw-btn-block">
-            <Button className="hiw-btn">Start Working</Button>
+            <Button className="hiw-btn" onClick={() => history.push("/login")}>
+              Start Working
+            </Button>
           </div>
         </TabPane>
         <TabPane tab="For business Owner" key="2">
@@ -212,7 +221,13 @@ export default function HowItWork() {
           <h1 className="business-advantage-main-head">Advantages</h1>
           {advantage(businessOwnerAdvantage, "business")}
           <div className="hiw-btn-block">
-            <Button className="hiw-btn">Publish a Gig</Button>
+            <a
+              href="https://business.pracify.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="hiw-btn">Publish a Gig</Button>
+            </a>
           </div>
         </TabPane>
       </Tabs>

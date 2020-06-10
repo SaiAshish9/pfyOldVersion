@@ -22,7 +22,7 @@ const headerLink = [
 const { SubMenu } = Menu;
 export default function PrivateHeaderNavLink() {
   const [user, setUser] = useState({});
-  const [notification, setNotification] = useState([1, 2, 3]);
+  const [notification, setNotification] = useState([]);
 
   const userName = objectValidation(user) ? user.user.firstName : "";
   const userImg = objectValidation(user) ? user.user.imgUrl : userBlankImg;
@@ -102,16 +102,21 @@ export default function PrivateHeaderNavLink() {
     </Menu>
   );
   const notificationMenu = () => (
-    <Menu>
+    <Menu className="notification-main-block">
       {!arrayValidation(notification) ? (
         <Menu.ItemGroup title="Notification">
           <Menu.Item key="1">No New Notification</Menu.Item>
         </Menu.ItemGroup>
       ) : (
         <Menu.ItemGroup title="Notification">
-          {notification.map((populateNotification, index) => (
-            <Menu.Item key={index}>Option {index}</Menu.Item>
-          ))}
+          {notification.map((populateNotification, index) => {
+            console.log(populateNotification);
+            return (
+              <Menu.Item key={index}>
+                <p>{populateNotification.message}</p>
+              </Menu.Item>
+            );
+          })}
         </Menu.ItemGroup>
       )}
     </Menu>

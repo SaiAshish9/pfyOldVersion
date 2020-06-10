@@ -1,3 +1,5 @@
+@import "./editProfile";
+
 .objective-block-one__form {
   display: flex;
   flex-direction: column;
@@ -27,7 +29,7 @@
 
 .social-media-modal {
   .ant-modal-body {
-    padding: 24px 32px 0;
+    padding: 24px 84px 0;
   }
   .social-media-input {
     .social-media-single-input {

@@ -1,0 +1,108 @@
+.user-edit-profile-modal {
+  %user-profile-input {
+    .ant-input {
+      border-radius: 0px;
+      border-width: 0 0 2px 0;
+      border-style: solid;
+      border-color: #d3d3d3;
+      font-size: 15px;
+      &:focus,
+      &:hover,
+      &:focus-within {
+        border-width: 0 0 2px 0 !important;
+        border-style: solid;
+        border-color: #00bfa6;
+        box-shadow: none !important;
+      }
+      .ant-input-prefix {
+        line-height: 1.2;
+        margin-right: 12px;
+      }
+    }
+  }
+  %user-profile-select {
+    .ant-select {
+      width: 100%;
+      font-size: 15px;
+      // margin-bottom: 25px;
+      .ant-select-selector {
+        border-radius: 0px;
+        border-width: 0 0 2px 0;
+        border-color: #d3d3d3;
+        border-style: solid;
+        &:focus,
+        &:hover,
+        &:focus-within {
+          border-width: 0 0 2px 0 !important;
+          border-style: solid;
+          border-color: #00bfa6;
+          box-shadow: none !important;
+        }
+      }
+    }
+  }
+  %user-profile-date {
+    .ant-picker {
+      flex: 1;
+      padding: 4px 11px 0px;
+      border-radius: 0px;
+      border-width: 0 0 2px 0;
+      border-style: solid;
+      border-color: #d3d3d3;
+      font-size: 15px;
+      &:focus,
+      &:hover,
+      &:focus-within {
+        border-width: 0 0 2px 0 !important;
+        border-style: solid;
+        border-color: #00bfa6;
+        box-shadow: none !important;
+      }
+      .ant-input-prefix {
+        line-height: 1.2;
+        margin-right: 12px;
+      }
+      .ant-picker-input {
+        flex-direction: row-reverse;
+        .ant-picker-suffix {
+          margin: 0 8px 0 0;
+        }
+      }
+    }
+  }
+
+  .user-edit-profile-form {
+    display: flex;
+    justify-content: space-between;
+    .upload-avatar-profile {
+        width: initial;
+    }
+    .user-form-main-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0px 20px;
+      .user-form-block {
+        @extend%user-profile-input;
+        @extend%user-profile-select;
+        @extend%user-profile-date;
+      }
+      .user-form-block:nth-child(3) {
+        grid-column: 1/3;
+      }
+      .user-form-block:nth-child(6) {
+        grid-column: 1/3;
+      }
+      .user-profile-submit-btn {
+        width: 123px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: #444584;
+        border: 1px solid #444584;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.23;
+        color: #ffffff;
+      }
+    }
+  }
+}

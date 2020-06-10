@@ -50,6 +50,11 @@
 
 .worker-advantage-main-block {
   @extend%advantage-block;
+  .worker-advantage-block:nth-child(3) {
+    .worker-advantage-head {
+      margin: 0px 48px 16px;
+    }
+  }
 }
 .business-advantage-main-block {
   @extend%advantage-block;

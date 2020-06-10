@@ -4,18 +4,18 @@ import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import detectLocationIcon from "../../../assets/img/detectLocationIcon.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
-import bike2 from "./bike2.svg";
-import bus from "./bus.svg";
-import bus2 from "./bus2.svg";
-import car from "./car.svg";
-import car2 from "./car2.svg";
+import bike2 from "./img/bike2.svg";
+import bus from "./img/bus.svg";
+import bus2 from "./img/bus2.svg";
+import car from "./img/car.svg";
+import car2 from "./img/car2.svg";
 import two from "./img/(2).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
-import pin from "./pin.svg";
-import train from "./train.svg";
-import train2 from "./train2.svg";
-import twoWheeler from "./two-wheeler.svg";
+import pin from "./img/pin.svg";
+import train from "./img/train.svg";
+import train2 from "./img/train2.svg";
+import twoWheeler from "./img/two-wheeler.svg";
 
 const textToImg = {
   car: car,

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
 import { Button } from "antd";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import findPracifyImg from "../../assets/img/findPracifyImg.svg";
 import Footer from "../landingPage/footer";
 import FillDetail from "./fillDetail";
 
 export default function ContactUs() {
+  const history = useHistory();
   const [contactUsVisible, setContactUsVisible] = useState(false);
   const [contactTo, setContactTo] = useState();
   console.log(contactTo);
@@ -16,6 +18,9 @@ export default function ContactUs() {
   const handleCancelModal = () => {
     setContactUsVisible(false);
   };
+  useEffect(() => {
+    window.scrollTo("0", "0");
+  }, []);
   return (
     <>
       <div className="contactUs-main-block">
@@ -67,7 +72,7 @@ export default function ContactUs() {
             </p>
             <Button
               className="contactUs-button"
-              onClick={() => handleContactUs("partner")}
+              onClick={() => history.push("/partner_with_us")}
             >
               Get in Touch
             </Button>

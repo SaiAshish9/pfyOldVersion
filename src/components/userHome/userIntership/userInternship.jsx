@@ -8,7 +8,6 @@ import { arrayValidation } from "../../validation/validation";
 import { tokenHeader } from "../../../constant/tokenHeader";
 
 const UserInternship = () => {
-  const { TabPane } = Tabs;
   const [internship, setInternship] = useState([]);
 
   useEffect(() => {
@@ -27,10 +26,6 @@ const UserInternship = () => {
     console.log(internship);
     console.log(internship.length > 0 && internship[0].status);
   }, [internship]);
-
-  const handleTabChange = (key) => {
-    console.log(key);
-  };
 
   const applied =
     arrayValidation(internship) &&

@@ -1,17 +1,15 @@
-import { Button, Icon, Modal, Tooltip } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
+import { Button, Modal, Tooltip } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
-import { arrayValidation } from "../validation/validation.js";
-import { apiURL } from "../../constant/url";
 import { tokenHeader } from "../../constant/tokenHeader";
-import userCard from "../common/userCard.jsx";
-import positionIcon from "./img/headingImg/educationIcon.svg";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-
+import { arrayValidation } from "../validation/validation.js";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
+import positionIcon from "./img/headingImg/educationIcon.svg";
+
 
 const Position = ({ position, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);

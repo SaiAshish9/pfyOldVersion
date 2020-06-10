@@ -1,13 +1,10 @@
-import Carousel from "@brainhubeu/react-carousel";
-import { Button, Icon, Input, message, Modal, Tooltip, Upload, Tag } from "antd";
+import { RightOutlined } from "@ant-design/icons";
+import { Button, Input, message, Modal, Tag, Tooltip, Upload } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../constant/tokenHeader";
-import { apiURL } from "../../constant/url";
 import { arrayValidation } from "../validation/validation";
-import { RightOutlined,LeftCircleFilled, RightCircleFilled } from "@ant-design/icons";
-import taskIcon from "../../assets/img/gig/taskIcon.svg";
 
 export default function GigTask({
   gigTask,

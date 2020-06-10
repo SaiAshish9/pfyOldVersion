@@ -1,42 +1,4 @@
 @import "./userForm";
-%input {
-  border-radius: 0px;
-  border-width: 0 0 2px 0;
-  border-style: solid;
-  border-color: #d3d3d3;
-  font-size: 15px;
-  &:focus,
-  &:hover,
-  &:focus-within {
-    border-width: 0 0 2px 0 !important;
-    border-style: solid;
-    border-color: #00bfa6;
-    box-shadow: none !important;
-  }
-  .ant-input-prefix {
-    line-height: 1.2;
-    margin-right: 12px;
-  }
-}
-%select {
-  width: 100%;
-  font-size: 15px;
-  // margin-bottom: 25px;
-  .ant-select-selector {
-    border-radius: 0px;
-    border-width: 0 0 2px 0;
-    border-color: #d3d3d3;
-    border-style: solid;
-    &:focus,
-    &:hover,
-    &:focus-within {
-      border-width: 0 0 2px 0 !important;
-      border-style: solid;
-      border-color: #00bfa6;
-      box-shadow: none !important;
-    }
-  }
-}
 
 .login-main-block {
   background-image: url("../../assets/img/login/GCyanCircle.svg"),
@@ -56,6 +18,45 @@
   align-items: center;
   justify-content: space-around;
   padding: 40px;
+
+  %input {
+    border-radius: 0px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: #d3d3d3;
+    font-size: 15px;
+    &:focus,
+    &:hover,
+    &:focus-within {
+      border-width: 0 0 2px 0 !important;
+      border-style: solid;
+      border-color: #00bfa6;
+      box-shadow: none !important;
+    }
+    .ant-input-prefix {
+      line-height: 1.2;
+      margin-right: 12px;
+    }
+  }
+  %select {
+    width: 100%;
+    font-size: 15px;
+    // margin-bottom: 25px;
+    .ant-select-selector {
+      border-radius: 0px;
+      border-width: 0 0 2px 0;
+      border-color: #d3d3d3;
+      border-style: solid;
+      &:focus,
+      &:hover,
+      &:focus-within {
+        border-width: 0 0 2px 0 !important;
+        border-style: solid;
+        border-color: #00bfa6;
+        box-shadow: none !important;
+      }
+    }
+  }
   #recaptcha-container {
     position: absolute;
   }

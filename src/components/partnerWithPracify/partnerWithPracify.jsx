@@ -1,5 +1,6 @@
 import { Button } from "antd";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import FillDetail from "../landingPageContactUs/fillDetail";
 import brandPartnershipIcon from "../../assets/img/partnerWithPracify/brandPartnershipIcon.svg";
 import cashSponsorshipIcon from "../../assets/img/partnerWithPracify/cashSponsorshipIcon.svg";
 import promoteEventIcon from "../../assets/img/partnerWithPracify/promoteEventIcon.svg";
@@ -25,6 +26,22 @@ const pwpData = [
 ];
 
 export default function PartnerWithPracify() {
+  const [contactUsVisible, setContactUsVisible] = useState(false);
+  const [contactTo, setContactTo] = useState();
+  console.log(contactTo);
+
+  const handleContactUs = (contactName) => {
+    setContactUsVisible(true);
+    setContactTo(contactName);
+  };
+  const handleCancelModal = () => {
+    setContactUsVisible(false);
+  };
+
+  useEffect(() => {
+    window.scrollTo("0", "0");
+  }, []);
+
   return (
     <div className="pwp-main-block">
       <div className="pwp-hero-block">
@@ -36,7 +53,12 @@ export default function PartnerWithPracify() {
           college festival.
         </p>
         <img src={pwpHeroImg} alt="" className="pwp-hero-img" />
-        <Button className="pwp-hero-button">Let's Partner</Button>
+        <Button
+          onClick={() => handleContactUs("partner")}
+          className="pwp-hero-button"
+        >
+          Let's Partner
+        </Button>
       </div>
       <h1 className="partnership-advantage">Partnership Advantages</h1>
       <div className="partnership-advantage-main-block">
@@ -49,8 +71,18 @@ export default function PartnerWithPracify() {
         ))}
       </div>
       <div className="partnership-button-block">
-        <Button className="partnership-button">Let's Partner</Button>
+        <Button
+          onClick={() => handleContactUs("partner")}
+          className="partnership-button"
+        >
+          Let's Partner
+        </Button>
       </div>
+      <FillDetail
+        contactName={contactTo}
+        modalVisible={contactUsVisible}
+        handleCancelModal={handleCancelModal}
+      ></FillDetail>
       <Footer />
     </div>
   );

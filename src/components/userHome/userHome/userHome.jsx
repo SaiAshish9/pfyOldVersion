@@ -12,6 +12,7 @@ import Stat from "./stat";
 
 export default function UserHome() {
   const [user, setUser] = useState({});
+  const [notification, setNotification] = useState([]);
 
   useEffect(() => {
     const source = axios.CancelToken.source();
@@ -35,10 +36,29 @@ export default function UserHome() {
     };
   }, []);
 
+  useEffect(() => {
+    const source = axios.CancelToken.source();
+    axios
+      .get(`notification/fetch`, tokenHeader(), {
+        cancelToken: source.token,
+      })
+      .then((res) => {
+        const myNotification = res.data;
+        console.log("myNotification", myNotification);
+        setNotification(myNotification);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
+    return () => {
+      source.cancel();
+    };
+  }, []);
+
   return (
     <div className="homePage-block">
       {objectValidation(user) ? (
-        <Avatar user={user} />
+        <Avatar user={user} notification={notification} />
       ) : (
         <div className="avatar-block">
           <Card style={{ width: "40%", marginRight: 40 }}>

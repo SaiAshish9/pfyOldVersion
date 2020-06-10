@@ -2,6 +2,7 @@
 @import "./howItWorkAdv";
 
 .howItWork-main-block {
+  font-family: $myFont;
   margin-top: 120px;
   .hiw-tab {
     text-align: center;
@@ -47,10 +48,10 @@
     }
   }
 
-  .hiw-btn-block{
+  .hiw-btn-block {
     margin: 0 80px 80px;
     text-align: center;
-    .hiw-btn{
+    .hiw-btn {
       width: 321px;
       height: 86px;
       border-radius: 43px;
