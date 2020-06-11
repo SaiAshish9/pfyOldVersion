@@ -86,7 +86,8 @@
   }
   .objective-modal__textarea {
     @extend %modal-form__textarea;
-    height: 160px;
+    min-height: 160px;
+    max-height: 160px;
   }
   .objective-modal__button {
     @extend %modal-form__button;

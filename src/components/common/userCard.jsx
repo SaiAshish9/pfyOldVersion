@@ -4,13 +4,12 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../constant/tokenHeader";
-import EditProfile from '../userHome/userProfile/editProfile.jsx';
+import EditProfile from "../userHome/userProfile/editProfile.jsx";
 import emailIcon from "./img/emailIcon.svg";
-import locationIcon from "./img/locationIcon.svg";
+import locationIcon from "../../assets/img/locationIcon.svg";
 import phoneIcon from "./img/phoneIcon.svg";
 
-export default function UserCard(props) {
-  const myUserProfile = props.myUserProfile;
+export default function UserCard({ myUserProfile }) {
   const location = useLocation();
   const [userData, setUserData] = useState();
 
@@ -31,7 +30,7 @@ export default function UserCard(props) {
   return (
     <div className="userProfile-with-profileScore-block">
       <div className="userProfile-block">
-      <EditProfile />
+        <EditProfile userData={userData} />
         <div className="avatar-block">
           <div className="avatar-img-block">
             <img

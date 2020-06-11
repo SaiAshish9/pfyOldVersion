@@ -3,7 +3,7 @@ $card-background-color: #fff;
 
 .homePage-block {
   font-family: $myFont;
-  padding: 100px 0 52px;
+  padding: 100px 0 0;
   background: #f4f4f4;
   .avatar-block {
     width: 100%;
@@ -304,28 +304,60 @@ $card-background-color: #fff;
     }
   }
 
-  .score-main-block {
+  .overview-main-block {
     display: flex;
     justify-content: center;
     padding: 35px 20px;
-
-    .resume-score-block {
-      padding: 20px 30px 20px 44px;
+    .myOverview-main-block {
       display: flex;
       align-items: center;
-      width: 529px;
-      border-radius: 6px;
-      border: solid 1px #7bc3c2;
+      justify-content: space-around;
+      padding: 20px 30px;
+      width: 40%;
+      border-radius: 13px;
+      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      .myOverview-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 8px;
+        .myOverview-img-block {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 66px;
+          height: 66px;
+          background-color: #eaeaff;
+          border-radius: 33px;
+          .myOverview-img {
+          }
+        }
+        .myOverview-para {
+          font-size: 15px;
+          line-height: 1.2;
+          color: #333e49;
+          margin: 16px 0 0;
+        }
+      }
+    }
+    .verification-score-block {
+      padding: 20px 30px 20px 44px;
+      margin-left: 40px;
+      display: flex;
+      align-items: center;
+      width: 40%;
+      border-radius: 24px;
       background-color: #f3fefd;
 
-      .resume-score-img-block {
+      .verification-score-img-block {
         background-image: url("../../assets/img/circleBlue.svg");
         background-repeat: no-repeat;
         background-position: center;
         margin-left: 40px;
       }
 
-      .resume-score-content {
+      .verification-score-content {
         h1 {
           font-size: 24px;
           font-weight: 500;
@@ -340,7 +372,7 @@ $card-background-color: #fff;
           color: #525252;
         }
 
-        .resume-update__button {
+        .verification-update__button {
           padding: 0;
           border: none;
           background: transparent;
@@ -350,53 +382,6 @@ $card-background-color: #fff;
           font-size: 17px;
           line-height: 1.35;
           color: #52bdb2;
-        }
-      }
-    }
-
-    .gig-profile-block {
-      padding: 20px 30px 20px 44px;
-      display: flex;
-      align-items: center;
-      width: 529px;
-      border-radius: 6px;
-      border: solid 1px #cecee5;
-      background-color: #f0f0ff;
-      margin-left: 30px;
-
-      .gig-profile-img-block {
-        width: 150px;
-        background-image: url("../../assets/img/circlePurple.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        margin-left: 40px;
-      }
-
-      .gig-profile-content {
-        h1 {
-          font-size: 24px;
-          font-weight: 500;
-          line-height: 1.42;
-          color: #333743;
-        }
-
-        p {
-          margin-right: 40px;
-          font-size: 17px;
-          line-height: 1.35;
-          color: #525252;
-        }
-
-        .gig-profile-update__button {
-          padding: 0;
-          border: none;
-          background: transparent;
-          font-weight: 700;
-          box-shadow: none;
-
-          font-size: 17px;
-          line-height: 1.35;
-          color: #444584;
         }
       }
     }

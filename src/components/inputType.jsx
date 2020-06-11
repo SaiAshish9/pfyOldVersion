@@ -17,12 +17,20 @@ export default function InputType({
   placeholder,
   option,
   disabledDate,
+  prefix,
 }) {
   return (
     <>
       {type === "text" && (
         <Form.Item name={name} rules={rule}>
-          <Input placeholder={placeholder}></Input>
+          {prefix ? (
+            <Input
+              placeholder={placeholder}
+              prefix={<img src={prefix ? prefix : null} alt="" />}
+            />
+          ) : (
+            <Input placeholder={placeholder} alt="" />
+          )}
         </Form.Item>
       )}
       {type === "number" && (

@@ -1,13 +1,12 @@
 import { Card, Skeleton } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { tokenHeader } from "../../../constant/tokenHeader";
 /* ---------------------------------- ***** --------------------------------- */
-// import userReducer from "../../../reducer/userReducer";
+import { tokenHeader } from "../../../constant/tokenHeader";
 import { objectValidation } from "../../validation/validation";
 import Avatar from "./avatar";
 import GigOrInternship from "./gigOrInternship";
-import Score from "./score";
+import MyOverview from "./myOverview";
 import Stat from "./stat";
 
 export default function UserHome() {
@@ -69,8 +68,8 @@ export default function UserHome() {
           </Card>
         </div>
       )}
-      <Stat />
-      <Score user={user} />
+      {/* <Stat /> */}
+      <MyOverview user={user} />
       <GigOrInternship user={user}></GigOrInternship>
     </div>
   );

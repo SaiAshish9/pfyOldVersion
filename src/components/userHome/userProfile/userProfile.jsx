@@ -17,11 +17,16 @@ const UserProfile = () => {
   // GET PROFILE
   useEffect(() => {
     const url = "user/";
-    axios.get(url, tokenHeader()).then((res) => {
-      const profileData = res.data;
-      console.log("PROFILE IS HERE", profileData);
-      setProfileData(profileData);
-    });
+    axios
+      .get(url, tokenHeader())
+      .then((res) => {
+        const profileData = res.data;
+        console.log("PROFILE IS HERE", profileData);
+        setProfileData(profileData);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
   }, [isUpdate]);
 
   const myUserProfile = (myProfileData) => {

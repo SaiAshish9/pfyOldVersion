@@ -1,11 +1,14 @@
 import { Button, Form, Modal, Select, Upload } from "antd";
 import ImgCrop from "antd-img-crop";
 import Cookies from "js-cookie";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import moment from "moment";
 /* ---------------------------------- ***** --------------------------------- */
 import InputType from "../../inputType";
 import editIcon from "./img/editIcon.svg";
-import userImg from "./img/user.svg";
+import mailIcon from "../../../assets/img/login/mailIcon.svg";
+import userIcon from "../../../assets/img/login/userIcon.svg";
+import locationIcon from "../../../assets/img/locationIcon.svg";
 
 const myToken = Cookies.get("token");
 
@@ -13,12 +16,14 @@ const userDetail = [
   {
     name: "firstName",
     placeholder: "First Name",
+    prefix: userIcon,
     rule: [{ required: true, message: "please input your name!" }],
     inputType: "text",
   },
   {
     name: "lastName",
     placeholder: "Last Name",
+    prefix: userIcon,
     rule: [{ required: true, message: "please input your name!" }],
     inputType: "text",
   },
@@ -26,6 +31,7 @@ const userDetail = [
     name: "email",
     label: "Email Address",
     placeholder: "Your Email",
+    prefix: mailIcon,
     rule: [{ required: true, message: "please input your email!" }],
     inputType: "text",
   },
@@ -62,7 +68,7 @@ const userDetail = [
   },
 ];
 
-export default function EditProfile() {
+export default function EditProfile({ userData }) {
   const [form] = Form.useForm();
   const [visible, setVisible] = useState(false);
 
@@ -76,7 +82,7 @@ export default function EditProfile() {
 
   const onFormSubmit = (value) => {
     const dob = value.dob._d.toISOString();
-    console.log({ ...value, dob });
+    console.log({ ...value });
     console.log(dob);
     setVisible(false);
   };
@@ -108,7 +114,6 @@ export default function EditProfile() {
       return;
     }
     if (info.file.status === "done") {
-      // Get this url from response in real world.
       getBase64(info.file.originFileObj, (imageUrl) =>
         setUserImage({
           imageUrl,
@@ -158,35 +163,47 @@ export default function EditProfile() {
           name="userDetails"
           onFinish={onFormSubmit}
           form={form}
+          initialValues={{
+            firstName: userData && userData.firstName,
+            lastName: userData && userData.lastName,
+            email: userData && userData.email,
+            dob: userData && moment(userData.dob, "DD-MM-YYYY"),
+            gender: userData && userData.gender,
+            city: userData && userData.city,
+          }}
           className="user-edit-profile-form"
         >
-          <div className="">
-            <ImgCrop rotate>
-              <Upload
-                name="image"
-                action="https://pracify.com/testing/user/check_image"
-                onChange={onChange}
-                headers={{ token: myToken }}
-                listType="picture-card"
-                showUploadList={false}
-                beforeUpload={beforeUpload}
-                onPreview={onPreview}
-                className="upload-avatar-profile"
-              >
-                {userImage.imageUrl ? (
+          <ImgCrop rotate>
+            <Upload
+              name="image"
+              action="https://pracify.com/testing/user/check_image"
+              onChange={onChange}
+              headers={{ token: myToken }}
+              listType="picture-card"
+              showUploadList={false}
+              beforeUpload={beforeUpload}
+              onPreview={onPreview}
+              className="upload-avatar-profile"
+            >
+              {userImage.imageUrl ? (
+                <div className="avatar-img-block">
                   <img
                     src={userImage.imageUrl}
                     alt="avatar"
-                    className="avatar-img-block"
+                    className="avatar-img"
                   />
-                ) : (
-                  <div className="avatar-img-block">
-                    <img src={userImg} alt="avatar" />
-                  </div>
-                )}
-              </Upload>
-            </ImgCrop>
-          </div>
+                </div>
+              ) : (
+                <div className="avatar-img-block">
+                  <img
+                    src={userData && userData.imgUrl}
+                    alt="avatar"
+                    className="avatar-img"
+                  />
+                </div>
+              )}
+            </Upload>
+          </ImgCrop>
 
           <div className="user-form-main-block">
             {userDetail.map((user, index) => (
@@ -197,6 +214,7 @@ export default function EditProfile() {
                   rule={user.rule}
                   placeholder={user.placeholder}
                   option={user.option}
+                  prefix={user.prefix}
                 />
               </div>
             ))}
