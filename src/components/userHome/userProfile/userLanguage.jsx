@@ -1,13 +1,12 @@
 import { Button, Modal, Select } from "antd";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
+import { tokenHeader } from "../../../constant/tokenHeader";
+import { arrayValidation } from "../../validation/validation";
 import three from "./img/(3).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
-import { tokenHeader } from "../../../constant/tokenHeader";
-import { arrayValidation } from "../../validation/validation";
 
 const { Option } = Select;
 
@@ -117,27 +116,23 @@ const UserLanguage = (props) => {
       </div>
 
       <Modal
-        width={"67%"}
+        width={780}
         title="Add Languages"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
         className="add-languages-modal"
       >
-        <form
-          // onSubmit={handleSubmit(onSubmit)}
-          style={{ display: "flex", flexWrap: "wrap" }}
-          className="objective-block-one__form"
-        >
+        <form className="objective-block-one__form">
           <div className="languages-list">
             {languages.map((lang, index) => (
               <div
+                key={index}
                 className="single-language"
                 onClick={() => selectHandler(lang)}
                 style={{
-                  background: selectLang.includes(lang) ? "#ccc" : "inherit",
+                  border: selectLang.includes(lang) ? "solid 2px #444584" : "",
                 }}
-                key={lang}
               >
                 {lang}
               </div>

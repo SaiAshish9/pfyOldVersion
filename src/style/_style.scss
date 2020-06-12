@@ -5,21 +5,18 @@
 @import "./base/userCard";
 @import "./base/antDesignModal";
 
-@import "./landingPageContactUs/contactUs";
+@import "./contactUs/contactUs";
 @import "./howItWork/howItWork";
 @import "./partnerWithPracify/partnerWithPracify";
 
 @import "./header/mobileNavIcon";
 @import "./header/header";
 @import "./headerPrivate/privateHeader";
-@import "./home/home";
 @import "./landingPage/landingPage";
 @import "./about/about";
 @import "./career/career";
 
 @import "./login/login";
-
-@import "./moreSuggestion";
 
 @import "./userHome/userHome";
 @import "./userResume/userResume";
@@ -33,10 +30,7 @@
 
 @import "./profile/profile";
 @import "./support/support";
+@import "./similarGigOrInternship/similarGigOrInternship";
 
 @import "./verifyStudentStatus/verifyStudentStatus";
-
-@import "./internshipApplication";
-@import "./taskFlow";
-
 @import "./userStatus/userStatus";

@@ -33,7 +33,8 @@
 %input-textarea {
   grid-column: 1/3;
   .ant-input {
-    height: 83px;
+    min-height: 83px;
+    max-height: 83px;
     border-radius: 6px;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;

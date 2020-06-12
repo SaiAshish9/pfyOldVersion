@@ -1,14 +1,15 @@
-import { Button, Form, Modal, Select, Upload } from "antd";
+import { Button, Form, Modal, Upload } from "antd";
 import ImgCrop from "antd-img-crop";
+import axios from "axios";
 import Cookies from "js-cookie";
-import React, { useState, useEffect } from "react";
 import moment from "moment";
+import React, { useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
-import InputType from "../../inputType";
-import editIcon from "./img/editIcon.svg";
 import mailIcon from "../../../assets/img/login/mailIcon.svg";
 import userIcon from "../../../assets/img/login/userIcon.svg";
-import locationIcon from "../../../assets/img/locationIcon.svg";
+import { tokenHeader } from "../../../constant/tokenHeader";
+import InputType from "../../inputType";
+import editIcon from "./img/editIcon.svg";
 
 const myToken = Cookies.get("token");
 
@@ -82,9 +83,17 @@ export default function EditProfile({ userData }) {
 
   const onFormSubmit = (value) => {
     const dob = value.dob._d.toISOString();
-    console.log({ ...value });
-    console.log(dob);
-    setVisible(false);
+    const data = { ...value, dob };
+    console.log(data);
+    axios
+      .put("user/update", data, tokenHeader())
+      .then((res) => {
+        console.log(res.data);
+        setVisible(false);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
   };
 
   const [userImage, setUserImage] = useState({ loading: false });

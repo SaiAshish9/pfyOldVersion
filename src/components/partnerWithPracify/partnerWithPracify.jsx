@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import React, { useState, useEffect } from "react";
-import FillDetail from "../landingPageContactUs/fillDetail";
+import FillDetail from "../contactUs/fillDetail";
 import brandPartnershipIcon from "../../assets/img/partnerWithPracify/brandPartnershipIcon.svg";
 import cashSponsorshipIcon from "../../assets/img/partnerWithPracify/cashSponsorshipIcon.svg";
 import promoteEventIcon from "../../assets/img/partnerWithPracify/promoteEventIcon.svg";

@@ -2,14 +2,15 @@ import { DownCircleFilled } from "@ant-design/icons";
 import { Button, Dropdown, Menu } from "antd";
 import axios from "axios";
 import Cookies from "js-cookie";
-import React, { useEffect, useState, Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
+/* ---------------------------------- ***** --------------------------------- */
+import notificationIcon from "../../../assets/img/notificationIcon.svg";
 import userBlankImg from "../../../assets/img/userBlankImg.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
-import Support from "../../NewComps/support/support";
-import VerifyStudentStatus from "../../NewComps/verify_student_Status/verifyStudentStatus";
-import { objectValidation, arrayValidation } from "../../validation/validation";
-import notificationIcon from "../../../assets/img/notificationIcon.svg";
+import Support from "../../support/support";
+import { arrayValidation, objectValidation } from "../../validation/validation";
+import VerifyStudentStatus from "../../verify_student_Status/verifyStudentStatus";
 
 const headerLink = [
   { name: "Home", link: "/home" },
@@ -104,16 +105,18 @@ export default function PrivateHeaderNavLink() {
   const notificationMenu = () => (
     <Menu className="notification-main-block">
       {!arrayValidation(notification) ? (
-        <Menu.ItemGroup title="Notification">
+        <Menu.ItemGroup title="Notification" className="notification-title">
           <Menu.Item key="1">No New Notification</Menu.Item>
         </Menu.ItemGroup>
       ) : (
-        <Menu.ItemGroup title="Notification">
+        <Menu.ItemGroup title="Notification" className="notification-title">
           {notification.map((populateNotification, index) => {
             console.log(populateNotification);
             return (
               <Menu.Item key={index}>
-                <p>{populateNotification.message}</p>
+                <p className="notification-para">
+                  {populateNotification.message}
+                </p>
               </Menu.Item>
             );
           })}
@@ -152,8 +155,12 @@ export default function PrivateHeaderNavLink() {
         className="user-profile-dropDown"
       >
         <a href="#f" name="f" onClick={(e) => e.preventDefault()}>
-          <div className="user-notification-img-bl">
-            <img src={notificationIcon} alt="" className="user-" />
+          <div className="user-notification-img-block">
+            <img
+              src={notificationIcon}
+              alt=""
+              className="user-notification-img"
+            />
           </div>
         </a>
       </Dropdown>

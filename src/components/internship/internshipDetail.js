@@ -5,22 +5,19 @@ import Cookies from "js-cookie";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
-import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
-import { arrayValidation } from "../validation/validation";
-import CompanyQueForm from "./companyQuesForm";
-import checkIcon from "./img/checkIcon.svg";
-import timeIcon from "../../assets/img/timeIcon.svg";
-
-import removeIcon from "./img/removeIcon.svg";
+import benefitIcon from "../../assets/img/internship/benefitIcon.svg";
 import calenderDateIcon from "../../assets/img/internship/calenderDateIcon.svg";
 import calenderIcon from "../../assets/img/internship/calenderIcon.svg";
 import locationIcon from "../../assets/img/internship/locationIcon.svg";
 import positionIcon from "../../assets/img/internship/positionIcon.svg";
-import rupeeIcon from "../../assets/img/internship/rupeeIcon.svg";
 import responsibilityIcon from "../../assets/img/internship/responsibilityIcon.svg";
-import benefitIcon from "../../assets/img/internship/benefitIcon.svg";
+import rupeeIcon from "../../assets/img/internship/rupeeIcon.svg";
 import skillRequiredIcon from "../../assets/img/internship/skillRequiredIcon.svg";
+import timeIcon from "../../assets/img/timeIcon.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
+import SimilarGigOrInternship from "../similarGigOrInternship/similarGigOrInternship";
+import { arrayValidation } from "../validation/validation";
+import CompanyQueForm from "./companyQuesForm";
 
 const { TabPane } = Tabs;
 export default function InternshipDetail(props) {
@@ -353,7 +350,10 @@ export default function InternshipDetail(props) {
           />
         </Modal>
       </div>
-      <MoreSuggestion isGigOrInternship="internship" category={designation} />
+      <SimilarGigOrInternship
+        isGigOrInternship="internship"
+        category={designation}
+      />
     </div>
   );
 }

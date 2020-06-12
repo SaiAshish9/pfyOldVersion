@@ -218,7 +218,8 @@
     }
     .experience-modal-sec-three__textarea {
       @extend %modal-form__textarea;
-      height: 95px;
+      min-height: 95px;
+      max-height: 95px;
     }
   }
   .experience-modal-sec-four {
@@ -327,7 +328,8 @@
     }
     .position-modal-sec-two__textarea {
       @extend %modal-form__textarea;
-      height: 95px;
+      min-height: 95px;
+      max-height: 95px;
     }
   }
   .position-modal__button {
@@ -355,7 +357,8 @@
     }
     .training-modal-sec-two__textarea {
       @extend %modal-form__textarea;
-      height: 95px;
+      min-height: 95px;
+      max-height: 95px;
     }
   }
   .training-modal__button {
@@ -382,7 +385,8 @@
     }
     .project-modal-sec-two__input {
       @extend %modal-form__input;
-      height: 95px;
+      min-height: 95px;
+      max-height: 95px;
     }
   }
 
@@ -523,7 +527,8 @@
 
   .achievement-modal-sec-one__textarea {
     @extend %modal-form__textarea;
-    height: 112px;
+    min-height: 112px;
+    max-height: 112px;
   }
   .achievement-modal__button {
     @extend %modal-form__button;

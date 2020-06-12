@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="40.001" height="60" viewBox="0 0 40.001 60">
     <defs>
         <style>
-            .prefix__cls-1{fill:#58565c}.prefix__cls-2{fill:#49484d}.prefix__cls-3{fill:#00bce7}.prefix__cls-4{fill:#0094d4}.prefix__cls-6{fill:#ffd151}.prefix__cls-7{fill:#f79b4a}
+            .prefix__cls-1{fill:#58565c}.prefix__cls-2{fill:#49484d}.prefix__cls-3{fill:#444584}.prefix__cls-4{fill:#444584}.prefix__cls-6{fill:#ffd151}.prefix__cls-7{fill:#f79b4a}
         </style>
     </defs>
     <g id="prefix__train" transform="translate(-85.33)">
@@ -33,6 +33,6 @@
             <path id="prefix__Path_191" d="M357.276 315.731h-2.415a2 2 0 1 1 0 4h2.415a2 2 0 0 0 0-4z" class="prefix__cls-7" data-name="Path 191" transform="translate(-330.818 -315.731)"/>
             <path id="prefix__Path_192" d="M152.112 315.731H149.7a2 2 0 0 1 0 4h2.415a2 2 0 0 0 0-4z" class="prefix__cls-7" data-name="Path 192" transform="translate(-149.697 -315.731)"/>
         </g>
-        <path id="prefix__Path_193" d="M125.334 346.951v-1.811h-13.516l-1.731-2.6a.905.905 0 0 0-.753-.4h-8a.9.9 0 0 0-.753.4l-1.731 2.6H85.334v1.811h14a.9.9 0 0 0 .753-.4l1.731-2.6h7.031l1.731 2.6a.906.906 0 0 0 .753.4z" data-name="Path 193" transform="translate(-.004 -302.046)" style="fill:#0076b5"/>
+        <path id="prefix__Path_193" d="M125.334 346.951v-1.811h-13.516l-1.731-2.6a.905.905 0 0 0-.753-.4h-8a.9.9 0 0 0-.753.4l-1.731 2.6H85.334v1.811h14a.9.9 0 0 0 .753-.4l1.731-2.6h7.031l1.731 2.6a.906.906 0 0 0 .753.4z" data-name="Path 193" transform="translate(-.004 -302.046)" style="fill:#444584"/>
     </g>
 </svg>

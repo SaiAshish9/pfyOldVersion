@@ -1,27 +1,39 @@
 import { Button } from "antd";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import myGigIcon from "./img/myGigIcon.svg";
 import myInternshipIcon from "./img/myInternshipIcon.svg";
 import verificationIcon from "./img/verificationIcon.svg";
+import supportIcon from "./img/supportIcon.svg";
 
 const overView = [
-  { img: myGigIcon, para: "My Gigs" },
-  { img: myInternshipIcon, para: "My Internships" },
-  { img: myInternshipIcon, para: "Support" },
+  { img: myGigIcon, para: "My Gigs", link: "/my-gigs" },
+  { img: myInternshipIcon, para: "My Internships", link: "/my-internships" },
+  { img: supportIcon, para: "Support", link: "noLink" },
 ];
 
 export default function MyOverview() {
-  const handleUpdateVerification = () => {
-    // history.push("/resume");
+  const history = useHistory();
+  const handleUpdateVerification = () => {};
+
+  const handleOverview = (link) => {
+    if (link === "noLink") {
+      return;
+    } else {
+      history.push(link);
+    }
   };
 
   return (
     <div className="overview-main-block">
       <div className="myOverview-main-block">
         {overView.map((overView, index) => (
-          <div className="myOverview-block" key={index}>
+          <div
+            key={index}
+            onClick={() => handleOverview(overView.link)}
+            className="myOverview-block"
+          >
             <div className="myOverview-img-block">
               <img src={overView.img} alt="" className="myOverview-img" />
             </div>

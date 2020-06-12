@@ -1,8 +1,9 @@
 import { Button, Collapse, Input, Modal, Upload } from "antd";
 import Axios from "axios";
 import React, { useState } from "react";
-import uploadBtn from "../../../assets/img/uploadBtn.svg";
-import { tokenHeader } from "../../../constant/tokenHeader";
+/* ---------------------------------- ***** --------------------------------- */
+import uploadBtn from "../../assets/img/uploadBtn.svg";
+import { tokenHeader } from "../../constant/tokenHeader";
 import gig from "./img/gig.svg";
 import internship from "./img/internship.svg";
 import other from "./img/other.svg";
@@ -176,7 +177,7 @@ export default function Support(props) {
         </div>
         <div className="query-input">
           <span className="query-label">Description:</span>
-          <TextArea rows={3} />
+          <TextArea className="query-textarea" rows={3} />
         </div>
       </div>
 

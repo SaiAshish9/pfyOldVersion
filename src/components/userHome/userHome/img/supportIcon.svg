@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="27.712" height="27.712" viewBox="0 0 27.712 27.712">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:none;stroke:#444584;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px}
+        </style>
+    </defs>
+    <g id="prefix__Icon_feather-info" data-name="Icon feather-info" transform="translate(.75 .75)">
+        <path id="prefix__Path_3359" d="M29.212 16.106A13.106 13.106 0 1 1 16.106 3a13.106 13.106 0 0 1 13.106 13.106z" class="prefix__cls-1" data-name="Path 3359" transform="translate(-3 -3)"/>
+        <path id="prefix__Path_3360" d="M18 23.242V18" class="prefix__cls-1" data-name="Path 3360" transform="translate(-4.894 -4.894)"/>
+    </g>
+</svg>

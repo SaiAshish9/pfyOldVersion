@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
     <defs>
         <style>
-            .prefix__cls-1{fill:#4d5e78}.prefix__cls-2{fill:#44546c}.prefix__cls-3{fill:#404f66}.prefix__cls-7{fill:#ffd151}.prefix__cls-8{fill:#9fe4ed}.prefix__cls-9{fill:#2a71ad}.prefix__cls-10{fill:#3086cd}
+            .prefix__cls-1{fill:#4d5e78}.prefix__cls-2{fill:#44546c}.prefix__cls-3{fill:#404f66}.prefix__cls-7{fill:#ffd151}.prefix__cls-8{fill:#9fe4ed}.prefix__cls-9{fill:#2a71ad}.prefix__cls-10{fill:#444584}
         </style>
     </defs>
     <g id="prefix__bus" transform="translate(-24 -24)">
@@ -13,7 +13,7 @@
         <path id="prefix__Path_137" d="M72 408h12.414v6.207H72z" class="prefix__cls-2" data-name="Path 137" transform="translate(-41.793 -334.345)"/>
         <path id="prefix__Path_138" d="M96 432h2.069v7.241H96z" class="prefix__cls-3" data-name="Path 138" transform="translate(-62.69 -355.241)"/>
         <path id="prefix__Path_139" d="M128 432h2.069v7.241H128z" class="prefix__cls-3" data-name="Path 139" transform="translate(-90.552 -355.241)"/>
-        <path id="prefix__Path_140" d="M78.207 24h35.172a6.207 6.207 0 0 1 6.207 6.207v43.448a4.138 4.138 0 0 1-4.138 4.138h-39.31A4.138 4.138 0 0 1 72 73.655V30.207A6.207 6.207 0 0 1 78.207 24z" data-name="Path 140" transform="translate(-41.793)" style="fill:#00bce7"/>
+        <path id="prefix__Path_140" d="M78.207 24h35.172a6.207 6.207 0 0 1 6.207 6.207v43.448a4.138 4.138 0 0 1-4.138 4.138h-39.31A4.138 4.138 0 0 1 72 73.655V30.207A6.207 6.207 0 0 1 78.207 24z" data-name="Path 140" transform="translate(-41.793)" style="fill:#444584"/>
         <rect id="prefix__Rectangle_69" width="47.586" height="28.966" data-name="Rectangle 69" rx="14.483" transform="translate(30.207 34.345)" style="fill:#60d1e0"/>
         <path id="prefix__Path_194" d="M14.483 0H33.1a14.483 14.483 0 0 1 0 28.966H14.483a14.483 14.483 0 0 1 0-28.966z" data-name="Path 194" transform="translate(30.207 34.345)" style="fill:#b6e3ee"/>
         <g id="prefix__Group_80" data-name="Group 80" transform="translate(34.345 27.103)">

@@ -1,10 +1,10 @@
-div.moreGigOrInternship-main-block {
+.moreGigOrInternship-main-block {
   margin-left: 50px;
   width: 23%;
-  div.support-block {
-    h3.support-block__h3 {
+  .support-block {
+    .support-block__h3 {
     }
-    div.support-question-block {
+    .support-question-block {
       display: flex;
       align-items: center;
       padding: 4px 16px;
@@ -13,9 +13,9 @@ div.moreGigOrInternship-main-block {
       border-radius: 2px;
       box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 
-      img.support-question-block__img {
+      .support-question-block__img {
       }
-      p.support-question-block__p {
+      .support-question-block__p {
         margin: 0px 0px 0px 20px;
       }
       &:hover {
@@ -24,8 +24,8 @@ div.moreGigOrInternship-main-block {
       }
     }
   }
-  div.similar-gigOrInternship-block1 {
-    h3.similar-gigOrInternship-block1__h3 {
+  .similar-gigOrInternship-block1 {
+    .similar-gigOrInternship-block1__h3 {
     }
     .similar-gigOrInternship-block2 {
       background-color: #fff;
@@ -39,20 +39,20 @@ div.moreGigOrInternship-main-block {
         cursor: pointer;
       }
 
-      div.similar-gigOrInternship-block3-img-block {
+      .similar-gigOrInternship-block3-img-block {
         width: 75px;
         height: 75px;
         border: 1px solid rgba(0, 0, 0, 0.4);
-        img.similar-gigOrInternship-block3__img {
+        .similar-gigOrInternship-block3__img {
           width: 100%;
         }
       }
-      div.similar-gigOrInternship-block4-content-block {
+      .similar-gigOrInternship-block4-content-block {
         margin-left: 24px;
         overflow: hidden;
         flex: 1;
 
-        h4.similar-gigOrInternship-block4__h4 {
+        .similar-gigOrInternship-block4__h4 {
           color: #333743;
           line-height: 1.43;
           font-size: 14px;
@@ -61,7 +61,7 @@ div.moreGigOrInternship-main-block {
           white-space: nowrap;
           text-overflow: ellipsis;
         }
-        p.similar-gigOrInternship-block4__p {
+        .similar-gigOrInternship-block4__p {
           margin: 0px;
           padding-bottom: 6px;
           border-bottom: 1px solid #d3d3d3;
@@ -70,17 +70,13 @@ div.moreGigOrInternship-main-block {
           text-overflow: ellipsis;
           color: black;
         }
-        div.info-main-graphic-block {
+        .info-main-graphic-block {
           display: flex;
           justify-content: space-between;
           margin-top: 2px;
-          div.info-graphic-block-one {
+          .info-graphic-block-one {
             display: flex;
             flex: 1;
-
-            img {
-            }
-
             .info-graphic-block-one__p {
               font-size: 12px;
               margin: 0px 0px 0px 4px;
@@ -88,10 +84,9 @@ div.moreGigOrInternship-main-block {
             }
           }
 
-          div.info-graphic-block-two {
+          .info-graphic-block-two {
             display: flex;
             flex: 1;
-
             img {
             }
 

@@ -1,7 +1,7 @@
+import { Button, Input, Modal, Select, Upload } from "antd";
 import React, { useState } from "react";
-import { Modal, Button, Input, Select, Upload } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
-import uploadBtn from "../../../assets/img/uploadBtn.svg";
+/* ---------------------------------- ***** --------------------------------- */
+import uploadBtn from "../../assets/img/uploadBtn.svg";
 
 const { Option } = Select;
 
@@ -12,7 +12,6 @@ function getBase64(img, callback) {
 }
 
 export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
-  // console.log("props", props);
   const [imageUrl1, setImageUrl1] = useState(null);
   const [imageUrl2, setImageUrl2] = useState(null);
 

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import "@brainhubeu/react-carousel/lib/style.css";
 import { Button, Modal, Tabs } from "antd";
 import axios from "axios";
@@ -6,21 +5,18 @@ import Cookies from "js-cookie";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
-import CompanyQueForm from "../internship/companyQuesForm";
-import checkIcon from "../internship/img/checkIcon.svg";
-import timeIcon from "../../assets/img/timeIcon.svg";
-import removeIcon from "../internship/img/removeIcon.svg";
-import MoreSuggestion from "../moreSuggestion/MoreSuggestion";
 import calendarDateIcon from "../../assets/img/gig/calendarDateIcon.svg";
+import descriptionIcon from "../../assets/img/gig/descriptionIcon.svg";
+import responsibilityIcon from "../../assets/img/gig/responsibilityIcon.svg";
 import rupeeIcon from "../../assets/img/gig/rupeeIcon.svg";
 import taskIcon from "../../assets/img/gig/taskIcon.svg";
 import taskPerformIcon from "../../assets/img/gig/taskPerformIcon.svg";
-import descriptionIcon from "../../assets/img/gig/descriptionIcon.svg";
-import responsibilityIcon from "../../assets/img/gig/responsibilityIcon.svg";
-
+import timeIcon from "../../assets/img/timeIcon.svg";
+import { tokenHeader } from "../../constant/tokenHeader";
+import CompanyQueForm from "../internship/companyQuesForm";
+import SimilarGigOrInternship from "../similarGigOrInternship/similarGigOrInternship";
 import { arrayValidation } from "../validation/validation";
 import GigTask from "./gigTask";
-import { tokenHeader } from "../../constant/tokenHeader";
 
 const { TabPane } = Tabs;
 export default function GigDetail(props) {
@@ -349,7 +345,7 @@ export default function GigDetail(props) {
           />
         </Modal>
       </div>
-      <MoreSuggestion isGigOrInternship="gig" category={designation} />
+      <SimilarGigOrInternship isGigOrInternship="gig" category={designation} />
     </div>
   );
 }

@@ -3,18 +3,14 @@ import { Route, Switch } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import AboutUs from "../components/aboutUs/aboutUs";
 import Career from "../components/career/career";
-import Faqs from "../components/faqs/faqs";
-import GetInContact from "../components/getInContact/getInContact";
-import GetStarted from "../components/getStarted/getStarted";
 import Gig from "../components/gig/gig";
 import GigDetail from "../components/gig/gigDetails";
 import HowItWork from "../components/howItWork/howItWork";
 import Internship from "../components/internship/internship";
 import InternshipDetail from "../components/internship/internshipDetail";
 import LandingPage from "../components/landingPage/landingPage";
-import ContactUs from "../components/landingPageContactUs/contactUs";
+import ContactUs from "../components/contactUs/contactUs";
 import Login from "../components/login/login";
-import internshipApplication from "../components/NewComps/internshipApplication/internshipApplication";
 import PageNotFound from "../components/pageNotFound";
 import PartnerWithPracify from "../components/partnerWithPracify/partnerWithPracify";
 import UserGig from "../components/userHome/userGig/userGig";
@@ -31,7 +27,6 @@ export default function SwitchRoute() {
   return (
     <Switch>
       <PublicRoute path="/" component={LandingPage} exact={true} />
-      <PublicRoute path="/get-started" component={GetStarted} exact={true} />
       <PublicRoute path="/about_us" component={AboutUs} exact={true} />
       <PublicRoute path="/career" component={Career} exact={true} />
       <PublicRoute
@@ -49,24 +44,12 @@ export default function SwitchRoute() {
         component={ContactUs}
         exact={true}
       ></PublicRoute>
-      <PublicRoute path="/faqs" component={Faqs} exact={true} />
-      {/* <PublicRoute path="/login" component={Login} exact={true} /> */}
       <PublicRoute path="/login" component={Login} exact={true} />
-      <PublicRoute
-        path="/get-in-contact"
-        component={GetInContact}
-        exact={true}
-      />
 
       {/* //! ---------------------------------- common Route --------------------------------- */}
       <CommonRoute path="/gigs" component={Gig} exact={true} />
       <CommonRoute path="/gig/:id" component={GigDetail} exact={true} />
       <CommonRoute path="/internships" component={Internship} exact={true} />
-      <CommonRoute
-        path="/testing"
-        component={internshipApplication}
-        exact={true}
-      />
       <CommonRoute
         path="/internship/:id"
         component={InternshipDetail}

@@ -4,25 +4,18 @@ import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import detectLocationIcon from "../../../assets/img/detectLocationIcon.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
+import two from "./img/(2).svg";
+import addIcon from "./img/addIcon.svg";
 import bike2 from "./img/bike2.svg";
 import bus from "./img/bus.svg";
 import bus2 from "./img/bus2.svg";
 import car from "./img/car.svg";
 import car2 from "./img/car2.svg";
-import two from "./img/(2).svg";
-import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
 import pin from "./img/pin.svg";
 import train from "./img/train.svg";
 import train2 from "./img/train2.svg";
 import twoWheeler from "./img/two-wheeler.svg";
-
-const textToImg = {
-  car: car,
-  bus: bus,
-  train: train,
-  bike: twoWheeler,
-};
 
 export default function OfflineAvailUser(props) {
   const vehiclesData = props.profileData.offlineGigs.mode;
@@ -42,6 +35,8 @@ export default function OfflineAvailUser(props) {
     vehicle.bike || vehicle.bus || vehicle.car || vehicle.train;
 
   const [openConveyance, setOpenConveyance] = useState(isAnyVehicle);
+  const [isYesBtn, setIsYesBtn] = useState(false);
+  const [isNoBtn, setIsNoBtn] = useState(false);
 
   useEffect(() => {
     setVehicle(offlineGigsData);
@@ -60,9 +55,14 @@ export default function OfflineAvailUser(props) {
 
   const handleYes = () => {
     setOpenConveyance(true);
+    setIsNoBtn(false);
+    setIsYesBtn(true);
   };
   const handleNo = () => {
     setOpenConveyance(false);
+    setIsNoBtn(true);
+    setIsYesBtn(false);
+
     setVehicle({
       bus: false,
       train: false,
@@ -118,6 +118,7 @@ export default function OfflineAvailUser(props) {
   const coordinates = (position) => {
     console.log("longitude", position.coords.longitude);
     console.log("latitude", position.coords.latitude);
+
     setUserLocation({
       longitude: position.coords.longitude,
       latitude: position.coords.latitude,
@@ -159,7 +160,6 @@ export default function OfflineAvailUser(props) {
               )}
               {isAnyVehicle && (
                 <div className="btn-and-vehicles">
-                  {/* <div className="willing-to-travel-btn">Willing to travel</div> */}
                   <div className="vehicles">
                     {vehiclesData.bike ? (
                       <img className="vehicle" src={bike2} alt="" />
@@ -233,8 +233,8 @@ export default function OfflineAvailUser(props) {
                   shape="round"
                   className="yes-btn"
                   style={{
-                    backgroundColor: openConveyance ? "#444584" : "#fff",
-                    color: openConveyance ? "#fff" : "#444584",
+                    backgroundColor: isYesBtn ? "#444584" : "#fff",
+                    color: isYesBtn ? "#fff" : "#444584",
                   }}
                 >
                   Yes
@@ -245,15 +245,15 @@ export default function OfflineAvailUser(props) {
                   shape="round"
                   className="no-btn"
                   style={{
-                    backgroundColor: !openConveyance ? "#444584" : "#fff",
-                    color: !openConveyance ? "#fff" : "#444584",
+                    backgroundColor: isNoBtn ? "#444584" : "#fff",
+                    color: isNoBtn ? "#fff" : "#444584",
                   }}
                 >
                   No
                 </Button>
               </div>
 
-              {isAnyVehicle || openConveyance ? (
+              {isYesBtn ? (
                 <div>
                   <div className="heading-3">
                     How Will You Travel To Complete Offline Gigs?
@@ -261,7 +261,9 @@ export default function OfflineAvailUser(props) {
                   <div className="vehicles">
                     <div
                       onClick={() => selectVehicleHandler("car")}
-                      style={{ backgroundColor: vehicle["car"] ? "#ccc" : "" }}
+                      style={{
+                        border: vehicle["car"] ? "solid 2px #444584" : "",
+                      }}
                       className="single-vehicle"
                     >
                       <img src={car} alt="" />
@@ -269,7 +271,9 @@ export default function OfflineAvailUser(props) {
                     </div>
                     <div
                       onClick={() => selectVehicleHandler("bus")}
-                      style={{ backgroundColor: vehicle["bus"] ? "#ccc" : "" }}
+                      style={{
+                        border: vehicle["bus"] ? "solid 2px #444584" : "",
+                      }}
                       className="single-vehicle"
                     >
                       <img src={bus} alt="" />
@@ -278,7 +282,7 @@ export default function OfflineAvailUser(props) {
                     <div
                       onClick={() => selectVehicleHandler("train")}
                       style={{
-                        backgroundColor: vehicle["train"] ? "#ccc" : "",
+                        border: vehicle["train"] ? "solid 2px #444584" : "",
                       }}
                       className="single-vehicle"
                     >
@@ -287,7 +291,9 @@ export default function OfflineAvailUser(props) {
                     </div>
                     <div
                       onClick={() => selectVehicleHandler("bike")}
-                      style={{ backgroundColor: vehicle["bike"] ? "#ccc" : "" }}
+                      style={{
+                        border: vehicle["bike"] ? "solid 2px #444584" : "",
+                      }}
                       className="single-vehicle"
                     >
                       <img src={twoWheeler} alt="" />

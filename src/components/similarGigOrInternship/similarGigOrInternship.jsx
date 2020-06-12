@@ -6,7 +6,7 @@ import { arrayValidation } from "../validation/validation";
 import helpIcon from "./help.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
 
-export default function MoreSuggestion({ isGigOrInternship, category }) {
+export default function SimilarGigOrInternship({ isGigOrInternship, category }) {
   console.log("isGigOrInternship", isGigOrInternship, category);
   const [similarGigOrInternship, setSimilarGigOrInternship] = useState();
 
