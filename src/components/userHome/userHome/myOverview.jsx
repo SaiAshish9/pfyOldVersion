@@ -1,11 +1,12 @@
 import { Button } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
+import Support from "../../support/support";
 import myGigIcon from "./img/myGigIcon.svg";
 import myInternshipIcon from "./img/myInternshipIcon.svg";
-import verificationIcon from "./img/verificationIcon.svg";
 import supportIcon from "./img/supportIcon.svg";
+import verificationIcon from "./img/verificationIcon.svg";
 
 const overView = [
   { img: myGigIcon, para: "My Gigs", link: "/my-gigs" },
@@ -15,11 +16,13 @@ const overView = [
 
 export default function MyOverview() {
   const history = useHistory();
+  const [isShow, setIsShow] = useState(false);
+
   const handleUpdateVerification = () => {};
 
   const handleOverview = (link) => {
     if (link === "noLink") {
-      return;
+      setIsShow(true);
     } else {
       history.push(link);
     }
@@ -58,6 +61,12 @@ export default function MyOverview() {
           <img src={verificationIcon} alt="" className="" />
         </div>
       </div>
+      <Support
+        isShow={isShow}
+        isClose={() => {
+          setIsShow(false);
+        }}
+      />
     </div>
   );
 }

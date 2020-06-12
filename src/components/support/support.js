@@ -12,8 +12,8 @@ import verification from "./img/verification.svg";
 const { TextArea } = Input;
 
 const { Panel } = Collapse;
+
 export default function Support(props) {
-  const [visible, setVisible] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
   const [supportData, setSupportData] = useState(null);
   const [imgURL, setImgURL] = useState(null);
@@ -63,7 +63,6 @@ export default function Support(props) {
 
   const handleOk = (e) => {
     console.log(e);
-    setVisible(false);
     setSupportData(null);
     let img = imageData.file;
     let lookupOptions = {
@@ -87,7 +86,6 @@ export default function Support(props) {
   };
 
   const handleCancel = (e) => {
-    setVisible(false);
     setSelectedComp("supportTiles");
     setSupportData(null);
 
