@@ -1,13 +1,13 @@
 import { Button, Checkbox, Modal, Tooltip } from "antd";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { Controller, useForm } from "react-hook-form";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
+import { tokenHeader } from "../../constant/tokenHeader";
 import { objectValidation } from "../validation/validation";
-import educationIcon from "./img/headingImg/educationIcon.svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
-import { tokenHeader } from "../../constant/tokenHeader";
+import educationIcon from "./img/headingImg/educationIcon.svg";
 
 const year = new Date().getFullYear();
 const startYear = Array.from(new Array(60), (val, index) => year - index);
@@ -183,6 +183,7 @@ export default function Education({ education, updateResume }) {
         onCancel={handleCancel}
         footer={null}
         width={780}
+        className="education-modal"
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

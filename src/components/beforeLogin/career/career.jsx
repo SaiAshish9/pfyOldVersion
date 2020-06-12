@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Button } from "antd";
-import careerHeroImg from "../../assets/img/career/careerHeroImg.svg";
-import Footer from "../landingPage/footer";
+import careerHeroImg from "../../../assets/img/career/careerHeroImg.svg";
+import Footer from "../footer";
 
 export default function Career() {
   useEffect(() => {

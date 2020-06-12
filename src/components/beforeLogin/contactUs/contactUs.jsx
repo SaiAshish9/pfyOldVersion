@@ -1,8 +1,8 @@
 import { Button } from "antd";
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import findPracifyImg from "../../assets/img/findPracifyImg.svg";
-import Footer from "../landingPage/footer";
+import findPracifyImg from "../../../assets/img/findPracifyImg.svg";
+import Footer from "../footer";
 import FillDetail from "./fillDetail";
 
 export default function ContactUs() {

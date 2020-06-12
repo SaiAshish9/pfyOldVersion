@@ -1,12 +1,12 @@
 import React from "react";
-import funSvg1 from "../../assets/img/landingPage/funSvg1.svg";
-import funSvg2 from "../../assets/img/landingPage/funSvg2.svg";
-import funSvg3 from "../../assets/img/landingPage/funSvg3.svg";
-import funSvg4 from "../../assets/img/landingPage/funSvg4.svg";
-import funSvg5 from "../../assets/img/landingPage/funSvg5.svg";
-import KSSelectionImg from "../../assets/img/landingPage/KSSelectionImg.png";
-import KSSubmissionImg from "../../assets/img/landingPage/KSSubmissionImg.png";
-import KSPayment from "../../assets/img/landingPage/KSPayment.png";
+import funSvg1 from "../../../assets/img/landingPage/funSvg1.svg";
+import funSvg2 from "../../../assets/img/landingPage/funSvg2.svg";
+import funSvg3 from "../../../assets/img/landingPage/funSvg3.svg";
+import funSvg4 from "../../../assets/img/landingPage/funSvg4.svg";
+import funSvg5 from "../../../assets/img/landingPage/funSvg5.svg";
+import KSSelectionImg from "../../../assets/img/landingPage/KSSelectionImg.png";
+import KSSubmissionImg from "../../../assets/img/landingPage/KSSubmissionImg.png";
+import KSPayment from "../../../assets/img/landingPage/KSPayment.png";
 
 const content = [
   {
@@ -38,11 +38,11 @@ export default function KeepSimple() {
         <h1 className="keepSimple-message">
           Pracify is with you at every step and we're here to keep
           <br /> your experience stress free and simple
-          <img src={funSvg1} alt="" className="funSvg1"/>
-          <img src={funSvg2} alt="" className="funSvg2"/>
-          <img src={funSvg3} alt="" className="funSvg3"/>
-          <img src={funSvg4} alt="" className="funSvg4"/>
-          <img src={funSvg5} alt="" className="funSvg5"/>
+          <img src={funSvg1} alt="" className="funSvg1" />
+          <img src={funSvg2} alt="" className="funSvg2" />
+          <img src={funSvg3} alt="" className="funSvg3" />
+          <img src={funSvg4} alt="" className="funSvg4" />
+          <img src={funSvg5} alt="" className="funSvg5" />
         </h1>
       </div>
       <div className="content-main-block">

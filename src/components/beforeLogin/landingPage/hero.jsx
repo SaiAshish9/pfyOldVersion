@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import React from "react";
-import heroImg from "../../assets/img/landingPage/heroImg.svg";
+import heroImg from "../../../assets/img/landingPage/heroImg.svg";
 
 export default function Hero() {
   return (

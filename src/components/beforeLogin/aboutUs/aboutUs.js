@@ -1,10 +1,10 @@
 import { Button } from "antd";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import businessImg from "../../assets/img/aboutUs/businessImg.svg";
-import gigWorkerImg from "../../assets/img/aboutUs/gigWorkerImg.svg";
-import youngWorker from "../../assets/img/aboutUs/youngWorker.svg";
-import Footer from "../landingPage/footer";
+import businessImg from "../../../assets/img/aboutUs/businessImg.svg";
+import gigWorkerImg from "../../../assets/img/aboutUs/gigWorkerImg.svg";
+import youngWorker from "../../../assets/img/aboutUs/youngWorker.svg";
+import Footer from "../footer";
 
 const about = [
   {

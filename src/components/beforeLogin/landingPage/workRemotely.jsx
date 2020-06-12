@@ -1,8 +1,8 @@
 import React from "react";
-import WRHeroImg from "../../assets/img/landingPage/WRHeroImg.png";
-import WRImg1 from "../../assets/img/landingPage/WRImg1.svg";
-import WRImg2 from "../../assets/img/landingPage/WRImg2.svg";
-import WRImg3 from "../../assets/img/landingPage/WRImg3.svg";
+import WRHeroImg from "../../../assets/img/landingPage/WRHeroImg.png";
+import WRImg1 from "../../../assets/img/landingPage/WRImg1.svg";
+import WRImg2 from "../../../assets/img/landingPage/WRImg2.svg";
+import WRImg3 from "../../../assets/img/landingPage/WRImg3.svg";
 
 const content = [
   {

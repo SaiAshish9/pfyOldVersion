@@ -1,18 +1,18 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
-import AboutUs from "../components/aboutUs/aboutUs";
-import Career from "../components/career/career";
+import AboutUs from "../components/beforeLogin/aboutUs/aboutUs";
+import Career from "../components/beforeLogin/career/career";
 import Gig from "../components/gig/gig";
 import GigDetail from "../components/gig/gigDetails";
-import HowItWork from "../components/howItWork/howItWork";
+import HowItWork from "../components/beforeLogin/howItWork/howItWork";
 import Internship from "../components/internship/internship";
 import InternshipDetail from "../components/internship/internshipDetail";
-import LandingPage from "../components/landingPage/landingPage";
-import ContactUs from "../components/contactUs/contactUs";
+import LandingPage from "../components/beforeLogin/landingPage/landingPage";
+import ContactUs from "../components/beforeLogin/contactUs/contactUs";
 import Login from "../components/login/login";
 import PageNotFound from "../components/pageNotFound";
-import PartnerWithPracify from "../components/partnerWithPracify/partnerWithPracify";
+import PartnerWithPracify from "../components/beforeLogin/partnerWithPracify/partnerWithPracify";
 import UserGig from "../components/userHome/userGig/userGig";
 import UserHome from "../components/userHome/userHome/userHome";
 import UserInternship from "../components/userHome/userIntership/userInternship.jsx";

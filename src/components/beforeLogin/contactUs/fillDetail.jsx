@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Form, Button } from "antd";
-import InputType from "../inputType";
+import InputType from "../../inputType";
 import moment from "moment";
 
 const userDetail = [

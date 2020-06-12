@@ -1,11 +1,11 @@
 import { Button } from "antd";
 import React, { useState, useEffect } from "react";
 import FillDetail from "../contactUs/fillDetail";
-import brandPartnershipIcon from "../../assets/img/partnerWithPracify/brandPartnershipIcon.svg";
-import cashSponsorshipIcon from "../../assets/img/partnerWithPracify/cashSponsorshipIcon.svg";
-import promoteEventIcon from "../../assets/img/partnerWithPracify/promoteEventIcon.svg";
-import pwpHeroImg from "../../assets/img/partnerWithPracify/pwpHeroImg.svg";
-import Footer from "../landingPage/footer";
+import brandPartnershipIcon from "../../../assets/img/partnerWithPracify/brandPartnershipIcon.svg";
+import cashSponsorshipIcon from "../../../assets/img/partnerWithPracify/cashSponsorshipIcon.svg";
+import promoteEventIcon from "../../../assets/img/partnerWithPracify/promoteEventIcon.svg";
+import pwpHeroImg from "../../../assets/img/partnerWithPracify/pwpHeroImg.svg";
+import Footer from "../footer";
 
 const pwpData = [
   {

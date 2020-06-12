@@ -221,10 +221,10 @@ const Experience = ({ workExperience, updateResume }) => {
         onCancel={handleCancel}
         footer={null}
         width={780}
+        className="experience-modal"
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
-          style={{ display: "flex", flexDirection: "column" }}
           className="experience-modal__form"
         >
           <section className="experience-modal-sec-one">

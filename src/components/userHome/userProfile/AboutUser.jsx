@@ -90,7 +90,6 @@ const AboutUser = (props) => {
           <Button
             htmlType="submit"
             className="objective-block-one__buttonTwo"
-            style={{ alignSelf: "center", marginTop: "32px" }}
           >
             Save
           </Button>

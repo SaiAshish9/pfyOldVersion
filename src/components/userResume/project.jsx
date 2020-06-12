@@ -220,12 +220,9 @@ const Project = ({ project, updateResume }) => {
         onCancel={handleCancel}
         footer={null}
         width={780}
+        className="project-modal"
       >
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          style={{ display: "flex", flexDirection: "column" }}
-          className="project-modal__form"
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="project-modal__form">
           <section className="project-modal-sec-one">
             <h2 className="project-modal-sec-one__head">Title</h2>
             <input

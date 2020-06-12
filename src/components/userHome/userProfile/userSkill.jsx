@@ -177,7 +177,6 @@ const UserSkill = (props) => {
             onClick={submitHandler}
             htmlType="submit"
             className="objective-block-one__buttonTwo submit-btn"
-            style={{ alignSelf: "center", marginTop: "32px" }}
           >
             SAVE
           </Button>

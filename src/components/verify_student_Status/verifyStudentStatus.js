@@ -15,10 +15,6 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
   const [imageUrl1, setImageUrl1] = useState(null);
   const [imageUrl2, setImageUrl2] = useState(null);
 
-  const handleCancel = () => {
-    closeModal();
-  };
-
   const handleChange = (value) => {
     console.log(`selected ${value}`);
   };
@@ -44,7 +40,7 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
       width={680}
       title="Verify Student Status"
       visible={isVisibleModal}
-      onCancel={handleCancel}
+      onCancel={() => closeModal()}
       footer={null}
     >
       <div className="verify-student-status-form">
@@ -83,7 +79,6 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
             listType="picture-card"
             showUploadList={false}
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            // beforeUpload={beforeUpload}
             onChange={(info) => ImageUploadHandler(info, "front")}
           >
             {imageUrl1 ? (
