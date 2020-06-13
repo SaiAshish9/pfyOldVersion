@@ -1,10 +1,12 @@
-import React from "react";
-import { Route, Router, Redirect, Switch } from "react-router-dom";
 import Cookies from "js-cookie";
+import React, { useReducer, useEffect } from "react";
+import { Redirect, Route } from "react-router-dom";
 import PrivateHeader from "../components/header/privateHeader/privateHeader";
+import { UserProvider } from "../store/userStore";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, path, ...rest }) => {
   const isToken = Cookies.get("token");
+
   return (
     <>
       {isToken && <PrivateHeader />}
@@ -12,9 +14,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         {...rest}
         component={(props) =>
           isToken ? (
-            <>
+            path === "/home" ? (
+              <UserProvider>
+                <Component {...props} />
+              </UserProvider>
+            ) : (
               <Component {...props} />
-            </>
+            )
           ) : (
             <Redirect to="/" />
           )
@@ -25,3 +31,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 };
 
 export default PrivateRoute;
+
+//   <UserContext.Provider value={{ user, dispatchUser }}>
+// </UserContext.Provider>

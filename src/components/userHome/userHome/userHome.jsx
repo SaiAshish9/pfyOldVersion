@@ -3,37 +3,18 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../../constant/tokenHeader";
+import { UserContext } from "../../../store/userStore";
 import { objectValidation } from "../../validation/validation";
 import Avatar from "./avatar";
 import GigOrInternship from "./gigOrInternship";
 import MyOverview from "./myOverview";
-import Stat from "./stat";
 
 export default function UserHome() {
-  const [user, setUser] = useState({});
   const [notification, setNotification] = useState([]);
+  const { user } = UserContext();
+  console.log("useruser", user);
 
-  useEffect(() => {
-    const source = axios.CancelToken.source();
-    axios
-      .get(`home`, tokenHeader(), { cancelToken: source.token })
-      .then((res) => {
-        const userData = res.data;
-        setUser(userData);
-        console.log("mounting", res.data);
-      })
-      .catch((error) => {
-        if (axios.isCancel(error)) {
-          console.log("caught cancel");
-        } else {
-          console.log(error.response);
-        }
-      });
-    return () => {
-      console.log("un mounting");
-      source.cancel();
-    };
-  }, []);
+  // GetUser(dispatchUser);
 
   useEffect(() => {
     const source = axios.CancelToken.source();

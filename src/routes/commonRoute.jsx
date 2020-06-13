@@ -3,9 +3,11 @@ import { Route } from "react-router-dom";
 import Cookies from "js-cookie";
 import PrivateHeader from "../components/header/privateHeader/privateHeader";
 import Header from "../components/header/header";
+import { UserProvider } from "../store/userStore";
 
 const CommonRoute = ({ component: Component, ...rest }) => {
   const isToken = Cookies.get("token");
+
   return (
     <>
       {isToken ? <PrivateHeader /> : <Header />}

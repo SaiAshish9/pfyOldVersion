@@ -35,8 +35,6 @@ export default function Login() {
     setIsOTPConfirmDisable(OTP.length === 6 ? false : true);
   }, [OTP]);
 
-  console.log("OTP.length", OTP.length);
-
   useEffect(() => {
     recaptchaVerifier();
   }, []);
@@ -58,7 +56,6 @@ export default function Login() {
           size: "invisible",
         }
       );
-      console.log(window.recaptchaVerifier);
     } catch (e) {
       console.log(e);
     }

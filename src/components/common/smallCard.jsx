@@ -15,7 +15,6 @@ export default function SmallCard({ gigOrInternship, isGigOrInternship }) {
     ? gigOrInternship.company
     : gigOrInternship.companyId;
 
-  console.log(gigCompany);
 
   const internshipCompany = gig
     ? false

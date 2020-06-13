@@ -15,13 +15,9 @@ const App = () => {
   });
 
   return (
-    // <InternshipContext.Provider value={{ internship, internshipDispatch }}>
-    //   <GigContext.Provider value={{ gig, gigDispatch }}>
-
     <LoginContext.Provider value={{ login, loginDispatch }}>
-      <AppRouter />
+        <AppRouter />
     </LoginContext.Provider>
-    // </InternshipContext.Provider>
   );
 };
 

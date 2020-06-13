@@ -7,10 +7,8 @@ const { TabPane } = Tabs;
 export default function GigOrInternship({ user }) {
   const margin = (index) => {
     if (index === 0) {
-      console.log(index);
       return { marginLeft: "0px" };
     } else {
-      console.log(index);
       return { marginLeft: "40px" };
     }
   };

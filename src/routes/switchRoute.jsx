@@ -25,6 +25,7 @@ import PublicRoute from "./publicRoute";
 
 export default function SwitchRoute() {
   return (
+    
     <Switch>
       <PublicRoute path="/" component={LandingPage} exact={true} />
       <PublicRoute path="/about_us" component={AboutUs} exact={true} />
@@ -63,6 +64,7 @@ export default function SwitchRoute() {
         component={UserInternship}
         exact={true}
       />
+
       <PrivateRoute path="/my-gigs" component={UserGig} exact={true} />
       <PrivateRoute path="/profile" component={UserProfile} exact={true} />
       <PrivateRoute path="/resume" component={UserResume} exact={true} />
