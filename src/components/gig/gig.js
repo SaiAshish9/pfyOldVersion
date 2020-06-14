@@ -11,6 +11,7 @@ const cardStyle = {
   display: "flex",
   justifyContent: "center",
 };
+
 const { Option } = Select;
 
 const Gig = () => {
@@ -92,9 +93,7 @@ const Gig = () => {
             </div>
           </div>
           <div className="card-container">{gigCard && gigCard}</div>
-        
         </Col>
-        
       </Row>
     </div>
   );

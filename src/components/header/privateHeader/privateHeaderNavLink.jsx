@@ -14,8 +14,8 @@ import VerifyStudentStatus from "../../verify_student_Status/verifyStudentStatus
 
 const headerLink = [
   { name: "Home", link: "/home" },
-  { name: "Gigs", link: "/gigs" },
-  { name: "Internships", link: "/internships" },
+  { name: "Gigs", link: "/relatedGigs" },
+  { name: "Internships", link: "/relatedInternships" },
   { name: "Resume", link: "/resume" },
   { name: "Wallet", link: "/wallet" },
   { name: "Student Status", link: "" },

@@ -1,3 +1,4 @@
+import cookie from "js-cookie";
 import moment from "moment";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -9,6 +10,7 @@ import rupeeIcon from "./img/rupeeIcon.svg";
 import taskIcon from "./img/taskIcon.svg";
 
 export default function Card(props) {
+  const isToken = cookie.get("token");
   const gig = props.gig;
   const internship = props.internship;
   /* ---------------------------- variable setting ---------------------------- */
@@ -43,12 +45,15 @@ export default function Card(props) {
   const icon = gig ? taskIcon : calendarIcon;
   const applyBefore = gig ? gig.applyBefore : internship.applyBefore;
 
-  const DetailPath = gig ? `/gig/${id}` : `/internship/${id}`;
+  const detailPath = gig ? `/gig/${id}` : `/internship/${id}`;
 
+  const privateDetailPath = gig
+    ? `/relatedGig/${id}`
+    : `/relatedInternship/${id}`;
   //#endregion
 
   return (
-    <Link to={DetailPath}>
+    <Link to={!isToken ? detailPath : privateDetailPath}>
       <div className="my-card-block">
         <div>
           <div className="logo">

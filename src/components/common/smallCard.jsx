@@ -3,8 +3,11 @@ import calendarIcon from "./img/smallCalendarIcon.svg";
 import taskIcon from "./img/smallTaskIcon.svg";
 import rupeeIcon from "./img/smallRupeeIcon.svg";
 import { Link } from "react-router-dom";
+import cookie from "js-cookie";
 
 export default function SmallCard({ gigOrInternship, isGigOrInternship }) {
+  const isToken = cookie.get("token");
+
   const gig = isGigOrInternship === "gig";
   const internship = isGigOrInternship === "internship";
 
@@ -14,7 +17,6 @@ export default function SmallCard({ gigOrInternship, isGigOrInternship }) {
     : gigOrInternship.company
     ? gigOrInternship.company
     : gigOrInternship.companyId;
-
 
   const internshipCompany = gig
     ? false
@@ -44,12 +46,15 @@ export default function SmallCard({ gigOrInternship, isGigOrInternship }) {
   //     ? gigOrInternship.applyBefore
   //     : gigOrInternship.applyBefore;
 
-  const DetailPath = gig ? `/gig/${id}` : `/internship/${id}`;
+  const detailPath = gig ? `/gig/${id}` : `/internship/${id}`;
 
+  const privateDetailPath = gig
+    ? `/relatedGig/${id}`
+    : `/relatedInternship/${id}`;
   //#endregion
 
   return (
-    <Link to={DetailPath}>
+    <Link to={!isToken ? detailPath : privateDetailPath}>
       <div className="similar-gigOrInternship-block2">
         <div className="similar-gigOrInternship-block3-img-block">
           <img

@@ -6,8 +6,8 @@ import "./filter.scss";
 const Filter = () => {
   const { Panel } = Collapse;
   const location = useLocation().pathname;
-  const isInternship = location === "/internships";
-  const isGigs = location === "/gigs";
+  const isInternship = location === "/internships" || "/relatedInternships";
+  const isGigs = location === "/gigs" || "/relatedGigs";
 
   return (
     <div className="filter-container">

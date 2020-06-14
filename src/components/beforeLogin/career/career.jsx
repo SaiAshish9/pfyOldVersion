@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Button } from "antd";
 import careerHeroImg from "../../../assets/img/career/careerHeroImg.svg";
-import Footer from "../footer";
 
 export default function Career() {
   useEffect(() => {
@@ -36,7 +35,6 @@ export default function Career() {
 
         <img src={careerHeroImg} alt="" className="career-hero-img" />
       </div>
-      <Footer />
     </div>
   );
 }

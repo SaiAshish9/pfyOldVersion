@@ -5,20 +5,13 @@ import gigReducer from "./reducer/gigReducer";
 import internshipReducer from "./reducer/internshipReducer";
 import loginReducer from "./reducer/loginReducer";
 import AppRouter from "./routes/router";
+import { LoginProvider } from "./store/loginStore";
 
 const App = () => {
-  const [internship, internshipDispatch] = useReducer(internshipReducer, []);
-  const [gig, gigDispatch] = useReducer(gigReducer, []);
-  const [login, loginDispatch] = useReducer(loginReducer, {
-    userToken: "",
-    loginError: "",
-  });
-
   return (
-    <LoginContext.Provider value={{ login, loginDispatch }}>
-        <AppRouter />
-    </LoginContext.Provider>
+    <LoginProvider>
+      <AppRouter />
+    </LoginProvider>
   );
 };
-
 export default App;

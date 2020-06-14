@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import businessImg from "../../../assets/img/aboutUs/businessImg.svg";
 import gigWorkerImg from "../../../assets/img/aboutUs/gigWorkerImg.svg";
 import youngWorker from "../../../assets/img/aboutUs/youngWorker.svg";
-import Footer from "../footer";
 
 const about = [
   {
@@ -66,8 +65,6 @@ export default function AboutUs() {
           </Button>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

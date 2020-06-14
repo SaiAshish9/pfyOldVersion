@@ -1,9 +1,6 @@
-import React, { useReducer, useEffect, createContext, useContext } from "react";
-import { useLocation } from "react-router-dom";
-import axios from "axios";
-import { tokenHeader } from "../constant/tokenHeader";
+import React, { createContext, useContext, useReducer } from "react";
 
-const context = createContext();
+const myUserContext = createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -22,39 +19,14 @@ export function changeUser(userData) {
 }
 
 export function UserProvider(props) {
-  const location = useLocation();
   const [user, dispatchUser] = useReducer(reducer, {});
-  useEffect(() => {
-    if (location.pathname === "/home") {
-      const source = axios.CancelToken.source();
-      axios
-        .get(`home`, tokenHeader(), { cancelToken: source.token })
-        .then((res) => {
-          console.log("mounting", res.data);
-          const userData = res.data;
-          dispatchUser(changeUser(userData));
-        })
-        .catch((error) => {
-          if (axios.isCancel(error)) {
-            console.log("caught cancel");
-          } else {
-            console.log(error.response);
-          }
-        });
-      return () => {
-        console.log("un mounting");
-        source.cancel();
-      };
-    }
-  }, []);
-
-  return <context.Provider value={{ user, dispatchUser }} {...props} />;
+  return <myUserContext.Provider value={{ user, dispatchUser }} {...props} />;
 }
 
 export function UserContext() {
-  const myContext = useContext(context);
+  const myContext = useContext(myUserContext);
   if (!myContext) {
-    throw new Error("userInfo must be used within a UserProvider");
+    throw new Error("userContext must be used within a UserProvider");
   }
   return myContext;
 }

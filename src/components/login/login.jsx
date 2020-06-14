@@ -9,14 +9,15 @@ import loginHeroImg from "../../assets/img/login/loginHeroImg.svg";
 import phoneNumberIcon from "../../assets/img/login/phoneNumberIcon.svg";
 import { firebase } from "../../firebase/firebase";
 import UserForm from "./userForm";
-import LoginContext, { loginUser } from "../../context/loginContext";
+import { LoginContext } from "../../store/loginStore";
+import { loginApi } from "../../api/loginApi";
 
 //! ---------------------------------- style --------------------------------- */
 
 const { Countdown } = Statistic;
 export default function Login() {
   const history = useHistory();
-  const { login, loginDispatch } = useContext(LoginContext);
+  const { login, loginDispatch } = LoginContext();
 
   const [phone, setPhone] = useState("");
   const [passToken, setPassToken] = useState("");
@@ -98,7 +99,7 @@ export default function Login() {
           const registrationRequired = () => {
             setIsOTPConfirm(true);
           };
-          loginUser(
+          loginApi(
             userCredential,
             registrationRequired,
             history,

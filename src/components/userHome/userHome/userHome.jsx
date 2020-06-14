@@ -8,13 +8,21 @@ import { objectValidation } from "../../validation/validation";
 import Avatar from "./avatar";
 import GigOrInternship from "./gigOrInternship";
 import MyOverview from "./myOverview";
+import { userApi } from "../../../api/userApi";
 
 export default function UserHome() {
   const [notification, setNotification] = useState([]);
-  const { user } = UserContext();
+  const { user, dispatchUser } = UserContext();
   console.log("useruser", user);
 
-  // GetUser(dispatchUser);
+  useEffect(() => {
+    const source = axios.CancelToken.source();
+    userApi(dispatchUser);
+    return () => {
+      console.log("un mounting");
+      source.cancel();
+    };
+  }, []);
 
   useEffect(() => {
     const source = axios.CancelToken.source();

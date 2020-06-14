@@ -5,7 +5,6 @@ import brandPartnershipIcon from "../../../assets/img/partnerWithPracify/brandPa
 import cashSponsorshipIcon from "../../../assets/img/partnerWithPracify/cashSponsorshipIcon.svg";
 import promoteEventIcon from "../../../assets/img/partnerWithPracify/promoteEventIcon.svg";
 import pwpHeroImg from "../../../assets/img/partnerWithPracify/pwpHeroImg.svg";
-import Footer from "../footer";
 
 const pwpData = [
   {
@@ -83,7 +82,6 @@ export default function PartnerWithPracify() {
         modalVisible={contactUsVisible}
         handleCancelModal={handleCancelModal}
       ></FillDetail>
-      <Footer />
     </div>
   );
 }

@@ -20,7 +20,6 @@ import iconThree from "../../../assets/img/howItWork/iconThree.svg";
 import iconTwo from "../../../assets/img/howItWork/iconTwo.svg";
 import propIconOne from "../../../assets/img/howItWork/propIconOne.svg";
 import propIconTwo from "../../../assets/img/howItWork/propIconTwo.svg";
-import Footer from "../footer";
 
 const { TabPane } = Tabs;
 
@@ -231,7 +230,6 @@ export default function HowItWork() {
           </div>
         </TabPane>
       </Tabs>
-      <Footer></Footer>
     </div>
   );
 }
