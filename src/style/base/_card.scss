@@ -25,7 +25,7 @@
     //* ------------------------------- font-style ------------------------------- */
     font-family: $myFont;
     line-height: 1.43;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     margin: 0;
   }
@@ -38,7 +38,7 @@
     //* ------------------------------- font-style ------------------------------- */
     opacity: 0.8;
     font-family: $myFont;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.38;
     color: #000000;
   }
@@ -59,7 +59,7 @@
         margin: 0px;
         //* ------------------------------- font-style ------------------------------- */
         opacity: 0.87;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.38;
         color: #000000;
       }
@@ -83,8 +83,8 @@
         //* ------------------------------- font-style ------------------------------- */
         font-family: $myFont;
         opacity: 0.8;
-        font-size: 14px;
-        line-height: 1.43;
+        font-size: 13px;
+        // line-height: 1.43;
         text-align: left;
         color: #000000;
       }
