@@ -11,9 +11,9 @@ export default function UserStatusCard({ aboutCard, status }) {
   const title = aboutCard.designation || aboutCard.title;
   const companyName = aboutCard.company.companyName;
 
-  const gigRoute = location.pathname === "/my-gigs" && `/gig/${id}`;
+  const gigRoute = location.pathname === "/my-gigs" && `/relatedGig/${id}`;
   const internshipRoute =
-    location.pathname === "/my-internships" && `/internship/${id}`;
+    location.pathname === "/my-internships" && `/relatedInternship/${id}`;
 
   console.log("route", internshipRoute, gigRoute);
 

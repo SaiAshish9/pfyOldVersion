@@ -1,7 +1,6 @@
 import { Tabs } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Card from "../../common/card";
 /* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../../validation/validation";
 import { tokenHeader } from "../../../constant/tokenHeader";

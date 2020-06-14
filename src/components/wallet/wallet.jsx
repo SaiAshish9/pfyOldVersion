@@ -67,7 +67,7 @@ const Wallet = () => {
   };
 
   return (
-    <div className="wallet">
+    <div className="wallet-main-block">
       {earnings && walletDetails ? (
         <Earnings
           data={earnings}
