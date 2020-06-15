@@ -9,7 +9,6 @@ export const loginApi = (
   loginDispatch
 ) => {
   console.log(userCredential, registrationRequired, history, loginDispatch);
-
   axios
     .post(`auth/login`, userCredential)
     .then((res) => {

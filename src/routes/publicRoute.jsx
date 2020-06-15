@@ -3,6 +3,8 @@ import Cookies from "js-cookie";
 import { Route, Redirect } from "react-router-dom";
 import Header from "../components/header/header";
 import Footer from "../components/beforeLogin/footer";
+import { GigProvider } from "../store/gigStore";
+import { InternshipProvider } from "../store/internshipStore";
 
 const PublicRoute = ({ component: Component, path, ...rest }) => {
   const isToken = Cookies.get("token");
@@ -23,7 +25,17 @@ const PublicRoute = ({ component: Component, path, ...rest }) => {
       {!isToken ? (
         <>
           {!pathWithOutHeader && <Header />}
-          <Route {...rest} component={(props) => <Component {...props} />} />
+
+          <Route
+            {...rest}
+            component={(props) => (
+              <GigProvider>
+                <InternshipProvider>
+                  <Component {...props} />
+                </InternshipProvider>
+              </GigProvider>
+            )}
+          />
           {!pathWithOutFooter && <Footer />}
         </>
       ) : (

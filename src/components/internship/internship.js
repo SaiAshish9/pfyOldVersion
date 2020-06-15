@@ -1,12 +1,14 @@
-import { Col, Row, Select, Input   } from "antd";
+import { Col, Row, Select, Input } from "antd";
 import axios from "axios";
 import { SearchOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
-import InternshipContext from "../../context/internshipContext";
+// import InternshipContext from "../../context/internshipContext";
 import Card from "../common/card";
 import Filter from "../filters/filter";
 import { arrayValidation } from "../validation/validation";
+import { getInternshipWithoutStatus } from "../../api/internshipApi";
+import { InternshipContext } from "../../store/internshipStore";
 
 const cardStyle = {
   display: "flex",
@@ -15,22 +17,17 @@ const cardStyle = {
 
 const { Option } = Select;
 export default function Internship() {
-  const [internship, setInternship] = useState(InternshipContext);
+  // const [internship, setInternship] = useState(InternshipContext);
+  const { internship, dispatchInternship } = InternshipContext();
   const [arrangeCard, setArrangeCard] = useState("latest");
 
   /* ----------------------- fetching Internship without status ----------------------- */
   useEffect(() => {
-    axios
-      .get(`internship/fetch`)
-      .then(function (response) {
-        const internshipData = response.data.internships;
-        setInternship(internshipData);
-        console.log(internshipData);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(function () {});
+    const source = axios.CancelToken.source();
+    getInternshipWithoutStatus(dispatchInternship);
+    return () => {
+      source.cancel();
+    };
   }, []);
 
   const myInternshipCard =

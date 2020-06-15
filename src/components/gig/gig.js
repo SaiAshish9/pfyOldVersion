@@ -6,6 +6,8 @@ import React, { useEffect, useState } from "react";
 import Card from "../common/card";
 import Filter from "../filters/filter";
 import { arrayValidation } from "../validation/validation";
+import { GigProvider, GigContext } from "../../store/gigStore";
+import { getGigWithoutStatus } from "../../api/gigApi";
 
 const cardStyle = {
   display: "flex",
@@ -14,8 +16,9 @@ const cardStyle = {
 
 const { Option } = Select;
 
-const Gig = () => {
-  const [gig, setGig] = useState();
+export default function Gig() {
+  // const [gig, setGig] = useState();
+  const { gig, dispatchGig } = GigContext();
   const [arrangeCard, setArrangeCard] = useState("latest");
 
   const gigCard =
@@ -28,16 +31,11 @@ const Gig = () => {
 
   /* ----------------------- fetching gig without status ----------------------- */
   useEffect(() => {
-    axios
-      .get(`mission/fetch`)
-      .then((response) => {
-        const gigData = response.data.missions;
-        setGig(gigData);
-        console.log(gigData);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+    const source = axios.CancelToken.source();
+    getGigWithoutStatus(dispatchGig);
+    return () => {
+      source.cancel();
+    };
   }, []);
 
   const handleArrangingCard = (value) => {
@@ -49,53 +47,54 @@ const Gig = () => {
   };
 
   return (
-    <div className="card-container-main-block">
-      <Row
-        className="full-page"
-        gutter={[0, 24]}
-        style={{ marginTop: "0", marginBottom: 0 }}
-      >
-        <Col className="filter-container" style={{ padding: "0px" }} span={6}>
-          <Filter />
-        </Col>
-        <Col
-          span={18}
-          className="card-holder-box"
-          style={{ paddingTop: "0px" }}
+    <GigProvider>
+      <div className="card-container-main-block">
+        <Row
+          className="full-page"
+          gutter={[0, 24]}
+          style={{ marginTop: "0", marginBottom: 0 }}
         >
-          <div className="card-heading-box">
-            <div style={{ display: "flex" }}>
-              <h1 className="card-heading-one">Gigs</h1>
-              {gig && (
-                <h2 className="card-heading-two">({gig.length} Results)</h2>
-              )}
-            </div>
-            <div className="filter-input">
-              <span className="sort-content">
-                <span className="sort-by-text">Sort By :</span>
-                <Select
-                  className=""
-                  defaultValue="latest"
-                  placeholder="Select a person"
-                  onChange={handleArrangingCard}
-                >
-                  <Option value="latest">Latest</Option>
-                  <Option value="popular">Popular</Option>
-                </Select>
-              </span>
+          <Col className="filter-container" style={{ padding: "0px" }} span={6}>
+            <Filter />
+          </Col>
+          <Col
+            span={18}
+            className="card-holder-box"
+            style={{ paddingTop: "0px" }}
+          >
+            <div className="card-heading-box">
+              <div style={{ display: "flex" }}>
+                <h1 className="card-heading-one">Gigs</h1>
+                {gig && (
+                  <h2 className="card-heading-two">({gig.length} Results)</h2>
+                )}
+              </div>
+              <div className="filter-input">
+                <span className="sort-content">
+                  <span className="sort-by-text">Sort By :</span>
+                  <Select
+                    className=""
+                    defaultValue="latest"
+                    placeholder="Select a person"
+                    onChange={handleArrangingCard}
+                  >
+                    <Option value="latest">Latest</Option>
+                    <Option value="popular">Popular</Option>
+                  </Select>
+                </span>
 
-              <Input
-                className="search-by-company"
-                prefix={<SearchOutlined />}
-                placeholder="Search by Company Name"
-                onChange={handleSearch}
-              />
+                <Input
+                  className="search-by-company"
+                  prefix={<SearchOutlined />}
+                  placeholder="Search by Company Name"
+                  onChange={handleSearch}
+                />
+              </div>
             </div>
-          </div>
-          <div className="card-container">{gigCard && gigCard}</div>
-        </Col>
-      </Row>
-    </div>
+            <div className="card-container">{gigCard && gigCard}</div>
+          </Col>
+        </Row>
+      </div>
+    </GigProvider>
   );
-};
-export default Gig;
+}
