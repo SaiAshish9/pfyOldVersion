@@ -84,9 +84,10 @@
           border-bottom: 1px solid #ebebeb;
           padding: 8px 10px 8px 14px;
         }
-        .query-textarea{
+        .query-textarea {
           min-height: 82px;
           max-height: 82px;
+          resize: none;
         }
         .ant-input {
           border-width: 0 0 1px 0;
