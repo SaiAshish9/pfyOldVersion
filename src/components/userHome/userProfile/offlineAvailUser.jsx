@@ -16,12 +16,16 @@ import pin from "./img/pin.svg";
 import train from "./img/train.svg";
 import train2 from "./img/train2.svg";
 import twoWheeler from "./img/two-wheeler.svg";
+import { UserProfileContext } from "../../../store/userProfileStore";
+import { getUserProfile } from "../../../api/userProfileApi";
 
-export default function OfflineAvailUser(props) {
-  const vehiclesData = props.profileData.offlineGigs.mode;
-  const offlineGigsData = props.profileData
-    ? props.profileData.offlineGigs.mode
-    : { bus: false, train: false, car: false, bike: false };
+export default function OfflineAvailUser() {
+  const { profileData, dispatchUserProfile } = UserProfileContext();
+  const vehiclesData = profileData.offlineGigs && profileData.offlineGigs.mode;
+  const offlineGigsData =
+    profileData.offlineGigs && profileData
+      ? profileData.offlineGigs.mode
+      : { bus: false, train: false, car: false, bike: false };
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [vehicle, setVehicle] = useState({
@@ -79,7 +83,7 @@ export default function OfflineAvailUser(props) {
         mode: {
           ...vehicle,
         },
-        location: props.profileData.offlineGigs.location,
+        location: profileData.offlineGigs.location,
         isWillingToTravel: isAnyVehicle,
       },
     };
@@ -89,7 +93,7 @@ export default function OfflineAvailUser(props) {
       .then((res) => {
         console.log(res.data);
         setIsModalVisible(false);
-        props.isUpdate();
+        getUserProfile(dispatchUserProfile);
       })
       .catch((err) => console.log(err));
   };
@@ -177,7 +181,8 @@ export default function OfflineAvailUser(props) {
         </div>
         <img
           src={
-            isAnyVehicle || props.profileData.offlineGigs.location
+            isAnyVehicle ||
+            (profileData.offlineGigs && profileData.offlineGigs.location)
               ? editIcon
               : addIcon
           }

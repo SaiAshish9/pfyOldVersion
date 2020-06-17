@@ -6,6 +6,7 @@ import { GigProvider } from "../store/gigStore";
 import { InternshipProvider } from "../store/internshipStore";
 import { NotificationProvider } from "../store/notificationStore";
 import { UserProvider } from "../store/userStore";
+import { UserProfileProvider } from "../store/userProfileStore";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const isToken = Cookies.get("token");
@@ -14,21 +15,23 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       {isToken ? (
         <>
           <UserProvider>
-            <NotificationProvider>
-              <PrivateHeader />
-              <Route
-                {...rest}
-                component={(props) => {
-                  return (
-                    <GigProvider>
-                      <InternshipProvider>
-                        <Component {...props} />{" "}
-                      </InternshipProvider>
-                    </GigProvider>
-                  );
-                }}
-              />
-            </NotificationProvider>
+            <UserProfileProvider>
+              <NotificationProvider>
+                <PrivateHeader />
+                <Route
+                  {...rest}
+                  component={(props) => {
+                    return (
+                      <GigProvider>
+                        <InternshipProvider>
+                          <Component {...props} />{" "}
+                        </InternshipProvider>
+                      </GigProvider>
+                    );
+                  }}
+                />
+              </NotificationProvider>
+            </UserProfileProvider>
           </UserProvider>
         </>
       ) : (

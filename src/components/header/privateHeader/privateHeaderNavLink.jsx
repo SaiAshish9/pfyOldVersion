@@ -7,6 +7,7 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import notificationApi from "../../../api/notificationApi";
 import { userApi } from "../../../api/userApi";
+import { getUserProfile } from "../../../api/userProfileApi";
 import notificationIcon from "../../../assets/img/notificationIcon.svg";
 import userBlankImg from "../../../assets/img/userBlankImg.svg";
 import { NotificationContext } from "../../../store/notificationStore";
@@ -14,6 +15,7 @@ import { UserContext } from "../../../store/userStore";
 import Support from "../../support/support";
 import { arrayValidation, objectValidation } from "../../validation/validation";
 import VerifyStudentStatus from "../../verify_student_Status/verifyStudentStatus";
+import { UserProfileContext } from "../../../store/userProfileStore";
 
 const headerLink = [
   { name: "Home", link: "/home" },
@@ -27,9 +29,10 @@ const headerLink = [
 export default function PrivateHeaderNavLink() {
   const { user, dispatchUser } = UserContext();
   const { notification, dispatchNotification } = NotificationContext();
+  const { profileData, dispatchUserProfile } = UserProfileContext();
 
-  const userName = objectValidation(user) ? user.user.firstName : "";
-  const userImg = objectValidation(user) ? user.user.imgUrl : userBlankImg;
+  const userName = !!profileData && profileData.firstName;
+  const userImg = !!profileData ? profileData.imgUrl : "";
 
   const [isShow, setIsShow] = useState(false);
   const [isShowVerify, setIsShowVerify] = useState(false);
@@ -52,6 +55,14 @@ export default function PrivateHeaderNavLink() {
     userApi(dispatchUser);
     return () => {
       console.log("un mounting");
+      source.cancel();
+    };
+  }, []);
+
+  useEffect(() => {
+    const source = axios.CancelToken.source();
+    getUserProfile(dispatchUserProfile);
+    return () => {
       source.cancel();
     };
   }, []);

@@ -12,6 +12,8 @@ import userIcon from "../../../assets/img/login/userIcon.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
 import InputType from "../../inputType";
 import editIcon from "./img/editIcon.svg";
+import { UserProfileContext } from "../../../store/userProfileStore";
+import { getUserProfile } from "../../../api/userProfileApi";
 
 const myToken = Cookies.get("token");
 
@@ -72,6 +74,7 @@ const userDetail = [
 ];
 
 export default function EditProfile({ userData }) {
+  const { profileData, dispatchUserProfile } = UserProfileContext();
   const [form] = Form.useForm();
   const [visible, setVisible] = useState(false);
 
@@ -91,6 +94,7 @@ export default function EditProfile({ userData }) {
       .put("user/update", data, tokenHeader())
       .then((res) => {
         console.log(res.data);
+        getUserProfile(dispatchUserProfile);
         setVisible(false);
       })
       .catch((e) => {

@@ -7,12 +7,14 @@ import notificationIcon from "../userHome/img/notificationIcon.svg";
 import rightArrowBlackIcon from "../userHome/img/rightArrowBlackIcon.svg";
 import rightArrowIcon from "../userHome/img/rightArrowIcon.svg";
 import creditCardImg from "./img/credit_card.svg";
+import { UserProfileContext } from "../../../store/userProfileStore";
 
 const Avatar = ({ user, notification }) => {
   const history = useHistory();
+  const { profileData } = UserProfileContext();
 
-  const userName = objectValidation(user) ? user.user.firstName : "";
-  const userImg = objectValidation(user) ? user.user.imgUrl : userBlankImg;
+  const userName = !!profileData && profileData.firstName;
+  const userImg = !!profileData ? profileData.imgUrl : "";
 
   console.log(Object.entries(user).length > 0);
   console.log(user.constructor === Object);
@@ -66,8 +68,3 @@ const Avatar = ({ user, notification }) => {
   );
 };
 export default Avatar;
-
-{
-  /* <h4>Gig Profile Score: {user.profileScore}%</h4>
-          <Progress percent={user.profileScore} status="active" /> */
-}

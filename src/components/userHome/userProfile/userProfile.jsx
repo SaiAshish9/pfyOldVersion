@@ -1,53 +1,30 @@
-import React, { useState, useEffect, Fragment } from "react";
-
+import React, { Fragment } from "react";
+/* ---------------------------------- ***** --------------------------------- */
+import { UserProfileContext } from "../../../store/userProfileStore";
+import UserCard from "../../common/userCard";
+import { objectValidation } from "../../validation/validation";
 import AboutUser from "./AboutUser";
 import OfflineAvailUser from "./offlineAvailUser";
+import UserDigitalProfile from "./userDigitalProfile";
 import UserLanguage from "./userLanguage";
 import UserSkill from "./userSkill";
-import UserDigitalProfile from "./userDigitalProfile";
-import axios from "axios";
-
-import UserCard from "../../common/userCard";
-import { tokenHeader } from "../../../constant/tokenHeader";
 
 const UserProfile = () => {
-  const [profileData, setProfileData] = useState();
-  const [isUpdate, SetIsUpdate] = useState(null);
+  const { profileData } = UserProfileContext();
 
-  // GET PROFILE
-  useEffect(() => {
-    const url = "user/";
-    axios
-      .get(url, tokenHeader())
-      .then((res) => {
-        const profileData = res.data;
-        console.log("PROFILE IS HERE", profileData);
-        setProfileData(profileData);
-      })
-      .catch((e) => {
-        console.log(e.response);
-      });
-  }, [isUpdate]);
-
-  const myUserProfile = (myProfileData) => {
-    console.log("myProfileData", myProfileData);
-  };
-
-  const runFun = () => {
-    SetIsUpdate(Math.random());
-  };
+  console.log("profileData");
 
   return (
     <Fragment>
-      {profileData ? (
+      {objectValidation(profileData) ? (
         <div className="profilePage-block">
-          <UserCard myUserProfile={myUserProfile}></UserCard>
+          <UserCard></UserCard>
           <div className="avatar-profile-detail-block">
-            <AboutUser isUpdate={runFun} profileData={profileData} />
-            <OfflineAvailUser isUpdate={runFun} profileData={profileData} />
-            <UserLanguage isUpdate={runFun} profileData={profileData} />
-            <UserSkill isUpdate={runFun} profileData={profileData} />
-            <UserDigitalProfile isUpdate={runFun} profileData={profileData} />
+            <AboutUser />
+            <OfflineAvailUser />
+            <UserLanguage />
+            <UserSkill />
+            <UserDigitalProfile />
           </div>
         </div>
       ) : null}

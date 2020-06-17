@@ -3,17 +3,19 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
+import { getUserProfile } from "../../../api/userProfileApi";
+import { tokenHeader } from "../../../constant/tokenHeader";
+import { UserProfileContext } from "../../../store/userProfileStore";
 import userFaceIcon from "./img/(1).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
-import { tokenHeader } from "../../../constant/tokenHeader";
 
-const AboutUser = (props) => {
+const AboutUser = () => {
+  const { profileData, dispatchUserProfile } = UserProfileContext();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { register, handleSubmit, watch, errors } = useForm();
-  const aboutMeData = props.profileData.aboutMe.trim();
+  const { register, handleSubmit } = useForm();
 
-  console.log("aboutMeData", !!aboutMeData);
+  const aboutMeData = profileData.aboutMe && profileData.aboutMe.trim();
 
   const onSubmitAboutMe = (data) => {
     const url = "user/update";
@@ -24,7 +26,7 @@ const AboutUser = (props) => {
     };
     axios.put(url, data1, tokenHeader()).then((res) => {
       console.log(res.data);
-      props.isUpdate();
+      getUserProfile(dispatchUserProfile);
       setIsModalVisible(false);
     });
     console.log("in about me handler ");
@@ -49,7 +51,7 @@ const AboutUser = (props) => {
             <div className="about-content-block">
               {!!aboutMeData && (
                 <p className="about-content-block__p">
-                  {props.profileData.aboutMe}
+                  {profileData && profileData.aboutMe}
                 </p>
               )}
             </div>

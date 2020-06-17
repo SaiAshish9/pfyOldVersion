@@ -1,14 +1,14 @@
-import { Button, Modal, Select } from "antd";
+import { Button, Modal } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
+import { getUserProfile } from "../../../api/userProfileApi";
 import { tokenHeader } from "../../../constant/tokenHeader";
+import { UserProfileContext } from "../../../store/userProfileStore";
 import { arrayValidation } from "../../validation/validation";
 import three from "./img/(3).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
-
-const { Option } = Select;
 
 const languages = [
   "Assamese",
@@ -46,9 +46,10 @@ const languages = [
   "German",
 ];
 
-const UserLanguage = (props) => {
+const UserLanguage = () => {
+  const { profileData, dispatchUserProfile } = UserProfileContext();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const languagesData = props.profileData ? props.profileData.languages : [];
+  const languagesData = profileData ? profileData.languages : [];
 
   const newSubmitHandler = () => {
     const url = "user/update";
@@ -59,7 +60,7 @@ const UserLanguage = (props) => {
       .put(url, data1, tokenHeader())
       .then((res) => {
         console.log(res.data);
-        props.isUpdate();
+        getUserProfile(dispatchUserProfile);
         setIsModalVisible(false);
       })
       .catch((error) => {
@@ -74,8 +75,8 @@ const UserLanguage = (props) => {
     setIsModalVisible(true);
   };
   let dataArr = [];
-  if (props.profileData && props.profileData.languages) {
-    dataArr = props.profileData.languages.map((lang, index) => (
+  if (profileData && profileData.languages) {
+    dataArr = profileData.languages.map((lang, index) => (
       <div className="single-selected-language" key={index}>
         {lang}
       </div>
@@ -105,7 +106,7 @@ const UserLanguage = (props) => {
         </div>
         <img
           src={
-            props.profileData && props.profileData.languages.length > 0
+            profileData.languages && profileData.languages.length > 0
               ? editIcon
               : addIcon
           }
@@ -131,7 +132,10 @@ const UserLanguage = (props) => {
                 className="single-language"
                 onClick={() => selectHandler(lang)}
                 style={{
-                  border: selectLang.includes(lang) ? "solid 2px #444584" : "",
+                  border:
+                    selectLang && selectLang.includes(lang)
+                      ? "solid 2px #444584"
+                      : "",
                 }}
               >
                 {lang}
@@ -145,7 +149,6 @@ const UserLanguage = (props) => {
             onClick={newSubmitHandler}
             htmlType="submit"
             className="submit-btn"
-            
           >
             SAVE
           </Button>

@@ -1,7 +1,10 @@
 import { Button, Input, Modal } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
+/* ---------------------------------- ***** --------------------------------- */
+import { getUserProfile } from "../../../api/userProfileApi";
 import { tokenHeader } from "../../../constant/tokenHeader";
+import { UserProfileContext } from "../../../store/userProfileStore";
 import five from "./img/(5).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
@@ -9,7 +12,8 @@ import facebookIcon from "./img/facebookIcon.svg";
 import instagramIcon from "./img/instagramIcon.svg";
 import tikTokIcon from "./img/tikTokIcon.svg";
 
-const UserDigitalProfile = ({ profileData, isUpdate }) => {
+const UserDigitalProfile = () => {
+  const { profileData, dispatchUserProfile } = UserProfileContext();
   const digitalProfileData = profileData
     ? profileData.digitalProfile
     : {
@@ -33,7 +37,7 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
     };
     axios.put(url, data, tokenHeader()).then((res) => {
       console.log(res.data);
-      isUpdate();
+      getUserProfile(dispatchUserProfile);
       setIsModalVisible(false);
     });
   };

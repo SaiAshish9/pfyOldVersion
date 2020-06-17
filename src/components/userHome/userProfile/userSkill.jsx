@@ -1,8 +1,11 @@
 import { Button, Modal } from "antd";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
+import { getUserProfile } from "../../../api/userProfileApi";
+import { tokenHeader } from "../../../constant/tokenHeader";
+import { UserProfileContext } from "../../../store/userProfileStore";
+import { arrayValidation } from "../../validation/validation";
 import four from "./img/(4).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
@@ -13,8 +16,8 @@ import designingIcon from "./img/interestIcon/designingIcon.svg";
 import drawingIcon from "./img/interestIcon/drawingIcon.svg";
 import fashionIcon from "./img/interestIcon/fashionIcon.svg";
 import fieldWorkIcon from "./img/interestIcon/fieldWorkIcon.svg";
-import musicIcon from "./img/interestIcon/musicIcon.svg";
 import marketingIcon from "./img/interestIcon/marketingIcon.svg";
+import musicIcon from "./img/interestIcon/musicIcon.svg";
 import photographyIcon from "./img/interestIcon/photographyIcon.svg";
 import rappingIcon from "./img/interestIcon/rappingIcon.svg";
 import researchIcon from "./img/interestIcon/researchIcon.svg";
@@ -24,8 +27,6 @@ import socialMediaIcon from "./img/interestIcon/socialMediaIcon.svg";
 import storeAuditIcon from "./img/interestIcon/storeAuditIcon.svg";
 import videoMaking from "./img/interestIcon/videoMaking.svg";
 import writingIcon from "./img/interestIcon/writingIcon.svg";
-import { tokenHeader } from "../../../constant/tokenHeader";
-import { arrayValidation } from "../../validation/validation";
 
 const skillImg = [
   { icon: comedyIcon, text: "comedy" },
@@ -48,10 +49,10 @@ const skillImg = [
   { icon: writingIcon, text: "Writing" },
 ];
 
-const UserSkill = (props) => {
-  const skillsData = props.profileData ? props.profileData.skills : [];
+const UserSkill = () => {
+  const { profileData, dispatchUserProfile } = UserProfileContext();
+  const skillsData = profileData ? profileData.skills : [];
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { register, handleSubmit, watch, errors } = useForm();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -61,7 +62,7 @@ const UserSkill = (props) => {
     };
     axios.put(url, data1, tokenHeader()).then((res) => {
       console.log(res.data);
-      props.isUpdate();
+      getUserProfile(dispatchUserProfile);
       setIsModalVisible(false);
     });
   };
@@ -73,10 +74,10 @@ const UserSkill = (props) => {
   };
   const [skills1, setSkills1] = useState(skillsData);
   const selectHandler = (val) => {
-    if (!skills1.includes(val)) {
+    if (skills1 && !skills1.includes(val)) {
       setSkills1([...skills1, val]);
     } else {
-      const index = skills1.indexOf(val);
+      const index = skills1 && skills1.indexOf(val);
       if (index > -1) {
         setSkills1(skills1.filter((el) => el !== val));
       }
@@ -104,13 +105,13 @@ const UserSkill = (props) => {
           </div>
         </div>
         <img
-          src={skillsData.length > 0 ? editIcon : addIcon}
+          src={skillsData && skillsData.length > 0 ? editIcon : addIcon}
           alt=""
           onClick={handleSkillButton}
           style={{ alignSelf: "baseline", cursor: "pointer" }}
         />
       </div>
-
+      
       <Modal
         width={780}
         title="Add Skills"
