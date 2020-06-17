@@ -10,7 +10,6 @@ import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import positionIcon from "./img/headingImg/educationIcon.svg";
 
-
 const Position = ({ position, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [positionData, setPositionData] = useState(false);
@@ -57,7 +56,6 @@ const Position = ({ position, updateResume }) => {
   };
 
   const handleEdit = (selectedPosition) => {
-    // console.log(selectedPosition);
     setPositionData(selectedPosition);
     setIsModalVisible(true);
     setValue("position", selectedPosition.position);
@@ -69,7 +67,6 @@ const Position = ({ position, updateResume }) => {
     axios
       .delete(`resume/delete_por/${id}`, tokenHeader())
       .then((res) => {
-        // console.log(res);
         updateResume(Math.random());
       })
       .catch((e) => {

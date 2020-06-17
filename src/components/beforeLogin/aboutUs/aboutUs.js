@@ -50,7 +50,9 @@ export default function AboutUs() {
             {data.button && (
               <Button className="aboutUsButton">{data.button}</Button>
             )}
-            <img src={data.img} alt="" className="aboutUs-img" />
+            <div className="aboutUs-img-block">
+              <img src={data.img} alt="" className="aboutUs-img" />
+            </div>
           </div>
         ))}
         <div className="aboutUs-contact">

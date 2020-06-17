@@ -5,9 +5,12 @@ import Cookies from "js-cookie";
 import React, { Fragment, useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
+import notificationApi from "../../../api/notificationApi";
+import { userApi } from "../../../api/userApi";
 import notificationIcon from "../../../assets/img/notificationIcon.svg";
 import userBlankImg from "../../../assets/img/userBlankImg.svg";
-import { tokenHeader } from "../../../constant/tokenHeader";
+import { NotificationContext } from "../../../store/notificationStore";
+import { UserContext } from "../../../store/userStore";
 import Support from "../../support/support";
 import { arrayValidation, objectValidation } from "../../validation/validation";
 import VerifyStudentStatus from "../../verify_student_Status/verifyStudentStatus";
@@ -22,8 +25,8 @@ const headerLink = [
 ];
 
 export default function PrivateHeaderNavLink() {
-  const [user, setUser] = useState({});
-  const [notification, setNotification] = useState([]);
+  const { user, dispatchUser } = UserContext();
+  const { notification, dispatchNotification } = NotificationContext();
 
   const userName = objectValidation(user) ? user.user.firstName : "";
   const userImg = objectValidation(user) ? user.user.imgUrl : userBlankImg;
@@ -46,18 +49,7 @@ export default function PrivateHeaderNavLink() {
 
   useEffect(() => {
     const source = axios.CancelToken.source();
-    axios
-      .get(`home`, tokenHeader(), {
-        cancelToken: source.token,
-      })
-      .then((res) => {
-        const userData = res.data;
-        console.log("mounting", res.data);
-        setUser(userData);
-      })
-      .catch((e) => {
-        console.log(e.response);
-      });
+    userApi(dispatchUser);
     return () => {
       console.log("un mounting");
       source.cancel();
@@ -66,18 +58,7 @@ export default function PrivateHeaderNavLink() {
 
   useEffect(() => {
     const source = axios.CancelToken.source();
-    axios
-      .get(`notification/fetch`, tokenHeader(), {
-        cancelToken: source.token,
-      })
-      .then((res) => {
-        const myNotification = res.data;
-        console.log("myNotification", myNotification);
-        setNotification(myNotification);
-      })
-      .catch((e) => {
-        console.log(e.response);
-      });
+    notificationApi(dispatchNotification);
     return () => {
       source.cancel();
     };

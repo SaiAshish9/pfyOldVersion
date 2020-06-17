@@ -1,5 +1,18 @@
 @import "./editProfile";
 
+%profile-button {
+  align-self: center;
+  width: 115px;
+  margin-top: 16px;
+  height: 38px;
+  border-radius: 19px;
+  border: 1px solid #444584;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: #444584;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
 .objective-block-one__form {
   display: flex;
   flex-wrap: wrap;
@@ -21,16 +34,7 @@
     resize: none;
   }
   .objective-block-one__buttonTwo {
-    align-self: center;
-    width: 115px;
-    margin-top: 16px;
-    height: 38px;
-    border-radius: 19px;
-    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
-    background-color: #444584;
-    font-size: 12px;
-    font-weight: 600;
-    color: #ffffff;
+    @extend%profile-button;
   }
 }
 
@@ -74,12 +78,7 @@
     }
   }
   .social-media-btn {
-    width: 115px;
-    height: 38px;
-    background-color: #444584;
-    padding: 0 1.5rem;
-    border-radius: 1rem;
-    color: white;
+    @extend%profile-button;
   }
 }
 
@@ -149,16 +148,7 @@
     }
   }
   .add-location-btn {
-    width: 115px;
-    margin-top: 1.2rem;
-    height: 38px;
-    border-radius: 19px;
-    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
-    background-color: #444584;
-
-    font-size: 12px;
-    font-weight: 600;
-    color: #ffffff;
+    @extend%profile-button;
   }
 }
 
@@ -179,22 +169,12 @@
     }
   }
   .submit-btn {
-    width: 115px;
-    height: 38px;
-    padding: 0 2rem;
-    align-self: center;
-    margin-top: 32px;
-    background-color: #444584;
-    color: #fff;
+    @extend%profile-button;
   }
 }
 
 .add-skill-modal {
   .submit-btn {
-    width: 115px;
-    height: 38px;
-    padding: 0 2rem;
-    color: #fff;
-    background-color: #444584;
+    @extend%profile-button;
   }
 }

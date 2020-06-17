@@ -91,21 +91,16 @@ const UserSkill = (props) => {
           <img className="skill-of-avatar-img" src={four} alt=""></img>
           <div className="skill-of-avatar-content">
             <h2>Skills</h2>
-            {
-              arrayValidation(skillsData) && (
-                <div className="skill-list">
-                  {skillsData.map((el, i) => (
-                    <div className="single-skill" key={i}>
-                      {" "}
-                      {el}{" "}
-                    </div>
-                  ))}
-                </div>
-              )
-              // : (
-              //   <span style={{ marginLeft: "10px" }}>What are you good at?</span>
-              // )
-            }
+            {arrayValidation(skillsData) && (
+              <div className="skill-list">
+                {skillsData.map((el, i) => (
+                  <div className="single-skill" key={i}>
+                    {" "}
+                    {el}{" "}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
         <img
@@ -176,7 +171,7 @@ const UserSkill = (props) => {
             shape="round"
             onClick={submitHandler}
             htmlType="submit"
-            className="objective-block-one__buttonTwo submit-btn"
+            className="submit-btn"
           >
             SAVE
           </Button>

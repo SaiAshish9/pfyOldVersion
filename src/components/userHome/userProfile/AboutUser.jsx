@@ -15,10 +15,6 @@ const AboutUser = (props) => {
 
   console.log("aboutMeData", !!aboutMeData);
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
   const onSubmitAboutMe = (data) => {
     const url = "user/update";
     console.log("%c ABOUT ME", "font-size: 20px, color: darkblue");
@@ -87,10 +83,7 @@ const AboutUser = (props) => {
             rows={5}
             className="objective-modal__textarea"
           />
-          <Button
-            htmlType="submit"
-            className="objective-block-one__buttonTwo"
-          >
+          <Button htmlType="submit" className="objective-block-one__buttonTwo">
             Save
           </Button>
         </form>

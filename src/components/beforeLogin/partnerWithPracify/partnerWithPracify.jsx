@@ -51,7 +51,10 @@ export default function PartnerWithPracify() {
           you out, just complete some tasks and earn cash sponsorship for your
           college festival.
         </p>
+        <div className="pwp-hero-img-block">
+
         <img src={pwpHeroImg} alt="" className="pwp-hero-img" />
+        </div>
         <Button
           onClick={() => handleContactUs("partner")}
           className="pwp-hero-button"

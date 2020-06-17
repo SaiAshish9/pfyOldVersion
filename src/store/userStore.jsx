@@ -4,7 +4,7 @@ const myUserContext = createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "fetchUser":
+    case "FETCH_USER":
       return action.payload;
     default:
       return state;

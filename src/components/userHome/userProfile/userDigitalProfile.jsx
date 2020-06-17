@@ -17,13 +17,16 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
         instagram: null,
         tiktok: null,
       };
+
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [SM, setSM] = useState({});
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
 
-  const handleProfileButton = () => {
+  const handleProfileButton = (e) => {
+    e.preventDefault();
     const url = "user/update";
     const data = {
       digitalProfile: { ...SM },
@@ -35,7 +38,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
     });
   };
 
-  const [SM, setSM] = useState({});
   const onChange = (e, media) => {
     const SocialMediaID = e.target.value.trim();
     console.log(e.target.value + " and media " + media);
@@ -50,43 +52,58 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
     </div>
   );
 
+  const isDigitalIcon =
+    digitalProfileData.facebook ||
+    digitalProfileData.instagram ||
+    digitalProfileData.tiktok;
+
   return (
     <div className="avatar-digital-profile-block">
       <div className="avatar-digital-profile-content-block">
-        <div className="icon-heading" >
+        <div className="icon-heading">
           <img className="avatar-digital-profile-img" src={five} alt=""></img>
           <div className="avatar-digital-profile-content">
             <h2>Digital Profile</h2>
           </div>
         </div>
         <img
-          src={
-            digitalProfileData.facebook ||
-            digitalProfileData.instagram ||
-            digitalProfileData.tiktok
-              ? editIcon
-              : addIcon
-          }
+          src={isDigitalIcon ? editIcon : addIcon}
           alt=""
           onClick={() => setIsModalVisible(true)}
           style={{ alignSelf: "baseline", cursor: "pointer" }}
         />
       </div>
       <div className="social-media">
-        {digitalProfileData.facebook ? (
-          <i
-            style={{ color: "#3b5999" }}
-            className="single-icon fa fa-facebook "
-            aria-hidden="true"
-          ></i>
-        ) : null}
-        {digitalProfileData.instagram ? (
-          <i
-            style={{ color: "#e95950" }}
-            className="single-icon fa fa-instagram "
-            aria-hidden="true"
-          ></i>
-        ) : null}
+        {digitalProfileData.facebook && (
+          <a
+            href={digitalProfileData.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="single-icon-block"
+          >
+            <img src={facebookIcon} alt="" className="single-icon-img" />
+          </a>
+        )}
+        {digitalProfileData.instagram && (
+          <a
+            className="single-icon-block"
+            href={digitalProfileData.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={instagramIcon} alt="" className="single-icon-img" />
+          </a>
+        )}
+        {digitalProfileData.tiktok && (
+          <a
+            href={digitalProfileData.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="single-icon-block"
+          >
+            <img src={tikTokIcon} alt="" className="single-icon-img" />
+          </a>
+        )}
       </div>
 
       <Modal
@@ -123,7 +140,6 @@ const UserDigitalProfile = ({ profileData, isUpdate }) => {
             onClick={handleProfileButton}
             htmlType="submit"
             className="social-media-btn"
-            style={{ alignSelf: "center", marginTop: "12px" }}
           >
             SAVE
           </Button>

@@ -1417,6 +1417,2402 @@
                     "filename": "yarn.lock"
                 }
             ]
+        },
+        {
+            "version": "0.2.7",
+            "counttime": "2020-06-16 02:48:14",
+            "filesum": 381,
+            "codesum": 35802,
+            "commentsum": 440,
+            "blanksum": 1149,
+            "statistics": {
+                "": {
+                    "code": 30,
+                    "comment": 1,
+                    "blank": 10
+                },
+                ".json": {
+                    "code": 16417,
+                    "comment": 0,
+                    "blank": 3
+                },
+                ".svg": {
+                    "code": 4559,
+                    "comment": 0,
+                    "blank": 12
+                },
+                ".sh": {
+                    "code": 28,
+                    "comment": 2,
+                    "blank": 2
+                },
+                ".development": {
+                    "code": 8,
+                    "comment": 1,
+                    "blank": 0
+                },
+                ".md": {
+                    "code": 37,
+                    "comment": 12,
+                    "blank": 31
+                },
+                ".html": {
+                    "code": 21,
+                    "comment": 24,
+                    "blank": 1
+                },
+                ".js": {
+                    "code": 2349,
+                    "comment": 149,
+                    "blank": 193
+                },
+                ".txt": {
+                    "code": 2,
+                    "comment": 1,
+                    "blank": 0
+                },
+                ".css": {
+                    "code": 48,
+                    "comment": 3,
+                    "blank": 7
+                },
+                ".jsx": {
+                    "code": 5965,
+                    "comment": 90,
+                    "blank": 452
+                },
+                ".scss": {
+                    "code": 6338,
+                    "comment": 157,
+                    "blank": 438
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 1,
+                    "filename": ".env.development"
+                },
+                {
+                    "blank": 6,
+                    "code": 21,
+                    "comment": 1,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "addIcon.svg"
+                },
+                {
+                    "blank": 1,
+                    "code": 14,
+                    "comment": 1,
+                    "filename": "deploy.sh"
+                },
+                {
+                    "blank": 4,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "Dockerfile"
+                },
+                {
+                    "blank": 0,
+                    "code": 15929,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 59,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "filename": "public\\favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\favicon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 21,
+                    "comment": 24,
+                    "filename": "public\\index.html"
+                },
+                {
+                    "filename": "public\\logo192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\logo512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "public\\manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 1,
+                    "filename": "public\\robots.txt"
+                },
+                {
+                    "blank": 31,
+                    "code": 37,
+                    "comment": 12,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 1,
+                    "code": 22,
+                    "comment": 1,
+                    "filename": "src\\api\\gigApi.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\api\\internshipApi.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 28,
+                    "comment": 1,
+                    "filename": "src\\api\\loginApi.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src\\api\\notificationApi.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\api\\userApi.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "src\\App.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\App.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\App.test.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\animations\\oneHiwCompanyAnim.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\animations\\oneHiwWorkerAnim.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\animations\\threeHiwCompanyAnim.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\animations\\threeHiwWorkerAnim.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\animations\\twoHiwCompanyAnim.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\animations\\twoHiwWorkerAnim.json"
+                },
+                {
+                    "filename": "src\\assets\\fonts\\AvenirLTStd-Medium.otf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\inter\\Inter-Black-slnt=0.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\inter\\Inter-Bold-slnt=0.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\inter\\Inter-ExtraBold-slnt=0.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\inter\\Inter-ExtraLight-slnt=0.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\inter\\Inter-Light-slnt=0.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\inter\\Inter-Medium-slnt=0.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\inter\\Inter-Regular-slnt=0.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\inter\\Inter-SemiBold-slnt=0.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\inter\\Inter-Thin-slnt=0.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\lato\\Lato-Black.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\lato\\Lato-BlackItalic.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\lato\\Lato-Bold.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\lato\\Lato-BoldItalic.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\lato\\Lato-Italic.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\lato\\Lato-Light.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\lato\\Lato-LightItalic.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\lato\\Lato-Regular.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\lato\\Lato-Thin.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\fonts\\lato\\Lato-ThinItalic.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 66,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\aboutUs\\businessImg.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 127,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\aboutUs\\gigWorkerImg.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 249,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\aboutUs\\youngWorker.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 148,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\career\\careerHeroImg.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\circleBlue.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\circlePurple.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\detectLocationIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\dummyCompanyLogo.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\dummyUserImg.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\facebook.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 208,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\findPracifyImg.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\gig\\calendarDateIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\gig\\descriptionIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\gig\\responsibilityIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\gig\\rupeeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\gig\\taskIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\gig\\taskPerformIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\businessAdvtOne.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\businessAdvtThree.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\businessAdvtTwo.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\gigAdvtOne.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\gigAdvtThree.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 82,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\gigAdvtTwo.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\iconOne.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\iconThree.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\iconTwo.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\propIconOne.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\propIconTwo.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\propImgOne.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\howItWork\\propImgTwo.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\instagram.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\internship\\benefitIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\internship\\calenderDateIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\internship\\calenderIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\internship\\locationIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 73,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\internship\\positionIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\internship\\responsibilityIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\internship\\rupeeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\internship\\skillRequiredIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\appleStoreIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\FCopyrightIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\FHeartIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\funSvg1.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\funSvg2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\funSvg3.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\funSvg4.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\funSvg5.svg"
+                },
+                {
+                    "filename": "src\\assets\\img\\landingPage\\googleStoreIcon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\img\\landingPage\\heroBackground.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 63,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\heroImg.svg"
+                },
+                {
+                    "filename": "src\\assets\\img\\landingPage\\KSPayment.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\img\\landingPage\\KSSelectionImg.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\img\\landingPage\\KSSubmissionImg.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\img\\landingPage\\logo.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\img\\landingPage\\pracifyMockup.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\assets\\img\\landingPage\\WRHeroImg.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 46,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\WRImg1.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\WRImg2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\landingPage\\WRImg3.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\linkedin.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\locationIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\cityIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\GCyanCircle.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\GCyanStar.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\GDarkBlueCircle.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\genderIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\GOrangeCircle.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\GPinkTriangle.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\GPurpleTriangle.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\GYellowTriangle.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 93,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\loginHeroImg.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\mailIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\phoneNumberIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\login\\userIcon.svg"
+                },
+                {
+                    "filename": "src\\assets\\img\\logo.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\logo.svg"
+                },
+                {
+                    "filename": "src\\assets\\img\\logoDark.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\menuIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\notificationIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\partnerWithPracify\\brandPartnershipIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\partnerWithPracify\\cashSponsorshipIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\partnerWithPracify\\promoteEventIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 127,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\partnerWithPracify\\pwpHeroImg.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\timeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\twitter.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\uploadBtn.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\img\\userBlankImg.svg"
+                },
+                {
+                    "blank": 1,
+                    "code": 69,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\aboutUs\\aboutUs.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\career\\career.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\contactUs\\contactUs.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 268,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\contactUs\\fillDetail.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\footer.jsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 223,
+                    "comment": 1,
+                    "filename": "src\\components\\beforeLogin\\howItWork\\howItWork.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\landingPage\\downloadPracifyApp.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\landingPage\\hero.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\landingPage\\keepSimple.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\landingPage\\landingPage.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\landingPage\\workRemotely.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 63,
+                    "comment": 0,
+                    "filename": "src\\components\\beforeLogin\\partnerWithPracify\\partnerWithPracify.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 75,
+                    "comment": 4,
+                    "filename": "src\\components\\common\\card.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\calendarIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\clockIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\emailIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\locationIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 41,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\phoneIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\rupeeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\smallCalendarIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\smallRupeeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\smallTaskIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\taskIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\common\\img\\userCardBackground.svg"
+                },
+                {
+                    "blank": 11,
+                    "code": 67,
+                    "comment": 5,
+                    "filename": "src\\components\\common\\smallCard.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 85,
+                    "comment": 1,
+                    "filename": "src\\components\\common\\userCard.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 57,
+                    "comment": 0,
+                    "filename": "src\\components\\filters\\filter.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 89,
+                    "comment": 8,
+                    "filename": "src\\components\\filters\\filter.scss"
+                },
+                {
+                    "blank": 9,
+                    "code": 88,
+                    "comment": 3,
+                    "filename": "src\\components\\gig\\gig.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 181,
+                    "comment": 62,
+                    "filename": "src\\components\\gig\\gigDetails.js"
+                },
+                {
+                    "blank": 21,
+                    "code": 245,
+                    "comment": 7,
+                    "filename": "src\\components\\gig\\gigTask.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 72,
+                    "comment": 1,
+                    "filename": "src\\components\\header\\header.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "src\\components\\header\\headerNavLink.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 22,
+                    "comment": 4,
+                    "filename": "src\\components\\header\\mobileNavIcon.jsx"
+                },
+                {
+                    "blank": 12,
+                    "code": 82,
+                    "comment": 4,
+                    "filename": "src\\components\\header\\privateHeader\\privateHeader.jsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 168,
+                    "comment": 2,
+                    "filename": "src\\components\\header\\privateHeader\\privateHeaderNavLink.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 89,
+                    "comment": 0,
+                    "filename": "src\\components\\inputType.jsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 96,
+                    "comment": 1,
+                    "filename": "src\\components\\internship\\companyQuesForm.jsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 86,
+                    "comment": 4,
+                    "filename": "src\\components\\internship\\internship.js"
+                },
+                {
+                    "blank": 19,
+                    "code": 295,
+                    "comment": 9,
+                    "filename": "src\\components\\internship\\internshipDetail.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 168,
+                    "comment": 6,
+                    "filename": "src\\components\\login\\login.jsx"
+                },
+                {
+                    "blank": 22,
+                    "code": 244,
+                    "comment": 5,
+                    "filename": "src\\components\\login\\userForm.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\components\\pageNotFound.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\components\\similarGigOrInternship\\help.svg"
+                },
+                {
+                    "blank": 4,
+                    "code": 72,
+                    "comment": 1,
+                    "filename": "src\\components\\similarGigOrInternship\\similarGigOrInternship.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\components\\support\\img\\gig.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\components\\support\\img\\internship.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\components\\support\\img\\other.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\components\\support\\img\\verification.svg"
+                },
+                {
+                    "blank": 17,
+                    "code": 206,
+                    "comment": 1,
+                    "filename": "src\\components\\support\\support.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 76,
+                    "comment": 2,
+                    "filename": "src\\components\\userHome\\userGig\\userGig.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 64,
+                    "comment": 2,
+                    "filename": "src\\components\\userHome\\userHome\\avatar.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 53,
+                    "comment": 2,
+                    "filename": "src\\components\\userHome\\userHome\\gigOrInternship.jsx"
+                },
+                {
+                    "filename": "src\\components\\userHome\\userHome\\img\\bag.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src\\components\\userHome\\userHome\\img\\clipboard.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 6,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\credit_card.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\linkGigIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\linkGigProfileIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\linkInternshipIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 50,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\linkResumeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\linkStudentStatusIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\myGigIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\myInternshipIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\notificationIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\rightArrowBlackIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\rightArrowIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\rightArrowIcon2.svg"
+                },
+                {
+                    "filename": "src\\components\\userHome\\userHome\\img\\rupee.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\supportIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\updateGigProfileIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\img\\verificationIcon.svg"
+                },
+                {
+                    "blank": 5,
+                    "code": 66,
+                    "comment": 1,
+                    "filename": "src\\components\\userHome\\userHome\\myOverview.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 61,
+                    "comment": 1,
+                    "filename": "src\\components\\userHome\\userHome\\stat.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userHome\\userHome.jsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 70,
+                    "comment": 2,
+                    "filename": "src\\components\\userHome\\userIntership\\userInternship.jsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 92,
+                    "comment": 1,
+                    "filename": "src\\components\\userHome\\userProfile\\AboutUser.jsx"
+                },
+                {
+                    "blank": 13,
+                    "code": 230,
+                    "comment": 1,
+                    "filename": "src\\components\\userHome\\userProfile\\editProfile.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(1).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(2).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(3).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(4).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(5).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(6).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(7).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\(8).svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\addIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\bike2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\bus.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\bus2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\car.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\car2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\editIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\editIconBlue.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\facebookIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\instagramIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\comedyIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\danceIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\dataEntryIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\designingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\drawingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\fashionIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 73,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\fieldWorkIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\marketingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\musicIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\photographyIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\rappingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\researchIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\samplingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\singingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 53,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\socialMediaIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\storeAuditIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\videoMaking.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 82,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\interestIcon\\writingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\pin.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\tikTokIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\train.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\train2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\two-wheeler.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\img\\user.svg"
+                },
+                {
+                    "blank": 19,
+                    "code": 298,
+                    "comment": 1,
+                    "filename": "src\\components\\userHome\\userProfile\\offlineAvailUser.jsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 127,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userProfile\\userDigitalProfile.jsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 148,
+                    "comment": 1,
+                    "filename": "src\\components\\userHome\\userProfile\\userLanguage.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 49,
+                    "comment": 1,
+                    "filename": "src\\components\\userHome\\userProfile\\userProfile.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 179,
+                    "comment": 4,
+                    "filename": "src\\components\\userHome\\userProfile\\userSkill.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "src\\components\\userHome\\userStatusCard.jsx"
+                },
+                {
+                    "blank": 10,
+                    "code": 128,
+                    "comment": 3,
+                    "filename": "src\\components\\userResume\\achievement.jsx"
+                },
+                {
+                    "blank": 18,
+                    "code": 320,
+                    "comment": 4,
+                    "filename": "src\\components\\userResume\\digitalProfile.jsx"
+                },
+                {
+                    "blank": 23,
+                    "code": 286,
+                    "comment": 2,
+                    "filename": "src\\components\\userResume\\education.jsx"
+                },
+                {
+                    "blank": 25,
+                    "code": 326,
+                    "comment": 3,
+                    "filename": "src\\components\\userResume\\experience.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\addIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\cancelIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\digitalProfileIcon\\behanceIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\digitalProfileIcon\\blogIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\digitalProfileIcon\\dribbleIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\digitalProfileIcon\\facebookIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\digitalProfileIcon\\githubIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\digitalProfileIcon\\instagramIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\digitalProfileIcon\\linkedinIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\digitalProfileIcon\\mediumIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\digitalProfileIcon\\quoraIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\digitalProfileIcon\\youtubeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\editIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\expand_more.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\achievementIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\digitalProfileIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\educationIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\experienceIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\objectiveIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\projectIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\skillIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\team.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\headingImg\\trainingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\creativeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\designIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\financeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\generalIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\legalIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\marketingIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\otherIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\userResume\\img\\skillImg\\technicalIcon.svg"
+                },
+                {
+                    "blank": 9,
+                    "code": 117,
+                    "comment": 2,
+                    "filename": "src\\components\\userResume\\objective.jsx"
+                },
+                {
+                    "blank": 13,
+                    "code": 160,
+                    "comment": 7,
+                    "filename": "src\\components\\userResume\\position.jsx"
+                },
+                {
+                    "blank": 20,
+                    "code": 311,
+                    "comment": 3,
+                    "filename": "src\\components\\userResume\\project.jsx"
+                },
+                {
+                    "blank": 36,
+                    "code": 374,
+                    "comment": 10,
+                    "filename": "src\\components\\userResume\\skill.jsx"
+                },
+                {
+                    "blank": 13,
+                    "code": 147,
+                    "comment": 1,
+                    "filename": "src\\components\\userResume\\training.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 66,
+                    "comment": 1,
+                    "filename": "src\\components\\userResume\\userResume.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\components\\validation\\validation.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 111,
+                    "comment": 3,
+                    "filename": "src\\components\\verify_student_Status\\verifyStudentStatus.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 130,
+                    "comment": 4,
+                    "filename": "src\\components\\wallet\\earnings.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\calender.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\coin.svg"
+                },
+                {
+                    "blank": 6,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\credit_card.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\dateIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\envelop.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\future.svg"
+                },
+                {
+                    "filename": "src\\components\\wallet\\images\\noDetails.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\noDetails.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\rupee1.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\rupee2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\timeIcon.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\images\\transactionImg.svg"
+                },
+                {
+                    "blank": 17,
+                    "code": 175,
+                    "comment": 7,
+                    "filename": "src\\components\\wallet\\paymentMethodModal.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 113,
+                    "comment": 0,
+                    "filename": "src\\components\\wallet\\transactions.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 69,
+                    "comment": 4,
+                    "filename": "src\\components\\wallet\\wallet.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\constant\\tokenHeader.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "src\\constant\\url.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 13,
+                    "comment": 1,
+                    "filename": "src\\firebase\\firebase.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 3,
+                    "filename": "src\\index.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 5,
+                    "filename": "src\\index.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\logo.svg"
+                },
+                {
+                    "blank": 2,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "src\\routes\\privateRoute.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 40,
+                    "comment": 1,
+                    "filename": "src\\routes\\publicRoute.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\routes\\router.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 80,
+                    "comment": 1,
+                    "filename": "src\\routes\\switchRoute.jsx"
+                },
+                {
+                    "blank": 15,
+                    "code": 91,
+                    "comment": 31,
+                    "filename": "src\\serviceWorker.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "src\\setupTests.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 398,
+                    "comment": 0,
+                    "filename": "src\\staticData\\cityData.json"
+                },
+                {
+                    "blank": 5,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "src\\store\\gigStore.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "src\\store\\internshipStore.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "src\\store\\loginStore.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "src\\store\\notificationStore.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "src\\store\\userStore.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "src\\style\\_style.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 33,
+                    "comment": 2,
+                    "filename": "src\\style\\base\\_antDesignModal.scss"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 1,
+                    "filename": "src\\style\\base\\_base.scss"
+                },
+                {
+                    "blank": 3,
+                    "code": 84,
+                    "comment": 6,
+                    "filename": "src\\style\\base\\_card.scss"
+                },
+                {
+                    "blank": 3,
+                    "code": 57,
+                    "comment": 2,
+                    "filename": "src\\style\\base\\_cardContainer.scss"
+                },
+                {
+                    "blank": 6,
+                    "code": 32,
+                    "comment": 2,
+                    "filename": "src\\style\\base\\_setting.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 113,
+                    "comment": 0,
+                    "filename": "src\\style\\base\\_userCard.scss"
+                },
+                {
+                    "blank": 26,
+                    "code": 336,
+                    "comment": 84,
+                    "filename": "src\\style\\beforeLogin\\_footer.scss"
+                },
+                {
+                    "blank": 16,
+                    "code": 95,
+                    "comment": 0,
+                    "filename": "src\\style\\beforeLogin\\about\\_about.scss"
+                },
+                {
+                    "blank": 5,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "src\\style\\beforeLogin\\career\\_career.scss"
+                },
+                {
+                    "blank": 10,
+                    "code": 92,
+                    "comment": 0,
+                    "filename": "src\\style\\beforeLogin\\contactUs\\_contactUs.scss"
+                },
+                {
+                    "blank": 6,
+                    "code": 190,
+                    "comment": 2,
+                    "filename": "src\\style\\beforeLogin\\contactUs\\_fillDetail.scss"
+                },
+                {
+                    "blank": 11,
+                    "code": 171,
+                    "comment": 3,
+                    "filename": "src\\style\\beforeLogin\\header\\_header.scss"
+                },
+                {
+                    "blank": 6,
+                    "code": 50,
+                    "comment": 11,
+                    "filename": "src\\style\\beforeLogin\\header\\_mobileNavIcon.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 63,
+                    "comment": 0,
+                    "filename": "src\\style\\beforeLogin\\howItWork\\_howItWork.scss"
+                },
+                {
+                    "blank": 5,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "src\\style\\beforeLogin\\howItWork\\_howItWorkAdv.scss"
+                },
+                {
+                    "blank": 14,
+                    "code": 183,
+                    "comment": 0,
+                    "filename": "src\\style\\beforeLogin\\howItWork\\_howItWorkStep.scss"
+                },
+                {
+                    "blank": 23,
+                    "code": 238,
+                    "comment": 1,
+                    "filename": "src\\style\\beforeLogin\\landingPage\\_downloadPracifyApp.scss"
+                },
+                {
+                    "blank": 11,
+                    "code": 165,
+                    "comment": 0,
+                    "filename": "src\\style\\beforeLogin\\landingPage\\_hero.scss"
+                },
+                {
+                    "blank": 17,
+                    "code": 163,
+                    "comment": 3,
+                    "filename": "src\\style\\beforeLogin\\landingPage\\_keepSimple.scss"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\style\\beforeLogin\\landingPage\\_landingPage.scss"
+                },
+                {
+                    "blank": 19,
+                    "code": 164,
+                    "comment": 3,
+                    "filename": "src\\style\\beforeLogin\\landingPage\\_workRemotely.scss"
+                },
+                {
+                    "blank": 13,
+                    "code": 178,
+                    "comment": 1,
+                    "filename": "src\\style\\beforeLogin\\login\\_login.scss"
+                },
+                {
+                    "blank": 11,
+                    "code": 179,
+                    "comment": 1,
+                    "filename": "src\\style\\beforeLogin\\login\\_userForm.scss"
+                },
+                {
+                    "blank": 11,
+                    "code": 97,
+                    "comment": 0,
+                    "filename": "src\\style\\beforeLogin\\partnerWithPracify\\_partnerWithPracify.scss"
+                },
+                {
+                    "blank": 13,
+                    "code": 218,
+                    "comment": 3,
+                    "filename": "src\\style\\gig\\_gigDetail.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "src\\style\\gig\\_taskModel.scss"
+                },
+                {
+                    "blank": 9,
+                    "code": 107,
+                    "comment": 3,
+                    "filename": "src\\style\\headerPrivate\\_privateHeader.scss"
+                },
+                {
+                    "blank": 2,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "src\\style\\headerPrivate\\_privateHeaderNav.scss"
+                },
+                {
+                    "blank": 2,
+                    "code": 69,
+                    "comment": 0,
+                    "filename": "src\\style\\internship\\_companyQuesForm.scss"
+                },
+                {
+                    "blank": 9,
+                    "code": 186,
+                    "comment": 6,
+                    "filename": "src\\style\\internship\\_internshipDetail.scss"
+                },
+                {
+                    "blank": 1,
+                    "code": 128,
+                    "comment": 1,
+                    "filename": "src\\style\\profile\\_editProfile.scss"
+                },
+                {
+                    "blank": 9,
+                    "code": 189,
+                    "comment": 2,
+                    "filename": "src\\style\\profile\\_profile.scss"
+                },
+                {
+                    "blank": 5,
+                    "code": 98,
+                    "comment": 0,
+                    "filename": "src\\style\\similarGigOrInternship\\_similarGigOrInternship.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 143,
+                    "comment": 0,
+                    "filename": "src\\style\\support\\_support.scss"
+                },
+                {
+                    "blank": 46,
+                    "code": 686,
+                    "comment": 1,
+                    "filename": "src\\style\\userHome\\_userHome.scss"
+                },
+                {
+                    "blank": 31,
+                    "code": 458,
+                    "comment": 3,
+                    "filename": "src\\style\\userResume\\_userResume.scss"
+                },
+                {
+                    "blank": 44,
+                    "code": 546,
+                    "comment": 1,
+                    "filename": "src\\style\\userResume\\_userResumeModal.scss"
+                },
+                {
+                    "blank": 6,
+                    "code": 67,
+                    "comment": 0,
+                    "filename": "src\\style\\userStatus\\_userStatus.scss"
+                },
+                {
+                    "blank": 3,
+                    "code": 108,
+                    "comment": 0,
+                    "filename": "src\\style\\verifyStudentStatus\\_verifyStudentStatus.scss"
+                },
+                {
+                    "blank": 3,
+                    "code": 89,
+                    "comment": 4,
+                    "filename": "src\\style\\wallet\\_paymentMethodModal.scss"
+                },
+                {
+                    "blank": 9,
+                    "code": 214,
+                    "comment": 3,
+                    "filename": "src\\style\\wallet\\_wallet.scss"
+                },
+                {
+                    "blank": 1,
+                    "code": 14,
+                    "comment": 1,
+                    "filename": "testing-deployment.sh"
+                }
+            ]
         }
     ]
 }

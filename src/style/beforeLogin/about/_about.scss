@@ -5,6 +5,7 @@
     padding: 40px 100px 80px 100px;
     .aboutUs-subBlock {
       margin-bottom: 80px;
+      grid-column-gap: 70px;
       display: grid;
       grid-template:
         "head img"
@@ -51,8 +52,11 @@
         color: #444584;
       }
 
-      .aboutUs-img {
+      .aboutUs-img-block {
         grid-area: img;
+        .aboutUs-img {
+          width: 100%;
+        }
       }
     }
     .aboutUs-subBlock:nth-child(1) {
@@ -60,7 +64,6 @@
         "head img"
         "paraOne img"
         "paraTwo img";
-      grid-column-gap: 70px;
     }
     .aboutUs-subBlock:nth-child(2) {
       grid-template:
@@ -68,7 +71,6 @@
         "img paraOne"
         "img paraTwo"
         "img button";
-      grid-column-gap: 70px;
       h1 {
         width: initial;
       }
@@ -81,6 +83,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 40px;
 
     border-radius: 24px;
@@ -106,6 +109,174 @@
       font-weight: 700;
       line-height: 1.2;
       color: #38bdba;
+    }
+  }
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+    .aboutUs-block {
+      padding: 40px 70px 80px 70px;
+      .aboutUs-subBlock {
+        grid-column-gap: 20px;
+      }
+    }
+    .aboutUs-contact {
+      .aboutUs-contact-head {
+        font-size: 32px;
+      }
+      .aboutUs-contact-button {
+        margin-left: 40px;
+      }
+    }
+  }
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    padding-top: 50px;
+    .aboutUs-block {
+      padding: 40px 50px 60px 50px;
+      .aboutUs-subBlock {
+        grid-column-gap: 20px;
+        .aboutUs-head {
+          font-size: 28px;
+        }
+        .aboutUs-paraOne {
+          font-size: 16px;
+        }
+        .aboutUs-paraTwo {
+          font-size: 16px;
+        }
+      }
+    }
+    .aboutUs-contact {
+      .aboutUs-contact-head {
+        font-size: 28px;
+      }
+      .aboutUs-contact-button {
+        margin-left: 20px;
+      }
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    padding-top: 50px;
+    .aboutUs-block {
+      padding: 40px 50px 60px 50px;
+      .aboutUs-subBlock {
+        text-align: center;
+        justify-items: center;
+        margin-bottom: 60px;
+        grid-column-gap: 20px;
+        display: grid;
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo"
+          "button";
+        .aboutUs-head {
+          justify-self: flex-start;
+          text-align: start;
+          width: initial;
+        }
+        .aboutUs-paraOne {
+          width: initial;
+        }
+        .aboutUs-paraTwo {
+          width: initial;
+        }
+        .aboutUs-img-block {
+          margin: 20px 0;
+          .aboutUs-img {
+            width: 80%;
+          }
+        }
+      }
+      .aboutUs-subBlock:nth-child(1) {
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo";
+      }
+      .aboutUs-subBlock:nth-child(2) {
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo"
+          "button";
+      }
+    }
+    .aboutUs-contact {
+      flex-direction: column;
+      align-items: center;
+      .aboutUs-contact-head {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      .aboutUs-contact-button {
+        margin-left: initial;
+      }
+    }
+  }
+  @media (max-width: $mobileScreen) {
+    padding-top: 50px;
+    .aboutUs-block {
+      padding: 40px 20px;
+      .aboutUs-subBlock {
+        text-align: center;
+        justify-items: center;
+        margin-bottom: 60px;
+        grid-column-gap: 20px;
+        display: grid;
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo"
+          "button";
+        .aboutUs-head {
+          justify-self: flex-start;
+          text-align: start;
+          width: initial;
+          font-size: 28px;
+        }
+        .aboutUs-paraOne {
+          width: initial;
+          font-size: 14px;
+        }
+        .aboutUs-paraTwo {
+          width: initial;
+          font-size: 14px;
+        }
+        .aboutUs-img-block {
+          margin: 20px 0;
+        }
+      }
+      .aboutUs-subBlock:nth-child(1) {
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo";
+      }
+      .aboutUs-subBlock:nth-child(2) {
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo"
+          "button";
+      }
+    }
+    .aboutUs-contact {
+      flex-direction: column;
+      align-items: center;
+      .aboutUs-contact-head {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      .aboutUs-contact-button {
+        margin-left: initial;
+      }
     }
   }
 }

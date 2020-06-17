@@ -1,4 +1,6 @@
 import { Button, Checkbox, Modal, Tooltip } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
+
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -9,10 +11,10 @@ import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import educationIcon from "./img/headingImg/educationIcon.svg";
 
-const year = new Date().getFullYear();
-const startYear = Array.from(new Array(60), (val, index) => year - index);
-
 export default function Education({ education, updateResume }) {
+  const year = new Date().getFullYear();
+  const years = Array.from(new Array(60), (val, index) => year - index);
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentlyStudying, setCurrentlyStudying] = useState(false);
 
@@ -31,14 +33,7 @@ export default function Education({ education, updateResume }) {
     defaultValues: customDefaultValue(),
   });
 
-  const myStartYear = watch("startYear");
   const standardSelect = watch("educationType.typeNo");
-  console.log("standardSelect", standardSelect);
-
-  const allEndYear = Array.from(
-    new Array(10),
-    (val, index) => parseInt(myStartYear) + 9 - index
-  );
 
   const onSubmit = (data) => {
     const myData = { ...data, isCurrently: currentlyStudying };
@@ -84,6 +79,7 @@ export default function Education({ education, updateResume }) {
     });
     setIsModalVisible(true);
   };
+  const handleDelete = (educationData) => {};
 
   const printEducation = (educationData) => {
     const educationStandard =
@@ -135,6 +131,9 @@ export default function Education({ education, updateResume }) {
               onClick={() => handleEdit(educationData)}
             />
           </Tooltip>
+          {/* <Tooltip title="delete">
+            <DeleteOutlined onClick={() => handleDelete(educationData._id)} />
+          </Tooltip> */}
         </section>
       </div>
     );
@@ -144,7 +143,7 @@ export default function Education({ education, updateResume }) {
 
   return (
     <div className="education-block-one">
-      <div className="education-block-two" style={{}}>
+      <div className="education-block-two">
         <section style={{ display: "flex" }}>
           <img
             src={educationIcon}
@@ -153,7 +152,7 @@ export default function Education({ education, updateResume }) {
           ></img>
           <div className="education-block-heading-content">
             <h2 className="education-block-two-heading">Education</h2>
-            {objectValidation(education) ? (
+            {objectValidation(education) && (
               <div className="education-content-block-three">
                 {objectValidation(education.tenth) &&
                   printEducation(education.tenth)}
@@ -162,7 +161,7 @@ export default function Education({ education, updateResume }) {
                 {objectValidation(education.UG) && printEducation(education.UG)}
                 {objectValidation(education.PG) && printEducation(education.PG)}
               </div>
-            ) : null}
+            )}
           </div>
         </section>
         <section className="education-block-one-button">
@@ -254,7 +253,7 @@ export default function Education({ education, updateResume }) {
                 ref={register}
                 className="education-modal-block-sec-one__select-one"
               >
-                {startYear.map((year, index) => {
+                {years.map((year, index) => {
                   return (
                     <option key={index} value={year}>
                       {year}
@@ -272,7 +271,7 @@ export default function Education({ education, updateResume }) {
                   ref={register}
                   className="education-modal-block-sec-two__select-one"
                 >
-                  {allEndYear.reverse().map((year, index) => {
+                  {years.map((year, index) => {
                     return (
                       <option key={index} value={year}>
                         {year}
@@ -286,6 +285,7 @@ export default function Education({ education, updateResume }) {
 
           <section className="education-modal-sec-five">
             <Checkbox
+              checked={currentlyStudying}
               onChange={(e) => {
                 setCurrentlyStudying(e.target.checked);
               }}

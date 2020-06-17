@@ -32,8 +32,10 @@ export default function Career() {
             of coffee!
           </p>
         </div>
+<div className="career-hero-img-block">
 
         <img src={careerHeroImg} alt="" className="career-hero-img" />
+</div>
       </div>
     </div>
   );

@@ -3,15 +3,17 @@
   margin: 0 100px;
 
   .worker-prop-one {
+    z-index: -1;
     position: absolute;
-    top: 132px;
-    left: 44px;
+    top: 8.25rem;
+    left: 2.75rem;
     width: 45%;
   }
   .worker-prop-two {
+    z-index: -1;
     position: absolute;
-    bottom: 400px;
-    left: 34px;
+    bottom: 25rem;
+    left: 2.125rem;
     width: 46%;
   }
   .worker-hiw-main-block {
@@ -22,7 +24,8 @@
         "number para anim" 1fr;
       .worker-hiw-img-block {
         grid-area: number;
-
+        background: #fff;
+        height: max-content;
         margin-right: 36px;
         .worker-hiw-img {
         }
@@ -103,26 +106,32 @@
   position: relative;
   margin: 0 100px;
   .business-prop-one {
+    z-index: -1;
     position: absolute;
-    top: 132px;
-    left: 44px;
+    top: 8.25rem;
+    left: 2.125rem;
     width: 45%;
   }
   .business-prop-two {
+    z-index: -1;
     position: absolute;
-    bottom: 389px;
-    left: 34px;
+    bottom: 24.313rem;
+    left: 2.125rem;
     width: 46%;
   }
   .business-hiw-main-block {
     .business-hiw-block {
+      background: transparent;
       display: grid;
+      background: #fff;
+      height: initial;
       grid-template:
         "number head anim"
         "number para anim" 1fr;
       .business-hiw-img-block {
         grid-area: number;
-
+        background: #fff;
+        height: max-content;
         margin-right: 36px;
         .business-hiw-img {
         }
@@ -162,6 +171,8 @@
     }
     .business-hiw-block:nth-child(1) {
       margin-bottom: 130px;
+      background: transparent;
+
       .business-hiw-para-block {
         margin-right: 100px;
       }
@@ -171,6 +182,8 @@
       }
     }
     .business-hiw-block:nth-child(2) {
+      background: transparent;
+
       grid-template:
         "anim number head"
         "anim number para" 1fr/1fr 0fr 1fr;
@@ -179,9 +192,15 @@
       .business-hiw-animation-block {
         position: relative;
         bottom: 160px;
+        min-width: 517px;
+        max-width: 517px;
+        min-height: 523px;
+        max-height: 523px;
       }
     }
     .business-hiw-block:nth-child(3) {
+      background: transparent;
+
       position: relative;
       bottom: 38px;
       margin-bottom: 0;

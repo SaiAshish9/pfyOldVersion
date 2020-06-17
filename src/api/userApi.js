@@ -9,7 +9,7 @@ export function userApi(dispatchUser) {
       console.log("mounting", res.data);
       const userData = res.data;
       dispatchUser({
-        type: "fetchUser",
+        type: "FETCH_USER",
         payload: userData,
       });
     })

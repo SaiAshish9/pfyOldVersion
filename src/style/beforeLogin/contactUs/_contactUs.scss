@@ -70,8 +70,10 @@
     display: flex;
     align-items: center;
     .find-pracify-img-block {
+      margin-right: 20px;
       flex: 1;
       img {
+        width: 100%;
       }
     }
 
@@ -96,6 +98,141 @@
         font-size: 20px;
         line-height: 1.7;
         color: #333e49;
+      }
+    }
+  }
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+    .find-pracify-block {
+      .find-pracify-img-block {
+      }
+      .find-pracify-content {
+        .find-pracify-head {
+          font-size: 50px;
+          line-height: initial;
+        }
+        .find-pracify-para {
+        }
+        .find-pracify-address {
+        }
+      }
+    }
+  }
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    .find-pracify-block {
+      .find-pracify-content {
+        .find-pracify-head {
+          font-size: 50px;
+          line-height: initial;
+        }
+      }
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    padding: 60px 55px 0;
+    .contactUs-msg-block {
+      .contactUs-heading {
+        font-size: 50;
+      }
+      .contactUs-para {
+        font-size: 18;
+      }
+    }
+    .our-contactUs-support-main-block {
+      flex-direction: column;
+      .our-contactUs-support-block {
+        margin-bottom: 40px;
+        border-left: 1px solid #d3d3d3;
+        border-right: none;
+
+        .find-pracify-content-head {
+        }
+        .find-pracify-content-para {
+        }
+        .contactUs-button {
+        }
+      }
+      .our-contactUs-support-block:nth-child(1) {
+        padding: 0 0 0 20px;
+      }
+      .our-contactUs-support-block:nth-child(2) {
+        padding: 0 0 0 20px;
+      }
+      .our-contactUs-support-block:nth-child(3) {
+        padding: 0 0 0 20px;
+      }
+    }
+    .find-pracify-block {
+      flex-direction: column;
+      .find-pracify-img-block {
+      }
+      .find-pracify-content {
+        .find-pracify-head {
+          font-size: 40px;
+          font-weight: 900;
+          line-height: initial;
+        }
+        .find-pracify-para {
+          font-size: 18px;
+        }
+        .find-pracify-address {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $mobileScreen) {
+    padding: 60px 20px 0;
+    .contactUs-msg-block {
+      .contactUs-heading {
+        font-weight: 900;
+        font-size: 40px;
+      }
+      .contactUs-para {
+        font-size: 16px;
+      }
+    }
+    .our-contactUs-support-main-block {
+      flex-direction: column;
+      .our-contactUs-support-block {
+        margin-bottom: 40px;
+        border-left: 1px solid #d3d3d3;
+        border-right: none;
+
+        .find-pracify-content-head {
+        }
+        .find-pracify-content-para {
+          font-size: 16px;
+        }
+        .contactUs-button {
+        }
+      }
+      .our-contactUs-support-block:nth-child(1) {
+        padding: 0 0 0 20px;
+      }
+      .our-contactUs-support-block:nth-child(2) {
+        padding: 0 0 0 20px;
+      }
+      .our-contactUs-support-block:nth-child(3) {
+        padding: 0 0 0 20px;
+      }
+    }
+    .find-pracify-block {
+      flex-direction: column;
+      .find-pracify-img-block {
+      }
+      .find-pracify-content {
+        .find-pracify-head {
+          font-size: 40px;
+          font-weight: 900;
+          line-height: initial;
+        }
+        .find-pracify-para {
+          font-size: 16px;
+        }
+        .find-pracify-address {
+          font-size: 16px;
+        }
       }
     }
   }

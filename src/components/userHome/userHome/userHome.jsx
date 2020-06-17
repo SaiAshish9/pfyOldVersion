@@ -1,47 +1,15 @@
 import { Card, Skeleton } from "antd";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-/* ---------------------------------- ***** --------------------------------- */
-import { tokenHeader } from "../../../constant/tokenHeader";
+import React from "react";
+import { NotificationContext } from "../../../store/notificationStore";
 import { UserContext } from "../../../store/userStore";
 import { objectValidation } from "../../validation/validation";
 import Avatar from "./avatar";
 import GigOrInternship from "./gigOrInternship";
 import MyOverview from "./myOverview";
-import { userApi } from "../../../api/userApi";
 
 export default function UserHome() {
-  const [notification, setNotification] = useState([]);
-  const { user, dispatchUser } = UserContext();
-  console.log("useruser", user);
-
-  useEffect(() => {
-    const source = axios.CancelToken.source();
-    userApi(dispatchUser);
-    return () => {
-      console.log("un mounting");
-      source.cancel();
-    };
-  }, []);
-
-  useEffect(() => {
-    const source = axios.CancelToken.source();
-    axios
-      .get(`notification/fetch`, tokenHeader(), {
-        cancelToken: source.token,
-      })
-      .then((res) => {
-        const myNotification = res.data;
-        console.log("myNotification", myNotification);
-        setNotification(myNotification);
-      })
-      .catch((e) => {
-        console.log(e.response);
-      });
-    return () => {
-      source.cancel();
-    };
-  }, []);
+  const { user } = UserContext();
+  const { notification } = NotificationContext();
 
   return (
     <div className="homePage-block">

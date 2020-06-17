@@ -686,19 +686,19 @@ $card-background-color: #fff;
     }
     .social-media {
       width: 80%;
-      margin: auto;
+      margin: 0 auto 20px auto;
       display: flex;
       justify-content: center;
-      .single-icon {
-        font-size: 3em;
-        margin: 0px 0.25rem 20px 0.25rem;
-        border: 1px solid #ccc;
-        border-radius: 8px;
+      .single-icon-block {
+        margin: 0px 20px;
         height: 50px;
         width: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
+        .single-icon-img {
+          width: 100%;
+        }
       }
     }
     .fb-block {

@@ -34,14 +34,12 @@ export default function OfflineAvailUser(props) {
   const isAnyVehicle =
     vehicle.bike || vehicle.bus || vehicle.car || vehicle.train;
 
-  const [openConveyance, setOpenConveyance] = useState(isAnyVehicle);
   const [isYesBtn, setIsYesBtn] = useState(false);
   const [isNoBtn, setIsNoBtn] = useState(false);
 
   useEffect(() => {
     setVehicle(offlineGigsData);
     if (isAnyVehicle) {
-      setOpenConveyance(true);
     }
   }, [offlineGigsData]);
 
@@ -54,12 +52,10 @@ export default function OfflineAvailUser(props) {
   };
 
   const handleYes = () => {
-    setOpenConveyance(true);
     setIsNoBtn(false);
     setIsYesBtn(true);
   };
   const handleNo = () => {
-    setOpenConveyance(false);
     setIsNoBtn(true);
     setIsYesBtn(false);
 
@@ -199,10 +195,7 @@ export default function OfflineAvailUser(props) {
         footer={null}
         className="add-location-modal"
       >
-        <form
-          style={{ display: "flex", flexDirection: "column" }}
-          className="objective-block-one__form"
-        >
+        <form className="objective-block-one__form">
           <div className="add-location-block">
             <div>
               <div className="heading-1">

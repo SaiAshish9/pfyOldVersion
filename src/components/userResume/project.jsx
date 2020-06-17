@@ -24,10 +24,10 @@ const month = [
   "Nov",
   "Dec",
 ];
-const year = new Date().getFullYear();
-const startYear = Array.from(new Array(60), (val, index) => year - index);
 
 const Project = ({ project, updateResume }) => {
+  const year = new Date().getFullYear();
+  const years = Array.from(new Array(60), (val, index) => year - index);
   //#region
   console.log("project", project);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -49,12 +49,12 @@ const Project = ({ project, updateResume }) => {
     </option>
   ));
 
-  const myStartYear = watch("start.year");
+  // const myStartYear = watch("start.year");
 
-  const endYear = Array.from(
-    new Array(10),
-    (val, index) => parseInt(myStartYear) + 9 - index
-  );
+  // const endYear = Array.from(
+  //   new Array(10),
+  //   (val, index) => parseInt(myStartYear) + 9 - index
+  // );
 
   useEffect(() => {
     console.log("check", projectData);
@@ -266,7 +266,7 @@ const Project = ({ project, updateResume }) => {
                   ref={register}
                   className="project-modal-sec-four__select-two"
                 >
-                  {startYear.map((year, index) => {
+                  {years.map((year, index) => {
                     return (
                       <option key={index} value={year}>
                         {year}
@@ -293,7 +293,7 @@ const Project = ({ project, updateResume }) => {
                     ref={register}
                     className="project-modal-sec-five__select-two "
                   >
-                    {endYear.reverse().map((year, index) => {
+                    {years.map((year, index) => {
                       return (
                         <option key={index} value={year}>
                           {year}
@@ -309,6 +309,7 @@ const Project = ({ project, updateResume }) => {
           <section className="project-modal-sec-six ">
             <Checkbox
               className="project-modal-sec-six__checkbox"
+              checked={isCurrentlyWorking}
               onChange={(e) => {
                 setIsCurrentlyWorking(e.target.checked);
               }}

@@ -24,48 +24,34 @@ const month = [
   "Dec",
 ];
 
-const year = new Date().getFullYear();
-const startYear = Array.from(new Array(60), (val, index) => year - index);
-
 const Experience = ({ workExperience, updateResume }) => {
-  //#region
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [experienceData, setExperienceData] = useState(false);
+  const { register, handleSubmit, reset } = useForm({});
 
-  const { register, handleSubmit, errors, control, watch, reset } = useForm({
-    defaultValues: {
-      isWorkHome: false,
-      isCurrently: false,
-      start: {
-        month: "",
-        year: "",
-      },
-      end: {
-        month: "",
-        year: "",
-      },
-    },
-  });
-
-  const myStartYear = watch("start.year");
-  const isWorkFromHome = watch("isWorkHome");
-  const isCurrentlyWorking = watch("isCurrently");
-
-  const endYear = Array.from(new Array(10), (val, index) => {
-    return parseInt(myStartYear) + 10 - index - 1;
-  });
+  const year = new Date().getFullYear();
+  const years = Array.from(new Array(60), (val, index) => year - index);
 
   const monthList = month.map((month, index) => (
     <option key={index} value={month}>
       {month}
     </option>
   ));
+  //#region
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [experienceData, setExperienceData] = useState(false);
+
+  const [isWorkHome, setIsWorkHome] = useState(false);
+  const [isCurrently, setIsCurrently] = useState(false);
+
+  console.log("isWorkFromHomeWWW", isWorkHome);
+  console.log("isWorkFromHomeCCC", isCurrently);
 
   const onSubmit = (data) => {
-    console.log(data);
     const myExpData = experienceData._id
-      ? { ...data, _id: experienceData._id }
-      : data;
+      ? { ...data, _id: experienceData._id, isCurrently, isWorkHome }
+      : { ...data, isCurrently, isWorkHome };
+
+    console.log("experienceData", myExpData);
+
     axios
       .post(`resume/add_experience`, myExpData, tokenHeader())
       .then((res) => {
@@ -77,6 +63,8 @@ const Experience = ({ workExperience, updateResume }) => {
       });
     setExperienceData(false);
     setIsModalVisible(false);
+    setIsWorkHome(false);
+    setIsCurrently(false);
   };
 
   const handleCancel = () => {
@@ -85,12 +73,13 @@ const Experience = ({ workExperience, updateResume }) => {
   };
 
   const handleAdd = () => {
+    setIsCurrently(false);
+    setIsWorkHome(false);
     reset({
       organisation: "",
       designation: "",
       description: "",
       location: "",
-      isWorkHome: false,
       start: {
         month: "",
         year: "",
@@ -99,7 +88,6 @@ const Experience = ({ workExperience, updateResume }) => {
         month: "",
         year: "",
       },
-      isCurrently: false,
     });
     setIsModalVisible(true);
   };
@@ -108,12 +96,14 @@ const Experience = ({ workExperience, updateResume }) => {
     console.log(selectedExp);
 
     setExperienceData("selectedExp", selectedExp);
+    setIsWorkHome(selectedExp.isWorkHome);
+    setIsCurrently(selectedExp.isCurrently);
+
     reset({
       organisation: selectedExp.organisation,
       designation: selectedExp.designation,
       description: selectedExp.description,
       location: selectedExp.location,
-      isWorkHome: selectedExp.isWorkHome,
       start: {
         month: selectedExp.start.month,
         year: selectedExp.start.year,
@@ -122,7 +112,6 @@ const Experience = ({ workExperience, updateResume }) => {
         month: !!selectedExp.end && selectedExp.end.month,
         year: !!selectedExp.end && selectedExp.end.year,
       },
-      isCurrently: selectedExp.isCurrently,
     });
     setIsModalVisible(true);
   };
@@ -138,10 +127,6 @@ const Experience = ({ workExperience, updateResume }) => {
         console.log(e.response);
       });
   };
-
-  //! --------------------------------- testing -------------------------------- */
-  console.log(isWorkFromHome);
-  console.log(errors);
   //#endregion
 
   return (
@@ -254,7 +239,7 @@ const Experience = ({ workExperience, updateResume }) => {
             />
           </section>
 
-          {!isWorkFromHome && (
+          {!isWorkHome && (
             <section className="experience-modal-sec-four">
               <h3 className="experience-modal-sec-four__head">Location</h3>
               <input
@@ -266,7 +251,12 @@ const Experience = ({ workExperience, updateResume }) => {
           )}
 
           <section className="experience-modal-sec-five">
-            <Controller as={<Checkbox />} name="isWorkHome" control={control} />
+            <Checkbox
+              checked={isWorkHome}
+              onChange={(e) => {
+                setIsWorkHome(e.target.checked);
+              }}
+            />
             <h3 className="experience-modal-sec-five__head">Work from home</h3>
           </section>
           <div className="startOrEndYear-block">
@@ -286,7 +276,7 @@ const Experience = ({ workExperience, updateResume }) => {
                   ref={register}
                   className="experience-modal-sec-six__select-two"
                 >
-                  {startYear.map((year, index) => {
+                  {years.map((year, index) => {
                     return (
                       <option key={index} value={year}>
                         {year}
@@ -297,7 +287,7 @@ const Experience = ({ workExperience, updateResume }) => {
               </div>
             </section>
 
-            {!isCurrentlyWorking && (
+            {!isCurrently && (
               <section className="experience-modal-sec-seven">
                 <h3 className="experience-modal-sec-seven__head">To</h3>
                 <div className="experience-modal-sec-seven-block">
@@ -314,7 +304,7 @@ const Experience = ({ workExperience, updateResume }) => {
                     ref={register}
                     className="experience-modal-sec-seven__select-two"
                   >
-                    {endYear.map((year, index) => {
+                    {years.map((year, index) => {
                       return (
                         <option key={index} value={year}>
                           {year}
@@ -328,10 +318,11 @@ const Experience = ({ workExperience, updateResume }) => {
           </div>
 
           <section className="experience-modal-sec-eight">
-            <Controller
-              as={<Checkbox />}
-              name="isCurrently"
-              control={control}
+            <Checkbox
+              checked={isCurrently}
+              onChange={(e) => {
+                setIsCurrently(e.target.checked);
+              }}
             />
             <h3 className="experience-modal-sec-eight__head">
               Currently working

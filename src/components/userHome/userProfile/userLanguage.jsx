@@ -145,7 +145,7 @@ const UserLanguage = (props) => {
             onClick={newSubmitHandler}
             htmlType="submit"
             className="submit-btn"
-            style={{}}
+            
           >
             SAVE
           </Button>

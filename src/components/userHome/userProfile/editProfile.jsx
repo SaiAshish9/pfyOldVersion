@@ -1,4 +1,6 @@
 import { Button, Form, Modal, Upload } from "antd";
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+
 import ImgCrop from "antd-img-crop";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -204,6 +206,11 @@ export default function EditProfile({ userData }) {
                 </div>
               ) : (
                 <div className="avatar-img-block">
+                  {userImage.loading ? (
+                    <LoadingOutlined className="avatar-loading" />
+                  ) : (
+                    <PlusOutlined className="avatar-loading" />
+                  )}
                   <img
                     src={userData && userData.imgUrl}
                     alt="avatar"
