@@ -159,9 +159,9 @@ export default function Support(props) {
           </span>
         </div>
       </div>
-      <Button className="support-faq-submit-btn" type="primary">
+      {/* <Button className="support-faq-submit-btn" type="primary">
         Submit
-      </Button>
+      </Button> */}
     </div>
   );
 

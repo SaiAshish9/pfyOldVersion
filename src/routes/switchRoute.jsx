@@ -7,6 +7,7 @@ import ContactUs from "../components/beforeLogin/contactUs/contactUs";
 import HowItWork from "../components/beforeLogin/howItWork/howItWork";
 import LandingPage from "../components/beforeLogin/landingPage/landingPage";
 import PartnerWithPracify from "../components/beforeLogin/partnerWithPracify/partnerWithPracify";
+import StudentStatus from "../components/studentStatus/studentStatus";
 import Gig from "../components/gig/gig";
 import GigDetail from "../components/gig/gigDetails";
 import Internship from "../components/internship/internship";
@@ -74,6 +75,11 @@ export default function SwitchRoute() {
         exact={true}
       />
       <PrivateRoute path="/my-gigs" component={UserGig} exact={true} />
+      <PrivateRoute
+        path="/student_status"
+        component={StudentStatus}
+        exact={true}
+      />
       <PrivateRoute path="/profile" component={UserProfile} exact={true} />
       <PrivateRoute path="/resume" component={UserResume} exact={true} />
       <PrivateRoute path="/wallet" component={Wallet} exact={true} />

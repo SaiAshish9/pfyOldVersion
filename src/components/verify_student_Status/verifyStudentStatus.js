@@ -2,6 +2,7 @@ import { Button, Input, Modal, Select, Upload } from "antd";
 import React, { useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import uploadBtn from "../../assets/img/uploadBtn.svg";
+import downArrow from "../../assets/img/down-arrow.svg";
 
 const { Option } = Select;
 
@@ -37,7 +38,7 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
 
   return (
     <Modal
-      width={680}
+      width={732}
       title="Verify Student Status"
       visible={isVisibleModal}
       onCancel={() => closeModal()}
@@ -54,6 +55,7 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
             style={{ width: "100%" }}
             onChange={handleChange}
             placeholder="Select Document Type"
+            suffixIcon={<img src={downArrow} alt="" />}
           >
             <Option value="aadhar">Aadhar</Option>
             <Option value="10th">10th Marksheet</Option>

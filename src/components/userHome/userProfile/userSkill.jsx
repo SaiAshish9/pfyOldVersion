@@ -111,7 +111,7 @@ const UserSkill = () => {
           style={{ alignSelf: "baseline", cursor: "pointer" }}
         />
       </div>
-      
+
       <Modal
         width={780}
         title="Add Skills"
@@ -120,54 +120,29 @@ const UserSkill = () => {
         footer={null}
         className="add-skill-modal"
       >
-        <div
-          style={{
-            display: "flex",
-            flexFlow: "wrap",
-            justifyContent: "center",
-          }}
-        >
+        <div className="add-skill-main-block">
           {skillImg.map((image, index) => (
             <div
               onClick={() => selectHandler(image.text)}
               key={index}
+              className="add-skill-block"
               style={{
-                boxShadow:
+                border:
                   skills1 && skills1.includes(image.text)
-                    ? "2px 3px 5px #ccc"
-                    : "0 0 4px -1px black",
-                backgroundColor:
-                  skills1 && skills1.includes(image.text) ? "#5468d1" : "#fff",
-                color:
-                  skills1 && skills1.includes(image.text) ? "#fff" : "#000",
-                margin: "0.5rem",
-                height: "100px",
-                width: "100px",
-                borderRadius: "5px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                cursor: "pointer",
+                  ? "2px solid #444584"
+                  : "2px solid #ccc"
+                // backgroundColor:
+                //   skills1 && skills1.includes(image.text) ? "#5468d1" : "#fff",
+                // color:
+                //   skills1 && skills1.includes(image.text) ? "#fff" : "#000",
               }}
             >
-              <img
-                style={{ width: "50px", height: "50px" }}
-                src={image.icon}
-                alt="No Img"
-              ></img>
-              <div
-                style={{
-                  marginTop: "4px",
-                  textTransform: "capitalize",
-                }}
-              >
-                {image.text}
-              </div>
+              <img src={image.icon} alt="No Img"></img>
+              <div className="add-skill-text">{image.text}</div>
             </div>
           ))}
         </div>
-        <div style={{ textAlign: "center" }}>
+        <div className="submit-btn-block">
           <Button
             shape="round"
             onClick={submitHandler}

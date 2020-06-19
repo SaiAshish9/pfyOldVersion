@@ -38,6 +38,14 @@
           border-color: #00bfa6;
           box-shadow: none !important;
         }
+        .ant-select-selection-item {
+          padding: 0 18px 0 22px;
+        }
+      }
+      .ant-select-arrow {
+        right: initial;
+        left: 11px;
+        top: 45%;
       }
     }
   }
@@ -66,7 +74,8 @@
       .ant-picker-input {
         flex-direction: row-reverse;
         .ant-picker-suffix {
-          margin: 0 8px 0 0;
+          color: rgba(0, 0, 0, 0.35);
+          margin: 0 10px 0 0;
         }
       }
     }
@@ -85,6 +94,7 @@
         width: 136px;
         height: 136px;
         border-radius: 68px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
       }
       .avatar-img-block {
         position: relative;
@@ -103,6 +113,7 @@
       }
     }
     .user-form-main-block {
+      margin-left: 20px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 0px 20px;

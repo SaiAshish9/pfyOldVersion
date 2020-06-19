@@ -11,14 +11,12 @@ const PublicRoute = ({ component: Component, path, ...rest }) => {
   const pathWithOutHeader = path === "/login";
 
   //we use path "/" (dashboard) because it is a special case
-
   const pathWithOutFooter =
     path === "/" ||
     path === "/login" ||
     path === "/internships" ||
     path === "/gigs";
 
-  console.log("pathWithOutFooter", pathWithOutFooter);
 
   return (
     <>

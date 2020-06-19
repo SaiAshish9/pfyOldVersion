@@ -1,19 +1,18 @@
 import { Divider } from "antd";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import userBlankImg from "../../../assets/img/userBlankImg.svg";
-import { objectValidation } from "../../validation/validation";
+import { UserProfileContext } from "../../../store/userProfileStore";
 import notificationIcon from "../userHome/img/notificationIcon.svg";
 import rightArrowBlackIcon from "../userHome/img/rightArrowBlackIcon.svg";
 import rightArrowIcon from "../userHome/img/rightArrowIcon.svg";
 import creditCardImg from "./img/credit_card.svg";
-import { UserProfileContext } from "../../../store/userProfileStore";
 
 const Avatar = ({ user, notification }) => {
   const history = useHistory();
   const { profileData } = UserProfileContext();
 
-  const userName = !!profileData && profileData.firstName;
+  const firstName = !!profileData && profileData.firstName;
+  const lastName = !!profileData && profileData.lastName;
   const userImg = !!profileData ? profileData.imgUrl : "";
 
   console.log(Object.entries(user).length > 0);
@@ -33,15 +32,16 @@ const Avatar = ({ user, notification }) => {
           </div>
         </div>
         <div className="avatar-profile-block">
-          <h3>Hi {userName}!</h3>
+          <h3>
+            Hi {firstName} {lastName}!
+          </h3>
           <p className="welcome-msg__p">Welcome to Pracify!</p>
-          <Divider />
-
-          <div className="notification-block">
+          {/* <Divider /> */}
+          {/* <div className="notification-block">
             <img src={notificationIcon} alt="" className="notification-icon" />
             <p>You have {notification.length} New Notification!</p>
             <img src={rightArrowIcon} alt="" className="right-arrow" />
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="credit-card-block">
@@ -57,7 +57,7 @@ const Avatar = ({ user, notification }) => {
             <span>1 2 3 4</span>
           </div>
           <div className="credit-card__holder">Card Holder</div>
-          <div className="credit-card__name">{userName}</div>
+          <div className="credit-card__name">{firstName}</div>
         </div>
         <div className="credit-card__validity">
           <span className="credit-card__validity-span">Validity</span> <br />

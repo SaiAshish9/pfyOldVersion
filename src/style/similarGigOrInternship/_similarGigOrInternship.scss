@@ -3,6 +3,8 @@
   width: 23%;
   .support-block {
     .support-block__h3 {
+      font-size: 18px;
+      color: #000000;
     }
     .support-question-block {
       display: flex;
@@ -26,6 +28,8 @@
   }
   .similar-gigOrInternship-block1 {
     .similar-gigOrInternship-block1__h3 {
+      font-size: 18px;
+      color: #000000;
     }
     .similar-gigOrInternship-block2 {
       background-color: #fff;
@@ -42,9 +46,15 @@
       .similar-gigOrInternship-block3-img-block {
         width: 75px;
         height: 75px;
-        border: 1px solid rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 38px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .similar-gigOrInternship-block3__img {
           width: 100%;
+          height: 100%;
         }
       }
       .similar-gigOrInternship-block4-content-block {

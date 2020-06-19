@@ -8,6 +8,7 @@ import OfflineAvailUser from "./offlineAvailUser";
 import UserDigitalProfile from "./userDigitalProfile";
 import UserLanguage from "./userLanguage";
 import UserSkill from "./userSkill";
+import Profession from "./profession";
 
 const UserProfile = () => {
   const { profileData } = UserProfileContext();
@@ -24,6 +25,7 @@ const UserProfile = () => {
             <OfflineAvailUser />
             <UserLanguage />
             <UserSkill />
+            <Profession />
             <UserDigitalProfile />
           </div>
         </div>

@@ -1,12 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import SmallCard from "../common/smallCard";
 import { arrayValidation } from "../validation/validation";
 import helpIcon from "./help.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
 
-export default function SimilarGigOrInternship({ isGigOrInternship, category }) {
+export default function SimilarGigOrInternship({
+  isGigOrInternship,
+  category,
+}) {
   console.log("isGigOrInternship", isGigOrInternship, category);
   const [similarGigOrInternship, setSimilarGigOrInternship] = useState();
 
@@ -64,11 +67,14 @@ export default function SimilarGigOrInternship({ isGigOrInternship, category }) 
         {arrayValidation(similarGigOrInternship) &&
           similarGigOrInternship.map((gigOrInternship, index) => {
             return (
-              <SmallCard
-                key={index}
-                gigOrInternship={gigOrInternship}
-                isGigOrInternship={isGigOrInternship}
-              />
+              <Fragment key={index}>
+                {index < 4 && (
+                  <SmallCard
+                    gigOrInternship={gigOrInternship}
+                    isGigOrInternship={isGigOrInternship}
+                  />
+                )}
+              </Fragment>
             );
           })}
       </div>

@@ -12,7 +12,8 @@ export default function UserCard() {
   const { profileData } = UserProfileContext();
 
   console.log("profileData", profileData);
-
+  const firstName = !!profileData && profileData.firstName;
+  const lastName = !!profileData && profileData.lastName;
   return (
     <div className="userProfile-with-profileScore-block">
       <div className="userProfile-block">
@@ -28,7 +29,7 @@ export default function UserCard() {
         </div>
         <div className="avatar-intro-block">
           <h2 className="avatar-name">
-            {!!profileData && profileData.firstName}
+            {firstName} {lastName}
           </h2>
           <div className="mail-block">
             <img src={emailIcon} alt=""></img>

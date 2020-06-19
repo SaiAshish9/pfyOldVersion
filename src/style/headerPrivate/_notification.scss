@@ -1,0 +1,52 @@
+.notification-main-block {
+    max-width: 376px;
+    min-width: 376px;
+    .ant-dropdown-menu-item-group-title {
+        opacity: 0.7;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.44;
+        text-align: left;
+        color: #000000;
+        border-bottom: 1px solid #000;
+    }
+    .ant-dropdown-menu-item {
+        position: relative;
+        padding: 20px 12px;
+
+        white-space: initial;
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+        .notification-para {
+            padding: 0 20px;
+            margin: 0;
+            opacity: 0.8;
+            font-size: 12px;
+            line-height: 1.33;
+            color: #000000;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            margin: 0 auto;
+            bottom: 0;
+            height: 1px;
+            width: 80%;
+            border-bottom: 1px solid #d3d3d3;
+        }
+    }
+    .ant-dropdown-menu-item:last-child {
+        &:before {
+            content: "";
+            position: absolute;
+            margin: auto;
+            left: 0;
+            bottom: 0;
+            height: 1px;
+            width: 80%;
+            border-bottom: none;
+        }
+    }
+}

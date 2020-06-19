@@ -9,13 +9,13 @@ import notificationApi from "../../../api/notificationApi";
 import { userApi } from "../../../api/userApi";
 import { getUserProfile } from "../../../api/userProfileApi";
 import notificationIcon from "../../../assets/img/notificationIcon.svg";
-import userBlankImg from "../../../assets/img/userBlankImg.svg";
 import { NotificationContext } from "../../../store/notificationStore";
+import { UserProfileContext } from "../../../store/userProfileStore";
 import { UserContext } from "../../../store/userStore";
 import Support from "../../support/support";
-import { arrayValidation, objectValidation } from "../../validation/validation";
 import VerifyStudentStatus from "../../verify_student_Status/verifyStudentStatus";
-import { UserProfileContext } from "../../../store/userProfileStore";
+import notificationMenu from "./notification";
+// import moduleName from 'module';
 
 const headerLink = [
   { name: "Home", link: "/home" },
@@ -23,11 +23,11 @@ const headerLink = [
   { name: "Internships", link: "/relatedInternships" },
   { name: "Resume", link: "/resume" },
   { name: "Wallet", link: "/wallet" },
-  { name: "Student Status", link: "" },
+  { name: "Student Status", link: "/student_status" },
 ];
 
 export default function PrivateHeaderNavLink() {
-  const { user, dispatchUser } = UserContext();
+  const { dispatchUser } = UserContext();
   const { notification, dispatchNotification } = NotificationContext();
   const { profileData, dispatchUserProfile } = UserProfileContext();
 
@@ -97,28 +97,6 @@ export default function PrivateHeaderNavLink() {
       </Menu.Item>
     </Menu>
   );
-  const notificationMenu = () => (
-    <Menu className="notification-main-block">
-      {!arrayValidation(notification) ? (
-        <Menu.ItemGroup title="Notification" className="notification-title">
-          <Menu.Item key="1">No New Notification</Menu.Item>
-        </Menu.ItemGroup>
-      ) : (
-        <Menu.ItemGroup title="Notification" className="notification-title">
-          {notification.map((populateNotification, index) => {
-            console.log(populateNotification);
-            return (
-              <Menu.Item key={index}>
-                <p className="notification-para">
-                  {populateNotification.message}
-                </p>
-              </Menu.Item>
-            );
-          })}
-        </Menu.ItemGroup>
-      )}
-    </Menu>
-  );
 
   return (
     <>
@@ -145,7 +123,7 @@ export default function PrivateHeaderNavLink() {
       </div>
       <Dropdown
         placement="bottomRight"
-        overlay={notificationMenu}
+        overlay={notificationMenu(notification)}
         trigger={["click"]}
         className="user-profile-dropDown"
       >

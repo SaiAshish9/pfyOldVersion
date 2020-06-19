@@ -18,6 +18,7 @@ export default function InputType({
   option,
   disabledDate,
   prefix,
+  suffix,
 }) {
   return (
     <>
@@ -50,13 +51,26 @@ export default function InputType({
       )}
       {type === "select" && (
         <Form.Item name={name} rules={rule}>
-          <Select placeholder={placeholder}>
-            {option.map((optionName, index) => (
-              <Option value={optionName.value} key={index}>
-                {optionName.option}
-              </Option>
-            ))}
-          </Select>
+          {suffix ? (
+            <Select
+              placeholder={placeholder}
+              suffixIcon={<img src={suffix} alt="" />}
+            >
+              {option.map((optionName, index) => (
+                <Option value={optionName.value} key={index}>
+                  {optionName.option}
+                </Option>
+              ))}
+            </Select>
+          ) : (
+            <Select placeholder={placeholder}>
+              {option.map((optionName, index) => (
+                <Option value={optionName.value} key={index}>
+                  {optionName.option}
+                </Option>
+              ))}
+            </Select>
+          )}
         </Form.Item>
       )}
       {type === "rangePicker" && (

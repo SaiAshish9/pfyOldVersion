@@ -1,0 +1,234 @@
+.business-hiw-with-props {
+    position: relative;
+    margin: 0 100px;
+    .business-prop-one {
+        z-index: -1;
+        position: absolute;
+        top: 8.25rem;
+        left: 2.125rem;
+        width: 45%;
+    }
+    .business-prop-two {
+        z-index: -1;
+        position: absolute;
+        bottom: 24.313rem;
+        left: 2.125rem;
+        width: 46%;
+    }
+    .business-hiw-main-block {
+        .business-hiw-block {
+            background: transparent;
+            display: grid;
+            background: #fff;
+            height: initial;
+            grid-template:
+                "number head anim"
+                "number para anim" 1fr;
+            .business-hiw-img-block {
+                grid-area: number;
+                background: #fff;
+                height: max-content;
+                margin-right: 36px;
+                .business-hiw-img {
+                }
+            }
+
+            .business-hiw-head-block {
+                grid-area: head;
+                margin-bottom: 30px;
+                .business-hiw-head-spanOne,
+                .business-hiw-head-spanTwo {
+                    font-size: 36px;
+                    font-weight: 700;
+                    line-height: 1.22;
+                    color: #333e49;
+                }
+
+                .business-hiw-head-spanTwo {
+                    color: #38bdba;
+                    margin-left: 12px;
+                }
+            }
+
+            .business-hiw-para-block {
+                grid-area: para;
+                .business-hiw-para-one,
+                .business-hiw-para-two {
+                    font-size: 18px;
+                    line-height: 1.22;
+                    color: #333e49;
+                }
+            }
+            .business-hiw-animation-block {
+                grid-area: anim;
+                .business-hiw-animation {
+                }
+            }
+        }
+        .business-hiw-block:nth-child(1) {
+            margin-bottom: 130px;
+            background: transparent;
+
+            .business-hiw-para-block {
+                margin-right: 100px;
+            }
+            .business-hiw-animation-block {
+                position: relative;
+                bottom: 84px;
+            }
+        }
+        .business-hiw-block:nth-child(2) {
+            background: transparent;
+
+            grid-template:
+                "anim number head"
+                "anim number para" 1fr/1fr 0fr 1fr;
+            .business-hiw-para-block {
+            }
+            .business-hiw-animation-block {
+                position: relative;
+                bottom: 160px;
+                min-width: 32.313rem;
+                max-width: 32.313rem;
+                min-height: 32.688rem;
+                max-height: 32.688rem;
+            }
+        }
+        .business-hiw-block:nth-child(3) {
+            background: transparent;
+
+            position: relative;
+            bottom: 38px;
+            margin-bottom: 0;
+            .business-hiw-para-block {
+                margin-right: 160px;
+            }
+            .business-hiw-animation-block {
+                position: relative;
+                bottom: 90px;
+            }
+        }
+    }
+    @media (min-width: $bigTabletScreen) and (max-width: 1320px) {
+        .business-prop-one {
+            display: none;
+        }
+        .business-prop-two {
+            display: none;
+        }
+    }
+    @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+        .business-prop-one {
+            display: none;
+        }
+        .business-prop-two {
+            display: none;
+        }
+        .business-prop-one {
+            display: none;
+        }
+        .business-prop-two {
+            display: none;
+        }
+        .business-hiw-main-block {
+            .business-hiw-block,
+            .business-hiw-block:nth-child(2) {
+                grid-template:
+                    "number head head"
+                    "number anim anim"
+                    "number para para";
+            }
+            .business-hiw-block:nth-child(1),
+            .business-hiw-block:nth-child(2),
+            .business-hiw-block:nth-child(3) {
+                margin-bottom: 80px;
+                .business-hiw-animation-block {
+                    bottom: initial;
+                }
+            }
+        }
+    }
+    @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+        margin: 0 40px;
+        .business-prop-one {
+            display: none;
+        }
+        .business-prop-two {
+            display: none;
+        }
+        .business-hiw-main-block {
+            .business-hiw-block,
+            .business-hiw-block:nth-child(2) {
+                grid-template:
+                    "number head head"
+                    "number anim anim"
+                    "number para para";
+            }
+            .business-hiw-block:nth-child(1),
+            .business-hiw-block:nth-child(2),
+            .business-hiw-block:nth-child(3) {
+                margin-bottom: 80px;
+                .business-hiw-para-block {
+                    margin-right: initial;
+                }
+                .business-hiw-head-spanOne,
+                .business-hiw-head-spanTwo {
+                    font-size: 32px;
+                }
+                .business-hiw-animation-block {
+                    bottom: initial;
+                    width: 100%;
+                    min-width: initial;
+                    max-width: initial;
+                    min-height: initial;
+                    max-height: initial;
+                }
+            }
+        }
+    }
+    @media (max-width: $mobileScreen) {
+        margin: 0 20px;
+        .business-prop-one {
+            display: none;
+        }
+        .business-prop-two {
+            display: none;
+        }
+        .business-hiw-main-block {
+            .business-hiw-block,
+            .business-hiw-block:nth-child(2) {
+                grid-template:
+                    "number head head"
+                    "number anim anim"
+                    "number para para";
+            }
+            .business-hiw-block:nth-child(1),
+            .business-hiw-block:nth-child(2),
+            .business-hiw-block:nth-child(3) {
+                margin-bottom: 80px;
+                .business-hiw-para-block {
+                    margin-right: initial;
+                }
+                .business-hiw-img-block {
+                    margin-right: 8px;
+                }
+
+                .business-hiw-head-spanOne,
+                .business-hiw-head-spanTwo {
+                    font-size: 26px;
+                }
+                .business-hiw-head-spanTwo {
+                    margin-left: 8px;
+                }
+                .business-hiw-animation-block {
+                    bottom: initial;
+                    width: 100%;
+                    min-width: initial;
+                    max-width: initial;
+                    min-height: initial;
+                    max-height: initial;
+                }
+            }
+        }
+    }
+}

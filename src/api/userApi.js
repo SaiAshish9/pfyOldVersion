@@ -17,7 +17,7 @@ export function userApi(dispatchUser) {
       if (axios.isCancel(error)) {
         console.log("caught cancel");
       } else {
-        console.log(error.response);
+        console.log(error);
       }
     });
 }

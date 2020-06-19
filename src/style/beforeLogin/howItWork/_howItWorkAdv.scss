@@ -6,16 +6,28 @@
   font-weight: 900;
   line-height: 1;
   color: #333e49;
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    font-size: 120px;
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    margin-left: 40px;
+    font-size: 80px;
+  }
+  @media (max-width: $mobileScreen) {
+    margin-left: 20px;
+    font-size: 54px;
+  }
 }
 
 %advantage-block {
   margin: 0px 60px 80px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   .worker-advantage-block,
   .business-advantage-block {
     flex: 1;
-    margin: 0 20px;
+    margin: 20px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,6 +73,14 @@
       margin: 0px 48px 16px;
     }
   }
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    margin: 0px 20px 60px;
+  }
+  @media (max-width: $mobileScreen) {
+    margin: 0px 0px 40px;
+  }
 }
 .business-advantage-main-block {
   @extend%advantage-block;
@@ -71,5 +91,11 @@
     .business-advantage-para {
       margin: 0 12px;
     }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    margin: 0px 20px 60px;
+  }
+  @media (max-width: $mobileScreen) {
+    margin: 0px 0px 40px;
   }
 }

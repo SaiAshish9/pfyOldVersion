@@ -5,6 +5,8 @@ const myNotificationContext = createContext();
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_NOTIFICATION":
+      console.log("action.payload",action.payload);
+      
       return action.payload;
     default:
       return state;

@@ -9,7 +9,9 @@ import React, { useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import mailIcon from "../../../assets/img/login/mailIcon.svg";
 import userIcon from "../../../assets/img/login/userIcon.svg";
+import locationIcon from "../../../assets/img/locationIconLight.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
+import genderIcon from "../../../assets/img/genderIcon.svg";
 import InputType from "../../inputType";
 import editIcon from "./img/editIcon.svg";
 import { UserProfileContext } from "../../../store/userProfileStore";
@@ -56,6 +58,7 @@ const userDetail = [
     ],
     rule: [{ required: true, message: "please input your mobile!" }],
     inputType: "select",
+    suffix: genderIcon,
   },
   {
     name: "city",
@@ -70,6 +73,7 @@ const userDetail = [
       { option: "Pune", value: "Pune" },
     ],
     inputType: "select",
+    suffix: locationIcon,
   },
 ];
 
@@ -235,6 +239,7 @@ export default function EditProfile({ userData }) {
                   placeholder={user.placeholder}
                   option={user.option}
                   prefix={user.prefix}
+                  suffix={user.suffix}
                 />
               </div>
             ))}
