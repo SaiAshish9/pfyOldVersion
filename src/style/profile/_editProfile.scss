@@ -1,3 +1,10 @@
+.edit-user-btn {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+}
 .user-edit-profile-modal {
   %user-profile-input {
     .ant-input-affix-wrapper {

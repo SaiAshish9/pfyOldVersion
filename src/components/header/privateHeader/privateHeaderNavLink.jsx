@@ -15,7 +15,6 @@ import { UserContext } from "../../../store/userStore";
 import Support from "../../support/support";
 import VerifyStudentStatus from "../../verify_student_Status/verifyStudentStatus";
 import notificationMenu from "./notification";
-// import moduleName from 'module';
 
 const headerLink = [
   { name: "Home", link: "/home" },

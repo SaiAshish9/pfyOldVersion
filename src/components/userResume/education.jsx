@@ -12,6 +12,7 @@ import editIcon from "./img/editIcon.svg";
 import educationIcon from "./img/headingImg/educationIcon.svg";
 
 export default function Education({ education, updateResume }) {
+  //#region
   const year = new Date().getFullYear();
   const years = Array.from(new Array(60), (val, index) => year - index);
 
@@ -92,6 +93,8 @@ export default function Education({ education, updateResume }) {
         : educationData.educationType.typeNo === 5
         ? "Class 12th"
         : false;
+    //#endregion
+
     return (
       <div className="education-content-block">
         <section className="education-content-sec-one">

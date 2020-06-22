@@ -159,17 +159,9 @@ export default function EditProfile({ userData }) {
 
   return (
     <>
-      <div
-        className="user-edit-icon-block"
-        style={{
-          position: "absolute",
-          right: "12px",
-          top: "6px",
-          cursor: "pointer",
-        }}
-      >
-        <img src={editIcon} alt="" className="" onClick={showModal} />
-      </div>
+      <span className="edit-user-btn" onClick={showModal}>
+        Edit Profile
+      </span>
       <Modal
         width={634}
         className="user-edit-profile-modal"

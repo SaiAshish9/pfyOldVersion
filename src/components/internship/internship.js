@@ -59,7 +59,7 @@ export default function Internship() {
           style={{ paddingTop: "0px" }}
         >
           <div className="card-heading-box">
-            <div style={{ display: "flex" }}>
+            <div className="card-heading-result-box">
               <h1 className="card-heading-one">Internships</h1>
               <h2 className="card-heading-two">
                 ({internship && internship.length} Results)

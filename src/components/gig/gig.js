@@ -45,7 +45,7 @@ export default function Gig() {
   const handleSearch = (e) => {
     console.log(e.target.value);
   };
-
+  
   return (
     <GigProvider>
       <div className="card-container-main-block">
@@ -63,7 +63,7 @@ export default function Gig() {
             style={{ paddingTop: "0px" }}
           >
             <div className="card-heading-box">
-              <div style={{ display: "flex" }}>
+              <div className="card-heading-result-box">
                 <h1 className="card-heading-one">Gigs</h1>
                 {gig && (
                   <h2 className="card-heading-two">({gig.length} Results)</h2>

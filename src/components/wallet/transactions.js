@@ -31,17 +31,16 @@ export default function Transactions({ data, details }) {
                 Rs {details.wallet}
               </div>
               <div className="credit-card__details">
-                <div className="credit-card__number">xxxx 1 2 3 4</div>
+                <div className="credit-card__number">
+                  <span>x x x x</span> 1 2 3 4
+                </div>
                 <div className="credit-card__holder">Card Holder</div>
-                <div className="credit-card__name">{details.firstName}</div>
+                <div className="credit-card__name">
+                  {details.firstName} {details.lastName}
+                </div>
               </div>
               <div className="credit-card__validity">
-                <span
-                  style={{ fontSize: "9px" }}
-                  className="credit-card__validity-span"
-                >
-                  Validity
-                </span>{" "}
+                <span className="credit-card__validity-span">Validity</span>{" "}
                 <br />
                 <span className="credit-card__validity-duration">Forever</span>
               </div>
@@ -91,19 +90,9 @@ export default function Transactions({ data, details }) {
             ))
           ) : (
             <Fragment>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginTop: "2rem",
-                }}
-              >
-                <ExclamationCircleOutlined
-                  style={{ fontSize: "3.5rem", marginRight: "1rem" }}
-                  type="exclamation-circle"
-                />
-
-                <div style={{ fontSize: "1.5rem" }}>
+              <div className="no-transaction-block">
+                <ExclamationCircleOutlined type="exclamation-circle" />
+                <div className="no-transaction-text">
                   There is currently <br /> No Transaction
                 </div>
               </div>

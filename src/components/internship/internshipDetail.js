@@ -21,14 +21,13 @@ import CompanyQueForm from "./companyQuesForm";
 
 const { TabPane } = Tabs;
 export default function InternshipDetail(props) {
-  // const { internship } = useContext(InternshipContext);
   const myCookie = Cookies.get("token");
 
   const [internship, setInternship] = useState();
   console.log("internship", internship);
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [isApply, setIsApply] = useState(false);
+  const [isApply, setIsApply] = useState(true);
   const [isShortlisted, setIsShortlisted] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [isRejected, setIsRejected] = useState(false);
@@ -89,6 +88,7 @@ export default function InternshipDetail(props) {
             setIsRejected(true);
             setInternship(res.data);
           } else {
+            setIsApply(false);
             setInternship(res.data);
             setCompanyQuestion(res.data.questions);
           }
@@ -289,16 +289,17 @@ export default function InternshipDetail(props) {
               </div>
             </div>
 
-            <div className="apply-block">
-              <Button
-                type="primary"
-                disabled={!notApplied}
-                onClick={handleApply}
-                className="apply-button-block"
-              >
-                {notApplied ? "Apply Now" : "Applied"}
-              </Button>
-            </div>
+            {notApplied && (
+              <div className="apply-block">
+                <Button
+                  type="primary"
+                  onClick={handleApply}
+                  className="apply-button-block"
+                >
+                  {notApplied ? "Apply Now" : "Applied"}
+                </Button>
+              </div>
+            )}
           </TabPane>
           <TabPane tab={`About The Company`} key="2">
             <div className="internship-provider-block-One">
@@ -317,7 +318,7 @@ export default function InternshipDetail(props) {
               </div>
             </div>
             <div className="internship-provider-detail-block">
-              <div>
+              <div className="internship-provider">
                 <h2 className="internship-provider-head">
                   About {internshipProvider}
                 </h2>
@@ -325,8 +326,7 @@ export default function InternshipDetail(props) {
                   {aboutInternshipProvider}
                 </p>
               </div>
-              <br />
-              <div className="">
+              <div className="internship-provider">
                 <h2 className="internship-provider-head">
                   {internshipProvider} Website
                 </h2>

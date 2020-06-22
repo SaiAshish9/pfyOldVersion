@@ -67,7 +67,7 @@ const UserDigitalProfile = () => {
         <div className="icon-heading">
           <img className="avatar-digital-profile-img" src={five} alt=""></img>
           <div className="avatar-digital-profile-content">
-            <h2>Digital Profile</h2>
+            <h2>Social Media Accounts</h2>
           </div>
         </div>
         <img

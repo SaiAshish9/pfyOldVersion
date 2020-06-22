@@ -23,9 +23,9 @@ const UserProfile = () => {
           <div className="avatar-profile-detail-block">
             <AboutUser />
             <OfflineAvailUser />
+            <Profession />
             <UserLanguage />
             <UserSkill />
-            <Profession />
             <UserDigitalProfile />
           </div>
         </div>

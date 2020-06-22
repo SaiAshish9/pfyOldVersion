@@ -62,13 +62,6 @@ export default function Earnings({ data, details, isUpdate }) {
             <img src={coinIcon} alt="" />
           </div>
           <div className="buttons">
-            {/* {details && details.wallet ?<Button onClick={redeem} className="redeem-btn" shape={"round"}>
-                    Redeem Now
-                  </Button>: null} */}
-
-            {/* <Button style={{marginLeft: details.wallet ? "0" : "12rem" }} onClick={isModalOpen} className="add-payment-method-btn" shape={"round"}>
-                    Add Payment Method
-                  </Button>  */}
             {data.length > 0 && (
               <Button onClick={redeem} className="redeem-btn" shape={"round"}>
                 Redeem Now
@@ -107,9 +100,9 @@ export default function Earnings({ data, details, isUpdate }) {
                     </div>
                   </div>
                   <div>
-                    <div className="earning-description-amount">
-                      {earning.amount}
-                    </div>
+                    <h1 className="earning-description-amount">
+                      Rs.{earning.amount}
+                    </h1>
                     <div className="earning-description-status">
                       {" "}
                       <img src={future} alt="" />{" "}

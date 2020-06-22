@@ -79,9 +79,8 @@ export default function PaymentMethodModal(props) {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
       >
-        <div className="heading">Name of wallet user</div>
+        <div className="heading">Name of wallet Holder</div>
         <Form.Item
-          // label="Name of wallet user"
           name="name"
           rules={[
             {
@@ -90,10 +89,7 @@ export default function PaymentMethodModal(props) {
             },
           ]}
         >
-          <Input
-            className="walletDetailInput"
-            placeholder="please enter name"
-          />
+          <Input className="walletDetailInput" />
         </Form.Item>
 
         <div className="heading">Number of wallet holder</div>
@@ -110,11 +106,7 @@ export default function PaymentMethodModal(props) {
             },
           ]}
         >
-          <Input
-            className="walletDetailInput"
-            style={{ width: "100%" }}
-            placeholder="please enter number"
-          />
+          <Input className="walletDetailInput" />
         </Form.Item>
 
         <Form.Item className="submit_btn_block">
@@ -132,31 +124,21 @@ export default function PaymentMethodModal(props) {
       <Input
         className="walletDetailInput"
         onChange={(e) => bankChangeHandler(e, "account_holder_name")}
-        placeholder="please enter name"
       />
       <div className="heading">A/C Number</div>
       <Input
         className="walletDetailInput"
         onChange={(e) => bankChangeHandler(e, "account_number")}
-        placeholder="please enter A/C number"
       />
       <div className="heading">Bank Name</div>
       <Input
         className="walletDetailInput"
         onChange={(e) => bankChangeHandler(e, "bank_name")}
-        placeholder="please enter bank name"
       />
-      {/* <div className="heading">Branch Name</div>
-      <Input
-        className="walletDetailInput"
-        onChange={(e) => bankChangeHandler(e, "branch_number")}
-        placeholder="please enter branch number"
-      /> */}
       <div className="heading">IFSC </div>
       <Input
         className="walletDetailInput"
         onChange={(e) => bankChangeHandler(e, "ifsc_code")}
-        placeholder="please enter IFSC code"
       />
       <Form.Item className="submit_btn_block">
         <Button htmlType="submit" type="primary" className="submit_btn">
@@ -167,32 +149,30 @@ export default function PaymentMethodModal(props) {
   );
 
   return (
-    <div>
-      <Modal
-        title="Add Payment Method"
-        visible={props.isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        className={"payment_method_modal"}
-        footer={null}
-        width={680}
+    <Modal
+      title="Add Payment Method"
+      visible={props.isModalOpen}
+      onOk={handleOk}
+      onCancel={handleCancel}
+      className={"payment_method_modal"}
+      footer={null}
+      width={680}
+    >
+      <div className="payment_method_modal_title">
+        Tell us where you want you redeem your wallet balance
+      </div>
+      <Tabs
+        style={{ textAlign: "center", padding: "0 28px" }}
+        defaultActiveKey="paytm"
+        onChange={TabOnChangeHandler}
       >
-        <div className="payment_method_modal_title">
-          Tell us where you want you redeem your wallet balance
-        </div>
-        <Tabs
-          style={{ textAlign: "center", padding: "0 28px" }}
-          defaultActiveKey="paytm"
-          onChange={TabOnChangeHandler}
-        >
-          <TabPane tab="Add Paytm Details" key="paytm">
-            {paytm}
-          </TabPane>
-          <TabPane tab="Add Bank Details" key="bank">
-            {bank}
-          </TabPane>
-        </Tabs>
-      </Modal>
-    </div>
+        <TabPane tab="Add Paytm Details" key="paytm">
+          {paytm}
+        </TabPane>
+        <TabPane tab="Add Bank Details" key="bank">
+          {bank}
+        </TabPane>
+      </Tabs>
+    </Modal>
   );
 }

@@ -1,6 +1,5 @@
 .card-container-main-block {
   font-family: $myFont;
-  // word-spacing: $wordSpace;
 
   .full-page {
     padding: 100px 60px 80px 60px;
@@ -13,46 +12,75 @@
       background-color: #fff;
       width: 74%;
       .card-heading-box {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid #d3d3d3;
         width: 92%;
-        margin: 18px auto;
+        margin: 24px auto 0;
+        padding: 0 0 8px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        // padding-top:20px;
-        .card-heading-one {
-        }
-        .card-heading-two {
-          align-self: center;
-          color: #a2adc3;
-          margin-left: 12px;
+        .card-heading-result-box {
+          display: flex;
+          align-items: flex-end;
+          .card-heading-one {
+            font-size: 28px;
+            font-weight: 600;
+            color: #333e49;
+            margin: 0;
+          }
+          .card-heading-two {
+            opacity: 0.7;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: left;
+            color: #000000;
+            margin: 0 0 4px 14px;
+          }
         }
         .filter-input {
           display: flex;
           .sort-content {
             display: flex;
             align-items: center;
-            border: 1px solid #d3d3d3;
+            opacity: 0.8;
+            border-radius: 3px;
+            border: solid 0.7px #e2e2e2;
             .sort-by-text {
               padding-left: 12px;
+              font-size: 14px;
+              color: #333e49;
             }
             .ant-select {
               .ant-select-selector {
                 width: 140px;
                 border: none;
                 box-shadow: none;
+                .ant-select-selection-item {
+                  color: #333e49;
+                }
+              }
+              .ant-select-arrow {
+                .anticon {
+                  color: #333e49;
+                }
               }
             }
           }
           .search-by-company {
             width: 220px;
             margin-left: 16px;
+            opacity: 0.8;
+            border-radius: 3px;
+            border: solid 0.7px #e2e2e2;
+            .ant-input-prefix {
+              color: #b5b5b5;
+            }
           }
         }
       }
       .card-container {
         margin: auto;
+        padding: 26px 0 40px;
         width: 95%;
         display: flex;
         flex-wrap: wrap;

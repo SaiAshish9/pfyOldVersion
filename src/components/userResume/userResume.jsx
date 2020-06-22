@@ -55,12 +55,12 @@ const UserResume = () => {
           updateResume={setUpdater}
         />
         <Project project={userResumeData.projects} updateResume={setUpdater} />
-        <DigitalProfile
-          digitalProfile={userResumeData.digitalProfiles}
-          updateResume={setUpdater}
-        />
         <Achievement
           achievement={userResumeData.achievements}
+          updateResume={setUpdater}
+        />
+        <DigitalProfile
+          digitalProfile={userResumeData.digitalProfiles}
           updateResume={setUpdater}
         />
       </div>

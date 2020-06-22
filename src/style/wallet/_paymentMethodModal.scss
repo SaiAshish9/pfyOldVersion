@@ -2,9 +2,11 @@
 .payment_method_modal {
   top: 20px;
   .payment_method_modal_title {
+    margin-bottom: 14px;
     font-size: 18px;
     color: #818181;
   }
+
   .ant-modal-body {
     padding: 12px 0 0 0;
   }
@@ -13,6 +15,7 @@
       border: none;
       margin: 0;
       .ant-tabs-tab {
+        padding-bottom: 6px;
         &:hover {
           color: #000;
         }
@@ -41,6 +44,7 @@
 
   .paytm_input {
     text-align: initial;
+    margin-top: 20px;
     .heading {
       font-size: 14px;
       line-height: 1.43;
@@ -52,6 +56,7 @@
     }
 
     .walletDetailInput {
+      width: 100%;
       border-radius: 4px;
       box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.16);
       border: solid 1px #e5e5e5;
@@ -63,6 +68,7 @@
   }
   .bank_input {
     text-align: initial;
+    margin-top: 20px;
     .heading {
       font-size: 14px;
       line-height: 1.43;
@@ -70,6 +76,7 @@
       margin: 12px 0 8px 0;
     }
     .walletDetailInput {
+      width: 100%;
       border-radius: 4px;
       box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.16);
       border: solid 1px #e5e5e5;

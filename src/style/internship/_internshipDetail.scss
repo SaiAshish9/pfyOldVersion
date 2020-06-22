@@ -8,10 +8,10 @@
 
   .internship-main-block {
     width: 55%;
-    padding: 20px 46px 46px 46px;
-    border-radius: 8px;
+    padding: 20px 46px 30px 46px;
+    border-radius: 9px;
     background-color: #fff;
-    // border: 1px solid #d3d3d3;
+    align-self: flex-start;
 
     .ant-tabs-tab {
       &:hover {
@@ -55,7 +55,9 @@
           .internship-provider-heading-one {
             margin: 0;
             font-size: 20px;
-            color: #000000;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333e49;
           }
           .internship-provider-heading-two {
             opacity: 0.6;
@@ -103,6 +105,10 @@
         img {
           margin-right: 12px;
         }
+        span {
+          font-size: 14px;
+          color: #333743;
+        }
       }
       .internship-brief-content-one {
         grid-area: stipend;
@@ -136,7 +142,7 @@
     //   margin: 20px auto 36px;
     // }
     .internship-detail-block {
-      margin: 2px 2px 40px 2px;
+      margin: 2px 2px 0 2px;
       border-radius: 10px;
       box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
       .internship-detail-content {
@@ -163,21 +169,32 @@
           line-height: 1.13;
           color: #000000;
         }
+        &:nth-child(4) {
+          border-radius: 10px;
+        }
       }
     }
     .internship-provider-detail-block {
-      .internship-provider-head {
-        opacity: 0.8;
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 1.4;
-        color: #000000;
-      }
-      .internship-provider-para {
-        opacity: 0.5;
-        font-size: 16px;
-        line-height: 1.38;
-        color: #000000;
+      .internship-provider {
+        .internship-provider-head {
+          font-size: 19px;
+          font-weight: 600;
+          line-height: 1.4;
+          color: #333e49;
+        }
+        .internship-provider-para {
+          font-size: 15px;
+          line-height: 1.38;
+          opacity: 0.5;
+          color: #000000;
+        }
+        &:nth-child(2) {
+          margin-top: 30px;
+          .internship-provider-para {
+            opacity: initial;
+            color: #0693c2;
+          }
+        }
       }
     }
     .apply-block {

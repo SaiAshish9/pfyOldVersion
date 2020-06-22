@@ -11,7 +11,7 @@
       align-items: center;
       background-color: #444584;
       border-radius: 8px 8px 0 0;
-      margin-bottom: 24px;
+      padding: 30px 20px 10px;
       .avatar-img-block {
         overflow: hidden;
         display: flex;
@@ -19,7 +19,7 @@
         align-items: center;
         width: 100px;
         height: 100px;
-        margin: 48px auto 48px auto;
+        margin: auto;
         border-radius: 100%;
         border: 3px solid rgba(255, 255, 255, 1);
         .avatar__img {
@@ -29,15 +29,16 @@
       }
     }
     .avatar-intro-block {
-      margin: 0 20px;
+      padding: 24px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       .avatar-name {
-        font-size: 18px;
+        font-size: 17px;
         font-weight: 600;
         line-height: 1.44;
         color: #333e49;
+        margin-bottom: 4px;
       }
       .mail-block {
         display: flex;
@@ -54,7 +55,6 @@
       }
       .numLocBlock {
         display: flex;
-        margin-bottom: 36px;
         .number-block {
           display: flex;
           padding-right: 16px;
@@ -103,15 +103,15 @@
     background-color: #ffffff;
     text-align: center;
     margin-top: 18px;
+    padding: 20px 0 30px;
 
     .gig-Score__h1 {
-      padding-top: 32px;
-      margin-bottom: 26px;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
+      margin-bottom: 16px;
     }
     .gig-progressBar {
-      margin-bottom: 34px;
+      // margin-bottom: 34px;
     }
   }
 }

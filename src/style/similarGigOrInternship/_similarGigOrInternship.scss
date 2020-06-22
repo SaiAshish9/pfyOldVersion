@@ -63,7 +63,8 @@
         flex: 1;
 
         .similar-gigOrInternship-block4__h4 {
-          color: #333743;
+          margin: 0;
+          color: #333e49;
           line-height: 1.43;
           font-size: 14px;
           font-weight: 500;
@@ -72,13 +73,14 @@
           text-overflow: ellipsis;
         }
         .similar-gigOrInternship-block4__p {
+          opacity: 0.6;
           margin: 0px;
-          padding-bottom: 6px;
-          border-bottom: 1px solid #d3d3d3;
+          padding-bottom: 12px;
+          border-bottom: 1px solid #e1e1e1;
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
-          color: black;
+          color: #000;
         }
         .info-main-graphic-block {
           display: flex;
@@ -86,21 +88,24 @@
           margin-top: 2px;
           .info-graphic-block-one {
             display: flex;
+            align-items: center;
+
             flex: 1;
-            .info-graphic-block-one__p {
+            .info-graphic-block__p {
               font-size: 12px;
               margin: 0px 0px 0px 4px;
-              color: black;
+              color: #333e49;
             }
           }
 
           .info-graphic-block-two {
             display: flex;
+            align-items: center;
             flex: 1;
             img {
             }
 
-            .info-graphic-block-two__p {
+            .info-graphic-block__p {
               font-size: 12px;
               margin: 0px 0px 0px 4px;
               color: black;

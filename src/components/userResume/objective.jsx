@@ -47,7 +47,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
   //#endregion
   return (
     <div className="objective-block-one">
-      <div className="objective-block-two" style={{}}>
+      <div className="objective-block-two">
         <section style={{ display: "flex" }}>
           <img
             src={objectiveIcon}

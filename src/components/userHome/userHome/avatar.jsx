@@ -48,7 +48,7 @@ const Avatar = ({ user, notification }) => {
         <img src={creditCardImg} alt="" className="credit-card__img" />
         <div className="credit-card__check-wallet" onClick={handleCheckWallet}>
           <span className="credit-card__title">
-            Check Wallet <img src={rightArrowBlackIcon} alt="" />
+            Wallet <img src={rightArrowBlackIcon} alt="" />
           </span>
         </div>
         <div className="credit-card__details">
@@ -57,7 +57,9 @@ const Avatar = ({ user, notification }) => {
             <span>1 2 3 4</span>
           </div>
           <div className="credit-card__holder">Card Holder</div>
-          <div className="credit-card__name">{firstName}</div>
+          <div className="credit-card__name">
+            {firstName} {lastName}
+          </div>
         </div>
         <div className="credit-card__validity">
           <span className="credit-card__validity-span">Validity</span> <br />

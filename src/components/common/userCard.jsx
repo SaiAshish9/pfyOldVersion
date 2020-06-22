@@ -17,7 +17,6 @@ export default function UserCard() {
   return (
     <div className="userProfile-with-profileScore-block">
       <div className="userProfile-block">
-        <EditProfile userData={profileData} />
         <div className="avatar-block">
           <div className="avatar-img-block">
             <img
@@ -26,6 +25,7 @@ export default function UserCard() {
               className="avatar__img"
             ></img>
           </div>
+          <EditProfile userData={profileData} />
         </div>
         <div className="avatar-intro-block">
           <h2 className="avatar-name">
@@ -54,9 +54,9 @@ export default function UserCard() {
             type="circle"
             percent={!!profileData && profileData.profileScore}
             status="active"
-            strokeWidth={15}
+            strokeWidth={14}
             strokeColor="#6dff5d"
-            width={160}
+            width={130}
             className="gig-progressBar"
           />
         </div>
@@ -67,9 +67,9 @@ export default function UserCard() {
             type="circle"
             percent={!!profileData && profileData.profileScore}
             status="active"
-            strokeWidth={15}
+            strokeWidth={14}
             strokeColor="#6dff5d"
-            width={160}
+            width={130}
             className="gig-progressBar"
           />
         </div>

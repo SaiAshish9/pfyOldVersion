@@ -69,11 +69,11 @@ export default function SmallCard({ gigOrInternship, isGigOrInternship }) {
           <div className="info-main-graphic-block">
             <div className="info-graphic-block-one">
               <img src={rupeeIcon} alt="" className="" />
-              <p className="info-graphic-block-one__p">{amount}</p>
+              <p className="info-graphic-block__p">{amount}</p>
             </div>
             <div className="info-graphic-block-two">
               <img src={icon} alt="" className="" />
-              <p className="info-graphic-block-two__p">{durationLength}</p>
+              <p className="info-graphic-block__p">{durationLength}</p>
             </div>
           </div>
         </div>

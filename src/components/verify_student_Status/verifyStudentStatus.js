@@ -15,6 +15,7 @@ function getBase64(img, callback) {
 export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
   const [imageUrl1, setImageUrl1] = useState(null);
   const [imageUrl2, setImageUrl2] = useState(null);
+  const [isNext, setIsNext] = useState(false);
 
   const handleChange = (value) => {
     console.log(`selected ${value}`);
@@ -74,48 +75,65 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
             3. It should be a valid document.
           </p>
         </div>
-        <div className="status-form-upload">
-          <Upload
-            className="document-image1"
-            name="document"
-            listType="picture-card"
-            showUploadList={false}
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            onChange={(info) => ImageUploadHandler(info, "front")}
-          >
-            {imageUrl1 ? (
-              <img src={imageUrl1} alt="avatar" style={{ width: "100%" }} />
-            ) : (
-              <div className="upload-content">
-                <div className="upload-imgBtn-block">
-                  <img src={uploadBtn} alt="" className="upload-imgBtn" />
+        {isNext && (
+          <div className="status-form-upload">
+            <Upload
+              className="document-image1"
+              name="document"
+              listType="picture-card"
+              showUploadList={false}
+              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              onChange={(info) => ImageUploadHandler(info, "front")}
+            >
+              {imageUrl1 ? (
+                <img src={imageUrl1} alt="avatar" style={{ width: "100%" }} />
+              ) : (
+                <div className="upload-content">
+                  <div className="upload-imgBtn-block">
+                    <img src={uploadBtn} alt="" className="upload-imgBtn" />
+                  </div>
+                  <p className="upload-text">
+                    Upload Front Side of The Document
+                  </p>
                 </div>
-                <p className="upload-text">Upload Front Side of The Document</p>
-              </div>
-            )}
-          </Upload>
-          <Upload
-            className="document-image2"
-            name="document"
-            listType="picture-card"
-            showUploadList={false}
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            // beforeUpload={beforeUpload}
-            onChange={(info) => ImageUploadHandler(info, "back")}
-          >
-            {imageUrl2 ? (
-              <img src={imageUrl2} alt="avatar" style={{ width: "100%" }} />
-            ) : (
-              <div className="upload-content">
-                <div className="upload-imgBtn-block">
-                  <img src={uploadBtn} alt="" className="upload-imgBtn" />
+              )}
+            </Upload>
+            <Upload
+              className="document-image2"
+              name="document"
+              listType="picture-card"
+              showUploadList={false}
+              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              // beforeUpload={beforeUpload}
+              onChange={(info) => ImageUploadHandler(info, "back")}
+            >
+              {imageUrl2 ? (
+                <img src={imageUrl2} alt="avatar" style={{ width: "100%" }} />
+              ) : (
+                <div className="upload-content">
+                  <div className="upload-imgBtn-block">
+                    <img src={uploadBtn} alt="" className="upload-imgBtn" />
+                  </div>
+                  <p className="upload-text">
+                    Upload Back Side of The Document
+                  </p>
                 </div>
-                <p className="upload-text">Upload Back Side of The Document</p>
-              </div>
-            )}
-          </Upload>
-        </div>
-        <Button className="status-form-submit">Next</Button>
+              )}
+            </Upload>
+          </div>
+        )}
+        {!isNext ? (
+          <Button
+            className="status-form-submit"
+            onClick={() => {
+              setIsNext(true);
+            }}
+          >
+            Next
+          </Button>
+        ) : (
+          <Button className="status-form-submit">Submit</Button>
+        )}
       </div>
     </Modal>
   );

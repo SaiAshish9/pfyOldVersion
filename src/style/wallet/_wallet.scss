@@ -5,13 +5,12 @@
   min-height: 680px;
   .earning-block {
     width: 64%;
+    margin-left: 24px;
     .earning-inner-block {
       width: 85%;
-      margin: auto;
-      padding: 1rem 0;
+      margin: 60px auto 0;
       // background-color: darkorange;
       .payment-btn-and-earning {
-        margin-top: 2.5rem;
         height: 10rem;
         background-color: #f3f3f3;
         border-radius: 2rem;
@@ -24,39 +23,41 @@
           justify-content: space-evenly;
           width: 100%;
           align-items: center;
-          .add-payment-method-btn {
-            background-color: #4069f1;
-            color: #fff;
-            font-weight: 500;
-            font-size: 1rem;
-            width: 15rem;
-            height: 3.5rem;
-          }
           .redeem-btn {
-            background-color: #6668c4;
-            border: 1px solid #6668c4;
-            color: #fff;
-            font-weight: 500;
-            font-size: 1rem;
             width: 10rem;
             height: 3.5rem;
+            background-color: #444584;
+            border: 1px solid #444584;
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+          }
+          .add-payment-method-btn {
+            width: 15rem;
+            height: 3.5rem;
+            background-color: #4069f1;
+            border: 1px solid #4069f1;
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
           }
         }
       }
     }
     .earning-list-block {
-      padding: 1rem 0;
       width: 85%;
       margin: auto;
       .title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin: 2rem 0 1rem 0;
+        margin: 40px 0px 30px 0px;
+        font-size: 26px;
+        font-weight: 600;
+        color: #333e49;
       }
+
       .list {
         .single-item {
           padding: 1.2rem;
-          margin: 1.2rem 0;
+          margin: 0 0 1.2rem;
           padding: 1rem 1.5rem;
           border-radius: 7px;
           box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
@@ -72,22 +73,28 @@
             .earning-description-title {
               font-size: 1.1rem;
               font-weight: bold;
+              color: #333e49;
             }
             .earning-description-date {
               margin-top: 5px;
               .description-date-string {
                 vertical-align: middle;
                 margin-left: 0.5rem;
+                opacity: 0.5;
+                color: #000000;
               }
             }
             .earning-description-amount {
+              margin: 0;
+              text-align: right;
               font-size: 1.5rem;
-              font-weight: bolder;
+              font-weight: 600;
               color: #5468d1;
             }
             .earning-description-status {
               .description-status-string {
                 vertical-align: middle;
+                margin-left: 6px;
               }
             }
           }
@@ -96,16 +103,15 @@
     }
   }
 
-  div.transaction-block {
+  .transaction-block {
     width: 36%;
     background-color: #f3f3f3;
     min-height: 100vh;
-    div.credit-card-block-wallet {
+    .credit-card-block-wallet {
       position: relative;
       width: fit-content;
-      height: 171px;
       text-align: center;
-      margin: 48px 80px;
+      margin: 50px auto 0;
       img.credit-card__img {
       }
       .credit-card__amount {
@@ -124,15 +130,17 @@
         color: #fff;
         .credit-card__number {
           font-size: 1rem;
+          span {
+            font-size: 13px;
+          }
         }
         .credit-card__holder {
           font-size: 9px;
-          padding-right: 3rem;
+          line-height: 1.8;
         }
         .credit-card__name {
           font-size: 1rem;
           font-weight: 500;
-          padding-right: 1rem;
         }
       }
       .credit-card__validity {
@@ -157,14 +165,31 @@
     }
   }
 
-  div.transaction-inner-block {
+  .transaction-inner-block {
     display: flex;
     flex-direction: column;
-    width: fit-content;
-    margin: auto;
-    h1.transaction__h1 {
-      margin: 52px 0px 1.2rem 0px;
-      line-height: 1;
+    margin: 0 40px 0 60px;
+    .transaction__h1 {
+      margin: 40px 0px 30px 0px;
+      font-size: 26px;
+      font-weight: 600;
+      color: #333e49;
+    }
+    .no-transaction-block {
+      display: flex;
+      align-self: center;
+      align-items: center;
+      margin-top: 2rem;
+      .anticon {
+        font-size: 3.5rem;
+        margin-right: 1rem;
+      }
+      .no-transaction-text {
+        opacity: 0.7;
+        font-family: Inter;
+        font-size: 24px;
+        color: #000000;
+      }
     }
 
     div.transaction-content-block {

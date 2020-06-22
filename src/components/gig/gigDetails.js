@@ -24,7 +24,7 @@ export default function GigDetail(props) {
   //#region
   const [gig, setGig] = useState();
   const [modalVisible, setModalVisible] = useState(false);
-  const [isApply, setIsApply] = useState(false);
+  const [isApply, setIsApply] = useState(true);
   const [isShortlisted, setIsShortlisted] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [isRejected, setIsRejected] = useState(false);
@@ -96,6 +96,7 @@ export default function GigDetail(props) {
           } else {
             console.log("gig details", res.data.questions);
             setGig(res.data);
+            setIsApply(false);
             setCompanyQuestion(res.data.questions);
           }
         })
@@ -293,16 +294,18 @@ export default function GigDetail(props) {
                   ))}
               </div>
             </div>
-            <div className="apply-block">
-              <Button
-                type="primary"
-                disabled={!notApplied}
-                onClick={handleApply}
-                className="apply-button-block"
-              >
-                {notApplied ? "Apply Now" : "Applied"}
-              </Button>
-            </div>
+            {notApplied && (
+              <div className="apply-block">
+                <Button
+                  type="primary"
+                  disabled={!notApplied}
+                  onClick={handleApply}
+                  className="apply-button-block"
+                >
+                  Apply Now
+                </Button>
+              </div>
+            )}
           </TabPane>
           <TabPane tab={`About The Company`} key="2">
             <div className="gig-provider-block-One">
@@ -318,12 +321,11 @@ export default function GigDetail(props) {
             </div>
 
             <div className="gig-provider-detail-block">
-              <div>
+              <div className="gig-provider">
                 <h2 className="gig-provider-head">About {gigProvider}</h2>
                 <p className="gig-provider-para">{aboutGigProvider}</p>
               </div>
-              <br />
-              <div className="">
+              <div className="gig-provider">
                 <h2 className="gig-provider-head">{gigProvider} Website</h2>
                 <p className="gig-provider-para">{companyWebsite}</p>
               </div>
@@ -349,63 +351,3 @@ export default function GigDetail(props) {
     </div>
   );
 }
-
-// {
-//   isApply && (
-//     <div className="update-message-block">
-//       <img className="update-message-block__icon" alt="" src={timeIcon}></img>
-//       <span className="update-message-block__span">
-//         You've applied to this Gig
-//       </span>
-//     </div>
-//   );
-// }
-// {
-//   isShortlisted && (
-//     <div className="update-message-block">
-//       <img className="update-message-block__icon" alt="" src={timeIcon}></img>
-//       <span className="update-message-block__span">
-//         You are shortlisted for this Gig
-//       </span>
-//     </div>
-//   );
-// }
-// {
-//   isSelected && (
-//     <div className="update-message-block">
-//       <img className="update-message-block__icon" alt="" src={timeIcon}></img>
-//       <span className="update-message-block__span">
-//         You are selected for this Gig
-//       </span>
-//     </div>
-//   );
-// }
-// {
-//   isRejected && (
-//     <div className="update-message-block">
-//       <img className="update-message-block__icon" alt="" src={timeIcon}></img>
-//       <span className="update-message-block__span">You've been rejected</span>
-//       <span className="update-message-block__span link">learn more</span>
-//     </div>
-//   );
-// }
-// {
-//   isCompleted && (
-//     <div className="update-message-block">
-//       <img className="update-message-block__icon" alt="" src={timeIcon}></img>
-//       <span className="update-message-block__span">
-//         Congratulations! you've successfully complete this Gig
-//       </span>
-//     </div>
-//   );
-// }
-// {
-//   isFailed && (
-//     <div className="update-message-block">
-//       <img alt="" src={timeIcon}></img>
-//       <span className="update-message-block__span">
-//         Sorry! your gig has been failed
-//       </span>
-//     </div>
-//   );
-// }

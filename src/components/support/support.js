@@ -94,7 +94,11 @@ export default function Support(props) {
 
   const selectHandler = (val) => {
     console.log(val);
-    setSelectedComp("faq");
+    if (val === "other") {
+      setSelectedComp("queryFrom");
+    } else {
+      setSelectedComp("faq");
+    }
     getFAQ(val);
   };
 

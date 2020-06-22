@@ -49,7 +49,7 @@ export default function Profession() {
         <div className="icon-heading">
           <img className="skill-of-avatar-img" src={four} alt=""></img>
           <div className="skill-of-avatar-content">
-            <h2>Professions</h2>
+            <h2>Profession</h2>
             {arrayValidation(skills1) && (
               <div className="skill-list">
                 {skills1.map((el, i) => (
