@@ -1,24 +1,22 @@
 import { DeleteOutlined } from "@ant-design/icons";
-import { Button, Modal, Tooltip } from "antd";
+import { Button, Modal } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../constant/tokenHeader";
+import DataLayout from "../common/profileOrResumeLayout";
 import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
-import team from "./img/headingImg/achievementIcon.svg";
-
-
+import achievementIcon from "./img/headingImg/achievementIcon.svg";
 const Achievement = ({ achievement, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [achievementData, setAchievementData] = useState(false);
 
-  const { register, handleSubmit, watch, errors, setValue } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   console.log(achievementData);
-  // console.log(watch("achievement"));
   const onSubmit = (data) => {
     const index = achievementData && achievement.indexOf(achievementData);
     const myData = achievementData ? { ...data, index } : data;
@@ -62,48 +60,49 @@ const Achievement = ({ achievement, updateResume }) => {
     setIsModalVisible(false);
   };
 
-  return (
-    <div className="achievement-block-one">
-      <div className="achievement-block-two" style={{}}>
-        <section style={{ display: "flex" }}>
-          <img src={team} alt="" className="achievement-block-two-icon"></img>
-          <div className="achievement-block-heading-content">
-            <h2 className="achievement-block-two-heading">Achievements</h2>
-            {arrayValidation(achievement) &&
-              achievement.map((myAchievement, index) => (
-                <div key={index} className="achievement-content-block">
-                  <section className="achievement-content-sec-one">
-                    <p className="achievement-content-sec-one__p">
-                      {myAchievement}
-                    </p>
-                  </section>
-                  <section className="achievement-edit-delete-icon ">
-                    <Tooltip title="edit">
-                      <img
-                        src={editIcon}
-                        alt=""
-                        onClick={() => handleEdit(myAchievement)}
-                        style={{ marginRight: "32px" }}
-                      />
-                    </Tooltip>
-                    <Tooltip title="delete">
-                      <DeleteOutlined onClick={() => handleDelete(index)} />
-                    </Tooltip>
-                  </section>
-                </div>
-              ))}
+  const content = (
+    <div className="all-user-data-content">
+      {arrayValidation(achievement) &&
+        achievement.map((myAchievement, index) => (
+          <div key={index} className="user-data-content-main-block">
+            <div className="user-data-content-block">
+              <p className="user-data-para" id="user-data-last-el">
+                {myAchievement}
+              </p>
+            </div>
+            <div className="user-data-content-icon-block">
+              <img
+                src={editIcon}
+                alt=""
+                onClick={() => handleEdit(myAchievement)}
+                className="user-data-content-icon"
+              />
+              <DeleteOutlined
+                onClick={() => handleDelete(index)}
+                className="user-data-content-icon"
+              />
+            </div>
           </div>
-        </section>
+        ))}
+    </div>
+  );
 
-        <Tooltip title="add">
+  return (
+    <>
+      <DataLayout
+        img={<img src={achievementIcon} alt="" className="user-data-img" />}
+        head="Achievements"
+        icon={
           <img
             src={addIcon}
             alt=""
             onClick={handleAdd}
-            className="achievement-block-one-button"
+            className="user-data-icon"
           />
-        </Tooltip>
-      </div>
+        }
+        content={content}
+        isData={arrayValidation(achievement)}
+      />
 
       <Modal
         title="Add Achievement"
@@ -134,7 +133,7 @@ const Achievement = ({ achievement, updateResume }) => {
           </Button>
         </form>
       </Modal>
-    </div>
+    </>
   );
 };
 

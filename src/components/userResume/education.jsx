@@ -10,6 +10,7 @@ import { objectValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import educationIcon from "./img/headingImg/educationIcon.svg";
+import DataLayout from "../common/profileOrResumeLayout";
 
 export default function Education({ education, updateResume }) {
   //#region
@@ -55,7 +56,7 @@ export default function Education({ education, updateResume }) {
     setIsModalVisible(false);
   };
 
-  const handleAddEducation = () => {
+  const handleAdd = () => {
     setCurrentlyStudying(false);
     reset({
       educationType: { typeNo: "" },
@@ -80,6 +81,7 @@ export default function Education({ education, updateResume }) {
     });
     setIsModalVisible(true);
   };
+
   const handleDelete = (educationData) => {};
 
   const printEducation = (educationData) => {
@@ -94,91 +96,70 @@ export default function Education({ education, updateResume }) {
         ? "Class 12th"
         : false;
     //#endregion
-
     return (
-      <div className="education-content-block">
-        <section className="education-content-sec-one">
-          <h1 className="education-content-sec-one__h1">
+      <div className="user-data-content-main-block">
+        <div className="user-data-content-block">
+          <h1 className="user-data-h1">
             {!!educationStandard && educationStandard}
           </h1>
-          <h2 className="education-content-sec-one__h2">
-            {educationData.instituteName}
-          </h2>
-          <h4 className="education-content-sec-one__h4">
-            {educationData.course}
-          </h4>
-          <div className="education-content-sec-one-block-one">
-            <h4 className="education-content-sec-one-block-one__h4-one">
-              {educationData.marks.val}
-            </h4>
+          <h2 className="user-data-h2">{educationData.instituteName}</h2>
+          <h4 className="user-data-h2">{educationData.course}</h4>
+          <div className="">
+            <span className="user-data-h2">{educationData.marks.val}</span>
+            <span className="user-data-h2"> {educationData.marks.type}</span>
+          </div>
+          <div className="" id="user-data-last-el">
+            <span className="user-data-h2">{educationData.startYear}</span>
+            <span className="user-data-h2"> - {educationData.endYear}</span>
+          </div>
+        </div>
 
-            <h4 className="education-content-sec-one-block-one__h4-two">
-              {educationData.marks.type}
-            </h4>
-          </div>
-          <div className="education-content-sec-one-block-two">
-            <h5 className="education-content-sec-one-block-two__h5-one">
-              {educationData.startYear}-
-            </h5>
-            <h5 className="education-content-sec-one-block-two__h5-two">
-              {educationData.endYear}
-            </h5>
-          </div>
-        </section>
-        <section className="education-edit-delete-icon">
-          <Tooltip title="edit">
-            <img
-              src={editIcon}
-              alt=""
-              className=""
-              onClick={() => handleEdit(educationData)}
-            />
-          </Tooltip>
-          {/* <Tooltip title="delete">
-            <DeleteOutlined onClick={() => handleDelete(educationData._id)} />
-          </Tooltip> */}
-        </section>
+        <div className="user-data-content-icon-block">
+          <img
+            src={editIcon}
+            alt=""
+            className="user-data-content-icon"
+            onClick={() => handleEdit(educationData)}
+          />
+          {/* <DeleteOutlined
+              onClick={() => handleDelete(index)}
+              className="user-data-content-icon"
+            /> */}
+        </div>
       </div>
     );
   };
 
+  const content = (
+    <div className="all-user-data-content">
+      {objectValidation(education) && (
+        <>
+          {objectValidation(education.tenth) && printEducation(education.tenth)}
+          {objectValidation(education.twelfth) &&
+            printEducation(education.twelfth)}
+          {objectValidation(education.UG) && printEducation(education.UG)}
+          {objectValidation(education.PG) && printEducation(education.PG)}
+        </>
+      )}
+    </div>
+  );
   //! ---------------------------------- test ---------------------------------- */
-
   return (
-    <div className="education-block-one">
-      <div className="education-block-two">
-        <section style={{ display: "flex" }}>
+    <>
+      <DataLayout
+        img={<img src={educationIcon} alt="" className="user-data-img" />}
+        head="Education"
+        icon={
           <img
-            src={educationIcon}
+            src={addIcon}
             alt=""
-            className="education-block-two-icon"
-          ></img>
-          <div className="education-block-heading-content">
-            <h2 className="education-block-two-heading">Education</h2>
-            {objectValidation(education) && (
-              <div className="education-content-block-three">
-                {objectValidation(education.tenth) &&
-                  printEducation(education.tenth)}
-                {objectValidation(education.twelfth) &&
-                  printEducation(education.twelfth)}
-                {objectValidation(education.UG) && printEducation(education.UG)}
-                {objectValidation(education.PG) && printEducation(education.PG)}
-              </div>
-            )}
-          </div>
-        </section>
-        <section className="education-block-one-button">
-          <Tooltip title="add">
-            <img
-              src={addIcon}
-              alt=""
-              onClick={handleAddEducation}
-              className=""
-            />
-          </Tooltip>
-        </section>
-      </div>
-
+            onClick={handleAdd}
+            className="user-data-icon"
+          />
+        }
+        content={content}
+        isData={objectValidation(education)}
+      />
       <Modal
         title="Add Qualification"
         visible={isModalVisible}
@@ -309,6 +290,6 @@ export default function Education({ education, updateResume }) {
           </Button>
         </form>
       </Modal>
-    </div>
+    </>
   );
 }

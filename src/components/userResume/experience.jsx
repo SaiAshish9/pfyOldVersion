@@ -8,6 +8,7 @@ import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import experienceIcon from "./img/headingImg/experienceIcon.svg";
+import DataLayout from "../common/profileOrResumeLayout";
 
 const month = [
   "Jan",
@@ -57,12 +58,12 @@ const Experience = ({ workExperience, updateResume }) => {
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
+        setIsModalVisible(false);
       })
       .catch((e) => {
         console.log(e.response);
       });
     setExperienceData(false);
-    setIsModalVisible(false);
     setIsWorkHome(false);
     setIsCurrently(false);
   };
@@ -129,77 +130,61 @@ const Experience = ({ workExperience, updateResume }) => {
   };
   //#endregion
 
-  return (
-    <div className="experience-block-one">
-      <div className="experience-block-two" style={{}}>
-        <section style={{ display: "flex" }}>
-          <img
-            src={experienceIcon}
-            alt=""
-            className="experience-block-two-icon"
-          ></img>
-          <div className="experience-block-heading-content">
-            <h2 className="experience-block-two-heading">Work Experience</h2>
-            {arrayValidation(workExperience) &&
-              workExperience.map((myExp, index) => (
-                <div key={index} className="experience-content-block">
-                  <section className="experience-content-sec-one ">
-                    <h1 className="experience-content-sec-one__h1 ">
-                      {myExp.organisation}
-                    </h1>
-                    <h2 className="experience-content-sec-one__h2 ">
-                      {myExp.designation}
-                    </h2>
-                    <p className="experience-content-sec-one__p ">
-                      {myExp.description}
-                    </p>
-                    <h4 className="experience-content-sec-one__h4 ">
-                      {myExp.location}
-                    </h4>
-                    <div className="experience-content-sec-one-block-one ">
-                      <h5 className="experience-content-sec-one-block-one__h5-one ">
-                        {myExp.start.month}
-                      </h5>
-                      <h5 className="experience-content-sec-one-block-one__h5-two ">
-                        {myExp.start.year}
-                      </h5>
-                      <h5 className="experience-content-sec-one-block-one__h5-three ">
-                        {(!!myExp.end && myExp.end.month) || "Present"}
-                      </h5>
-                      <h5 className="experience-content-sec-one-block-one__h5-four ">
-                        {!!myExp.end && myExp.end.year}
-                      </h5>
-                    </div>
-                  </section>
-                  <section className="experience-edit-delete-icon">
-                    <Tooltip title="edit">
-                      <img
-                        src={editIcon}
-                        onClick={() => handleEdit(myExp)}
-                        style={{ marginRight: "32px" }}
-                        alt=""
-                        className=""
-                      />
-                    </Tooltip>
-                    <Tooltip title="delete">
-                      <DeleteOutlined onClick={() => handleDelete(myExp._id)} />
-                    </Tooltip>
-                  </section>
-                </div>
-              ))}
+  const content = (
+    <div className="all-user-data-content">
+      {arrayValidation(workExperience) &&
+        workExperience.map((myExp, index) => (
+          <div key={index} className="user-data-content-main-block">
+            <div className="user-data-content-block">
+              <h1 className="user-data-h1">{myExp.organisation}</h1>
+              <h2 className="user-data-h2">{myExp.designation}</h2>
+              <p className="user-data-h2">{myExp.description}</p>
+              <h4 className="user-data-h2">{myExp.location}</h4>
+              <div className="user-data-last-el">
+                <span className="user-data-h2">{myExp.start.month}</span>
+                <span className="user-data-h2"> {myExp.start.year}</span>
+                <span className="user-data-h2">
+                  {" "}
+                  - {(!!myExp.end && myExp.end.month) || "Present"}
+                </span>
+                {!!myExp.end && (
+                  <span className="user-data-h2"> {myExp.end.year}</span>
+                )}
+              </div>
+            </div>
+            <div className="user-data-content-icon-block">
+              <img
+                src={editIcon}
+                alt=""
+                onClick={() => handleEdit(myExp)}
+                className="user-data-content-icon"
+              />
+              <DeleteOutlined
+                onClick={() => handleDelete(myExp._id)}
+                className="user-data-content-icon"
+              />
+            </div>
           </div>
-        </section>
+        ))}
+    </div>
+  );
 
-        <Tooltip title="add">
+  return (
+    <>
+      <DataLayout
+        img={<img src={experienceIcon} alt="" className="user-data-img" />}
+        head="Work Experience"
+        icon={
           <img
             src={addIcon}
             alt=""
             onClick={handleAdd}
-            className="experience-block-one-button"
+            className="user-data-icon"
           />
-        </Tooltip>
-      </div>
-
+        }
+        content={content}
+        isData={arrayValidation(workExperience)}
+      />
       <Modal
         title="Add Experience"
         visible={isModalVisible}
@@ -338,7 +323,7 @@ const Experience = ({ workExperience, updateResume }) => {
           </Button>
         </form>
       </Modal>
-    </div>
+    </>
   );
 };
 

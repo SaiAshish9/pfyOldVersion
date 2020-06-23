@@ -1,18 +1,14 @@
-import React, { Fragment, useState } from "react";
-import { Button, message, Icon } from "antd";
-import dateIcon from "./images/dateIcon.svg";
-import rupee1 from "./images/rupee1.svg";
-import timeIcon from "./images/timeIcon.svg";
+import { Button, message } from "antd";
+import axios from "axios";
 import moment from "moment";
+import React, { useState } from "react";
+import { tokenHeader } from "../../constant/tokenHeader";
+import calender from "./images/calender.svg";
 import coinIcon from "./images/coin.svg";
 import envelop from "./images/envelop.svg";
 import future from "./images/future.svg";
-import calender from "./images/calender.svg";
+import noEarningIcon from "./images/noEarningIcon.svg";
 import PaymentMethod from "./paymentMethodModal";
-import axios from "axios";
-import noDetails from "./images/noDetails.svg";
-import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { tokenHeader } from "../../constant/tokenHeader";
 
 const codeToText = {
   901: "Not Redeemed",
@@ -53,6 +49,7 @@ export default function Earnings({ data, details, isUpdate }) {
   };
 
   console.log(data);
+
   return (
     <div className="earning-block">
       <PaymentMethod isModalOpen={isShow} isClose={isClose} />
@@ -115,17 +112,13 @@ export default function Earnings({ data, details, isUpdate }) {
               </div>
             ))
           ) : (
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <ExclamationCircleOutlined
-                style={{ fontSize: "3.5rem", marginRight: "1rem" }}
-                type="exclamation-circle"
-              />
-              <div style={{ fontSize: "1.5rem", fontFamily: "CircularStd" }}>
-                Your Wallet Is <br /> Currently Empty
+            <div className="noEarning-block">
+              <div className="noEarning-img-block">
+                <img src={noEarningIcon} alt="" className="noEarning-img" />
               </div>
-              <div className="" style={{ marginLeft: "98px" }}>
-                <img src={noDetails} alt="" />
-              </div>
+              <h1 className="noEarning-msg">
+                Your wallet is empty right now. Perform a gig to earn money.
+              </h1>
             </div>
           )}
         </div>

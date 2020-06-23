@@ -1,7 +1,8 @@
 import { Button, Modal } from "antd";
 import React, { useState } from "react";
-import four from "./img/(4).svg";
+import professionIcon from "./img/professionIcon.svg";
 import addIcon from "./img/addIcon.svg";
+import editIcon from "./img/editIconBlue.svg";
 import businessIcon from "./img/professionIcon/businessIcon.svg";
 import employeeIcon from "./img/professionIcon/employeeIcon.svg";
 import freeLancerIcon from "./img/professionIcon/freeLancerIcon.svg";
@@ -9,6 +10,7 @@ import graduateIcon from "./img/professionIcon/graduateIcon.svg";
 import houseWifeIcon from "./img/professionIcon/houseWifeIcon.svg";
 import studentIcon from "./img/professionIcon/studentIcon.svg";
 import { arrayValidation } from "../../validation/validation";
+import DataLayout from "../../common/profileOrResumeLayout";
 
 const professionImg = [
   { icon: studentIcon, text: "Student" },
@@ -27,9 +29,6 @@ export default function Profession() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  const handleSkillButton = () => {
-    setIsModalVisible(true);
-  };
 
   const [skills1, setSkills1] = useState([]);
   const selectHandler = (val) => {
@@ -43,32 +42,37 @@ export default function Profession() {
       console.log("already there");
     }
   };
-  return (
-    <div className="skill-of-avatar-block">
-      <div className="skill-of-avatar-content-block">
-        <div className="icon-heading">
-          <img className="skill-of-avatar-img" src={four} alt=""></img>
-          <div className="skill-of-avatar-content">
-            <h2>Profession</h2>
-            {arrayValidation(skills1) && (
-              <div className="skill-list">
-                {skills1.map((el, i) => (
-                  <div className="single-skill" key={i}>
-                    {" "}
-                    {el}{" "}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+
+  const content = (
+    <div className="all-user-data-content">
+      {arrayValidation(skills1) && (
+        <div className="user-data-content-msg-block">
+          {skills1.map((skill, i) => (
+            <div className="user-data-content-msg profession"  key={i}>
+              {skill}
+            </div>
+          ))}
         </div>
-        <img
-          src={addIcon}
-          alt=""
-          onClick={handleSkillButton}
-          style={{ alignSelf: "baseline", cursor: "pointer" }}
-        />
-      </div>
+      )}
+    </div>
+  );
+
+  return (
+    <>
+      <DataLayout
+        img={<img src={professionIcon} alt="" className="user-data-img" />}
+        head="Profession"
+        icon={
+          <img
+            src={!arrayValidation(skills1) ? addIcon : editIcon}
+            alt=""
+            onClick={() => setIsModalVisible(true)}
+            className="user-data-icon"
+          />
+        }
+        content={content}
+        isData={arrayValidation(skills1)}
+      />
       <Modal
         width={634}
         title="Add Profession"
@@ -110,6 +114,6 @@ export default function Profession() {
           </Button>
         </div>
       </Modal>
-    </div>
+    </>
   );
 }

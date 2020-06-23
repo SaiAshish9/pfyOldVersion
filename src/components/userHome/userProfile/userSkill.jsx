@@ -27,6 +27,7 @@ import socialMediaIcon from "./img/interestIcon/socialMediaIcon.svg";
 import storeAuditIcon from "./img/interestIcon/storeAuditIcon.svg";
 import videoMaking from "./img/interestIcon/videoMaking.svg";
 import writingIcon from "./img/interestIcon/writingIcon.svg";
+import DataLayout from "../../common/profileOrResumeLayout";
 
 const skillImg = [
   { icon: comedyIcon, text: "comedy" },
@@ -85,32 +86,36 @@ const UserSkill = () => {
     }
   };
 
-  return (
-    <div className="skill-of-avatar-block">
-      <div className="skill-of-avatar-content-block">
-        <div className="icon-heading">
-          <img className="skill-of-avatar-img" src={four} alt=""></img>
-          <div className="skill-of-avatar-content">
-            <h2>Skills</h2>
-            {arrayValidation(skillsData) && (
-              <div className="skill-list">
-                {skillsData.map((el, i) => (
-                  <div className="single-skill" key={i}>
-                    {" "}
-                    {el}{" "}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+  const content = (
+    <div className="all-user-data-content">
+      {arrayValidation(skillsData) && (
+        <div className="user-data-content-msg-block">
+          {skillsData.map((skill, i) => (
+            <div className="user-data-content-msg" key={i}>
+              {" "}
+              {skill}
+            </div>
+          ))}
         </div>
-        <img
-          src={skillsData && skillsData.length > 0 ? editIcon : addIcon}
-          alt=""
-          onClick={handleSkillButton}
-          style={{ alignSelf: "baseline", cursor: "pointer" }}
-        />
-      </div>
+      )}
+    </div>
+  );
+  return (
+    <>
+      <DataLayout
+        img={<img src={four} alt="" className="user-data-img" />}
+        head="Skills"
+        icon={
+          <img
+            src={!arrayValidation(skillsData) ? addIcon : editIcon}
+            alt=""
+            onClick={() => setIsModalVisible(true)}
+            className="user-data-icon"
+          />
+        }
+        content={content}
+        isData={arrayValidation(skillsData)}
+      />
 
       <Modal
         width={780}
@@ -129,8 +134,8 @@ const UserSkill = () => {
               style={{
                 border:
                   skills1 && skills1.includes(image.text)
-                  ? "2px solid #444584"
-                  : "2px solid #ccc"
+                    ? "2px solid #444584"
+                    : "2px solid #ccc",
                 // backgroundColor:
                 //   skills1 && skills1.includes(image.text) ? "#5468d1" : "#fff",
                 // color:
@@ -153,7 +158,7 @@ const UserSkill = () => {
           </Button>
         </div>
       </Modal>
-    </div>
+    </>
   );
 };
 

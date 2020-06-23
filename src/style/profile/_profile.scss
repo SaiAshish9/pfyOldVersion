@@ -96,7 +96,7 @@
   .heading-1,
   .heading-2,
   .heading-3 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 1.36;
     color: #333e49;
@@ -140,11 +140,20 @@
     margin: 1rem;
     justify-content: space-around;
     .single-vehicle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       width: 8rem;
       padding: 1rem;
-      // align-self: flex-end;
       box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
       border-radius: 8px;
+      .vehicle-name {
+        line-height: 1;
+        margin-top: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #333e49;
+      }
     }
   }
   .add-location-btn {

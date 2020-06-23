@@ -1,5 +1,5 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { Modal, Popover, Rate, Tooltip, Button } from "antd";
+import { Button, Modal, Popover, Rate, Tooltip } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
@@ -16,6 +16,7 @@ import legalIcon from "./img/skillImg/legalIcon.svg";
 import marketingIcon from "./img/skillImg/marketingIcon.svg";
 import otherIcon from "./img/skillImg/otherIcon.svg";
 import technicalIcon from "./img/skillImg/technicalIcon.svg";
+import DataLayout from "../common/profileOrResumeLayout";
 
 const proficiencyRate = [
   "Beginner",
@@ -94,19 +95,12 @@ export default function Skill({ skill }) {
   const [allSkillData, setAllSkillData] = useState([]);
 
   const handleSkillRate = (value) => {
-    console.log("skillss skillRate", value);
     const withRating = { ...beforeRate, rating: value };
     setSkillDummy([...skillDummy, withRating]);
     setAllSkillData([...allSkillData, withRating]);
   };
 
   //! ---------------------------------- test ---------------------------------- */
-
-  useEffect(() => {
-    console.log("skillDummy", skillDummy);
-    console.log("skillss", allSkillData);
-    console.log("beforeRate", beforeRate);
-  }, [allSkillData, beforeRate, skillDummy]);
 
   const skillImage = (category) => {
     switch (category) {
@@ -195,7 +189,6 @@ export default function Skill({ skill }) {
 
   const popoverContent = (skillName) => {
     const matchSkillName = selectedSkillCategory(skillName);
-
     return (
       <div style={{ display: "flex" }}>
         <Rate
@@ -259,73 +252,64 @@ export default function Skill({ skill }) {
     };
   };
 
-  return (
+  const content = (
     <div
-      className="skill-block-one"
+      className="all-user-data-content"
       onClick={isEditSkill ? () => handleEditSkill(false) : undefined}
     >
-      <div className="skill-block-two">
-        <section style={{ display: "flex" }}>
-          <img
-            src={skillIcon}
-            alt=""
-            className=" skill-category-content__img"
-          ></img>
-          <h2 className="skill-block-two-heading">Skills</h2>
-        </section>
-        <Tooltip title="add">
+      {arrayValidation(skillDummy) &&
+        skillDummy.map((skill, index) => (
+          <div key={index} className="user-data-content-main-block">
+            <div className="user-data-content-block">
+              <div
+                onClick={() => handleEditSkill(true)}
+                className="skill-data-block"
+              >
+                <p className="skill-data__p">{skill.name}</p>
+                {console.log("skill.rating", skill.rating)}
+                <Rate
+                  disabled
+                  value={skill.rating}
+                  className="skill-data__rating"
+                />
+                <div style={editDisplay()} className="skill-edit-data__rating">
+                  <Rate
+                    tooltips={proficiencyRate}
+                    defaultValue={skill.rating}
+                    onChange={(value) => onSkillRateChange(skill.name, value)}
+                  />
+                  <Tooltip title="remove">
+                    <img
+                      src={cancelIcon}
+                      alt=""
+                      onClick={() => handleDelete(skill.name)}
+                      className="cancel__icon"
+                    />
+                  </Tooltip>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+    </div>
+  );
+
+  return (
+    <>
+      <DataLayout
+        img={<img src={skillIcon} alt="" className="user-data-img" />}
+        head="Skills"
+        icon={
           <img
             src={addIcon}
             alt=""
             onClick={handleAdd}
-            className="skill-block-one-button"
+            className="user-data-icon"
           />
-        </Tooltip>
-      </div>
-      <div className="skill-data-main-block">
-        {arrayValidation(skillDummy) &&
-          skillDummy.map((skill, index) => (
-            <div
-              key={index}
-              style={{ display: "flex" }}
-              className="skill-data-icon-block"
-            >
-              <div className="skill-data-align-block">
-                <div
-                  onClick={() => handleEditSkill(true)}
-                  className="skill-data-block"
-                >
-                  <p className="skill-data__p">{skill.name}</p>
-                  {console.log("skill.rating", skill.rating)}
-                  <Rate
-                    // tooltips={proficiencyRate}
-                    disabled
-                    value={skill.rating}
-                    className="skill-data__rating"
-                  />
-                  <div
-                    style={editDisplay()}
-                    className="skill-edit-data__rating"
-                  >
-                    <Rate
-                      tooltips={proficiencyRate}
-                      defaultValue={skill.rating}
-                      onChange={(value) => onSkillRateChange(skill.name, value)}
-                    />
-                    <Tooltip title="remove">
-                      <img
-                        src={cancelIcon}
-                        alt=""
-                        onClick={() => handleDelete(skill.name)}
-                        className="cancel__icon"
-                      />
-                    </Tooltip>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-      </div>
+        }
+        content={content}
+        isData={arrayValidation(skillDummy)}
+      />
       <Modal
         width={600}
         title="Add Skills"
@@ -393,12 +377,6 @@ export default function Skill({ skill }) {
                           className="delete-icon"
                           onClick={() => handleDelete(thisSkillData.name)}
                         />
-
-                        // <Icon
-                        //   type="delete"
-                        //   className="delete-icon"
-                        //   onClick={() => handleDelete(thisSkillData.name)}
-                        // ></Icon>
                       )}
                     </div>
                   ))}
@@ -415,6 +393,6 @@ export default function Skill({ skill }) {
           )}
         </div>
       </Modal>
-    </div>
+    </>
   );
 }

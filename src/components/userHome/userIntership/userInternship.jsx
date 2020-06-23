@@ -66,7 +66,7 @@ const UserInternship = () => {
   return (
     <div className="userStatus-main-block">
       <div className="userStatus-content-block">
-        <h1 className="userStatus-head">Internship</h1>
+        <h1 className="userStatus-head">My Internships</h1>
         <div className="userStatus-card-main-block">
           {userApplied && userApplied}
           {userShortlisted && userShortlisted}

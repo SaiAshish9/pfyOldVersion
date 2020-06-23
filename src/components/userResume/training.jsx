@@ -4,10 +4,12 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../validation/validation";
+import DataLayout from "../common/profileOrResumeLayout";
+
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined } from "@ant-design/icons";
 
 import trainingIcon from "./img/headingImg/experienceIcon.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
@@ -65,58 +67,50 @@ const Training = ({ training, updateResume }) => {
       });
   };
 
-  return (
-    <div className="training-block-one">
-      <div className="training-block-two" style={{}}>
-        <section style={{ display: "flex" }}>
-          <img
-            src={trainingIcon}
-            alt=""
-            className="training-block-two-icon"
-          ></img>
-          <div className="training-block-heading-content">
-            <h2 className="training-block-two-heading">Trainings</h2>
-            {arrayValidation(training) &&
-              training.map((myTraining, index) => (
-                <div key={index} className="training-content-block">
-                  <section className="training-content-sec-one">
-                    <h1 className="training-content-sec-one__h1">
-                      {myTraining.title}
-                    </h1>
-                    <p className="training-content-sec-one__p">
-                      {myTraining.description}
-                    </p>
-                  </section>
-                  <section className="training-edit-delete-icon">
-                    <Tooltip title="edit">
-                      <img
-                        src={editIcon}
-                        onClick={() => handleEdit(myTraining)}
-                        style={{ marginRight: "32px" }}
-                        alt=""
-                        className=""
-                      />
-                    </Tooltip>
-                    <Tooltip title="delete">
-                      <DeleteOutlined
-                        onClick={() => handleDelete(myTraining._id)}
-                      />
-                    </Tooltip>
-                  </section>
-                </div>
-              ))}
+  const content = (
+    <div className="all-user-data-content">
+      {arrayValidation(training) &&
+        training.map((myTraining, index) => (
+          <div key={index} className="user-data-content-main-block">
+            <div className="user-data-content-block">
+              <h1 className="user-data-h1">{myTraining.title}</h1>
+              <p className="user-data-h2" id="last-el">
+                {myTraining.description}
+              </p>
+            </div>
+            <div className="user-data-content-icon-block">
+              <img
+                src={editIcon}
+                onClick={() => handleEdit(myTraining)}
+                alt=""
+                className="user-data-content-icon"
+              />
+              <DeleteOutlined
+                onClick={() => handleDelete(myTraining._id)}
+                className="user-data-content-icon"
+              />
+            </div>
           </div>
-        </section>
+        ))}
+    </div>
+  );
 
-        <Tooltip title="add">
+  return (
+    <>
+      <DataLayout
+        img={<img src={trainingIcon} alt="" className="user-data-img" />}
+        head="Trainings"
+        icon={
           <img
             src={addIcon}
             alt=""
             onClick={handleAdd}
-            className="training-block-one-button"
+            className="user-data-icon"
           />
-        </Tooltip>
-      </div>
+        }
+        content={content}
+        isData={arrayValidation(training)}
+      />
 
       <Modal
         title="Add Training"
@@ -127,7 +121,7 @@ const Training = ({ training, updateResume }) => {
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="training-modal__form "
+          className="training-modal__form"
         >
           <section className="training-modal-sec-one ">
             <h2 className="training-modal-sec-one__head ">Title</h2>
@@ -154,7 +148,7 @@ const Training = ({ training, updateResume }) => {
           </Button>
         </form>
       </Modal>
-    </div>
+    </>
   );
 };
 

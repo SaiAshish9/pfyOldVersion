@@ -1,10 +1,11 @@
 import { DeleteOutlined } from "@ant-design/icons";
-import { Button, Modal, Tooltip } from "antd";
+import { Button, Modal } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../constant/tokenHeader";
+import DataLayout from "../common/profileOrResumeLayout";
 import { arrayValidation } from "../validation/validation.js";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
@@ -14,17 +15,8 @@ const Position = ({ position, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [positionData, setPositionData] = useState(false);
 
-  const { register, handleSubmit, errors, watch, control, setValue } = useForm({
-    mode: "onChange",
-    defaultValues: {
-      // position: positionData.position,
-      // description: positionData.description
-    },
-  });
-  console.log(position);
+  const { register, handleSubmit, errors, setValue } = useForm({});
   //! ---------------------------------- test ---------------------------------- */
-  console.log(watch("position"));
-  console.log(watch("description"));
 
   const onSubmit = (data) => {
     console.log(data);
@@ -51,6 +43,7 @@ const Position = ({ position, updateResume }) => {
     setIsModalVisible(false);
     setPositionData(false);
   };
+
   const handleAdd = () => {
     setIsModalVisible(true);
   };
@@ -74,60 +67,50 @@ const Position = ({ position, updateResume }) => {
       });
   };
 
-  return (
-    <div className="position-block-one">
-      <div className="position-block-two" style={{}}>
-        <section style={{ display: "flex" }}>
-          <img
-            src={positionIcon}
-            alt=""
-            className="position-block-two-icon"
-          ></img>
-          <div className="position-block-heading-content">
-            <h2 className="position-block-two-heading">
-              Positions of Responsibilities
-            </h2>
-            {arrayValidation(position) &&
-              position.map((thisPosition, index) => (
-                <div key={index} className="position-content-block">
-                  <section className="position-content-sec-one">
-                    <h1 className="position-content-sec-one__h1">
-                      {thisPosition.position}
-                    </h1>
-                    <p className="position-content-sec-one__p">
-                      {thisPosition.description}
-                    </p>
-                  </section>
-
-                  <section className="position-edit-delete-icon">
-                    <Tooltip title="edit">
-                      <img
-                        src={editIcon}
-                        onClick={() => handleEdit(thisPosition)}
-                        style={{ marginRight: "32px" }}
-                        alt=""
-                        className=""
-                      />
-                    </Tooltip>
-                    <Tooltip title="delete">
-                      <DeleteOutlined
-                        onClick={() => handleDelete(thisPosition._id)}
-                      />
-                    </Tooltip>
-                  </section>
-                </div>
-              ))}
+  const content = (
+    <div className="all-user-data-content">
+      {arrayValidation(position) &&
+        position.map((thisPosition, index) => (
+          <div key={index} className="user-data-content-main-block">
+            <div className="user-data-content-block">
+              <h1 className="user-data-h1">{thisPosition.position}</h1>
+              <p className="user-data-h2" id="user-data-last-el">
+                {thisPosition.description}
+              </p>
+            </div>
+            <div className="user-data-content-icon-block">
+              <img
+                src={editIcon}
+                onClick={() => handleEdit(thisPosition)}
+                alt=""
+                className="user-data-content-icon"
+              />
+              <DeleteOutlined
+                onClick={() => handleDelete(thisPosition._id)}
+                className="user-data-content-icon"
+              />
+            </div>
           </div>
-        </section>
-        <Tooltip title="add">
+        ))}
+    </div>
+  );
+
+  return (
+    <>
+      <DataLayout
+        img={<img src={positionIcon} alt="" className="user-data-img" />}
+        head="Positions of Responsibilities"
+        icon={
           <img
             src={addIcon}
             alt=""
             onClick={handleAdd}
-            className="position-block-one-button"
+            className="user-data-icon"
           />
-        </Tooltip>
-      </div>
+        }
+        content={content}
+        isData={arrayValidation(position)}
+      />
 
       <Modal
         title="Add Position"
@@ -139,7 +122,7 @@ const Position = ({ position, updateResume }) => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           style={{ display: "flex", flexDirection: "column" }}
-          className="position-modal__form "
+          className="position-modal__form"
         >
           <section className="position-modal-sec-one ">
             <h2 className="position-modal-sec-one__head ">Position</h2>
@@ -157,7 +140,6 @@ const Position = ({ position, updateResume }) => {
               name="description"
               ref={register}
               defaultValue={positionData.description}
-              // value={positionData.description}
               className="position-modal-sec-two__textarea "
             />
           </section>
@@ -170,7 +152,7 @@ const Position = ({ position, updateResume }) => {
           </Button>
         </form>
       </Modal>
-    </div>
+    </>
   );
 };
 

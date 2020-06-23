@@ -64,6 +64,10 @@ export default function InternshipDetail(props) {
   const skillRequired = myInternship && myInternship.skillsRequired;
   const benefit = myInternship && myInternship.benefits;
   const otherRequirement = myInternship && myInternship.otherRequirements;
+  const appliedStatus = myInternship && myInternship.appliedStatus;
+
+  console.log("appliedStatus", appliedStatus);
+
   //#endregion
 
   useEffect(() => {
@@ -184,7 +188,7 @@ export default function InternshipDetail(props) {
                     </span>
                   </>
                 )}
-                {isApply && (
+                {appliedStatus === 300 && (
                   <div className="update-message-block">
                     <img
                       alt=""

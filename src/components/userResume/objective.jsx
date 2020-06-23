@@ -6,6 +6,7 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
+import DataLayout from "../common/profileOrResumeLayout";
 
 const Objective = ({ careerObjective, updateResume, loader }) => {
   //#region
@@ -20,7 +21,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
     setIsModalVisible(false);
   };
 
-  const handleObjectiveButton = () => {
+  const handleAdd = () => {
     setIsModalVisible(true);
   };
 
@@ -45,53 +46,37 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
 
   console.log(watch("objectiveTextarea"));
   //#endregion
-  return (
-    <div className="objective-block-one">
-      <div className="objective-block-two">
-        <section style={{ display: "flex" }}>
-          <img
-            src={objectiveIcon}
-            alt=""
-            className="objective-block-two-icon"
-          ></img>
-          <div className="objective-block-heading-content">
-            <h2 className="objective-block-two-heading">Career Objective</h2>
-            {loader ? (
-              <div
-                className="objective-content-block"
-                style={{ height: "100px", overflow: "hidden" }}
-              >
-                <Skeleton />
-              </div>
-            ) : !!careerObjective ? (
-              <div className="objective-content-block">
-                <p className="objective-content-block__p">{careerObjective}</p>
-              </div>
-            ) : null}
+
+  const content = (
+    <div className="all-user-data-content">
+      {!!careerObjective && (
+        <div className="user-data-content-main-block">
+          <div className="user-data-content-block">
+            <p className="user-data-para" id="user-data-last-el">
+              {careerObjective}
+            </p>
           </div>
-        </section>
+        </div>
+      )}
+    </div>
+  );
 
-        {!!careerObjective ? (
-          <section className="objective-edit-icon">
-            <Tooltip title="edit">
-              <img
-                onClick={handleObjectiveButton}
-                src={editIcon}
-                alt=""
-                className=""
-              />
-            </Tooltip>
-          </section>
-        ) : (
+  return (
+    <>
+      <DataLayout
+        img={<img src={objectiveIcon} alt="" className="user-data-img" />}
+        head="Career Objective"
+        icon={
           <img
-            src={addIcon}
+            src={!careerObjective ? addIcon : editIcon}
             alt=""
-            className="objective-block-one-button"
-            onClick={handleObjectiveButton}
+            onClick={handleAdd}
+            className="user-data-icon"
           />
-        )}
-      </div>
-
+        }
+        content={content}
+        isData={!!careerObjective}
+      />
       <Modal
         className=""
         title="Add Career Objectives"
@@ -121,7 +106,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
           </Button>
         </form>
       </Modal>
-    </div>
+    </>
   );
 };
 

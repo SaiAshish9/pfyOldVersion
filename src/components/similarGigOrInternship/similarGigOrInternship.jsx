@@ -1,10 +1,12 @@
+import { Modal } from "antd";
 import axios from "axios";
-import React, { useEffect, useState, Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import { tokenHeader } from "../../constant/tokenHeader";
 /* ---------------------------------- ***** --------------------------------- */
 import SmallCard from "../common/smallCard";
+import { QueryFrom } from "../support/queryForm";
 import { arrayValidation } from "../validation/validation";
 import helpIcon from "./help.svg";
-import { tokenHeader } from "../../constant/tokenHeader";
 
 export default function SimilarGigOrInternship({
   isGigOrInternship,
@@ -12,6 +14,7 @@ export default function SimilarGigOrInternship({
 }) {
   console.log("isGigOrInternship", isGigOrInternship, category);
   const [similarGigOrInternship, setSimilarGigOrInternship] = useState();
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     console.log("similarGigOrInternship", similarGigOrInternship);
@@ -45,39 +48,60 @@ export default function SimilarGigOrInternship({
     }
   }, [category, isGigOrInternship]);
 
+  const handleCancel = () => {
+    setModalVisible(false);
+  };
+
   return (
-    <div className="moreGigOrInternship-main-block">
-      {isGigOrInternship === "gig" && (
-        <div className="support-block">
-          <h3 className="support-block__h3">Support</h3>
-          <div className="support-question-block">
-            <img
-              alt=""
-              src={helpIcon}
-              className="support-question-block__img"
-            ></img>
-            <p className="support-question-block__p">Ask Questions</p>
+    <>
+      <div className="moreGigOrInternship-main-block">
+        {isGigOrInternship === "gig" && (
+          <div className="support-block">
+            <h3 className="support-block__h3">Support</h3>
+            <div
+              className="support-question-block"
+              onClick={() => setModalVisible(true)}
+            >
+              <img
+                alt=""
+                src={helpIcon}
+                className="support-question-block__img"
+              ></img>
+              <p className="support-question-block__p">Ask Questions</p>
+            </div>
           </div>
+        )}
+        <div className="similar-gigOrInternship-block1">
+          <h3 className="similar-gigOrInternship-block1__h3">
+            {isGigOrInternship === "gig"
+              ? "Similar Gigs"
+              : "Similar Internships"}
+          </h3>
+          {arrayValidation(similarGigOrInternship) &&
+            similarGigOrInternship.map((gigOrInternship, index) => {
+              return (
+                <Fragment key={index}>
+                  {index < 4 && (
+                    <SmallCard
+                      gigOrInternship={gigOrInternship}
+                      isGigOrInternship={isGigOrInternship}
+                    />
+                  )}
+                </Fragment>
+              );
+            })}
         </div>
-      )}
-      <div className="similar-gigOrInternship-block1">
-        <h3 className="similar-gigOrInternship-block1__h3">
-          {isGigOrInternship === "gig" ? "Similar Gigs" : "Similar Internships"}
-        </h3>
-        {arrayValidation(similarGigOrInternship) &&
-          similarGigOrInternship.map((gigOrInternship, index) => {
-            return (
-              <Fragment key={index}>
-                {index < 4 && (
-                  <SmallCard
-                    gigOrInternship={gigOrInternship}
-                    isGigOrInternship={isGigOrInternship}
-                  />
-                )}
-              </Fragment>
-            );
-          })}
       </div>
-    </div>
+      <Modal
+        className="support-modal"
+        width={674}
+        title="Support"
+        visible={modalVisible}
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <QueryFrom handleCancel={handleCancel} />
+      </Modal>
+    </>
   );
 }

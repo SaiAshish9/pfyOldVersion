@@ -6,13 +6,13 @@ import detectLocationIcon from "../../../assets/img/detectLocationIcon.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
 import two from "./img/(2).svg";
 import addIcon from "./img/addIcon.svg";
-import bus from "./img/bus.svg";
 import bike2 from "./img/bike2.svg";
 import bus2 from "./img/bus2.svg";
 import car2 from "./img/car2.svg";
 import train2 from "./img/train2.svg";
 import editIcon from "./img/editIconBlue.svg";
 import pin from "./img/pin.svg";
+import bus from "./img/bus.svg";
 import car from "./img/car.svg";
 import train from "./img/train.svg";
 import twoWheeler from "./img/two-wheeler.svg";
@@ -265,7 +265,7 @@ export default function OfflineAvailUser() {
                       className="single-vehicle"
                     >
                       <img src={car} alt="" />
-                      <div>Car</div>
+                      <div className="vehicle-name">Car</div>
                     </div>
                     <div
                       onClick={() => selectVehicleHandler("bus")}
@@ -275,7 +275,7 @@ export default function OfflineAvailUser() {
                       className="single-vehicle"
                     >
                       <img src={bus} alt="" />
-                      <div>Bus</div>
+                      <div className="vehicle-name">Bus</div>
                     </div>
                     <div
                       onClick={() => selectVehicleHandler("train")}
@@ -285,7 +285,7 @@ export default function OfflineAvailUser() {
                       className="single-vehicle"
                     >
                       <img src={train} alt="" />
-                      <div>Train</div>
+                      <div className="vehicle-name">Train</div>
                     </div>
                     <div
                       onClick={() => selectVehicleHandler("bike")}
@@ -295,7 +295,7 @@ export default function OfflineAvailUser() {
                       className="single-vehicle"
                     >
                       <img src={twoWheeler} alt="" />
-                      <div>Two wheeler</div>
+                      <div className="vehicle-name">Two wheeler</div>
                     </div>
                   </div>
                 </div>

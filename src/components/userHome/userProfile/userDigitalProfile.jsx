@@ -11,6 +11,7 @@ import editIcon from "./img/editIconBlue.svg";
 import facebookIcon from "./img/facebookIcon.svg";
 import instagramIcon from "./img/instagramIcon.svg";
 import tikTokIcon from "./img/tikTokIcon.svg";
+import DataLayout from "../../common/profileOrResumeLayout";
 
 const UserDigitalProfile = () => {
   const { profileData, dispatchUserProfile } = UserProfileContext();
@@ -42,6 +43,21 @@ const UserDigitalProfile = () => {
     });
   };
 
+  const printDigitalProfile = (digitalProfileData, icon) => (
+    <>
+      {!!digitalProfileData && (
+        <a
+          href={digitalProfileData}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="user-data-img-block"
+        >
+          <img src={icon} alt="" className="user-data-img" />
+        </a>
+      )}
+    </>
+  );
+
   const onChange = (e, media) => {
     const SocialMediaID = e.target.value.trim();
     console.log(e.target.value + " and media " + media);
@@ -61,55 +77,34 @@ const UserDigitalProfile = () => {
     digitalProfileData.instagram ||
     digitalProfileData.tiktok;
 
-  return (
-    <div className="avatar-digital-profile-block">
-      <div className="avatar-digital-profile-content-block">
-        <div className="icon-heading">
-          <img className="avatar-digital-profile-img" src={five} alt=""></img>
-          <div className="avatar-digital-profile-content">
-            <h2>Social Media Accounts</h2>
-          </div>
+  const content = (
+    <div className="all-user-data-content">
+      {digitalProfileData && (
+        <div className="user-data-content-img-block">
+          {printDigitalProfile(digitalProfileData.facebook, facebookIcon)}
+          {printDigitalProfile(digitalProfileData.instagram, instagramIcon)}
+          {printDigitalProfile(digitalProfileData.tiktok, tikTokIcon)}
         </div>
-        <img
-          src={isDigitalIcon ? editIcon : addIcon}
-          alt=""
-          onClick={() => setIsModalVisible(true)}
-          style={{ alignSelf: "baseline", cursor: "pointer" }}
-        />
-      </div>
-      <div className="social-media">
-        {digitalProfileData.facebook && (
-          <a
-            href={digitalProfileData.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="single-icon-block"
-          >
-            <img src={facebookIcon} alt="" className="single-icon-img" />
-          </a>
-        )}
-        {digitalProfileData.instagram && (
-          <a
-            className="single-icon-block"
-            href={digitalProfileData.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={instagramIcon} alt="" className="single-icon-img" />
-          </a>
-        )}
-        {digitalProfileData.tiktok && (
-          <a
-            href={digitalProfileData.tiktok}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="single-icon-block"
-          >
-            <img src={tikTokIcon} alt="" className="single-icon-img" />
-          </a>
-        )}
-      </div>
+      )}
+    </div>
+  );
 
+  return (
+    <>
+      <DataLayout
+        img={<img src={five} alt="" className="user-data-img" />}
+        head="Social Media Accounts"
+        icon={
+          <img
+            src={!isDigitalIcon ? addIcon : editIcon}
+            alt=""
+            onClick={() => setIsModalVisible(true)}
+            className="user-data-icon"
+          />
+        }
+        content={content}
+        isData={isDigitalIcon}
+      />
       <Modal
         title="Add Social Media Accounts"
         visible={isModalVisible}
@@ -149,7 +144,7 @@ const UserDigitalProfile = () => {
           </Button>
         </form>
       </Modal>
-    </div>
+    </>
   );
 };
 

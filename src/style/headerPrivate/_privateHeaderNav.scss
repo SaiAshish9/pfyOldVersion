@@ -5,7 +5,7 @@
   align-items: center;
   .myLink {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.44;
     text-align: left;
     margin-left: 24px;
@@ -18,7 +18,7 @@
   }
   .myLink-span {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.44;
     text-align: left;
     margin-left: 24px;
@@ -49,4 +49,9 @@
     color: #000000;
     margin: 0 16px;
   }
+}
+
+.user-notification-dropDown {
+  position: relative;
+  left: 80px;
 }

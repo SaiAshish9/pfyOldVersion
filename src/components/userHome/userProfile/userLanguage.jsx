@@ -9,6 +9,7 @@ import { arrayValidation } from "../../validation/validation";
 import three from "./img/(3).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
+import DataLayout from "../../common/profileOrResumeLayout";
 
 const languages = [
   "Assamese",
@@ -71,13 +72,11 @@ const UserLanguage = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  const handleLanguageButton = () => {
-    setIsModalVisible(true);
-  };
+
   let dataArr = [];
   if (profileData && profileData.languages) {
     dataArr = profileData.languages.map((lang, index) => (
-      <div className="single-selected-language" key={index}>
+      <div className="user-data-content-msg" key={index}>
         {lang}
       </div>
     ));
@@ -92,30 +91,30 @@ const UserLanguage = () => {
     }
   };
 
-  return (
-    <div className="language-of-avatar-block">
-      <div className="language-of-avatar-content-block">
-        <div className="icon-heading">
-          <img className="language-of-avatar-img" src={three} alt=""></img>
-          <div className="language-of-avatar-content">
-            <h2>Languages</h2>
-            {arrayValidation(languagesData) && (
-              <div className="selected-languages">{dataArr}</div>
-            )}
-          </div>
-        </div>
-        <img
-          src={
-            profileData.languages && profileData.languages.length > 0
-              ? editIcon
-              : addIcon
-          }
-          alt=""
-          onClick={handleLanguageButton}
-          style={{ alignSelf: "baseline", cursor: "pointer" }}
-        />
-      </div>
+  const content = (
+    <div className="all-user-data-content">
+      {arrayValidation(languagesData) && (
+        <div className="user-data-content-msg-block">{dataArr}</div>
+      )}
+    </div>
+  );
 
+  return (
+    <>
+      <DataLayout
+        img={<img src={three} alt="" className="user-data-img" />}
+        head="Languages"
+        icon={
+          <img
+            src={!arrayValidation(languagesData) ? addIcon : editIcon}
+            alt=""
+            onClick={() => setIsModalVisible(true)}
+            className="user-data-icon"
+          />
+        }
+        content={content}
+        isData={arrayValidation(languagesData)}
+      />
       <Modal
         width={780}
         title="Add Languages"
@@ -154,7 +153,7 @@ const UserLanguage = () => {
           </Button>
         </div>
       </Modal>
-    </div>
+    </>
   );
 };
 

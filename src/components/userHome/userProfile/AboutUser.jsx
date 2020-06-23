@@ -9,6 +9,7 @@ import { UserProfileContext } from "../../../store/userProfileStore";
 import userFaceIcon from "./img/(1).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
+import DataLayout from "../../common/profileOrResumeLayout";
 
 const AboutUser = () => {
   const { profileData, dispatchUserProfile } = UserProfileContext();
@@ -19,8 +20,6 @@ const AboutUser = () => {
 
   const onSubmitAboutMe = (data) => {
     const url = "user/update";
-    console.log("%c ABOUT ME", "font-size: 20px, color: darkblue");
-    console.log(data.aboutMe);
     const data1 = {
       aboutMe: data.aboutMe ? data.aboutMe : " ",
     };
@@ -29,43 +28,45 @@ const AboutUser = () => {
       getUserProfile(dispatchUserProfile);
       setIsModalVisible(false);
     });
-    console.log("in about me handler ");
-    console.log(data.aboutMe);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
 
-  const handleAboutButton = () => {
+  const handleAdd = () => {
     setIsModalVisible(true);
   };
 
-  return (
-    <div className="about-avatar-block">
-      <div className="about-avatar-content-block">
-        <div className="icon-heading">
-          <img src={userFaceIcon} alt="" className="about-avatar-img"></img>
-          <div className="about-avatar-content">
-            <h2>About me</h2>
-            <div className="about-content-block">
-              {!!aboutMeData && (
-                <p className="about-content-block__p">
-                  {profileData && profileData.aboutMe}
-                </p>
-              )}
-            </div>
+  const content = (
+    <div className="all-user-data-content">
+      {!!aboutMeData && (
+        <div className="user-data-content-main-block">
+          <div className="user-data-content-block">
+            <p className="user-data-para" id="user-data-last-el">
+              {profileData && profileData.aboutMe}
+            </p>
           </div>
         </div>
-        <img
-          src={aboutMeData ? editIcon : addIcon}
-          alt=""
-          onClick={handleAboutButton}
-          style={{ alignSelf: "baseline", cursor: "pointer" }}
-          className="add-icon"
-        />
-      </div>
-
+      )}
+    </div>
+  );
+  return (
+    <>
+      <DataLayout
+        img={<img src={userFaceIcon} alt="" className="user-data-img" />}
+        head="About Me"
+        icon={
+          <img
+            src={!aboutMeData ? addIcon : editIcon}
+            alt=""
+            onClick={handleAdd}
+            className="user-data-icon"
+          />
+        }
+        content={content}
+        isData={!!aboutMeData}
+      />
       <Modal
         title="Add About Yourself"
         visible={isModalVisible}
@@ -90,7 +91,7 @@ const AboutUser = () => {
           </Button>
         </form>
       </Modal>
-    </div>
+    </>
   );
 };
 

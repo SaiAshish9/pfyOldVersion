@@ -63,6 +63,7 @@ export default function GigDetail(props) {
 
   /* -------------------------------- gig-task -------------------------------- */
   const gigTask = myGig && myGig.tasks;
+  const appliedStatus = myGig && myGig.appliedStatus;
   //#endregion
 
   useEffect(() => {
@@ -132,6 +133,7 @@ export default function GigDetail(props) {
   const handleModalCancel = () => {
     setModalVisible(false);
   };
+
   const notApplied =
     !isApply &&
     !isShortlisted &&
@@ -182,7 +184,7 @@ export default function GigDetail(props) {
                     </span>
                   </>
                 )}
-                {isApply && (
+                {appliedStatus === 601 && (
                   <div className="update-message-block">
                     <img
                       className="update-message-block__icon"

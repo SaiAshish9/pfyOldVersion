@@ -12,6 +12,7 @@ import Position from "./position";
 import Project from "./project";
 import Skill from "./skill";
 import Training from "./training";
+// import Dummy from "./dummyData";
 
 const UserResume = () => {
   const [userResumeData, setUserResumeData] = useState({});
@@ -40,15 +41,17 @@ const UserResume = () => {
           updateResume={setUpdater}
           loader={isLoader}
         />
+
         <Education
           education={userResumeData.education}
           updateResume={setUpdater}
         />
-        <Skill skill={userResumeData.skills} updateResume={setUpdater} />
         <Experience
           workExperience={userResumeData.workExperience}
           updateResume={setUpdater}
         />
+
+        <Skill skill={userResumeData.skills} updateResume={setUpdater} />
         <Position position={userResumeData.POR} updateResume={setUpdater} />
         <Training
           training={userResumeData.trainings}

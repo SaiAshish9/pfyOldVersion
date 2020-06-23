@@ -1,14 +1,15 @@
 import { DeleteOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Modal, Tooltip } from "antd";
+import { Button, Checkbox, Modal } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { tokenHeader } from "../../constant/tokenHeader";
+import { useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
+import { tokenHeader } from "../../constant/tokenHeader";
+import DataLayout from "../common/profileOrResumeLayout";
 import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
-import team from "./img/headingImg/projectIcon.svg";
+import projectIcon from "./img/headingImg/projectIcon.svg";
 
 const month = [
   "Jan",
@@ -48,13 +49,6 @@ const Project = ({ project, updateResume }) => {
       {month}
     </option>
   ));
-
-  // const myStartYear = watch("start.year");
-
-  // const endYear = Array.from(
-  //   new Array(10),
-  //   (val, index) => parseInt(myStartYear) + 9 - index
-  // );
 
   useEffect(() => {
     console.log("check", projectData);
@@ -133,87 +127,71 @@ const Project = ({ project, updateResume }) => {
       });
   };
 
-  //#endregion
-  return (
-    <div className="project-block-one">
-      <div className="project-block-two" style={{}}>
-        <section style={{ display: "flex" }}>
-          <img src={team} alt="" className="project-block-two-icon"></img>
-          <div className="project-block-heading-content">
-            <h2 className="project-block-two-heading">Projects</h2>
-            {arrayValidation(project) &&
-              project.map((myProject, index) => (
-                <div key={index} className="project-content-block ">
-                  <section className="project-content-sec-one ">
-                    <h1 className="project-content-sec-one__h1 ">
-                      {myProject.title}
-                    </h1>
-                    <p className="project-content-sec-one__p">
-                      {myProject.description}
-                    </p>
-                    <a
-                      className="project-content-sec-one__a "
-                      href={myProject.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {myProject.link}
-                    </a>
-                    {console.log("myProject", myProject)}
-                    <div className="project-content-sec-one-block-one ">
-                      {myProject.start.month && (
-                        <h5 className="project-content-sec-one-block-one__h5-one ">
-                          {myProject.start.month}
-                        </h5>
-                      )}
-
-                      {myProject.start.year && (
-                        <h5 className="project-content-sec-one-block-one__h5-two ">
-                          {myProject.start.year}
-                        </h5>
-                      )}
-                      {!!myProject.end && (
-                        <h5 className="project-content-sec-one-block-one__h5-three ">
-                          - {myProject.end.month}
-                        </h5>
-                      )}
-                      {!!myProject.end && (
-                        <h5 className="project-content-sec-one-block-one__h5-four ">
-                          {myProject.end.year}
-                        </h5>
-                      )}
-                    </div>
-                  </section>
-                  <section className="project-edit-delete-icon">
-                    <Tooltip title="edit">
-                      <img
-                        src={editIcon}
-                        alt=""
-                        className=""
-                        onClick={() => handleEdit(myProject)}
-                        style={{ marginRight: "32px" }}
-                      />
-                    </Tooltip>
-                    <Tooltip title="delete">
-                      <DeleteOutlined
-                        onClick={() => handleDelete(myProject._id)}
-                      />
-                    </Tooltip>
-                  </section>
-                </div>
-              ))}
+  const content = (
+    <div className="all-user-data-content">
+      {arrayValidation(project) &&
+        project.map((myProject, index) => (
+          <div key={index} className="user-data-content-main-block">
+            <div className="user-data-content-block">
+              <h1 className="user-data-h1">{myProject.title}</h1>
+              <p className="user-data-h2">{myProject.description}</p>
+              <a
+                className="user-data-link"
+                href={myProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {myProject.link}
+              </a>
+              <div id="user-data-last-el">
+                {myProject.start.month && (
+                  <span className="user-data-h2">{myProject.start.month}</span>
+                )}
+                {myProject.start.year && (
+                  <span className="user-data-h2"> {myProject.start.year}</span>
+                )}
+                {!!myProject.end && (
+                  <span className="user-data-h2"> - {myProject.end.month}</span>
+                )}
+                {!!myProject.end && (
+                  <span className="user-data-h2"> {myProject.end.year}</span>
+                )}
+              </div>
+            </div>
+            <div className="user-data-content-icon-block">
+              <img
+                src={editIcon}
+                onClick={() => handleEdit(myProject)}
+                alt=""
+                className="user-data-content-icon"
+              />
+              <DeleteOutlined
+                onClick={() => handleDelete(myProject._id)}
+                className="user-data-content-icon"
+              />
+            </div>
           </div>
-        </section>
-        <Tooltip title="add">
+        ))}
+    </div>
+  );
+  //#endregion
+
+  return (
+    <>
+      <DataLayout
+        img={<img src={projectIcon} alt="" className="user-data-img" />}
+        head="Projects"
+        icon={
           <img
             src={addIcon}
             alt=""
             onClick={handleAdd}
-            className="project-block-one-button"
+            className="user-data-icon"
           />
-        </Tooltip>
-      </div>
-
+        }
+        content={content}
+        isData={arrayValidation(project)}
+      />
       <Modal
         title="Add Project"
         visible={isModalVisible}
@@ -328,7 +306,7 @@ const Project = ({ project, updateResume }) => {
           </Button>
         </form>
       </Modal>
-    </div>
+    </>
   );
 };
 

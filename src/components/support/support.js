@@ -1,15 +1,12 @@
-import { Button, Collapse, Input, Modal, Upload } from "antd";
+import { Collapse, Modal } from "antd";
 import Axios from "axios";
 import React, { useState } from "react";
-/* ---------------------------------- ***** --------------------------------- */
-import uploadBtn from "../../assets/img/uploadBtn.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
 import gig from "./img/gig.svg";
 import internship from "./img/internship.svg";
 import other from "./img/other.svg";
 import verification from "./img/verification.svg";
-
-const { TextArea } = Input;
+import { QueryFrom } from "./queryForm";
 
 const { Panel } = Collapse;
 
@@ -31,64 +28,33 @@ export default function Support(props) {
     });
   };
 
-  function getBase64(img, callback) {
-    const reader = new FileReader();
-    reader.addEventListener("load", () => callback(reader.result));
-    reader.readAsDataURL(img);
-  }
+  // const handleOk = (e) => {
+  //   console.log(e);
+  //   setSupportData(null);
+  //   let img = imageData.file;
+  //   let lookupOptions = {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: img,
+  //   };
 
-  const ImageUploadHandler = (info) => {
-    getBase64(info.file.originFileObj, (imgurl) => setImageUrl(imgurl));
-    Axios.get(
-      "https://pracify.com/testing/student_verification/signed_url_for_docs?fileType=image/jpeg",
-      tokenHeader()
-    ).then((res) => {
-      console.log(res.data);
-      setImgURL(res.data);
-      setImageData(info);
-      console.log(info);
-    });
-    console.log(info);
-    console.log("INFO..... ");
-    if (info.file.status === "uploading") {
-      console.log("loading/..........");
-      return;
-    }
-    if (info.file.status === "done") {
-      getBase64(info.file.originFileObj, (imgurl) => setImageUrl(imgurl));
-      console.log("successfully uploaded ", info.file);
-      console.log(imageUrl);
-    }
-  };
-
-  const handleOk = (e) => {
-    console.log(e);
-    setSupportData(null);
-    let img = imageData.file;
-    let lookupOptions = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: img,
-    };
-
-    fetch("http://cors-anywhere.herokuapp.com/" + imgURL.url, lookupOptions)
-      .then((res) => {
-        if (res.status == 200) {
-          console.log("%c File Sent", "font-size: 25px, color: darkblue");
-          console.log(imgURL);
-          props.isClose();
-        }
-      })
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-  };
+  //   fetch("http://cors-anywhere.herokuapp.com/" + imgURL.url, lookupOptions)
+  //     .then((res) => {
+  //       if (res.status === 200) {
+  //         console.log("%c File Sent", "font-size: 25px, color: darkblue");
+  //         console.log(imgURL);
+  //         props.isClose();
+  //       }
+  //     })
+  //     .then((data) => console.log(data))
+  //     .catch((err) => console.log(err));
+  // };
 
   const handleCancel = (e) => {
     setSelectedComp("supportTiles");
     setSupportData(null);
-
     props.isClose();
   };
 
@@ -163,48 +129,6 @@ export default function Support(props) {
           </span>
         </div>
       </div>
-      {/* <Button className="support-faq-submit-btn" type="primary">
-        Submit
-      </Button> */}
-    </div>
-  );
-
-  const queryFrom = (
-    <div className="query-form">
-      <div className="query-form-title">Write Your Query</div>
-      <div className="query-input-block">
-        <div className="query-input">
-          <span className="query-label">Subject:</span>
-          <Input />
-        </div>
-        <div className="query-input">
-          <span className="query-label">Description:</span>
-          <TextArea className="query-textarea" rows={3} />
-        </div>
-      </div>
-
-      <Upload
-        className="query-image"
-        name="screenshot"
-        listType="picture-card"
-        showUploadList={false}
-        action="https://pracify.com/testing/student_verification/signed_url_for_docs?fileType=image/jpeg"
-        onChange={ImageUploadHandler}
-      >
-        {imageUrl ? (
-          <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
-        ) : (
-          <div className="upload-content">
-            <div className="upload-imgBtn-block">
-              <img src={uploadBtn} alt="" className="upload-imgBtn" />
-            </div>
-            <p className="upload-text">Upload Screenshot (if any)</p>
-          </div>
-        )}
-      </Upload>
-      <Button onClick={handleOk} className="query-submit-btn" type="primary">
-        Submit
-      </Button>
     </div>
   );
 
@@ -214,15 +138,16 @@ export default function Support(props) {
       width={674}
       title="Support"
       visible={props.isShow}
-      onOk={handleOk}
       onCancel={handleCancel}
       footer={null}
     >
-      {selectedComp === "supportTiles"
-        ? supportTiles
-        : selectedComp === "queryFrom"
-        ? queryFrom
-        : faq}
+      {selectedComp === "supportTiles" ? (
+        supportTiles
+      ) : selectedComp === "queryFrom" ? (
+        <QueryFrom handleCancel={handleCancel} />
+      ) : (
+        faq
+      )}
     </Modal>
   );
 }

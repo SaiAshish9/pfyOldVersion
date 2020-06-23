@@ -48,7 +48,6 @@ const Wallet = () => {
     });
 
     // fetch money transactions
-
     const url3 = "wallet/money_transfers";
     axios.get(url3, tokenHeader()).then((res) => {
       const transactions = res.data;
@@ -57,10 +56,6 @@ const Wallet = () => {
       // setName()
     });
   }, [isUpdate]);
-
-  const callback = (key) => {
-    console.log(key);
-  };
 
   const isUpdateHandler = () => {
     setIsUpdate(Math.random());

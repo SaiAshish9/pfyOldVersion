@@ -161,7 +161,7 @@
       div.carousel-block {
         div.carousel-content-block {
           // border: 1px solid;
-          padding: 20px;
+          padding: 10px 20px;
           width: 95%;
           text-align: left;
           box-shadow: 0 0 4px 0 rgba(#000, 0.16);
@@ -178,7 +178,7 @@
           }
           &__icon {
             color: #38bdba;
-            font-size: 2rem;
+            font-size: 1.5rem;
           }
           h4.carousel-content-block__h4 {
             font-size: 16px;
@@ -231,6 +231,7 @@
     }
     .apply-block {
       position: fixed;
+      z-index: 2;
       bottom: 0;
       left: 0;
       width: 100%;

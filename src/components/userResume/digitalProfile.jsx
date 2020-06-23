@@ -1,12 +1,12 @@
-import { Button, Icon, Input, Modal, Tooltip } from "antd";
+import { Button, Input, Modal, Tooltip } from "antd";
 import Axios from "axios";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 /* ---------------------------------- ***** --------------------------------- */
+import { tokenHeader } from "../../constant/tokenHeader";
+import DataLayout from "../common/profileOrResumeLayout";
 import { objectValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
-import editIcon from "./img/editIcon.svg";
-
 import behanceIcon from "./img/digitalProfileIcon/behanceIcon.svg";
 import blogIcon from "./img/digitalProfileIcon/blogIcon.svg";
 import dribbleIcon from "./img/digitalProfileIcon/dribbleIcon.svg";
@@ -15,13 +15,10 @@ import githubIcon from "./img/digitalProfileIcon/githubIcon.svg";
 import instagramIcon from "./img/digitalProfileIcon/instagramIcon.svg";
 import linkedinIcon from "./img/digitalProfileIcon/linkedinIcon.svg";
 import mediumIcon from "./img/digitalProfileIcon/mediumIcon.svg";
-// import facebookIcon from "./img/digitalProfileIcon/";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-
 import quoraIcon from "./img/digitalProfileIcon/quoraIcon.svg";
 import youtubeIcon from "./img/digitalProfileIcon/youtubeIcon.svg";
+import editIcon from "./img/editIcon.svg";
 import digitalProfileIcon from "./img/headingImg/digitalProfileIcon.svg";
-import { tokenHeader } from "../../constant/tokenHeader";
 
 export default function DigitalProfile({ digitalProfile, updateResume }) {
   console.log("digital Profile", digitalProfile);
@@ -51,19 +48,19 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
     setIsModalVisible(true);
   };
 
-  const handleEdit = () => {
-    setIsModalVisible(true);
-  };
-
-  const printDigitalProfile = (digitalProfileData, name, icon) => (
-    <div className="digital-profile-content-block">
-      <div className="">
-        {/* <section>{name}</section>
-        <section>{digitalProfileData}</section> */}
-
-        <img src={icon} alt="" className="digital-profile-content__img" />
-      </div>
-    </div>
+  const printDigitalProfile = (digitalProfileData, icon) => (
+    <>
+      {!!digitalProfileData && (
+        <a
+          href={digitalProfileData}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="user-data-img-block"
+        >
+          <img src={icon} alt="" className="user-data-img" />
+        </a>
+      )}
+    </>
   );
 
   //! ---------------------------------- test ---------------------------------- */
@@ -89,82 +86,46 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
     <div className="digital-profile-logo-block">
       <img src={icon} alt="" className="digital-profile-logo__img" />
       <p className="digital-profile-logo__p">{text}</p>
-      {/* <div className="digital-profile-divider"></div> */}
+    </div>
+  );
+  const isDigitalProfile =
+    !!digitalProfile && objectValidation(digitalProfile) && isAllData();
+
+  const content = (
+    <div className="all-user-data-content">
+      {isDigitalProfile && (
+        <div className="user-data-content-img-block">
+          {printDigitalProfile(digitalProfile.facebook, facebookIcon)}
+          {printDigitalProfile(digitalProfile.instagram, instagramIcon)}
+          {printDigitalProfile(digitalProfile.linkedin, linkedinIcon)}
+          {printDigitalProfile(digitalProfile.youtube, youtubeIcon)}
+          {printDigitalProfile(digitalProfile.github, githubIcon)}
+          {printDigitalProfile(digitalProfile.behance, behanceIcon)}
+          {printDigitalProfile(digitalProfile.dribbble, dribbleIcon)}
+          {printDigitalProfile(digitalProfile.quora, quoraIcon)}
+          {printDigitalProfile(digitalProfile.blog, blogIcon)}
+          {printDigitalProfile(digitalProfile.medium, mediumIcon)}
+        </div>
+      )}
     </div>
   );
 
   return (
-    <div className="digital-profile-block-one">
-      <div className="digital-profile-block-two" style={{}}>
-        <section style={{ display: "flex" }}>
+    <>
+      <DataLayout
+        img={<img src={digitalProfileIcon} alt="" className="user-data-img" />}
+        head="Digital Profiles"
+        icon={
           <img
-            src={digitalProfileIcon}
+            src={!isDigitalProfile ? addIcon : editIcon}
             alt=""
-            className="digital-profile-block-two-icon"
-          ></img>
-          <h2 className="digital-profile-block-two-heading">
-            Digital Profiles
-          </h2>
-        </section>
-
-        {isAllData() ? (
-          <section>
-            <Tooltip title="edit">
-              {/* <Icon type="edit" onClick={handleEdit} /> */}
-              <img src={editIcon} alt="" onClick={handleEdit} />
-            </Tooltip>
-          </section>
-        ) : (
-          <Tooltip title="add">
-            <img
-              src={addIcon}
-              alt=""
-              onClick={handleAdd}
-              className="digital-block-one-button"
-            />
-          </Tooltip>
-        )}
-      </div>
-      {!!digitalProfile && objectValidation(digitalProfile) && isAllData() && (
-        <div className="user-digital-profile-block">
-          {!!digitalProfile.facebook &&
-            printDigitalProfile(
-              digitalProfile.facebook,
-              "Facebook",
-              facebookIcon
-            )}
-          {!!digitalProfile.instagram &&
-            printDigitalProfile(
-              digitalProfile.instagram,
-              "Instagram",
-              instagramIcon
-            )}
-          {!!digitalProfile.linkedin &&
-            printDigitalProfile(
-              digitalProfile.linkedin,
-              "LinkedIn",
-              linkedinIcon
-            )}
-          {!!digitalProfile.youtube &&
-            printDigitalProfile(digitalProfile.youtube, "YouTube", youtubeIcon)}
-          {!!digitalProfile.github &&
-            printDigitalProfile(digitalProfile.github, "GitHub", githubIcon)}
-          {!!digitalProfile.behance &&
-            printDigitalProfile(digitalProfile.behance, "Behance", behanceIcon)}
-          {!!digitalProfile.dribbble &&
-            printDigitalProfile(
-              digitalProfile.dribbble,
-              "Dribble",
-              dribbleIcon
-            )}
-          {!!digitalProfile.quora &&
-            printDigitalProfile(digitalProfile.quora, "Quora", quoraIcon)}
-          {!!digitalProfile.blog &&
-            printDigitalProfile(digitalProfile.blog, "Blog", blogIcon)}
-          {!!digitalProfile.medium &&
-            printDigitalProfile(digitalProfile.medium, "Medium", mediumIcon)}
-        </div>
-      )}
+            onClick={handleAdd}
+            className="user-data-icon"
+          />
+        }
+        content={content}
+        isData={isDigitalProfile}
+      />
       <Modal
         title="Add Social Media Accounts"
         visible={isModalVisible}
@@ -336,6 +297,6 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
           </div>
         </form>
       </Modal>
-    </div>
+    </>
   );
 }

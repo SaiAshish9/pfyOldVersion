@@ -9,6 +9,8 @@ import notificationApi from "../../../api/notificationApi";
 import { userApi } from "../../../api/userApi";
 import { getUserProfile } from "../../../api/userProfileApi";
 import notificationIcon from "../../../assets/img/notificationIcon.svg";
+import maleIcon from "../../../assets/img/maleIcon.svg";
+import femaleIcon from "../../../assets/img/femaleIcon.svg";
 import { NotificationContext } from "../../../store/notificationStore";
 import { UserProfileContext } from "../../../store/userProfileStore";
 import { UserContext } from "../../../store/userStore";
@@ -31,7 +33,10 @@ export default function PrivateHeaderNavLink() {
   const { profileData, dispatchUserProfile } = UserProfileContext();
 
   const userName = !!profileData && profileData.firstName;
+
   const userImg = !!profileData ? profileData.imgUrl : "";
+
+  const gender = !!profileData && profileData.gender;
 
   const [isShow, setIsShow] = useState(false);
   const [isShowVerify, setIsShowVerify] = useState(false);
@@ -53,7 +58,6 @@ export default function PrivateHeaderNavLink() {
     const source = axios.CancelToken.source();
     userApi(dispatchUser);
     return () => {
-      console.log("un mounting");
       source.cancel();
     };
   }, []);
@@ -124,7 +128,7 @@ export default function PrivateHeaderNavLink() {
         placement="bottomRight"
         overlay={notificationMenu(notification)}
         trigger={["click"]}
-        className="user-profile-dropDown"
+        className="user-notification-dropDown"
       >
         <a href="#f" name="f" onClick={(e) => e.preventDefault()}>
           <div className="user-notification-img-block">
@@ -143,7 +147,16 @@ export default function PrivateHeaderNavLink() {
       >
         <a href="#foo" name="foo" onClick={(e) => e.preventDefault()}>
           <span className="header-avatar-img-block">
-            <img src={userImg} alt="img"></img>
+            {userImg ? (
+              <img src={userImg} alt="img"></img>
+            ) : (
+              <img
+                src={
+                  gender === "M" ? maleIcon : gender === "f" ? femaleIcon : ""
+                }
+                alt=""
+              ></img>
+            )}
           </span>
           <span className="user-profile">Hi {userName}</span>
           <DownCircleFilled />
