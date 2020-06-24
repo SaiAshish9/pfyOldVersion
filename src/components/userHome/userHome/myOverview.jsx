@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import Support from "../../support/support";
 import myGigIcon from "./img/myGigIcon.svg";
 import myInternshipIcon from "./img/myInternshipIcon.svg";
-import supportIcon from "./img/supportIcon.svg";
+import supportIcon from "./img/supportIcon.png";
 import verificationIcon from "./img/verificationIcon.svg";
 
 const overView = [

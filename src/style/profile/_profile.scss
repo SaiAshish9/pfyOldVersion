@@ -88,76 +88,79 @@
   }
 }
 
-.add-location-block {
-  text-align: center;
-  .ant-modal {
-    width: 65%;
-  }
-  .heading-1,
-  .heading-2,
-  .heading-3 {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.36;
-    color: #333e49;
-  }
-  .detect-location-btn {
-    width: 286px;
-    height: 47px;
-    background-color: #444584;
-    border: 1px solid #444584;
-    border-radius: 24px;
-    margin-top: 1rem;
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 1.44;
-    color: #ffffff;
-    .detect-location-btn-img {
-      margin-right: 20px;
+.add-location-modal {
+  top: 80px;
+  .add-location-block {
+    text-align: center;
+    .ant-modal {
+      width: 65%;
     }
-  }
-  .heading-2 {
-    margin-top: 1.5rem;
-  }
-  .yes-no-btn {
-    margin-top: 1rem;
-    .yes-btn,
-    .no-btn {
-      margin-right: 1rem;
-      width: 98px;
-      height: 45px;
-      border: 2px solid #444584;
-      border-radius: 23px;
-      font-size: 14px;
-      font-weight: 700;
+    .heading-1,
+    .heading-2,
+    .heading-3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.36;
+      color: #333e49;
     }
-  }
-  .heading-3 {
-    margin-top: 1.5rem;
-  }
-  .vehicles {
-    display: flex;
-    margin: 1rem;
-    justify-content: space-around;
-    .single-vehicle {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 8rem;
-      padding: 1rem;
-      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
-      border-radius: 8px;
-      .vehicle-name {
-        line-height: 1;
-        margin-top: 6px;
-        font-size: 13px;
-        font-weight: 600;
-        color: #333e49;
+    .detect-location-btn {
+      width: 286px;
+      height: 47px;
+      background-color: #444584;
+      border: 1px solid #444584;
+      border-radius: 24px;
+      margin-top: 1rem;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.44;
+      color: #ffffff;
+      .detect-location-btn-img {
+        margin-right: 20px;
       }
     }
-  }
-  .add-location-btn {
-    @extend%profile-button;
+    .heading-2 {
+      margin-top: 1.5rem;
+    }
+    .yes-no-btn {
+      margin-top: 1rem;
+      .yes-btn,
+      .no-btn {
+        margin-right: 1rem;
+        width: 98px;
+        height: 45px;
+        border: 2px solid #444584;
+        border-radius: 23px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+    .heading-3 {
+      margin-top: 1.5rem;
+    }
+    .vehicles {
+      display: flex;
+      margin: 1rem;
+      justify-content: space-around;
+      .single-vehicle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 8rem;
+        padding: 1rem;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 8px;
+        .vehicle-name {
+          line-height: 1;
+          margin-top: 6px;
+          font-size: 13px;
+          font-weight: 600;
+          color: #333e49;
+        }
+      }
+    }
+    .add-location-btn {
+      @extend%profile-button;
+    }
   }
 }
 

@@ -204,61 +204,73 @@
         color: #000000;
       }
     }
+  }
+}
 
-    div.transaction-content-block {
-      display: flex;
-      padding: 20px;
-      margin-bottom: 20px;
-      background: #fff;
-      border-radius: 7px;
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16);
-      div.transaction-img-block {
-        img.transaction__img {
-        }
-      }
+div.transaction-content-block {
+  display: grid;
+  border-radius: 7px;
+  grid-template:
+    "img title amount"
+    "img date status";
+  padding: 20px;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
 
-      div.transaction-title-or-date {
-        margin: 0px 36px 0px 24px;
-        h3.transaction-title__h3 {
-          margin: 0px 0px 16px 0px;
-          line-height: 1;
-        }
+  div.transaction-img-block {
+    grid-area: img;
+    margin-right: 8px;
+    img.transaction__img {
+    }
+  }
+  div.transaction-title-block {
+    grid-area: title;
 
-        div.transaction-date {
-          display: flex;
-          align-items: center;
-          img.transaction-date__img {
-          }
+    h3.transaction-title__h3 {
+      line-height: 1;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333e49;
+      margin: 0px 0px 16px 0px;
+    }
+  }
+  div.transaction-date-block {
+    grid-area: date;
+    display: flex;
+    align-items: center;
+    img.transaction-date__img {
+    }
 
-          span.transaction-date__span {
-            margin-left: 8px;
-            // font-size: 12px;
-          }
-        }
-      }
+    .transaction-date__span {
+      font-size: 13px;
+      color: #808080;
+      margin-left: 3px;
+    }
+  }
 
-      div.transaction-summary-block {
-        text-align: end;
-        h1.transaction-summary__h1 {
-          margin: 0px 0px 14px 0px;
-          line-height: 1;
-          font-size: 18px;
-          font-weight: 700;
-        }
+  div.transaction-amount-block {
+    grid-area: amount;
+    justify-self: flex-end;
+    .transaction-amount__h1 {
+      line-height: 1;
+      font-size: 18px;
+      font-weight: 900;
+      color: #5468d1;
+    }
+  }
+  div.transaction-summary-status-block {
+    grid-area: status;
+    justify-self: flex-end;
+    display: flex;
+    align-items: center;
+    img.transaction-summary-status__img {
+      width: 16px;
+    }
 
-        div.transaction-summary__status {
-          display: flex;
-          align-items: center;
-          img.transaction-summary-status__img {
-            width: 16px;
-          }
-
-          span.transaction-summary-status__img {
-            margin-left: 8px;
-            // font-size: 12px;
-          }
-        }
-      }
+    .transaction-summary-status__img {
+      font-size: 13.5px;
+      color: #808080;
+      margin-left: 3px;
     }
   }
 }

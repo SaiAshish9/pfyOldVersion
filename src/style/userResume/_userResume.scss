@@ -135,21 +135,55 @@
           color: #444584;
         }
       }
-      // .user-data-content-profession-block {
-      //   display: flex;
-      //   flex-wrap: wrap;
-      //   padding-left: 10px;
-      //   .user-data-content-profession {
-      //     margin: 12px 8px 0px 12px;
-      //     padding: 7px 24px;
-      //     border-radius: 21px;
-      //     border: solid 2px #444584;
+    }
+  }
+}
 
-      //     font-size: 14px;
-      //     line-height: 1.14;
-      //     color: #666;
-      //   }
-      // }
+.all-user-skill-content {
+  margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  .user-data-skill-block {
+    width: max-content;
+    .skill-data-block {
+      width: max-content;
+      display: flex;
+      align-items: center;
+      margin: 12px 8px 0px 0;
+      padding: 9px 24px;
+      border-radius: 8px;
+      border: solid 2px #666;
+      font-size: 14px;
+      line-height: 1.14;
+      color: #666;
+      .skill-data__p {
+        margin: 0px 8px 0px 0px;
+      }
+
+      .skill-data__rating {
+      }
+      .skill-edit-data__rating {
+        position: absolute;
+        justify-content: center;
+        width: 100%;
+        background-color: currentColor;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1.5rem;
+        border: 1px solid rgb(204, 204, 204);
+        border-radius: 8px;
+        margin: 0px 8px 0px -24px;
+
+        .ant-rate {
+          margin-right: 12px;
+        }
+        .cancel__icon {
+          position: absolute;
+          right: -5px;
+          bottom: -5px;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

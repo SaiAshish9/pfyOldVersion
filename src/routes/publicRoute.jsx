@@ -15,8 +15,9 @@ const PublicRoute = ({ component: Component, path, ...rest }) => {
     path === "/" ||
     path === "/login" ||
     path === "/internships" ||
-    path === "/gigs";
-
+    path === "/gigs" ||
+    path === "/gig/:id" ||
+    path === "/internship/:id";
 
   return (
     <>

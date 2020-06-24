@@ -1,10 +1,7 @@
-import { Divider } from "antd";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { UserProfileContext } from "../../../store/userProfileStore";
-import notificationIcon from "../userHome/img/notificationIcon.svg";
 import rightArrowBlackIcon from "../userHome/img/rightArrowBlackIcon.svg";
-import rightArrowIcon from "../userHome/img/rightArrowIcon.svg";
 import creditCardImg from "./img/credit_card.svg";
 
 const Avatar = ({ user, notification }) => {

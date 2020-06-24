@@ -59,32 +59,33 @@ export default function Transactions({ data, details }) {
                     className="transaction__img"
                   />
                 </div>
-                <div className="transaction-title-or-date">
+                <div className="transaction-title-block">
                   <h3 className="transaction-title__h3">Amount Paid</h3>
-                  <div className="transaction-date">
-                    <img
-                      src={calender}
-                      alt=""
-                      className="transaction-date__img"
-                    />
-                    <span className="transaction-date__span">
-                      {moment(trans.createdAt).format("DD MMM YYYY")}
-                    </span>{" "}
-                  </div>
                 </div>
-                <div className="transaction-summary-block">
-                  <h1 className="transaction-summary__h1">{trans.amount}</h1>
-                  <div className="transaction-summary__status">
-                    {" "}
-                    <img
-                      src={future}
-                      alt=""
-                      className="transaction-summary-status__img"
-                    />{" "}
-                    <span className="transaction-summary-status__img">
-                      {codeToText[trans.type]}
-                    </span>{" "}
-                  </div>
+                <div className="transaction-date-block">
+                  <img
+                    src={calender}
+                    alt=""
+                    className="transaction-date__img"
+                  />{" "}
+                  <span className="transaction-date__span">
+                    {moment(trans.createdAt).format("DD MMM YYYY")}
+                  </span>{" "}
+                </div>
+                <div className="transaction-amount-block">
+                  <span className="transaction-amount__h1">
+                    Rs.{trans.amount}
+                  </span>
+                </div>
+                <div className="transaction-summary-status-block">
+                  <img
+                    src={future}
+                    alt=""
+                    className="transaction-summary-status__img"
+                  />{" "}
+                  <span className="transaction-summary-status__img">
+                    {codeToText[trans.type]}
+                  </span>
                 </div>
               </div>
             ))

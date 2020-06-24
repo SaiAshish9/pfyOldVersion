@@ -1,21 +1,19 @@
+import { LoadingOutlined } from "@ant-design/icons";
 import { Button, Form, Modal, Upload } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-
 import ImgCrop from "antd-img-crop";
 import axios from "axios";
 import Cookies from "js-cookie";
 import moment from "moment";
 import React, { useState } from "react";
-/* ---------------------------------- ***** --------------------------------- */
+/* ---------------------------------- ***** -------------------------------F-- */
+import { getUserProfile } from "../../../api/userProfileApi";
+import genderIcon from "../../../assets/img/genderIcon.svg";
+import locationIcon from "../../../assets/img/locationIconLight.svg";
 import mailIcon from "../../../assets/img/login/mailIcon.svg";
 import userIcon from "../../../assets/img/login/userIcon.svg";
-import locationIcon from "../../../assets/img/locationIconLight.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
-import genderIcon from "../../../assets/img/genderIcon.svg";
-import InputType from "../../inputType";
-import editIcon from "./img/editIcon.svg";
 import { UserProfileContext } from "../../../store/userProfileStore";
-import { getUserProfile } from "../../../api/userProfileApi";
+import InputType from "../../inputType";
 
 const myToken = Cookies.get("token");
 
@@ -184,42 +182,48 @@ export default function EditProfile({ userData }) {
           }}
           className="user-edit-profile-form"
         >
-          <ImgCrop rotate>
-            <Upload
-              name="image"
-              action="https://pracify.com/testing/user/check_image"
-              onChange={onChange}
-              headers={{ token: myToken }}
-              listType="picture-card"
-              showUploadList={false}
-              beforeUpload={beforeUpload}
-              onPreview={onPreview}
-              className="upload-avatar-profile"
-            >
-              {userImage.imageUrl ? (
-                <div className="avatar-img-block">
-                  <img
-                    src={userImage.imageUrl}
-                    alt="avatar"
-                    className="avatar-img"
-                  />
-                </div>
-              ) : (
-                <div className="avatar-img-block">
+          <div className="upload-avatar-main-block">
+            {userImage.imageUrl ? (
+              <div className="avatar-img-block">
+                <img
+                  src={userImage.imageUrl}
+                  alt="avatar"
+                  className="avatar-img"
+                />
+              </div>
+            ) : (
+              <div className="avatar-img-block">
+                <img
+                  src={userData && userData.imgUrl}
+                  alt="avatar"
+                  className="avatar-img"
+                />
+              </div>
+            )}
+            <ImgCrop rotate>
+              <Upload
+                name="image"
+                action="https://pracify.com/testing/user/check_image"
+                onChange={onChange}
+                headers={{ token: myToken }}
+                listType="picture-card"
+                showUploadList={false}
+                beforeUpload={beforeUpload}
+                onPreview={onPreview}
+                className="upload-avatar-profile"
+              >
+                <div className="avatar-button-block">
                   {userImage.loading ? (
-                    <LoadingOutlined className="avatar-loading" />
+                    <Button className="avatar-button">
+                      <LoadingOutlined className="avatar-loading" />
+                    </Button>
                   ) : (
-                    <PlusOutlined className="avatar-loading" />
+                    <Button className="avatar-button">Edit Picture</Button>
                   )}
-                  <img
-                    src={userData && userData.imgUrl}
-                    alt="avatar"
-                    className="avatar-img"
-                  />
                 </div>
-              )}
-            </Upload>
-          </ImgCrop>
+              </Upload>
+            </ImgCrop>
+          </div>
 
           <div className="user-form-main-block">
             {userDetail.map((user, index) => (
@@ -235,16 +239,16 @@ export default function EditProfile({ userData }) {
                 />
               </div>
             ))}
-            <Form.Item>
-              <Button
-                htmlType="submit"
-                type="primary"
-                className="user-profile-submit-btn"
-              >
-                UPDATE
-              </Button>
-            </Form.Item>
           </div>
+          <Form.Item className="user-profile-submit-btn-block">
+            <Button
+              htmlType="submit"
+              type="primary"
+              className="user-profile-submit-btn"
+            >
+              UPDATE
+            </Button>
+          </Form.Item>
         </Form>
       </Modal>
     </>

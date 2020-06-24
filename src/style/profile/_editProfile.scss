@@ -89,38 +89,55 @@
   }
 
   .user-edit-profile-form {
-    display: flex;
-    justify-content: space-between;
-    .upload-avatar-profile {
-      width: initial;
-      .ant-upload {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        width: 136px;
-        height: 136px;
-        border-radius: 68px;
-        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-      }
+    display: grid;
+    grid-gap: 20px 28px;
+    grid-template:
+      "upload form"
+      "btn btn";
+
+    .upload-avatar-main-block {
+      grid-area: upload;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 20px;
       .avatar-img-block {
-        position: relative;
+        margin: 15px 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 136px;
-        height: 136px;
-        .avatar-loading {
-          position: absolute;
-        }
+        width: 120px;
+        height: 120px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 60px;
+        overflow: hidden;
+        margin-bottom: 20px;
+
         .avatar-img {
-          width: 100%;
-          border-radius: 68px;
+          width: 98%;
+          height: 98%;
+          border-radius: 50%;
+        }
+      }
+      .upload-avatar-profile {
+        width: initial;
+        .ant-upload {
+          width: initial;
+          height: initial;
+          padding: initial;
+          border: none;
+          margin: 0;
+        }
+        .avatar-button-block {
+          .avatar-button {
+            min-width: 105px;
+          }
         }
       }
     }
     .user-form-main-block {
-      margin-left: 20px;
+      grid-area: form;
+      margin: 0 20px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 0px 20px;
@@ -135,6 +152,10 @@
       .user-form-block:nth-child(6) {
         grid-column: 1/3;
       }
+    }
+    .user-profile-submit-btn-block {
+      grid-area: btn;
+      justify-self: center;
       .user-profile-submit-btn {
         width: 123px;
         height: 40px;

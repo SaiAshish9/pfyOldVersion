@@ -569,7 +569,7 @@ $card-background-color: #fff;
           }
         }
         .offline-gigs {
-          padding-left: 10px;
+          padding-left: 15px;
           .pin-img {
             margin-right: 0.5rem;
           }
@@ -586,9 +586,17 @@ $card-background-color: #fff;
             cursor: pointer;
           }
           .btn-and-vehicles {
-            @extend%user-content;
+            margin-top: 12px;
             display: flex;
             justify-content: space-around;
+            .travel-btn {
+              border-radius: 15px;
+              border: solid 2px #444584;
+
+              font-size: 14px;
+              font-weight: 500;
+              color: #444584;
+            }
             .vehicles {
               margin: 0 1rem;
               .vehicle {

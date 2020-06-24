@@ -9,6 +9,7 @@ import notificationApi from "../../../api/notificationApi";
 import { userApi } from "../../../api/userApi";
 import { getUserProfile } from "../../../api/userProfileApi";
 import notificationIcon from "../../../assets/img/notificationIcon.svg";
+import downArrowIcon from "../../../assets/img/downArrowIcon.svg";
 import maleIcon from "../../../assets/img/maleIcon.svg";
 import femaleIcon from "../../../assets/img/femaleIcon.svg";
 import { NotificationContext } from "../../../store/notificationStore";
@@ -24,7 +25,7 @@ const headerLink = [
   { name: "Internships", link: "/relatedInternships" },
   { name: "Resume", link: "/resume" },
   { name: "Wallet", link: "/wallet" },
-  { name: "Student Status", link: "/student_status" },
+  { name: "Student Status", link: "show-verify" },
 ];
 
 export default function PrivateHeaderNavLink() {
@@ -108,6 +109,10 @@ export default function PrivateHeaderNavLink() {
           <Fragment key={index}>
             {location === data.link ? (
               <span className="myLink-span">{data.name}</span>
+            ) : data.link === "show-verify" ? (
+              <span className="myLink" onClick={() => setIsShowVerify(true)}>
+                {data.name}
+              </span>
             ) : (
               <Link to={data.link} className="myLink">
                 {data.name}
@@ -159,7 +164,7 @@ export default function PrivateHeaderNavLink() {
             )}
           </span>
           <span className="user-profile">Hi {userName}</span>
-          <DownCircleFilled />
+          <img src={downArrowIcon} alt="" className="" />
         </a>
       </Dropdown>
       <Support

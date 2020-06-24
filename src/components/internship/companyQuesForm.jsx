@@ -1,10 +1,12 @@
 import { Button, Input, Modal } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Lottie from "react-lottie";
+
 /* ---------------------------------- ***** --------------------------------- */
+import submitSuccess from "../../assets/animations/submitSuccess.json";
 import { arrayValidation } from "../validation/validation";
 import { tokenHeader } from "../../constant/tokenHeader";
-import { findAllByAltText } from "@testing-library/react";
 
 const { TextArea } = Input;
 export default function CompanyQuesForm(props) {
@@ -99,7 +101,22 @@ export default function CompanyQuesForm(props) {
             </Button>
           </>
         }
-      ></Modal>
+      >
+        <div className="sbm-vrf-anim">
+          <Lottie
+            options={{
+              animationData: submitSuccess,
+              loop: true,
+              autoplay: true,
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice",
+              },
+            }}
+            isStopped={false}
+            isPaused={false}
+          />
+        </div>
+      </Modal>
     </>
   );
 }

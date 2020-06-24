@@ -160,6 +160,7 @@ export default function OfflineAvailUser() {
               )}
               {isAnyVehicle && (
                 <div className="btn-and-vehicles">
+                  <Button className="travel-btn">Willing To Travel</Button>
                   <div className="vehicles">
                     {vehiclesData.bike ? (
                       <img className="vehicle" src={bike2} alt="" />
