@@ -3,12 +3,6 @@ import React, { useEffect } from "react";
 import Lottie from "react-lottie";
 import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
-import oneHiwCompanyAnim from "../../../assets/animations/oneHiwCompanyAnim.json";
-import oneHiwWorkerAnim from "../../../assets/animations/oneHiwWorkerAnim.json";
-import threeHiwCompanyAnim from "../../../assets/animations/threeHiwCompanyAnim.json";
-import threeHiwWorkerAnim from "../../../assets/animations/threeHiwWorkerAnim.json";
-import twoHiwCompanyAnim from "../../../assets/animations/twoHiwCompanyAnim.json";
-import twoHiwWorkerAnim from "../../../assets/animations/twoHiwWorkerAnim.json";
 import businessAdvtOne from "../../../assets/img/howItWork/businessAdvtOne.svg";
 import businessAdvtThree from "../../../assets/img/howItWork/businessAdvtThree.svg";
 import businessAdvtTwo from "../../../assets/img/howItWork/businessAdvtTwo.svg";
@@ -18,6 +12,14 @@ import gigAdvtTwo from "../../../assets/img/howItWork/gigAdvtTwo.svg";
 import iconOne from "../../../assets/img/howItWork/iconOne.svg";
 import iconThree from "../../../assets/img/howItWork/iconThree.svg";
 import iconTwo from "../../../assets/img/howItWork/iconTwo.svg";
+
+import oneHiwCompany from "../../../assets/img/howItWork/oneHiwCompany.svg";
+import oneHiwWorker from "../../../assets/img/howItWork/oneHiwWorker.svg";
+import threeHiwCompany from "../../../assets/img/howItWork/threeHiwCompany.svg";
+import threeHiwWorker from "../../../assets/img/howItWork/threeHiwWorker.svg";
+import twoHiwCompany from "../../../assets/img/howItWork/twoHiwCompany.svg";
+import twoHiwWorker from "../../../assets/img/howItWork/twoHiwWorker.svg";
+
 import propIconOne from "../../../assets/img/howItWork/propIconOne.svg";
 import propIconTwo from "../../../assets/img/howItWork/propIconTwo.svg";
 
@@ -38,7 +40,7 @@ const gigWorker = [
       "Finding gigs on Pracify is easy, use your mobile or laptop to search and apply to gigs that match your skillset and interest.",
     paraTwo:
       "Apply using the single click 'Apply Now' button to show your interest to work with your favorite companies.",
-    animation: oneHiwWorkerAnim,
+    animation: oneHiwWorker,
   },
   {
     imgOne: iconTwo,
@@ -48,7 +50,7 @@ const gigWorker = [
       "Submit proof of completed work on the mobile app or on web by sharing the screenshot or links as asked by your company.",
     paraTwo:
       "Make sure the proof matches all the requirements listed by the company to ensure it doesn't get rejected.",
-    animation: twoHiwWorkerAnim,
+    animation: twoHiwWorker,
   },
   {
     imgOne: iconThree,
@@ -58,7 +60,7 @@ const gigWorker = [
       "Get paid into your Pracify wallet once the company reviews your performance and approves it.",
     paraTwo:
       "You can transfer your earnings directly from your Pracify wallet into your Bank account or Paytm account.",
-    animation: threeHiwWorkerAnim,
+    animation: threeHiwWorker,
   },
 ];
 const businessOwner = [
@@ -69,7 +71,7 @@ const businessOwner = [
     paraOne:
       "Create a Gig on Pracify with detailed description and requirements so that Gig workers matching the Gig requirements can apply to the Gig easily.",
     paraTwo: "",
-    animation: oneHiwCompanyAnim,
+    animation: oneHiwCompany,
   },
   {
     imgOne: iconTwo,
@@ -78,7 +80,7 @@ const businessOwner = [
     paraOne:
       "Select Gig workers who match your Gig requirements so that they can start working on your project and complete it at the earliest.",
     paraTwo: "",
-    animation: twoHiwCompanyAnim,
+    animation: twoHiwCompany,
   },
   {
     imgOne: iconThree,
@@ -87,7 +89,7 @@ const businessOwner = [
     paraOne:
       "Review the performance of gig workers and approve work submitted by them if it matches the Gig requirements.",
     paraTwo: "You pay only for the work you approve!",
-    animation: threeHiwCompanyAnim,
+    animation: threeHiwCompany,
   },
 ];
 
@@ -157,18 +159,10 @@ export default function HowItWork() {
             <p className={`${cls}-hiw-para-two`}>{data.paraTwo}</p>
           </div>
           <div className={`${cls}-hiw-animation-block`}>
-            <Lottie
+            <img
+              src={data.animation}
+              alt=""
               className={`${cls}-hiw-animation`}
-              options={{
-                animationData: data.animation,
-                loop: true,
-                autoplay: true,
-                rendererSettings: {
-                  preserveAspectRatio: "xMidYMid slice",
-                },
-              }}
-              isStopped={false}
-              isPaused={false}
             />
           </div>
         </div>

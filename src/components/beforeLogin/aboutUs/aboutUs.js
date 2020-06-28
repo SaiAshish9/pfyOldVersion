@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import businessImg from "../../../assets/img/aboutUs/businessImg.svg";
 import gigWorkerImg from "../../../assets/img/aboutUs/gigWorkerImg.svg";
 import youngWorker from "../../../assets/img/aboutUs/youngWorker.svg";
+import rightArrowIconLight from "../../../assets/img/rightArrowIconLight.svg";
 
 const about = [
   {
@@ -12,7 +13,7 @@ const about = [
     paraOne:
       "Pracify helps companies to scale using our network of on-demand workers comprising of India's youth who  are paid on a 'pay-per-performance' system.",
     paraTwo:
-      "With Pracify, companies can achieve their business goals in a cost-efficient manner by onboarding gig workers for various tasks ranging from  Marketing to Research.",
+      "With Pracify, companies can achieve their business goals in a cost-effective manner by onboarding on-demand workers for various tasks.",
     img: youngWorker,
   },
   {
@@ -20,7 +21,7 @@ const about = [
     paraOne:
       "Pracify helps mitigate traditional hiring risks with its 'outcome-based payout' feature where companies pay only for the work they approve and not manpower employed.",
     paraTwo:
-      "Our company dashboard acts as a recruitment engine, enables tracking of work & a payment disbursal platform. You can also opt for our managed services for guaranteed delivery of outcome.",
+      "Our company dashboard acts as a recruitment engine, enables tracking of work & allowsw payment disbursal platform. You can also opt for our managed services for guaranteed delivery of outcome.",
     button: "Get Pracified",
     img: businessImg,
   },
@@ -48,7 +49,12 @@ export default function AboutUs() {
             <p className="aboutUs-paraOne">{data.paraOne}</p>
             <p className="aboutUs-paraTwo">{data.paraTwo} </p>
             {data.button && (
-              <Button className="aboutUsButton">{data.button}</Button>
+              <Button className="aboutUsButton">
+                {data.button}
+                <span className="aboutUsButton-span">
+                  <img src={rightArrowIconLight} alt="" className="" />
+                </span>
+              </Button>
             )}
             <div className="aboutUs-img-block">
               <img src={data.img} alt="" className="aboutUs-img" />

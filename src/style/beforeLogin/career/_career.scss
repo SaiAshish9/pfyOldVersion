@@ -13,40 +13,48 @@
     }
 
     .workWithUs-para {
+      margin: 28px;
       font-size: 18px;
-      font-weight: 700;
-      line-height: 1.22;
+      line-height: 1.5;
       color: #333e49;
     }
 
     .openings-button {
-      width: 200px;
+      width: 203px;
       height: 65px;
       border-radius: 5px;
-      background-color: #699eee;
+      border: 1px solid #ea907a;
+      background-color: #ea907a;
+      box-shadow: 0 16px 29px 0 rgba(0, 0, 0, 0.08);
 
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       line-height: 1.22;
       color: #ffffff;
+
+      .openings-span{
+        margin-left: 20px;
+      }
     }
   }
 
   .career-hero-block {
-    padding: 0 40px 80px;
+    margin-top: 60px;
+    padding: 40px 0;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #fffbfa, #fffcfb 50%, #ffffff);
     .career-hero-para-block {
+      margin: 0 118px;
       .career-hero-para {
-        font-size: 18px;
-        line-height: 1.22;
+        margin-bottom: 28px;
+        font-size: 17px;
+        line-height: 1.94;
         color: #333e49;
       }
     }
-
     .career-hero-img-block {
       .career-hero-img {
-        // width: 100%;
       }
     }
   }

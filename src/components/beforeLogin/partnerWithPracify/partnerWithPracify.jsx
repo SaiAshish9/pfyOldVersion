@@ -4,7 +4,7 @@ import FillDetail from "../contactUs/fillDetail";
 import brandPartnershipIcon from "../../../assets/img/partnerWithPracify/brandPartnershipIcon.svg";
 import cashSponsorshipIcon from "../../../assets/img/partnerWithPracify/cashSponsorshipIcon.svg";
 import promoteEventIcon from "../../../assets/img/partnerWithPracify/promoteEventIcon.svg";
-import pwpHeroImg from "../../../assets/img/partnerWithPracify/pwpHeroImg.svg";
+import rightArrowIconLight from "../../../assets/img/rightArrowIconLight.svg";
 
 const pwpData = [
   {
@@ -46,20 +46,23 @@ export default function PartnerWithPracify() {
       <div className="pwp-hero-block">
         <h1 className="pwp-hero-head">Partner with Pracify!</h1>
         <p className="pwp-hero-para">
-          We love partnering with college societies across India. We know you
-          need sponsorship to organize a great event and we've got a way to help
-          you out, just complete some tasks and earn cash sponsorship for your
-          college festival.
+          We love partnering with college societies and student clubs across
+          India.
+          <br />
+          We know you usually need sponsorship to organize a great event and
+          we've got a way to help with you
+          <br /> that, just complete some tasks and earn cash sponsorship for
+          your college festival.
         </p>
-        <div className="pwp-hero-img-block">
 
-        <img src={pwpHeroImg} alt="" className="pwp-hero-img" />
-        </div>
         <Button
           onClick={() => handleContactUs("partner")}
           className="pwp-hero-button"
         >
           Let's Partner
+          <span className="pwp-hero-span">
+            <img src={rightArrowIconLight} alt="" className="" />
+          </span>
         </Button>
       </div>
       <h1 className="partnership-advantage">Partnership Advantages</h1>
@@ -73,12 +76,12 @@ export default function PartnerWithPracify() {
         ))}
       </div>
       <div className="partnership-button-block">
-        <Button
+        {/* <Button
           onClick={() => handleContactUs("partner")}
           className="partnership-button"
         >
           Let's Partner
-        </Button>
+        </Button> */}
       </div>
       <FillDetail
         contactName={contactTo}

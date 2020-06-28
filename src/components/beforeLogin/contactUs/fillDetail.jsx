@@ -1,20 +1,19 @@
 import React from "react";
 import { Modal, Form, Button } from "antd";
 import InputType from "../../inputType";
-import moment from "moment";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 const userDetail = [
   {
     name: "name",
     label: "Name",
-    placeholder: "Your Name",
+    // placeholder: "Your Name",
     rule: [{ required: true, message: "please input your name!" }],
     inputType: "text",
   },
   {
     name: "city",
     label: "City",
-    placeholder: "Your City",
     rule: [{ required: true, message: "please input your city!" }],
     option: [
       { option: "Delhi", value: "Delhi" },
@@ -29,21 +28,21 @@ const userDetail = [
   {
     name: "email",
     label: "Email Address",
-    placeholder: "Your Email",
+    // placeholder: "Your Email",
     rule: [{ required: true, message: "please input your email!" }],
     inputType: "text",
   },
   {
     name: "mobile",
     label: "Mobile Number",
-    placeholder: "Your Phone",
+    // placeholder: "Your Phone",
     rule: [{ required: true, message: "please input your mobile!" }],
     inputType: "number",
   },
   {
     name: "message",
     label: "Message",
-    placeholder: "Your Message",
+    // placeholder: "Your Message",
     rule: [{ required: true, message: "please input your message!" }],
     inputType: "textarea",
   },
@@ -52,35 +51,35 @@ const companyDetail = [
   {
     name: "name",
     label: "Name",
-    placeholder: "Your Name",
+    // placeholder: "Your Name",
     rule: [{ required: true, message: "please input your name!" }],
     inputType: "text",
   },
   {
     name: "companyName",
     label: "Company Name",
-    placeholder: "Your Company",
+    // placeholder: "Your Company",
     rule: [{ required: true, message: "please input your company name!" }],
     inputType: "text",
   },
   {
     name: "email",
     label: "Email Address",
-    placeholder: "Your Email",
+    // placeholder: "Your Email",
     rule: [{ required: true, message: "please input your email!" }],
     inputType: "text",
   },
   {
     name: "mobile",
     label: "Mobile Number",
-    placeholder: "Your Phone",
+    // placeholder: "Your Phone",
     rule: [{ required: true, message: "please input your mobile!" }],
     inputType: "number",
   },
   {
     name: "message",
     label: "Message",
-    placeholder: "Your Message",
+    // placeholder: "Your Message",
     rule: [{ required: true, message: "please input your message!" }],
     inputType: "textarea",
   },
@@ -89,35 +88,35 @@ const partnerDetail = [
   {
     name: "name",
     label: "Name",
-    placeholder: "Your Name",
+    // placeholder: "Your Name",
     rule: [{ required: true, message: "please input your name!" }],
     inputType: "text",
   },
   {
     name: "collegeName",
     label: "College Name",
-    placeholder: "Your College Name",
+    // placeholder: "Your College Name",
     rule: [{ required: true, message: "please input your college name!" }],
     inputType: "text",
   },
   {
     name: "email",
     label: "Email Address",
-    placeholder: "Your Email",
+    // placeholder: "Your Email",
     rule: [{ required: true, message: "please input your email!" }],
     inputType: "text",
   },
   {
     name: "mobile",
     label: "Mobile Number",
-    placeholder: "Your Phone",
+    // placeholder: "Your Phone",
     rule: [{ required: true, message: "please input your mobile!" }],
     inputType: "number",
   },
   {
     name: "city",
     label: "City",
-    placeholder: "Your City",
+    // placeholder: "Your City",
     rule: [{ required: true, message: "please input your city!" }],
     option: [
       { option: "Delhi", value: "Delhi" },
@@ -132,23 +131,26 @@ const partnerDetail = [
   {
     name: "collegeSocietyName",
     label: "College Society Name",
-    placeholder: "Your College Society Name",
     rule: [
       { required: true, message: "please input your college society name!" },
     ],
     inputType: "text",
   },
   {
-    name: "eventDate",
-    label: "Event Date",
-    placeholder: ["Starts From", "Ends On"],
-    rule: [
-      { type: "array", required: true, message: "please input event dates!" },
-    ],
-    disabledDate: (current) => {
-      return current && current < moment().startOf("day");
-    },
-    inputType: "rangePicker",
+    name: "eventStartDate",
+    label: "Event Starts On",
+    rule: [{ required: true, message: "please input event dates!" }],
+    placeholder: null,
+    inputType: "date",
+    suffix: null,
+  },
+  {
+    name: "eventEndDate",
+    label: "Event Ends On",
+    placeholder: null,
+    rule: [{ required: true, message: "please input event dates!" }],
+    inputType: "date",
+    suffix: null,
   },
   {
     name: "partnerFor",
@@ -164,22 +166,6 @@ export default function FillDetail({
   modalVisible,
   handleCancelModal,
 }) {
-  const [form] = Form.useForm();
-
-  const onFormSubmit = (value, formName) => {
-    if (formName === "user") {
-      console.log(value);
-    } else if (formName === "business") {
-      console.log(value);
-    } else {
-      const range = value["eventDate"];
-      const startDate = range[0]._d.toISOString();
-      const endDate = range[1]._d.toISOString();
-      const preProcessedValue = { ...value, eventDate: { startDate, endDate } };
-      console.log(value);
-      console.log(preProcessedValue);
-    }
-  };
   return (
     <Modal
       title="Get In Touch"
@@ -189,6 +175,36 @@ export default function FillDetail({
       width={812}
       className="contactUs-form-field"
     >
+      <GetUserDetailForm contactName={contactName} />
+    </Modal>
+  );
+}
+
+export const GetUserDetailForm = ({ contactName }) => {
+  const location = useLocation();
+  console.log("location", location);
+
+  const [form] = Form.useForm();
+
+  const onFormSubmit = (value, formName) => {
+    if (formName === "user") {
+      console.log(value);
+    } else if (formName === "business") {
+      console.log(value);
+    } else {
+      const startDate = value.eventStartDate._d.toISOString();
+      const endDate = value.eventEndDate._d.toISOString();
+      delete value.eventStartDate;
+      delete value.eventEndDate;
+      const preProcessedValue = { ...value, eventDate: { startDate, endDate } };
+      console.log(preProcessedValue);
+    }
+  };
+  return (
+    <>
+      {location.pathname !== "/partner_with_us" && (
+        <h1 className="get-in-touch-head">Get in Touch</h1>
+      )}
       {contactName === "user" && (
         <Form
           name="userContact"
@@ -257,6 +273,7 @@ export default function FillDetail({
                 placeholder={partner.placeholder}
                 option={partner.option}
                 disabledDate={partner.disabledDate}
+                suffix={partner.suffix}
               />
             </div>
           ))}
@@ -267,6 +284,6 @@ export default function FillDetail({
           </Form.Item>
         </Form>
       )}
-    </Modal>
+    </>
   );
-}
+};

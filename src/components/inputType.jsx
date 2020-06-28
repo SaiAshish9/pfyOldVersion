@@ -84,7 +84,15 @@ export default function InputType({
       )}
       {type === "date" && (
         <Form.Item name={name} rules={rule}>
-          <DatePicker format="DD-MM-YYYY" placeholder={placeholder} />
+          {suffix === null || suffix ? (
+            <DatePicker
+              format="DD-MM-YYYY"
+              placeholder={placeholder}
+              suffixIcon={suffix}
+            />
+          ) : (
+            <DatePicker format="DD-MM-YYYY" placeholder={placeholder} />
+          )}
         </Form.Item>
       )}
       {type === "radioButton" && (

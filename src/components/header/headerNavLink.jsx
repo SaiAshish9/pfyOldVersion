@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 export default function HeaderNavLink() {
   return (
     <>
-      <Link to="/internships" className="myLink1">
-        Internships
-      </Link>
       <Link to="/gigs" className="myLink2">
         Gigs
+      </Link>
+      <Link to="/internships" className="myLink1">
+        Internships
       </Link>
       <Link to="/login">
         <Button className="header__button1">Login</Button>
