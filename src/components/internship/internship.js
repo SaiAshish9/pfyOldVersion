@@ -7,7 +7,10 @@ import React, { useEffect, useState } from "react";
 import Card from "../common/card";
 import Filter from "../filters/filter";
 import { arrayValidation } from "../validation/validation";
-import { getInternshipWithoutStatus } from "../../api/internshipApi";
+import {
+  getInternshipWithoutStatus,
+  getInternshipWithStatus,
+} from "../../api/internshipApi";
 import { InternshipContext } from "../../store/internshipStore";
 
 const cardStyle = {
@@ -17,7 +20,6 @@ const cardStyle = {
 
 const { Option } = Select;
 export default function Internship() {
-  // const [internship, setInternship] = useState(InternshipContext);
   const { internship, dispatchInternship } = InternshipContext();
   const [arrangeCard, setArrangeCard] = useState("latest");
 

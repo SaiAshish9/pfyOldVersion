@@ -69,7 +69,6 @@ export default function CompanyQuesForm(props) {
           className="company-ques-textarea"
           required={true}
           onChange={(e) => onInputChange(i, e)}
-          placeholder="enter you answer"
         />
       </div>
     ));

@@ -3,18 +3,29 @@ import { Button, Modal } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Element, scroller } from "react-scroll";
 /* ---------------------------------- ***** --------------------------------- */
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
 import DataLayout from "../common/profileOrResumeLayout";
 import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import achievementIcon from "./img/headingImg/achievementIcon.svg";
+
 const Achievement = ({ achievement, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [achievementData, setAchievementData] = useState(false);
-
   const { register, handleSubmit, setValue } = useForm();
+
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-achievement", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
 
   console.log(achievementData);
   const onSubmit = (data) => {
@@ -31,12 +42,15 @@ const Achievement = ({ achievement, updateResume }) => {
       });
     setAchievementData(false);
     setIsModalVisible(false);
+    scrollToElement();
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
     setAchievementData(false);
+    scrollToElement();
   };
+
   const handleAdd = () => {
     setIsModalVisible(true);
   };
@@ -49,9 +63,8 @@ const Achievement = ({ achievement, updateResume }) => {
   const handleDelete = (index) => {
     console.log(index);
     axios
-      .delete(`resume/delete_achievement/${index}`)
+      .delete(`resume/delete_achievement/${index}`, tokenHeader())
       .then((res) => {
-        // console.log(res);
         updateResume(Math.random());
       })
       .catch((e) => {
@@ -89,27 +102,30 @@ const Achievement = ({ achievement, updateResume }) => {
 
   return (
     <>
-      <DataLayout
-        img={<img src={achievementIcon} alt="" className="user-data-img" />}
-        head="Achievements"
-        icon={
-          <img
-            src={addIcon}
-            alt=""
-            onClick={handleAdd}
-            className="user-data-icon"
-          />
-        }
-        content={content}
-        isData={arrayValidation(achievement)}
-      />
-
+      {" "}
+      <Element name="scroll-to-achievement" className="element">
+        <DataLayout
+          img={<img src={achievementIcon} alt="" className="user-data-img" />}
+          head="Achievements"
+          icon={
+            <img
+              src={addIcon}
+              alt=""
+              onClick={handleAdd}
+              className="user-data-icon"
+            />
+          }
+          content={content}
+          isData={arrayValidation(achievement)}
+        />
+      </Element>
       <Modal
         title="Add Achievement"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
         width={780}
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -120,7 +136,6 @@ const Achievement = ({ achievement, updateResume }) => {
           <textarea
             name="achievement"
             ref={register}
-            placeholder="please enter your Achievement"
             className="achievement-modal-sec-one__textarea "
           />
           <Button

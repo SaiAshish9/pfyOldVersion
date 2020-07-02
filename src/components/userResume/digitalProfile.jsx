@@ -1,7 +1,9 @@
-import { Button, Input, Modal, Tooltip } from "antd";
+import { Button, Input, Modal } from "antd";
 import Axios from "axios";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { Element, scroller } from "react-scroll";
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 /* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../constant/tokenHeader";
 import DataLayout from "../common/profileOrResumeLayout";
@@ -26,6 +28,15 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { register, handleSubmit, errors, control } = useForm();
 
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-digitalProfile", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
+
   const onSubmit = (data) => {
     console.log(data);
     Axios.post(`resume/add_digital_profiles`, data, tokenHeader())
@@ -36,12 +47,14 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
         console.log(e.response);
       });
     setIsModalVisible(false);
+    scrollToElement();
   };
 
   console.log(errors);
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    scrollToElement();
   };
 
   const handleAdd = () => {
@@ -112,20 +125,25 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
 
   return (
     <>
-      <DataLayout
-        img={<img src={digitalProfileIcon} alt="" className="user-data-img" />}
-        head="Digital Profiles"
-        icon={
-          <img
-            src={!isDigitalProfile ? addIcon : editIcon}
-            alt=""
-            onClick={handleAdd}
-            className="user-data-icon"
-          />
-        }
-        content={content}
-        isData={isDigitalProfile}
-      />
+      <Element name="scroll-to-digitalProfile" className="element">
+        <DataLayout
+          img={
+            <img src={digitalProfileIcon} alt="" className="user-data-img" />
+          }
+          head="Digital Profiles"
+          icon={
+            <img
+              src={!isDigitalProfile ? addIcon : editIcon}
+              alt=""
+              onClick={handleAdd}
+              className="user-data-icon"
+            />
+          }
+          content={content}
+          isData={isDigitalProfile}
+        />
+      </Element>
+
       <Modal
         title="Add Social Media Accounts"
         visible={isModalVisible}
@@ -133,6 +151,7 @@ export default function DigitalProfile({ digitalProfile, updateResume }) {
         footer={null}
         width={780}
         className="digitalProfile-modal-main-block"
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <form onSubmit={handleSubmit(onSubmit)}>
           <Controller

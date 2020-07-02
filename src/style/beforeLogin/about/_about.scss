@@ -47,7 +47,7 @@
         font-size: 18px;
         font-weight: 600;
         color: #ffffff;
-        .aboutUsButton-span{
+        .aboutUsButton-span {
           margin-left: 20px;
         }
       }
@@ -87,15 +87,25 @@
     }
   }
   .aboutUs-contact {
+    position: relative;
     margin: 0 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px;
-
     border-radius: 11px;
     box-shadow: 0 6px 25px 0 rgba(0, 0, 0, 0.16);
     background-image: linear-gradient(91deg, #6e74c6 0%, #373a63 97%);
+    &::before {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 105px;
+      border-radius: 11px 0 100% 0px;
+      top: 0;
+      left: 0;
+      background-color: #666bb7;
+    }
     .aboutUs-contact-head {
       margin: 0;
       font-size: 36px;

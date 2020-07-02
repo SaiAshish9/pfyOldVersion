@@ -12,7 +12,8 @@ import facebookIcon from "./img/facebookIcon.svg";
 import instagramIcon from "./img/instagramIcon.svg";
 import tikTokIcon from "./img/tikTokIcon.svg";
 import DataLayout from "../../common/profileOrResumeLayout";
-
+import modalCloseIcon from "../../../assets/img/modalCloseIcon.svg";
+import { Element, scroller } from "react-scroll";
 const UserDigitalProfile = () => {
   const { profileData, dispatchUserProfile } = UserProfileContext();
   const digitalProfileData = profileData
@@ -25,9 +26,17 @@ const UserDigitalProfile = () => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [SM, setSM] = useState({});
-
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-userDigitalProfile", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
   const handleCancel = () => {
     setIsModalVisible(false);
+    scrollToElement();
   };
 
   const handleProfileButton = (e) => {
@@ -40,6 +49,7 @@ const UserDigitalProfile = () => {
       console.log(res.data);
       getUserProfile(dispatchUserProfile);
       setIsModalVisible(false);
+      scrollToElement();
     });
   };
 
@@ -91,20 +101,23 @@ const UserDigitalProfile = () => {
 
   return (
     <>
-      <DataLayout
-        img={<img src={five} alt="" className="user-data-img" />}
-        head="Social Media Accounts"
-        icon={
-          <img
-            src={!isDigitalIcon ? addIcon : editIcon}
-            alt=""
-            onClick={() => setIsModalVisible(true)}
-            className="user-data-icon"
-          />
-        }
-        content={content}
-        isData={isDigitalIcon}
-      />
+      {" "}
+      <Element name="scroll-to-userDigitalProfile" className="element">
+        <DataLayout
+          img={<img src={five} alt="" className="user-data-img" />}
+          head="Social Media Accounts"
+          icon={
+            <img
+              src={!isDigitalIcon ? addIcon : editIcon}
+              alt=""
+              onClick={() => setIsModalVisible(true)}
+              className="user-data-icon"
+            />
+          }
+          content={content}
+          isData={isDigitalIcon}
+        />{" "}
+      </Element>
       <Modal
         title="Add Social Media Accounts"
         visible={isModalVisible}
@@ -112,6 +125,7 @@ const UserDigitalProfile = () => {
         width={780}
         footer={null}
         className="social-media-modal"
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <form style={{ display: "flex", flexDirection: "column" }} className="">
           <div className="social-media-input">

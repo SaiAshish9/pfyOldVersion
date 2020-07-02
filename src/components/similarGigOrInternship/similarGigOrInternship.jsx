@@ -7,7 +7,7 @@ import SmallCard from "../common/smallCard";
 import { QueryFrom } from "../support/queryForm";
 import { arrayValidation } from "../validation/validation";
 import helpIcon from "./help.svg";
-
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 export default function SimilarGigOrInternship({
   isGigOrInternship,
   category,
@@ -71,17 +71,12 @@ export default function SimilarGigOrInternship({
             </div>
           </div>
         )}
-        <div className="similar-gigOrInternship-block1">
-          <h3 className="similar-gigOrInternship-block1__h3">
-            {isGigOrInternship === "gig"
-              ? "Similar Gigs"
-              : "Similar Internships"}
-          </h3>
-          {arrayValidation(similarGigOrInternship) &&
-            similarGigOrInternship.map((gigOrInternship, index) => {
+        {arrayValidation(similarGigOrInternship) && (
+          <div className="similar-gigOrInternship-block1">
+            {similarGigOrInternship.map((gigOrInternship, index) => {
               return (
                 <Fragment key={index}>
-                  {index < 4 && (
+                  {index > 0 && index < 2 && (
                     <SmallCard
                       gigOrInternship={gigOrInternship}
                       isGigOrInternship={isGigOrInternship}
@@ -90,8 +85,10 @@ export default function SimilarGigOrInternship({
                 </Fragment>
               );
             })}
-        </div>
+          </div>
+        )}
       </div>
+
       <Modal
         className="support-modal"
         width={674}
@@ -99,6 +96,7 @@ export default function SimilarGigOrInternship({
         visible={modalVisible}
         onCancel={handleCancel}
         footer={null}
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <QueryFrom handleCancel={handleCancel} />
       </Modal>

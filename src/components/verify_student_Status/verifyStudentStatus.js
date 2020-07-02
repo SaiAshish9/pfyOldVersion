@@ -3,6 +3,7 @@ import React, { useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import uploadBtn from "../../assets/img/uploadBtn.svg";
 import downArrow from "../../assets/img/down-arrow.svg";
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 
 const { Option } = Select;
 
@@ -44,6 +45,8 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
       visible={isVisibleModal}
       onCancel={() => closeModal()}
       footer={null}
+      closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
+      
     >
       <div className="verify-student-status-form">
         <div className="status-form-single-input">
@@ -58,9 +61,9 @@ export default function VerifyStudentStatus({ isVisibleModal, closeModal }) {
             placeholder="Select Document Type"
             suffixIcon={<img src={downArrow} alt="" />}
           >
-            <Option value="aadhar">Aadhar</Option>
-            <Option value="10th">10th Marksheet</Option>
-            <Option value="collegeId">College ID</Option>
+            <Option value="aadhar">College ID Card</Option>
+            <Option value="10th">College Library Card</Option>
+            <Option value="collegeId">College Fee Slip</Option>
           </Select>
         </div>
         <div className="status-form-instruction">

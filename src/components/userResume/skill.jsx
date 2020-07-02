@@ -1,14 +1,15 @@
-import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Button, Modal, Popover, Rate, Tooltip } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { CloseOutlined } from "@ant-design/icons";
+import { Element, scroller } from "react-scroll";
 /* ---------------------------------- ***** --------------------------------- */
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
+import DataLayout from "../common/profileOrResumeLayout";
 import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
-import goBackIcon from "./img/goBackIcon.svg";
 import cancelIcon from "./img/cancelIcon.svg";
+import goBackIcon from "./img/goBackIcon.svg";
 import skillIcon from "./img/headingImg/skillIcon.svg";
 import creativeIcon from "./img/skillImg/creativeIcon.svg";
 import designIcon from "./img/skillImg/designIcon.svg";
@@ -18,22 +19,20 @@ import legalIcon from "./img/skillImg/legalIcon.svg";
 import marketingIcon from "./img/skillImg/marketingIcon.svg";
 import otherIcon from "./img/skillImg/otherIcon.svg";
 import technicalIcon from "./img/skillImg/technicalIcon.svg";
-import DataLayout from "../common/profileOrResumeLayout";
-
-const proficiencyRate = [
-  "Beginner",
-  "Intermediate",
-  "Advance",
-  "Professional",
-  "Expert",
-];
 
 export default function Skill({ skill }) {
   const [skillDummy, setSkillDummy] = useState([]);
   const [skillData, setSkillData] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-skill", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
   useEffect(() => {
     setSkillDummy(skill);
   }, [skill]);
@@ -64,6 +63,7 @@ export default function Skill({ skill }) {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    scrollToElement();
   };
 
   const handleAdd = () => {
@@ -194,9 +194,9 @@ export default function Skill({ skill }) {
     return (
       <div style={{ display: "flex" }}>
         <Rate
-          tooltips={proficiencyRate}
           onChange={handleSkillRate}
           disabled={!!matchSkillName}
+          count={3}
         />
       </div>
     );
@@ -275,10 +275,7 @@ export default function Skill({ skill }) {
       {arrayValidation(skillDummy) &&
         skillDummy.map((skill, index) => (
           <div className="user-data-skill-block">
-            <div
-              // onClick={() => handleEditSkill(true)}
-              className="skill-data-block"
-            >
+            <div className="skill-data-block">
               <p className="skill-data__p">{skill.name}</p>
               {console.log("skill.rating", skill.rating)}
               <Rate
@@ -289,7 +286,6 @@ export default function Skill({ skill }) {
               />
               <div style={editDisplay()} className="skill-edit-data__rating">
                 <Rate
-                  tooltips={proficiencyRate}
                   defaultValue={skill.rating}
                   onChange={(value) => onSkillRateChange(skill.name, value)}
                 />
@@ -310,26 +306,30 @@ export default function Skill({ skill }) {
 
   return (
     <>
-      <DataLayout
-        img={<img src={skillIcon} alt="" className="user-data-img" />}
-        head="Skills"
-        icon={
-          <img
-            src={addIcon}
-            alt=""
-            onClick={handleAdd}
-            className="user-data-icon"
-          />
-        }
-        content={content}
-        isData={arrayValidation(skillDummy)}
-      />
+      {" "}
+      <Element name="scroll-to-skill" className="element">
+        <DataLayout
+          img={<img src={skillIcon} alt="" className="user-data-img" />}
+          head="Skills"
+          icon={
+            <img
+              src={addIcon}
+              alt=""
+              onClick={handleAdd}
+              className="user-data-icon"
+            />
+          }
+          content={content}
+          isData={arrayValidation(skillDummy)}
+        />{" "}
+      </Element>
       <Modal
         width={600}
         title="Add Skills"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         {/* -------------------------------- category -------------------------------- */}
         <div className="skill-modal-block">
@@ -367,7 +367,6 @@ export default function Skill({ skill }) {
                   onClick={handleBack}
                   className="skill-go-back-arrow"
                 />
-
                 <div className="skill-go-back-img">
                   {skillImage(selectedCategory)}
                 </div>
@@ -391,15 +390,15 @@ export default function Skill({ skill }) {
                             {thisSkillData.name}
                           </p>
                           {getFixedRatting(thisSkillData.name)}
-                          {!!selectedSkillCategory(thisSkillData.name) && (
-                            <img
-                              src={cancelIcon}
-                              alt=""
-                              className="delete-icon"
-                              onClick={() => handleDelete(thisSkillData.name)}
-                            />
-                          )}
                         </Popover>
+                        {!!selectedSkillCategory(thisSkillData.name) && (
+                          <img
+                            src={cancelIcon}
+                            alt=""
+                            className="delete-icon"
+                            onClick={() => handleDelete(thisSkillData.name)}
+                          />
+                        )}
                       </div>
                     </div>
                   ))}
@@ -407,6 +406,7 @@ export default function Skill({ skill }) {
               <Button
                 onClick={() => {
                   setIsModalVisible(false);
+                  scrollToElement();
                 }}
                 className="skill-save-btn"
               >

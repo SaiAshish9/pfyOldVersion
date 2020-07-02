@@ -3,6 +3,8 @@ import { Button, Modal } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Element, scroller } from "react-scroll";
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 /* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../constant/tokenHeader";
 import DataLayout from "../common/profileOrResumeLayout";
@@ -17,7 +19,14 @@ const Position = ({ position, updateResume }) => {
 
   const { register, handleSubmit, errors, setValue } = useForm({});
   //! ---------------------------------- test ---------------------------------- */
-
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-position", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
   const onSubmit = (data) => {
     console.log(data);
     const check = { ...data, _id: positionData._id };
@@ -35,6 +44,7 @@ const Position = ({ position, updateResume }) => {
       });
     setPositionData(false);
     setIsModalVisible(false);
+    scrollToElement();
   };
 
   console.log(errors);
@@ -42,6 +52,7 @@ const Position = ({ position, updateResume }) => {
   const handleCancel = () => {
     setIsModalVisible(false);
     setPositionData(false);
+    scrollToElement();
   };
 
   const handleAdd = () => {
@@ -97,27 +108,30 @@ const Position = ({ position, updateResume }) => {
 
   return (
     <>
-      <DataLayout
-        img={<img src={positionIcon} alt="" className="user-data-img" />}
-        head="Positions of Responsibilities"
-        icon={
-          <img
-            src={addIcon}
-            alt=""
-            onClick={handleAdd}
-            className="user-data-icon"
-          />
-        }
-        content={content}
-        isData={arrayValidation(position)}
-      />
-
+      {" "}
+      <Element name="scroll-to-position" className="element">
+        <DataLayout
+          img={<img src={positionIcon} alt="" className="user-data-img" />}
+          head="Positions of Responsibilities"
+          icon={
+            <img
+              src={addIcon}
+              alt=""
+              onClick={handleAdd}
+              className="user-data-icon"
+            />
+          }
+          content={content}
+          isData={arrayValidation(position)}
+        />
+      </Element>
       <Modal
         title="Add Position"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
         width={780}
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

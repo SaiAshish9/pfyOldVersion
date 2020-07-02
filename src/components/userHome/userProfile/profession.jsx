@@ -1,17 +1,17 @@
 import { Button, Modal } from "antd";
 import React, { useState } from "react";
-import professionIcon from "./img/professionIcon.svg";
+import DataLayout from "../../common/profileOrResumeLayout";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
+import professionIcon from "./img/professionIcon.svg";
 import businessIcon from "./img/professionIcon/businessIcon.svg";
 import employeeIcon from "./img/professionIcon/employeeIcon.svg";
 import freeLancerIcon from "./img/professionIcon/freeLancerIcon.svg";
 import graduateIcon from "./img/professionIcon/graduateIcon.svg";
 import houseWifeIcon from "./img/professionIcon/houseWifeIcon.svg";
 import studentIcon from "./img/professionIcon/studentIcon.svg";
-import { arrayValidation } from "../../validation/validation";
-import DataLayout from "../../common/profileOrResumeLayout";
-
+import modalCloseIcon from "../../../assets/img/modalCloseIcon.svg";
+import { Element, scroller } from "react-scroll";
 const professionImg = [
   { icon: studentIcon, text: "Student" },
   { icon: freeLancerIcon, text: "Freelancer" },
@@ -22,36 +22,33 @@ const professionImg = [
 ];
 export default function Profession() {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-profession", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
   const submitHandler = () => {
     setIsModalVisible(false);
+    scrollToElement();
   };
   const handleCancel = () => {
     setIsModalVisible(false);
+    scrollToElement();
   };
 
-  const [skills1, setSkills1] = useState([]);
+  const [skills1, setSkills1] = useState();
   const selectHandler = (val) => {
-    if (skills1 && !skills1.includes(val)) {
-      setSkills1([...skills1, val]);
-    } else {
-      const index = skills1 && skills1.indexOf(val);
-      if (index > -1) {
-        setSkills1(skills1.filter((el) => el !== val));
-      }
-      console.log("already there");
-    }
+    setSkills1(val);
   };
 
   const content = (
     <div className="all-user-data-content">
-      {arrayValidation(skills1) && (
+      {!!skills1 && (
         <div className="user-data-content-msg-block">
-          {skills1.map((skill, i) => (
-            <div className="user-data-content-msg profession"  key={i}>
-              {skill}
-            </div>
-          ))}
+          <div className="user-data-content-msg profession">{skills1}</div>
         </div>
       )}
     </div>
@@ -59,20 +56,23 @@ export default function Profession() {
 
   return (
     <>
-      <DataLayout
-        img={<img src={professionIcon} alt="" className="user-data-img" />}
-        head="Profession"
-        icon={
-          <img
-            src={!arrayValidation(skills1) ? addIcon : editIcon}
-            alt=""
-            onClick={() => setIsModalVisible(true)}
-            className="user-data-icon"
-          />
-        }
-        content={content}
-        isData={arrayValidation(skills1)}
-      />
+      {" "}
+      <Element name="scroll-to-profession" className="element">
+        <DataLayout
+          img={<img src={professionIcon} alt="" className="user-data-img" />}
+          head="Profession"
+          icon={
+            <img
+              src={!skills1 ? addIcon : editIcon}
+              alt=""
+              onClick={() => setIsModalVisible(true)}
+              className="user-data-icon"
+            />
+          }
+          content={content}
+          isData={!!skills1}
+        />{" "}
+      </Element>
       <Modal
         width={634}
         title="Add Profession"
@@ -80,6 +80,7 @@ export default function Profession() {
         onCancel={handleCancel}
         footer={null}
         className="add-skill-modal"
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <div className="add-skill-main-block">
           {professionImg.map((image, index) => (

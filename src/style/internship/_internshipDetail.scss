@@ -162,12 +162,14 @@
           line-height: 1;
           color: #333e49;
         }
-        p {
+        .internship-detail-para-block {
           grid-area: para;
-          opacity: 0.5;
-          font-size: 16px;
-          line-height: 1.13;
-          color: #000000;
+          p {
+            opacity: 0.5;
+            font-size: 16px;
+            line-height: 1.13;
+            color: #000000;
+          }
         }
         &:nth-child(4) {
           border-radius: 10px;

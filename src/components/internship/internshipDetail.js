@@ -18,6 +18,8 @@ import { tokenHeader } from "../../constant/tokenHeader";
 import SimilarGigOrInternship from "../similarGigOrInternship/similarGigOrInternship";
 import { arrayValidation } from "../validation/validation";
 import CompanyQueForm from "./companyQuesForm";
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
+import { s3URL } from "../../constant/url";
 
 const { TabPane } = Tabs;
 export default function InternshipDetail(props) {
@@ -138,7 +140,10 @@ export default function InternshipDetail(props) {
             <div className="internship-provider-block-One">
               <div className="internship-provider-block-two">
                 <div className="internship-provider-block-three">
-                  <img src={companyLogo ? companyLogo : ""} alt=""></img>
+                  <img
+                    src={companyLogo ? s3URL + companyLogo : ""}
+                    alt=""
+                  ></img>
                 </div>
                 <div className="internship-provider-block-four">
                   <h1 className="internship-provider-heading-one">
@@ -246,50 +251,58 @@ export default function InternshipDetail(props) {
               <div className="internship-detail-content">
                 <img src={responsibilityIcon} alt="" />
                 <h2>Responsibilities</h2>
-                {arrayValidation(internResponsibilities) &&
-                  internResponsibilities.map((responsibility) => (
-                    <p key={internResponsibilities.indexOf(responsibility)}>
-                      {internResponsibilities.indexOf(responsibility) + 1}.{" "}
-                      {responsibility}
-                    </p>
-                  ))}
+                <div className="internship-detail-para-block">
+                  {arrayValidation(internResponsibilities) &&
+                    internResponsibilities.map((responsibility) => (
+                      <p key={internResponsibilities.indexOf(responsibility)}>
+                        {internResponsibilities.indexOf(responsibility) + 1}.{" "}
+                        {responsibility}
+                      </p>
+                    ))}
+                </div>
               </div>
               <div className="internship-detail-content">
                 <img src={skillRequiredIcon} alt="" />
                 <h2>Skills Required</h2>
-                {arrayValidation(skillRequired) &&
-                  skillRequired.map((skill) => {
-                    return (
-                      <p key={skill._id}>
-                        {skillRequired.indexOf(skill) + 1}. {skill.skillName}
-                      </p>
-                    );
-                  })}
+                <div className="internship-detail-para-block">
+                  {arrayValidation(skillRequired) &&
+                    skillRequired.map((skill) => {
+                      return (
+                        <p key={skill._id}>
+                          {skillRequired.indexOf(skill) + 1}. {skill.skillName}
+                        </p>
+                      );
+                    })}
+                </div>
               </div>
               <div className="internship-detail-content">
                 <img src={benefitIcon} alt="" />
                 <h2>Benefits</h2>
-                {arrayValidation(benefit) &&
-                  benefit.map((myBenefit) => {
-                    return (
-                      <p key={benefit.indexOf(myBenefit)}>
-                        {benefit.indexOf(myBenefit) + 1}. {myBenefit}
-                      </p>
-                    );
-                  })}
+                <div className="internship-detail-para-block">
+                  {arrayValidation(benefit) &&
+                    benefit.map((myBenefit) => {
+                      return (
+                        <p key={benefit.indexOf(myBenefit)}>
+                          {benefit.indexOf(myBenefit) + 1}. {myBenefit}
+                        </p>
+                      );
+                    })}
+                </div>
               </div>
               <div className="internship-detail-content">
                 <img src={responsibilityIcon} alt="" />
                 <h2>Requirements</h2>
-                {arrayValidation(otherRequirement) &&
-                  otherRequirement.map((myOtherRequirement) => {
-                    return (
-                      <p key={otherRequirement.indexOf(myOtherRequirement)}>
-                        {otherRequirement.indexOf(myOtherRequirement) + 1}.{" "}
-                        {myOtherRequirement}
-                      </p>
-                    );
-                  })}
+                <div className="internship-detail-para-block">
+                  {arrayValidation(otherRequirement) &&
+                    otherRequirement.map((myOtherRequirement) => {
+                      return (
+                        <p key={otherRequirement.indexOf(myOtherRequirement)}>
+                          {otherRequirement.indexOf(myOtherRequirement) + 1}.{" "}
+                          {myOtherRequirement}
+                        </p>
+                      );
+                    })}
+                </div>
               </div>
             </div>
 
@@ -309,7 +322,7 @@ export default function InternshipDetail(props) {
             <div className="internship-provider-block-One">
               <div className="internship-provider-block-two">
                 <div className="internship-provider-block-three">
-                  <img src={companyLogo ? companyLogo : ""}></img>
+                  <img src={companyLogo ? s3URL + companyLogo : ""}></img>
                 </div>
                 <div className="internship-provider-block-four">
                   <h1 className="internship-provider-heading-one">
@@ -345,6 +358,7 @@ export default function InternshipDetail(props) {
           visible={modalVisible}
           onCancel={handleModalCancel}
           footer={null}
+          closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
         >
           <CompanyQueForm
             isInternshipOrGig="internship"

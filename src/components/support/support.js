@@ -1,32 +1,47 @@
 import { Collapse, Modal } from "antd";
 import Axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { tokenHeader } from "../../constant/tokenHeader";
 import gig from "./img/gig.svg";
 import internship from "./img/internship.svg";
 import other from "./img/other.svg";
 import verification from "./img/verification.svg";
 import { QueryFrom } from "./queryForm";
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
+import { arrayValidation } from "../validation/validation";
 
 const { Panel } = Collapse;
 
 export default function Support(props) {
   const [imageUrl, setImageUrl] = useState(null);
-  const [supportData, setSupportData] = useState(null);
+  const [supportData, setSupportData] = useState({
+    gigFaq: "",
+    internshipFaq: "",
+  });
   const [imgURL, setImgURL] = useState(null);
   const [imageData, setImageData] = useState(null);
   const [selectedComp, setSelectedComp] = useState("supportTiles");
+  const [tileSelected, setTileSelected] = useState({
+    gig: false,
+    internship: false,
+    verification: false,
+    other: false,
+  });
 
-  const getFAQ = (val) => {
+  useEffect(() => {
     Axios.get("support/fetch", tokenHeader()).then((res) => {
       let data = res.data;
-      if (val === "internshipSupport") {
-        data = data.internshipSupport;
-        setSupportData(data);
-      }
-      console.log(res.data);
+      setSupportData({
+        ...supportData,
+        internshipFaq: data.internshipSupport,
+        gigFaq: data.missionSupport,
+      });
     });
-  };
+  }, []);
+
+  useEffect(() => {
+    console.log(tileSelected);
+  }, [tileSelected]);
 
   // const handleOk = (e) => {
   //   console.log(e);
@@ -54,18 +69,32 @@ export default function Support(props) {
 
   const handleCancel = (e) => {
     setSelectedComp("supportTiles");
-    setSupportData(null);
+    // setSupportData(null);
     props.isClose();
   };
 
   const selectHandler = (val) => {
     console.log(val);
-    if (val === "other") {
-      setSelectedComp("queryFrom");
-    } else {
-      setSelectedComp("faq");
+    switch (val) {
+      case "internshipSupport":
+        setTileSelected({ internship: true });
+        setSelectedComp("faq");
+        return;
+      case "verification":
+        setTileSelected({ verification: true });
+        setSelectedComp("faq");
+        return;
+      case "gig":
+        setTileSelected({ gig: true });
+        setSelectedComp("faq");
+        return;
+      case "other":
+        setTileSelected({ other: true });
+        setSelectedComp("queryFrom");
+        return;
+      default:
+        return;
     }
-    getFAQ(val);
   };
 
   const contactUsHandler = () => {
@@ -106,22 +135,34 @@ export default function Support(props) {
     </div>
   );
 
-  const faq = (
-    <div className="support-faq">
-      <div>
+  const getFaq = (data) => {
+    console.log(data);
+
+    return (
+      <>
         <Collapse
           expandIconPosition={"right"}
           style={{ border: "none", backgroundColor: "#fff" }}
           accordion
         >
-          {supportData
-            ? supportData.map((data, index) => (
-                <Panel header={data.question} key={index}>
-                  <p>{data.answer}</p>
-                </Panel>
-              ))
-            : null}
+          {data.map((data, index) => (
+            <Panel header={data.question} key={index}>
+              <p>{data.answer}</p>
+            </Panel>
+          ))}
         </Collapse>
+      </>
+    );
+  };
+  const faq = (
+    <div className="support-faq">
+      <div>
+        {tileSelected.gig &&
+          arrayValidation(supportData.gigFaq) &&
+          getFaq(supportData.gigFaq)}
+        {tileSelected.internship &&
+          arrayValidation(supportData.internshipFaq) &&
+          getFaq(supportData.internshipFaq)}
         <div className="contact-us">
           ----STILL NEED HELP?{" "}
           <span onClick={contactUsHandler} className="contact-us-link">
@@ -140,6 +181,7 @@ export default function Support(props) {
       visible={props.isShow}
       onCancel={handleCancel}
       footer={null}
+      closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
     >
       {selectedComp === "supportTiles" ? (
         supportTiles

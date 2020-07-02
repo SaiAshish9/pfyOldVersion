@@ -7,7 +7,7 @@ import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
 import DataLayout from "../common/profileOrResumeLayout";
-
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 const Objective = ({ careerObjective, updateResume, loader }) => {
   //#region
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -84,6 +84,7 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
         onCancel={handleCancel}
         footer={null}
         width={780}
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -94,7 +95,6 @@ const Objective = ({ careerObjective, updateResume, loader }) => {
             name="objectiveTextarea"
             ref={register}
             defaultValue={careerObjective}
-            placeholder="please enter your career objective"
             className="objective-modal__textarea"
           />
           <Button

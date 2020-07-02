@@ -18,7 +18,8 @@ import train from "./img/train.svg";
 import twoWheeler from "./img/two-wheeler.svg";
 import { UserProfileContext } from "../../../store/userProfileStore";
 import { getUserProfile } from "../../../api/userProfileApi";
-
+import modalCloseIcon from "../../../assets/img/modalCloseIcon.svg";
+import { Element, scroller } from "react-scroll";
 export default function OfflineAvailUser() {
   const { profileData, dispatchUserProfile } = UserProfileContext();
   const vehiclesData = profileData.offlineGigs && profileData.offlineGigs.mode;
@@ -40,7 +41,14 @@ export default function OfflineAvailUser() {
 
   const [isYesBtn, setIsYesBtn] = useState(false);
   const [isNoBtn, setIsNoBtn] = useState(false);
-
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-offlineGig", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
   useEffect(() => {
     setVehicle(offlineGigsData);
     if (isAnyVehicle) {
@@ -49,6 +57,7 @@ export default function OfflineAvailUser() {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    scrollToElement();
   };
 
   const handlePreferenceButton = () => {
@@ -94,6 +103,7 @@ export default function OfflineAvailUser() {
         console.log(res.data);
         setIsModalVisible(false);
         getUserProfile(dispatchUserProfile);
+        scrollToElement();
       })
       .catch((err) => console.log(err));
   };
@@ -146,53 +156,59 @@ export default function OfflineAvailUser() {
 
   return (
     <div className="offline-available-avatar-block">
-      <div className="offline-available-avatar-content-block">
-        <div className="icon-heading">
-          <img src={two} alt="" className="offline-available-avatar-img"></img>
-          <div className="offline-available-avatar-content">
-            <h2>Offline Gigs</h2>
-            <div className="offline-gigs">
-              {userLocation.userAddress && (
-                <div className="location-name">
-                  <img className="pin-img" src={pin} alt="" />
-                  <span>Show the location here</span>
-                </div>
-              )}
-              {isAnyVehicle && (
-                <div className="btn-and-vehicles">
-                  <Button className="travel-btn">Willing To Travel</Button>
-                  <div className="vehicles">
-                    {vehiclesData.bike ? (
-                      <img className="vehicle" src={bike2} alt="" />
-                    ) : null}
-                    {vehiclesData.car ? (
-                      <img className="vehicle" src={car2} alt="" />
-                    ) : null}
-                    {vehiclesData.bus ? (
-                      <img className="vehicle" src={bus2} alt="" />
-                    ) : null}
-                    {vehiclesData.train ? (
-                      <img className="vehicle" src={train2} alt="" />
-                    ) : null}
+      <Element name="scroll-to-offlineGig" className="element">
+        <div className="offline-available-avatar-content-block">
+          <div className="icon-heading">
+            <img
+              src={two}
+              alt=""
+              className="offline-available-avatar-img"
+            ></img>
+            <div className="offline-available-avatar-content">
+              <h2>Offline Gigs</h2>
+              <div className="offline-gigs">
+                {userLocation.userAddress && (
+                  <div className="location-name">
+                    <img className="pin-img" src={pin} alt="" />
+                    <span>Show the location here</span>
                   </div>
-                </div>
-              )}
+                )}
+                {isAnyVehicle && (
+                  <div className="btn-and-vehicles">
+                    <Button className="travel-btn">Willing To Travel</Button>
+                    <div className="vehicles">
+                      {vehiclesData.bike ? (
+                        <img className="vehicle" src={bike2} alt="" />
+                      ) : null}
+                      {vehiclesData.car ? (
+                        <img className="vehicle" src={car2} alt="" />
+                      ) : null}
+                      {vehiclesData.bus ? (
+                        <img className="vehicle" src={bus2} alt="" />
+                      ) : null}
+                      {vehiclesData.train ? (
+                        <img className="vehicle" src={train2} alt="" />
+                      ) : null}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
+          <img
+            src={
+              isAnyVehicle ||
+              (profileData.offlineGigs && profileData.offlineGigs.location)
+                ? editIcon
+                : addIcon
+            }
+            alt=""
+            onClick={handlePreferenceButton}
+            style={{ alignSelf: "baseline", cursor: "pointer" }}
+            className="add-icon"
+          />
         </div>
-        <img
-          src={
-            isAnyVehicle ||
-            (profileData.offlineGigs && profileData.offlineGigs.location)
-              ? editIcon
-              : addIcon
-          }
-          alt=""
-          onClick={handlePreferenceButton}
-          style={{ alignSelf: "baseline", cursor: "pointer" }}
-          className="add-icon"
-        />
-      </div>
+      </Element>
       <Modal
         width={780}
         title="Add Location"
@@ -200,6 +216,7 @@ export default function OfflineAvailUser() {
         onCancel={handleCancel}
         footer={null}
         className="add-location-modal"
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <form className="objective-block-one__form">
           <div className="add-location-block">

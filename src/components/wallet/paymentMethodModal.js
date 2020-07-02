@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import { Modal, Button, Radio, Input, Tabs, Form, InputNumber } from "antd";
 import axios from "axios";
 import { tokenHeader } from "../../constant/tokenHeader";
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 const { TabPane } = Tabs;
 
 export default function PaymentMethodModal(props) {
   const [visible, setVisible] = useState(false);
   const [radioOption, setRadioOption] = useState(false);
+
   const [paytmDetails, setPaytmDetails] = useState({});
-  const [bankDetails, setBankDetails] = useState({});
+  const [bankDetails, setBankDetails] = useState({
+    account_number: "",
+    account_holder_name: "",
+    bank_name: "",
+    ifsc_code: "",
+  });
   const [paymentMode, setPaymentMode] = useState("paytm");
 
   const onFinish = (values) => {
@@ -17,10 +24,6 @@ export default function PaymentMethodModal(props) {
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
-  };
-
-  const showModal = () => {
-    setVisible(true);
   };
 
   const handleOk = (e) => {
@@ -35,7 +38,6 @@ export default function PaymentMethodModal(props) {
       console.log(res.data);
       props.isClose();
     });
-    // setVisible(false);
   };
 
   const handleCancel = (e) => {
@@ -57,10 +59,19 @@ export default function PaymentMethodModal(props) {
   const paytmChangeHandler = (e, key) => {
     setPaytmDetails({ ...paytmDetails, [key]: e.target.value });
   };
+
   console.table(paytmDetails);
 
   const bankChangeHandler = (e, key) => {
-    setBankDetails({ ...bankDetails, [key]: e.target.value });
+    const acNo = key === "account_number" && e.target.value.match(/^[0-9]*$/);
+    const acHName = key === "account_holder_name";
+    const bankName = key === "bank_name";
+    const bCode = key === "ifsc_code";
+    if (acHName || bankName || bCode) {
+      setBankDetails({ ...bankDetails, [key]: e.target.value });
+    } else if (acNo) {
+      setBankDetails({ ...bankDetails, [key]: e.target.value });
+    }
   };
 
   console.table(bankDetails);
@@ -69,6 +80,16 @@ export default function PaymentMethodModal(props) {
     console.log(key);
     setPaymentMode(key);
   };
+
+  const [numberInput, setNumberInput] = useState("");
+
+  const handleNumber = (e) => {
+    const data = e.target.value;
+    if (data.length < 11 && data.match(/^[0-9]*$/)) {
+      setNumberInput(data);
+    }
+  };
+
   const paytm = (
     <div className="paytm_input">
       <Form
@@ -79,7 +100,7 @@ export default function PaymentMethodModal(props) {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
       >
-        <div className="heading">Name of wallet Holder</div>
+        <div className="heading">Name of Wallet holder</div>
         <Form.Item
           name="name"
           rules={[
@@ -92,8 +113,8 @@ export default function PaymentMethodModal(props) {
           <Input className="walletDetailInput" />
         </Form.Item>
 
-        <div className="heading">Number of wallet holder</div>
-        <Form.Item
+        <div className="heading">Number of Wallet holder</div>
+        {/* <Form.Item
           name="number"
           rules={[
             {
@@ -105,9 +126,13 @@ export default function PaymentMethodModal(props) {
               message: "Please input valid mobile number",
             },
           ]}
-        >
-          <Input className="walletDetailInput" />
-        </Form.Item>
+        > */}
+        <Input
+          value={numberInput}
+          className="walletDetailInput"
+          onChange={handleNumber}
+        />
+        {/* </Form.Item> */}
 
         <Form.Item className="submit_btn_block">
           <Button htmlType="submit" type="primary" className="submit_btn">
@@ -122,23 +147,27 @@ export default function PaymentMethodModal(props) {
     <div className="bank_input">
       <div className="heading">A/C Holders Name </div>
       <Input
-        className="walletDetailInput"
+        value={bankDetails.account_holder_name}
         onChange={(e) => bankChangeHandler(e, "account_holder_name")}
+        className="walletDetailInput"
       />
       <div className="heading">A/C Number</div>
       <Input
-        className="walletDetailInput"
+        value={bankDetails.account_number}
         onChange={(e) => bankChangeHandler(e, "account_number")}
+        className="walletDetailInput"
       />
       <div className="heading">Bank Name</div>
       <Input
-        className="walletDetailInput"
+        value={bankDetails.bank_name}
         onChange={(e) => bankChangeHandler(e, "bank_name")}
+        className="walletDetailInput"
       />
       <div className="heading">IFSC </div>
       <Input
-        className="walletDetailInput"
+        value={bankDetails.ifsc_code}
         onChange={(e) => bankChangeHandler(e, "ifsc_code")}
+        className="walletDetailInput"
       />
       <Form.Item className="submit_btn_block">
         <Button htmlType="submit" type="primary" className="submit_btn">
@@ -157,6 +186,7 @@ export default function PaymentMethodModal(props) {
       className={"payment_method_modal"}
       footer={null}
       width={680}
+      closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
     >
       <div className="payment_method_modal_title">
         Tell us where you want you redeem your wallet balance

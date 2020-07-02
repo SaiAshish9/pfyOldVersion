@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 /* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../constant/tokenHeader";
 import { arrayValidation } from "../validation/validation";
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 
 export default function GigTask({
   gigTask,
@@ -21,7 +22,7 @@ export default function GigTask({
   const [taskData, setTaskData] = useState([]);
   const [selectedTask, setSelectedTask] = useState();
   const [form, setForm] = useState([]);
-  const [loader,setLoader] = useState(false);
+  const [loader, setLoader] = useState(false);
   const proofTypes = {
     101: "text",
     102: "image",
@@ -69,36 +70,35 @@ export default function GigTask({
     });
   };
   const handleTaskSubmit = async () => {
-    try{
+    try {
       setLoader(true);
-    
-    const submission = await Promise.all(
-      form.map(async (val) => {
-        if (val.type === 102) {
-          const response = await axios.get(
-            `task/get_image_url_for_task_submission?fileType=${val.image.type}`,
-            tokenHeader()
-          );
-          const data = response.data;
-          await axios.put(data.url, val.image);
-          val.image = data.key;
+
+      const submission = await Promise.all(
+        form.map(async (val) => {
+          if (val.type === 102) {
+            const response = await axios.get(
+              `task/get_image_url_for_task_submission?fileType=${val.image.type}`,
+              tokenHeader()
+            );
+            const data = response.data;
+            await axios.put(data.url, val.image);
+            val.image = data.key;
+            return val;
+          }
           return val;
-        }
-        return val;
-      })
-    
-    );
-    console.log("all submission", submission);
-    await axios.post(
-      `task/submit/${selectedGigId}/${taskId()}`,
-      { submission },
-      tokenHeader()
-    );
-    setLoader(false)
-    setIsModalVisible(false);
-  }catch(err){
-      setLoader(false)
-  }
+        })
+      );
+      console.log("all submission", submission);
+      await axios.post(
+        `task/submit/${selectedGigId}/${taskId()}`,
+        { submission },
+        tokenHeader()
+      );
+      setLoader(false);
+      setIsModalVisible(false);
+    } catch (err) {
+      setLoader(false);
+    }
   };
   //! ---------------------------------- **** ---------------------------------- */
 
@@ -177,25 +177,30 @@ export default function GigTask({
     }
   }, [selectedTask]);
   const fetchTasks = async () => {
-    if(!arrayValidation(gigTask)) return ;
-    await Promise.all(gigTask.map(async (task) => {
-      const response = await axios.get(`task/${selectedGigId}/${task._id}`, tokenHeader())
-      const data = response.data;
-      setTaskData(tasks => [...tasks,data]);
-    }));
-  }
+    if (!arrayValidation(gigTask)) return;
+    await Promise.all(
+      gigTask.map(async (task) => {
+        const response = await axios.get(
+          `task/${selectedGigId}/${task._id}`,
+          tokenHeader()
+        );
+        const data = response.data;
+        setTaskData((tasks) => [...tasks, data]);
+      })
+    );
+  };
   useEffect(() => {
-    console.log(isSelected)
-    if(isSelected) fetchTasks()
+    console.log(isSelected);
+    if (isSelected) fetchTasks();
   }, [isSelected]);
   console.log(form);
   //! ---------------------------------- test ---------------------------------- */
 
   const handleStartTask = (myGigTaskId) => {
     const myTask = taskData.find((task) => task._id === myGigTaskId);
-    if(myTask && !myTask.submission){
-    setIsModalVisible(true);
-    setSelectedTask(myTask);
+    if (myTask && !myTask.submission) {
+      setIsModalVisible(true);
+      setSelectedTask(myTask);
     }
   };
 
@@ -207,36 +212,44 @@ export default function GigTask({
   //* ------------------ Start task button disabled if user not selected ------------------ */
   // const isButtonDisable = isSelected || isCompleted ? false : true;
   const getPromptMessage = (index) => {
-    if(!isApply) return "Apply To Continue"
-    if(isShortlisted) return "Wait For Your Selection"
-    if(isSelected && taskData[index] && !taskData[index].submission) return "Click To Continue"
-    if(isSelected && taskData[index] && taskData[index].submission) return "Waiting For Approval"
-    if(isRejected) return "You are not selected"
-  }
-
+    if (!isApply) return "Apply To Continue";
+    if (isShortlisted) return "Wait For Your Selection";
+    if (isSelected && taskData[index] && !taskData[index].submission)
+      return "Click To Continue";
+    if (isSelected && taskData[index] && taskData[index].submission)
+      return "Waiting For Approval";
+    if (isRejected) return "You are not selected";
+  };
 
   return (
     <>
       <div className="">
         {arrayValidation(gigTask) &&
           gigTask.map((task, index) => (
-            <Tooltip title={getPromptMessage(index)} color={"#38bdba"} key={index}>
-            <div
-              className="carousel-content-block"
+            <Tooltip
+              title={getPromptMessage(index)}
+              color={"#38bdba"}
               key={index}
-              style={{ margin: "20px 8px 20px 6px"}}
-              onClick={() => handleStartTask(task._id)}
             >
-              <div className="carousel-content-block__content">
-              <h4 className="carousel-content-block__h4">{task.title}</h4>
-              <p className="carousel-content-block__p">{task.description}</p>
-              {taskData[index] && taskData[index].submission ? <Tag color="green">Task Submitted</Tag>: null}
+              <div
+                className="carousel-content-block"
+                key={index}
+                style={{ margin: "20px 8px 20px 6px" }}
+                onClick={() => handleStartTask(task._id)}
+              >
+                <div className="carousel-content-block__content">
+                  <h4 className="carousel-content-block__h4">{task.title}</h4>
+                  <p className="carousel-content-block__p">
+                    {task.description}
+                  </p>
+                  {taskData[index] && taskData[index].submission ? (
+                    <Tag color="green">Task Submitted</Tag>
+                  ) : null}
+                </div>
+                <div className="carousel-content-block__icon">
+                  <RightOutlined />
+                </div>
               </div>
-              <div className="carousel-content-block__icon">
-              <RightOutlined />
-              </div>
-            
-            </div>
             </Tooltip>
           ))}
       </div>
@@ -245,6 +258,7 @@ export default function GigTask({
         visible={isModalVisible}
         onCancel={handleModalCancel}
         footer={null}
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         {/* TODO */}
         <div className="task">
@@ -263,7 +277,11 @@ export default function GigTask({
           </div>
         </div>
         <div className="" style={{ textAlign: "center" }}>
-          <Button loading={loader} className="task__submit-btn" onClick={handleTaskSubmit}>
+          <Button
+            loading={loader}
+            className="task__submit-btn"
+            onClick={handleTaskSubmit}
+          >
             Submit
           </Button>
         </div>

@@ -1,15 +1,16 @@
 import { DeleteOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Modal, Tooltip } from "antd";
+import { Button, Checkbox, Modal } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { Element, scroller } from "react-scroll";
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
+import DataLayout from "../common/profileOrResumeLayout";
 import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import experienceIcon from "./img/headingImg/experienceIcon.svg";
-import DataLayout from "../common/profileOrResumeLayout";
-
 const month = [
   "Jan",
   "Feb",
@@ -25,7 +26,7 @@ const month = [
   "Dec",
 ];
 
-const Experience = ({ workExperience, updateResume }) => {
+export default function Experience({ workExperience, updateResume }) {
   const { register, handleSubmit, reset } = useForm({});
 
   const year = new Date().getFullYear();
@@ -46,6 +47,14 @@ const Experience = ({ workExperience, updateResume }) => {
   console.log("isWorkFromHomeWWW", isWorkHome);
   console.log("isWorkFromHomeCCC", isCurrently);
 
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-experience", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
   const onSubmit = (data) => {
     const myExpData = experienceData._id
       ? { ...data, _id: experienceData._id, isCurrently, isWorkHome }
@@ -66,11 +75,13 @@ const Experience = ({ workExperience, updateResume }) => {
     setExperienceData(false);
     setIsWorkHome(false);
     setIsCurrently(false);
+    scrollToElement();
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
     setExperienceData(false);
+    scrollToElement();
   };
 
   const handleAdd = () => {
@@ -171,20 +182,22 @@ const Experience = ({ workExperience, updateResume }) => {
 
   return (
     <>
-      <DataLayout
-        img={<img src={experienceIcon} alt="" className="user-data-img" />}
-        head="Work Experience"
-        icon={
-          <img
-            src={addIcon}
-            alt=""
-            onClick={handleAdd}
-            className="user-data-icon"
-          />
-        }
-        content={content}
-        isData={arrayValidation(workExperience)}
-      />
+      <Element name="scroll-to-experience" className="element">
+        <DataLayout
+          img={<img src={experienceIcon} alt="" className="user-data-img" />}
+          head="Work Experience"
+          icon={
+            <img
+              src={addIcon}
+              alt=""
+              onClick={handleAdd}
+              className="user-data-icon"
+            />
+          }
+          content={content}
+          isData={arrayValidation(workExperience)}
+        />
+      </Element>
       <Modal
         title="Add Experience"
         visible={isModalVisible}
@@ -192,6 +205,7 @@ const Experience = ({ workExperience, updateResume }) => {
         footer={null}
         width={780}
         className="experience-modal"
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -325,6 +339,4 @@ const Experience = ({ workExperience, updateResume }) => {
       </Modal>
     </>
   );
-};
-
-export default Experience;
+}

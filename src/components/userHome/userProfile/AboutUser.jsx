@@ -10,6 +10,7 @@ import userFaceIcon from "./img/(1).svg";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIconBlue.svg";
 import DataLayout from "../../common/profileOrResumeLayout";
+import modalCloseIcon from "../../../assets/img/modalCloseIcon.svg";
 
 const AboutUser = () => {
   const { profileData, dispatchUserProfile } = UserProfileContext();
@@ -73,6 +74,7 @@ const AboutUser = () => {
         onCancel={handleCancel}
         footer={null}
         width={780}
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <form
           onSubmit={handleSubmit(onSubmitAboutMe)}

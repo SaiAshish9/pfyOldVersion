@@ -17,6 +17,8 @@ import CompanyQueForm from "../internship/companyQuesForm";
 import SimilarGigOrInternship from "../similarGigOrInternship/similarGigOrInternship";
 import { arrayValidation } from "../validation/validation";
 import GigTask from "./gigTask";
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
+import { s3URL } from "../../constant/url";
 
 const { TabPane } = Tabs;
 export default function GigDetail(props) {
@@ -150,7 +152,10 @@ export default function GigDetail(props) {
             <div className="gig-provider-block-One">
               <div className="gig-provider-block-two">
                 <div className="gig-provider-block-three">
-                  <img src={companyLogo ? companyLogo : ""}></img>
+                  <img
+                    src={companyLogo ? s3URL + companyLogo : ""}
+                    alt=""
+                  ></img>
                 </div>
                 <div className="gig-provider-block-four">
                   <h1 className="gig-provider-heading-one">{designation}</h1>
@@ -313,7 +318,10 @@ export default function GigDetail(props) {
             <div className="gig-provider-block-One">
               <div className="gig-provider-block-two">
                 <div className="gig-provider-block-three">
-                  <img src={companyLogo ? companyLogo : ""}></img>
+                  <img
+                    src={companyLogo ? s3URL + companyLogo : ""}
+                    alt=""
+                  ></img>
                 </div>
                 <div className="gig-provider-block-four">
                   <h1 className="gig-provider-heading-one">{designation}</h1>
@@ -340,6 +348,7 @@ export default function GigDetail(props) {
           visible={modalVisible}
           onCancel={handleModalCancel}
           footer={null}
+          closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
         >
           <CompanyQueForm
             isInternshipOrGig="gig"

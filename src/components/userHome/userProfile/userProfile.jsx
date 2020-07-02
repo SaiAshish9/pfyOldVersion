@@ -5,14 +5,13 @@ import UserCard from "../../common/userCard";
 import { objectValidation } from "../../validation/validation";
 import AboutUser from "./AboutUser";
 import OfflineAvailUser from "./offlineAvailUser";
+import Profession from "./profession";
 import UserDigitalProfile from "./userDigitalProfile";
 import UserLanguage from "./userLanguage";
 import UserSkill from "./userSkill";
-import Profession from "./profession";
 
 const UserProfile = () => {
   const { profileData } = UserProfileContext();
-
   console.log("profileData");
 
   return (

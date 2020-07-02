@@ -1,16 +1,16 @@
-import { Button, Checkbox, Modal, Tooltip } from "antd";
-import { DeleteOutlined } from "@ant-design/icons";
-
+import { Button, Checkbox, Modal } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Element, scroller } from "react-scroll";
 /* ---------------------------------- ***** --------------------------------- */
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 import { tokenHeader } from "../../constant/tokenHeader";
+import DataLayout from "../common/profileOrResumeLayout";
 import { objectValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import educationIcon from "./img/headingImg/educationIcon.svg";
-import DataLayout from "../common/profileOrResumeLayout";
 
 export default function Education({ education, updateResume }) {
   //#region
@@ -36,7 +36,14 @@ export default function Education({ education, updateResume }) {
   });
 
   const standardSelect = watch("educationType.typeNo");
-
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-education", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
   const onSubmit = (data) => {
     const myData = { ...data, isCurrently: currentlyStudying };
     console.log("dataData", myData);
@@ -50,10 +57,12 @@ export default function Education({ education, updateResume }) {
         console.log(e.response);
       });
     setIsModalVisible(false);
+    scrollToElement();
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    scrollToElement();
   };
 
   const handleAdd = () => {
@@ -134,11 +143,11 @@ export default function Education({ education, updateResume }) {
     <div className="all-user-data-content">
       {objectValidation(education) && (
         <>
-          {objectValidation(education.tenth) && printEducation(education.tenth)}
+          {objectValidation(education.PG) && printEducation(education.PG)}
+          {objectValidation(education.UG) && printEducation(education.UG)}
           {objectValidation(education.twelfth) &&
             printEducation(education.twelfth)}
-          {objectValidation(education.UG) && printEducation(education.UG)}
-          {objectValidation(education.PG) && printEducation(education.PG)}
+          {objectValidation(education.tenth) && printEducation(education.tenth)}
         </>
       )}
     </div>
@@ -146,20 +155,23 @@ export default function Education({ education, updateResume }) {
   //! ---------------------------------- test ---------------------------------- */
   return (
     <>
-      <DataLayout
-        img={<img src={educationIcon} alt="" className="user-data-img" />}
-        head="Education"
-        icon={
-          <img
-            src={addIcon}
-            alt=""
-            onClick={handleAdd}
-            className="user-data-icon"
-          />
-        }
-        content={content}
-        isData={objectValidation(education)}
-      />
+      {" "}
+      <Element name="scroll-to-education" className="element">
+        <DataLayout
+          img={<img src={educationIcon} alt="" className="user-data-img" />}
+          head="Education"
+          icon={
+            <img
+              src={addIcon}
+              alt=""
+              onClick={handleAdd}
+              className="user-data-icon"
+            />
+          }
+          content={content}
+          isData={objectValidation(education)}
+        />{" "}
+      </Element>
       <Modal
         title="Add Qualification"
         visible={isModalVisible}
@@ -167,6 +179,7 @@ export default function Education({ education, updateResume }) {
         footer={null}
         width={780}
         className="education-modal"
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}

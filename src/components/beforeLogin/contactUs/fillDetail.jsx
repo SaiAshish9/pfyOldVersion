@@ -2,6 +2,7 @@ import React from "react";
 import { Modal, Form, Button } from "antd";
 import InputType from "../../inputType";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import modalCloseIcon from "../../../assets/img/modalCloseIcon.svg";
 
 const userDetail = [
   {
@@ -174,6 +175,7 @@ export default function FillDetail({
       footer={null}
       width={812}
       className="contactUs-form-field"
+      closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
     >
       <GetUserDetailForm contactName={contactName} />
     </Modal>

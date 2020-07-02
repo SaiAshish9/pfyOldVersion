@@ -9,7 +9,6 @@ export function getGigWithoutStatus(dispatchGig) {
     })
     .then((response) => {
       const gigData = response.data.missions;
-      // setGig(gigData);
       dispatchGig({
         type: "FETCH_GIGS",
         payload: gigData,

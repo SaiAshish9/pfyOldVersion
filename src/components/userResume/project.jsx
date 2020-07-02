@@ -3,6 +3,8 @@ import { Button, Checkbox, Modal } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Element, scroller } from "react-scroll";
+import modalCloseIcon from "../../assets/img/modalCloseIcon.svg";
 /* ---------------------------------- ***** --------------------------------- */
 import { tokenHeader } from "../../constant/tokenHeader";
 import DataLayout from "../common/profileOrResumeLayout";
@@ -10,7 +12,6 @@ import { arrayValidation } from "../validation/validation";
 import addIcon from "./img/addIcon.svg";
 import editIcon from "./img/editIcon.svg";
 import projectIcon from "./img/headingImg/projectIcon.svg";
-
 const month = [
   "Jan",
   "Feb",
@@ -35,7 +36,7 @@ const Project = ({ project, updateResume }) => {
   const [isCurrentlyWorking, setIsCurrentlyWorking] = useState(false);
   const [projectData, setProjectData] = useState(false);
 
-  const { register, handleSubmit, watch, control, reset } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       isCurrently: false,
       start: {
@@ -53,7 +54,14 @@ const Project = ({ project, updateResume }) => {
   useEffect(() => {
     console.log("check", projectData);
   }, [projectData]);
-
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-project", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
   const onSubmit = (data) => {
     console.log("check", data);
     console.log("check", projectData);
@@ -71,11 +79,13 @@ const Project = ({ project, updateResume }) => {
       });
     setProjectData(false);
     setIsModalVisible(false);
+    scrollToElement();
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
     setProjectData(false);
+    scrollToElement();
   };
 
   const handleAdd = () => {
@@ -108,8 +118,8 @@ const Project = ({ project, updateResume }) => {
         year: selectedProject.start.year,
       },
       end: {
-        month: selectedProject.end ? selectedProject.end.month : "",
-        year: selectedProject.end ? selectedProject.end.year : "",
+        month: selectedProject.end ? selectedProject.end.month : null,
+        year: selectedProject.end ? selectedProject.end.year : null,
       },
     });
     setIsModalVisible(true);
@@ -117,7 +127,7 @@ const Project = ({ project, updateResume }) => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`resume/delete_project/${id}`)
+      .delete(`resume/delete_project/${id}`, tokenHeader())
       .then((res) => {
         console.log("project data add successfully", res);
         updateResume(Math.random());
@@ -178,20 +188,23 @@ const Project = ({ project, updateResume }) => {
 
   return (
     <>
-      <DataLayout
-        img={<img src={projectIcon} alt="" className="user-data-img" />}
-        head="Projects"
-        icon={
-          <img
-            src={addIcon}
-            alt=""
-            onClick={handleAdd}
-            className="user-data-icon"
-          />
-        }
-        content={content}
-        isData={arrayValidation(project)}
-      />
+      <Element name="scroll-to-project" className="element">
+        <DataLayout
+          img={<img src={projectIcon} alt="" className="user-data-img" />}
+          head="Projects"
+          icon={
+            <img
+              src={addIcon}
+              alt=""
+              onClick={handleAdd}
+              className="user-data-icon"
+            />
+          }
+          content={content}
+          isData={arrayValidation(project)}
+        />
+      </Element>
+
       <Modal
         title="Add Project"
         visible={isModalVisible}
@@ -199,6 +212,7 @@ const Project = ({ project, updateResume }) => {
         footer={null}
         width={780}
         className="project-modal"
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <form onSubmit={handleSubmit(onSubmit)} className="project-modal__form">
           <section className="project-modal-sec-one">

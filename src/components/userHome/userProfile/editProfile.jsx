@@ -14,7 +14,7 @@ import userIcon from "../../../assets/img/login/userIcon.svg";
 import { tokenHeader } from "../../../constant/tokenHeader";
 import { UserProfileContext } from "../../../store/userProfileStore";
 import InputType from "../../inputType";
-
+import modalCloseIcon from "../../../assets/img/modalCloseIcon.svg";
 const myToken = Cookies.get("token");
 
 const userDetail = [
@@ -167,6 +167,7 @@ export default function EditProfile({ userData }) {
         visible={visible}
         onCancel={handleCancel}
         footer={null}
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <Form
           name="userDetails"

@@ -28,6 +28,8 @@ import storeAuditIcon from "./img/interestIcon/storeAuditIcon.svg";
 import videoMaking from "./img/interestIcon/videoMaking.svg";
 import writingIcon from "./img/interestIcon/writingIcon.svg";
 import DataLayout from "../../common/profileOrResumeLayout";
+import modalCloseIcon from "../../../assets/img/modalCloseIcon.svg";
+import { Element, scroller } from "react-scroll";
 
 const skillImg = [
   { icon: comedyIcon, text: "comedy" },
@@ -54,7 +56,14 @@ const UserSkill = () => {
   const { profileData, dispatchUserProfile } = UserProfileContext();
   const skillsData = profileData ? profileData.skills : [];
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const scrollToElement = () => {
+    scroller.scrollTo("scroll-to-userSkill", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: -80,
+    });
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     const url = "user/update";
@@ -66,9 +75,11 @@ const UserSkill = () => {
       getUserProfile(dispatchUserProfile);
       setIsModalVisible(false);
     });
+    scrollToElement();
   };
   const handleCancel = () => {
     setIsModalVisible(false);
+    scrollToElement();
   };
   const handleSkillButton = () => {
     setIsModalVisible(true);
@@ -102,21 +113,23 @@ const UserSkill = () => {
   );
   return (
     <>
-      <DataLayout
-        img={<img src={four} alt="" className="user-data-img" />}
-        head="Skills"
-        icon={
-          <img
-            src={!arrayValidation(skillsData) ? addIcon : editIcon}
-            alt=""
-            onClick={() => setIsModalVisible(true)}
-            className="user-data-icon"
-          />
-        }
-        content={content}
-        isData={arrayValidation(skillsData)}
-      />
-
+      {" "}
+      <Element name="scroll-to-userSkill" className="element">
+        <DataLayout
+          img={<img src={four} alt="" className="user-data-img" />}
+          head="Skills"
+          icon={
+            <img
+              src={!arrayValidation(skillsData) ? addIcon : editIcon}
+              alt=""
+              onClick={() => setIsModalVisible(true)}
+              className="user-data-icon"
+            />
+          }
+          content={content}
+          isData={arrayValidation(skillsData)}
+        />
+      </Element>
       <Modal
         width={780}
         title="Add Skills"
@@ -124,6 +137,7 @@ const UserSkill = () => {
         onCancel={handleCancel}
         footer={null}
         className="add-skill-modal"
+        closeIcon={<img src={modalCloseIcon} alt="close" className="" />}
       >
         <div className="add-skill-main-block">
           {skillImg.map((image, index) => (

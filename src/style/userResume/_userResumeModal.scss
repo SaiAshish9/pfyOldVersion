@@ -591,6 +591,7 @@
         display: flex;
 
         .skill-subCategory-content-block {
+          display: flex;
           text-align: center;
           margin: 8px 4px;
           padding: 8px;
@@ -607,10 +608,10 @@
               border-right: 2px solid #818181;
               padding-right: 8px;
             }
-            .delete-icon {
-              padding-left: 8px;
-              cursor: pointer;
-            }
+          }
+          .delete-icon {
+            padding-left: 8px;
+            cursor: pointer;
           }
         }
       }
