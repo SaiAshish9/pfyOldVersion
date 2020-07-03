@@ -23,6 +23,8 @@ export function getInternshipWithoutStatus(dispatchInternship) {
 
 export function getInternshipWithStatus(dispatchInternship, category, type) {
   const source = axios.CancelToken.source();
+  console.log("aaaaaaaa", category, type);
+
   axios
     .get(
       `internship/fetch_with_status?&category=${category}&type=${type}`,

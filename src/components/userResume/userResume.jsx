@@ -18,7 +18,7 @@ const UserResume = () => {
   const [userResumeData, setUserResumeData] = useState({});
   const [updater, setUpdater] = useState(0);
   const [isLoader, setIsLoader] = useState(true);
-  console.log(userResumeData);
+  console.log("withRating", userResumeData.skills);
 
   useEffect(() => {
     console.log("updater", updater);

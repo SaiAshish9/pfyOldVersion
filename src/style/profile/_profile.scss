@@ -32,6 +32,9 @@
     min-height: 160px;
     padding-left: 8px;
     resize: none;
+    &:focus {
+      outline-width: 0;
+    }
   }
   .objective-block-one__buttonTwo {
     @extend%profile-button;

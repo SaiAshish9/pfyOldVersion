@@ -1,6 +1,6 @@
 import { Button, Checkbox, Modal } from "antd";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Element, scroller } from "react-scroll";
 /* ---------------------------------- ***** --------------------------------- */
@@ -19,6 +19,7 @@ export default function Education({ education, updateResume }) {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentlyStudying, setCurrentlyStudying] = useState(false);
+  const [renderTwice, setRenderTwice] = useState();
 
   const customDefaultValue = () => {
     return {
@@ -36,6 +37,14 @@ export default function Education({ education, updateResume }) {
   });
 
   const standardSelect = watch("educationType.typeNo");
+  const isClass10or12 = standardSelect === "4" || standardSelect === "5";
+
+  console.log("educationTypeeducationType", isClass10or12);
+
+  useEffect(() => {
+    setRenderTwice(1 + Math.random());
+  }, [isModalVisible]);
+
   const scrollToElement = () => {
     scroller.scrollTo("scroll-to-education", {
       duration: 800,
@@ -44,9 +53,17 @@ export default function Education({ education, updateResume }) {
       offset: -80,
     });
   };
+
   const onSubmit = (data) => {
-    const myData = { ...data, isCurrently: currentlyStudying };
-    console.log("dataData", myData);
+    const startYear = data.startYear ? data.startYear : null;
+    const endYear = data.endYear ? data.endYear : null;
+    const myData = {
+      ...data,
+      startYear,
+      endYear,
+      isCurrently: currentlyStudying,
+    };
+
     axios
       .put(`resume/addeducation`, myData, tokenHeader())
       .then((res) => {
@@ -79,13 +96,18 @@ export default function Education({ education, updateResume }) {
   };
 
   const handleEdit = (educationData) => {
+    console.log("educationTypeeducationType", educationData);
     setCurrentlyStudying(educationData.isCurrently);
+
+    const is10or12 =
+      educationData.educationType.typeNo === "4" ||
+      educationData.educationType.typeNo === "5";
     reset({
       educationType: { typeNo: educationData.educationType.typeNo },
       instituteName: educationData.instituteName,
       course: educationData.course,
       marks: { val: educationData.marks.val, type: educationData.marks.type },
-      startYear: educationData.startYear,
+      startYear: !is10or12 ? educationData.startYear : undefined,
       endYear: educationData.endYear,
     });
     setIsModalVisible(true);
@@ -104,7 +126,7 @@ export default function Education({ education, updateResume }) {
         : educationData.educationType.typeNo === 5
         ? "Class 12th"
         : false;
-    //#endregion
+
     return (
       <div className="user-data-content-main-block">
         <div className="user-data-content-block">
@@ -119,7 +141,10 @@ export default function Education({ education, updateResume }) {
           </div>
           <div className="" id="user-data-last-el">
             <span className="user-data-h2">{educationData.startYear}</span>
-            <span className="user-data-h2"> - {educationData.endYear}</span>
+            <span className="user-data-h2">
+              {educationData.endYear && educationData.startYear && " - "}
+              {educationData.endYear}
+            </span>
           </div>
         </div>
 
@@ -152,10 +177,10 @@ export default function Education({ education, updateResume }) {
       )}
     </div>
   );
+
   //! ---------------------------------- test ---------------------------------- */
   return (
     <>
-      {" "}
       <Element name="scroll-to-education" className="element">
         <DataLayout
           img={<img src={educationIcon} alt="" className="user-data-img" />}
@@ -170,8 +195,9 @@ export default function Education({ education, updateResume }) {
           }
           content={content}
           isData={objectValidation(education)}
-        />{" "}
+        />
       </Element>
+      {console.log("educationTypeeducationType", renderTwice)}
       <Modal
         title="Add Qualification"
         visible={isModalVisible}
@@ -243,22 +269,24 @@ export default function Education({ education, updateResume }) {
           </section>
 
           <div className="education-modal-block">
-            <section className="education-modal-block-sec-one">
-              <h2 className="input-label">Start Year</h2>
-              <select
-                name="startYear"
-                ref={register}
-                className="education-modal-block-sec-one__select-one"
-              >
-                {years.map((year, index) => {
-                  return (
-                    <option key={index} value={year}>
-                      {year}
-                    </option>
-                  );
-                })}
-              </select>
-            </section>
+            {!isClass10or12 && (
+              <section className="education-modal-block-sec-one">
+                <h2 className="input-label">Start Year</h2>
+                <select
+                  name="startYear"
+                  ref={register}
+                  className="education-modal-block-sec-one__select-one"
+                >
+                  {years.map((year, index) => {
+                    return (
+                      <option key={index} value={year}>
+                        {year}
+                      </option>
+                    );
+                  })}
+                </select>
+              </section>
+            )}
 
             {!currentlyStudying && (
               <section className="education-modal-block-sec-two">
@@ -288,7 +316,6 @@ export default function Education({ education, updateResume }) {
               }}
               className="education-modal-sec-five__checkbox"
             />
-
             <h2 className="education-modal-sec-five__head">
               Currently studying here
             </h2>

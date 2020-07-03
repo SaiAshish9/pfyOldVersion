@@ -1,0 +1,61 @@
+//for Gig and Internship
+.empty-content-main {
+    width: 100%;
+    text-align: center;
+    .empty-content-img {
+        margin: 60px;
+        .empty-content-img__image {
+        }
+    }
+
+    .empty-content__h1 {
+        font-size: 26px;
+        font-weight: 600;
+        color: #333e49;
+    }
+
+    .empty-content__p {
+        font-size: 19px;
+        font-weight: 500;
+        color: #333e49;
+    }
+}
+
+//for User applied Gig and Internship
+.my-empty-content {
+    margin: 40px 80px;
+    display: grid;
+    justify-items: center;
+    grid-template:
+        "head img"
+        "btn img" /1fr;
+    .my-empty-content__h1 {
+        margin-bottom: 36px;
+        align-self: flex-end;
+        grid-area: head;
+
+        font-size: 27px;
+        font-weight: 600;
+        line-height: 1.21;
+        color: #333e49;
+    }
+
+    .my-empty-content__button {
+        align-self: flex-start;
+        grid-area: btn;
+
+        width: 202px;
+        height: 60px;
+        border-radius: 8px;
+        background-color: #ea907a;
+        border: 1px solid #ea907a;
+
+        font-size: 19px;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .my-empty-content__img {
+        grid-area: img;
+    }
+}

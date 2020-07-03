@@ -1,17 +1,15 @@
-import { Col, Row, Select, Input } from "antd";
-import axios from "axios";
 import { SearchOutlined } from "@ant-design/icons";
+import { Col, Input, Row, Select } from "antd";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { getInternshipWithoutStatus } from "../../api/internshipApi";
+import { InternshipContext } from "../../store/internshipStore";
 /* ---------------------------------- ***** --------------------------------- */
-// import InternshipContext from "../../context/internshipContext";
+
 import Card from "../common/card";
 import Filter from "../filters/filter";
 import { arrayValidation } from "../validation/validation";
-import {
-  getInternshipWithoutStatus,
-  getInternshipWithStatus,
-} from "../../api/internshipApi";
-import { InternshipContext } from "../../store/internshipStore";
+import EmptyContent from "../common/emptyContent";
 
 const cardStyle = {
   display: "flex",
@@ -93,6 +91,7 @@ export default function Internship() {
           </div>
           <div className="card-container">
             {myInternshipCard && myInternshipCard}
+            {internship.length === 0 && <EmptyContent from="internship" />}
           </div>
         </Col>
       </Row>

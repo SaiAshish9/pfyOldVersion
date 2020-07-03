@@ -1,14 +1,14 @@
-import { Tabs } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { tokenHeader } from "../../../constant/tokenHeader";
+import MyEmptyContent from "../../common/myEmptyContent";
 /* ---------------------------------- ***** --------------------------------- */
 import { arrayValidation } from "../../validation/validation";
-import { tokenHeader } from "../../../constant/tokenHeader";
 import UserStatusCard from "../userStatusCard";
 
 export default function UserGig() {
-  const { TabPane } = Tabs;
-  const [gig, setGig] = useState([]);
+  //TODO need to remove by default array state
+  const [gig, setGig] = useState();
 
   useEffect(() => {
     axios
@@ -21,16 +21,6 @@ export default function UserGig() {
         console.log(e.response);
       });
   }, []);
-
-  //! ---------------------------------- test ---------------------------------- */
-  useEffect(() => {
-    console.log(gig[0]);
-    console.log(gig.length > 0 && gig[0].missionId);
-  }, [gig]);
-
-  const handleTabChange = (key) => {
-    console.log(key);
-  };
 
   const applied =
     arrayValidation(gig) && gig.filter((myGig) => myGig.status === 601);
@@ -85,6 +75,7 @@ export default function UserGig() {
 
           {userFailed && userFailed}
         </div>
+        {gig && gig.length === 0 && <MyEmptyContent from="gig" />}
       </div>
     </div>
   );

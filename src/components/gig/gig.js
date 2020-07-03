@@ -8,6 +8,7 @@ import Filter from "../filters/filter";
 import { arrayValidation } from "../validation/validation";
 import { GigProvider, GigContext } from "../../store/gigStore";
 import { getGigWithoutStatus } from "../../api/gigApi";
+import EmptyContent from "../common/emptyContent";
 
 const cardStyle = {
   display: "flex",
@@ -45,7 +46,7 @@ export default function Gig() {
   const handleSearch = (e) => {
     console.log(e.target.value);
   };
-  
+
   return (
     <GigProvider>
       <div className="card-container-main-block">
@@ -91,7 +92,10 @@ export default function Gig() {
                 />
               </div>
             </div>
-            <div className="card-container">{gigCard && gigCard}</div>
+            <div className="card-container">
+              {gigCard && gigCard}
+              {gig.length === 0 && <EmptyContent from="gig" />}
+            </div>
           </Col>
         </Row>
       </div>

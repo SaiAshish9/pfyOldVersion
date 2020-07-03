@@ -81,7 +81,7 @@ const Training = ({ training, updateResume }) => {
           <div key={index} className="user-data-content-main-block">
             <div className="user-data-content-block">
               <h1 className="user-data-h1">{myTraining.title}</h1>
-              <p className="user-data-h2" id="last-el">
+              <p className="user-data-h2" id="user-data-last-el">
                 {myTraining.description}
               </p>
             </div>

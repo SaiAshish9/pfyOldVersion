@@ -22,9 +22,16 @@ import technicalIcon from "./img/skillImg/technicalIcon.svg";
 
 export default function Skill({ skill }) {
   const [skillDummy, setSkillDummy] = useState([]);
-  const [skillData, setSkillData] = useState([]);
+  const [fixedSkillData, setFixedSkillData] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
+  const [isSubcategory, setIsSubcategory] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState();
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  useEffect(() => {
+    setSkillDummy(skill);
+  }, [skill]);
+
   const scrollToElement = () => {
     scroller.scrollTo("scroll-to-skill", {
       duration: 800,
@@ -33,16 +40,13 @@ export default function Skill({ skill }) {
       offset: -80,
     });
   };
-  useEffect(() => {
-    setSkillDummy(skill);
-  }, [skill]);
 
   useEffect(() => {
     axios
       .get(`skill/fetch`, tokenHeader())
       .then((res) => {
         console.log("%c skill", "color:red", res.data);
-        setSkillData(res.data);
+        setFixedSkillData(res.data);
       })
       .catch((e) => {
         console.log("skillss", e);
@@ -50,7 +54,8 @@ export default function Skill({ skill }) {
   }, []);
 
   const allCategory =
-    arrayValidation(skillData) && skillData.map((data) => data.category);
+    arrayValidation(fixedSkillData) &&
+    fixedSkillData.map((data) => data.category);
 
   const myCategory =
     arrayValidation(allCategory) &&
@@ -71,11 +76,9 @@ export default function Skill({ skill }) {
   };
 
   //FIXME
-  const [isSubcategory, setIsSubcategory] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState();
 
   const handleCategory = (categoryData) => {
-    const selectedSkillData = skillData.filter(
+    const selectedSkillData = fixedSkillData.filter(
       (mySkill) => mySkill.category === categoryData
     );
     setSelectedCategory(categoryData);
@@ -94,96 +97,59 @@ export default function Skill({ skill }) {
   //TODO resume skills
 
   const [beforeRate, setBeforeRate] = useState({});
-  const [allSkillData, setAllSkillData] = useState([]);
+
+  const postSkillData = (finalData) => {
+    const mySkills = { skills: finalData };
+    axios
+      .post("resume/add_skill", mySkills, tokenHeader())
+      .then((res) => {
+        console.log("withRating", res);
+      })
+      .catch((e) => {
+        console.log("withRating", e);
+      });
+  };
 
   const handleSkillRate = (value) => {
-    const withRating = { ...beforeRate, rating: value };
-    setSkillDummy([...skillDummy, withRating]);
-    setAllSkillData([...allSkillData, withRating]);
+    const withRating = {
+      ...beforeRate,
+      rating: value,
+      category: selectedCategory,
+    };
+    const finalData = [...skillDummy, withRating];
+    setSkillDummy(finalData);
+    postSkillData(finalData);
   };
 
   //! ---------------------------------- test ---------------------------------- */
 
+  const getCategory = (img, title) => (
+    <>
+      <img alt="" src={img} className=" skill-category-content__img"></img>
+      <h3 className="skill-category-content__h3">{title}</h3>
+    </>
+  );
+
   const skillImage = (category) => {
     switch (category) {
       case "Creative":
-        return (
-          <img
-            alt=""
-            src={creativeIcon}
-            className=" skill-category-content__img"
-          ></img>
-        );
+        return getCategory(creativeIcon, category);
       case "Design":
-        return (
-          <img
-            alt=""
-            src={designIcon}
-            className=" skill-category-content__img"
-          ></img>
-        );
+        return getCategory(designIcon, category);
       case "Finance":
-        return (
-          <img
-            alt=""
-            src={financeIcon}
-            className=" skill-category-content__img"
-          ></img>
-        );
-
+        return getCategory(financeIcon, category);
       case "General":
-        return (
-          <img
-            alt=""
-            src={generalIcon}
-            className=" skill-category-content__img"
-          ></img>
-        );
-
+        return getCategory(generalIcon, category);
       case "Legal":
-        return (
-          <img
-            alt=""
-            src={legalIcon}
-            className=" skill-category-content__img"
-          ></img>
-        );
-
+        return getCategory(legalIcon, category);
       case "Marketing":
-        return (
-          <img
-            alt=""
-            src={marketingIcon}
-            className=" skill-category-content__img"
-          ></img>
-        );
-
+        return getCategory(marketingIcon, category);
       case "Other":
-        return (
-          <img
-            alt=""
-            src={otherIcon}
-            className=" skill-category-content__img"
-          ></img>
-        );
-
+        return getCategory(otherIcon, category);
       case "Technical":
-        return (
-          <img
-            alt=""
-            src={technicalIcon}
-            className=" skill-category-content__img"
-          ></img>
-        );
-
+        return getCategory(technicalIcon, category);
       case "Tech":
-        return (
-          <img
-            alt=""
-            src={technicalIcon}
-            className=" skill-category-content__img"
-          ></img>
-        );
+        return getCategory(technicalIcon, category);
       default:
         return;
     }
@@ -225,19 +191,19 @@ export default function Skill({ skill }) {
     };
   };
 
-  const selectedSkillCategory = (skillName) => {
-    const matchedSkill =
-      arrayValidation(skillDummy) &&
-      skillDummy.find((skill) => skill.name === skillName);
-    console.log(matchedSkill);
-    return matchedSkill;
-  };
-
-  const handleDelete = (skillName) => {
+  const handleDelete = (skillName, id) => {
     const skillAfterDelete = skillDummy.filter(
       (skill) => skill.name !== skillName
     );
     setSkillDummy(skillAfterDelete);
+    axios
+      .delete(`resume/delete_skill`, { _id: id }, tokenHeader())
+      .then((res) => {
+        console.log("withRating", res);
+      })
+      .catch((e) => {
+        console.log("withRating", e.response);
+      });
   };
 
   const [isEditSkill, setIsEditSkill] = useState(false);
@@ -257,7 +223,7 @@ export default function Skill({ skill }) {
         return skill;
       }
     });
-    setSkillDummy(a);
+    // setSkillDummy(a);
     setIsEditSkill(false);
   };
 
@@ -274,7 +240,7 @@ export default function Skill({ skill }) {
     >
       {arrayValidation(skillDummy) &&
         skillDummy.map((skill, index) => (
-          <div className="user-data-skill-block">
+          <div className="user-data-skill-block" key={index}>
             <div className="skill-data-block">
               <p className="skill-data__p">{skill.name}</p>
               {console.log("skill.rating", skill.rating)}
@@ -304,9 +270,16 @@ export default function Skill({ skill }) {
     </div>
   );
 
+  const selectedSkillCategory = (skillName) => {
+    const matchedSkill =
+      arrayValidation(skillDummy) &&
+      skillDummy.find((skill) => skill.name === skillName);
+    console.log("matchedSkillmatchedSkill", matchedSkill);
+    return matchedSkill;
+  };
+
   return (
     <>
-      {" "}
       <Element name="scroll-to-skill" className="element">
         <DataLayout
           img={<img src={skillIcon} alt="" className="user-data-img" />}
@@ -350,7 +323,6 @@ export default function Skill({ skill }) {
                       className="skill-category-content-block"
                     >
                       {skillImage(category)}
-                      <h3 className="skill-category-content__h3">{category}</h3>
                     </div>
                   )}
                 </div>
@@ -375,31 +347,50 @@ export default function Skill({ skill }) {
                 {arrayValidation(subCategory) &&
                   subCategory.map((thisSkillData, index) => (
                     <div key={index} className="skill-subCategory-block-two">
-                      <div
-                        className="skill-subCategory-content-block"
-                        style={subCategoryStyle(thisSkillData.name)}
-                      >
-                        <Popover
-                          content={popoverContent(thisSkillData.name)}
-                          trigger="click"
+                      {!selectedSkillCategory(thisSkillData.name) ? (
+                        <div
+                          className="skill-subCategory-content-block"
+                          style={{ border: "2px solid #ccc" }}
                         >
-                          <p
-                            onClick={() => handleSkillName(thisSkillData)}
-                            className="skill-subCategory-content__p"
+                          <Popover
+                            content={popoverContent(thisSkillData.name)}
+                            trigger="click"
                           >
-                            {thisSkillData.name}
-                          </p>
-                          {getFixedRatting(thisSkillData.name)}
-                        </Popover>
-                        {!!selectedSkillCategory(thisSkillData.name) && (
+                            <p
+                              onClick={() => handleSkillName(thisSkillData)}
+                              className="skill-subCategory-content__p"
+                            >
+                              {thisSkillData.name}
+                            </p>
+                          </Popover>
+                        </div>
+                      ) : (
+                        <div
+                          className="skill-subCategory-content-block"
+                          style={{ border: "2px solid #444584" }}
+                        >
+                          <span>
+                            <p
+                              onClick={() => handleSkillName(thisSkillData)}
+                              className="skill-subCategory-content__p"
+                            >
+                              {thisSkillData.name}
+                            </p>
+                            {getFixedRatting(thisSkillData.name)}
+                          </span>
                           <img
                             src={cancelIcon}
                             alt=""
                             className="delete-icon"
-                            onClick={() => handleDelete(thisSkillData.name)}
+                            onClick={() =>
+                              handleDelete(
+                                thisSkillData.name,
+                                thisSkillData._id
+                              )
+                            }
                           />
-                        )}
-                      </div>
+                        </div>
+                      )}
                     </div>
                   ))}
               </div>

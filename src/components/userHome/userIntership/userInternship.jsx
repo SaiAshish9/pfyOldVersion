@@ -1,6 +1,7 @@
 import { Tabs } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import MyEmptyContent from "../../common/myEmptyContent";
 /* ---------------------------------- ***** --------------------------------- */
 import Card from "../../common/card";
 import UserStatusCard from "../userStatusCard";
@@ -8,7 +9,7 @@ import { arrayValidation } from "../../validation/validation";
 import { tokenHeader } from "../../../constant/tokenHeader";
 
 const UserInternship = () => {
-  const [internship, setInternship] = useState([]);
+  const [internship, setInternship] = useState();
 
   useEffect(() => {
     axios
@@ -20,12 +21,6 @@ const UserInternship = () => {
         console.log(e.response);
       });
   }, []);
-
-  //! ---------------------------------- test ---------------------------------- */
-  useEffect(() => {
-    console.log(internship);
-    console.log(internship.length > 0 && internship[0].status);
-  }, [internship]);
 
   const applied =
     arrayValidation(internship) &&
@@ -73,6 +68,9 @@ const UserInternship = () => {
           {userSelected && userSelected}
           {userRejected && userRejected}
         </div>
+        {internship && internship.length === 0 && (
+          <MyEmptyContent from="internship" />
+        )}
       </div>
     </div>
   );

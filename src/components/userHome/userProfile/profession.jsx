@@ -12,6 +12,11 @@ import houseWifeIcon from "./img/professionIcon/houseWifeIcon.svg";
 import studentIcon from "./img/professionIcon/studentIcon.svg";
 import modalCloseIcon from "../../../assets/img/modalCloseIcon.svg";
 import { Element, scroller } from "react-scroll";
+import { UserProfileContext } from "../../../store/userProfileStore";
+import axios from "axios";
+import { tokenHeader } from "../../../constant/tokenHeader";
+import { getUserProfile } from "../../../api/userProfileApi";
+
 const professionImg = [
   { icon: studentIcon, text: "Student" },
   { icon: freeLancerIcon, text: "Freelancer" },
@@ -21,6 +26,24 @@ const professionImg = [
   { icon: graduateIcon, text: "Recent Graduate" },
 ];
 export default function Profession() {
+  const { profileData, dispatchUserProfile } = UserProfileContext();
+
+  const [skills1, setSkills1] = useState(profileData.profession || "");
+
+  const selectHandler = (val) => {
+    setSkills1(val);
+    const url = "user/update";
+    let data1 = {
+      profession: val,
+    };
+    axios
+      .put(url, data1, tokenHeader())
+      .then((res) => {
+        getUserProfile(dispatchUserProfile);
+      })
+      .catch((err) => console.log(err));
+  };
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const scrollToElement = () => {
     scroller.scrollTo("scroll-to-profession", {
@@ -39,11 +62,6 @@ export default function Profession() {
     scrollToElement();
   };
 
-  const [skills1, setSkills1] = useState();
-  const selectHandler = (val) => {
-    setSkills1(val);
-  };
-
   const content = (
     <div className="all-user-data-content">
       {!!skills1 && (
@@ -56,7 +74,6 @@ export default function Profession() {
 
   return (
     <>
-      {" "}
       <Element name="scroll-to-profession" className="element">
         <DataLayout
           img={<img src={professionIcon} alt="" className="user-data-img" />}
@@ -71,7 +88,7 @@ export default function Profession() {
           }
           content={content}
           isData={!!skills1}
-        />{" "}
+        />
       </Element>
       <Modal
         width={634}
@@ -92,7 +109,7 @@ export default function Profession() {
                 width: 150,
                 height: 132,
                 border:
-                  skills1 && skills1.includes(image.text)
+                  !!skills1 && skills1.includes(image.text)
                     ? "2px solid #444584"
                     : "2px solid #ccc",
               }}

@@ -28,6 +28,9 @@ export default function OfflineAvailUser() {
       ? profileData.offlineGigs.mode
       : { bus: false, train: false, car: false, bike: false };
 
+  const isWillingToTravel =
+    profileData && profileData.offlineGigs.isWillingToTravel;
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [vehicle, setVehicle] = useState({
     bus: false,
@@ -93,10 +96,9 @@ export default function OfflineAvailUser() {
           ...vehicle,
         },
         location: profileData.offlineGigs.location,
-        isWillingToTravel: isAnyVehicle,
+        isWillingToTravel: isYesBtn,
       },
     };
-
     axios
       .put(url, data1, tokenHeader())
       .then((res) => {
@@ -173,9 +175,13 @@ export default function OfflineAvailUser() {
                     <span>Show the location here</span>
                   </div>
                 )}
-                {isAnyVehicle && (
-                  <div className="btn-and-vehicles">
-                    <Button className="travel-btn">Willing To Travel</Button>
+                <div className="btn-and-vehicles">
+                  <Button className="travel-btn">
+                    {isWillingToTravel
+                      ? "Willing To Travel"
+                      : "Not Willing To Travel"}
+                  </Button>
+                  {isAnyVehicle && (
                     <div className="vehicles">
                       {vehiclesData.bike ? (
                         <img className="vehicle" src={bike2} alt="" />
@@ -190,8 +196,8 @@ export default function OfflineAvailUser() {
                         <img className="vehicle" src={train2} alt="" />
                       ) : null}
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           </div>
