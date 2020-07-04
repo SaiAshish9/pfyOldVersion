@@ -143,9 +143,14 @@ export default function GigDetail(props) {
     !isRejected &&
     !isCompleted &&
     !isFailed;
-
+  const tokenHead = tokenHeader().headers.token;
   return (
-    <div className="gig-details-page">
+    <div
+      className="gig-details-page"
+      style={{
+        padding: !!tokenHead ? "100px 60px 80px 60px" : "140px 60px 80px 60px",
+      }}
+    >
       <div className="gig-main-block">
         <Tabs defaultActiveKey="1">
           <TabPane tab="Gig Description" key="1">

@@ -10,6 +10,7 @@ import Card from "../common/card";
 import Filter from "../filters/filter";
 import { arrayValidation } from "../validation/validation";
 import EmptyContent from "../common/emptyContent";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const cardStyle = {
   display: "flex",
@@ -42,12 +43,17 @@ export default function Internship() {
     setArrangeCard(value);
   };
 
+  const tokenHead = tokenHeader().headers.token;
   return (
     <div className="card-container-main-block">
       <Row
         className="full-page"
         gutter={[0, 24]}
-        style={{ marginTop: "0", marginBottom: 0 }}
+        style={{
+          padding: !!tokenHead
+            ? "100px 60px 80px 60px"
+            : "140px 60px 80px 60px",
+        }}
       >
         <Col className="filter-container" style={{ padding: "0px" }} span={6}>
           <Filter />

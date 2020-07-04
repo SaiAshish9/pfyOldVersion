@@ -1,14 +1,20 @@
 import React from "react";
 import Cookies from "js-cookie";
 import { Route, Redirect } from "react-router-dom";
-import Header from "../components/header/header";
+import { useMediaQuery } from "react-responsive";
+
+import DesktopNavbar from "../components/beforeLogin/landingPage/components/desktop/Navbar";
+import MobileNavbar from "../components/beforeLogin/landingPage/components/mobile/Navbar";
+
+// import Header from "../components/header/header";
+
 import Footer from "../components/beforeLogin/footer";
 import { GigProvider } from "../store/gigStore";
 import { InternshipProvider } from "../store/internshipStore";
 
 const PublicRoute = ({ component: Component, path, ...rest }) => {
   const isToken = Cookies.get("token");
-  const pathWithOutHeader = path === "/login";
+  const pathWithOutHeader = path === "/login" || path === "/";
 
   //we use path "/" (dashboard) because it is a special case
   const pathWithOutFooter =
@@ -19,11 +25,17 @@ const PublicRoute = ({ component: Component, path, ...rest }) => {
     path === "/gig/:id" ||
     path === "/internship/:id";
 
+  const mediaSIze = useMediaQuery({
+    query: "(min-width:600px)",
+  });
+
+  const header = mediaSIze ? <DesktopNavbar /> : <MobileNavbar />;
+
   return (
     <>
       {!isToken ? (
         <>
-          {!pathWithOutHeader && <Header />}
+          {!pathWithOutHeader && header}
 
           <Route
             {...rest}

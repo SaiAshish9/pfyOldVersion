@@ -131,9 +131,15 @@ export default function InternshipDetail(props) {
   const handleModalCancel = () => {
     setModalVisible(false);
   };
+  const tokenHead = tokenHeader().headers.token;
   const notApplied = !isApply && !isShortlisted && !isSelected && !isRejected;
   return (
-    <div className="internship-details-page">
+    <div
+      className="internship-details-page"
+      style={{
+        padding: !!tokenHead ? "100px 60px 80px 60px" : "140px 60px 80px 60px",
+      }}
+    >
       <div className="internship-main-block">
         <Tabs defaultActiveKey="1">
           <TabPane tab="Internship Description" key="1">

@@ -9,6 +9,7 @@ import { arrayValidation } from "../validation/validation";
 import { GigProvider, GigContext } from "../../store/gigStore";
 import { getGigWithoutStatus } from "../../api/gigApi";
 import EmptyContent from "../common/emptyContent";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const cardStyle = {
   display: "flex",
@@ -46,14 +47,18 @@ export default function Gig() {
   const handleSearch = (e) => {
     console.log(e.target.value);
   };
-
+  const tokenHead = tokenHeader().headers.token;
   return (
     <GigProvider>
       <div className="card-container-main-block">
         <Row
+          style={{
+            padding: !!tokenHead
+              ? "100px 60px 80px 60px"
+              : "140px 60px 80px 60px",
+          }}
           className="full-page"
           gutter={[0, 24]}
-          style={{ marginTop: "0", marginBottom: 0 }}
         >
           <Col className="filter-container" style={{ padding: "0px" }} span={6}>
             <Filter />
