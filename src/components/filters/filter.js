@@ -14,17 +14,17 @@ const gigData = [
 ];
 
 const internshipData = [
-  { label: "Business Development", value: "business-development" },
+  { label: "Business Development", value: "Business Development" },
   { label: "Graphic Design", value: "Graphic Design" },
-  { label: "Social Media Marketing", value: "social-media-marketing" },
-  { label: "Web Development", value: "web-devlopment" },
+  { label: "Social Media Marketing", value: "Social Media Marketing" },
+  { label: "Web Development", value: "Mobile App Development" },
   { label: "Mobile App Development", value: "mobile-app-development" },
   { label: "Human Resources", value: "Human Resources" },
-  { label: "Marketing", value: "marketing" },
-  { label: "Content Writing", value: "content-writing" },
-  { label: "Legal", value: "law" },
-  { label: "Digital Marketing", value: "digital-marketing" },
-  { label: "Campus Ambassador", value: "campus-ambassador" },
+  { label: "Marketing", value: "Marketing" },
+  { label: "Content Writing", value: "Content Writing" },
+  { label: "Legal", value: "Law" },
+  { label: "Digital Marketing", value: "Digital Marketing" },
+  { label: "Campus Ambassador", value: "Campus Ambassador" },
 ];
 
 const Filter = () => {
