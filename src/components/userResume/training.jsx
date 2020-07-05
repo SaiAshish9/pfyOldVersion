@@ -16,7 +16,7 @@ const Training = ({ training, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [trainingData, setTrainingData] = useState(false);
 
-  const { register, handleSubmit, errors, watch, setValue } = useForm();
+  const { register, handleSubmit, errors, reset, setValue } = useForm();
   const scrollToElement = () => {
     scroller.scrollTo("scroll-to-training", {
       duration: 800,
@@ -56,9 +56,11 @@ const Training = ({ training, updateResume }) => {
 
   const handleEdit = (selectedTraining) => {
     setTrainingData(selectedTraining);
+    reset({
+      title: selectedTraining.title,
+      description: selectedTraining.description,
+    });
     setIsModalVisible(true);
-    setValue("title", selectedTraining.title);
-    setValue("description", selectedTraining.description);
   };
 
   const handleDelete = (id) => {
@@ -133,8 +135,8 @@ const Training = ({ training, updateResume }) => {
           onSubmit={handleSubmit(onSubmit)}
           className="training-modal__form"
         >
-          <section className="training-modal-sec-one ">
-            <h2 className="training-modal-sec-one__head ">Title</h2>
+          <section className="training-modal-sec-one">
+            <h2 className="training-modal-sec-one__head">Title</h2>
             <input
               name="title"
               ref={register}

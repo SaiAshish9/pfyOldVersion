@@ -16,7 +16,7 @@ import achievementIcon from "./img/headingImg/achievementIcon.svg";
 const Achievement = ({ achievement, updateResume }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [achievementData, setAchievementData] = useState(false);
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const scrollToElement = () => {
     scroller.scrollTo("scroll-to-achievement", {
@@ -57,7 +57,9 @@ const Achievement = ({ achievement, updateResume }) => {
   const handleEdit = (selectedAchievement) => {
     setAchievementData(selectedAchievement);
     setIsModalVisible(true);
-    setValue("achievement", selectedAchievement);
+    reset({
+      achievement: selectedAchievement,
+    });
   };
 
   const handleDelete = (index) => {

@@ -65,9 +65,10 @@ const Project = ({ project, updateResume }) => {
   const onSubmit = (data) => {
     console.log("check", data);
     console.log("check", projectData);
+    const end = isCurrentlyWorking ? null : data.end;
     const myData = projectData
-      ? { ...data, _id: projectData._id, isCurrently: isCurrentlyWorking }
-      : { ...data, isCurrently: isCurrentlyWorking };
+      ? { ...data, _id: projectData._id, end, isCurrently: isCurrentlyWorking }
+      : { ...data, isCurrently: isCurrentlyWorking, end };
     axios
       .post(`resume/add_project`, myData, tokenHeader())
       .then((res) => {
@@ -160,8 +161,10 @@ const Project = ({ project, updateResume }) => {
                 {myProject.start.year && (
                   <span className="user-data-h2"> {myProject.start.year}</span>
                 )}
-                {!!myProject.end && (
+                {!!myProject.end ? (
                   <span className="user-data-h2"> - {myProject.end.month}</span>
+                ) : (
+                  <span className="user-data-h2"> - Present</span>
                 )}
                 {!!myProject.end && (
                   <span className="user-data-h2"> {myProject.end.year}</span>

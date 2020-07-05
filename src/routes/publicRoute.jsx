@@ -6,8 +6,6 @@ import { useMediaQuery } from "react-responsive";
 import DesktopNavbar from "../components/beforeLogin/landingPage/components/desktop/Navbar";
 import MobileNavbar from "../components/beforeLogin/landingPage/components/mobile/Navbar";
 
-// import Header from "../components/header/header";
-
 import Footer from "../components/beforeLogin/footer";
 import { GigProvider } from "../store/gigStore";
 import { InternshipProvider } from "../store/internshipStore";
@@ -36,7 +34,6 @@ const PublicRoute = ({ component: Component, path, ...rest }) => {
       {!isToken ? (
         <>
           {!pathWithOutHeader && header}
-
           <Route
             {...rest}
             component={(props) => (

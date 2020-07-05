@@ -96,18 +96,18 @@ export default function Education({ education, updateResume }) {
   };
 
   const handleEdit = (educationData) => {
-    console.log("educationTypeeducationType", educationData);
-    setCurrentlyStudying(educationData.isCurrently);
-
-    const is10or12 =
+    const get10or12 =
       educationData.educationType.typeNo === "4" ||
       educationData.educationType.typeNo === "5";
+    setCurrentlyStudying(educationData.isCurrently);
+    console.log("educationDataeducationData", get10or12);
+
     reset({
       educationType: { typeNo: educationData.educationType.typeNo },
       instituteName: educationData.instituteName,
       course: educationData.course,
       marks: { val: educationData.marks.val, type: educationData.marks.type },
-      startYear: !is10or12 ? educationData.startYear : undefined,
+      startYear: !get10or12 ? educationData.startYear : undefined,
       endYear: educationData.endYear,
     });
     setIsModalVisible(true);

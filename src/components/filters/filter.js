@@ -19,7 +19,7 @@ const internshipData = [
   { label: "Social Media Marketing", value: "social-media-marketing" },
   { label: "Web Development", value: "web-devlopment" },
   { label: "Mobile App Development", value: "mobile-app-development" },
-  { label: "Human Resources", value: "human-resources" },
+  { label: "Human Resources", value: "Human Resources" },
   { label: "Marketing", value: "marketing" },
   { label: "Content Writing", value: "content-writing" },
   { label: "Legal", value: "law" },

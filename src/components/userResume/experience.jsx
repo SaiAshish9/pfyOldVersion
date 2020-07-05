@@ -56,25 +56,30 @@ export default function Experience({ workExperience, updateResume }) {
     });
   };
   const onSubmit = (data) => {
-    const myExpData = experienceData._id
-      ? { ...data, _id: experienceData._id, isCurrently, isWorkHome }
-      : { ...data, isCurrently, isWorkHome };
-
-    console.log("experienceData", myExpData);
+    const end = isCurrently ? null : data.end;
+    const location = isWorkHome ? null : data.location;
+    const myExpData = experienceData
+      ? {
+          ...data,
+          _id: experienceData._id,
+          end,
+          location,
+          isCurrently,
+          isWorkHome,
+        }
+      : { ...data, isCurrently, location, isWorkHome, end };
 
     axios
       .post(`resume/add_experience`, myExpData, tokenHeader())
       .then((res) => {
         console.log(res);
         updateResume(Math.random());
-        setIsModalVisible(false);
       })
       .catch((e) => {
         console.log(e.response);
       });
+    setIsModalVisible(false);
     setExperienceData(false);
-    setIsWorkHome(false);
-    setIsCurrently(false);
     scrollToElement();
   };
 
@@ -107,7 +112,7 @@ export default function Experience({ workExperience, updateResume }) {
   const handleEdit = (selectedExp) => {
     console.log(selectedExp);
 
-    setExperienceData("selectedExp", selectedExp);
+    setExperienceData(selectedExp);
     setIsWorkHome(selectedExp.isWorkHome);
     setIsCurrently(selectedExp.isCurrently);
 
@@ -120,9 +125,9 @@ export default function Experience({ workExperience, updateResume }) {
         month: selectedExp.start.month,
         year: selectedExp.start.year,
       },
-      end: {
-        month: !!selectedExp.end && selectedExp.end.month,
-        year: !!selectedExp.end && selectedExp.end.year,
+      end: !!selectedExp.end && {
+        month: selectedExp.end.month,
+        year: selectedExp.end.year,
       },
     });
     setIsModalVisible(true);
