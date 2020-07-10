@@ -204,13 +204,13 @@ export default function EditProfile({ userData }) {
             <ImgCrop rotate>
               <Upload
                 name="image"
-                action="https://pracify.com/testing/user/check_image"
-                onChange={onChange}
-                headers={{ token: myToken }}
                 listType="picture-card"
+                action="https://pracify.com/testing/user/check_image"
+                headers={{ token: myToken }}
                 showUploadList={false}
                 beforeUpload={beforeUpload}
                 onPreview={onPreview}
+                onChange={onChange}
                 className="upload-avatar-profile"
               >
                 <div className="avatar-button-block">

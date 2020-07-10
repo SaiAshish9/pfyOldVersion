@@ -5,7 +5,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { CalendarOutlined } from "@ant-design/icons";
+import { LoadingOutlined } from "@ant-design/icons";
 
 /* ---------------------------------- ***** --------------------------------- */
 import mailIcon from "../../assets/img/login/mailIcon.svg";
@@ -215,9 +215,25 @@ const UserForm = ({ phone, passToken }) => {
         <div className="upload-img-block">
           <h1 className="userForm-header">Hi {firstName}!</h1>
           <div className="upload-img-content">
+            {userImage.imageUrl ? (
+              <img
+                src={userImage.imageUrl}
+                alt="avatar"
+                style={{ width: "100%" }}
+              />
+            ) : (
+              <div className="dummy-img-block">
+                <img src={dummyUserImg} alt="avatar" />
+              </div>
+            )}
+          </div>
+          <span className="upload-img-msg">
+            Would you like to upload a <br /> profile picture?
+          </span>
+          <div className="userImg-upload-img-block">
             <ImgCrop rotate>
               <Upload
-              name="userImage"
+                name="userImage"
                 action="https://pracify.com/testing/user/check_image"
                 headers={userToken}
                 listType="picture-card"
@@ -226,40 +242,22 @@ const UserForm = ({ phone, passToken }) => {
                 onChange={onChange}
                 onPreview={onPreview}
               >
-                {userImage.imageUrl ? (
-                  <img
-                    src={userImage.imageUrl}
-                    alt="avatar"
-                    style={{ width: "100%" }}
-                  />
+                {userImage.loading ? (
+                  <Button className="userImg-upload-img-one">
+                    <LoadingOutlined />
+                  </Button>
                 ) : (
-                  <div className="dummy-img-block">
-                    {/* <div className="image-wrap"></div> */}
-                    <img src={dummyUserImg} alt="avatar" />
-                  </div>
+                  <Button className="userImg-upload-img-one">Yes</Button>
                 )}
               </Upload>
             </ImgCrop>
-          </div>
-          <span className="upload-img-msg">
-            Would you like to upload a <br /> profile picture?
-          </span>
-          <div className="userImg-upload-img-block">
-            <Button
-              className="userImg-upload-img-one"
-              onClick={() => {
-                setAtUserInfo(true);
-              }}
-            >
-              Back
-            </Button>
             <Button
               className="userImg-upload-img-two"
               onClick={() => {
                 history.push(`/home`);
               }}
             >
-              Save
+              I'll do it later
             </Button>
           </div>
         </div>

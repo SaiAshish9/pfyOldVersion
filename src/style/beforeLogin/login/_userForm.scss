@@ -137,22 +137,16 @@
   }
   .upload-img-content {
     line-height: 1;
-    .ant-upload {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
+
+    .dummy-img-block {
       width: 136px;
       height: 136px;
-      border-radius: 68px;
-    }
-    .dummy-img-block {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      border: 1px solid #d3d3d3;
+      border-radius: 80px;
+      overflow: hidden;
       img {
         width: 100%;
+        height: 100%;
       }
     }
   }
@@ -167,6 +161,17 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    .ant-upload-picture-card-wrapper {
+      flex: 1;
+      .ant-upload {
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: initial;
+        height: initial;
+      }
+    }
+
     .userImg-upload-img-one {
       width: 146px;
       height: 46px;
