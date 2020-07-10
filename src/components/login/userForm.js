@@ -216,11 +216,9 @@ const UserForm = ({ phone, passToken }) => {
           <h1 className="userForm-header">Hi {firstName}!</h1>
           <div className="upload-img-content">
             {userImage.imageUrl ? (
-              <img
-                src={userImage.imageUrl}
-                alt="avatar"
-                style={{ width: "100%" }}
-              />
+              <div className="dummy-img-block">
+                <img src={userImage.imageUrl} alt="avatar" />
+              </div>
             ) : (
               <div className="dummy-img-block">
                 <img src={dummyUserImg} alt="avatar" />
