@@ -5,6 +5,9 @@ import brandPartnershipIcon from "../../../assets/img/partnerWithPracify/brandPa
 import cashSponsorshipIcon from "../../../assets/img/partnerWithPracify/cashSponsorshipIcon.svg";
 import promoteEventIcon from "../../../assets/img/partnerWithPracify/promoteEventIcon.svg";
 import rightArrowIconLight from "../../../assets/img/rightArrowIconLight.svg";
+import Footer from "../landingPage/components/desktop/Footer";
+
+import PartnershipBenefits from "./partnershipBenefits";
 
 const pwpData = [
   {
@@ -42,52 +45,65 @@ export default function PartnerWithPracify() {
   }, []);
 
   return (
-    <div className="pwp-main-block">
-      <div className="pwp-hero-block">
-        <h1 className="pwp-hero-head">Partner with Pracify!</h1>
-        <p className="pwp-hero-para">
-          We love partnering with college societies and student clubs across
-          India.
-          <br />
-          We know you usually need sponsorship to organize a great event and
-          we've got a way to help with you
-          <br /> that, just complete some tasks and earn cash sponsorship for
-          your college festival.
-        </p>
+    <>
+      <div className="pwp-main-block">
+        <div className="pwp-hero-block">
+          <h1 className="pwp-hero-head">Partner with Pracify!</h1>
+          <p className="pwp-hero-para">
+            We love partnering with college societies and student clubs across
+            India.
+            <br />
+            We know you usually need sponsorship to organize a great event and
+            we've got a way to help with you
+            <br /> that, just complete some tasks and earn cash sponsorship for
+            your college festival.
+          </p>
 
-        <Button
-          onClick={() => handleContactUs("partner")}
-          className="pwp-hero-button"
-        >
-          Let's Partner
-          <span className="pwp-hero-span">
-            <img src={rightArrowIconLight} alt="" className="" />
-          </span>
-        </Button>
-      </div>
-      <h1 className="partnership-advantage">Partnership Advantages</h1>
-      <div className="partnership-advantage-main-block">
-        {pwpData.map((data, index) => (
-          <div className="partnership-advantage-block" key={index}>
-            <img src={data.img} alt="" className="partnership-advantage-img" />
-            <h1 className="partnership-advantage-head">{data.head}</h1>
-            <p className="partnership-advantage-para">{data.para}</p>
-          </div>
-        ))}
-      </div>
-      <div className="partnership-button-block">
-        {/* <Button
+          <Button
+            onClick={() => handleContactUs("partner")}
+            className="pwp-hero-button"
+          >
+            Let's Partner
+            <span className="pwp-hero-span">
+              <img src={rightArrowIconLight} alt="" className="" />
+            </span>
+          </Button>
+        </div>
+        {/* <h1 className="partnership-advantage">Partnership Advantages</h1>
+=======
+        <h1 className="partnership-advantage">Partnership Advantages</h1>
+        <div className="partnership-advantage-main-block">
+          {pwpData.map((data, index) => (
+            <div className="partnership-advantage-block" key={index}>
+              <img
+                src={data.img}
+                alt=""
+                className="partnership-advantage-img"
+              />
+              <h1 className="partnership-advantage-head">{data.head}</h1>
+              <p className="partnership-advantage-para">{data.para}</p>
+            </div>
+          ))}
+        </div>
+        <div className="partnership-button-block">
+          {/* <Button
           onClick={() => handleContactUs("partner")}
           className="partnership-button"
         >
           Let's Partner
-        </Button> */}
+<<<<<<< HEAD
+        </Button> 
+        </div> */}
+
+        <PartnershipBenefits />
+
+        <FillDetail
+          contactName={contactTo}
+          modalVisible={contactUsVisible}
+          handleCancelModal={handleCancelModal}
+        ></FillDetail>
       </div>
-      <FillDetail
-        contactName={contactTo}
-        modalVisible={contactUsVisible}
-        handleCancelModal={handleCancelModal}
-      ></FillDetail>
-    </div>
+      {/* <Footer /> */}
+    </>
   );
 }

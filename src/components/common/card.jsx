@@ -54,8 +54,16 @@ export default function Card(props) {
 
   return (
     <Link to={!isToken ? detailPath : privateDetailPath}>
-      <div className="my-card-block">
-        <div>
+      <div
+
+      className="my-card-block">
+        <div
+              style={{
+        // display:'flex',
+        // flexDirection: 'column',
+        // flexWrap: 'wrap'
+      }}
+        >
           <div className="logo">
             <img src={s3URL + logo} alt=""></img>
           </div>

@@ -18,6 +18,7 @@ import { UserContext } from "../../../store/userStore";
 import Support from "../../support/support";
 import VerifyStudentStatus from "../../verify_student_Status/verifyStudentStatus";
 import notificationMenu from "./notification";
+import { useMediaQuery } from "react-responsive";
 
 const headerLink = [
   { name: "Home", link: "/home" },
@@ -33,15 +34,17 @@ export default function PrivateHeaderNavLink() {
   const { notification, dispatchNotification } = NotificationContext();
   const { profileData, dispatchUserProfile } = UserProfileContext();
 
+ const media = useMediaQuery({
+   query: "(max-width:600px)",
+ });
+
+
+
   const userName = !!profileData && profileData.firstName;
-
   const userImg = !!profileData ? profileData.imgUrl : "";
-
   const gender = !!profileData && profileData.gender;
-
   const [isShow, setIsShow] = useState(false);
   const [isShowVerify, setIsShowVerify] = useState(false);
-
   const location = useLocation().pathname;
   const history = useHistory();
   const handleLogout = () => {
@@ -81,24 +84,26 @@ export default function PrivateHeaderNavLink() {
 
   const myProfileMenu = (
     <Menu onClick={ShowVerify}>
-      <Menu.Item key="0">
-        <Link to="/profile">My Profile</Link>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <Link to="/my-internships">My Internship</Link>
-      </Menu.Item>
-      <Menu.Item key="3">
-        <Link to="/my-gigs">My Gig</Link>
-      </Menu.Item>
-      <Menu.Item key="4">
-        <span>Verify</span>
-      </Menu.Item>
-      <Menu.Divider />
-      <Menu.Item key="5">
-        <Button type="primary" onClick={handleLogout}>
-          Logout
-        </Button>
-      </Menu.Item>
+        <React.Fragment>
+          <Menu.Item key="0">
+            <Link to="/profile">My Profile</Link>
+          </Menu.Item>
+          <Menu.Item key="1">
+            <Link to="/my-internships">My Internship</Link>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <Link to="/my-gigs">My Gig</Link>
+          </Menu.Item>
+          <Menu.Item key="4">
+            <span>Verify</span>
+          </Menu.Item>
+          <Menu.Divider />
+          <Menu.Item key="5">
+            <Button type="primary" onClick={handleLogout}>
+              Logout
+            </Button>
+          </Menu.Item>
+        </React.Fragment>
     </Menu>
   );
 
@@ -115,7 +120,7 @@ export default function PrivateHeaderNavLink() {
               </span>
             ) : (
               <Link to={data.link} className="myLink">
-                {data.name}
+                {!media &&data.name}
               </Link>
             )}
           </Fragment>

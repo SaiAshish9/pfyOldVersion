@@ -15,7 +15,7 @@ $card-background-color: #fff;
       display: flex;
       border-radius: 16px;
       max-width: 54%;
-      min-width: 48%;
+      min-width: 17rem;
       background: $card-background-color;
       .avatar-border-block {
         background-color: #444584;
@@ -315,13 +315,13 @@ $card-background-color: #fff;
   .overview-main-block {
     display: flex;
     justify-content: center;
-    padding: 35px 20px;
+    padding: 35px 0;
     .myOverview-main-block {
       display: flex;
       align-items: center;
       justify-content: space-around;
-      padding: 20px 30px;
-      width: 40%;
+      padding: 18px 30px;
+      width: 45%;
       border-radius: 13px;
       box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.16);
       background-color: #ffffff;
@@ -329,7 +329,7 @@ $card-background-color: #fff;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0 8px;
+        // margin: 0 8px;
         cursor: pointer;
         .myOverview-img-block {
           display: flex;
@@ -350,13 +350,19 @@ $card-background-color: #fff;
         }
       }
     }
+
+
     .verification-score-block {
       cursor: pointer;
       padding: 20px 30px 20px 44px;
-      margin-left: 40px;
+      // margin-left: 5vw;
+      position: relative;
+      left:27px;
+      // margin-right:10px;
       display: flex;
       align-items: center;
       width: 40%;
+      min-width:20rem ;
       border-radius: 24px;
       background-color: #f3fefd;
 
@@ -397,9 +403,10 @@ $card-background-color: #fff;
   }
 
   .gigOrInternship-block {
+          background-color: #fff;
     .ant-tabs {
       background-color: #fff;
-      padding: 36px 115px;
+      padding: 36px 10vw;
       .ant-tabs-bar {
         display: flex;
         justify-content: space-between;

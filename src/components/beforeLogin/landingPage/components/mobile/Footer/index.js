@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
 import { Divider, Typography } from "antd";
 import Logo from "../../../assets/images/logo.png";
 import Instagram from "../../../assets/svgs/instagram";
@@ -8,33 +6,36 @@ import Facebook from "../../../assets/svgs/facebook";
 import Twitter from "../../../assets/svgs/twitter";
 import LinkedIn from "../../../assets/svgs/linkedin";
 import Heart from "../../../assets/svgs/heart";
+import { useHistory } from "react-router-dom";
 
 const footerOptions = [
   {
     title: "Company",
     options: [
-      { name: "About Us", link: "/about_us" },
-      { name: "How It Works", link: "/how_pracify_work" },
-      { name: "Careers", link: "/career" },
+      { title: "About Us", path: "/about_us" },
+      { title: "How It Works", path: "/how_pracify_work" },
+      { title: "Careers", path: "/career" },
     ],
   },
   {
     title: "Get In Touch",
     options: [
-      { name: "Contact Us", link: "/contact_us" },
-      { name: "College Festivals", link: "/partner_with_us" },
+      { title: "Contact Us", path: "/contact_us" },
+      { title: "College Festivals", path: "/partner_with_us" },
     ],
   },
   {
     title: "Legal",
     options: [
-      { name: "Terms & Conditions", link: "" },
-      { name: "Privacy Policy", link: "" },
+      { title: "Terms & Conditions", path: "/terms" },
+      { title: "Privacy Policy", path: "/privacy_policy" },
     ],
   },
 ];
 
 const Footer = () => {
+  const history = useHistory();
+
   return (
     <div
       style={{
@@ -45,15 +46,22 @@ const Footer = () => {
         style={{
           width: "100%",
           display: "flex",
-          alignItems: "center",
+          alignItems: "flex-start",
           justifyContent: "space-between",
-          padding: "2rem",
+          padding: "2rem 1.5rem",
           flexWrap: "wrap",
           flexDirection: "row-reverse",
         }}
       >
         {footerOptions.map((i, k) => (
-          <div key={k} style={{ margin: "15px 7px" }}>
+          <div
+            key={k}
+            style={{
+              width: "7.2rem",
+              textAlign: "start",
+              margin: "15px 0px",
+            }}
+          >
             <Typography
               style={{
                 marginBottom: 20,
@@ -67,9 +75,12 @@ const Footer = () => {
               {i.title}
             </Typography>
 
-            {footerOptions[1].options.map((a, b) => (
+            {footerOptions[k].options.map((a, b) => (
               <Typography
                 key={b}
+                onClick={() => {
+                  history.push(a.path);
+                }}
                 style={{
                   color: "#959595",
                   fontWeight: 500,
@@ -78,9 +89,7 @@ const Footer = () => {
                   fontFamily: "Inter-Medium",
                 }}
               >
-                <Link to={a.link} style={{ color: "inherit" }} className="">
-                  {a.name}
-                </Link>
+                {a.title}
               </Typography>
             ))}
           </div>

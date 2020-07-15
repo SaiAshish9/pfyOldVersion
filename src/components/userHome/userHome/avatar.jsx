@@ -3,10 +3,15 @@ import { useHistory } from "react-router-dom";
 import { UserProfileContext } from "../../../store/userProfileStore";
 import rightArrowBlackIcon from "../userHome/img/rightArrowBlackIcon.svg";
 import creditCardImg from "./img/credit_card.svg";
+import {useMediaQuery} from "react-responsive";
 
 const Avatar = ({ user, notification }) => {
   const history = useHistory();
   const { profileData } = UserProfileContext();
+
+  const media = useMediaQuery({
+    query: "(max-width:600px)"
+  })
 
   const firstName = !!profileData && profileData.firstName;
   const lastName = !!profileData && profileData.lastName;
@@ -21,18 +26,50 @@ const Avatar = ({ user, notification }) => {
   };
 
   return (
-    <div className="avatar-block">
-      <div className="avatar-detail-block">
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+      }}
+      className="avatar-block"
+    >
+      <div
+        style={{
+          display: media && "flex",
+          flexWrap: media && "wrap",
+          marginLeft: 0,
+          alignItems: media && "center",
+          justifyContent: media && "center",
+          marginBottom: media && "2rem",
+        }}
+        className="avatar-detail-block"
+      >
         <div className="avatar-border-block">
           <div className="avatar-img-block">
             <img src={userImg} alt="img"></img>
           </div>
         </div>
-        <div className="avatar-profile-block">
+
+        <div
+          style={
+            {
+              // width:'120rem'
+              // maxWidth:"80vw"
+            }
+          }
+          className="avatar-profile-block"
+        >
           <h3>
             Hi {firstName} {lastName}!
           </h3>
-          <p className="welcome-msg__p">Welcome to Pracify!</p>
+          <p
+            style={{
+              textAlign: media && "center",
+            }}
+            className="welcome-msg__p"
+          >
+            Welcome to Pracify!
+          </p>
           {/* <Divider /> */}
           {/* <div className="notification-block">
             <img src={notificationIcon} alt="" className="notification-icon" />
@@ -41,7 +78,14 @@ const Avatar = ({ user, notification }) => {
           </div> */}
         </div>
       </div>
-      <div className="credit-card-block">
+
+      <div
+        style={{
+          marginLeft: media && 0,
+          width: media && "96%",
+        }}
+        className="credit-card-block"
+      >
         <img src={creditCardImg} alt="" className="credit-card__img" />
         <div className="credit-card__check-wallet" onClick={handleCheckWallet}>
           <span className="credit-card__title">
@@ -53,14 +97,36 @@ const Avatar = ({ user, notification }) => {
             <span>x x x x</span>
             <span>1 2 3 4</span>
           </div>
-          <div className="credit-card__holder">Card Holder</div>
-          <div className="credit-card__name">
+          <div  className="credit-card__holder">
+            Card Holder
+          </div>
+          <div
+            style={{
+              marginRight: media && '20px !important',
+            }}
+            className="credit-card__name"
+          >
             {firstName} {lastName}
           </div>
         </div>
         <div className="credit-card__validity">
-          <span className="credit-card__validity-span">Validity</span> <br />
-          <span className="credit-card__validity-duration">Forever</span>
+          <span
+            style={{
+              marginLeft: media && 10,
+            }}
+            className="credit-card__validity-span"
+          >
+            Validity
+          </span>{" "}
+          <br />
+          <span
+            style={{
+              marginLeft: media && 10,
+            }}
+            className="credit-card__validity-duration"
+          >
+            Forever
+          </span>
         </div>
       </div>
     </div>

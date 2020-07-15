@@ -18,6 +18,8 @@ const PublicRoute = ({ component: Component, path, ...rest }) => {
   const pathWithOutFooter =
     path === "/" ||
     path === "/login" ||
+    path === "/terms"|| 
+    path === "/privacy_policy"||
     path === "/internships" ||
     path === "/gigs" ||
     path === "/gig/:id" ||

@@ -21,6 +21,8 @@ import UserResume from "../components/userResume/userResume";
 import Wallet from "../components/wallet/wallet";
 import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
+import Terms from "../components/beforeLogin/termsAndConditions";
+import PrivacyPolicy from "../components/beforeLogin/privacyPolicy";
 
 export default function SwitchRoute() {
   return (
@@ -28,6 +30,8 @@ export default function SwitchRoute() {
       <PublicRoute path="/" component={LandingPage} exact={true} />
       <PublicRoute path="/about_us" component={AboutUs} exact={true} />
       <PublicRoute path="/career" component={Career} exact={true} />
+      <PublicRoute exact path="/terms" component={Terms} />
+      <PublicRoute exact path="/privacy_policy" component={PrivacyPolicy} />
       <PublicRoute
         path="/how_pracify_work"
         component={HowItWork}

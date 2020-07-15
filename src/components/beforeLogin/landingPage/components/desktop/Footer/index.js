@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Row, Col, Typography } from "antd";
-
 import Logo from "../../../assets/images/logo.png";
 import AppStore from "../../../assets/svgs/appStore";
 import Heart from "../../../assets/svgs/heart";
@@ -9,29 +7,31 @@ import Instagram from "../../../assets/svgs/instagram";
 import Facebook from "../../../assets/svgs/facebook";
 import Twitter from "../../../assets/svgs/twitter";
 import LinkedIn from "../../../assets/svgs/linkedin";
+import { useHistory } from "react-router-dom";
 
 const Footer = () => {
+  const history = useHistory();
   const footerOptions = [
     {
       title: "Company",
       options: [
-        { name: "About Us", link: "/about_us" },
-        { name: "How It Works", link: "/how_pracify_work" },
-        { name: "Careers", link: "/career" },
+        { title: "About Us", path: "/about_us" },
+        { title: "How It Works", path: "/how_pracify_work" },
+        { title: "Careers", path: "/career" },
       ],
     },
     {
       title: "Get In Touch",
       options: [
-        { name: "Contact Us", link: "/contact_us" },
-        { name: "College Festivals", link: "/partner_with_us" },
+        { title: "Contact Us", path: "/contact_us" },
+        { title: "College Festivals", path: "/partner_with_us" },
       ],
     },
     {
       title: "Legal",
       options: [
-        { name: "Terms & Conditions", link: "" },
-        { name: "Privacy Policy", link: "" },
+        { title: "Terms & Conditions", path: "/terms" },
+        { title: "Privacy Policy", path: "/privacy_policy" },
       ],
     },
   ];
@@ -123,17 +123,19 @@ const Footer = () => {
                 {i.options.map((a, b) => (
                   <Typography
                     key={b}
+                    onClick={() => {
+                      history.push(a.path);
+                    }}
                     style={{
                       color: "#959595",
                       fontWeight: 500,
                       lineHeight: "30px",
                       fontSize: 14,
+                      cursor: "pointer",
                       fontFamily: "Inter-Medium",
                     }}
                   >
-                    <Link to={a.link} style={{ color: "inherit" }} className="">
-                      {a.name}
-                    </Link>
+                    {a.title}
                   </Typography>
                 ))}
               </Col>

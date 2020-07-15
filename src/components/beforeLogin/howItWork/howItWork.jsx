@@ -1,6 +1,5 @@
 import { Button, Tabs } from "antd";
 import React, { useEffect } from "react";
-import Lottie from "react-lottie";
 import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import businessAdvtOne from "../../../assets/img/howItWork/businessAdvtOne.svg";
@@ -22,6 +21,10 @@ import twoHiwWorker from "../../../assets/img/howItWork/twoHiwWorker.svg";
 
 import propIconOne from "../../../assets/img/howItWork/propIconOne.svg";
 import propIconTwo from "../../../assets/img/howItWork/propIconTwo.svg";
+import Footer from "../landingPage/components/desktop/Footer";
+
+import GigWorkersAdv from "./forGigWorkers";
+import CompanyOwnersAdv from "./forCompanyOwners";
 
 const { TabPane } = Tabs;
 
@@ -187,43 +190,55 @@ export default function HowItWork() {
   }, []);
 
   return (
-    <div className="howItWork-main-block">
-      <Tabs defaultActiveKey="1" type="card" className="hiw-tab">
-        <TabPane tab="For Gig Workers" key="1">
-          {heroHead(gigWorkerHead)}
-          <div className="worker-hiw-with-props">
-            <img src={propIconOne} alt="" className="worker-prop-one" />
-            <img src={propIconTwo} alt="" className="worker-prop-two" />
-            {hiw(gigWorker, "worker")}
-          </div>
-          <h1 className="worker-advantage-main-head">Advantages</h1>
-          {advantage(gigWorkerAdvantage, "worker")}
-          <div className="hiw-btn-block">
-            <Button className="hiw-btn" onClick={() => history.push("/login")}>
-              Start Working
-            </Button>
-          </div>
-        </TabPane>
-        <TabPane tab="For business Owner" key="2">
-          {heroHead(businessOwnerHead)}
-          <div className="business-hiw-with-props">
-            <img src={propIconOne} alt="" className="business-prop-one" />
-            <img src={propIconTwo} alt="" className="business-prop-two" />
-            {hiw(businessOwner, "business")}
-          </div>
-          <h1 className="business-advantage-main-head">Advantages</h1>
-          {advantage(businessOwnerAdvantage, "business")}
-          <div className="hiw-btn-block">
-            <a
-              href="https://business.pracify.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button className="hiw-btn">Publish a Gig</Button>
-            </a>
-          </div>
-        </TabPane>
-      </Tabs>
-    </div>
+    <>
+      <div className="howItWork-main-block">
+        <Tabs defaultActiveKey="1" type="card" className="hiw-tab">
+          <TabPane tab="For Gig Workers" key="1">
+            {heroHead(gigWorkerHead)}
+            <div className="worker-hiw-with-props">
+              <img src={propIconOne} alt="" className="worker-prop-one" />
+              <img src={propIconTwo} alt="" className="worker-prop-two" />
+              {hiw(gigWorker, "worker")}
+            </div>
+            {/* <h1 className="worker-advantage-main-head">Advantages</h1>
+            {advantage(gigWorkerAdvantage, "worker")} */}
+            <GigWorkersAdv />
+            {/* <h1 className="worker-advantage-main-head">Advantages</h1> */}
+            {/* {advantage(gigWorkerAdvantage, "worker")} */}
+            <div className="hiw-btn-block">
+              <Button
+                className="hiw-btn"
+                onClick={() => history.push("/login")}
+              >
+                Start Working
+              </Button>
+            </div>
+          </TabPane>
+          <TabPane tab="For business Owner" key="2">
+            {heroHead(businessOwnerHead)}
+            <div className="business-hiw-with-props">
+              <img src={propIconOne} alt="" className="business-prop-one" />
+              <img src={propIconTwo} alt="" className="business-prop-two" />
+              {hiw(businessOwner, "business")}
+            </div>
+            {/* <h1 className="business-advantage-main-head">Advantages</h1> */}
+            {/* {advantage(businessOwnerAdvantage, "business")} */}
+            <CompanyOwnersAdv />
+            {/* <h1 className="business-advantage-main-head">Advantages</h1> */}
+            {/* {advantage(businessOwnerAdvantage, "business")} */}
+            <div className="hiw-btn-block">
+              <a
+                href="https://business.pracify.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="hiw-btn">Publish a Gig</Button>
+              </a>
+            </div>
+          </TabPane>
+        </Tabs>
+      </div>
+      {/* <Footer /> */}
+    </>
   );
 }

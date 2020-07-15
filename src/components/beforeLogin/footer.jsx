@@ -59,8 +59,12 @@ export default function Footer() {
           </div>
           <div className="legal-block">
             <h3 className="footer__header">Legal</h3>
-            <p className="footer__link">Terms & Conditions</p>
-            <p className="footer__link">Privacy Policy</p>
+            <Link to="/terms">
+              <p className="footer__link">Terms & Conditions</p>
+            </Link>
+            <Link to="/privacy_policy">
+              <p className="footer__link">Privacy Policy</p>
+            </Link>
           </div>
         </div>
       </div>

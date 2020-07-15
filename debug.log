@@ -34,3 +34,18 @@
 [0702/014218.217:ERROR:exception_snapshot_win.cc(98)] thread ID 17420 not found in process
 [0702/014218.217:ERROR:exception_snapshot_win.cc(98)] thread ID 22380 not found in process
 [0702/014218.217:ERROR:exception_snapshot_win.cc(98)] thread ID 12216 not found in process
+[0714/223216.908:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0714/224216.909:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0714/224216.909:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0714/224717.060:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0714/230217.062:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0714/231717.084:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0714/233217.084:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0714/234717.101:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0715/000217.103:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0715/001717.120:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0715/003217.122:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0715/004717.132:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0715/010217.512:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0715/011717.686:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0715/013217.924:ERROR:crash_report_database_win.cc(428)] unexpected header
