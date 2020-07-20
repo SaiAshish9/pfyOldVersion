@@ -28,22 +28,22 @@ export default function SwitchRoute() {
   return (
     <Switch>
       <PublicRoute path="/" component={LandingPage} exact={true} />
-      <PublicRoute path="/about_us" component={AboutUs} exact={true} />
+      <PublicRoute path="/about-us" component={AboutUs} exact={true} />
       <PublicRoute path="/career" component={Career} exact={true} />
       <PublicRoute exact path="/terms" component={Terms} />
-      <PublicRoute exact path="/privacy_policy" component={PrivacyPolicy} />
+      <PublicRoute exact path="/privacy-policy" component={PrivacyPolicy} />
       <PublicRoute
-        path="/how_pracify_work"
+        path="/how-pracify-work"
         component={HowItWork}
         exact={true}
       />
       <PublicRoute
-        path="/partner_with_us"
+        path="/partner-with-us"
         component={PartnerWithPracify}
         exact={true}
       />
       <PublicRoute
-        path="/contact_us"
+        path="/contact-us"
         component={ContactUs}
         exact={true}
       ></PublicRoute>

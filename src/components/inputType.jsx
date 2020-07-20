@@ -97,7 +97,9 @@ export default function InputType({
       )}
       {type === "radioButton" && (
         <Form.Item name={name} rules={rule}>
-          <Radio.Group>
+          <Radio.Group
+ 
+          >
             {option.map((optionName, index) => (
               <Radio.Button value={optionName} key={index}>
                 {optionName}

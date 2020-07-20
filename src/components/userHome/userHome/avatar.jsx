@@ -3,15 +3,15 @@ import { useHistory } from "react-router-dom";
 import { UserProfileContext } from "../../../store/userProfileStore";
 import rightArrowBlackIcon from "../userHome/img/rightArrowBlackIcon.svg";
 import creditCardImg from "./img/credit_card.svg";
-import {useMediaQuery} from "react-responsive";
+import { useMediaQuery } from "react-responsive";
 
 const Avatar = ({ user, notification }) => {
   const history = useHistory();
   const { profileData } = UserProfileContext();
 
   const media = useMediaQuery({
-    query: "(max-width:600px)"
-  })
+    query: "(max-width:600px)",
+  });
 
   const firstName = !!profileData && profileData.firstName;
   const lastName = !!profileData && profileData.lastName;
@@ -87,8 +87,21 @@ const Avatar = ({ user, notification }) => {
         className="credit-card-block"
       >
         <img src={creditCardImg} alt="" className="credit-card__img" />
-        <div className="credit-card__check-wallet" onClick={handleCheckWallet}>
-          <span className="credit-card__title">
+        <div 
+        style={{
+          top:media&&20,
+          right:media&&42,
+        }}
+        className="credit-card__check-wallet" onClick={handleCheckWallet}>
+          <span
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: 0,
+            }}
+            className="credit-card__title"
+          >
             Wallet <img src={rightArrowBlackIcon} alt="" />
           </span>
         </div>
@@ -97,12 +110,10 @@ const Avatar = ({ user, notification }) => {
             <span>x x x x</span>
             <span>1 2 3 4</span>
           </div>
-          <div  className="credit-card__holder">
-            Card Holder
-          </div>
+          <div className="credit-card__holder">Card Holder</div>
           <div
             style={{
-              marginRight: media && '20px !important',
+              marginRight: media && "20px !important",
             }}
             className="credit-card__name"
           >

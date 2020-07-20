@@ -4,8 +4,9 @@ import "./index.css";
 import { IoIosArrowForward } from "react-icons/io";
 
 const GetStarted = () => {
+  
   const [slide, slideLeft] = useState(false);
-
+  
   return (
     <Row style={{ marginTop: 233 }}>
       <Col span={24}>
@@ -82,7 +83,9 @@ const GetStarted = () => {
               Get Started
             </span>
             {slide && (
-              <IoIosArrowForward className="animate__animated animate__fadeIn" />
+              <IoIosArrowForward
+              style={{marginTop:3}}
+              className="animate__animated animate__fadeIn" />
             )}
           </Button>
         </Row>

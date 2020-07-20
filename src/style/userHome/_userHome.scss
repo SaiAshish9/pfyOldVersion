@@ -86,11 +86,17 @@ $card-background-color: #fff;
         position: absolute;
         top: 24px;
         right: 64px;
+        display:flex;
+
         cursor: pointer;
         .credit-card__title {
           font-size: 15px;
           font-weight: 900;
           color: #2f445d;
+          display: flex;
+        align-items: center;
+        justify-content:center;
+        width:100%;
           img {
             margin-bottom: 4px;
             margin-left: 8px;

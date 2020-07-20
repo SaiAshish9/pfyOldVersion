@@ -2,13 +2,12 @@ import React from "react";
 import Cookies from "js-cookie";
 import { Route, Redirect } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-
 import DesktopNavbar from "../components/beforeLogin/landingPage/components/desktop/Navbar";
 import MobileNavbar from "../components/beforeLogin/landingPage/components/mobile/Navbar";
-
 import Footer from "../components/beforeLogin/footer";
 import { GigProvider } from "../store/gigStore";
 import { InternshipProvider } from "../store/internshipStore";
+
 
 const PublicRoute = ({ component: Component, path, ...rest }) => {
   const isToken = Cookies.get("token");
@@ -18,11 +17,16 @@ const PublicRoute = ({ component: Component, path, ...rest }) => {
   const pathWithOutFooter =
     path === "/" ||
     path === "/login" ||
+    path === "/career" ||
+    path === "/partner-with-us"||
     path === "/terms"|| 
-    path === "/privacy_policy"||
+    path === "/about-us"||
+    path === "/privacy-policy"||
     path === "/internships" ||
     path === "/gigs" ||
     path === "/gig/:id" ||
+    path === "/contact-us" ||
+    path === "/how-pracify-work"||
     path === "/internship/:id";
 
   const mediaSIze = useMediaQuery({

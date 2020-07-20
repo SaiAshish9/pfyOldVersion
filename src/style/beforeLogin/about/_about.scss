@@ -52,6 +52,22 @@
         }
       }
 
+    .aboutUsButton {
+        grid-area: button;
+        width: 275px;
+        height: 62px;
+        border-radius: 6px;
+        border: 1px solid #7a81ea;
+        box-shadow: 0 9px 23px 0 rgba(0, 0, 0, 0.08);
+        background-color: #7a81ea;
+
+        font-size: 18px;
+        font-weight: 600;
+        color: #ffffff;
+        .aboutUsButton-span {
+          margin-left: 20px;
+      }
+    }
       .aboutUs-img-block {
         grid-area: img;
         .aboutUs-img {

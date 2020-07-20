@@ -38,10 +38,10 @@ export default function Footer() {
         <div className="link-main-block">
           <div className="company-block">
             <h3 className="footer__header">Company</h3>
-            <Link to="/about_us">
+            <Link to="/about-us">
               <p className="footer__link">About</p>
             </Link>
-            <Link to="/how_pracify_work">
+            <Link to="/how-pracify-work">
               <p className="footer__link">How It Works</p>
             </Link>
             <Link to="/career">
@@ -50,10 +50,10 @@ export default function Footer() {
           </div>
           <div className="get-in-touch-block">
             <h3 className="footer__header">Get In Touch</h3>
-            <Link to="/contact_us">
+            <Link to="/contact-us">
               <p className="footer__link">Contact Us</p>
             </Link>
-            <Link to="/partner_with_us">
+            <Link to="/partner-with-us">
               <p className="footer__link">College Festivals</p>
             </Link>
           </div>
@@ -62,7 +62,7 @@ export default function Footer() {
             <Link to="/terms">
               <p className="footer__link">Terms & Conditions</p>
             </Link>
-            <Link to="/privacy_policy">
+            <Link to="/privacy-policy">
               <p className="footer__link">Privacy Policy</p>
             </Link>
           </div>

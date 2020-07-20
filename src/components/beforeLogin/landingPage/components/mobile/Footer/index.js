@@ -12,23 +12,23 @@ const footerOptions = [
   {
     title: "Company",
     options: [
-      { title: "About Us", path: "/about_us" },
-      { title: "How It Works", path: "/how_pracify_work" },
+      { title: "About Us", path: "/about-us" },
+      { title: "How It Works", path: "/how-pracify-work" },
       { title: "Careers", path: "/career" },
     ],
   },
   {
     title: "Get In Touch",
     options: [
-      { title: "Contact Us", path: "/contact_us" },
-      { title: "College Festivals", path: "/partner_with_us" },
+      { title: "Contact Us", path: "/contact-us" },
+      { title: "College Festivals", path: "/partner-with-us" },
     ],
   },
   {
     title: "Legal",
     options: [
       { title: "Terms & Conditions", path: "/terms" },
-      { title: "Privacy Policy", path: "/privacy_policy" },
+      { title: "Privacy Policy", path: "/privacy-policy" },
     ],
   },
 ];
