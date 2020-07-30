@@ -81,10 +81,14 @@ const Preferences = ({ history }) => {
                   className="btn"
                   key={b}
                   onClick={() => {
-                    setInternshipPreferences([
-                      ...internshipPreferences,
-                      a.title,
-                    ]);
+                    !internshipPreferences.includes(a.title)
+                      ? setInternshipPreferences([
+                          ...internshipPreferences,
+                          a.title,
+                        ])
+                      : setInternshipPreferences(
+                          internshipPreferences.filter((x) => x !== a.title)
+                        );
                   }}
                   style={{
                     height: media ? "3.7rem" : "3.5rem",
@@ -119,9 +123,15 @@ const Preferences = ({ history }) => {
               i.options.map((a, b) => (
                 <Button
                   key={b}
-                  className="btn"
+                  className={
+                      !gigPreferences.includes(a.title)?"btn":"btn1"
+                  }
                   onClick={() => {
-                    setGigPreferences([...gigPreferences, a.title]);
+                    !gigPreferences.includes(a.title)
+                      ? setGigPreferences([...gigPreferences, a.title])
+                      : setGigPreferences(
+                          gigPreferences.filter((x) => x !== a.title)
+                        );
                   }}
                   style={{
                     height: media ? "3.7rem" : "3.5rem",
