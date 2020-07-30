@@ -1,0 +1,15 @@
+
+
+.city-input:focus,
+.city-input:hover,
+.city-input:focus-within{
+  border-width: 0 0 2px 0 !important;
+  border-style: solid;
+  border-color: #00bfa6 !important;
+  box-shadow: none !important;
+}
+
+.btn:hover{
+  color: #00bfa6 !important;
+  border:2px solid #00bfa6 !important;
+}

@@ -15,7 +15,7 @@ export default function PrivateHeader() {
   const history = useHistory();
   const location = useLocation();
 
-  const pathWithoutHeader = location.pathname === "/login";
+  const pathWithoutHeader = location.pathname === "/login" || location.pathname==="/activation";
   console.log("pathWithoutHeader", pathWithoutHeader);
 
   const [isNavOpen, setIsNavOpen] = useState(false);

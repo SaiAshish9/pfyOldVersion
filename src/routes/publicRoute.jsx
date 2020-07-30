@@ -11,7 +11,7 @@ import { InternshipProvider } from "../store/internshipStore";
 
 const PublicRoute = ({ component: Component, path, ...rest }) => {
   const isToken = Cookies.get("token");
-  const pathWithOutHeader = path === "/login" || path === "/";
+  const pathWithOutHeader = path === "/login" || path === "/" || path === "/activation";
 
   //we use path "/" (dashboard) because it is a special case
   const pathWithOutFooter =
@@ -27,6 +27,7 @@ const PublicRoute = ({ component: Component, path, ...rest }) => {
     path === "/gig/:id" ||
     path === "/contact-us" ||
     path === "/how-pracify-work"||
+    path === "/activation"||
     path === "/internship/:id";
 
   const mediaSIze = useMediaQuery({

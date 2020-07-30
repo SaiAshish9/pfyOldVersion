@@ -4,7 +4,7 @@ import ImgCrop from "antd-img-crop";
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory,withRouter } from "react-router-dom";
 import { LoadingOutlined } from "@ant-design/icons";
 
 /* ---------------------------------- ***** --------------------------------- */
@@ -59,27 +59,29 @@ const UserForm = ({ phone, passToken }) => {
 
   const handleProfileContinueButton = (e) => {
     e.preventDefault();
-    const userData = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      phone: `+91${phone}`,
-      city: city,
-      dob: DOB,
-      gender: gender,
-      passToken: passToken,
-    };
-    axios
-      .post(`auth/register`, userData)
-      .then((res) => {
-        Cookies.set("token", res.data.token);
-        setUserToken({ token: res.data.token });
-        console.log(res);
-        setAtUserInfo(false);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+    history.push('/preferences')   
+   
+    // const userData = {
+    //   firstName: firstName,
+    //   lastName: lastName,
+    //   email: email,
+    //   phone: `+91${phone}`,
+    //   city: city,
+    //   dob: DOB,
+    //   gender: gender,
+    //   passToken: passToken,
+    // };
+    // axios
+    //   .post(`auth/register`, userData)
+    //   .then((res) => {
+    //     Cookies.set("token", res.data.token);
+    //     setUserToken({ token: res.data.token });
+    //     console.log(res);
+    //     setAtUserInfo(false);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.response);
+    //   });
   };
 
   //! ---------------------- user Image uploading process ---------------------- */
@@ -264,4 +266,4 @@ const UserForm = ({ phone, passToken }) => {
   );
 };
 
-export default UserForm;
+export default withRouter(UserForm);

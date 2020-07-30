@@ -23,6 +23,10 @@ import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
 import Terms from "../components/beforeLogin/termsAndConditions";
 import PrivacyPolicy from "../components/beforeLogin/privacyPolicy";
+import Preferences from "../components/preferences"
+
+import Verification from "./verification";
+
 
 export default function SwitchRoute() {
   return (
@@ -53,6 +57,7 @@ export default function SwitchRoute() {
       <PublicRoute path="/gigs" component={Gig} exact={true} />
       <PublicRoute path="/gig/:id" component={GigDetail} exact={true} />
       <PublicRoute path="/internships" component={Internship} exact={true} />
+      <PublicRoute exact path="/activation" component={Verification}/>
       <PublicRoute
         path="/internship/:id"
         component={InternshipDetail}
@@ -77,6 +82,9 @@ export default function SwitchRoute() {
         component={UserInternship}
         exact={true}
       />
+
+      <PrivateRoute exact path="/preferences" component={Preferences}/>
+
       <PrivateRoute path="/my-gigs" component={UserGig} exact={true} />
       <PrivateRoute path="/profile" component={UserProfile} exact={true} />
       <PrivateRoute path="/resume" component={UserResume} exact={true} />

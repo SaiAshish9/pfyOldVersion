@@ -12,7 +12,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const isToken = Cookies.get("token");
   return (
     <>
-      {isToken ? (
+      {!isToken ? (
         <>
           <UserProvider>
             <UserProfileProvider>
