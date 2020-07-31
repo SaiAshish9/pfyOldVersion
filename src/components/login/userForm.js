@@ -4,7 +4,7 @@ import ImgCrop from "antd-img-crop";
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
-import { useHistory,withRouter } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 import { LoadingOutlined } from "@ant-design/icons";
 
 /* ---------------------------------- ***** --------------------------------- */
@@ -57,31 +57,36 @@ const UserForm = ({ phone, passToken }) => {
     setGender(value);
   };
 
-  const handleProfileContinueButton = (e) => {
+  const handleProfileContinueButton =  (e) => {
     e.preventDefault();
-    history.push('/preferences')   
-   
-    // const userData = {
-    //   firstName: firstName,
-    //   lastName: lastName,
-    //   email: email,
-    //   phone: `+91${phone}`,
-    //   city: city,
-    //   dob: DOB,
-    //   gender: gender,
-    //   passToken: passToken,
-    // };
-    // axios
-    //   .post(`auth/register`, userData)
-    //   .then((res) => {
-    //     Cookies.set("token", res.data.token);
-    //     setUserToken({ token: res.data.token });
-    //     console.log(res);
-    //     setAtUserInfo(false);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.response);
-    //   });
+    e.stopPropagation();
+    
+
+    const userData = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phone: `+91${phone}`,
+      city: city,
+      dob: DOB,
+      gender: gender,
+      passToken: passToken,
+      addressLine: "",
+      pinCode: "",
+      state: "",
+    };
+    axios
+      .post(`auth/register`, userData)
+      .then((res) => {
+        Cookies.set("token", res.data.token);
+        setUserToken({ token: res.data.token });
+        console.log(res);
+        setAtUserInfo(false);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    history.push("/preferences");
   };
 
   //! ---------------------- user Image uploading process ---------------------- */
@@ -253,9 +258,9 @@ const UserForm = ({ phone, passToken }) => {
             </ImgCrop>
             <Button
               className="userImg-upload-img-two"
-              onClick={() => {
-                history.push(`/home`);
-              }}
+              // onClick={() => {
+              //   history.push(`/preferences`);
+              // }}
             >
               I'll do it later
             </Button>

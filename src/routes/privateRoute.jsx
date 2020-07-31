@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect, Route,withRouter } from "react-router-dom";
 import PrivateHeader from "../components/header/privateHeader/privateHeader";
 import { GigProvider } from "../store/gigStore";
 import { InternshipProvider } from "../store/internshipStore";
@@ -8,16 +8,18 @@ import { NotificationProvider } from "../store/notificationStore";
 import { UserProvider } from "../store/userStore";
 import { UserProfileProvider } from "../store/userProfileStore";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ history,component: Component, ...rest }) => {
   const isToken = Cookies.get("token");
   return (
     <>
-      {!isToken ? (
+      {isToken ? (
         <>
           <UserProvider>
             <UserProfileProvider>
               <NotificationProvider>
-                <PrivateHeader />
+                {history.location.pathname !== "/preferences" && (
+                  <PrivateHeader />
+                )}
                 <Route
                   {...rest}
                   component={(props) => {
@@ -41,4 +43,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-export default PrivateRoute;
+export default withRouter(PrivateRoute);

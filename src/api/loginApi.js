@@ -17,6 +17,7 @@ export const loginApi = (
         Cookies.set("token", res.data.token);
         history.push({
           pathname: "/home",
+          // pathname:"/preferences",
           state: { headers: { token: res.data.token } },
         });
       } else if (res.data.statusCode === 210) {

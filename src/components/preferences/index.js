@@ -3,6 +3,8 @@ import { Button, Select } from "antd";
 import "./index.css";
 import { withRouter } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import axios from "axios";
+import { tokenHeader } from "../../constant/tokenHeader";
 
 const { Option } = Select;
 
@@ -43,6 +45,26 @@ const Preferences = ({ history }) => {
 
   const [internshipPreferences, setInternshipPreferences] = useState([]);
   const [gigPreferences, setGigPreferences] = useState([]);
+  const [profession, setProfession] = useState();
+
+  const handleProfession = (data) => setProfession(data);
+
+  const submitData = () => {
+    var data = {
+      internshipPrefs: internshipPreferences,
+      gigPrefs: gigPreferences,
+      profession,
+    };
+    console.log(data);
+    axios.post("https://pracify.com/api/user/add_prefs", JSON.stringify(data), tokenHeader())
+      .then((data) => {
+        console.log(data);
+         history.push("/home")
+      })
+      .then((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <div
@@ -123,9 +145,7 @@ const Preferences = ({ history }) => {
               i.options.map((a, b) => (
                 <Button
                   key={b}
-                  className={
-                      !gigPreferences.includes(a.title)?"btn":"btn1"
-                  }
+                  className={!gigPreferences.includes(a.title) ? "btn" : "btn1"}
                   onClick={() => {
                     !gigPreferences.includes(a.title)
                       ? setGigPreferences([...gigPreferences, a.title])
@@ -166,9 +186,9 @@ const Preferences = ({ history }) => {
       ))}
 
       <Select
-        // value={city}
+        value={profession}
         className="city-input"
-        // onChange={handleCity}
+        onChange={handleProfession}
         placeholder="Select Profession"
         bordered={false}
         style={{
@@ -178,14 +198,18 @@ const Preferences = ({ history }) => {
           fontSize: "1rem",
         }}
       >
-        {/* FIXME use all city data  */}
-        {["Dehi", "kolkata", "Mumbai", "Telangana", "Uttar Pradesh"].map(
-          (city, index) => (
-            <Option value={city} key={index}>
-              {city}
-            </Option>
-          )
-        )}
+        {[
+          "Student",
+          "Freelancer",
+          "Employee",
+          "Business",
+          "Recent Gradutate",
+          "Stay at Home Mom",
+        ].map((city, index) => (
+          <Option value={city} key={index}>
+            {city}
+          </Option>
+        ))}
       </Select>
       <div style={{ display: "flex", margin: "3rem 0 2rem" }}>
         <Button
@@ -206,7 +230,8 @@ const Preferences = ({ history }) => {
         </Button>
         <Button
           onClick={() => {
-            history.push("/home");
+            submitData();
+            // history.push("/home");
           }}
           style={{
             borderRadius: 7,
